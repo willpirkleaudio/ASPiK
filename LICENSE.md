@@ -12,8 +12,8 @@ Tritone hereby grants to the Licensee a non-exclusive, worldwide,
 nontransferable license during the term of this agreement to use the
 ASPiK SDK for:
 
-* the development of audio Plug-Ins or Applications or plugin projects
-* publishing, selling or otherwise distributing a Product under Licensee's brand name
+* the development of audio Plug-Ins or Applications or plugin projects, commercial or non-commercial
+* publishing, selling or otherwise distributing audio Plug-Ins or Applications under Licensee's brand name
   that is using parts or all of the ASPiK Software Development Kit
 
 ## Restrictions on the SDK:
