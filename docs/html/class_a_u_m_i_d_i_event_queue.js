@@ -1,0 +1,25 @@
+var class_a_u_m_i_d_i_event_queue =
+[
+    [ "AUMIDIEventQueue", "class_a_u_m_i_d_i_event_queue.html#a4b3b6068cf88691181a14d5d0d71a781", null ],
+    [ "~AUMIDIEventQueue", "class_a_u_m_i_d_i_event_queue.html#aad67adf0de553fdbb5b14054d2bcc7ff", null ],
+    [ "AUMIDIEventQueue", "class_a_u_m_i_d_i_event_queue.html#a4b3b6068cf88691181a14d5d0d71a781", null ],
+    [ "~AUMIDIEventQueue", "class_a_u_m_i_d_i_event_queue.html#aad67adf0de553fdbb5b14054d2bcc7ff", null ],
+    [ "addEvent", "class_a_u_m_i_d_i_event_queue.html#adfc292fa7f21af35556edde3e9d6f496", null ],
+    [ "addEvent", "class_a_u_m_i_d_i_event_queue.html#adfc292fa7f21af35556edde3e9d6f496", null ],
+    [ "clearEvents", "class_a_u_m_i_d_i_event_queue.html#add7c9615c97b6d09614d13c5fdded03a", null ],
+    [ "clearEvents", "class_a_u_m_i_d_i_event_queue.html#add7c9615c97b6d09614d13c5fdded03a", null ],
+    [ "clearQueueAEvents", "class_a_u_m_i_d_i_event_queue.html#a2a2511cace889781722b2b851aff9a7b", null ],
+    [ "clearQueueAEvents", "class_a_u_m_i_d_i_event_queue.html#a2a2511cace889781722b2b851aff9a7b", null ],
+    [ "clearQueueBEvents", "class_a_u_m_i_d_i_event_queue.html#a7a18c48d8035b7451724328c57c8ee40", null ],
+    [ "clearQueueBEvents", "class_a_u_m_i_d_i_event_queue.html#a7a18c48d8035b7451724328c57c8ee40", null ],
+    [ "fireMidiEvents", "class_a_u_m_i_d_i_event_queue.html#abcb3586e768a6c8b13f6b0835c9cc251", null ],
+    [ "fireMidiEvents", "class_a_u_m_i_d_i_event_queue.html#abcb3586e768a6c8b13f6b0835c9cc251", null ],
+    [ "getEventCount", "class_a_u_m_i_d_i_event_queue.html#a2a92b0d116ef7e78ba2521d559aa9f24", null ],
+    [ "getEventCount", "class_a_u_m_i_d_i_event_queue.html#a2a92b0d116ef7e78ba2521d559aa9f24", null ],
+    [ "toggleQueue", "class_a_u_m_i_d_i_event_queue.html#ad0915a95a096b09a5ba7b582b63e6437", null ],
+    [ "toggleQueue", "class_a_u_m_i_d_i_event_queue.html#ad0915a95a096b09a5ba7b582b63e6437", null ],
+    [ "midiEventQueueA", "class_a_u_m_i_d_i_event_queue.html#a06d9692a15033f41ce0cf5db6df1bfd9", null ],
+    [ "midiEventQueueB", "class_a_u_m_i_d_i_event_queue.html#a39d1aded4780f94ef3bb653923ecb934", null ],
+    [ "pluginCore", "class_a_u_m_i_d_i_event_queue.html#a5e914ccf3a2253b6c2f8da9c0844bbf5", null ],
+    [ "writingQueueA", "class_a_u_m_i_d_i_event_queue.html#ae41aabfbebc9fa63c7025fca958e487c", null ]
+];

@@ -1,0 +1,42 @@
+# ---- ASPiK Plugin Framework --------------------------------------------------
+By Will Pirkle Copyright (C) Tritone Systems, Inc 2019
+
+www.aspikplugins.com
+www.willpirkle.com
+# ------------------------------------------------------------------------------
+
+#define ASPiK_VERSION_MAJOR  1
+#define ASPiK_VERSION_MINOR  6
+#define ASPiK_VERSION_BUILD  0
+
+Release Notes 1.6.0:
+- fixed corruption bug in Mac ASPiKreator
+- added documentation on XY Pad and other advanced subclassed controls
+- added documentation on FX Objects from 2nd Edition Book
+- FIRST RELEASE ON GITHUB
+
+Release Notes 1.5.6:
+- fixed AAX Company string issue which caused build cancelation in MacOS AAX and Universal projects
+- tightened up the code in the plugin kernel to eliminate benign warnings
+
+Release Notes 1.5.5:
+- unused version
+
+Release Notes 1.5.4:
+- fixed bug in cmake file that prevented RC file from being added to VST3; Windows only
+
+Release Notes 1.5.3:
+- updated VST to VST3 SDK 3.6.13
+- updated to VSTGUI 4.8
+- minor changes in plugingui.h/.cpp for VSTGUI 4.8
+
+Release Notes 1.5.2:
+- altered vst3plugin.h and .cpp for an issue involving #include <windows.h> and Win10 and VS2017
+
+Release Notes 1.5.1:
+- fixed outdated aspik.data file for ASPiKreator Windows
+- rebuild ASPiKreator Mac for changes in this revision
+- fixed issue with AAX/Windows and the GUI Designer PNG files
+- removed meters from synchronized parameter list for AAX
+- updated all FFTW CMake commands for all APIs and Platforms
+- re-assembled the sample projects and renamed the Custom View project with FFTW to avoid name clashes

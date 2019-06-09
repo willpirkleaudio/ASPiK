@@ -1,0 +1,27 @@
+var struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl =
+[
+    [ "PostEventHandler", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl_1_1_post_event_handler.html", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl_1_1_post_event_handler" ],
+    [ "FunctionQueue", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#a74688b94c2bca49505662834c7aeb600", null ],
+    [ "ViewList", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#ad08be536efa7398251e92e79ff1e80d5", null ],
+    [ "active", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#a7f3914f953d227dd646be90f8302858b", null ],
+    [ "activeFocusView", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#ad4387f7eea03426a302b9822b9c5dffb", null ],
+    [ "animator", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#ac9a2a312b47eb50616496a783db3aa21", null ],
+    [ "collectInvalidRects", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#ab0f822a27074c7617cb5ac06a27f8fa3", null ],
+    [ "editor", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#ab8e7fce32c8dd53c9c389bfdcf6d4ade", null ],
+    [ "focusView", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#a4f88284d6b7197cf480236f9d2f3fd8a", null ],
+    [ "focusViewObservers", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#adc743c20cb55a13237630a863dc7481f", null ],
+    [ "inEventHandling", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#a6c496e4b1e839cc55e23432cfabe47d0", null ],
+    [ "keyboardHooks", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#ab56f3d2010b4f0ea9ff7950f9c7262cf", null ],
+    [ "modalView", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#a9838818247095457279a6848db93afef", null ],
+    [ "mouseObservers", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#a3bec10f362d542d801ff4af0c65f0835", null ],
+    [ "mouseViews", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#a4750beca4e09ea940e7f57b5ec15fd93", null ],
+    [ "platformFrame", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#ae8a610978b80acd8c05f2c3f8be0c3cf", null ],
+    [ "platformScaleFactor", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#a0a67c2b375d05c40dd4c695c0a23c50a", null ],
+    [ "postEventFunctionQueue", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#a614c7e188ceea41cef46829cfef7f353", null ],
+    [ "scaleFactorChangedListenerList", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#a92f15648813bf98390e5a35cf0feb38d", null ],
+    [ "tooltips", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#a283576cdbcae5800a4dfae19adb6e072", null ],
+    [ "userScaleFactor", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#ab7cc95b106122cb0d69684056af62301", null ],
+    [ "viewAddedRemovedObserver", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#a6e522097e06ba4a3ec5f7b3c77a021ec", null ],
+    [ "windowActive", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#ab4b83a0b6e62615dfe84671a135012d5", null ],
+    [ "windowActiveStateChangeViews", "struct_v_s_t_g_u_i_1_1_c_frame_1_1_impl.html#a1b9d6ab77794adb613b379780aa3f151", null ]
+];

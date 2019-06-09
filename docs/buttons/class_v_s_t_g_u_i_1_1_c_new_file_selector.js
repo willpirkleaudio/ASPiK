@@ -1,0 +1,36 @@
+var class_v_s_t_g_u_i_1_1_c_new_file_selector =
+[
+    [ "CallbackFunc", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#a1a6386018eafacbf2f240a1ada14cd92", null ],
+    [ "FileExtensionList", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#a9149d50ba30b159cc1b7caf4737087ba", null ],
+    [ "Style", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#aec82ef5da0fa56aa843956b84a046f3f", [
+      [ "kSelectFile", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#aec82ef5da0fa56aa843956b84a046f3fa810af560d7f09d6c553a28ca246ca1df", null ],
+      [ "kSelectSaveFile", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#aec82ef5da0fa56aa843956b84a046f3fa7bfad1dd2dee9a52cc4427e9d7e2b65d", null ],
+      [ "kSelectDirectory", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#aec82ef5da0fa56aa843956b84a046f3fa0d3c5a52e2760770aabf4ee3b9a30782", null ]
+    ] ],
+    [ "CNewFileSelector", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#a8bf5fb434cd4db643fec6bc0849cc2b7", null ],
+    [ "~CNewFileSelector", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#ab33eaa8d951b543fa02ca4a5a00345ba", null ],
+    [ "addFileExtension", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#a4896644d7215c6bb05184a4de5ef3c1f", null ],
+    [ "addFileExtension", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#ad628bf422e88e9a939ad267ff0072096", null ],
+    [ "cancel", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#a8f28a7ad36febbb892692e4f878a9945", null ],
+    [ "cancelInternal", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#a503f47f2c953101004fe14c21ff04d44", null ],
+    [ "getNumSelectedFiles", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#a9f78074c7698466579cb6ec4e25d86ad", null ],
+    [ "getSelectedFile", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#a5ac86719f2eddae6a104fd5a68ffda79", null ],
+    [ "run", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#a824b29e81baa6bbf4b29407a6dd8b229", null ],
+    [ "run", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#afb29faf410a1c27c5cfe215ca6d732d4", null ],
+    [ "runInternal", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#a231633f9c5796a316bb93b6ca8c5d85a", null ],
+    [ "runModal", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#a521b6fad3a323c50381edbb40ce19997", null ],
+    [ "runModalInternal", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#a0f1b2245975671dab6cede7db5568329", null ],
+    [ "setAllowMultiFileSelection", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#a0f389f1eeb015bfccc1a45787b5b7abc", null ],
+    [ "setDefaultExtension", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#a98a3d480a72cc4680c2d47020070a1f2", null ],
+    [ "setDefaultSaveName", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#ad028438fa92ecbc083c31abfd7f00e75", null ],
+    [ "setInitialDirectory", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#a9bd068beea04bd9ba13264def73db3e3", null ],
+    [ "setTitle", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#a513cc1741a0f249f111d283d96d21521", null ],
+    [ "allowMultiFileSelection", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#a3ce614e9b88fdac9f8e86adad3e99676", null ],
+    [ "defaultExtension", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#a784941a6520265673260b0f39f060258", null ],
+    [ "defaultSaveName", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#aa8673a2eed56841864604df9635afac1", null ],
+    [ "extensions", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#adc0849453bbb94875331888ac66b3bf9", null ],
+    [ "frame", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#a739a3bfff1b0c7638b2033608e7cb42b", null ],
+    [ "initialPath", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#ab98ee6abbedfb888a2820e28e335e4b3", null ],
+    [ "result", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#aca2dbaae1cd76d38e82a855b649ecd39", null ],
+    [ "title", "class_v_s_t_g_u_i_1_1_c_new_file_selector.html#abf3c71386e11be8bf4b5429b0d4a8d7d", null ]
+];
