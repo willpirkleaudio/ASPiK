@@ -7,7 +7,10 @@ www.willpirkle.com
 
 #define ASPiK_VERSION_MAJOR  1
 #define ASPiK_VERSION_MINOR  6
-#define ASPiK_VERSION_BUILD  0
+#define ASPiK_VERSION_BUILD  1
+
+Release Notes 1.6.1:
+- fixed CMake script for VST3/MacOS "mkdir" bug
 
 Release Notes 1.6.0:
 - fixed corruption bug in Mac ASPiKreator
