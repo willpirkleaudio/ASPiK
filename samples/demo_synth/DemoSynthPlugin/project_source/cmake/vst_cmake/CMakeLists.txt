@@ -95,15 +95,11 @@ set(custom_vstgui_sources
 # ---------------------------------------------------------------------------------
 set(target ${EXP_SUBPROJECT_NAME_VST})
 
-# --- 3.6.13 Moved location of this script; otherwise same as before
-if(WIN)
-	set(TARGET_PATH $<TARGET_FILE:${target}>)
-elseif(XCODE)
-	set(TARGET_PATH "${VST3_OUTPUT_DIR}/${CMAKE_BUILD_TYPE}/${target}.vst3")
-else()
-	set(TARGET_PATH "${VST3_OUTPUT_DIR}/${target}.vst3")
-endif()
-set(SMTG_PLUGIN_TARGET_PATH ${TARGET_PATH})
+# --- 3.6.13 this is the proper default path; for MacOS it is the VST3 plugin default location, for Win it is empty ""
+smtg_get_default_vst3_path(DEFAULT_VST3_FOLDER)
+set(PLUGIN_TARGET_PATH "${DEFAULT_VST3_FOLDER}" CACHE PATH "Here you can redefine the VST3 plug-ins folder")
+set(SMTG_PLUGIN_TARGET_PATH ${PLUGIN_TARGET_PATH})
+# --- message(STATUS "set_target_properties ---> SMTG_PLUGIN_TARGET_PATH is set to : " ${SMTG_PLUGIN_TARGET_PATH})
 
 # --- note this is placed *before* smtg_add_vst3plugin( ) on purpose!
 if(LINK_FFTW)
@@ -247,4 +243,12 @@ source_group(CustomVSTGUI FILES ${custom_vstgui_sources})
 source_group(VST3Core FILES ${vst_core_sources})
 source_group(VST3SDK FILES ${vstsdk_sources})
 
-
+# --- 3.6.13 --- This is not used anymore, but keeping the CMake script in case
+#                it comes back -- all commented out here.
+# if(WIN)
+# 	set(TARGET_PATH $<TARGET_FILE:${target}>)
+# elseif(XCODE)
+# 	set(TARGET_PATH "${VST3_OUTPUT_DIR}/${CMAKE_BUILD_TYPE}/${target}.vst3")
+# else()
+# 	set(TARGET_PATH "${VST3_OUTPUT_DIR}/${target}.vst3")
+# endif()
