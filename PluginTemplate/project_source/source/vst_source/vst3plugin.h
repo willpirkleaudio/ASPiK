@@ -55,7 +55,7 @@ The VST3Plugin object is the ASPiK plugin shell for the VST3 API
 \version Revision : 1.0
 \date Date : 2018 / 09 / 7
 */
-class VST3Plugin : public SingleComponentEffect, public IMidiMapping 
+class VST3Plugin : public SingleComponentEffect, public IMidiMapping
 {
 public:
 	// --- constructor
@@ -138,7 +138,7 @@ public:
 
 	// --- latency support
 	uint32 m_uLatencyInSamples = 0;		///< set in constructor with plugin
-	
+
 	/** base class override */
 	virtual uint32 PLUGIN_API getLatencySamples() override {
 		return m_uLatencyInSamples; }
@@ -326,11 +326,11 @@ public:
 \ingroup VST-Shell
 
 \brief
-The PluginHostConnector implements the IPluginHostConnector interface for the plugin shell object. 
-For VST, this requires implementing only one method, sendHostMessage( ). Only one message is processed for 
+The PluginHostConnector implements the IPluginHostConnector interface for the plugin shell object.
+For VST, this requires implementing only one method, sendHostMessage( ). Only one message is processed for
 sendGUIUpdate that provides a mechanism to update the GUI controls from the plugin core. Note that this is not an
-ideal solution for most problems (e.g. linking controls together intelligently) -- you should always consider 
-using a custom sub-controller and/or custom view to do this properly. On occasion, a more difficult scenario may 
+ideal solution for most problems (e.g. linking controls together intelligently) -- you should always consider
+using a custom sub-controller and/or custom view to do this properly. On occasion, a more difficult scenario may
 arise (e.g. MIDI learn button, that must wait for user input from a MIDI instrument to toggle states) where the
 sendGUIUpdate method may be appropriate. See the example in the ASPiK SDK for more information.
 
@@ -390,7 +390,7 @@ protected:
 
 \brief
 The CustomViewController is part of the safe ICustomView feature in ASPiK. The CustomViewController maintains an ICustomView pointer.
-When the GUI registers and de-registers custom views during creation or destuction, the plugin shell is responsible for making sure 
+When the GUI registers and de-registers custom views during creation or destuction, the plugin shell is responsible for making sure
 that the original ICustomView pointer registered with the plugin core object *never goes out of scope* and this object is part of that system.
 
 \author Will Pirkle http://www.willpirkle.com
@@ -428,7 +428,7 @@ public:
 
 	/** set a NEW ICustomView* -- this is called when a custom view is registered */
 	void setCustomViewPtr(ICustomView* _customViewIF) { customViewIF = _customViewIF; }
-	
+
 	/** get the current ICustomView* -- note this is read-only (const) and it also MAY be NULL */
 	const ICustomView* getCustomViewPtr() { return customViewIF; }
 
@@ -910,7 +910,7 @@ public:
 
     virtual tresult PLUGIN_API onFocus(TBool /*state*/)  override { return kResultFalse; }
     virtual tresult PLUGIN_API setFrame(IPlugFrame* frame) override;// { plugFrame = frame; return kResultTrue; }
-    virtual tresult PLUGIN_API canResize()  override{ return kResultTrue; }
+    virtual tresult PLUGIN_API canResize()  override { return kResultFalse; } // fixes bug with Cubase 10 and Nuendo 10; you may alter this as needed
     virtual tresult PLUGIN_API checkSizeConstraint(ViewRect* rect)  override
     {
         if (showGUIEditor)
@@ -955,8 +955,3 @@ protected:
 }}} // namespaces
 
 #endif
-
-
-
-
-
