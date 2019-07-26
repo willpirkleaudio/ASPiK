@@ -4,7 +4,7 @@
 # --- ASPiK(TM) Plugin Development Framework
 # --- http://www.aspikplugins.com
 # --- http://www.willpirkle.com
-# --- Author: Will Pirkle 
+# --- Author: Will Pirkle
 # --- Date: 16 Sept 2018
 #
 # ---------------------------------------------------------------------------------
@@ -22,8 +22,6 @@ message(STATUS "")
 # ---  Basic Setup
 #
 # ---------------------------------------------------------------------------------
-set(CMAKE_BUILD_TYPE "Debug" CACHE STRING "Build type")
-
 # ---  Export no symbols by default
 set(CMAKE_C_VISIBILITY_PRESET hidden)
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
