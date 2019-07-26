@@ -46,13 +46,11 @@ set(kernel_sources
 # ---  Plugin Helper Object files
 #
 # ---------------------------------------------------------------------------------
-if(INCLUDE_FX_OBJECTS)
 set(plugin_object_sources
 	${OBJECTS_SOURCE_ROOT}/fxobjects.h
 	${OBJECTS_SOURCE_ROOT}/filters.h
 	${OBJECTS_SOURCE_ROOT}/fxobjects.cpp
 )
-endif()
 
 # ---------------------------------------------------------------------------------
 #
@@ -409,17 +407,23 @@ set_target_properties(${cocoatarget} PROPERTIES XCODE_ATTRIBUTE_INFOPLIST_PREPRO
 set_target_properties(${cocoatarget} PROPERTIES XCODE_ATTRIBUTE_INFOPLIST_PREPROCESS "YES")
 
 # --- copy folders (.bundle and .component are directories, so use remove/copy directory)
-set(TARGET_PATH "${CMAKE_BINARY_DIR}/${AU_PLUGIN_FOLDER}/${CMAKE_BUILD_TYPE}/${target}.component") # --- AU/Debug or /Release
-set(COCOATARGET_PATH "${CMAKE_BINARY_DIR}/${AU_PLUGIN_FOLDER}/${CMAKE_BUILD_TYPE}/${COCOAPRODUCT_NAME}.bundle") # --- AU/Debug or /Release
+set(TARGET_PATH_DBG "${CMAKE_BINARY_DIR}/${AU_PLUGIN_FOLDER}/Debug/${target}.component") # --- DEBUG
+set(COCOATARGET_PATH_DBG "${CMAKE_BINARY_DIR}/${AU_PLUGIN_FOLDER}/Debug/${COCOAPRODUCT_NAME}.bundle") # --- DEBUG
+set(TARGET_PATH_REL "${CMAKE_BINARY_DIR}/${AU_PLUGIN_FOLDER}/Release/${target}.component") # --- RELEASE
+set(COCOATARGET_PATH_REL "${CMAKE_BINARY_DIR}/${AU_PLUGIN_FOLDER}/Release/${COCOAPRODUCT_NAME}.bundle") # --- RELEASE
 
 if(XCODE)
+	set(COCOA_IN_RSRSC_BASE_PATH "$<$<CONFIG:debug>:${TARGET_PATH_DBG}>$<$<CONFIG:release>:${TARGET_PATH_REL}>")
+	set(COCOA_IN_TARGET_PATH "$<$<CONFIG:debug>:${COCOATARGET_PATH_DBG}>$<$<CONFIG:release>:${COCOATARGET_PATH_REL}>")
+	set(AUPLUGIN_TARGET_PATH "$<$<CONFIG:debug>:${TARGET_PATH_DBG}>$<$<CONFIG:release>:${TARGET_PATH_REL}>")
+
 	# --- copy cocoa bundle into resources folder
-	set(COCOA_IN_RSRSC_PATH ${TARGET_PATH}/Contents/Resources/${COCOAPRODUCT_NAME}.bundle)
+	set(COCOA_IN_RSRSC_PATH ${COCOA_IN_RSRSC_BASE_PATH}/Contents/Resources/${COCOAPRODUCT_NAME}.bundle)
 	add_custom_command(TARGET ${target} POST_BUILD COMMAND ${CMAKE_COMMAND} -E remove_directory ${COCOA_IN_RSRSC_PATH})
-	add_custom_command(TARGET ${target} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${COCOATARGET_PATH} ${COCOA_IN_RSRSC_PATH})
+	add_custom_command(TARGET ${target} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${COCOA_IN_TARGET_PATH} ${COCOA_IN_RSRSC_PATH})
 
 	# --- copy plugin into library folder
 	set(PLUGIN_FOLDER ~/Library/Audio/Plug-Ins/Components/${target}.component)
 	add_custom_command(TARGET ${target} POST_BUILD COMMAND ${CMAKE_COMMAND} -E remove_directory ${PLUGIN_FOLDER})
-	add_custom_command(TARGET ${target} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${TARGET_PATH} ${PLUGIN_FOLDER})
+	add_custom_command(TARGET ${target} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${AUPLUGIN_TARGET_PATH} ${PLUGIN_FOLDER})
 endif()
