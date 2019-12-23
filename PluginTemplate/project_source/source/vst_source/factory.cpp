@@ -17,7 +17,6 @@
 // -----------------------------------------------------------------------------
 #include "public.sdk/source/main/pluginfactory.h"
 #include "vst3plugin.h"
-
 /**
 @DEF_CLASS2
 \ingroup VST-Shell

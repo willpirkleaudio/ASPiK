@@ -811,11 +811,11 @@ ComponentResult	AUFXPlugin::GetProperty(AudioUnitPropertyID       inID,
                  CFBundleRef bundle = CFBundleGetBundleWithIdentifier(CFStringCreateWithCString(nullptr, pluginCore->getAUBundleID(), kCFStringEncodingASCII));
 
                 if(bundle == NULL) return fnfErr;
-
+                
                 CFURLRef bundleURL = CFBundleCopyResourceURL(bundle,
-                                                             CFStringCreateWithCString(nullptr, pluginCore->getAUBundleName(), kCFStringEncodingASCII),
-                                                             CFSTR("bundle"),
-                                                             NULL);
+                                                              CFStringCreateWithCString(nullptr, pluginCore->getAUBundleName(), kCFStringEncodingASCII),
+                                                              CFSTR("bundle"),
+                                                              NULL);
 
                 if(bundleURL == NULL) return fnfErr;
 
@@ -880,6 +880,7 @@ OSStatus	AUFXPlugin::SetProperty(AudioUnitPropertyID inID,
 
                     // --- create GUI
                     pluginGUI = new VSTGUI::PluginGUI(path);
+                    pluginGUI->setGUIWindowFrame(pVS->pGUIFrame);
 
                     if(pluginGUI)
                     {

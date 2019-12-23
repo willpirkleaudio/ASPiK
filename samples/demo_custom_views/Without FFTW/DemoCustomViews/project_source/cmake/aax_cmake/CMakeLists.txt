@@ -46,13 +46,11 @@ set(kernel_sources
 # ---  Plugin Helper Object files
 #
 # ---------------------------------------------------------------------------------
-if(INCLUDE_FX_OBJECTS)
-	set(plugin_object_sources
+set(plugin_object_sources
 	${OBJECTS_SOURCE_ROOT}/fxobjects.h
 	${OBJECTS_SOURCE_ROOT}/filters.h
 	${OBJECTS_SOURCE_ROOT}/fxobjects.cpp
 )
-endif()
 
 # ---------------------------------------------------------------------------------
 #
@@ -245,9 +243,9 @@ if(MAC)
 	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_DYLIB_COMPATIBILITY_VERSION "1.0")
 
 	# --- NOTE: you can change this to suit your company, year, etc...
-	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_CURRENT_YEAR "2018")
-	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_AVID_COMPANY_STRING "Avid Technology, Inc.")
-	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_AVID_COPYRIGHT "$Copyright 1991-$(CURRENT_YEAR) $(AVID_COMPANY_STRING)")
+	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_CURRENT_YEAR "2020")
+	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_AVID_COMPANY_STRING "YourCompany.")
+	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_AVID_COPYRIGHT "2020_YourCompany")
 
 	# --- set individual properties!
 	set(CMAKE_XCODE_ATTRIBUTE_GCC_OPTIMIZATION_LEVEL "$<$<CONFIG:Debug>:0>$<$<CONFIG:Release>:3>")
@@ -357,6 +355,9 @@ endif()
 source_group(Resources FILES ${resource_sources})
 
 if(XCODE)
+	# --- this eliminates a warning that looks suspicious when debugging but is acutally not a problem
+	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "${AAX_BUNDLE_ID}")
+
 	# --- info.pList files
 	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_INFOPLIST_FILE "${CMAKE_CURRENT_LIST_DIR}/${MAC_ROOT}/Info.plist")
 	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_INFOPLIST_PREPROCESSOR_DEFINITIONS "PRODUCT_NAME=$(PRODUCT_NAME) EXECUTABLE_NAME=$(EXECUTABLE_NAME) PRODUCT_BUNDLE_IDENTIFIER=${AAX_BUNDLE_ID} DYLIB_CURRENT_VERSION=$(DYLIB_CURRENT_VERSION) VERSION_NUM=$(DYLIB_CURRENT_VERSION) VERSION_STR=$(DYLIB_CURRENT_VERSION) CURRENT_YEAR=$(CURRENT_YEAR) AVID_COPYRIGHT=$(AVID_COPYRIGHT) AVID_COMPANY_STRING=$(AVID_COMPANY_STRING)")

@@ -11,6 +11,7 @@
 #include "../uidescription/editing/uieditmenucontroller.h"
 #include "../uidescription/uiattributes.h"
 #include "../uidescription/uiviewfactory.h"
+#include "../uidescription/cstream.h"
 #include "base/source/fstring.h"
 #include "base/source/updatehandler.h"
 #include "pluginterfaces/base/keycodes.h"
@@ -565,7 +566,8 @@ bool VST3Editor::requestResize (const CPoint& newSize)
 	CCoord width = newSize.x;
 	CCoord height = newSize.y;
 	double scaleFactor = getAbsScaleFactor ();
-	if (editingEnabled || (width >= minSize.x * scaleFactor && width <= maxSize.x * scaleFactor && height >= minSize.y * scaleFactor && height <= maxSize.y * scaleFactor))
+	if (editingEnabled || (width >= std::round (minSize.x * scaleFactor) && width <= std::round (maxSize.x * scaleFactor) 
+                        && height >= std::round (minSize.y * scaleFactor) && height <= std::round (maxSize.y * scaleFactor)))
 	{
 		Steinberg::ViewRect vr;
 		vr.right = static_cast<Steinberg::int32> (width);

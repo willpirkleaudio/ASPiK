@@ -215,6 +215,9 @@ endif()
 
 # for Xcode, add info.plist variables
 if(XCODE)
+	# --- this eliminates a warning that looks suspicious when debugging but is acutally not a problem
+	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "${VST_BUNDLE_ID}")
+
 	# --- info.pList files
 	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_INFOPLIST_FILE "${CMAKE_CURRENT_LIST_DIR}/${MAC_ROOT}/Info.plist")
 	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_INFOPLIST_PREPROCESSOR_DEFINITIONS "EXECUTABLE_NAME=$(EXECUTABLE_NAME) PRODUCT_BUNDLE_IDENTIFIER=${VST_BUNDLE_ID}")

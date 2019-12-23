@@ -137,17 +137,24 @@ tresult PLUGIN_API VST3Plugin::initialize(FUnknown* context)
         //     so we default to stereo here, however we will refine the
         //     buss formats later during querying of VST3Plugin::setBusArrangements()
         //     below. This is where we ask the core what it supports
-        addAudioInput(STR16("Stereo Input"), SpeakerArr::kStereo);
-        addAudioOutput(STR16("Stereo Output"), SpeakerArr::kStereo);
+        removeAudioBusses();
+        if (pluginCore->getPluginType() == kSynthPlugin)
+        {
+            addAudioOutput(STR16("Stereo Output"), SpeakerArr::kStereo);
+        }
+        else // FX
+        {
+            addAudioInput(STR16("Stereo Input"), SpeakerArr::kStereo);
+            addAudioOutput(STR16("Stereo Output"), SpeakerArr::kStereo);
+        }
         
         // --- sidechain bus is stereo
         if(hasSidechain)
             addAudioInput(STR16("AuxInput"), SpeakerArr::kStereo, kAux);
 
-		// MIDI event input bus, 16 channels
+		// --- MIDI event input bus, 16 channels (note we support MIDI for all plugin types)
 		addEventInput(STR16("Event Input"), 16);
        
- 
         // --- create the queue
         if (enableSAAVST3)
         {
@@ -247,12 +254,11 @@ tresult PLUGIN_API VST3Plugin::initialize(FUnknown* context)
             }
         }
         
-        
         // --- one and only bypass parameter
         Parameter* param = new RangeParameter(USTRING("Bypass"), PLUGIN_SIDE_BYPASS, USTRING(""),
                                    0, 1, 0, 0, ParameterInfo::kCanAutomate|ParameterInfo::kIsBypass);
         parameters.addParameter(param);
-
+        
         // --- root
         UnitInfo uinfoRoot;
         uinfoRoot.id = 1;
@@ -357,7 +363,7 @@ that some DAWs might reject the target if the audio adapter does not support it.
 tresult PLUGIN_API VST3Plugin::setBusArrangements(SpeakerArrangement* inputs, int32 numIns,
                                                   SpeakerArrangement* outputs, int32 numOuts)
 {
-    // --- we support one input and one output bus
+    // --- FX: we support one input and one output bus
     if(numIns == 1 && numOuts == 1)
     {
         CString inStr = SpeakerArr::getSpeakerArrangementString(inputs[0], false);
@@ -381,14 +387,30 @@ tresult PLUGIN_API VST3Plugin::setBusArrangements(SpeakerArrangement* inputs, in
             
             return kResultTrue;
         }
-        else // not supported, we'll default to stereo I/O
-        {
-            removeAudioBusses ();
-            addAudioInput  (STR16 ("Stereo In"),  SpeakerArr::kStereo);
-            addAudioOutput (STR16 ("Stereo Out"), SpeakerArr::kStereo);
-            
-            return kResultFalse;
-        }
+    }
+    else if(numIns == 0 && numOuts == 1)    // --- SYNTH: we support one output bus, NO input
+     {
+        CString outStr = SpeakerArr::getSpeakerArrangementString(outputs[0], false);
+        uint32_t outFormat = getChannelFormatForSpkrArrangement(outputs[0]);
+         
+         // --- does plugin support this format?
+         if(pluginCore->hasSupportedOutputChannelFormat(outFormat))
+         {
+             removeAudioBusses();
+             std::string strOutput(outStr);
+             strOutput.append(" Output");
+             addAudioOutput(USTRING(strOutput.c_str()), outputs[0]);
+             
+             return kResultTrue;
+         }
+     }
+    else // not supported, we'll default to stereo I/O
+    {
+        removeAudioBusses ();
+        addAudioInput  (STR16 ("Stereo In"),  SpeakerArr::kStereo);
+        addAudioOutput (STR16 ("Stereo Out"), SpeakerArr::kStereo);
+        
+        return kResultFalse;
     }
     
     // else not supported bus count (should never happen, according to SDK
@@ -553,6 +575,9 @@ tresult PLUGIN_API VST3Plugin::setState(IBStream* fileStream)
     // --- add plugin side bypassing
     if(!s.readBool(plugInSideBypass)) return kResultFalse;
     
+    // --- set the bypass state
+    setParamNormalized (PLUGIN_SIDE_BYPASS, plugInSideBypass);
+
     // --- do next version...
     if(version >= 1)
     {
@@ -625,11 +650,12 @@ bool VST3Plugin::doControlUpdate(ProcessData& data)
 	bool paramChange = false;
 
 	// --- check
-	if(!data.inputParameterChanges)
+    IParameterChanges* paramChanges = data.inputParameterChanges;
+	if(!paramChanges)
 		return paramChange;
-
+    
 	// --- get the param count and setup a loop for processing queue data
-	int32 count = data.inputParameterChanges->getParameterCount();
+    int32 count = paramChanges->getParameterCount();
 
 	// --- make sure there is something there
 	if(count <= 0)
@@ -639,7 +665,7 @@ bool VST3Plugin::doControlUpdate(ProcessData& data)
 	for(int32 i=0; i<count; i++)
 	{
 		// get the message queue for ith parameter
-		IParamValueQueue* queue = data.inputParameterChanges->getParameterData(i);
+        IParamValueQueue* queue = paramChanges->getParameterData(i);
 
 		if(queue)
 		{
@@ -675,11 +701,8 @@ bool VST3Plugin::doControlUpdate(ProcessData& data)
                 }
 				else if(pid == PLUGIN_SIDE_BYPASS) // want 0 to 1
 				{
-					if(value == 0)
-						plugInSideBypass = false;
-					else
-						plugInSideBypass = true;
-					break;
+                    plugInSideBypass = value > 0.5f ? true : false;
+                    break;
 				}
 			}
 		}
@@ -732,38 +755,50 @@ NOTES:
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tresult PLUGIN_API VST3Plugin::process(ProcessData& data)
 {
+    // --- check for control chages and update if needed
+    //     Changed for 3.6.14: this is moved to top of function for bypass persistence
+    //     during testing
+    doControlUpdate(data);
+
 	if (!pluginCore) return kResultFalse;
     
-    if (pluginCore->getPluginType() == kSynthPlugin && !data.outputs)
+    // --- handle synth plugins differently - no input buss
+    bool isSynth = pluginCore->getPluginType() == kSynthPlugin;
+    
+    // --- check for validator tests with bad input or output buffer
+    if (isSynth && !data.outputs)
         return kResultTrue;
     else if (pluginCore->getPluginType() == kFXPlugin && (!data.inputs || !data.outputs))
         return kResultTrue;
 
-    // --- check for control chages and update if needed
-    doControlUpdate(data);
-
     // --- setup buffer processing
     ProcessBufferInfo info;
  
-    info.inputs = &data.inputs[0].channelBuffers32[0];
+    info.inputs = isSynth ? nullptr : &data.inputs[0].channelBuffers32[0];
     info.outputs = &data.outputs[0].channelBuffers32[0];
     
     // --- setup channel formats
     SpeakerArrangement inputArr;
     SpeakerArrangement outputArr;
-
-    getBusArrangement(kInput, 0, inputArr);
-    info.numAudioInChannels = SpeakerArr::getChannelCount(inputArr);
-
+    if(isSynth)
+        info.numAudioInChannels = 0;
+    else
+    {
+        getBusArrangement(kInput, 0, inputArr);
+        info.numAudioInChannels = SpeakerArr::getChannelCount(inputArr);
+    }
     getBusArrangement(kOutput, 0, outputArr);
     info.numAudioOutChannels = SpeakerArr::getChannelCount(outputArr);
     
     // --- setup the channel configs 
-    info.channelIOConfig.inputChannelFormat = getChannelFormatForSpkrArrangement(inputArr);
+    if(isSynth) info.channelIOConfig.inputChannelFormat = kCFNone;
+    else info.channelIOConfig.inputChannelFormat = getChannelFormatForSpkrArrangement(inputArr);
+    
+    // --- output (always)
     info.channelIOConfig.outputChannelFormat = getChannelFormatForSpkrArrangement(outputArr);
 
     // --- soft bypass for FX plugins
-    if (plugInSideBypass)
+    if (plugInSideBypass && !isSynth)
     {
         for (int32 sample = 0; sample < data.numSamples; sample++)
         {
@@ -874,7 +909,7 @@ NOTES:
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tresult PLUGIN_API VST3Plugin::getMidiControllerAssignment(int32 busIndex, int16 channel, CtrlNumber midiControllerNumber, ParamID& id/*out*/)
 {
-    // TODO WP need example?
+    // --- add for synth plugin book
 	if(!pluginCore) return kResultFalse;
 
 	// NOTE: we only have one EventBus(0)
@@ -885,7 +920,6 @@ tresult PLUGIN_API VST3Plugin::getMidiControllerAssignment(int32 busIndex, int16
         // --- decode the channel and controller
 		switch(midiControllerNumber)
 		{
-			// these messages handled in the VST3Plugin::process() method
 			case kPitchBend:
    			case kCtrlModWheel:
 			case kCtrlVolume:

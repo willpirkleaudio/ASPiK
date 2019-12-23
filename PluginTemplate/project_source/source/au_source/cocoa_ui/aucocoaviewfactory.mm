@@ -91,12 +91,17 @@ enum
     // --- create the view
     uiFreshlyLoadedView = [[AudioUnitNSView alloc] initWithVSTGUI:inAU preferredSize:inPreferredSize];
     
+    // --- the struct for communicating with shell
     VIEW_STRUCT viewStruct = {0};
     viewStruct.pWindow =(void*)uiFreshlyLoadedView;
     viewStruct.au = inAU;
+    
+    // --- set frame for plugin
+    IGUIWindowFrame* pFrame = [uiFreshlyLoadedView getGUIFrame];
+    viewStruct.pGUIFrame = pFrame;
     UInt32 size = sizeof(viewStruct);
 
-    // --- open VSTGUI editor
+    // --- open VSTGUI
 	if(AudioUnitSetProperty(inAU, kOpenGUI, kAudioUnitScope_Global, 0, (void*)&viewStruct, size) != noErr)
 		return nil;
     
@@ -105,12 +110,7 @@ enum
 
     // --- set the new size
     [uiFreshlyLoadedView setFrame:newSize];
-    
-    // --- set frame for plugin
-    viewStruct.pGUIView->setGUIWindowFrame([uiFreshlyLoadedView getGUIFrame]);
-
     NSView *returnView = uiFreshlyLoadedView;
-    
     uiFreshlyLoadedView = nil;	// zero out pointer.  This is a view factory.  Once a view's been created
                                 // and handed off, the factory keeps no record of it.
     
@@ -163,9 +163,9 @@ protected:
 
 - (id) initWithVSTGUI:(AudioUnit)AU preferredSize:(NSSize)size
 {
-   	self = [super initWithFrame:NSMakeRect (0, 0, size.width, size.height)];
+    self = [super initWithFrame:NSMakeRect (0, 0, size.width, size.height)];
     m_pGUIWindowFrame = NULL;
-    
+ 
     if(self)
     {
         m_pGUIWindowFrame = new AUGUIWindowFrame(self);
@@ -177,12 +177,31 @@ protected:
 }
 
 // --- use normal drawing coords
-- (BOOL)isFlipped { return YES; }
+- (BOOL)isFlipped {
+    return NO; }
 
 // --- change size of frame
 - (void) setFrame:(NSRect)newSize
 {
     [super setFrameSize: newSize.size];
+}
+
+// --- this is a fix for the Studio One GUI display issue; appears to be DAW problem, not ASPiK problem
+- (void)viewDidMoveToWindow;
+{
+    NSRect frameSize = [super frame];
+    NSView* contentV = [[super window] contentView];
+    NSRect selfRelativeToContent = [self convertRect:contentV.bounds toView:nil];
+    
+    // --- trapping this condition fixes the problem with Studio One
+    //     12.22.19 -- found this condition identifies the error
+    if(selfRelativeToContent.size.height - selfRelativeToContent.origin.y == frameSize.size.height)
+    {
+        NSPoint point;
+        point.x = 0;
+        point.y = selfRelativeToContent.origin.y;
+        [super setFrameOrigin:point];
+    }
 }
 
 - (void)willRemoveSubview:(NSView *)subview
