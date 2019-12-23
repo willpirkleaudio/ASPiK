@@ -15,7 +15,7 @@
     		- http://www.willpirkle.com
 */
 // -----------------------------------------------------------------------------
-#include "public.sdk/source/main/pluginfactoryvst3.h"
+#include "public.sdk/source/main/pluginfactory.h"
 #include "vst3plugin.h"
 /**
 @DEF_CLASS2

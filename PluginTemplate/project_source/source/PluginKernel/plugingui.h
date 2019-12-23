@@ -33,6 +33,8 @@
 #include "vstgui/uidescription/uiviewswitchcontainer.h"
 #include "vstgui/vstgui_uidescription.h"
 #include "vstgui/lib/crect.h"
+// 4.9
+#include "vstgui/uidescription/cstream.h"
 
 #if VSTGUI_LIVE_EDITING
 #include "vstgui/uidescription/editing/uieditcontroller.h"
@@ -685,10 +687,10 @@ public:
 	int32_t onKeyUp(const VstKeyCode& code, CFrame* frame) override { return -1; }
 
 	/** ICommandMenuItemTarget called before the item is shown to validate its state */
-	virtual bool validateCommandMenuItem(CCommandMenuItem* item) override;
+	virtual bool validateCommandMenuItem(CCommandMenuItem* item);
 	
 	/** ICommandMenuItemTarget called when the item was selected */
-	virtual bool onCommandMenuItemSelected(CCommandMenuItem* item) override;
+	virtual bool onCommandMenuItemSelected(CCommandMenuItem* item);
 
 	/**
 	\brief set the interface pointer for resizing from the GUI

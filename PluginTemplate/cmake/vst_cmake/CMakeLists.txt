@@ -52,11 +52,11 @@ else()
 	set(DEF_OPT_LINK OFF) 		 #--- be sure to start visual with admin right when enabling this
 	set(SMTG_CREATE_BUNDLE_FOR_WINDOWS TRUE)
 	set(SMTG_CREATE_VST3_LINK OFF) 	 #--- causes too many problems with admin rights and VS (especially on Parallels where it won't work)
-	set(SMTG_CREATE_PLUGIN_LINK OFF) #--- # 3.6.13 causes too many problems with admin rights and VS (especially on Parallels where it won't work)
+	set(SMTG_CREATE_PLUGIN_LINK OFF) #--- causes too many problems with admin rights and VS (especially on Parallels where it won't work)
 endif()
 
 # --- default path stuff
-smtg_get_default_vst3_path(DEFAULT_VST3_FOLDER)	
+smtg_get_default_vst3_path(DEFAULT_VST3_FOLDER)
 set(SMTG_VST3_TARGET_PATH "${DEFAULT_VST3_FOLDER}")
 
 # --- use by default SMTG_ as prefix for ASSERT,...
@@ -159,8 +159,13 @@ set(VSTGUI_DISABLE_UNITTESTS ON)
 
 add_subdirectory(${VSTGUI_ROOT}/vstgui4/vstgui vstgui4/vstgui)
 
-# --- done in AddVST3Library module from Steinberg
-# target_compile_definitions(${EXP_SUBPROJECT_NAME_VST} PUBLIC $<$<CONFIG:Debug>:DVSTGUI_LIVE_EDITING=1>)
+# --- WAS done in AddVST3Library module from Steinberg; as of SDK3.6.14 this seems to be removed
+#     but it's cool because ASPiK had been doing this before 
+if(WIN)
+	target_compile_definitions(${EXP_SUBPROJECT_NAME_VST} PUBLIC $<$<CONFIG:Debug>:DVSTGUI_LIVE_EDITING=1>)
+else()
+	target_compile_definitions(${EXP_SUBPROJECT_NAME_VST} PUBLIC $<$<CONFIG:Debug>:VSTGUI_LIVE_EDITING=1>)
+endif()
 
 # --- set our compiler flag for VST (individual builds)
 # target_compile_definitions(${EXP_SUBPROJECT_NAME_VST} PUBLIC $<$<CONFIG:Debug>:VSTPLUGIN=1>)
@@ -208,4 +213,3 @@ set_target_properties(base PROPERTIES ${SDK_IDE_LIBS_FOLDER})
 set_target_properties(vstgui PROPERTIES ${SDK_IDE_LIBS_FOLDER})
 set_target_properties(vstgui_uidescription PROPERTIES ${SDK_IDE_LIBS_FOLDER})
 #set_target_properties(vstgui_standalone PROPERTIES ${SDK_IDE_LIBS_FOLDER})
-

@@ -735,32 +735,32 @@ ComponentResult	AUSynthPlugin::GetProperty(AudioUnitPropertyID       inID,
     if (inScope == kAudioUnitScope_Global)
     {
         switch(inID)
-        {
-            // --- This property allows the host application to find the UI associated with this
-            case kAudioUnitProperty_CocoaUI:
-            {
-                // --- Look for a resource in the main bundle by name and type.
-                 CFBundleRef bundle = CFBundleGetBundleWithIdentifier(CFStringCreateWithCString(nullptr, pluginCore->getAUBundleID(), kCFStringEncodingASCII));
+         {
+             // --- This property allows the host application to find the UI associated with this
+             case kAudioUnitProperty_CocoaUI:
+             {
+                 // --- Look for a resource in the main bundle by name and type.
+                  CFBundleRef bundle = CFBundleGetBundleWithIdentifier(CFStringCreateWithCString(nullptr, pluginCore->getAUBundleID(), kCFStringEncodingASCII));
 
-                if(bundle == NULL) return fnfErr;
+                 if(bundle == NULL) return fnfErr;
+                 
+                 CFURLRef bundleURL = CFBundleCopyResourceURL(bundle,
+                                                               CFStringCreateWithCString(nullptr, pluginCore->getAUBundleName(), kCFStringEncodingASCII),
+                                                               CFSTR("bundle"),
+                                                               NULL);
 
-                CFURLRef bundleURL = CFBundleCopyResourceURL(bundle,
-                                                             CFStringCreateWithCString(nullptr, pluginCore->getAUBundleName(), kCFStringEncodingASCII),
-                                                             CFSTR("bundle"),
-                                                             NULL);
+                 if(bundleURL == NULL) return fnfErr;
 
-                if(bundleURL == NULL) return fnfErr;
+                 CFStringRef className = CFStringCreateWithCString(nullptr, pluginCore->getAUCocoaViewFactoryName(), kCFStringEncodingASCII);
 
-                CFStringRef className = CFStringCreateWithCString(nullptr, pluginCore->getAUCocoaViewFactoryName(), kCFStringEncodingASCII);
+                 AudioUnitCocoaViewInfo cocoaInfo = { bundleURL, {className} };
+                 *((AudioUnitCocoaViewInfo *)outData) = cocoaInfo;
 
-                AudioUnitCocoaViewInfo cocoaInfo = { bundleURL, {className} };
-                *((AudioUnitCocoaViewInfo *)outData) = cocoaInfo;
+                 return noErr;
+             }
 
-                return noErr;
-            }
-
-            return kAudioUnitErr_InvalidProperty;
-        }
+             return kAudioUnitErr_InvalidProperty;
+         }
     }
     return AUInstrumentBase::GetProperty(inID, inScope, inElement, outData);
 }
@@ -812,11 +812,12 @@ OSStatus	AUSynthPlugin::SetProperty(AudioUnitPropertyID inID,
 
                     // --- create GUI
                     pluginGUI = new VSTGUI::PluginGUI(path);
-
+                    pluginGUI->setGUIWindowFrame(pVS->pGUIFrame);
+                    
                     if(pluginGUI)
                     {
                         bool openedGUI = pluginGUI->open("Editor", pVS->pWindow, PluginParameterPtr, VSTGUI::kNSView, guiPluginConnector, pVS->au);
-
+	
                         // --- delete the PluginParameterPtr guts, and pointer too...
                         for(std::vector<PluginParameter*>::iterator it = PluginParameterPtr->begin(); it !=  PluginParameterPtr->end(); ++it)
                         {

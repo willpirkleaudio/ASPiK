@@ -550,6 +550,7 @@ bool PluginCore::initPluginDescriptors()
 
     // --- AU
     apiSpecificInfo.auBundleID = kAUBundleID;   /* MacOS only: this MUST match the bundle identifier in your info.plist file */
+    apiSpecificInfo.auBundleName = kAUBundleName;
 
     // --- VST3
     apiSpecificInfo.vst3FUID = PluginCore::getVSTFUID(); // OLE string format

@@ -7,7 +7,18 @@ www.willpirkle.com
 
 #define ASPiK_VERSION_MAJOR  1
 #define ASPiK_VERSION_MINOR  6
-#define ASPiK_VERSION_BUILD  2
+#define ASPiK_VERSION_BUILD  3
+
+Release Notes 1.6.3:
+* VST3: updated to latest SDK 3.6.14
+* VST3: fixed setBusAssignment for synth plugins
+* VST3: new SDK changed name of a core file, so changed accordingly
+* VSTGUI4: updated to latest SDK 4.9
+* AAX: updated to latest SDK 2p3p2
+* AU:  fixed cocoa GUI and Studio One v4 display issue (looks like it is NOT ASPiK)
+* AU:  fixed cocoa GUI problem in FL Studio and others that substituted the default I/F
+* ALL APIs: added the PRODUCT_BUNDLE_ID... to CMake to eliminate warnings that were confusing (benign, but confusing when debugging)
+- rebuilt ASPiKreator for MacOS (Win did not require rebuild)
 
 Release Notes 1.6.2:
 - fixed CMake script for AU involving copying cocoa GUI bundle to component for Release builds

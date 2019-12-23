@@ -6,23 +6,23 @@
 	<dict>
 		<key>Resources/Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
-		10e/wzdLAaMD0/FI1Rt2VHOZ2ZY=
+		crLSrFS2IcFe67cTQ8bfmS2jEwM=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/MainMenu.nib</key>
 		<data>
-		lSFG3hDI0j4Flk2StYTuCXNw5T8=
+		9tY7o7KEUqUjzAkwqYLHWHv0CL4=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib</key>
 		<data>
-		5Hw8em39dD3n+Rfotikc4W/rCpo=
+		X+VPDiBdxnlvT9HeeftZzd69GC0=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib</key>
 		<data>
-		nh8xMn4U8NRmvPEz/7E/4BZVb/s=
+		32qZt2JWmgeCk5k17PN8V7jccEU=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/qdP-AX-SPF-view-c7S-k0-uWN.nib</key>
 		<data>
-		4HHlwYAwyrf7IhH5qx5R/dIL2OY=
+		/pw8xruHMHHP0KcdwEFRIqa0gB4=
 		</data>
 		<key>Resources/CMakeLists.txt</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Resources/PluginTemplate.zip</key>
 		<data>
-		lulEeGfiUZtmx7iBgflbb6BYMpc=
+		3tx+EKYmXsB6dkswMIkWmX47ewY=
 		</data>
 		<key>Resources/aspik.icns</key>
 		<data>
@@ -55,55 +55,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			10e/wzdLAaMD0/FI1Rt2VHOZ2ZY=
+			crLSrFS2IcFe67cTQ8bfmS2jEwM=
 			</data>
 			<key>hash2</key>
 			<data>
-			fFGr0OsxNzZri+6CaNOGz6S+zsPcHNvpzxld3Juhy8I=
+			wY2VWHvzqBzwzehM2Z++Lw0HHls3+xWYndHrdroHbuA=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/MainMenu.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lSFG3hDI0j4Flk2StYTuCXNw5T8=
+			9tY7o7KEUqUjzAkwqYLHWHv0CL4=
 			</data>
 			<key>hash2</key>
 			<data>
-			jw9PdvjquaDA3bRXrc8dlxPb7MJnLtrgO9ZWziUnNjc=
+			Ac8dfcxhsxTaTM4EZ3DkVAo6nccOkLTMQ3Iwyd0UQo8=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5Hw8em39dD3n+Rfotikc4W/rCpo=
+			X+VPDiBdxnlvT9HeeftZzd69GC0=
 			</data>
 			<key>hash2</key>
 			<data>
-			sEn8023yzTmZjNoC7gYNc1zQtE+lYOWLZ/9H2Lyt6Us=
+			GfGVsOQlSlOJiH3SSOrPjB54uaExztxpGH0Eq6zIrgc=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			nh8xMn4U8NRmvPEz/7E/4BZVb/s=
+			32qZt2JWmgeCk5k17PN8V7jccEU=
 			</data>
 			<key>hash2</key>
 			<data>
-			MuMatDZW3pCCKG7xCeoc+tP6fuPssoY8QeyvAhouujE=
+			IwgNyNNoERQHwXXW28JQ4shM8UHu/KGgmTtztexTnfA=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/qdP-AX-SPF-view-c7S-k0-uWN.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			4HHlwYAwyrf7IhH5qx5R/dIL2OY=
+			/pw8xruHMHHP0KcdwEFRIqa0gB4=
 			</data>
 			<key>hash2</key>
 			<data>
-			hVVKazlOA4Ce3hX+jLt89dtf7XAHkOU9wJeudGVM2jg=
+			kUCB/aLFHDoIlQCXgxjWwDroS1boC09u9aTBom1EW3A=
 			</data>
 		</dict>
 		<key>Resources/CMakeLists.txt</key>
@@ -154,11 +154,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lulEeGfiUZtmx7iBgflbb6BYMpc=
+			3tx+EKYmXsB6dkswMIkWmX47ewY=
 			</data>
 			<key>hash2</key>
 			<data>
-			VAjB9Hf7Mjows5ZR7Qb52eAE4rMyb/gd8+g+yJWHp0A=
+			pHrdfT+FJxksk4oDVvnTcr8qx7ffim9ZOPDbWngKiiM=
 			</data>
 		</dict>
 		<key>Resources/aspik.icns</key>
