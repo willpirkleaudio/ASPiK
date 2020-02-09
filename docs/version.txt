@@ -7,7 +7,17 @@ www.willpirkle.com
 
 #define ASPiK_VERSION_MAJOR  1
 #define ASPiK_VERSION_MINOR  6
-#define ASPiK_VERSION_BUILD  3
+#define ASPiK_VERSION_BUILD  4
+
+Release Notes 1.6.4:
+* AU: fixed Cocoa GUI issue with non-custom view
+* AU: fixed Cocoa GUI issue launching GUI designer
+* AU: fixed Cocoa GUI bundle naming when using UNIVERSAL builds (needs "_AU")
+* AU: NOTE! Please remove any v1.6.3 "zombies" from your ~/Library/Audio/Plug-Ins/Components folder (they will have zero bytes)
+* VST3: fixed minor 32 byte/control memory leak for GUIs (VST3 only)
+* Custom Views: fixed minor 190 byte memory leak in SpectrumView
+* Custom View Demos: fixed "memory creep" issue with lock free ring buffer on plugin side (not a true memory leak)
+- rebuilt ASPiKreator for MacOS (Win did not require rebuild)
 
 Release Notes 1.6.3:
 * VST3: updated to latest SDK 3.6.14

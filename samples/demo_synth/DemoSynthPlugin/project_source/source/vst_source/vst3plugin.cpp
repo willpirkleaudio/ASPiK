@@ -1954,7 +1954,7 @@ tresult PLUGIN_API PluginEditor::removed()
                         param->removeDependent(vst3Updater);
                         param->release();
                     }
-                    
+					delete vst3Updater;
                     updateHandlers.erase(info.id);
                 }
             }

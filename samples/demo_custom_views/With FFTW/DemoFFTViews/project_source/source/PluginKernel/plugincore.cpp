@@ -51,6 +51,9 @@ PluginCore::PluginCore()
 
     // --- create the presets
     initPluginPresets();
+	
+	// --- disable queue (NO GUI YET!)
+	enableCustomViewDataQueue(false);
 }
 
 /**
@@ -221,8 +224,9 @@ bool PluginCore::processAudioFrame(ProcessFrameInfo& processFrameInfo)
         processFrameInfo.audioOutputFrame[0] = leftGain*processFrameInfo.audioInputFrame[0];
         
         // --- set waveform samples
-        customViewDataQueue.enqueue(processFrameInfo.audioOutputFrame[0]);
-        
+		if (isCustomViewDataQueueEnabled())
+			customViewDataQueue.enqueue(processFrameInfo.audioOutputFrame[0]);
+
         return true; /// processed
     }
     
@@ -235,8 +239,9 @@ bool PluginCore::processAudioFrame(ProcessFrameInfo& processFrameInfo)
         processFrameInfo.audioOutputFrame[1] = rightGain*processFrameInfo.audioInputFrame[0];
          
         // --- set waveform samples
-        customViewDataQueue.enqueue(processFrameInfo.audioOutputFrame[0]);
-        
+		if (isCustomViewDataQueueEnabled())
+			customViewDataQueue.enqueue(processFrameInfo.audioOutputFrame[0]);
+
         return true; /// processed
     }
     
@@ -249,8 +254,9 @@ bool PluginCore::processAudioFrame(ProcessFrameInfo& processFrameInfo)
         processFrameInfo.audioOutputFrame[1] = rightGain*processFrameInfo.audioInputFrame[0];
         
         // --- set waveform samples
-        customViewDataQueue.enqueue(processFrameInfo.audioOutputFrame[0]);
-        
+		if(isCustomViewDataQueueEnabled())
+			customViewDataQueue.enqueue(processFrameInfo.audioOutputFrame[0]);
+
         return true; /// processed
     }
     
@@ -411,14 +417,17 @@ bool PluginCore::processMessage(MessageInfo& messageInfo)
 		// --- add customization appearance here
 	case PLUGINGUI_DIDOPEN:
 	{
+		enableCustomViewDataQueue(true);
 		return false;
 	}
 
 	// --- NULL pointers so that we don't accidentally use them
 	case PLUGINGUI_WILLCLOSE:
 	{
+		enableCustomViewDataQueue(false);
 		return false;
 	}
+
     case PLUGINGUI_TIMERPING:
     {
         if (waveView || spectrumView)
@@ -429,6 +438,7 @@ bool PluginCore::processMessage(MessageInfo& messageInfo)
             bool success = customViewDataQueue.try_dequeue(audioSample);
             
             // --- if succeeds:
+			unsigned int count = 0;
             if (success)
             {
                 // --- empty queue into views; the each handle this differently
@@ -439,9 +449,9 @@ bool PluginCore::processMessage(MessageInfo& messageInfo)
                     
                     if (spectrumView)
                         spectrumView->pushDataValue(audioSample);
-                    
-                    // -- try to get next value until queue is empty
-                    success = customViewDataQueue.try_dequeue(audioSample);
+
+					// -- try to get next value until queue is empty
+					success = customViewDataQueue.try_dequeue(audioSample);
                 }
             }
             
