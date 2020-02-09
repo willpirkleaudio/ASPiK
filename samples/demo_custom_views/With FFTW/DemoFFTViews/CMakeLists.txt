@@ -246,7 +246,14 @@ string(CONCAT VST_BUNDLE_ID "developer.vst3." ${CLEAN_PROJECT_NAME_LC} ".bundleI
 string(CONCAT AAX_BUNDLE_ID_ASVAR "const char* kAAXBundleID = \"" ${AAX_BUNDLE_ID} "\"")
 string(CONCAT AU_BUNDLE_ID_ASVAR "const char* kAUBundleID = \"" ${AU_BUNDLE_ID} "\"")
 string(CONCAT VST_BUNDLE_ID_ASVAR "const char* kVST3BundleID = \"" ${VST_BUNDLE_ID} "\"")
-string(CONCAT AU_BUNDLE_NAME_ASVAR "const char* kAUBundleName = \"" ${PLUGIN_PROJECT_NAME} "\"")
+
+# --- added v1.6.4 for correct bundle naming of Cocoa component in AU universal builds
+if(UNIVERSAL_SDK_BUILD)
+	string(CONCAT AU_BUNDLE_NAME_ASVAR_P1 "const char* kAUBundleName = \"" ${PLUGIN_PROJECT_NAME})
+	string(CONCAT AU_BUNDLE_NAME_ASVAR ${AU_BUNDLE_NAME_ASVAR_P1} "_AU\"")
+else()
+	string(CONCAT AU_BUNDLE_NAME_ASVAR "const char* kAUBundleName = \"" ${PLUGIN_PROJECT_NAME} "\"")
+endif()
 
 # --- short AAX plugin name
 string(SUBSTRING ${PLUGIN_NAME} 0 15 PLUGIN_NAME_SHORT)

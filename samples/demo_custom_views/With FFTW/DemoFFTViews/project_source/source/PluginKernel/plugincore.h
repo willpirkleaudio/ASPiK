@@ -124,6 +124,9 @@ public:
     
     // --- lock free ring buffer
     moodycamel::ReaderWriterQueue<float, 512> customViewDataQueue;
+	std::atomic<bool> queueEnabler;		///< atomic bool for enabling/disabling the queue
+	bool isCustomViewDataQueueEnabled() const { return queueEnabler.load(std::memory_order_relaxed); }			///< set atomic variable with float
+	void enableCustomViewDataQueue(bool value) { queueEnabler.store(value, std::memory_order_relaxed); }	///< get atomic variable as float
 
 
 	// --- END USER VARIABLES AND FUNCTIONS -------------------------------------- //

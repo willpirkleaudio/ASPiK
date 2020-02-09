@@ -215,8 +215,14 @@ SpectrumView::~SpectrumView()
     fftw_free( fft_result );
     fftw_free( ifft_result );
 
-    if(dataQueue)
-        delete dataQueue;
+	if (dataQueue)
+		delete dataQueue;
+
+	if (fftMagBuffersReady)
+		delete fftMagBuffersReady;
+
+	if (fftMagBuffersEmpty)
+		delete fftMagBuffersEmpty;
 }
 
 void SpectrumView::setWindow(spectrumViewWindowType _window)
