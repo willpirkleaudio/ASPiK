@@ -160,6 +160,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a24714418be17408c4230289b11d271b3"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a24714418be17408c4230289b11d271b3">setParamNormalizedFromFile</a> (ParamID tag, ParamValue value)</td></tr>
 <tr class="memdesc:a24714418be17408c4230289b11d271b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">helper function for <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a2cc99b66d67fcabe6e530ed1ee226aed" title="This is the serialization-read function so the GUI can be updated from a preset or startup...">setComponentState()</a>  <a href="#a24714418be17408c4230289b11d271b3">More...</a><br /></td></tr>
 <tr class="separator:a24714418be17408c4230289b11d271b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ff0b9d70e356531ef80bbf901801569"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a3ff0b9d70e356531ef80bbf901801569">setParamNormalized</a> (ParamID tag, ParamValue value) override</td></tr>
+<tr class="memdesc:a3ff0b9d70e356531ef80bbf901801569"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is overridden for selecting a preset, this is also called when automating parameters.  <a href="#a3ff0b9d70e356531ef80bbf901801569">More...</a><br /></td></tr>
+<tr class="separator:a3ff0b9d70e356531ef80bbf901801569"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cc99b66d67fcabe6e530ed1ee226aed"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a2cc99b66d67fcabe6e530ed1ee226aed">setComponentState</a> (IBStream *fileStream) override</td></tr>
 <tr class="memdesc:a2cc99b66d67fcabe6e530ed1ee226aed"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the serialization-read function so the GUI can be updated from a preset or startup.  <a href="#a2cc99b66d67fcabe6e530ed1ee226aed">More...</a><br /></td></tr>
 <tr class="separator:a2cc99b66d67fcabe6e530ed1ee226aed"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -169,6 +172,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9472b7ef0d574e7335a9c9916f8e5ca4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a9472b7ef0d574e7335a9c9916f8e5ca4">addUnit</a> (Unit *unit)</td></tr>
 <tr class="memdesc:a9472b7ef0d574e7335a9c9916f8e5ca4"><td class="mdescLeft">&#160;</td><td class="mdescRight">IUnitInfo handler.  <a href="#a9472b7ef0d574e7335a9c9916f8e5ca4">More...</a><br /></td></tr>
 <tr class="separator:a9472b7ef0d574e7335a9c9916f8e5ca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d905defa4374e5a7b5980379845e654"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a4d905defa4374e5a7b5980379845e654">getUnitInfo</a> (int32 unitIndex, UnitInfo &amp;info) override</td></tr>
+<tr class="memdesc:a4d905defa4374e5a7b5980379845e654"><td class="mdescLeft">&#160;</td><td class="mdescRight">IUnitInfo handler.  <a href="#a4d905defa4374e5a7b5980379845e654">More...</a><br /></td></tr>
+<tr class="separator:a4d905defa4374e5a7b5980379845e654"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87fe8dc22d8ea67c6335069e758775c2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a87fe8dc22d8ea67c6335069e758775c2">addProgramList</a> (ProgramList *list)</td></tr>
 <tr class="memdesc:a87fe8dc22d8ea67c6335069e758775c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">part of the IUnitInfo support for presets; generally no user editable code here.  <a href="#a87fe8dc22d8ea67c6335069e758775c2">More...</a><br /></td></tr>
 <tr class="separator:a87fe8dc22d8ea67c6335069e758775c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -178,9 +184,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa9c9f07ac7fda10b228c0a02047f7e1c"><td class="memItemLeft" align="right" valign="top">tresult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#aa9c9f07ac7fda10b228c0a02047f7e1c">notifyPogramListChange</a> (ProgramListID listId, int32 programIndex=kAllProgramInvalid)</td></tr>
 <tr class="memdesc:aa9c9f07ac7fda10b228c0a02047f7e1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">If list changes; should not be called as we only have one program list.  <a href="#aa9c9f07ac7fda10b228c0a02047f7e1c">More...</a><br /></td></tr>
 <tr class="separator:aa9c9f07ac7fda10b228c0a02047f7e1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ff0b9d70e356531ef80bbf901801569"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a3ff0b9d70e356531ef80bbf901801569">setParamNormalized</a> (ParamID tag, ParamValue value) override</td></tr>
-<tr class="memdesc:a3ff0b9d70e356531ef80bbf901801569"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is overridden for selecting a preset, this is also called when automating parameters.  <a href="#a3ff0b9d70e356531ef80bbf901801569">More...</a><br /></td></tr>
-<tr class="separator:a3ff0b9d70e356531ef80bbf901801569"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06a43c681a26123827371471bcac69ee"><td class="memItemLeft" align="right" valign="top">virtual int32 PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a06a43c681a26123827371471bcac69ee">getProgramListCount</a> () override</td></tr>
 <tr class="memdesc:a06a43c681a26123827371471bcac69ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">We have one list for our one set of presets.  <a href="#a06a43c681a26123827371471bcac69ee">More...</a><br /></td></tr>
 <tr class="separator:a06a43c681a26123827371471bcac69ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -354,7 +357,7 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 </div><div class="memdoc">
 
 <p>part of the IUnitInfo support for presets; generally no user editable code here. </p>
-<p>for future compat; not curently supporting program lists; only have/need Factory Presets!</p>
+<p>for future compat for added programs, etc...</p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
@@ -995,6 +998,48 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 
 <p>Returns the tail-time in samples. </p>
 <p>base class override for tailtime</p>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters </li>
+</ul>
+
+</div>
+</div>
+<a id="a4d905defa4374e5a7b5980379845e654"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d905defa4374e5a7b5980379845e654">&#9670;&nbsp;</a></span>getUnitInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::getUnitInfo </td>
+          <td>(</td>
+          <td class="paramtype">int32&#160;</td>
+          <td class="paramname"><em>unitIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UnitInfo &amp;&#160;</td>
+          <td class="paramname"><em>info</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>IUnitInfo handler. </p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>

@@ -161,16 +161,11 @@ add_subdirectory(${VSTGUI_ROOT}/vstgui4/vstgui vstgui4/vstgui)
 
 # --- WAS done in AddVST3Library module from Steinberg; as of SDK3.6.14 this seems to be removed
 #     but it's cool because ASPiK had been doing this before 
-if(WIN)
-	target_compile_definitions(${EXP_SUBPROJECT_NAME_VST} PUBLIC $<$<CONFIG:Debug>:DVSTGUI_LIVE_EDITING=1>)
-else()
-	target_compile_definitions(${EXP_SUBPROJECT_NAME_VST} PUBLIC $<$<CONFIG:Debug>:VSTGUI_LIVE_EDITING=1>)
-endif()
+target_compile_definitions(${EXP_SUBPROJECT_NAME_VST} PUBLIC $<$<CONFIG:Debug>:VSTGUI_LIVE_EDITING=1>)
 
 # --- set our compiler flag for VST (individual builds)
 # target_compile_definitions(${EXP_SUBPROJECT_NAME_VST} PUBLIC $<$<CONFIG:Debug>:VSTPLUGIN=1>)
 # target_compile_definitions(${EXP_SUBPROJECT_NAME_VST} PUBLIC $<$<CONFIG:Release>:VSTPLUGIN=1>)
-
 
 # --- set our compiler flag for VST (all builds)
 target_compile_definitions(${EXP_SUBPROJECT_NAME_VST} PUBLIC VSTPLUGIN=1)

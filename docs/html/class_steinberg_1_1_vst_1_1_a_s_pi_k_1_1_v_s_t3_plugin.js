@@ -20,6 +20,7 @@ var class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin =
     [ "getProgramPitchName", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a7ac18ae43b59efa21a8b1989f763b4ea", null ],
     [ "getState", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a8440cc7cad092381639a86aefb75e3cd", null ],
     [ "getTailSamples", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a7fc93a7131edad44713ce769c1a86650", null ],
+    [ "getUnitInfo", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a4d905defa4374e5a7b5980379845e654", null ],
     [ "hasProgramPitchNames", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#ab66f60aca98919941a3f71693f647f36", null ],
     [ "initialize", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a2221a6c87dbfb18cf504c7cf89179daa", null ],
     [ "notifyPogramListChange", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#aa9c9f07ac7fda10b228c0a02047f7e1c", null ],

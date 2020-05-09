@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['example_20projects',['Example Projects',['../aspik_samples.html',1,'index']]],
   ['enumerating_20the_20plugin_20parameters',['Enumerating the Plugin Parameters',['../define_plugin3.html',1,'simplePlugin']]],
   ['edgetransition',['edgeTransition',['../group___constants-_enums.html#ga1e35d82f022f85a02ebe9d6fdcc43a82',1,'fxobjects.h']]],
   ['edgetype',['edgeType',['../struct_transition_band_data.html#a1931bffa41d41a8cce9a91dc3c0e862f',1,'TransitionBandData']]],

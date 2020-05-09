@@ -55,20 +55,20 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"class_analog_f_i_r_filter.html#a3e0de6847173d5f26e9e22284af4780f",
-"class_fast_f_f_t.html#a3ff04bef9c8d00e1b1ea4b96b52bd937",
-"class_linear_buffer.html#a28baafc3d7ea309886e22c8abfcc41a2",
-"class_plugin_host_connector.html#a4fc912d4555ae92915b20c73fa033201",
+"class_analog_f_i_r_filter.html#a35f344329edef969fab298a8470eab05",
+"class_fast_f_f_t.html#a3f8a3b2003fbb174a73158142dbbdf26",
+"class_linear_buffer.html#a0cc7d423d666cca46f5290304abe47d2",
+"class_plugin_host_connector.html#a46e89e1e79e8d5421142bb7d70f263ba",
 "class_plugin_parameter.html#ad62706d3fdd2f5264feac27a7cf2b4d9",
-"class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_volt_octave_parameter.html#a0a3e845b5eea1d520302595181a7f413",
-"class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#ad7b4786ac8e620492c0bb6c392937211",
-"class_wdf_parallel_l_c.html#a829a55c16b2e22f197887e7c1687a64e",
-"class_z_v_a_filter.html#add481d1b191c131e2156fd84b5da7209",
-"fxobjects_8h.html#ga1c6355051e8afc378d165d649053880ea0a8d0e498fa797e6554296413fb87aba",
-"group___constants-_enums.html#gae696324ef7fc119614e60ba6da6fb12b",
-"pluginstructures_8h.html#gac72716fbfadf4828a017b6fa880fbe59a142b146c858f766075a01a96d6d35add",
-"struct_dynamics_processor_parameters.html#a4a31473aa1acd4446b9785e446e98530",
-"struct_simple_delay_parameters.html#ad33a431ea87f9f95035e412501631dc4"
+"class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#af9cfac34db2ea2ad047d07920acb252e",
+"class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#acd2b5986707b975b87d27a573d7cfae8",
+"class_wdf_parallel_l_c.html#a3d2166a745e417942087527a3262fa60",
+"class_z_v_a_filter.html#ab0c876cbb63317bcc5fb08f686fc50ec",
+"fxobjects_8h.html#ga081ad5f14d203ceee2631ad4d212423aad1eed567f05e086008d54df3944af4ba",
+"group___constants-_enums.html#gae0f22a439757361d270d7ebd16cca80d",
+"pluginstructures_8h.html#ga52e348ed94297a3d3eb40fef52ad5729af2779c47b4e20d71f1a0b860f8e250b3",
+"struct_dynamics_processor_parameters.html#a330993654e1fd2d5f7408ba074c616ed",
+"struct_simple_delay_parameters.html#a188ecb01f390015ac9edfb95fa3c24bb"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

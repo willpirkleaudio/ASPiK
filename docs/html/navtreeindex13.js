@@ -1,5 +1,7 @@
 var NAVTREEINDEX13 =
 {
+"struct_dynamics_processor_parameters.html#a330993654e1fd2d5f7408ba074c616ed":[1,8,12,5],
+"struct_dynamics_processor_parameters.html#a3fe51a195c8ebdc1ff64cbb1121a3b5f":[1,8,12,1],
 "struct_dynamics_processor_parameters.html#a4a31473aa1acd4446b9785e446e98530":[1,8,12,7],
 "struct_dynamics_processor_parameters.html#a511cfb5268a08f62212fe2e2fc7c33f6":[1,8,12,6],
 "struct_dynamics_processor_parameters.html#a54596f772f8e1160ad52b5f0d143f789":[1,8,12,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX13 =
 "struct_signal_gen_data.html#ac3ef1a1b1f39fa07093824438a1a4a20":[1,11,20,1],
 "struct_signal_gen_data.html#af1b5f95524149874613e7dbeefa98673":[1,11,20,4],
 "struct_simple_delay_parameters.html":[1,8,30],
-"struct_simple_delay_parameters.html#a04d486056ec1dad993d65b2bba180dbe":[1,8,30,0],
-"struct_simple_delay_parameters.html#a188ecb01f390015ac9edfb95fa3c24bb":[1,8,30,2],
-"struct_simple_delay_parameters.html#aa49b1706c091a2a078f3b9a602331cc1":[1,8,30,4]
+"struct_simple_delay_parameters.html#a04d486056ec1dad993d65b2bba180dbe":[1,8,30,0]
 };
