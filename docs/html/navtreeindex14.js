@@ -1,5 +1,7 @@
 var NAVTREEINDEX14 =
 {
+"struct_simple_delay_parameters.html#a188ecb01f390015ac9edfb95fa3c24bb":[1,8,30,2],
+"struct_simple_delay_parameters.html#aa49b1706c091a2a078f3b9a602331cc1":[1,8,30,4],
 "struct_simple_delay_parameters.html#ad33a431ea87f9f95035e412501631dc4":[1,8,30,3],
 "struct_simple_delay_parameters.html#aeba09db3582f3fa4ac9194448d991b2c":[1,8,30,1],
 "struct_simple_l_p_f_parameters.html":[1,8,28],

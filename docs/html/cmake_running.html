@@ -100,13 +100,29 @@ $(document).ready(function(){initNavTree('cmake_running.html','');});
  Choose YES for this option and you are done. <br />
 </p>
 <p><b>MacOS</b><br />
+ Open Terminal and type:<br />
+ <br />
+ <b>echo $PATH</b> <br />
+ <br />
+which produces a colon : separated list of folders you can run directly with terminal; <br />
+ <br />
+ <b>/usr/local/bin</b> <br />
+ <br />
+should be in this list <br />
+ <br />
+ Next, add a SymLink to the CMake executable and place it in the /usr/local/bin folder in Terminal by running:<br />
+ <br />
+ <b>sudo ln -s /Applications/cmake.app/Contents/bin/cmake /usr/local/bin</b><br />
+ <br />
+ After that, you are done. <br />
+ <br />
  In each case (Windows vs MacOS), you first navigate to the &lt;OS&gt;_build folder inside of the project folder. For Windows it is named <b>win_build</b> and for MacOS it is named <b>mac_build</b>. You will notice that these folders are empty when you navigate to them. This is correct for a freshly created project. <br />
  <br />
  Running CMake will populate the build folder with the newly created XCode or Visual Studio project. After that you can open the compiler project and rebuild your solution as usual. To run CMake: <br />
  <br />
- MaxOS: open a Terminal shell <br />
+ <b>MaxOS</b>: open a Terminal shell <br />
  <br />
- WinOS: open the Command Prompt with admin privileges (aka "Command Prompt (Admin)") <br />
+ <b>WinOS</b>: open the Command Prompt with admin privileges (aka "Command Prompt (Admin)") <br />
  Navigate and find your myprojects folder inside a particular SDK (individual) or in the ALL_SDK folder (universal). <br />
  <br />
  Navigate into your ASPiK project folder and then again into either the win_build or mac_build sub-folders according to your OS. You must run CMake from folder <em>inside</em> of the one that contains the outer CMakeLists.txt file. This is a quirk of CMake. <br />
@@ -118,6 +134,9 @@ $(document).ready(function(){initNavTree('cmake_running.html','');});
  <br />
  <b>VS 2017 (for VST3 and AAX) 64-bit:</b><br />
  cmake -G"Visual Studio 15 2017 Win64" ../ <br />
+ <br />
+ <b>VS 2019 (for VST3 and AAX) 64-bit:</b><br />
+ cmake -G"Visual Studio 16 2019" ../ <br />
  <br />
  <b>Xcode:</b><br />
  cmake -GXcode ../ <br />

@@ -6,43 +6,31 @@
 	<dict>
 		<key>Resources/Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
-		crLSrFS2IcFe67cTQ8bfmS2jEwM=
+		plgXX67quYnjtKwhZW0iEZgSeFA=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/MainMenu.nib</key>
 		<data>
-		9tY7o7KEUqUjzAkwqYLHWHv0CL4=
+		hbwDwM3X+kOnfpJ5FbIkzBBUcRg=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib</key>
 		<data>
-		X+VPDiBdxnlvT9HeeftZzd69GC0=
+		/tK/NzU+tgI9UvgavwisFaJsYQU=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib</key>
 		<data>
-		32qZt2JWmgeCk5k17PN8V7jccEU=
+		+OvpvEk26j5cOQXsTXAOWeVpe/E=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/qdP-AX-SPF-view-c7S-k0-uWN.nib</key>
 		<data>
-		/pw8xruHMHHP0KcdwEFRIqa0gB4=
+		ULXtmJRBZQ3yGZ5iGwI1SqtKlto=
 		</data>
 		<key>Resources/CMakeLists.txt</key>
 		<data>
-		uI0z9sIZqINmhJgx3Uwt78KhEgk=
+		1HVcxT9D2lm41ZJXYRoMsAEYRFk=
 		</data>
-		<key>Resources/MVCExample.momd/MVCExample.mom</key>
+		<key>Resources/PluginTemplate.block</key>
 		<data>
-		dAh1FYeEP2dwnYGJnCbiJHTSrwM=
-		</data>
-		<key>Resources/MVCExample.momd/MVCExample.omo</key>
-		<data>
-		3iQ12Ae0XV625QsxMDAnOWXf/Yo=
-		</data>
-		<key>Resources/MVCExample.momd/VersionInfo.plist</key>
-		<data>
-		YCMLOzqbOpf6BzQJv+psmmdp6ZQ=
-		</data>
-		<key>Resources/PluginTemplate.zip</key>
-		<data>
-		3tx+EKYmXsB6dkswMIkWmX47ewY=
+		1ds3aV5NXgE4DacFc2GxBUQx14Y=
 		</data>
 		<key>Resources/aspik.icns</key>
 		<data>
@@ -55,110 +43,77 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			crLSrFS2IcFe67cTQ8bfmS2jEwM=
+			plgXX67quYnjtKwhZW0iEZgSeFA=
 			</data>
 			<key>hash2</key>
 			<data>
-			wY2VWHvzqBzwzehM2Z++Lw0HHls3+xWYndHrdroHbuA=
+			Bvk1oyCRc6s/v/J3M45REtHYcicRwzDV4PoZ2s4cnl4=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/MainMenu.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9tY7o7KEUqUjzAkwqYLHWHv0CL4=
+			hbwDwM3X+kOnfpJ5FbIkzBBUcRg=
 			</data>
 			<key>hash2</key>
 			<data>
-			Ac8dfcxhsxTaTM4EZ3DkVAo6nccOkLTMQ3Iwyd0UQo8=
+			eHRakEgpci0+GmvCRh883ao4JxXjHxq9LmOoasSXAHI=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			X+VPDiBdxnlvT9HeeftZzd69GC0=
+			/tK/NzU+tgI9UvgavwisFaJsYQU=
 			</data>
 			<key>hash2</key>
 			<data>
-			GfGVsOQlSlOJiH3SSOrPjB54uaExztxpGH0Eq6zIrgc=
+			tD6Q//9qzWmqgrHaGAY43JkQC9suUF0JQ6Jo1hRsRbA=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			32qZt2JWmgeCk5k17PN8V7jccEU=
+			+OvpvEk26j5cOQXsTXAOWeVpe/E=
 			</data>
 			<key>hash2</key>
 			<data>
-			IwgNyNNoERQHwXXW28JQ4shM8UHu/KGgmTtztexTnfA=
+			dMQ6cCFd/q/HO2WYPx7fE8CSF8QzDjmemI8HpWLe3LE=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/qdP-AX-SPF-view-c7S-k0-uWN.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			/pw8xruHMHHP0KcdwEFRIqa0gB4=
+			ULXtmJRBZQ3yGZ5iGwI1SqtKlto=
 			</data>
 			<key>hash2</key>
 			<data>
-			kUCB/aLFHDoIlQCXgxjWwDroS1boC09u9aTBom1EW3A=
+			d2NX5tv9DSGWmGAwUO8zU1FRXRcyxHy+cOaLVViMVbM=
 			</data>
 		</dict>
 		<key>Resources/CMakeLists.txt</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			uI0z9sIZqINmhJgx3Uwt78KhEgk=
+			1HVcxT9D2lm41ZJXYRoMsAEYRFk=
 			</data>
 			<key>hash2</key>
 			<data>
-			ffWeShjwZAcDhpNoAx4trTSiakvBwhhoTaPu8RfWMiI=
+			uzBi1bskqzEDtZ5kKng1LdNZ0OnjAg8KKN27R0ADnVk=
 			</data>
 		</dict>
-		<key>Resources/MVCExample.momd/MVCExample.mom</key>
+		<key>Resources/PluginTemplate.block</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			dAh1FYeEP2dwnYGJnCbiJHTSrwM=
+			1ds3aV5NXgE4DacFc2GxBUQx14Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			+s/Rh8yW7eavj/tguvanMG0NVgTSwvxgmp3UxaU73pc=
-			</data>
-		</dict>
-		<key>Resources/MVCExample.momd/MVCExample.omo</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			3iQ12Ae0XV625QsxMDAnOWXf/Yo=
-			</data>
-			<key>hash2</key>
-			<data>
-			hbWOa5qP8gn7FX3z1ROhNQ/lIE2Mq8kjF93P4ZDK+4k=
-			</data>
-		</dict>
-		<key>Resources/MVCExample.momd/VersionInfo.plist</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			YCMLOzqbOpf6BzQJv+psmmdp6ZQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			7NjCo8LXHX+tx9daX2OYtE9tNvUR8ndqfQlTvPo7oVo=
-			</data>
-		</dict>
-		<key>Resources/PluginTemplate.zip</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			3tx+EKYmXsB6dkswMIkWmX47ewY=
-			</data>
-			<key>hash2</key>
-			<data>
-			pHrdfT+FJxksk4oDVvnTcr8qx7ffim9ZOPDbWngKiiM=
+			+FSbkCsUOWr9yPVSlzA9QtY8ByYKd6BMJ1CX7lzkCSU=
 			</data>
 		</dict>
 		<key>Resources/aspik.icns</key>

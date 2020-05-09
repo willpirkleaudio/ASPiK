@@ -241,6 +241,7 @@ if(XCODE)
 	set_target_properties(${cocoatarget} PROPERTIES XCODE_ATTRIBUTE_GENERATE_MASTER_OBJECT_FILE "YES")
 	set_target_properties(${cocoatarget} PROPERTIES XCODE_ATTRIBUTE_OTHER_LDFLAGS "-all_load")
 
+
 	# --- note: " " prior to AUPLUGIN etc... must be there to separate vars
 	set_property(TARGET ${cocoatarget} APPEND_STRING PROPERTY XCODE_ATTRIBUTE_GCC_PREPROCESSOR_DEFINITIONS "$<$<CONFIG:Debug>: AUPLUGIN=1>$<$<CONFIG:Release>: AUPLUGIN=1>")
 	set_property(TARGET ${cocoatarget} APPEND_STRING PROPERTY XCODE_ATTRIBUTE_GCC_PREPROCESSOR_DEFINITIONS "$<$<CONFIG:Debug>: DEVELOPMENT=1>$<$<CONFIG:Release>: RELEASE=1>")
@@ -292,8 +293,8 @@ if(XCODE)
 	set_target_properties(${target} PROPERTIES BUNDLE TRUE)
 	set_target_properties(${target} PROPERTIES CXX_VISIBILITY_PRESET default)
 	set_target_properties(${target} PROPERTIES CMAKE_C_VISIBILITY_PRESET default)
-  	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_GENERATE_PKGINFO_FILE "YES")
-  	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_WRAPPER_EXTENSION "component")
+  set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_GENERATE_PKGINFO_FILE "YES")
+  set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_WRAPPER_EXTENSION "component")
 	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_GENERATE_MASTER_OBJECT_FILE "YES")
 	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_OTHER_LDFLAGS "-all_load")
 	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_GENERATE_PKGINFO_FILE "YES")
@@ -366,6 +367,9 @@ source_group(Resources FILES ${resource_sources})
 # --- info.pList file for target
 set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_INFOPLIST_FILE "${CMAKE_CURRENT_LIST_DIR}/${MAC_ROOT}/Info.plist")
 
+# Mike
+set_target_properties(${cocoatarget} PROPERTIES XCODE_ATTRIBUTE_INFOPLIST_FILE "${CMAKE_CURRENT_LIST_DIR}/${MAC_ROOT}/Info.plist")
+
 # --- need to edit this manually due to error with CMake placing returns in whitespaces in the formatted "Your Company : My Plugin" string...
 if(IS_SYNTH_PLUGIN)
 	file(READ "${CMAKE_CURRENT_LIST_DIR}/${MAC_ROOT}/Info.plist" INFOPLIST_FILE_GUTSA)
@@ -397,7 +401,7 @@ string(CONCAT INFOPLIST_FILE_GUTS_MODIFIED ${INFOPLIST_FILE_LEFT_CHUNK} "\n     
 # --- update the file (destructive)
 file(WRITE "${CMAKE_CURRENT_LIST_DIR}/${MAC_ROOT}/Info.plist" ${INFOPLIST_FILE_GUTS_MODIFIED})
 
-# --- this eliminates a warning that looks suspicious when debugging but is acutally not a problem
+# --- this eliminates a warning that looks suspicious when debugging but is actally not a problem
 set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "${AU_BUNDLE_ID}")
 set_target_properties(${cocoatarget} PROPERTIES XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "${AU_BUNDLE_ID}")
 
@@ -411,17 +415,21 @@ set_target_properties(${cocoatarget} PROPERTIES XCODE_ATTRIBUTE_INFOPLIST_PREPRO
 set_target_properties(${cocoatarget} PROPERTIES XCODE_ATTRIBUTE_INFOPLIST_PREPROCESS "YES")
 
 # --- copy folders (.bundle and .component are directories, so use remove/copy directory)
-set(TARGET_PATH "${CMAKE_BINARY_DIR}/${AU_PLUGIN_FOLDER}/${CMAKE_BUILD_TYPE}/${target}.component") # --- AU/Debug or /Release
-set(COCOATARGET_PATH "${CMAKE_BINARY_DIR}/${AU_PLUGIN_FOLDER}/${CMAKE_BUILD_TYPE}/${COCOAPRODUCT_NAME}.bundle") # --- AU/Debug or /Release
+set(TARGET_PATH_DEBUG "${CMAKE_BINARY_DIR}/${AU_PLUGIN_FOLDER}/Debug/${target}.component")
+set(COCOATARGET_PATH_DEBUG "${CMAKE_BINARY_DIR}/${AU_PLUGIN_FOLDER}/Debug/${COCOAPRODUCT_NAME}.bundle")
+
+set(TARGET_PATH_RELEASE "${CMAKE_BINARY_DIR}/${AU_PLUGIN_FOLDER}/Release/${target}.component")
+set(COCOATARGET_PATH_RELEASE "${CMAKE_BINARY_DIR}/${AU_PLUGIN_FOLDER}/Release/${COCOAPRODUCT_NAME}.bundle") 
+
+set(COCOA_IN_RSRSC_PATH_DEBUG ${TARGET_PATH_DEBUG}/Contents/Resources/${COCOAPRODUCT_NAME}.bundle)
+set(COCOA_IN_RSRSC_PATH_RELEASE ${TARGET_PATH_RELEASE}/Contents/Resources/${COCOAPRODUCT_NAME}.bundle)
 
 if(XCODE)
-	# --- copy cocoa bundle into resources folder
-	set(COCOA_IN_RSRSC_PATH ${TARGET_PATH}/Contents/Resources/${COCOAPRODUCT_NAME}.bundle)
-	add_custom_command(TARGET ${target} POST_BUILD COMMAND ${CMAKE_COMMAND} -E remove_directory ${COCOA_IN_RSRSC_PATH})
-	add_custom_command(TARGET ${target} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${COCOATARGET_PATH} ${COCOA_IN_RSRSC_PATH})
+	add_custom_command(TARGET ${target} POST_BUILD COMMAND ${CMAKE_COMMAND} -E remove_directory "$<$<CONFIG:Debug>:${COCOA_IN_RSRSC_PATH_DEBUG}>$<$<CONFIG:Release>:${COCOA_IN_RSRSC_PATH_RELEASE}>")
+	add_custom_command(TARGET ${target} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory "$<$<CONFIG:Debug>:${COCOATARGET_PATH_DEBUG}>$<$<CONFIG:Release>:${COCOATARGET_PATH_RELEASE}>" "$<$<CONFIG:Debug>:${COCOA_IN_RSRSC_PATH_DEBUG}>$<$<CONFIG:Release>:${COCOA_IN_RSRSC_PATH_RELEASE}>")
 
 	# --- copy plugin into library folder
 	set(PLUGIN_FOLDER ~/Library/Audio/Plug-Ins/Components/${target}.component)
 	add_custom_command(TARGET ${target} POST_BUILD COMMAND ${CMAKE_COMMAND} -E remove_directory ${PLUGIN_FOLDER})
-	add_custom_command(TARGET ${target} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${TARGET_PATH} ${PLUGIN_FOLDER})
+	add_custom_command(TARGET ${target} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory "$<$<CONFIG:Debug>:${TARGET_PATH_DEBUG}>$<$<CONFIG:Release>:${TARGET_PATH_RELEASE}>" ${PLUGIN_FOLDER})
 endif()

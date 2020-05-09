@@ -9,5 +9,6 @@ var index =
     [ "AU Dev Notes", "au_plugins.html", null ],
     [ "VST Dev Notes", "vst_plugins.html", null ],
     [ "Write a Plugin", "simple_plugin.html", "simple_plugin" ],
-    [ "Design a GUI", "gui_design.html", "gui_design" ]
+    [ "Design a GUI", "gui_design.html", "gui_design" ],
+    [ "Example Projects", "aspik_samples.html", null ]
 ];

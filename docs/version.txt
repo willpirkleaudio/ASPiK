@@ -7,7 +7,15 @@ www.willpirkle.com
 
 #define ASPiK_VERSION_MAJOR  1
 #define ASPiK_VERSION_MINOR  6
-#define ASPiK_VERSION_BUILD  4
+#define ASPiK_VERSION_BUILD  5
+
+Release Notes 1.6.5:
+* AU: fixed issue with GUI in Release Builds
+* VST3: fixed issue with GUI Designer not showing up in Windows VST3s
+* VST3: fixed side-chain bug with validator
+* VST3: fixed problem involving FL Studio VST2 wrapper initial state
+* VST3: improved and tightened up Factory Presets
+- rebuilt ASPiKreator for MacOS (Win did not require rebuild)
 
 Release Notes 1.6.4:
 * AU: fixed Cocoa GUI issue with non-custom view

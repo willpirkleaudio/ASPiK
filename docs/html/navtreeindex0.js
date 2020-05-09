@@ -53,6 +53,7 @@ var NAVTREEINDEX0 =
 "aax_plugins.html":[0,5],
 "annotated.html":[2,0],
 "aspik_reator.html":[0,2],
+"aspik_samples.html":[0,10],
 "atomicops_8h_source.html":[3,0,0,0,0,2,1],
 "au_plugins.html":[0,6],
 "aucocoaviewfactory_8mm.html":[3,0,0,0,0,1,0,0],
@@ -189,14 +190,14 @@ var NAVTREEINDEX0 =
 "class_a_u_m_i_d_i_event_queue.html#a5e914ccf3a2253b6c2f8da9c0844bbf5":[1,10,1,4,20],
 "class_a_u_m_i_d_i_event_queue.html#a7a18c48d8035b7451724328c57c8ee40":[1,10,1,4,10],
 "class_a_u_m_i_d_i_event_queue.html#a7a18c48d8035b7451724328c57c8ee40":[1,10,1,4,11],
-"class_a_u_m_i_d_i_event_queue.html#aad67adf0de553fdbb5b14054d2bcc7ff":[1,10,1,4,3],
 "class_a_u_m_i_d_i_event_queue.html#aad67adf0de553fdbb5b14054d2bcc7ff":[1,10,1,4,1],
+"class_a_u_m_i_d_i_event_queue.html#aad67adf0de553fdbb5b14054d2bcc7ff":[1,10,1,4,3],
 "class_a_u_m_i_d_i_event_queue.html#abcb3586e768a6c8b13f6b0835c9cc251":[1,10,1,4,13],
 "class_a_u_m_i_d_i_event_queue.html#abcb3586e768a6c8b13f6b0835c9cc251":[1,10,1,4,12],
-"class_a_u_m_i_d_i_event_queue.html#ad0915a95a096b09a5ba7b582b63e6437":[1,10,1,4,17],
 "class_a_u_m_i_d_i_event_queue.html#ad0915a95a096b09a5ba7b582b63e6437":[1,10,1,4,16],
-"class_a_u_m_i_d_i_event_queue.html#add7c9615c97b6d09614d13c5fdded03a":[1,10,1,4,7],
+"class_a_u_m_i_d_i_event_queue.html#ad0915a95a096b09a5ba7b582b63e6437":[1,10,1,4,17],
 "class_a_u_m_i_d_i_event_queue.html#add7c9615c97b6d09614d13c5fdded03a":[1,10,1,4,6],
+"class_a_u_m_i_d_i_event_queue.html#add7c9615c97b6d09614d13c5fdded03a":[1,10,1,4,7],
 "class_a_u_m_i_d_i_event_queue.html#adfc292fa7f21af35556edde3e9d6f496":[1,10,1,4,4],
 "class_a_u_m_i_d_i_event_queue.html#adfc292fa7f21af35556edde3e9d6f496":[1,10,1,4,5],
 "class_a_u_m_i_d_i_event_queue.html#ae41aabfbebc9fa63c7025fca958e487c":[1,10,1,4,21],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "class_a_u_synth_plugin.html#afc0d2e3ed659ba487e940f42d4095ebb":[1,10,1,5,17],
 "class_a_u_synth_plugin.html#afd0ffbfe716bce10ce901dcedcea2978":[1,10,1,5,41],
 "class_analog_f_i_r_filter.html":[1,8,18],
-"class_analog_f_i_r_filter.html#a1d81b1cbc16a6f31788018d7c001c73b":[1,8,18,1],
-"class_analog_f_i_r_filter.html#a35f344329edef969fab298a8470eab05":[1,8,18,4]
+"class_analog_f_i_r_filter.html#a1d81b1cbc16a6f31788018d7c001c73b":[1,8,18,1]
 };

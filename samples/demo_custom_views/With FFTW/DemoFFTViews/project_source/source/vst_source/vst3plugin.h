@@ -106,6 +106,7 @@ public:
 
 	/** helper function for serialization */
 	tresult PLUGIN_API setParamNormalizedFromFile(ParamID tag, ParamValue value);
+    tresult PLUGIN_API setParamNormalized (ParamID tag, ParamValue value) override;
 
 	/** serialize-read from file to setup the GUI parameters */
 	tresult PLUGIN_API setComponentState(IBStream* fileStream) override;
@@ -118,13 +119,12 @@ public:
 
 	/** IUnitInfo */
 	bool addUnit (Unit* unit);
+    tresult PLUGIN_API getUnitInfo (int32 unitIndex, UnitInfo& info /*out*/) override;
 
-	/** for future compat; not curently supporting program lists; only have/need Factory Presets! */
+	/** for future compat for added programs, etc...*/
 	bool addProgramList (ProgramList* list);
 	ProgramList* getProgramList(ProgramListID listId) const;
 	tresult notifyPogramListChange(ProgramListID listId, int32 programIndex = kAllProgramInvalid);
-
-	tresult PLUGIN_API setParamNormalized (ParamID tag, ParamValue value) override;
     virtual int32 PLUGIN_API getProgramListCount() override;
 	virtual tresult PLUGIN_API getProgramListInfo(int32 listIndex, ProgramListInfo& info /*out*/) override;
 	virtual tresult PLUGIN_API getProgramName(ProgramListID listId, int32 programIndex, String128 name /*out*/) override;
