@@ -231,15 +231,17 @@ AAX_Result AAXPluginParameters::EffectInit()
                 if(piParam->isMeterParam())
                 {
                     AAX_CParameter<double>* param = new AAX_CParameter<double>(strAAX_ID.str().c_str(),
-                                                                               AAX_CString(piParam->getControlName()),
-                                                                               piParam->getDefaultValue(),
-                                                                               AAX_CLinearTaperDelegate<double>(0.0, 1.0),
-                                                                               AAX_CUnitDisplayDelegateDecorator<double>(AAX_CNumberDisplayDelegate<double>(), 
-																			   sUnit.c_str()), false); // false = no automation for meters!
+                                                                                   AAX_CString(piParam->getControlName()),
+                                                                                   piParam->getDefaultValue(),
+                                                                                   AAX_CLinearTaperDelegate<double>(0.0, 1.0),
+                                                                                   AAX_CUnitDisplayDelegateDecorator<double>(AAX_CNumberDisplayDelegate<double>(),
+                                                                                   sUnit.c_str()), false); // false = no automation for meters!
                     // --- 128 is default, not used for meter
                     param->SetNumberOfSteps(128);
-                    param->SetType(AAX_eParameterType_Continuous);
-                    mParameterManager.AddParameter(param);
+                    param->SetType(AAX_eParameterType_Continuous);//AAX_eParameterType_Continuous);
+                   
+                    // mParameterManager.AddParameter(param); REMOVED to prevent save "bug"
+                    mMeterParameterManager.AddParameter(param);
 					// --- NOTE: not adding to synchro list because not automatable
                 }
                 else // --- all other controls
@@ -908,6 +910,42 @@ AAX_Result AAXPluginParameters::TimerWakeup()
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//    AAXPluginGUAAXPluginParametersI::GetParameterNormalizedValue()
+//
+/**
+ \brief allows threadsafe getting of parameters for GUI; modified to differentiate beteen meters to prevent
+        a "bug" where the non-saved state marker pops up when saving a meter-based GUI
+
+ NOTES:
+ - see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and an AAX Programming Guide
+ - see AAX SDK for more information on this function and its parameters
+ */
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+AAX_Result AAXPluginParameters::GetParameterNormalizedValue (AAX_CParamID iParameterID, double * oValuePtr ) const
+{
+    if(!pluginCore) return AAX_ERROR_NULL_OBJECT;
+     
+    int nTag = atoi(iParameterID) - 1;
+    PluginParameter* piParam = pluginCore->getPluginParameterByControlID(nTag);
+    if(piParam)
+    {
+        if(piParam->getControlVariableType() == controlVariableType::kMeter)
+        {
+            const AAX_IParameter* parameter = mMeterParameterManager.GetParameterByID( iParameterID );
+            if (parameter == 0)
+                return AAX_ERROR_INVALID_PARAMETER_ID;
+
+            *oValuePtr = parameter->GetNormalizedValue();
+            return AAX_SUCCESS;
+        }
+        else
+            return AAX_CEffectParameters::GetParameterNormalizedValue(iParameterID, oValuePtr);
+    }
+    
+    return AAX_ERROR_NULL_OBJECT;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	AAXPluginGUAAXPluginParametersI::updateOutboundAAXParameters()
 //
 /**
@@ -926,12 +964,11 @@ void AAXPluginParameters::updateOutboundAAXParameters()
     while(startIndex >= 0)
     {
         PluginParameter* piParam = pluginCore->getNextParameterOfType(startIndex, controlVariableType::kMeter);
-
         if(piParam)
         {
             std::stringstream str;
             str << piParam->getControlID() + 1;
-            SetParameterNormalizedValue(str.str().c_str(), piParam->getControlValue());
+            SetMeterParameterNormalizedValue(str.str().c_str(), piParam->getControlValue());
         }
     }
 }

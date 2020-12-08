@@ -1,16 +1,27 @@
 var class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter =
 [
     [ "AntiLogParameter", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#aba888eed54a976adc03263b7617a695f", null ],
+    [ "AntiLogParameter", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#aba888eed54a976adc03263b7617a695f", null ],
+    [ "calcAntiLogParameter", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#aeb52476248db4b0591c02fa3507f60ff", null ],
     [ "calcAntiLogParameter", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#aeb52476248db4b0591c02fa3507f60ff", null ],
     [ "calcAntiLogPluginValue", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#ac8b6b51193bcce673f2ac26ec7ca0970", null ],
+    [ "calcAntiLogPluginValue", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#ac8b6b51193bcce673f2ac26ec7ca0970", null ],
     [ "fromString", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#a2b3cc5046e51a3055b599a2823b7d990", null ],
+    [ "fromString", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#afe8e841185a905f381eb7f48748e9486", null ],
+    [ "getMax", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#ad56537e5cfdbba29c46b94bb5b04c397", null ],
     [ "getMax", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#ad56537e5cfdbba29c46b94bb5b04c397", null ],
     [ "getMin", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#acc2fde3d48c07a867b72219b175e4e7c", null ],
+    [ "getMin", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#acc2fde3d48c07a867b72219b175e4e7c", null ],
+    [ "setMax", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#a4a7a516da3d5eeb5e5f0aa8ae1f71284", null ],
     [ "setMax", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#a4a7a516da3d5eeb5e5f0aa8ae1f71284", null ],
     [ "setMin", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#afbdd4408b681ffa813770606c14bedc8", null ],
+    [ "setMin", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#afbdd4408b681ffa813770606c14bedc8", null ],
     [ "toNormalized", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#a15f0ca3ca547f9746dc7658aa456fc89", null ],
+    [ "toNormalized", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#aefc4a35e0e71bdd26cad4ecb846d430a", null ],
+    [ "toPlain", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#a3788cc4d7d148228fb2de86128851daa", null ],
     [ "toPlain", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#af85392ed5d184076a61d2d698d16fbd8", null ],
     [ "toString", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#ace7ce0c980e903724b9d32de32b9cbc1", null ],
+    [ "toString", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#a81fe51b8b70240fb28f09488e269c395", null ],
     [ "maxPlain", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#a3f5ec13ecd7535cf79fe43ab8ce94230", null ],
     [ "minPlain", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#a1e315c6c36471cb6b60001249aac1080", null ]
 ];

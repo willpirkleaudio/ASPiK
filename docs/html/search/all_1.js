@@ -2,7 +2,7 @@ var searchData=
 [
   ['barpositionmusic',['barPositionMusic',['../struct_host_info.html#a32ccd1d66ce0f8dbb74fe8472b3c6df0',1,'HostInfo']]],
   ['begin_5ffactory_5fdef',['BEGIN_FACTORY_DEF',['../group___v_s_t-_shell.html#gaca6a9a784cebbc6ca37df3104336dfe1',1,'factory.cpp']]],
-  ['beginparameterchangegesture',['beginParameterChangeGesture',['../class_g_u_i_plugin_connector.html#a1613005dc2e99d86ff8b221993d72201',1,'GUIPluginConnector::beginParameterChangeGesture()'],['../class_i_g_u_i_plugin_connector.html#a13279e0a85ab3c8dc55f8acced1268d0',1,'IGUIPluginConnector::beginParameterChangeGesture()']]],
+  ['beginparameterchangegesture',['beginParameterChangeGesture',['../class_g_u_i_plugin_connector.html#a1613005dc2e99d86ff8b221993d72201',1,'GUIPluginConnector::beginParameterChangeGesture()'],['../class_i_g_u_i_plugin_connector.html#a13279e0a85ab3c8dc55f8acced1268d0',1,'IGUIPluginConnector::beginParameterChangeGesture()'],['../class_g_u_i_plugin_connector.html#a1613005dc2e99d86ff8b221993d72201',1,'GUIPluginConnector::beginParameterChangeGesture()'],['../class_i_g_u_i_plugin_connector.html#a13279e0a85ab3c8dc55f8acced1268d0',1,'IGUIPluginConnector::beginParameterChangeGesture()']]],
   ['beta',['beta',['../class_z_v_a_filter.html#ac4d747eca29e19b406a441ab9563f573',1,'ZVAFilter']]],
   ['bindata',['BinData',['../struct_bin_data.html',1,'BinData'],['../class_p_s_m_vocoder.html#ac1390d01a2684d1d1256689e8c102976',1,'PSMVocoder::binData()']]],
   ['bindataprevious',['binDataPrevious',['../class_p_s_m_vocoder.html#a40ab5fc8670de8168b2b506b624723be',1,'PSMVocoder']]],

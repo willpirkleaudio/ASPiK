@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('class_log_taper_delegate.html','');});
 <p>The <a class="el" href="class_log_taper_delegate.html" title="The LogTaperDelegate object encapsulates a log parameter. Note that the standard log potentiometer in...">LogTaperDelegate</a> object encapsulates a log parameter. Note that the standard log potentiometer in electronics is actually anti-log! This is used in the construction of AAX parameters.  
  <a href="class_log_taper_delegate.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_log_taper_delegate_8h_source.html">LogTaperDelegate.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="project__source_2source_2aax__source_2_log_taper_delegate_8h_source.html">LogTaperDelegate.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for LogTaperDelegate&lt; T, RealPrecision &gt;:</div>
 <div class="dyncontent">
@@ -130,9 +130,39 @@ T&#160;</td><td class="memItemRight" valign="bottom"><b>NormalizedToReal</b> (do
 <tr class="memitem:a60094e8c9094e5d550eb288ec011c2a1"><td class="memItemLeft" align="right" valign="top"><a id="a60094e8c9094e5d550eb288ec011c2a1"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>RealToNormalized</b> (T realValue) const</td></tr>
 <tr class="separator:a60094e8c9094e5d550eb288ec011c2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af83ad4286994e2bedb087432c0bd0913"><td class="memItemLeft" align="right" valign="top"><a id="af83ad4286994e2bedb087432c0bd0913"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>LogTaperDelegate</b> (T minValue=0, T maxValue=1)</td></tr>
+<tr class="separator:af83ad4286994e2bedb087432c0bd0913"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0bcabfe77500d7bbf3a53410cfc5277"><td class="memItemLeft" align="right" valign="top"><a id="aa0bcabfe77500d7bbf3a53410cfc5277"></a>
+<a class="el" href="class_log_taper_delegate.html">LogTaperDelegate</a>&lt; T, RealPrecision &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>Clone</b> () const</td></tr>
+<tr class="separator:aa0bcabfe77500d7bbf3a53410cfc5277"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a907dc6a39b55018c4319eb056e711c2c"><td class="memItemLeft" align="right" valign="top"><a id="a907dc6a39b55018c4319eb056e711c2c"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><b>GetMinimumValue</b> () const</td></tr>
+<tr class="separator:a907dc6a39b55018c4319eb056e711c2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8724802a435a653642e6e809053b396"><td class="memItemLeft" align="right" valign="top"><a id="af8724802a435a653642e6e809053b396"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><b>GetMaximumValue</b> () const</td></tr>
+<tr class="separator:af8724802a435a653642e6e809053b396"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b719a2cfa5ec1d39705a735f722b55b"><td class="memItemLeft" align="right" valign="top"><a id="a8b719a2cfa5ec1d39705a735f722b55b"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><b>ConstrainRealValue</b> (T value) const</td></tr>
+<tr class="separator:a8b719a2cfa5ec1d39705a735f722b55b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a449b07a3b2f1c437060a8936e5ea0289"><td class="memItemLeft" align="right" valign="top"><a id="a449b07a3b2f1c437060a8936e5ea0289"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><b>NormalizedToReal</b> (double normalizedValue) const</td></tr>
+<tr class="separator:a449b07a3b2f1c437060a8936e5ea0289"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60094e8c9094e5d550eb288ec011c2a1"><td class="memItemLeft" align="right" valign="top"><a id="a60094e8c9094e5d550eb288ec011c2a1"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>RealToNormalized</b> (T realValue) const</td></tr>
+<tr class="separator:a60094e8c9094e5d550eb288ec011c2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
+<tr class="memitem:a767a71d90fd5d13d9503db6f48fa5ef9"><td class="memItemLeft" align="right" valign="top"><a id="a767a71d90fd5d13d9503db6f48fa5ef9"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><b>Round</b> (double iValue) const</td></tr>
+<tr class="separator:a767a71d90fd5d13d9503db6f48fa5ef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70f8f58298dd50dc6bce5c0c41b75690"><td class="memItemLeft" align="right" valign="top"><a id="a70f8f58298dd50dc6bce5c0c41b75690"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>calcLogParameter</b> (double fNormalizedParam) const</td></tr>
+<tr class="separator:a70f8f58298dd50dc6bce5c0c41b75690"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a725215dabd79953d59ca48611953f6a3"><td class="memItemLeft" align="right" valign="top"><a id="a725215dabd79953d59ca48611953f6a3"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>calcLogPluginValue</b> (double fPluginValue) const</td></tr>
+<tr class="separator:a725215dabd79953d59ca48611953f6a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a767a71d90fd5d13d9503db6f48fa5ef9"><td class="memItemLeft" align="right" valign="top"><a id="a767a71d90fd5d13d9503db6f48fa5ef9"></a>
 T&#160;</td><td class="memItemRight" valign="bottom"><b>Round</b> (double iValue) const</td></tr>
 <tr class="separator:a767a71d90fd5d13d9503db6f48fa5ef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -156,7 +186,7 @@ class LogTaperDelegate&lt; T, RealPrecision &gt;</h3>
 <dl class="section version"><dt>Version</dt><dd>Revision : 1.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>Date : 2018 / 09 / 7 </dd></dl>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/aax_source/<a class="el" href="_log_taper_delegate_8h_source.html">LogTaperDelegate.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/aax_source/<a class="el" href="project__source_2source_2aax__source_2_log_taper_delegate_8h_source.html">LogTaperDelegate.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('class_steinberg_1_1_vst_1_1_a_s_pi_k_1
 <p>The <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_volt_octave_parameter.html" title="The VoltOctaveParameter object encapsulates a Volt-per-Octave parameter for emulating analog synthesi...">VoltOctaveParameter</a> object encapsulates a Volt-per-Octave parameter for emulating analog synthesizer controls. Also provide a smooth linear-in-octave control for any Frequency type of continuous control.  
  <a href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_volt_octave_parameter.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="customparameters_8h_source.html">customparameters.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="project__source_2source_2vst__source_2customparameters_8h_source.html">customparameters.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Steinberg::Vst::ASPiK::VoltOctaveParameter:</div>
 <div class="dyncontent">
@@ -137,9 +137,42 @@ virtual ParamValue&#160;</td><td class="memItemRight" valign="bottom"><b>getMax<
 <tr class="memitem:a88bb905bb402a2b3288cb0945724b9a8"><td class="memItemLeft" align="right" valign="top"><a id="a88bb905bb402a2b3288cb0945724b9a8"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setMax</b> (ParamValue value)</td></tr>
 <tr class="separator:a88bb905bb402a2b3288cb0945724b9a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc500a0116971477273e7eded3cce9e1"><td class="memItemLeft" align="right" valign="top"><a id="abc500a0116971477273e7eded3cce9e1"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>VoltOctaveParameter</b> (const TChar *title, ParamID tag, const TChar *units=0, ParamValue minPlain=0., ParamValue maxPlain=1., ParamValue defaultValuePlain=0., int32 stepCount=0, int32 flags=ParameterInfo::kCanAutomate, UnitID unitID=kRootUnitId)</td></tr>
+<tr class="separator:abc500a0116971477273e7eded3cce9e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad582a03e908a2444cb43a2617e70b27a"><td class="memItemLeft" align="right" valign="top"><a id="ad582a03e908a2444cb43a2617e70b27a"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> (ParamValue normValue, String128 string) const</td></tr>
+<tr class="separator:ad582a03e908a2444cb43a2617e70b27a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e71d1c337a3454153d73290a60f8f85"><td class="memItemLeft" align="right" valign="top"><a id="a5e71d1c337a3454153d73290a60f8f85"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>fromString</b> (const TChar *string, ParamValue &amp;normValue) const</td></tr>
+<tr class="separator:a5e71d1c337a3454153d73290a60f8f85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52fd51e2606d3e9c578c07468ce3e207"><td class="memItemLeft" align="right" valign="top"><a id="a52fd51e2606d3e9c578c07468ce3e207"></a>
+virtual ParamValue&#160;</td><td class="memItemRight" valign="bottom"><b>toPlain</b> (ParamValue _valueNormalized) const</td></tr>
+<tr class="separator:a52fd51e2606d3e9c578c07468ce3e207"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6da82edafdd2d3b24ee1a55679755f63"><td class="memItemLeft" align="right" valign="top"><a id="a6da82edafdd2d3b24ee1a55679755f63"></a>
+virtual ParamValue&#160;</td><td class="memItemRight" valign="bottom"><b>toNormalized</b> (ParamValue plainValue) const</td></tr>
+<tr class="separator:a6da82edafdd2d3b24ee1a55679755f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53c3c54b8bd6f93651885b1ec3fc3ec3"><td class="memItemLeft" align="right" valign="top"><a id="a53c3c54b8bd6f93651885b1ec3fc3ec3"></a>
+virtual ParamValue&#160;</td><td class="memItemRight" valign="bottom"><b>getMin</b> () const</td></tr>
+<tr class="separator:a53c3c54b8bd6f93651885b1ec3fc3ec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88d56292d836c6f80e096f341990bb6c"><td class="memItemLeft" align="right" valign="top"><a id="a88d56292d836c6f80e096f341990bb6c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setMin</b> (ParamValue value)</td></tr>
+<tr class="separator:a88d56292d836c6f80e096f341990bb6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21c2208518e2c94204a9ba73ccefe130"><td class="memItemLeft" align="right" valign="top"><a id="a21c2208518e2c94204a9ba73ccefe130"></a>
+virtual ParamValue&#160;</td><td class="memItemRight" valign="bottom"><b>getMax</b> () const</td></tr>
+<tr class="separator:a21c2208518e2c94204a9ba73ccefe130"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88bb905bb402a2b3288cb0945724b9a8"><td class="memItemLeft" align="right" valign="top"><a id="a88bb905bb402a2b3288cb0945724b9a8"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setMax</b> (ParamValue value)</td></tr>
+<tr class="separator:a88bb905bb402a2b3288cb0945724b9a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
+<tr class="memitem:ab0ed11ed0db32ec45ce35b0d80103b4a"><td class="memItemLeft" align="right" valign="top"><a id="ab0ed11ed0db32ec45ce35b0d80103b4a"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>calcVoltOctaveParameter</b> (float fCookedParam) const</td></tr>
+<tr class="separator:ab0ed11ed0db32ec45ce35b0d80103b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b1fa2f5aac75e97b92c1c951bcdcdb5"><td class="memItemLeft" align="right" valign="top"><a id="a2b1fa2f5aac75e97b92c1c951bcdcdb5"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>calcVoltOctavePluginValue</b> (float fPluginValue) const</td></tr>
+<tr class="separator:a2b1fa2f5aac75e97b92c1c951bcdcdb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0ed11ed0db32ec45ce35b0d80103b4a"><td class="memItemLeft" align="right" valign="top"><a id="ab0ed11ed0db32ec45ce35b0d80103b4a"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>calcVoltOctaveParameter</b> (float fCookedParam) const</td></tr>
 <tr class="separator:ab0ed11ed0db32ec45ce35b0d80103b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,8 +196,8 @@ ParamValue&#160;</td><td class="memItemRight" valign="bottom"><b>maxPlain</b></t
 <dl class="section version"><dt>Version</dt><dd>Revision : 1.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>Date : 2018 / 09 / 7 </dd></dl>
 </div><hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/vst_source/<a class="el" href="customparameters_8h_source.html">customparameters.h</a></li>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/vst_source/<a class="el" href="customparameters_8cpp.html">customparameters.cpp</a></li>
+<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/vst_source/<a class="el" href="project__source_2source_2vst__source_2customparameters_8h_source.html">customparameters.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/vst_source/customparameters.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

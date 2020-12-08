@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('define_plugin4.html','');});
 </div>
 <p> <br />
  With this data set, you can now generate the C++ code and paste it into your plugin project:<br />
- <b>Bound Variable Code:</b> goes in the <a class="el" href="plugincore_8h.html" title="base class interface file for ASPiK plugincore object ">plugincore.h</a> file in the "private" area provided for your member variables; click the [Var -&gt; Clinpbaord] button to copy the code to the clipboard, then paste it into the <a class="el" href="plugincore_8h.html" title="base class interface file for ASPiK plugincore object ">plugincore.h</a> file; note that it will add a default declaration value based on the default value you declared in the GUI Code Creator app.<br />
+ <b>Bound Variable Code:</b> goes in the plugincore.h file in the "private" area provided for your member variables; click the [Var -&gt; Clinpbaord] button to copy the code to the clipboard, then paste it into the plugincore.h file; note that it will add a default declaration value based on the default value you declared in the GUI Code Creator app.<br />
 <br />
  <b>class <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a> : public <a class="el" href="class_plugin_base.html" title="The PluginBase object is the base class for the Plugin Core object. ">PluginBase</a></b><br />
  {<br />
@@ -137,7 +137,7 @@ $(document).ready(function(){initNavTree('define_plugin4.html','');});
 <img src="koder2.png" alt="koder2.png"/>
 </div>
 <p> <br />
- You can now add the bound variable to the <a class="el" href="plugincore_8h.html" title="base class interface file for ASPiK plugincore object ">plugincore.h</a> file and the parameter instantiation code to the <a class="el" href="plugincore_8cpp.html" title="Implementation file for PluginCore object. ">plugincore.cpp</a> file as before, pasting the code in sequence. First, notice how the String-List bound variable declaration resulted in two lines of code; one for the GUI control receiver variable (enableMute) and the other as a strongly typed enumeration that uses the variable name concatenated with "Enum" - this is to allow you to easily evaluate the state of the GUI control item using the built in MACROs that are listed in the SDK. You may decide to use other methods to identify the state of the receiver variable if you wish, but we use the strongly typed enumeration method in the sample code. In ASPiK, String-List controls are ALWAYS bound to variables with the <b>int</b> data-type and using the [Var -&gt; Clipboard] feature will always bind an integer type regardless of what you choose in the drop-list. <br />
+ You can now add the bound variable to the plugincore.h file and the parameter instantiation code to the plugincore.cpp file as before, pasting the code in sequence. First, notice how the String-List bound variable declaration resulted in two lines of code; one for the GUI control receiver variable (enableMute) and the other as a strongly typed enumeration that uses the variable name concatenated with "Enum" - this is to allow you to easily evaluate the state of the GUI control item using the built in MACROs that are listed in the SDK. You may decide to use other methods to identify the state of the receiver variable if you wish, but we use the strongly typed enumeration method in the sample code. In ASPiK, String-List controls are ALWAYS bound to variables with the <b>int</b> data-type and using the [Var -&gt; Clipboard] feature will always bind an integer type regardless of what you choose in the drop-list. <br />
 <br />
  <b>private:</b><br />
  &emsp;// &mdash; Continuous Plugin Variables <br />
@@ -159,7 +159,7 @@ $(document).ready(function(){initNavTree('define_plugin4.html','');});
 <img src="koder3.png" alt="koder3.png"/>
 </div>
 <p> <br />
- Once again use the [Var -&gt; Clipboard] and [Code -&gt; Clipboard] buttons to generate and paste the code into your <a class="el" href="plugincore_8h.html" title="base class interface file for ASPiK plugincore object ">plugincore.h</a> and <a class="el" href="plugincore_8cpp.html" title="Implementation file for PluginCore object. ">plugincore.cpp</a> files:<br />
+ Once again use the [Var -&gt; Clipboard] and [Code -&gt; Clipboard] buttons to generate and paste the code into your plugincore.h and plugincore.cpp files:<br />
 <br />
  <b>private:</b><br />
  &emsp;// &mdash; Continuous Plugin Variables <br />
@@ -188,7 +188,7 @@ $(document).ready(function(){initNavTree('define_plugin4.html','');});
 <img src="koder4.png" alt="koder4.png"/>
 </div>
 <p> <br />
- Once again use the [Var -&gt; Clipboard] and [Code -&gt; Clipboard] buttons to generate and paste the code into your <a class="el" href="plugincore_8h.html" title="base class interface file for ASPiK plugincore object ">plugincore.h</a> and <a class="el" href="plugincore_8cpp.html" title="Implementation file for PluginCore object. ">plugincore.cpp</a> files:<br />
+ Once again use the [Var -&gt; Clipboard] and [Code -&gt; Clipboard] buttons to generate and paste the code into your plugincore.h and plugincore.cpp files:<br />
 <br />
  <b>private:</b><br />
  &emsp;// &mdash; Continuous Plugin Variables <br />

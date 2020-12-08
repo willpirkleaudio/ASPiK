@@ -215,9 +215,6 @@ endif()
 
 # for Xcode, add info.plist variables
 if(XCODE)
-	# --- this eliminates a warning that looks suspicious when debugging but is acutally not a problem
-	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "${VST_BUNDLE_ID}")
-
 	# --- info.pList files
 	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_INFOPLIST_FILE "${CMAKE_CURRENT_LIST_DIR}/${MAC_ROOT}/Info.plist")
 	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_INFOPLIST_PREPROCESSOR_DEFINITIONS "EXECUTABLE_NAME=$(EXECUTABLE_NAME) PRODUCT_BUNDLE_IDENTIFIER=${VST_BUNDLE_ID}")
@@ -225,8 +222,8 @@ if(XCODE)
 endif()
 
 # --- add post build rule to copy VST3 icon for bundle appearance of folder
-if(SMTG_WIN)
-    set(DEFAULT_ICON_PATH ${SDK_ROOT}/doc/artwork/VST_Logo_Steinberg.ico)
+if(WIN)
+    set(DEFAULT_ICON_PATH ${SDK_ROOT}/vst3_doc/artwork/VST_Logo_Steinberg.ico)
     set(PROJECT_SOURCE_DIR ${SDK_ROOT})
     set(MSG_ICON_PATH "Path to the package icon (VST_Logo_Steinberg.ico) for Windows")
     if(EXISTS ${DEFAULT_ICON_PATH})
@@ -245,13 +242,3 @@ source_group(PluginObjects FILES ${plugin_object_sources})
 source_group(CustomVSTGUI FILES ${custom_vstgui_sources})
 source_group(VST3Core FILES ${vst_core_sources})
 source_group(VST3SDK FILES ${vstsdk_sources})
-
-# --- 3.6.13 --- This is not used anymore, but keeping the CMake script in case
-#                it comes back -- all commented out here.
-# if(WIN)
-# 	set(TARGET_PATH $<TARGET_FILE:${target}>)
-# elseif(XCODE)
-# 	set(TARGET_PATH "${VST3_OUTPUT_DIR}/${CMAKE_BUILD_TYPE}/${target}.vst3")
-# else()
-# 	set(TARGET_PATH "${VST3_OUTPUT_DIR}/${target}.vst3")
-# endif()

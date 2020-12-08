@@ -21,18 +21,19 @@ message(STATUS "")
 # ---------------------------------------------------------------------------------
 list(APPEND CMAKE_MODULE_PATH "${SDK_ROOT}/cmake/modules")
 
-include(Global)
-include(AddVST3Library)
-include(Bundle)
-include(ExportedSymbols)
-include(PrefixHeader)
-include(PlatformIOS)
-include(PlatformToolset)
-include(CoreAudioSupport)
-include(AAXSupport)
-include(VstGuiSupport)
-include(UniversalBinary)
-include(AddVST3Options)
+# --- SMTG_ prefix added with VSTSDK 3.7.1
+include(SMTG_Global)
+include(SMTG_AddVST3Library)
+include(SMTG_Bundle)
+include(SMTG_ExportedSymbols)
+include(SMTG_PrefixHeader)
+include(SMTG_PlatformIOS)
+include(SMTG_PlatformToolset)
+include(SMTG_CoreAudioSupport)
+include(SMTG_AAXSupport)
+include(SMTG_VstGuiSupport)
+include(SMTG_UniversalBinary)
+include(SMTG_AddVST3Options)
 
 # --- Setup for proper location: this is because we are inside of the SDK to be congruent with all of the other APIs
 # setupPlatformToolset()
@@ -123,6 +124,10 @@ elseif(WIN)
 	add_compile_options($<$<CONFIG:Release>:/Oy>)	# Omit Frame Pointers
 	#add_compile_options($<$<CONFIG:Release>:/Ox>)	# Optimization (/O2: Maximise Speed /0x: Full Optimization)
 endif()
+
+# --- VST SDK 3.7.1 addition for vstgui_support target
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEVELOPMENT")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DRELEASE")
 
 # --- parse sdk subfolders
 include_directories(${ROOT} ${SDK_ROOT})

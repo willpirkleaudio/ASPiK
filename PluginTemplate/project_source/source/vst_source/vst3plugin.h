@@ -44,6 +44,10 @@ class GUIPluginConnector;
 class PluginHostConnector;
 class VSTMIDIEventQueue;
 
+// static const ProgramListID kProgramListId = 1;    ///< no programs are used in the unit.
+
+
+
 /**
 \class VST3Plugin
 \ingroup VST-Shell
@@ -106,7 +110,6 @@ public:
 
 	/** helper function for serialization */
 	tresult PLUGIN_API setParamNormalizedFromFile(ParamID tag, ParamValue value);
-    tresult PLUGIN_API setParamNormalized (ParamID tag, ParamValue value) override;
 
 	/** serialize-read from file to setup the GUI parameters */
 	tresult PLUGIN_API setComponentState(IBStream* fileStream) override;
@@ -118,13 +121,14 @@ public:
 	static FUnknown* createInstance(void* context) {return (IAudioProcessor*)new VST3Plugin(); }
 
 	/** IUnitInfo */
-	bool addUnit (Unit* unit);
-    tresult PLUGIN_API getUnitInfo (int32 unitIndex, UnitInfo& info /*out*/) override;
+	//bool addUnit (Unit* unit);
 
-	/** for future compat for added programs, etc...*/
+	/** for future compat; not curently supporting program lists; only have/need Factory Presets! */
 	bool addProgramList (ProgramList* list);
 	ProgramList* getProgramList(ProgramListID listId) const;
 	tresult notifyPogramListChange(ProgramListID listId, int32 programIndex = kAllProgramInvalid);
+
+	tresult PLUGIN_API setParamNormalized (ParamID tag, ParamValue value) override;
     virtual int32 PLUGIN_API getProgramListCount() override;
 	virtual tresult PLUGIN_API getProgramListInfo(int32 listIndex, ProgramListInfo& info /*out*/) override;
 	virtual tresult PLUGIN_API getProgramName(ProgramListID listId, int32 programIndex, String128 name /*out*/) override;
@@ -504,11 +508,24 @@ public:
         if(!editController) return 0.0;
 
         Parameter* param = editController->getParameterObject(controlID);
-
         if(!param) return 0.0;
 
-       return param->getNormalized();
+        return param->getNormalized();
     }
+
+	/**  get plugin parameter as actual value */
+	virtual double getActualPluginParameter(int32_t controlID)
+	{
+		if (!editController) return 0.0;
+
+		Parameter* param = editController->getParameterObject(controlID);
+		if (!param) return 0.0;
+
+		// --- get normalized and convert
+		double normalizedValue = param->getNormalized();
+		return param->toPlain(normalizedValue);
+	}
+
 
 	/** store sub-controller's ICustomView and send message to core */
 	virtual bool registerSubcontroller(std::string subcontrollerName, ICustomView* customViewConnector)
@@ -910,7 +927,7 @@ public:
 
     virtual tresult PLUGIN_API onFocus(TBool /*state*/)  override { return kResultFalse; }
     virtual tresult PLUGIN_API setFrame(IPlugFrame* frame) override;// { plugFrame = frame; return kResultTrue; }
-    virtual tresult PLUGIN_API canResize()  override{ return kResultTrue; }
+    virtual tresult PLUGIN_API canResize()  override{ return kResultFalse /*kResultTrue*/; }
     virtual tresult PLUGIN_API checkSizeConstraint(ViewRect* rect)  override
     {
         if (showGUIEditor)

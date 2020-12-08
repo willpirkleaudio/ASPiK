@@ -138,7 +138,11 @@ bool PluginBase::processAudioBuffers(ProcessBufferInfo& processBufferInfo)
 	memset(&auxInputFrame, 0, sizeof(float)*MAX_CHANNEL_COUNT);
 	memset(&auxOutputFrame, 0, sizeof(float)*MAX_CHANNEL_COUNT);
 
+	// --- for keeping track of host buffer index
 	double sampleInterval = 1.0 / audioProcDescriptor.sampleRate;
+
+	// --- can only be enabled in VST3 hosts
+	apiSpecificInfo.enableVST3SampleAccurateAutomation = processBufferInfo.hostInfo->enableVSTSampleAccurateAutomation;
 
 	if (pluginDescriptor.processFrames)
 	{
@@ -250,7 +254,7 @@ void PluginBase::doSampleAccurateParameterUpdates()
 
 	// --- do updates
 	double value = 0;
-	bool vstSAAutomated = false;
+	bool vstSAAEnabled = wantsVST3SampleAccurateAutomation();
 	ParameterUpdateInfo vst3Update(false, true); /// false = this is NOT called from smoothing operation, true: this is a VST sample accurate update
 	vst3Update.isVSTSampleAccurateUpdate = true;
 
@@ -263,30 +267,22 @@ void PluginBase::doSampleAccurateParameterUpdates()
 		PluginParameter* piParam = smoothablePluginParameters[i];
 		if (piParam)
 		{
-			// --- VST sample accurate stuff
-			if (wantsVST3SampleAccurateAutomation())
+			// --- do smoothing: first choice is for VST SAA (VST3 hosts only)
+			if (vstSAAEnabled && piParam->getEnableVSTSampleAccurateAutomation() && piParam->getParameterUpdateQueue())
 			{
-				// --- if we get here getParameterUpdateQueue() should be non-null
-				//     NOTE you can disable sample accurate automation for each parameter when you set them up if needed
-				if (piParam->getParameterUpdateQueue() && piParam->getEnableVSTSampleAccurateAutomation())
+				if (piParam->getParameterUpdateQueue()->getNextValue(value))
 				{
-					if (piParam->getParameterUpdateQueue()->getNextValue(value))
+					piParam->setControlValueNormalized(value, false, true); // false = do not apply taper, true = ignore smoothing (not needed here)
+					// --- now update the bound variable
+					if (piParam->updateInBoundVariable())
 					{
-						piParam->setControlValueNormalized(value, false, true); // false = do not apply taper, true = ignore smoothing (not needed here)
-						vstSAAutomated = true;
-
-						// --- now update the bound variable
-						if (piParam->updateInBoundVariable())
-						{
-							vst3Update.boundVariableUpdate = true;
-						}
-						postUpdatePluginParameter(piParam->getControlID(), piParam->getControlValue(), vst3Update);
+						vst3Update.boundVariableUpdate = true;
 					}
+					postUpdatePluginParameter(piParam->getControlID(), piParam->getControlValue(), vst3Update);
 				}
 			}
-
-			// --- do smoothing, but not if we did a sample accurate automation update!
-			if (!vstSAAutomated && piParam->smoothParameterValue())
+			// --- if not already smoothed with VST, use normal smoothing
+			else if (piParam->smoothParameterValue())
 			{
 				// --- update bound variable, if there is one
 				if (piParam->updateInBoundVariable())
@@ -815,9 +811,12 @@ void PluginBase::initPluginParameterArray()
 		pluginParameterArray[i] = pluginParameters[i];
 
 		// --- how many are potentially smoothable?
-		if (pluginParameters[i]->getControlVariableType() == controlVariableType::kDouble ||
-			pluginParameters[i]->getControlVariableType() == controlVariableType::kFloat)
+		if ((pluginParameters[i]->getParameterSmoothing() || pluginParameters[i]->getEnableVSTSampleAccurateAutomation()) &&
+			(pluginParameters[i]->getControlVariableType() == controlVariableType::kDouble ||
+				pluginParameters[i]->getControlVariableType() == controlVariableType::kFloat))
+		{
 			numSmoothablePluginParameters++;
+		}
 
 		// --- how many are outbound?
 		if (pluginParameters[i]->getControlVariableType() == controlVariableType::kMeter)
@@ -834,8 +833,9 @@ void PluginBase::initPluginParameterArray()
 		smoothablePluginParameters = new PluginParameter*[numSmoothablePluginParameters];
 		for (unsigned int i = 0; i < numPluginParameters; i++)
 		{
-			if (pluginParameters[i]->getControlVariableType() == controlVariableType::kDouble ||
-				pluginParameters[i]->getControlVariableType() == controlVariableType::kFloat)
+			if ((pluginParameters[i]->getParameterSmoothing() || pluginParameters[i]->getEnableVSTSampleAccurateAutomation()) &&
+				(pluginParameters[i]->getControlVariableType() == controlVariableType::kDouble ||
+				 pluginParameters[i]->getControlVariableType() == controlVariableType::kFloat) )
 				smoothablePluginParameters[m++] = pluginParameters[i];
 		}
 	}

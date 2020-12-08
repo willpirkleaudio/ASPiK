@@ -15,6 +15,8 @@ var searchData=
   ['controlupdatereceiver',['ControlUpdateReceiver',['../class_v_s_t_g_u_i_1_1_control_update_receiver.html',1,'VSTGUI']]],
   ['createguiinfo',['CreateGUIInfo',['../struct_create_g_u_i_info.html',1,'']]],
   ['customknobview',['CustomKnobView',['../class_v_s_t_g_u_i_1_1_custom_knob_view.html',1,'VSTGUI']]],
+  ['customoptionmenu',['CustomOptionMenu',['../class_v_s_t_g_u_i_1_1_custom_option_menu.html',1,'VSTGUI']]],
+  ['customtextlabel',['CustomTextLabel',['../class_v_s_t_g_u_i_1_1_custom_text_label.html',1,'VSTGUI']]],
   ['customviewcontroller',['CustomViewController',['../class_custom_view_controller.html',1,'CustomViewController'],['../class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html',1,'Steinberg::Vst::ASPiK::CustomViewController']]],
   ['customviewmessage',['CustomViewMessage',['../struct_v_s_t_g_u_i_1_1_custom_view_message.html',1,'VSTGUI']]],
   ['cverticalsliderex',['CVerticalSliderEx',['../class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html',1,'VSTGUI']]],

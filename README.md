@@ -1,15 +1,16 @@
 # ASPiK
 
-ASPiK is an audio plugin framework for developing AAX, AU and VST3 plugins. 
+ASPiK is an audio plugin framework for developing AAX, AU and VST3 plugins designed by
+Will Pirkle https://aspikplugins.com 
 
 ## System requirements
 Supported OS:
 
 - Microsoft Windows 7-10
-- Apple OSX 10.0-10.14
+- Apple OSX 10.0-10.15
 
 Supported IDE:
-- Visual Studio 2015/2017
+- Visual Studio 2015/2017/2019 
 - minimum Xcode 8
 
 ## Contributing

@@ -99,6 +99,9 @@ Public Types</h2></td></tr>
 <tr class="memitem:a7fc0970347fa73024544a1b03b06f275"><td class="memItemLeft" align="right" valign="top"><a id="a7fc0970347fa73024544a1b03b06f275"></a>
 typedef std::make_signed&lt; std::size_t &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><b>ssize_t</b></td></tr>
 <tr class="separator:a7fc0970347fa73024544a1b03b06f275"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fc0970347fa73024544a1b03b06f275"><td class="memItemLeft" align="right" valign="top"><a id="a7fc0970347fa73024544a1b03b06f275"></a>
+typedef std::make_signed&lt; std::size_t &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><b>ssize_t</b></td></tr>
+<tr class="separator:a7fc0970347fa73024544a1b03b06f275"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -120,9 +123,27 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>signal</b> (ssize_t c
 <tr class="memitem:a937b452ab359825ee69eaf6bb0af133d"><td class="memItemLeft" align="right" valign="top"><a id="a937b452ab359825ee69eaf6bb0af133d"></a>
 ssize_t&#160;</td><td class="memItemRight" valign="bottom"><b>availableApprox</b> () const</td></tr>
 <tr class="separator:a937b452ab359825ee69eaf6bb0af133d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc9d1c9fdd20a9bc8eb0554a0c73b5bc"><td class="memItemLeft" align="right" valign="top"><a id="adc9d1c9fdd20a9bc8eb0554a0c73b5bc"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>LightweightSemaphore</b> (ssize_t initialCount=0)</td></tr>
+<tr class="separator:adc9d1c9fdd20a9bc8eb0554a0c73b5bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b68a21a86def468f6f7676162e7417a"><td class="memItemLeft" align="right" valign="top"><a id="a5b68a21a86def468f6f7676162e7417a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>tryWait</b> ()</td></tr>
+<tr class="separator:a5b68a21a86def468f6f7676162e7417a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9098a9e78b1782399c32783c4c5031a3"><td class="memItemLeft" align="right" valign="top"><a id="a9098a9e78b1782399c32783c4c5031a3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>wait</b> ()</td></tr>
+<tr class="separator:a9098a9e78b1782399c32783c4c5031a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6fe365afab6fdc47a27d216c84b9705"><td class="memItemLeft" align="right" valign="top"><a id="ac6fe365afab6fdc47a27d216c84b9705"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>wait</b> (std::int64_t timeout_usecs)</td></tr>
+<tr class="separator:ac6fe365afab6fdc47a27d216c84b9705"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7ec1057eebb1de0dd3869d66c9ac4be"><td class="memItemLeft" align="right" valign="top"><a id="ae7ec1057eebb1de0dd3869d66c9ac4be"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>signal</b> (ssize_t count=1)</td></tr>
+<tr class="separator:ae7ec1057eebb1de0dd3869d66c9ac4be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a937b452ab359825ee69eaf6bb0af133d"><td class="memItemLeft" align="right" valign="top"><a id="a937b452ab359825ee69eaf6bb0af133d"></a>
+ssize_t&#160;</td><td class="memItemRight" valign="bottom"><b>availableApprox</b> () const</td></tr>
+<tr class="separator:a937b452ab359825ee69eaf6bb0af133d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/CustomControls/<a class="el" href="atomicops_8h_source.html">atomicops.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/CustomControls/<a class="el" href="project__source_2source_2_custom_controls_2atomicops_8h_source.html">atomicops.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

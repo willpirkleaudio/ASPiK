@@ -6,35 +6,47 @@
 	<dict>
 		<key>Resources/Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
-		plgXX67quYnjtKwhZW0iEZgSeFA=
+		7L0+nIk02hhD2vsNEZKtzgY+SMg=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/MainMenu.nib</key>
 		<data>
-		hbwDwM3X+kOnfpJ5FbIkzBBUcRg=
+		PrxwCQeI0n5K1PdYOvpWkXLqvoQ=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib</key>
 		<data>
-		/tK/NzU+tgI9UvgavwisFaJsYQU=
+		3mMNjQ7W2PZLEq6hhTgxqUJD/e8=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib</key>
 		<data>
-		+OvpvEk26j5cOQXsTXAOWeVpe/E=
+		qWmaqJ9RPD35sW8mFRHlP+ZLe4w=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/qdP-AX-SPF-view-c7S-k0-uWN.nib</key>
 		<data>
-		ULXtmJRBZQ3yGZ5iGwI1SqtKlto=
+		95vRpycSFC9S+WZ8+w/VCoLmm8E=
 		</data>
-		<key>Resources/CMakeLists.txt</key>
+		<key>Resources/MVCExample.momd/MVCExample.mom</key>
 		<data>
-		1HVcxT9D2lm41ZJXYRoMsAEYRFk=
+		dAh1FYeEP2dwnYGJnCbiJHTSrwM=
 		</data>
-		<key>Resources/PluginTemplate.block</key>
+		<key>Resources/MVCExample.momd/MVCExample.omo</key>
 		<data>
-		1ds3aV5NXgE4DacFc2GxBUQx14Y=
+		3iQ12Ae0XV625QsxMDAnOWXf/Yo=
+		</data>
+		<key>Resources/MVCExample.momd/VersionInfo.plist</key>
+		<data>
+		YCMLOzqbOpf6BzQJv+psmmdp6ZQ=
 		</data>
 		<key>Resources/aspik.icns</key>
 		<data>
 		qEjjm9pnw4yeU5eyEy/Qz9TTXzA=
+		</data>
+		<key>Resources/ereiamjh</key>
+		<data>
+		dUWvIlN9xMhRSOFMO219tHatPf8=
+		</data>
+		<key>Resources/hjmaiere</key>
+		<data>
+		gMG2dLRZpRYDt7i5ARfF9mtNo2M=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -43,77 +55,88 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			plgXX67quYnjtKwhZW0iEZgSeFA=
+			7L0+nIk02hhD2vsNEZKtzgY+SMg=
 			</data>
 			<key>hash2</key>
 			<data>
-			Bvk1oyCRc6s/v/J3M45REtHYcicRwzDV4PoZ2s4cnl4=
+			bx9juqTOd6D3r//soKehbKZigcdyLk/0CKsHy0kkjKM=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/MainMenu.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			hbwDwM3X+kOnfpJ5FbIkzBBUcRg=
+			PrxwCQeI0n5K1PdYOvpWkXLqvoQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			eHRakEgpci0+GmvCRh883ao4JxXjHxq9LmOoasSXAHI=
+			4ay1YjhKcJUDTW4updkATGgTiJMPqdyJNcmmRg87ZRU=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			/tK/NzU+tgI9UvgavwisFaJsYQU=
+			3mMNjQ7W2PZLEq6hhTgxqUJD/e8=
 			</data>
 			<key>hash2</key>
 			<data>
-			tD6Q//9qzWmqgrHaGAY43JkQC9suUF0JQ6Jo1hRsRbA=
+			npixtGTnQ7iG+7CFKyjESLrj9HmRJpVNYK7WVW1ZZUQ=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+OvpvEk26j5cOQXsTXAOWeVpe/E=
+			qWmaqJ9RPD35sW8mFRHlP+ZLe4w=
 			</data>
 			<key>hash2</key>
 			<data>
-			dMQ6cCFd/q/HO2WYPx7fE8CSF8QzDjmemI8HpWLe3LE=
+			qadexFWkddVgjnN9kp3p5Ka6PuWT7rD0u3vxrv8QUQ0=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/qdP-AX-SPF-view-c7S-k0-uWN.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ULXtmJRBZQ3yGZ5iGwI1SqtKlto=
+			95vRpycSFC9S+WZ8+w/VCoLmm8E=
 			</data>
 			<key>hash2</key>
 			<data>
-			d2NX5tv9DSGWmGAwUO8zU1FRXRcyxHy+cOaLVViMVbM=
+			RlnRu7ttnboc6MSmOLf6Rtpu4/gqnx7XC78wzrBXpcg=
 			</data>
 		</dict>
-		<key>Resources/CMakeLists.txt</key>
+		<key>Resources/MVCExample.momd/MVCExample.mom</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			1HVcxT9D2lm41ZJXYRoMsAEYRFk=
+			dAh1FYeEP2dwnYGJnCbiJHTSrwM=
 			</data>
 			<key>hash2</key>
 			<data>
-			uzBi1bskqzEDtZ5kKng1LdNZ0OnjAg8KKN27R0ADnVk=
+			+s/Rh8yW7eavj/tguvanMG0NVgTSwvxgmp3UxaU73pc=
 			</data>
 		</dict>
-		<key>Resources/PluginTemplate.block</key>
+		<key>Resources/MVCExample.momd/MVCExample.omo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			1ds3aV5NXgE4DacFc2GxBUQx14Y=
+			3iQ12Ae0XV625QsxMDAnOWXf/Yo=
 			</data>
 			<key>hash2</key>
 			<data>
-			+FSbkCsUOWr9yPVSlzA9QtY8ByYKd6BMJ1CX7lzkCSU=
+			hbWOa5qP8gn7FX3z1ROhNQ/lIE2Mq8kjF93P4ZDK+4k=
+			</data>
+		</dict>
+		<key>Resources/MVCExample.momd/VersionInfo.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			YCMLOzqbOpf6BzQJv+psmmdp6ZQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			7NjCo8LXHX+tx9daX2OYtE9tNvUR8ndqfQlTvPo7oVo=
 			</data>
 		</dict>
 		<key>Resources/aspik.icns</key>
@@ -125,6 +148,28 @@
 			<key>hash2</key>
 			<data>
 			Kgbkq8LHE2YMP8lmt5DGpO9Dw8MbSo+e9C/zVSpsOks=
+			</data>
+		</dict>
+		<key>Resources/ereiamjh</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			dUWvIlN9xMhRSOFMO219tHatPf8=
+			</data>
+			<key>hash2</key>
+			<data>
+			xnu++CZNFtEVnmD6R1MUpFZEeku0kgWWtaU6AUadu+8=
+			</data>
+		</dict>
+		<key>Resources/hjmaiere</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			gMG2dLRZpRYDt7i5ARfF9mtNo2M=
+			</data>
+			<key>hash2</key>
+			<data>
+			QT4Q0P1xWhEieTqhOTs6jQqhQI6f8Lgj/juyLkxlMrc=
 			</data>
 		</dict>
 	</dict>

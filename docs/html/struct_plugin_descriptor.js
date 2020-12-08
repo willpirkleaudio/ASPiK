@@ -1,7 +1,10 @@
 var struct_plugin_descriptor =
 [
     [ "PluginDescriptor", "struct_plugin_descriptor.html#a7af716f3d482251560e858b3319cbec5", null ],
+    [ "PluginDescriptor", "struct_plugin_descriptor.html#a7af716f3d482251560e858b3319cbec5", null ],
     [ "getChannelCountForChannelIOConfig", "struct_plugin_descriptor.html#abe98bb7682583e5a61a072e39b9a7c31", null ],
+    [ "getChannelCountForChannelIOConfig", "struct_plugin_descriptor.html#abe98bb7682583e5a61a072e39b9a7c31", null ],
+    [ "getDefaultChannelIOConfigForChannelCount", "struct_plugin_descriptor.html#aa6bd169d64e4c01bf45e58e6a1f61c6e", null ],
     [ "getDefaultChannelIOConfigForChannelCount", "struct_plugin_descriptor.html#aa6bd169d64e4c01bf45e58e6a1f61c6e", null ],
     [ "hasCustomGUI", "struct_plugin_descriptor.html#a74bbdbee3288fbad938c6916ecec3120", null ],
     [ "hasSidechain", "struct_plugin_descriptor.html#adf61c75c5ac59e18f26c6b613c8335c5", null ],
@@ -13,8 +16,8 @@ var struct_plugin_descriptor =
     [ "pluginTypeCode", "struct_plugin_descriptor.html#a6fd50ad440cf773c5e3d9d4cd380304f", null ],
     [ "processFrames", "struct_plugin_descriptor.html#a6665c6a59705638c38a12c40d451ce43", null ],
     [ "shortPluginName", "struct_plugin_descriptor.html#a87b83baf99771126fdeaeb9b2c1a3f6b", null ],
-    [ "supportedAuxIOCombinations", "struct_plugin_descriptor.html#a3c99de177eb56e56adb5ca2fbd43b587", null ],
-    [ "supportedIOCombinations", "struct_plugin_descriptor.html#a552304a3df27c20fbf8abaf2e79dca59", null ],
+    [ "supportedAuxIOCombinations", "struct_plugin_descriptor.html#a37803c6907d09fd4b2def0b880a65bcd", null ],
+    [ "supportedIOCombinations", "struct_plugin_descriptor.html#a19724def6285090b3772828fb371b129", null ],
     [ "tailTimeInMSec", "struct_plugin_descriptor.html#aa380f41def0a54e6beb5b98a125bfddf", null ],
     [ "vendorName", "struct_plugin_descriptor.html#ac4df0e7370018fce062967c64f491e87", null ],
     [ "wantsMIDI", "struct_plugin_descriptor.html#ad45faf070e754821e85bd0293444c27d", null ]

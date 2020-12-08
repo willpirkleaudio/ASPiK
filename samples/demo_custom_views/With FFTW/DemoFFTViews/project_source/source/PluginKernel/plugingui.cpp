@@ -210,52 +210,52 @@ Operation:\n
 bool PluginGUI::open(UTF8StringPtr _viewName, void* parent, const std::vector<PluginParameter*>* pluginParameterPtr, const PlatformType& platformType, IGUIPluginConnector* _guiPluginConnector, void* data)
 {
 #ifdef AUPLUGIN
-    m_AU = AudioUnit(data);
+	m_AU = AudioUnit(data);
 #endif
 
-    guiPluginConnector = _guiPluginConnector;
-    viewName = _viewName;
+	guiPluginConnector = _guiPluginConnector;
+	viewName = _viewName;
 
-    if(!pluginParameterPtr)
-        return false;
+	if (!pluginParameterPtr)
+		return false;
 
-    // --- create our control list of PluginParameter*s
-    deleteGUIControlList();
-    int size = (int)pluginParameterPtr->size();
-    for(int i=0; i<size; i++)
-    {
-        PluginParameter* ctrl = new PluginParameter(*(*pluginParameterPtr)[i]);
-        pluginParameters.push_back(ctrl);
-    }
+	// --- create our control list of PluginParameter*s
+	deleteGUIControlList();
+	int size = (int)pluginParameterPtr->size();
+	for (int i = 0; i < size; i++)
+	{
+		PluginParameter* ctrl = new PluginParameter(*(*pluginParameterPtr)[i]);
+		pluginParameters.push_back(ctrl);
+	}
 
 	// --- add the preset file writer (not a plugin parameter, but a GUI parameter - does not need to be stored/refreshed
 	PluginParameter* piParam = new PluginParameter(WRITE_PRESET_FILE, "Preset", "SWITCH_OFF,SWITCH_ON", "SWITCH_OFF");
 	piParam->setIsDiscreteSwitch(true);
 	pluginParameters.push_back(piParam);
 
-    // --- set knob action
-    UIAttributes* attributes = description->getCustomAttributes("Settings", true);
-    if(attributes)
-    {
-        int32_t value = 0;
-        attributes->getIntegerAttribute("KnobAction", value);
-        knobAction = value;
-    }
+	// --- set knob action
+	UIAttributes* attributes = description->getCustomAttributes("Settings", true);
+	if (attributes)
+	{
+		int32_t value = 0;
+		attributes->getIntegerAttribute("KnobAction", value);
+		knobAction = value;
+	}
 
-    // --- GUI Designer sizing
-    attributes = description->getCustomAttributes("UIEditController", true);
-    if(attributes)
-    {
-        if(attributes->hasAttribute("EditorSize"))
-        {
-            CRect r;
-            if(attributes->getRectAttribute("EditorSize", r))
-            {
-                guiDesignerWidth = r.getWidth();
-                guiDesignerHeight = r.getHeight();
-            }
-        }
-    }
+	// --- GUI Designer sizing
+	attributes = description->getCustomAttributes("UIEditController", true);
+	if (attributes)
+	{
+		if (attributes->hasAttribute("EditorSize"))
+		{
+			CRect r;
+			if (attributes->getRectAttribute("EditorSize", r))
+			{
+				guiDesignerWidth = r.getWidth();
+				guiDesignerHeight = r.getHeight();
+			}
+		}
+	}
 
 	// --- get the GUI size for scaling purposes (bonus parameter)
 	const UIAttributes* viewAttributes = description->getViewAttributes("Editor");
@@ -273,45 +273,47 @@ bool PluginGUI::open(UTF8StringPtr _viewName, void* parent, const std::vector<Pl
 	}
 
 	// --- create empty frame
-    const CRect frameSize(0, 0, 0, 0);
+	const CRect frameSize(0, 0, 0, 0);
 	guiEditorFrame = new CFrame(frameSize, this);
 	guiEditorFrame->open(parent, platformType);
 
-    // --- save immediately so getFrame() will work
-    frame = guiEditorFrame;
+	// --- save immediately so getFrame() will work
+	frame = guiEditorFrame;
 
 	guiEditorFrame->setTransparency(true);
 	guiEditorFrame->registerMouseObserver((IMouseObserver*)this);
-    guiEditorFrame->setViewAddedRemovedObserver((IViewAddedRemovedObserver*)this);
+	guiEditorFrame->setViewAddedRemovedObserver((IViewAddedRemovedObserver*)this);
 
 #if VSTGUI_LIVE_EDITING
 	guiEditorFrame->registerKeyboardHook((IKeyboardHook*)this);
 #endif
 	guiEditorFrame->enableTooltips(true);
 
-    // --- one time API-specific inits
-    preCreateGUI();
+	// --- one time API-specific inits
+	preCreateGUI();
 
-    // --- create the views, size the frame
+	// --- create the views, size the frame
 	if (!createGUI(showGUIEditor))
 	{
 		frame->forget();
 		return false;
 	}
 
-    // --- begin timer
-    if (timer)
-    {
-        timer->setFireTime((uint32_t)GUI_METER_UPDATE_INTERVAL_MSEC);
-        timer->start();
-    }
+	// --- begin timer
+	if (timer)
+	{
+		timer->setFireTime((uint32_t)GUI_METER_UPDATE_INTERVAL_MSEC);
+		timer->start();
+	}
 
-    // --- for custom views
-    if(guiPluginConnector)
-        guiPluginConnector->guiDidOpen();
+	// --- for custom views
+	if (guiPluginConnector)
+		guiPluginConnector->guiDidOpen();
 
 	return true;
 }
+
+
 
 /**
 \brief prepares the GUI control objects for destruction, cleans up
@@ -1786,6 +1788,18 @@ CView* PluginGUI::createUserCustomView(std::string viewname, const CRect rect, I
 	{
 		// --- create our custom view
 		return new WaveView(rect, listener, tag);
+	}
+
+	if (viewname.find("ASPiK_DynamicMenu") != std::string::npos)
+	{
+		// --- create our custom view
+		return new CustomOptionMenu(rect, listener, tag);
+	}
+
+	if (viewname.find("ASPiK_DynamicLabel") != std::string::npos)
+	{
+		// --- create our custom view
+		return new CustomTextLabel(rect);
 	}
 
 	if (viewname.compare("CustomSpectrumView") == 0)

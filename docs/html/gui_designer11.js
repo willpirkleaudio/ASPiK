@@ -1,6 +1,7 @@
 var gui_designer11 =
 [
     [ "Creation & Communication", "cv1.html", null ],
+    [ "Other Built-In Custom Views", "cv1_a.html", null ],
     [ "ICustomView", "cv2.html", null ],
     [ "GUI Designer", "cv3.html", null ],
     [ "Reserved View Names", "cv3_a.html", null ],

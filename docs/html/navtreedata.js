@@ -42,11 +42,7 @@ var NAVTREE =
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
-        [ "Variables", "globals_vars.html", null ],
-        [ "Typedefs", "globals_type.html", null ],
-        [ "Enumerations", "globals_enum.html", null ],
-        [ "Enumerator", "globals_eval.html", null ],
-        [ "Macros", "globals_defs.html", null ]
+        [ "Enumerations", "globals_enum.html", null ]
       ] ]
     ] ]
   ] ]
@@ -55,20 +51,24 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"class_analog_f_i_r_filter.html#a35f344329edef969fab298a8470eab05",
-"class_fast_f_f_t.html#a3f8a3b2003fbb174a73158142dbbdf26",
-"class_linear_buffer.html#a0cc7d423d666cca46f5290304abe47d2",
-"class_plugin_host_connector.html#a46e89e1e79e8d5421142bb7d70f263ba",
-"class_plugin_parameter.html#ad62706d3fdd2f5264feac27a7cf2b4d9",
-"class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#af9cfac34db2ea2ad047d07920acb252e",
-"class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#acd2b5986707b975b87d27a573d7cfae8",
-"class_wdf_parallel_l_c.html#a3d2166a745e417942087527a3262fa60",
-"class_z_v_a_filter.html#ab0c876cbb63317bcc5fb08f686fc50ec",
-"fxobjects_8h.html#ga081ad5f14d203ceee2631ad4d212423aad1eed567f05e086008d54df3944af4ba",
-"group___constants-_enums.html#gae0f22a439757361d270d7ebd16cca80d",
-"pluginstructures_8h.html#ga52e348ed94297a3d3eb40fef52ad5729af2779c47b4e20d71f1a0b860f8e250b3",
-"struct_dynamics_processor_parameters.html#a330993654e1fd2d5f7408ba074c616ed",
-"struct_simple_delay_parameters.html#a188ecb01f390015ac9edfb95fa3c24bb"
+"class_a_u_m_i_d_i_event_queue.html#adfc292fa7f21af35556edde3e9d6f496",
+"class_custom_view_controller.html#a4f16d12734de18657508ec02725eb19c",
+"class_g_u_i_plugin_connector.html#a680760ce808b262751f99dc56fbab5d1",
+"class_l_f_o.html#a5a78519677bc0baf726f62559f6c7ea3",
+"class_plugin_base.html#a79c1d8215068baf77df3a1428b6f2e27",
+"class_plugin_parameter.html#a3537c9e590d329c7e373d2f496305520",
+"class_plugin_parameter.html#ab7320d09e6b440fef163e970f7680ae4",
+"class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_g_u_i_plugin_connector.html#aa4929de159ee83bff8208bfdb867ceee",
+"class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_volt_octave_parameter.html#a40b197740ecbf0e9687701f897c208c0",
+"class_v_s_t_g_u_i_1_1_control_update_receiver.html#abf8aeb4915138a64985a1cf2119e6f6c",
+"class_volt_octave_taper_delegate.html#a8e58a230972d2138d3b09c715d98022c",
+"class_wdf_parallel_r_c.html#a8e026a9ac558ce91b573e564ff297705",
+"classmoodycamel_1_1_reader_writer_queue.html#a517681fb05b80acdf29b9b4c0589b4cf",
+"fxobjects_8h.html#ga1c6355051e8afc378d165d649053880ea8eb8a9108907f30e9eb0be3a3520be8e",
+"group___f_x-_functions.html#ga4db9fd3dae30d14bdf0ad46b4570a57f",
+"struct_aux_parameter_attribute.html#aeb7feeb4bced0a75e0a774ac5ba58f76",
+"struct_parameter_update_info.html#aedbeddcf847d0023262ceda36a813335",
+"structmidi_event.html#ac0a1d6cdb84da2647ad2e20464bc05dc"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

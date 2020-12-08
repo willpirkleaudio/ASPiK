@@ -97,10 +97,44 @@ $(document).ready(function(){initNavTree('class_v_s_t_g_u_i_1_1_control_update_r
 <p>The <a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html" title="The ControlUpdateReceiver object is the connection mechanism between PluginParameter objects and thei...">ControlUpdateReceiver</a> object is the connection mechanism between <a class="el" href="class_plugin_parameter.html" title="The PluginParameter object stores all of the data needed for any type of plugin parameter. It is a large object, but it is not complex as it really just stores LOTS of information about plugin parameters. ">PluginParameter</a> objects and their connected GUI control objects. It was originally designed almost identically to the example code in the VSTGUI4 SDK for the VST3 version. However, once the AU, AAX, VST3 and RAFX2 APIs were consolidated, this object changed significantly. If you are interested in creating your own version, check out the VST3 files that are included with the vstgui SDK.  
  <a href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="plugingui_8h_source.html">plugingui.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="project__source_2source_2_plugin_kernel_2plugingui_8h_source.html">plugingui.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a30d02964617ef745d0b23a5260e19cf7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#a30d02964617ef745d0b23a5260e19cf7">ControlUpdateReceiver</a> (CControl *control, <a class="el" href="class_plugin_parameter.html">PluginParameter</a> *pluginParameterPtr, bool _isControlListener)</td></tr>
+<tr class="separator:a30d02964617ef745d0b23a5260e19cf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ed38dc68b9e7e071a54dd640b181af3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#a5ed38dc68b9e7e071a54dd640b181af3">~ControlUpdateReceiver</a> ()</td></tr>
+<tr class="separator:a5ed38dc68b9e7e071a54dd640b181af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53e5e8f5a9c96efb328d2192e10c9b05"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#a53e5e8f5a9c96efb328d2192e10c9b05">hasControl</a> (CControl *control)</td></tr>
+<tr class="separator:a53e5e8f5a9c96efb328d2192e10c9b05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acee40e6b686db0d72ce152ecda640408"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#acee40e6b686db0d72ce152ecda640408">addControl</a> (CControl *control)</td></tr>
+<tr class="separator:acee40e6b686db0d72ce152ecda640408"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa987f0279e74711036d1d5f6f69dc20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#afa987f0279e74711036d1d5f6f69dc20">removeControl</a> (CControl *control)</td></tr>
+<tr class="separator:afa987f0279e74711036d1d5f6f69dc20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2db92287dfac0ff84365718d59f54cdd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#a2db92287dfac0ff84365718d59f54cdd">controlInRxGroupIsEditing</a> ()</td></tr>
+<tr class="separator:a2db92287dfac0ff84365718d59f54cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8069dc7ac99d4f7318770b83acbd2ae"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#ac8069dc7ac99d4f7318770b83acbd2ae">getActualValueWithNormalizedValue</a> (float normalizedValue)</td></tr>
+<tr class="separator:ac8069dc7ac99d4f7318770b83acbd2ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab659396650bf251ee972fcde906af4a6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#ab659396650bf251ee972fcde906af4a6">getNormalizedValueWithActualValue</a> (float actualValue)</td></tr>
+<tr class="separator:ab659396650bf251ee972fcde906af4a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf362a6539503f3757aea16a44b6f66e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#aaf362a6539503f3757aea16a44b6f66e">updateControlsWithControl</a> (CControl *control)</td></tr>
+<tr class="separator:aaf362a6539503f3757aea16a44b6f66e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4c2ae36d21ca300d5b33f83c60187e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#ae4c2ae36d21ca300d5b33f83c60187e0">updateControlsWithNormalizedValue</a> (float normalizedValue, CControl *control=nullptr)</td></tr>
+<tr class="separator:ae4c2ae36d21ca300d5b33f83c60187e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf8aeb4915138a64985a1cf2119e6f6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#abf8aeb4915138a64985a1cf2119e6f6c">initControl</a> (CControl *control)</td></tr>
+<tr class="separator:abf8aeb4915138a64985a1cf2119e6f6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9289845721285040fefb7c1256803bce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#a9289845721285040fefb7c1256803bce">updateControlsWithActualValue</a> (float actualValue, CControl *control=nullptr)</td></tr>
+<tr class="separator:a9289845721285040fefb7c1256803bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fc3ce7ba91d0bf574d2aed44090cf5e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_plugin_parameter.html">PluginParameter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#a7fc3ce7ba91d0bf574d2aed44090cf5e">getGuiControl</a> ()</td></tr>
+<tr class="separator:a7fc3ce7ba91d0bf574d2aed44090cf5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ab13ccc51150869f23c72dfbbc660d9"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#a9ab13ccc51150869f23c72dfbbc660d9">getControlID</a> ()</td></tr>
+<tr class="separator:a9ab13ccc51150869f23c72dfbbc660d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc19eff97a6eeead03ffeb9f1ae452c7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#afc19eff97a6eeead03ffeb9f1ae452c7">controlAndContainerVisible</a> (CControl *ctrl)</td></tr>
+<tr class="separator:afc19eff97a6eeead03ffeb9f1ae452c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e373b930571eee11119b93c1fb32eee"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#a6e373b930571eee11119b93c1fb32eee">getControlID_WithMouseCoords</a> (const CPoint &amp;where)</td></tr>
+<tr class="separator:a6e373b930571eee11119b93c1fb32eee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a919ae068fbc20cddacd98a5c1e9c201e"><td class="memItemLeft" align="right" valign="top">CControl *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#a919ae068fbc20cddacd98a5c1e9c201e">getControl_WithMouseCoords</a> (const CPoint &amp;where)</td></tr>
+<tr class="separator:a919ae068fbc20cddacd98a5c1e9c201e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30d02964617ef745d0b23a5260e19cf7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#a30d02964617ef745d0b23a5260e19cf7">ControlUpdateReceiver</a> (CControl *control, <a class="el" href="class_plugin_parameter.html">PluginParameter</a> *pluginParameterPtr, bool _isControlListener)</td></tr>
 <tr class="separator:a30d02964617ef745d0b23a5260e19cf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ed38dc68b9e7e071a54dd640b181af3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#a5ed38dc68b9e7e071a54dd640b181af3">~ControlUpdateReceiver</a> ()</td></tr>
@@ -142,10 +176,10 @@ Protected Attributes</h2></td></tr>
 <a class="el" href="class_plugin_parameter.html">PluginParameter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#a789e8ecd9d02da70bbe9692a98061982">refGuiControl</a></td></tr>
 <tr class="memdesc:a789e8ecd9d02da70bbe9692a98061982"><td class="mdescLeft">&#160;</td><td class="mdescRight">single parameter with this control tag <br /></td></tr>
 <tr class="separator:a789e8ecd9d02da70bbe9692a98061982"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a116afd88f537c0d2415fe46bc1edfe45"><td class="memItemLeft" align="right" valign="top"><a id="a116afd88f537c0d2415fe46bc1edfe45"></a>
-std::vector&lt; CControl * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#a116afd88f537c0d2415fe46bc1edfe45">guiControls</a></td></tr>
-<tr class="memdesc:a116afd88f537c0d2415fe46bc1edfe45"><td class="mdescLeft">&#160;</td><td class="mdescRight">list of controls that share the control tag with this one <br /></td></tr>
-<tr class="separator:a116afd88f537c0d2415fe46bc1edfe45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dccbd711579ca74fb60b9e97ea34b8d"><td class="memItemLeft" align="right" valign="top"><a id="a4dccbd711579ca74fb60b9e97ea34b8d"></a>
+std::vector&lt; CControl * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#a4dccbd711579ca74fb60b9e97ea34b8d">guiControls</a></td></tr>
+<tr class="memdesc:a4dccbd711579ca74fb60b9e97ea34b8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">list of controls that share the control tag with this one <br /></td></tr>
+<tr class="separator:a4dccbd711579ca74fb60b9e97ea34b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fb86cbf5f3c0dd570091ddb06b3cb06"><td class="memItemLeft" align="right" valign="top"><a id="a7fb86cbf5f3c0dd570091ddb06b3cb06"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_control_update_receiver.html#a7fb86cbf5f3c0dd570091ddb06b3cb06">hasRefGuiControl</a> = false</td></tr>
 <tr class="memdesc:a7fb86cbf5f3c0dd570091ddb06b3cb06"><td class="mdescLeft">&#160;</td><td class="mdescRight">internal flag <br /></td></tr>
@@ -163,7 +197,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <dl class="section date"><dt>Date</dt><dd>Date : 2018 / 09 / 7 </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a30d02964617ef745d0b23a5260e19cf7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30d02964617ef745d0b23a5260e19cf7">&#9670;&nbsp;</a></span>ControlUpdateReceiver()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a30d02964617ef745d0b23a5260e19cf7">&#9670;&nbsp;</a></span>ControlUpdateReceiver() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -206,7 +240,76 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <a id="a5ed38dc68b9e7e071a54dd640b181af3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ed38dc68b9e7e071a54dd640b181af3">&#9670;&nbsp;</a></span>~ControlUpdateReceiver()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ed38dc68b9e7e071a54dd640b181af3">&#9670;&nbsp;</a></span>~ControlUpdateReceiver() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VSTGUI::ControlUpdateReceiver::~ControlUpdateReceiver </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>forgets the stored control pointers so that they self-destruct properly </p>
+
+</div>
+</div>
+<a id="a30d02964617ef745d0b23a5260e19cf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30d02964617ef745d0b23a5260e19cf7">&#9670;&nbsp;</a></span>ControlUpdateReceiver() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VSTGUI::ControlUpdateReceiver::ControlUpdateReceiver </td>
+          <td>(</td>
+          <td class="paramtype">CControl *&#160;</td>
+          <td class="paramname"><em>control</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_plugin_parameter.html">PluginParameter</a> *&#160;</td>
+          <td class="paramname"><em>pluginParameterPtr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_isControlListener</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>constructs a receiver object with the control and parameter pointers </p>
+
+</div>
+</div>
+<a id="a5ed38dc68b9e7e071a54dd640b181af3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ed38dc68b9e7e071a54dd640b181af3">&#9670;&nbsp;</a></span>~ControlUpdateReceiver() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -233,7 +336,39 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="acee40e6b686db0d72ce152ecda640408"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acee40e6b686db0d72ce152ecda640408">&#9670;&nbsp;</a></span>addControl()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acee40e6b686db0d72ce152ecda640408">&#9670;&nbsp;</a></span>addControl() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VSTGUI::ControlUpdateReceiver::addControl </td>
+          <td>(</td>
+          <td class="paramtype">CControl *&#160;</td>
+          <td class="paramname"><em>control</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>add a control to our list of GUI controls </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">control</td><td>pointer to control to add </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acee40e6b686db0d72ce152ecda640408"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acee40e6b686db0d72ce152ecda640408">&#9670;&nbsp;</a></span>addControl() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -265,7 +400,34 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <a id="afc19eff97a6eeead03ffeb9f1ae452c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc19eff97a6eeead03ffeb9f1ae452c7">&#9670;&nbsp;</a></span>controlAndContainerVisible()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afc19eff97a6eeead03ffeb9f1ae452c7">&#9670;&nbsp;</a></span>controlAndContainerVisible() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool VSTGUI::ControlUpdateReceiver::controlAndContainerVisible </td>
+          <td>(</td>
+          <td class="paramtype">CControl *&#160;</td>
+          <td class="paramname"><em>ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>test to see if control and its container are both visible, for AAX only as part of the modifier buttons exclusive to Pro Tools </p><dl class="section return"><dt>Returns</dt><dd>true if control and container are visible </dd></dl>
+
+</div>
+</div>
+<a id="afc19eff97a6eeead03ffeb9f1ae452c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc19eff97a6eeead03ffeb9f1ae452c7">&#9670;&nbsp;</a></span>controlAndContainerVisible() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -292,7 +454,33 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <a id="a2db92287dfac0ff84365718d59f54cdd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2db92287dfac0ff84365718d59f54cdd">&#9670;&nbsp;</a></span>controlInRxGroupIsEditing()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2db92287dfac0ff84365718d59f54cdd">&#9670;&nbsp;</a></span>controlInRxGroupIsEditing() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool VSTGUI::ControlUpdateReceiver::controlInRxGroupIsEditing </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>check to see if a control is currently editing; this is part of the system that prevents a control from receiving multiple edit commands from our loop </p><dl class="section return"><dt>Returns</dt><dd>true if the control is editing (being adjusted by the user - does not include automation) </dd></dl>
+
+</div>
+</div>
+<a id="a2db92287dfac0ff84365718d59f54cdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2db92287dfac0ff84365718d59f54cdd">&#9670;&nbsp;</a></span>controlInRxGroupIsEditing() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -318,7 +506,40 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <a id="ac8069dc7ac99d4f7318770b83acbd2ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8069dc7ac99d4f7318770b83acbd2ae">&#9670;&nbsp;</a></span>getActualValueWithNormalizedValue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8069dc7ac99d4f7318770b83acbd2ae">&#9670;&nbsp;</a></span>getActualValueWithNormalizedValue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VSTGUI::ControlUpdateReceiver::getActualValueWithNormalizedValue </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>normalizedValue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get actual parameter value using a normalized version </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">normalizedValue</td><td>input value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the actual value calculated from the normalized version </dd></dl>
+
+</div>
+</div>
+<a id="ac8069dc7ac99d4f7318770b83acbd2ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8069dc7ac99d4f7318770b83acbd2ae">&#9670;&nbsp;</a></span>getActualValueWithNormalizedValue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -351,7 +572,40 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <a id="a919ae068fbc20cddacd98a5c1e9c201e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a919ae068fbc20cddacd98a5c1e9c201e">&#9670;&nbsp;</a></span>getControl_WithMouseCoords()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a919ae068fbc20cddacd98a5c1e9c201e">&#9670;&nbsp;</a></span>getControl_WithMouseCoords() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CControl* VSTGUI::ControlUpdateReceiver::getControl_WithMouseCoords </td>
+          <td>(</td>
+          <td class="paramtype">const CPoint &amp;&#160;</td>
+          <td class="paramname"><em>where</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get a pointer to a control based on its mouse coordinates, for AAX only as part of the modifier buttons exclusive to Pro Tools </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">where</td><td>the mouse coordinates </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a pointer of the located control, or nullptr if not located </dd></dl>
+
+</div>
+</div>
+<a id="a919ae068fbc20cddacd98a5c1e9c201e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a919ae068fbc20cddacd98a5c1e9c201e">&#9670;&nbsp;</a></span>getControl_WithMouseCoords() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -384,7 +638,33 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <a id="a9ab13ccc51150869f23c72dfbbc660d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ab13ccc51150869f23c72dfbbc660d9">&#9670;&nbsp;</a></span>getControlID()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ab13ccc51150869f23c72dfbbc660d9">&#9670;&nbsp;</a></span>getControlID() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t VSTGUI::ControlUpdateReceiver::getControlID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get the control ID of the underlying parameter </p><dl class="section return"><dt>Returns</dt><dd>underlying control ID </dd></dl>
+
+</div>
+</div>
+<a id="a9ab13ccc51150869f23c72dfbbc660d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ab13ccc51150869f23c72dfbbc660d9">&#9670;&nbsp;</a></span>getControlID() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -410,7 +690,40 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <a id="a6e373b930571eee11119b93c1fb32eee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e373b930571eee11119b93c1fb32eee">&#9670;&nbsp;</a></span>getControlID_WithMouseCoords()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e373b930571eee11119b93c1fb32eee">&#9670;&nbsp;</a></span>getControlID_WithMouseCoords() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int VSTGUI::ControlUpdateReceiver::getControlID_WithMouseCoords </td>
+          <td>(</td>
+          <td class="paramtype">const CPoint &amp;&#160;</td>
+          <td class="paramname"><em>where</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get the ID of a control based on its mouse coordinates, for AAX only as part of the modifier buttons exclusive to Pro Tools </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">where</td><td>the mouse coordinates </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the control ID of the located control, or -1 if not located </dd></dl>
+
+</div>
+</div>
+<a id="a6e373b930571eee11119b93c1fb32eee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e373b930571eee11119b93c1fb32eee">&#9670;&nbsp;</a></span>getControlID_WithMouseCoords() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -443,7 +756,33 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <a id="a7fc3ce7ba91d0bf574d2aed44090cf5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fc3ce7ba91d0bf574d2aed44090cf5e">&#9670;&nbsp;</a></span>getGuiControl()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fc3ce7ba91d0bf574d2aed44090cf5e">&#9670;&nbsp;</a></span>getGuiControl() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_plugin_parameter.html">PluginParameter</a> VSTGUI::ControlUpdateReceiver::getGuiControl </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get a <a class="el" href="class_plugin_parameter.html" title="The PluginParameter object stores all of the data needed for any type of plugin parameter. It is a large object, but it is not complex as it really just stores LOTS of information about plugin parameters. ">PluginParameter</a> that corresponds to a GUI control NOTE: this is a constant reference that is unmutable </p><dl class="section return"><dt>Returns</dt><dd>underlying const <a class="el" href="class_plugin_parameter.html" title="The PluginParameter object stores all of the data needed for any type of plugin parameter. It is a large object, but it is not complex as it really just stores LOTS of information about plugin parameters. ">PluginParameter</a> </dd></dl>
+
+</div>
+</div>
+<a id="a7fc3ce7ba91d0bf574d2aed44090cf5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fc3ce7ba91d0bf574d2aed44090cf5e">&#9670;&nbsp;</a></span>getGuiControl() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -469,7 +808,40 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <a id="ab659396650bf251ee972fcde906af4a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab659396650bf251ee972fcde906af4a6">&#9670;&nbsp;</a></span>getNormalizedValueWithActualValue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab659396650bf251ee972fcde906af4a6">&#9670;&nbsp;</a></span>getNormalizedValueWithActualValue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VSTGUI::ControlUpdateReceiver::getNormalizedValueWithActualValue </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>actualValue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get normalized parameter value using an actual version </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">actualValue</td><td>input value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the nromalized value calculated from the actual version </dd></dl>
+
+</div>
+</div>
+<a id="ab659396650bf251ee972fcde906af4a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab659396650bf251ee972fcde906af4a6">&#9670;&nbsp;</a></span>getNormalizedValueWithActualValue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -502,7 +874,40 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <a id="a53e5e8f5a9c96efb328d2192e10c9b05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53e5e8f5a9c96efb328d2192e10c9b05">&#9670;&nbsp;</a></span>hasControl()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a53e5e8f5a9c96efb328d2192e10c9b05">&#9670;&nbsp;</a></span>hasControl() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool VSTGUI::ControlUpdateReceiver::hasControl </td>
+          <td>(</td>
+          <td class="paramtype">CControl *&#160;</td>
+          <td class="paramname"><em>control</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>check to see if a control exists in our list of GUI controls </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">control</td><td>pointer to control to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if we already store it, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a53e5e8f5a9c96efb328d2192e10c9b05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53e5e8f5a9c96efb328d2192e10c9b05">&#9670;&nbsp;</a></span>hasControl() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -535,7 +940,39 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <a id="abf8aeb4915138a64985a1cf2119e6f6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf8aeb4915138a64985a1cf2119e6f6c">&#9670;&nbsp;</a></span>initControl()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abf8aeb4915138a64985a1cf2119e6f6c">&#9670;&nbsp;</a></span>initControl() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VSTGUI::ControlUpdateReceiver::initControl </td>
+          <td>(</td>
+          <td class="paramtype">CControl *&#160;</td>
+          <td class="paramname"><em>control</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>initialize the control with the current plugin value (initialization routine) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">control</td><td>input control </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abf8aeb4915138a64985a1cf2119e6f6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf8aeb4915138a64985a1cf2119e6f6c">&#9670;&nbsp;</a></span>initControl() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -567,7 +1004,39 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <a id="afa987f0279e74711036d1d5f6f69dc20"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa987f0279e74711036d1d5f6f69dc20">&#9670;&nbsp;</a></span>removeControl()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afa987f0279e74711036d1d5f6f69dc20">&#9670;&nbsp;</a></span>removeControl() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VSTGUI::ControlUpdateReceiver::removeControl </td>
+          <td>(</td>
+          <td class="paramtype">CControl *&#160;</td>
+          <td class="paramname"><em>control</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>remove a contro from our list of GUI controls </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">control</td><td>pointer to control to check </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afa987f0279e74711036d1d5f6f69dc20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa987f0279e74711036d1d5f6f69dc20">&#9670;&nbsp;</a></span>removeControl() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -599,7 +1068,51 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <a id="a9289845721285040fefb7c1256803bce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9289845721285040fefb7c1256803bce">&#9670;&nbsp;</a></span>updateControlsWithActualValue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9289845721285040fefb7c1256803bce">&#9670;&nbsp;</a></span>updateControlsWithActualValue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VSTGUI::ControlUpdateReceiver::updateControlsWithActualValue </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>actualValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CControl *&#160;</td>
+          <td class="paramname"><em>control</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>update the control with an acutal value (e.g. from automation) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">actualValue</td><td>input value </td></tr>
+    <tr><td class="paramname">control</td><td>input control </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>ignore meters; this is handled in idle() for consistency </p>
+
+</div>
+</div>
+<a id="a9289845721285040fefb7c1256803bce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9289845721285040fefb7c1256803bce">&#9670;&nbsp;</a></span>updateControlsWithActualValue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -643,7 +1156,39 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <a id="aaf362a6539503f3757aea16a44b6f66e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf362a6539503f3757aea16a44b6f66e">&#9670;&nbsp;</a></span>updateControlsWithControl()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf362a6539503f3757aea16a44b6f66e">&#9670;&nbsp;</a></span>updateControlsWithControl() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VSTGUI::ControlUpdateReceiver::updateControlsWithControl </td>
+          <td>(</td>
+          <td class="paramtype">CControl *&#160;</td>
+          <td class="paramname"><em>control</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>update all controls that share a commmon tag (control ID) with the input control </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">control</td><td>input control </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aaf362a6539503f3757aea16a44b6f66e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf362a6539503f3757aea16a44b6f66e">&#9670;&nbsp;</a></span>updateControlsWithControl() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -675,7 +1220,50 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <a id="ae4c2ae36d21ca300d5b33f83c60187e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4c2ae36d21ca300d5b33f83c60187e0">&#9670;&nbsp;</a></span>updateControlsWithNormalizedValue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4c2ae36d21ca300d5b33f83c60187e0">&#9670;&nbsp;</a></span>updateControlsWithNormalizedValue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VSTGUI::ControlUpdateReceiver::updateControlsWithNormalizedValue </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>normalizedValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CControl *&#160;</td>
+          <td class="paramname"><em>control</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>update all controls that share a commmon tag (control ID) with the input value </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">normalizedValue</td><td>normalized input value </td></tr>
+    <tr><td class="paramname">control</td><td>input control </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae4c2ae36d21ca300d5b33f83c60187e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4c2ae36d21ca300d5b33f83c60187e0">&#9670;&nbsp;</a></span>updateControlsWithNormalizedValue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -718,7 +1306,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/PluginKernel/<a class="el" href="plugingui_8h_source.html">plugingui.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/PluginKernel/<a class="el" href="project__source_2source_2_plugin_kernel_2plugingui_8h_source.html">plugingui.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

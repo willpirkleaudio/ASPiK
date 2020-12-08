@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('class_a_u_f_x_plugin.html','');});
 <p>The <a class="el" href="class_a_u_f_x_plugin.html" title="The AUFXPlugin is the ASPiK plugin shell for Audio Units plugin. It contains the plugin kernel and al...">AUFXPlugin</a> is the ASPiK plugin shell for Audio Units plugin. It contains the plugin kernel and all necessary intefaces, implemented as separate C++ obejcts.  
  <a href="class_a_u_f_x_plugin.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="aufxplugin_8h_source.html">aufxplugin.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="project__source_2source_2au__source_2aufxplugin_8h_source.html">aufxplugin.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for AUFXPlugin:</div>
 <div class="dyncontent">
@@ -192,21 +192,80 @@ virtual Float64&#160;</td><td class="memItemRight" valign="bottom"><b>GetTailTim
 <tr class="memitem:a8e6bb3820501de08bb63848e2f64f810"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a8e6bb3820501de08bb63848e2f64f810">getAUParameter</a> (unsigned int controlID)</td></tr>
 <tr class="memdesc:a8e6bb3820501de08bb63848e2f64f810"><td class="mdescLeft">&#160;</td><td class="mdescRight">safely get a parameter value  <a href="#a8e6bb3820501de08bb63848e2f64f810">More...</a><br /></td></tr>
 <tr class="separator:a8e6bb3820501de08bb63848e2f64f810"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac07e3f7283f0c9b176005d1dde737f73"><td class="memItemLeft" align="right" valign="top"><a id="ac07e3f7283f0c9b176005d1dde737f73"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>AUFXPlugin</b> (AudioUnit component)</td></tr>
+<tr class="separator:ac07e3f7283f0c9b176005d1dde737f73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb277b37c3d0972425b8102505a4951b"><td class="memItemLeft" align="right" valign="top">virtual ComponentResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#acb277b37c3d0972425b8102505a4951b">Version</a> ()</td></tr>
+<tr class="separator:acb277b37c3d0972425b8102505a4951b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad981ba639d114aacb6e3d2410fbb6573"><td class="memItemLeft" align="right" valign="top">virtual ComponentResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#ad981ba639d114aacb6e3d2410fbb6573">Initialize</a> ()</td></tr>
+<tr class="separator:ad981ba639d114aacb6e3d2410fbb6573"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6280a25d93591a1b89db38aadaae7585"><td class="memItemLeft" align="right" valign="top">virtual OSStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a6280a25d93591a1b89db38aadaae7585">GetPropertyInfo</a> (AudioUnitPropertyID inID, AudioUnitScope nScope, AudioUnitElement inElement, UInt32 &amp;outDataSize, Boolean &amp;outWritable)</td></tr>
+<tr class="separator:a6280a25d93591a1b89db38aadaae7585"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25c7d51fcfe57fa79446ddf9e494c8a1"><td class="memItemLeft" align="right" valign="top">virtual OSStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a25c7d51fcfe57fa79446ddf9e494c8a1">GetProperty</a> (AudioUnitPropertyID inID, AudioUnitScope inScope, AudioUnitElement inElement, void *outData)</td></tr>
+<tr class="separator:a25c7d51fcfe57fa79446ddf9e494c8a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4474efe551cd5c506b675227a83cb4b9"><td class="memItemLeft" align="right" valign="top">virtual OSStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a4474efe551cd5c506b675227a83cb4b9">SetProperty</a> (AudioUnitPropertyID inID, AudioUnitScope inScope, AudioUnitElement inElement, const void *inData, UInt32 inDataSize)</td></tr>
+<tr class="separator:a4474efe551cd5c506b675227a83cb4b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9edd869a21b2098ddc4f4916711cbed0"><td class="memItemLeft" align="right" valign="top">virtual ComponentResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a9edd869a21b2098ddc4f4916711cbed0">GetParameterInfo</a> (AudioUnitScope inScope, AudioUnitParameterID inParameterID, AudioUnitParameterInfo &amp;outParameterInfo)</td></tr>
+<tr class="separator:a9edd869a21b2098ddc4f4916711cbed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bfccdb559960a1c7c19198a7a2a559f"><td class="memItemLeft" align="right" valign="top">virtual ComponentResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a5bfccdb559960a1c7c19198a7a2a559f">GetPresets</a> (CFArrayRef *outData) const</td></tr>
+<tr class="separator:a5bfccdb559960a1c7c19198a7a2a559f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b58d62704444efdc086dc6e60d27368"><td class="memItemLeft" align="right" valign="top">virtual OSStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a2b58d62704444efdc086dc6e60d27368">NewFactoryPresetSet</a> (const AUPreset &amp;inNewFactoryPreset)</td></tr>
+<tr class="separator:a2b58d62704444efdc086dc6e60d27368"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18138188ba76a06afab990085aceaf56"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a18138188ba76a06afab990085aceaf56">SupportsTail</a> ()</td></tr>
+<tr class="separator:a18138188ba76a06afab990085aceaf56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38f28e4490a5954264f4396924cb62b9"><td class="memItemLeft" align="right" valign="top"><a id="a38f28e4490a5954264f4396924cb62b9"></a>
+virtual Float64&#160;</td><td class="memItemRight" valign="bottom"><b>GetTailTime</b> ()</td></tr>
+<tr class="separator:a38f28e4490a5954264f4396924cb62b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91872cb1de8241db652693307f3ad6da"><td class="memItemLeft" align="right" valign="top">virtual Float64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a91872cb1de8241db652693307f3ad6da">GetLatency</a> ()</td></tr>
+<tr class="separator:a91872cb1de8241db652693307f3ad6da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9dc8af491d3129f12ec3c5abf843a24"><td class="memItemLeft" align="right" valign="top">virtual ComponentResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#aa9dc8af491d3129f12ec3c5abf843a24">SetParameter</a> (AudioUnitParameterID inID, AudioUnitScope inScope, AudioUnitElement inElement, AudioUnitParameterValue inValue, UInt32 inBufferOffsetInFrames)</td></tr>
+<tr class="separator:aa9dc8af491d3129f12ec3c5abf843a24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9879a5864d27afe9f6c1bc99da002ed9"><td class="memItemLeft" align="right" valign="top">virtual OSStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a9879a5864d27afe9f6c1bc99da002ed9">Render</a> (AudioUnitRenderActionFlags &amp;ioActionFlags, const AudioTimeStamp &amp;inTimeStamp, UInt32 inNumberFrames)</td></tr>
+<tr class="separator:a9879a5864d27afe9f6c1bc99da002ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc25047440a41d36d1d6444e759be6a2"><td class="memItemLeft" align="right" valign="top">virtual OSStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#abc25047440a41d36d1d6444e759be6a2">ProcessBufferLists</a> (AudioUnitRenderActionFlags &amp;ioActionFlags, const AudioBufferList &amp;inBuffer, AudioBufferList &amp;outBuffer, UInt32 inFramesToProcess)</td></tr>
+<tr class="separator:abc25047440a41d36d1d6444e759be6a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae26f64ab23d7586e223a51e983113d50"><td class="memItemLeft" align="right" valign="top">virtual ComponentResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#ae26f64ab23d7586e223a51e983113d50">Reset</a> (AudioUnitScope inScope, AudioUnitElement inElement)</td></tr>
+<tr class="separator:ae26f64ab23d7586e223a51e983113d50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fd40ddee369abc2432e71537dea5d78"><td class="memItemLeft" align="right" valign="top">virtual ComponentResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a0fd40ddee369abc2432e71537dea5d78">GetParameterValueStrings</a> (AudioUnitScope inScope, AudioUnitParameterID inParameterID, CFArrayRef *outStrings)</td></tr>
+<tr class="separator:a0fd40ddee369abc2432e71537dea5d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacbd13fa498eee252ca914d50eb27618"><td class="memItemLeft" align="right" valign="top">virtual ComponentResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#aacbd13fa498eee252ca914d50eb27618">RestoreState</a> (CFPropertyListRef inData)</td></tr>
+<tr class="separator:aacbd13fa498eee252ca914d50eb27618"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac35f4bdb5c2d84c2821e4d49cd6b629c"><td class="memItemLeft" align="right" valign="top">virtual UInt32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#ac35f4bdb5c2d84c2821e4d49cd6b629c">SupportedNumChannels</a> (const AUChannelInfo **outInfo)</td></tr>
+<tr class="separator:ac35f4bdb5c2d84c2821e4d49cd6b629c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a181b64b03f4b187917a3e0b9aae88d4b"><td class="memItemLeft" align="right" valign="top">virtual OSStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a181b64b03f4b187917a3e0b9aae88d4b">HandleNoteOn</a> (UInt8 inChannel, UInt8 inNoteNumber, UInt8 inVelocity, UInt32 inStartFrame)</td></tr>
+<tr class="separator:a181b64b03f4b187917a3e0b9aae88d4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d4e5b886494bc6aae46378841eff708"><td class="memItemLeft" align="right" valign="top">virtual OSStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a5d4e5b886494bc6aae46378841eff708">HandleNoteOff</a> (UInt8 inChannel, UInt8 inNoteNumber, UInt8 inVelocity, UInt32 inStartFrame)</td></tr>
+<tr class="separator:a5d4e5b886494bc6aae46378841eff708"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cef9e5b7f3681a62f7a03ce0dc566f0"><td class="memItemLeft" align="right" valign="top">virtual OSStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a3cef9e5b7f3681a62f7a03ce0dc566f0">HandlePitchWheel</a> (UInt8 inChannel, UInt8 inPitch1, UInt8 inPitch2, UInt32 inStartFrame)</td></tr>
+<tr class="separator:a3cef9e5b7f3681a62f7a03ce0dc566f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f08cd7b355f6a91da01f5ea40328486"><td class="memItemLeft" align="right" valign="top">virtual OSStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a5f08cd7b355f6a91da01f5ea40328486">HandleControlChange</a> (UInt8 inChannel, UInt8 inController, UInt8 inValue, UInt32 inStartFrame)</td></tr>
+<tr class="separator:a5f08cd7b355f6a91da01f5ea40328486"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcb4daffacd9022d685f5b4c0209bb7f"><td class="memItemLeft" align="right" valign="top">virtual OSStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#abcb4daffacd9022d685f5b4c0209bb7f">HandleMidiEvent</a> (UInt8 status, UInt8 channel, UInt8 data1, UInt8 data2, UInt32 inStartFrame)</td></tr>
+<tr class="separator:abcb4daffacd9022d685f5b4c0209bb7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3f1be31e6f8e128b92fe5e28ec5a332"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#ab3f1be31e6f8e128b92fe5e28ec5a332">getMyComponentDirectory</a> (CFStringRef bundleID)</td></tr>
+<tr class="memdesc:ab3f1be31e6f8e128b92fe5e28ec5a332"><td class="mdescLeft">&#160;</td><td class="mdescRight">helper function to get a path to the location where THIS library is loaded  <a href="#ab3f1be31e6f8e128b92fe5e28ec5a332">More...</a><br /></td></tr>
+<tr class="separator:ab3f1be31e6f8e128b92fe5e28ec5a332"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb0799ea21bb70fc23cfdf062af0d1fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#abb0799ea21bb70fc23cfdf062af0d1fa">setAUParameterChangeEvent</a> (unsigned int controlID, double actualValue)</td></tr>
+<tr class="memdesc:abb0799ea21bb70fc23cfdf062af0d1fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">safely issue a parameter change event  <a href="#abb0799ea21bb70fc23cfdf062af0d1fa">More...</a><br /></td></tr>
+<tr class="separator:abb0799ea21bb70fc23cfdf062af0d1fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e6bb3820501de08bb63848e2f64f810"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a8e6bb3820501de08bb63848e2f64f810">getAUParameter</a> (unsigned int controlID)</td></tr>
+<tr class="memdesc:a8e6bb3820501de08bb63848e2f64f810"><td class="mdescLeft">&#160;</td><td class="mdescRight">safely get a parameter value  <a href="#a8e6bb3820501de08bb63848e2f64f810">More...</a><br /></td></tr>
+<tr class="separator:a8e6bb3820501de08bb63848e2f64f810"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a4aedde23a700397a7ab226b122aa103c"><td class="memItemLeft" align="right" valign="top"><a id="a4aedde23a700397a7ab226b122aa103c"></a>
-<a class="el" href="class_g_u_i_plugin_connector.html">GUIPluginConnector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a4aedde23a700397a7ab226b122aa103c">guiPluginConnector</a> = nullptr</td></tr>
-<tr class="memdesc:a4aedde23a700397a7ab226b122aa103c"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUI -&gt; Plugin interface. <br /></td></tr>
-<tr class="separator:a4aedde23a700397a7ab226b122aa103c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a71177fc80b811aa59efd770c3885d3"><td class="memItemLeft" align="right" valign="top"><a id="a7a71177fc80b811aa59efd770c3885d3"></a>
-<a class="el" href="class_plugin_host_connector.html">PluginHostConnector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a7a71177fc80b811aa59efd770c3885d3">pluginHostConnector</a> = nullptr</td></tr>
-<tr class="memdesc:a7a71177fc80b811aa59efd770c3885d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plugin -&gt; Host interface. <br /></td></tr>
-<tr class="separator:a7a71177fc80b811aa59efd770c3885d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2b08d1830e3436ac7e9f082d2eaf49d"><td class="memItemLeft" align="right" valign="top"><a id="ac2b08d1830e3436ac7e9f082d2eaf49d"></a>
-<a class="el" href="class_a_u_m_i_d_i_event_queue.html">AUMIDIEventQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#ac2b08d1830e3436ac7e9f082d2eaf49d">midiEventQueue</a> = nullptr</td></tr>
-<tr class="memdesc:ac2b08d1830e3436ac7e9f082d2eaf49d"><td class="mdescLeft">&#160;</td><td class="mdescRight">double-buffered-queue for MIDI messaging <br /></td></tr>
-<tr class="separator:ac2b08d1830e3436ac7e9f082d2eaf49d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ad1208309f856f96a12fd3fd2adab46"><td class="memItemLeft" align="right" valign="top"><a id="a5ad1208309f856f96a12fd3fd2adab46"></a>
+<a class="el" href="class_g_u_i_plugin_connector.html">GUIPluginConnector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a5ad1208309f856f96a12fd3fd2adab46">guiPluginConnector</a> = nullptr</td></tr>
+<tr class="memdesc:a5ad1208309f856f96a12fd3fd2adab46"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUI -&gt; Plugin interface. <br /></td></tr>
+<tr class="separator:a5ad1208309f856f96a12fd3fd2adab46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92f0e2b4cedb356899b5ffc5e34d30ed"><td class="memItemLeft" align="right" valign="top"><a id="a92f0e2b4cedb356899b5ffc5e34d30ed"></a>
+<a class="el" href="class_plugin_host_connector.html">PluginHostConnector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a92f0e2b4cedb356899b5ffc5e34d30ed">pluginHostConnector</a> = nullptr</td></tr>
+<tr class="memdesc:a92f0e2b4cedb356899b5ffc5e34d30ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plugin -&gt; Host interface. <br /></td></tr>
+<tr class="separator:a92f0e2b4cedb356899b5ffc5e34d30ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cb805457bb9e6a87ad8ab9287789400"><td class="memItemLeft" align="right" valign="top"><a id="a0cb805457bb9e6a87ad8ab9287789400"></a>
+<a class="el" href="class_a_u_m_i_d_i_event_queue.html">AUMIDIEventQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a0cb805457bb9e6a87ad8ab9287789400">midiEventQueue</a> = nullptr</td></tr>
+<tr class="memdesc:a0cb805457bb9e6a87ad8ab9287789400"><td class="mdescLeft">&#160;</td><td class="mdescRight">double-buffered-queue for MIDI messaging <br /></td></tr>
+<tr class="separator:a0cb805457bb9e6a87ad8ab9287789400"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -222,45 +281,61 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:ae0addf6adf3d0c9ecee80da33cdfbf80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#ae0addf6adf3d0c9ecee80da33cdfbf80">updateHostInfo</a> (<a class="el" href="struct_host_info.html">HostInfo</a> *hostInfo)</td></tr>
 <tr class="memdesc:ae0addf6adf3d0c9ecee80da33cdfbf80"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the <a class="el" href="struct_host_info.html" title="Information from the host that is updated on each buffer process cycle; includes BPM, time signature, SMPTE and other data. The values in the stock structure are consistent across most APIs, however others may be added (commnted out here) ">HostInfo</a> for the core (varies by API)  <a href="#ae0addf6adf3d0c9ecee80da33cdfbf80">More...</a><br /></td></tr>
 <tr class="separator:ae0addf6adf3d0c9ecee80da33cdfbf80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec0e07aadf9c7fce69cec5623557d4ec"><td class="memItemLeft" align="right" valign="top"><a id="aec0e07aadf9c7fce69cec5623557d4ec"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#aec0e07aadf9c7fce69cec5623557d4ec">initAUParametersWithPluginCore</a> ()</td></tr>
+<tr class="memdesc:aec0e07aadf9c7fce69cec5623557d4ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">setup the AU parameter list with the plugin core's parameter list <br /></td></tr>
+<tr class="separator:aec0e07aadf9c7fce69cec5623557d4ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88712e01d39a508582782bc8ba588241"><td class="memItemLeft" align="right" valign="top"><a id="a88712e01d39a508582782bc8ba588241"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a88712e01d39a508582782bc8ba588241">updateAUParametersWithPluginCore</a> ()</td></tr>
+<tr class="memdesc:a88712e01d39a508582782bc8ba588241"><td class="mdescLeft">&#160;</td><td class="mdescRight">send parameter update info (metering, output) <br /></td></tr>
+<tr class="separator:a88712e01d39a508582782bc8ba588241"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecec1a1b9c85ca294d810fc864033578"><td class="memItemLeft" align="right" valign="top"><a id="aecec1a1b9c85ca294d810fc864033578"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#aecec1a1b9c85ca294d810fc864033578">updatePluginCoreParameters</a> ()</td></tr>
+<tr class="memdesc:aecec1a1b9c85ca294d810fc864033578"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the plugin core parameters from the AU parameters (called during each buffer process cycle) <br /></td></tr>
+<tr class="separator:aecec1a1b9c85ca294d810fc864033578"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0addf6adf3d0c9ecee80da33cdfbf80"><td class="memItemLeft" align="right" valign="top"><a id="ae0addf6adf3d0c9ecee80da33cdfbf80"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#ae0addf6adf3d0c9ecee80da33cdfbf80">updateHostInfo</a> (<a class="el" href="struct_host_info.html">HostInfo</a> *hostInfo)</td></tr>
+<tr class="memdesc:ae0addf6adf3d0c9ecee80da33cdfbf80"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the <a class="el" href="struct_host_info.html" title="Information from the host that is updated on each buffer process cycle; includes BPM, time signature, SMPTE and other data. The values in the stock structure are consistent across most APIs, however others may be added (commnted out here) ">HostInfo</a> for the core (varies by API) <br /></td></tr>
+<tr class="separator:ae0addf6adf3d0c9ecee80da33cdfbf80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a5d75f29955dc9ff29795b18114446f62"><td class="memItemLeft" align="right" valign="top"><a id="a5d75f29955dc9ff29795b18114446f62"></a>
-<a class="el" href="class_plugin_core.html">PluginCore</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a5d75f29955dc9ff29795b18114446f62">pluginCore</a> = nullptr</td></tr>
-<tr class="memdesc:a5d75f29955dc9ff29795b18114446f62"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUI the plugin core: alive for FULL lifecycle of shell. <br /></td></tr>
-<tr class="separator:a5d75f29955dc9ff29795b18114446f62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad381f0e42c0461890e4ea6bc3ae2a42b"><td class="memItemLeft" align="right" valign="top"><a id="ad381f0e42c0461890e4ea6bc3ae2a42b"></a>
+<a class="el" href="class_plugin_core.html">PluginCore</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#ad381f0e42c0461890e4ea6bc3ae2a42b">pluginCore</a> = nullptr</td></tr>
+<tr class="memdesc:ad381f0e42c0461890e4ea6bc3ae2a42b"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUI the plugin core: alive for FULL lifecycle of shell. <br /></td></tr>
+<tr class="separator:ad381f0e42c0461890e4ea6bc3ae2a42b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accc1f77ab17832ae441994ce8aaa6ede"><td class="memItemLeft" align="right" valign="top"><a id="accc1f77ab17832ae441994ce8aaa6ede"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#accc1f77ab17832ae441994ce8aaa6ede">hasSidechain</a> = false</td></tr>
 <tr class="memdesc:accc1f77ab17832ae441994ce8aaa6ede"><td class="mdescLeft">&#160;</td><td class="mdescRight">sidechain flag <br /></td></tr>
 <tr class="separator:accc1f77ab17832ae441994ce8aaa6ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a527818891143dc79c5dc534c12bfe197"><td class="memItemLeft" align="right" valign="top"><a id="a527818891143dc79c5dc534c12bfe197"></a>
-AudioBufferList *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a527818891143dc79c5dc534c12bfe197">sidechainBufferList</a> = nullptr</td></tr>
-<tr class="memdesc:a527818891143dc79c5dc534c12bfe197"><td class="mdescLeft">&#160;</td><td class="mdescRight">sidechain buffers (if active) <br /></td></tr>
-<tr class="separator:a527818891143dc79c5dc534c12bfe197"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a920c1ff7d02a74c9d0d4b2af2b8e267f"><td class="memItemLeft" align="right" valign="top"><a id="a920c1ff7d02a74c9d0d4b2af2b8e267f"></a>
+AudioBufferList *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a920c1ff7d02a74c9d0d4b2af2b8e267f">sidechainBufferList</a> = nullptr</td></tr>
+<tr class="memdesc:a920c1ff7d02a74c9d0d4b2af2b8e267f"><td class="mdescLeft">&#160;</td><td class="mdescRight">sidechain buffers (if active) <br /></td></tr>
+<tr class="separator:a920c1ff7d02a74c9d0d4b2af2b8e267f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1736b0afdfc889a67f722e270d62e0de"><td class="memItemLeft" align="right" valign="top"><a id="a1736b0afdfc889a67f722e270d62e0de"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a1736b0afdfc889a67f722e270d62e0de">sidechainChannelCount</a> = 0</td></tr>
 <tr class="memdesc:a1736b0afdfc889a67f722e270d62e0de"><td class="mdescLeft">&#160;</td><td class="mdescRight">num sidechain channels <br /></td></tr>
 <tr class="separator:a1736b0afdfc889a67f722e270d62e0de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69166b32982803e6970dc4c308d88ced"><td class="memItemLeft" align="right" valign="top"><a id="a69166b32982803e6970dc4c308d88ced"></a>
-AUChannelInfo *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a69166b32982803e6970dc4c308d88ced">auChannelInfo</a> = nullptr</td></tr>
-<tr class="memdesc:a69166b32982803e6970dc4c308d88ced"><td class="mdescLeft">&#160;</td><td class="mdescRight">the current channel information <br /></td></tr>
-<tr class="separator:a69166b32982803e6970dc4c308d88ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afab04099e15dfb670e976bc396ee8d3b"><td class="memItemLeft" align="right" valign="top"><a id="afab04099e15dfb670e976bc396ee8d3b"></a>
-float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#afab04099e15dfb670e976bc396ee8d3b">inputBuffers</a> = nullptr</td></tr>
-<tr class="memdesc:afab04099e15dfb670e976bc396ee8d3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">de-interleaved incoming audio input buffers <br /></td></tr>
-<tr class="separator:afab04099e15dfb670e976bc396ee8d3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad273fd6bc1e309a79099551d9b7dbaae"><td class="memItemLeft" align="right" valign="top"><a id="ad273fd6bc1e309a79099551d9b7dbaae"></a>
-float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#ad273fd6bc1e309a79099551d9b7dbaae">outputBuffers</a> = nullptr</td></tr>
-<tr class="memdesc:ad273fd6bc1e309a79099551d9b7dbaae"><td class="mdescLeft">&#160;</td><td class="mdescRight">de-interleaved outgoing audio output buffers <br /></td></tr>
-<tr class="separator:ad273fd6bc1e309a79099551d9b7dbaae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a209860686027804c00c614c48d78107b"><td class="memItemLeft" align="right" valign="top"><a id="a209860686027804c00c614c48d78107b"></a>
-float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a209860686027804c00c614c48d78107b">sidechainInputBuffers</a> = nullptr</td></tr>
-<tr class="memdesc:a209860686027804c00c614c48d78107b"><td class="mdescLeft">&#160;</td><td class="mdescRight">de-interleaved incoming audio sidechain buffers <br /></td></tr>
-<tr class="separator:a209860686027804c00c614c48d78107b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dba430c85c8f0981420068f2f15f22a"><td class="memItemLeft" align="right" valign="top"><a id="a6dba430c85c8f0981420068f2f15f22a"></a>
-void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a6dba430c85c8f0981420068f2f15f22a">presetsArrayData</a> = nullptr</td></tr>
-<tr class="memdesc:a6dba430c85c8f0981420068f2f15f22a"><td class="mdescLeft">&#160;</td><td class="mdescRight">contiguous memory block for persistent preset data <br /></td></tr>
-<tr class="separator:a6dba430c85c8f0981420068f2f15f22a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c16728edd9c98e5fd555b3c573c7c42"><td class="memItemLeft" align="right" valign="top"><a id="a8c16728edd9c98e5fd555b3c573c7c42"></a>
+AUChannelInfo *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a8c16728edd9c98e5fd555b3c573c7c42">auChannelInfo</a> = nullptr</td></tr>
+<tr class="memdesc:a8c16728edd9c98e5fd555b3c573c7c42"><td class="mdescLeft">&#160;</td><td class="mdescRight">the current channel information <br /></td></tr>
+<tr class="separator:a8c16728edd9c98e5fd555b3c573c7c42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77d4d078fd2e5430ea2f8d5416a6a698"><td class="memItemLeft" align="right" valign="top"><a id="a77d4d078fd2e5430ea2f8d5416a6a698"></a>
+float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a77d4d078fd2e5430ea2f8d5416a6a698">inputBuffers</a> = nullptr</td></tr>
+<tr class="memdesc:a77d4d078fd2e5430ea2f8d5416a6a698"><td class="mdescLeft">&#160;</td><td class="mdescRight">de-interleaved incoming audio input buffers <br /></td></tr>
+<tr class="separator:a77d4d078fd2e5430ea2f8d5416a6a698"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06ec390fca544a8b0ff6108194ae18d4"><td class="memItemLeft" align="right" valign="top"><a id="a06ec390fca544a8b0ff6108194ae18d4"></a>
+float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a06ec390fca544a8b0ff6108194ae18d4">outputBuffers</a> = nullptr</td></tr>
+<tr class="memdesc:a06ec390fca544a8b0ff6108194ae18d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">de-interleaved outgoing audio output buffers <br /></td></tr>
+<tr class="separator:a06ec390fca544a8b0ff6108194ae18d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a686774e22d53ae1ba2670fe9df0afec6"><td class="memItemLeft" align="right" valign="top"><a id="a686774e22d53ae1ba2670fe9df0afec6"></a>
+float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a686774e22d53ae1ba2670fe9df0afec6">sidechainInputBuffers</a> = nullptr</td></tr>
+<tr class="memdesc:a686774e22d53ae1ba2670fe9df0afec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">de-interleaved incoming audio sidechain buffers <br /></td></tr>
+<tr class="separator:a686774e22d53ae1ba2670fe9df0afec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7e87e74e59758fbf88c47e23423cbd2"><td class="memItemLeft" align="right" valign="top"><a id="ae7e87e74e59758fbf88c47e23423cbd2"></a>
+void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#ae7e87e74e59758fbf88c47e23423cbd2">presetsArrayData</a> = nullptr</td></tr>
+<tr class="memdesc:ae7e87e74e59758fbf88c47e23423cbd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">contiguous memory block for persistent preset data <br /></td></tr>
+<tr class="separator:ae7e87e74e59758fbf88c47e23423cbd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24cc998c5ead430713122ac06fa93001"><td class="memItemLeft" align="right" valign="top"><a id="a24cc998c5ead430713122ac06fa93001"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a24cc998c5ead430713122ac06fa93001">currentPreset</a> = 0</td></tr>
 <tr class="memdesc:a24cc998c5ead430713122ac06fa93001"><td class="mdescLeft">&#160;</td><td class="mdescRight">current preset's index value <br /></td></tr>
@@ -268,9 +343,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <tr class="memitem:a35dcac17f8b9ef64d0f44dc38f494208"><td class="memItemLeft" align="right" valign="top">Float64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_f_x_plugin.html#a35dcac17f8b9ef64d0f44dc38f494208">latencyInSeconds</a> = 0</td></tr>
 <tr class="memdesc:a35dcac17f8b9ef64d0f44dc38f494208"><td class="mdescLeft">&#160;</td><td class="mdescRight">au latency (seconds!)  <a href="#a35dcac17f8b9ef64d0f44dc38f494208">More...</a><br /></td></tr>
 <tr class="separator:a35dcac17f8b9ef64d0f44dc38f494208"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47de92dec026f846456752ef1d240067"><td class="memItemLeft" align="right" valign="top"><a id="a47de92dec026f846456752ef1d240067"></a>
+<tr class="memitem:a5a92d8ccbcb2e64b16a3f6e76ea69de4"><td class="memItemLeft" align="right" valign="top"><a id="a5a92d8ccbcb2e64b16a3f6e76ea69de4"></a>
 <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html">VSTGUI::PluginGUI</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pluginGUI</b> = nullptr</td></tr>
-<tr class="separator:a47de92dec026f846456752ef1d240067"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a5a92d8ccbcb2e64b16a3f6e76ea69de4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="class_a_u_f_x_plugin.html" title="The AUFXPlugin is the ASPiK plugin shell for Audio Units plugin. It contains the plugin kernel and al...">AUFXPlugin</a> is the ASPiK plugin shell for Audio Units plugin. It contains the plugin kernel and all necessary intefaces, implemented as separate C++ obejcts. </p>
@@ -335,7 +410,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a8e6bb3820501de08bb63848e2f64f810"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e6bb3820501de08bb63848e2f64f810">&#9670;&nbsp;</a></span>getAUParameter()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e6bb3820501de08bb63848e2f64f810">&#9670;&nbsp;</a></span>getAUParameter() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -369,8 +444,61 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
+<a id="a8e6bb3820501de08bb63848e2f64f810"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e6bb3820501de08bb63848e2f64f810">&#9670;&nbsp;</a></span>getAUParameter() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double AUFXPlugin::getAUParameter </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>controlID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>safely get a parameter value </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">controlID</td><td>the AU parameter identifier (same as <a class="el" href="class_plugin_parameter.html" title="The PluginParameter object stores all of the data needed for any type of plugin parameter. It is a large object, but it is not complex as it really just stores LOTS of information about plugin parameters. ">PluginParameter</a>'s controlID)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the parameter's actualValue </dd></dl>
+
+</div>
+</div>
 <a id="a91872cb1de8241db652693307f3ad6da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91872cb1de8241db652693307f3ad6da">&#9670;&nbsp;</a></span>GetLatency()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a91872cb1de8241db652693307f3ad6da">&#9670;&nbsp;</a></span>GetLatency() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Float64 AUFXPlugin::GetLatency </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AU override method </p>
+
+</div>
+</div>
+<a id="a91872cb1de8241db652693307f3ad6da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91872cb1de8241db652693307f3ad6da">&#9670;&nbsp;</a></span>GetLatency() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -396,7 +524,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div>
 </div>
 <a id="ab3f1be31e6f8e128b92fe5e28ec5a332"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3f1be31e6f8e128b92fe5e28ec5a332">&#9670;&nbsp;</a></span>getMyComponentDirectory()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3f1be31e6f8e128b92fe5e28ec5a332">&#9670;&nbsp;</a></span>getMyComponentDirectory() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -430,8 +558,86 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
+<a id="ab3f1be31e6f8e128b92fe5e28ec5a332"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3f1be31e6f8e128b92fe5e28ec5a332">&#9670;&nbsp;</a></span>getMyComponentDirectory() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* AUFXPlugin::getMyComponentDirectory </td>
+          <td>(</td>
+          <td class="paramtype">CFStringRef&#160;</td>
+          <td class="paramname"><em>bundleID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>helper function to get a path to the location where THIS library is loaded </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bundleID</td><td>the bundle ID as a string</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the path as a simple, naked char* </dd></dl>
+
+</div>
+</div>
+<a id="a9edd869a21b2098ddc4f4916711cbed0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9edd869a21b2098ddc4f4916711cbed0">&#9670;&nbsp;</a></span>GetParameterInfo() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ComponentResult AUFXPlugin::GetParameterInfo </td>
+          <td>(</td>
+          <td class="paramtype">AudioUnitScope&#160;</td>
+          <td class="paramname"><em>inScope</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AudioUnitParameterID&#160;</td>
+          <td class="paramname"><em>inParameterID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AudioUnitParameterInfo &amp;&#160;</td>
+          <td class="paramname"><em>outParameterInfo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AU override method </p>
+
+</div>
+</div>
 <a id="a0c1c640ef2684e3e2a752fffd0b8c1ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c1c640ef2684e3e2a752fffd0b8c1ee">&#9670;&nbsp;</a></span>GetParameterInfo()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c1c640ef2684e3e2a752fffd0b8c1ee">&#9670;&nbsp;</a></span>GetParameterInfo() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -482,7 +688,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div>
 </div>
 <a id="aa0ad4bd7f66f990ddedbc1b55c8b810c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0ad4bd7f66f990ddedbc1b55c8b810c">&#9670;&nbsp;</a></span>GetParameterValueStrings()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0ad4bd7f66f990ddedbc1b55c8b810c">&#9670;&nbsp;</a></span>GetParameterValueStrings() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -533,8 +739,78 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
+<a id="a0fd40ddee369abc2432e71537dea5d78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fd40ddee369abc2432e71537dea5d78">&#9670;&nbsp;</a></span>GetParameterValueStrings() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ComponentResult AUFXPlugin::GetParameterValueStrings </td>
+          <td>(</td>
+          <td class="paramtype">AudioUnitScope&#160;</td>
+          <td class="paramname"><em>inScope</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AudioUnitParameterID&#160;</td>
+          <td class="paramname"><em>inParameterID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CFArrayRef *&#160;</td>
+          <td class="paramname"><em>outStrings</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AU override method </p>
+
+</div>
+</div>
+<a id="a5bfccdb559960a1c7c19198a7a2a559f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bfccdb559960a1c7c19198a7a2a559f">&#9670;&nbsp;</a></span>GetPresets() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ComponentResult AUFXPlugin::GetPresets </td>
+          <td>(</td>
+          <td class="paramtype">CFArrayRef *&#160;</td>
+          <td class="paramname"><em>outData</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AU override method </p>
+
+</div>
+</div>
 <a id="aa3a495a2be90e39d85a56a2b8685e898"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3a495a2be90e39d85a56a2b8685e898">&#9670;&nbsp;</a></span>GetPresets()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3a495a2be90e39d85a56a2b8685e898">&#9670;&nbsp;</a></span>GetPresets() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -567,8 +843,57 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
+<a id="a25c7d51fcfe57fa79446ddf9e494c8a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25c7d51fcfe57fa79446ddf9e494c8a1">&#9670;&nbsp;</a></span>GetProperty() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual OSStatus AUFXPlugin::GetProperty </td>
+          <td>(</td>
+          <td class="paramtype">AudioUnitPropertyID&#160;</td>
+          <td class="paramname"><em>inID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AudioUnitScope&#160;</td>
+          <td class="paramname"><em>inScope</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AudioUnitElement&#160;</td>
+          <td class="paramname"><em>inElement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>outData</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AU override method </p>
+
+</div>
+</div>
 <a id="aa9c4af382b4719a5aef6d7913826892a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9c4af382b4719a5aef6d7913826892a">&#9670;&nbsp;</a></span>GetProperty()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9c4af382b4719a5aef6d7913826892a">&#9670;&nbsp;</a></span>GetProperty() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -623,8 +948,63 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
+<a id="a6280a25d93591a1b89db38aadaae7585"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6280a25d93591a1b89db38aadaae7585">&#9670;&nbsp;</a></span>GetPropertyInfo() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual OSStatus AUFXPlugin::GetPropertyInfo </td>
+          <td>(</td>
+          <td class="paramtype">AudioUnitPropertyID&#160;</td>
+          <td class="paramname"><em>inID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AudioUnitScope&#160;</td>
+          <td class="paramname"><em>nScope</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AudioUnitElement&#160;</td>
+          <td class="paramname"><em>inElement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UInt32 &amp;&#160;</td>
+          <td class="paramname"><em>outDataSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Boolean &amp;&#160;</td>
+          <td class="paramname"><em>outWritable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AU override method </p>
+
+</div>
+</div>
 <a id="a7f32c53c173d95d653f6c14e7ac23012"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f32c53c173d95d653f6c14e7ac23012">&#9670;&nbsp;</a></span>GetPropertyInfo()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f32c53c173d95d653f6c14e7ac23012">&#9670;&nbsp;</a></span>GetPropertyInfo() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -686,7 +1066,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div>
 </div>
 <a id="a718c8e40cc9971561628ce426299d23e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a718c8e40cc9971561628ce426299d23e">&#9670;&nbsp;</a></span>HandleControlChange()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a718c8e40cc9971561628ce426299d23e">&#9670;&nbsp;</a></span>HandleControlChange() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -741,8 +1121,57 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
+<a id="a5f08cd7b355f6a91da01f5ea40328486"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f08cd7b355f6a91da01f5ea40328486">&#9670;&nbsp;</a></span>HandleControlChange() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual OSStatus AUFXPlugin::HandleControlChange </td>
+          <td>(</td>
+          <td class="paramtype">UInt8&#160;</td>
+          <td class="paramname"><em>inChannel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UInt8&#160;</td>
+          <td class="paramname"><em>inController</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UInt8&#160;</td>
+          <td class="paramname"><em>inValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UInt32&#160;</td>
+          <td class="paramname"><em>inStartFrame</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AU override method </p>
+
+</div>
+</div>
 <a id="a590f1c40fcefdee02e526f07a0cc31bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a590f1c40fcefdee02e526f07a0cc31bc">&#9670;&nbsp;</a></span>HandleMidiEvent()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a590f1c40fcefdee02e526f07a0cc31bc">&#9670;&nbsp;</a></span>HandleMidiEvent() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -803,8 +1232,63 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
+<a id="abcb4daffacd9022d685f5b4c0209bb7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcb4daffacd9022d685f5b4c0209bb7f">&#9670;&nbsp;</a></span>HandleMidiEvent() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual OSStatus AUFXPlugin::HandleMidiEvent </td>
+          <td>(</td>
+          <td class="paramtype">UInt8&#160;</td>
+          <td class="paramname"><em>status</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UInt8&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UInt8&#160;</td>
+          <td class="paramname"><em>data1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UInt8&#160;</td>
+          <td class="paramname"><em>data2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UInt32&#160;</td>
+          <td class="paramname"><em>inStartFrame</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AU override method </p>
+
+</div>
+</div>
 <a id="a89f3dc7a454756b89ffd6b47ef5a7965"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89f3dc7a454756b89ffd6b47ef5a7965">&#9670;&nbsp;</a></span>HandleNoteOff()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a89f3dc7a454756b89ffd6b47ef5a7965">&#9670;&nbsp;</a></span>HandleNoteOff() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -859,8 +1343,57 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
+<a id="a5d4e5b886494bc6aae46378841eff708"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d4e5b886494bc6aae46378841eff708">&#9670;&nbsp;</a></span>HandleNoteOff() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual OSStatus AUFXPlugin::HandleNoteOff </td>
+          <td>(</td>
+          <td class="paramtype">UInt8&#160;</td>
+          <td class="paramname"><em>inChannel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UInt8&#160;</td>
+          <td class="paramname"><em>inNoteNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UInt8&#160;</td>
+          <td class="paramname"><em>inVelocity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UInt32&#160;</td>
+          <td class="paramname"><em>inStartFrame</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AU override method </p>
+
+</div>
+</div>
 <a id="a95a57b923ef0b6df716d088f8dec7e99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95a57b923ef0b6df716d088f8dec7e99">&#9670;&nbsp;</a></span>HandleNoteOn()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a95a57b923ef0b6df716d088f8dec7e99">&#9670;&nbsp;</a></span>HandleNoteOn() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -915,8 +1448,106 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
+<a id="a181b64b03f4b187917a3e0b9aae88d4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a181b64b03f4b187917a3e0b9aae88d4b">&#9670;&nbsp;</a></span>HandleNoteOn() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual OSStatus AUFXPlugin::HandleNoteOn </td>
+          <td>(</td>
+          <td class="paramtype">UInt8&#160;</td>
+          <td class="paramname"><em>inChannel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UInt8&#160;</td>
+          <td class="paramname"><em>inNoteNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UInt8&#160;</td>
+          <td class="paramname"><em>inVelocity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UInt32&#160;</td>
+          <td class="paramname"><em>inStartFrame</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AU override method </p>
+
+</div>
+</div>
+<a id="a3cef9e5b7f3681a62f7a03ce0dc566f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cef9e5b7f3681a62f7a03ce0dc566f0">&#9670;&nbsp;</a></span>HandlePitchWheel() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual OSStatus AUFXPlugin::HandlePitchWheel </td>
+          <td>(</td>
+          <td class="paramtype">UInt8&#160;</td>
+          <td class="paramname"><em>inChannel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UInt8&#160;</td>
+          <td class="paramname"><em>inPitch1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UInt8&#160;</td>
+          <td class="paramname"><em>inPitch2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UInt32&#160;</td>
+          <td class="paramname"><em>inStartFrame</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AU override method </p>
+
+</div>
+</div>
 <a id="adec70f4fe3714b69e0eb0865c577ab4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adec70f4fe3714b69e0eb0865c577ab4c">&#9670;&nbsp;</a></span>HandlePitchWheel()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adec70f4fe3714b69e0eb0865c577ab4c">&#9670;&nbsp;</a></span>HandlePitchWheel() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -999,8 +1630,34 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
+<a id="ad981ba639d114aacb6e3d2410fbb6573"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad981ba639d114aacb6e3d2410fbb6573">&#9670;&nbsp;</a></span>Initialize() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ComponentResult AUFXPlugin::Initialize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AU override method </p>
+
+</div>
+</div>
 <a id="ac2640d8b7f76eaea2600665abc795892"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2640d8b7f76eaea2600665abc795892">&#9670;&nbsp;</a></span>Initialize()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2640d8b7f76eaea2600665abc795892">&#9670;&nbsp;</a></span>Initialize() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1036,7 +1693,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div>
 </div>
 <a id="af4977b1f0229966ddbb6f85dd633782a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4977b1f0229966ddbb6f85dd633782a">&#9670;&nbsp;</a></span>NewFactoryPresetSet()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af4977b1f0229966ddbb6f85dd633782a">&#9670;&nbsp;</a></span>NewFactoryPresetSet() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1069,8 +1726,84 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
+<a id="a2b58d62704444efdc086dc6e60d27368"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b58d62704444efdc086dc6e60d27368">&#9670;&nbsp;</a></span>NewFactoryPresetSet() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual OSStatus AUFXPlugin::NewFactoryPresetSet </td>
+          <td>(</td>
+          <td class="paramtype">const AUPreset &amp;&#160;</td>
+          <td class="paramname"><em>inNewFactoryPreset</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AU override method </p>
+
+</div>
+</div>
+<a id="abc25047440a41d36d1d6444e759be6a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc25047440a41d36d1d6444e759be6a2">&#9670;&nbsp;</a></span>ProcessBufferLists() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual OSStatus AUFXPlugin::ProcessBufferLists </td>
+          <td>(</td>
+          <td class="paramtype">AudioUnitRenderActionFlags &amp;&#160;</td>
+          <td class="paramname"><em>ioActionFlags</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const AudioBufferList &amp;&#160;</td>
+          <td class="paramname"><em>inBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AudioBufferList &amp;&#160;</td>
+          <td class="paramname"><em>outBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UInt32&#160;</td>
+          <td class="paramname"><em>inFramesToProcess</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AU override method </p>
+
+</div>
+</div>
 <a id="a3169f4a9b2f3b81d52915d1119306717"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3169f4a9b2f3b81d52915d1119306717">&#9670;&nbsp;</a></span>ProcessBufferLists()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3169f4a9b2f3b81d52915d1119306717">&#9670;&nbsp;</a></span>ProcessBufferLists() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1126,8 +1859,51 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
+<a id="a9879a5864d27afe9f6c1bc99da002ed9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9879a5864d27afe9f6c1bc99da002ed9">&#9670;&nbsp;</a></span>Render() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual OSStatus AUFXPlugin::Render </td>
+          <td>(</td>
+          <td class="paramtype">AudioUnitRenderActionFlags &amp;&#160;</td>
+          <td class="paramname"><em>ioActionFlags</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const AudioTimeStamp &amp;&#160;</td>
+          <td class="paramname"><em>inTimeStamp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UInt32&#160;</td>
+          <td class="paramname"><em>inNumberFrames</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AU override method </p>
+
+</div>
+</div>
 <a id="a2992e25131953f249cde7d1e29cd5dfb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2992e25131953f249cde7d1e29cd5dfb">&#9670;&nbsp;</a></span>Render()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2992e25131953f249cde7d1e29cd5dfb">&#9670;&nbsp;</a></span>Render() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1177,8 +1953,45 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
+<a id="ae26f64ab23d7586e223a51e983113d50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae26f64ab23d7586e223a51e983113d50">&#9670;&nbsp;</a></span>Reset() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ComponentResult AUFXPlugin::Reset </td>
+          <td>(</td>
+          <td class="paramtype">AudioUnitScope&#160;</td>
+          <td class="paramname"><em>inScope</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AudioUnitElement&#160;</td>
+          <td class="paramname"><em>inElement</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AU override method </p>
+
+</div>
+</div>
 <a id="a0645b76eeb65d604ef47b633e8748f0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0645b76eeb65d604ef47b633e8748f0a">&#9670;&nbsp;</a></span>Reset()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0645b76eeb65d604ef47b633e8748f0a">&#9670;&nbsp;</a></span>Reset() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1224,7 +2037,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div>
 </div>
 <a id="ad9ebb3fb99e2c4609737a60eb1762abb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9ebb3fb99e2c4609737a60eb1762abb">&#9670;&nbsp;</a></span>RestoreState()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9ebb3fb99e2c4609737a60eb1762abb">&#9670;&nbsp;</a></span>RestoreState() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1258,8 +2071,72 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
+<a id="aacbd13fa498eee252ca914d50eb27618"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacbd13fa498eee252ca914d50eb27618">&#9670;&nbsp;</a></span>RestoreState() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ComponentResult AUFXPlugin::RestoreState </td>
+          <td>(</td>
+          <td class="paramtype">CFPropertyListRef&#160;</td>
+          <td class="paramname"><em>inData</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AU override method </p>
+
+</div>
+</div>
 <a id="abb0799ea21bb70fc23cfdf062af0d1fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb0799ea21bb70fc23cfdf062af0d1fa">&#9670;&nbsp;</a></span>setAUParameterChangeEvent()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abb0799ea21bb70fc23cfdf062af0d1fa">&#9670;&nbsp;</a></span>setAUParameterChangeEvent() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AUFXPlugin::setAUParameterChangeEvent </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>controlID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>actualValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>safely issue a parameter change event </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">controlID</td><td>the AU parameter identifier (same as <a class="el" href="class_plugin_parameter.html" title="The PluginParameter object stores all of the data needed for any type of plugin parameter. It is a large object, but it is not complex as it really just stores LOTS of information about plugin parameters. ">PluginParameter</a>'s controlID) </td></tr>
+    <tr><td class="paramname">actualValue</td><td>the value to set </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abb0799ea21bb70fc23cfdf062af0d1fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb0799ea21bb70fc23cfdf062af0d1fa">&#9670;&nbsp;</a></span>setAUParameterChangeEvent() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1301,7 +2178,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div>
 </div>
 <a id="a4f1171baf922ce12e1a3d3a38361442a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f1171baf922ce12e1a3d3a38361442a">&#9670;&nbsp;</a></span>SetParameter()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f1171baf922ce12e1a3d3a38361442a">&#9670;&nbsp;</a></span>SetParameter() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1363,8 +2240,118 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
+<a id="aa9dc8af491d3129f12ec3c5abf843a24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9dc8af491d3129f12ec3c5abf843a24">&#9670;&nbsp;</a></span>SetParameter() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ComponentResult AUFXPlugin::SetParameter </td>
+          <td>(</td>
+          <td class="paramtype">AudioUnitParameterID&#160;</td>
+          <td class="paramname"><em>inID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AudioUnitScope&#160;</td>
+          <td class="paramname"><em>inScope</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AudioUnitElement&#160;</td>
+          <td class="paramname"><em>inElement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AudioUnitParameterValue&#160;</td>
+          <td class="paramname"><em>inValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UInt32&#160;</td>
+          <td class="paramname"><em>inBufferOffsetInFrames</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AU override method </p>
+
+</div>
+</div>
+<a id="a4474efe551cd5c506b675227a83cb4b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4474efe551cd5c506b675227a83cb4b9">&#9670;&nbsp;</a></span>SetProperty() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual OSStatus AUFXPlugin::SetProperty </td>
+          <td>(</td>
+          <td class="paramtype">AudioUnitPropertyID&#160;</td>
+          <td class="paramname"><em>inID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AudioUnitScope&#160;</td>
+          <td class="paramname"><em>inScope</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AudioUnitElement&#160;</td>
+          <td class="paramname"><em>inElement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>inData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UInt32&#160;</td>
+          <td class="paramname"><em>inDataSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AU override method </p>
+
+</div>
+</div>
 <a id="a9a55d547f888ce83f22c88f87a8c62d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a55d547f888ce83f22c88f87a8c62d0">&#9670;&nbsp;</a></span>SetProperty()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a55d547f888ce83f22c88f87a8c62d0">&#9670;&nbsp;</a></span>SetProperty() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1426,7 +2413,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div>
 </div>
 <a id="a475c630998dd8fdba3292549b173eac0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a475c630998dd8fdba3292549b173eac0">&#9670;&nbsp;</a></span>SupportedNumChannels()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a475c630998dd8fdba3292549b173eac0">&#9670;&nbsp;</a></span>SupportedNumChannels() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1461,8 +2448,62 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
+<a id="ac35f4bdb5c2d84c2821e4d49cd6b629c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac35f4bdb5c2d84c2821e4d49cd6b629c">&#9670;&nbsp;</a></span>SupportedNumChannels() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual UInt32 AUFXPlugin::SupportedNumChannels </td>
+          <td>(</td>
+          <td class="paramtype">const AUChannelInfo **&#160;</td>
+          <td class="paramname"><em>outInfo</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AU override method </p>
+
+</div>
+</div>
 <a id="a18138188ba76a06afab990085aceaf56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18138188ba76a06afab990085aceaf56">&#9670;&nbsp;</a></span>SupportsTail()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a18138188ba76a06afab990085aceaf56">&#9670;&nbsp;</a></span>SupportsTail() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool AUFXPlugin::SupportsTail </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AU override method reply to host query</p>
+<dl class="section return"><dt>Returns</dt><dd>TRUE if plugin core wants a tail </dd></dl>
+
+</div>
+</div>
+<a id="a18138188ba76a06afab990085aceaf56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18138188ba76a06afab990085aceaf56">&#9670;&nbsp;</a></span>SupportsTail() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1581,7 +2622,33 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div>
 </div>
 <a id="acb277b37c3d0972425b8102505a4951b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb277b37c3d0972425b8102505a4951b">&#9670;&nbsp;</a></span>Version()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acb277b37c3d0972425b8102505a4951b">&#9670;&nbsp;</a></span>Version() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ComponentResult AUFXPlugin::Version </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AU override method </p>
+
+</div>
+</div>
+<a id="acb277b37c3d0972425b8102505a4951b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb277b37c3d0972425b8102505a4951b">&#9670;&nbsp;</a></span>Version() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1633,8 +2700,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/au_source/<a class="el" href="aufxplugin_8h_source.html">aufxplugin.h</a></li>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/au_source/<a class="el" href="aufxplugin_8cpp.html">aufxplugin.cpp</a></li>
+<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/au_source/<a class="el" href="project__source_2source_2au__source_2aufxplugin_8h_source.html">aufxplugin.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/au_source/aufxplugin.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

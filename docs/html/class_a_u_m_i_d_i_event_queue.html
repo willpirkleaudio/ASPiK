@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('class_a_u_m_i_d_i_event_queue.html',''
 <p>The <a class="el" href="class_a_u_m_i_d_i_event_queue.html" title="The AUMIDIEventQueue interface queues incoming MIDI messages and blasts them out during the buffer pr...">AUMIDIEventQueue</a> interface queues incoming MIDI messages and blasts them out during the buffer processing phase.  
  <a href="class_a_u_m_i_d_i_event_queue.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="aufxplugin_8h_source.html">aufxplugin.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="project__source_2source_2au__source_2aufxplugin_8h_source.html">aufxplugin.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for AUMIDIEventQueue:</div>
 <div class="dyncontent">
@@ -106,6 +106,8 @@ Inheritance diagram for AUMIDIEventQueue:</div>
   <map id="AUMIDIEventQueue_map" name="AUMIDIEventQueue_map">
 <area href="class_i_midi_event_queue.html" title="Double buffered queue for MIDI messages. " alt="IMidiEventQueue" shape="rect" coords="0,0,125,24"/>
 <area href="class_i_midi_event_queue.html" title="Double buffered queue for MIDI messages. " alt="IMidiEventQueue" shape="rect" coords="135,0,260,24"/>
+<area href="class_i_midi_event_queue.html" title="Double buffered queue for MIDI messages. " alt="IMidiEventQueue" shape="rect" coords="270,0,395,24"/>
+<area href="class_i_midi_event_queue.html" title="Double buffered queue for MIDI messages. " alt="IMidiEventQueue" shape="rect" coords="405,0,530,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -147,7 +149,45 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2a92b0d116ef7e78ba2521d559aa9f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcb3586e768a6c8b13f6b0835c9cc251"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_m_i_d_i_event_queue.html#abcb3586e768a6c8b13f6b0835c9cc251">fireMidiEvents</a> (unsigned int sampleOffset)</td></tr>
 <tr class="separator:abcb3586e768a6c8b13f6b0835c9cc251"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b3b6068cf88691181a14d5d0d71a781"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_m_i_d_i_event_queue.html#a4b3b6068cf88691181a14d5d0d71a781">AUMIDIEventQueue</a> (<a class="el" href="class_plugin_core.html">PluginCore</a> *_pluginCore)</td></tr>
+<tr class="separator:a4b3b6068cf88691181a14d5d0d71a781"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad67adf0de553fdbb5b14054d2bcc7ff"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_m_i_d_i_event_queue.html#aad67adf0de553fdbb5b14054d2bcc7ff">~AUMIDIEventQueue</a> ()</td></tr>
+<tr class="separator:aad67adf0de553fdbb5b14054d2bcc7ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add7c9615c97b6d09614d13c5fdded03a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_m_i_d_i_event_queue.html#add7c9615c97b6d09614d13c5fdded03a">clearEvents</a> ()</td></tr>
+<tr class="separator:add7c9615c97b6d09614d13c5fdded03a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a2511cace889781722b2b851aff9a7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_m_i_d_i_event_queue.html#a2a2511cace889781722b2b851aff9a7b">clearQueueAEvents</a> ()</td></tr>
+<tr class="separator:a2a2511cace889781722b2b851aff9a7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a18c48d8035b7451724328c57c8ee40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_m_i_d_i_event_queue.html#a7a18c48d8035b7451724328c57c8ee40">clearQueueBEvents</a> ()</td></tr>
+<tr class="separator:a7a18c48d8035b7451724328c57c8ee40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0915a95a096b09a5ba7b582b63e6437"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_m_i_d_i_event_queue.html#ad0915a95a096b09a5ba7b582b63e6437">toggleQueue</a> ()</td></tr>
+<tr class="separator:ad0915a95a096b09a5ba7b582b63e6437"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfc292fa7f21af35556edde3e9d6f496"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_m_i_d_i_event_queue.html#adfc292fa7f21af35556edde3e9d6f496">addEvent</a> (<a class="el" href="structmidi_event.html">midiEvent</a> event)</td></tr>
+<tr class="separator:adfc292fa7f21af35556edde3e9d6f496"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a92b0d116ef7e78ba2521d559aa9f24"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_m_i_d_i_event_queue.html#a2a92b0d116ef7e78ba2521d559aa9f24">getEventCount</a> ()</td></tr>
+<tr class="separator:a2a92b0d116ef7e78ba2521d559aa9f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcb3586e768a6c8b13f6b0835c9cc251"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_m_i_d_i_event_queue.html#abcb3586e768a6c8b13f6b0835c9cc251">fireMidiEvents</a> (unsigned int sampleOffset)</td></tr>
+<tr class="separator:abcb3586e768a6c8b13f6b0835c9cc251"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b3b6068cf88691181a14d5d0d71a781"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_m_i_d_i_event_queue.html#a4b3b6068cf88691181a14d5d0d71a781">AUMIDIEventQueue</a> (<a class="el" href="class_plugin_core.html">PluginCore</a> *_pluginCore)</td></tr>
+<tr class="separator:a4b3b6068cf88691181a14d5d0d71a781"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad67adf0de553fdbb5b14054d2bcc7ff"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_m_i_d_i_event_queue.html#aad67adf0de553fdbb5b14054d2bcc7ff">~AUMIDIEventQueue</a> ()</td></tr>
+<tr class="separator:aad67adf0de553fdbb5b14054d2bcc7ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add7c9615c97b6d09614d13c5fdded03a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_m_i_d_i_event_queue.html#add7c9615c97b6d09614d13c5fdded03a">clearEvents</a> ()</td></tr>
+<tr class="separator:add7c9615c97b6d09614d13c5fdded03a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a2511cace889781722b2b851aff9a7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_m_i_d_i_event_queue.html#a2a2511cace889781722b2b851aff9a7b">clearQueueAEvents</a> ()</td></tr>
+<tr class="separator:a2a2511cace889781722b2b851aff9a7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a18c48d8035b7451724328c57c8ee40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_m_i_d_i_event_queue.html#a7a18c48d8035b7451724328c57c8ee40">clearQueueBEvents</a> ()</td></tr>
+<tr class="separator:a7a18c48d8035b7451724328c57c8ee40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0915a95a096b09a5ba7b582b63e6437"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_m_i_d_i_event_queue.html#ad0915a95a096b09a5ba7b582b63e6437">toggleQueue</a> ()</td></tr>
+<tr class="separator:ad0915a95a096b09a5ba7b582b63e6437"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfc292fa7f21af35556edde3e9d6f496"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_m_i_d_i_event_queue.html#adfc292fa7f21af35556edde3e9d6f496">addEvent</a> (<a class="el" href="structmidi_event.html">midiEvent</a> event)</td></tr>
+<tr class="separator:adfc292fa7f21af35556edde3e9d6f496"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a92b0d116ef7e78ba2521d559aa9f24"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_m_i_d_i_event_queue.html#a2a92b0d116ef7e78ba2521d559aa9f24">getEventCount</a> ()</td></tr>
+<tr class="separator:a2a92b0d116ef7e78ba2521d559aa9f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcb3586e768a6c8b13f6b0835c9cc251"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_u_m_i_d_i_event_queue.html#abcb3586e768a6c8b13f6b0835c9cc251">fireMidiEvents</a> (unsigned int sampleOffset)</td></tr>
+<tr class="separator:abcb3586e768a6c8b13f6b0835c9cc251"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_i_midi_event_queue"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_i_midi_event_queue')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_i_midi_event_queue.html">IMidiEventQueue</a></td></tr>
+<tr class="memitem:a5db5cc1a2d9ff162484540718f6e7b84 inherit pub_methods_class_i_midi_event_queue"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_midi_event_queue.html#a5db5cc1a2d9ff162484540718f6e7b84">fireMidiEvents</a> (uint32_t uSampleOffset)=0</td></tr>
+<tr class="separator:a5db5cc1a2d9ff162484540718f6e7b84 inherit pub_methods_class_i_midi_event_queue"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5db5cc1a2d9ff162484540718f6e7b84 inherit pub_methods_class_i_midi_event_queue"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_midi_event_queue.html#a5db5cc1a2d9ff162484540718f6e7b84">fireMidiEvents</a> (uint32_t uSampleOffset)=0</td></tr>
 <tr class="separator:a5db5cc1a2d9ff162484540718f6e7b84 inherit pub_methods_class_i_midi_event_queue"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -182,7 +222,7 @@ std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a 
 <dl class="section date"><dt>Date</dt><dd>Date : 2018 / 09 / 7 </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4b3b6068cf88691181a14d5d0d71a781"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b3b6068cf88691181a14d5d0d71a781">&#9670;&nbsp;</a></span>AUMIDIEventQueue() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b3b6068cf88691181a14d5d0d71a781">&#9670;&nbsp;</a></span>AUMIDIEventQueue() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -209,7 +249,7 @@ std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a 
 </div>
 </div>
 <a id="aad67adf0de553fdbb5b14054d2bcc7ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad67adf0de553fdbb5b14054d2bcc7ff">&#9670;&nbsp;</a></span>~AUMIDIEventQueue() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aad67adf0de553fdbb5b14054d2bcc7ff">&#9670;&nbsp;</a></span>~AUMIDIEventQueue() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -235,7 +275,7 @@ std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a 
 </div>
 </div>
 <a id="a4b3b6068cf88691181a14d5d0d71a781"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b3b6068cf88691181a14d5d0d71a781">&#9670;&nbsp;</a></span>AUMIDIEventQueue() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b3b6068cf88691181a14d5d0d71a781">&#9670;&nbsp;</a></span>AUMIDIEventQueue() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -262,7 +302,113 @@ std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a 
 </div>
 </div>
 <a id="aad67adf0de553fdbb5b14054d2bcc7ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad67adf0de553fdbb5b14054d2bcc7ff">&#9670;&nbsp;</a></span>~AUMIDIEventQueue() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aad67adf0de553fdbb5b14054d2bcc7ff">&#9670;&nbsp;</a></span>~AUMIDIEventQueue() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual AUMIDIEventQueue::~AUMIDIEventQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>just clear out the events that may remain </p>
+
+</div>
+</div>
+<a id="a4b3b6068cf88691181a14d5d0d71a781"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b3b6068cf88691181a14d5d0d71a781">&#9670;&nbsp;</a></span>AUMIDIEventQueue() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">AUMIDIEventQueue::AUMIDIEventQueue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_plugin_core.html">PluginCore</a> *&#160;</td>
+          <td class="paramname"><em>_pluginCore</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>consruct with a core pointer </p>
+
+</div>
+</div>
+<a id="aad67adf0de553fdbb5b14054d2bcc7ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad67adf0de553fdbb5b14054d2bcc7ff">&#9670;&nbsp;</a></span>~AUMIDIEventQueue() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual AUMIDIEventQueue::~AUMIDIEventQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>just clear out the events that may remain </p>
+
+</div>
+</div>
+<a id="a4b3b6068cf88691181a14d5d0d71a781"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b3b6068cf88691181a14d5d0d71a781">&#9670;&nbsp;</a></span>AUMIDIEventQueue() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">AUMIDIEventQueue::AUMIDIEventQueue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_plugin_core.html">PluginCore</a> *&#160;</td>
+          <td class="paramname"><em>_pluginCore</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>consruct with a core pointer </p>
+
+</div>
+</div>
+<a id="aad67adf0de553fdbb5b14054d2bcc7ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad67adf0de553fdbb5b14054d2bcc7ff">&#9670;&nbsp;</a></span>~AUMIDIEventQueue() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -289,7 +435,7 @@ std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a 
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="adfc292fa7f21af35556edde3e9d6f496"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adfc292fa7f21af35556edde3e9d6f496">&#9670;&nbsp;</a></span>addEvent() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adfc292fa7f21af35556edde3e9d6f496">&#9670;&nbsp;</a></span>addEvent() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -316,7 +462,61 @@ std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a 
 </div>
 </div>
 <a id="adfc292fa7f21af35556edde3e9d6f496"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adfc292fa7f21af35556edde3e9d6f496">&#9670;&nbsp;</a></span>addEvent() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adfc292fa7f21af35556edde3e9d6f496">&#9670;&nbsp;</a></span>addEvent() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AUMIDIEventQueue::addEvent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmidi_event.html">midiEvent</a>&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>add a MIDI event to the currently active writing queue </p>
+
+</div>
+</div>
+<a id="adfc292fa7f21af35556edde3e9d6f496"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfc292fa7f21af35556edde3e9d6f496">&#9670;&nbsp;</a></span>addEvent() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AUMIDIEventQueue::addEvent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmidi_event.html">midiEvent</a>&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>add a MIDI event to the currently active writing queue </p>
+
+</div>
+</div>
+<a id="adfc292fa7f21af35556edde3e9d6f496"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfc292fa7f21af35556edde3e9d6f496">&#9670;&nbsp;</a></span>addEvent() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -343,7 +543,7 @@ std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a 
 </div>
 </div>
 <a id="add7c9615c97b6d09614d13c5fdded03a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add7c9615c97b6d09614d13c5fdded03a">&#9670;&nbsp;</a></span>clearEvents() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#add7c9615c97b6d09614d13c5fdded03a">&#9670;&nbsp;</a></span>clearEvents() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -369,7 +569,59 @@ std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a 
 </div>
 </div>
 <a id="add7c9615c97b6d09614d13c5fdded03a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add7c9615c97b6d09614d13c5fdded03a">&#9670;&nbsp;</a></span>clearEvents() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#add7c9615c97b6d09614d13c5fdded03a">&#9670;&nbsp;</a></span>clearEvents() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AUMIDIEventQueue::clearEvents </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>clear both A and B queues </p>
+
+</div>
+</div>
+<a id="add7c9615c97b6d09614d13c5fdded03a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add7c9615c97b6d09614d13c5fdded03a">&#9670;&nbsp;</a></span>clearEvents() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AUMIDIEventQueue::clearEvents </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>clear both A and B queues </p>
+
+</div>
+</div>
+<a id="add7c9615c97b6d09614d13c5fdded03a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add7c9615c97b6d09614d13c5fdded03a">&#9670;&nbsp;</a></span>clearEvents() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -395,7 +647,7 @@ std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a 
 </div>
 </div>
 <a id="a2a2511cace889781722b2b851aff9a7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a2511cace889781722b2b851aff9a7b">&#9670;&nbsp;</a></span>clearQueueAEvents() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a2511cace889781722b2b851aff9a7b">&#9670;&nbsp;</a></span>clearQueueAEvents() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -421,7 +673,59 @@ std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a 
 </div>
 </div>
 <a id="a2a2511cace889781722b2b851aff9a7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a2511cace889781722b2b851aff9a7b">&#9670;&nbsp;</a></span>clearQueueAEvents() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a2511cace889781722b2b851aff9a7b">&#9670;&nbsp;</a></span>clearQueueAEvents() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AUMIDIEventQueue::clearQueueAEvents </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>clear queue A </p>
+
+</div>
+</div>
+<a id="a2a2511cace889781722b2b851aff9a7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a2511cace889781722b2b851aff9a7b">&#9670;&nbsp;</a></span>clearQueueAEvents() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AUMIDIEventQueue::clearQueueAEvents </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>clear queue A </p>
+
+</div>
+</div>
+<a id="a2a2511cace889781722b2b851aff9a7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a2511cace889781722b2b851aff9a7b">&#9670;&nbsp;</a></span>clearQueueAEvents() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -447,7 +751,7 @@ std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a 
 </div>
 </div>
 <a id="a7a18c48d8035b7451724328c57c8ee40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a18c48d8035b7451724328c57c8ee40">&#9670;&nbsp;</a></span>clearQueueBEvents() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a18c48d8035b7451724328c57c8ee40">&#9670;&nbsp;</a></span>clearQueueBEvents() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -473,7 +777,59 @@ std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a 
 </div>
 </div>
 <a id="a7a18c48d8035b7451724328c57c8ee40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a18c48d8035b7451724328c57c8ee40">&#9670;&nbsp;</a></span>clearQueueBEvents() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a18c48d8035b7451724328c57c8ee40">&#9670;&nbsp;</a></span>clearQueueBEvents() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AUMIDIEventQueue::clearQueueBEvents </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>clear queue B </p>
+
+</div>
+</div>
+<a id="a7a18c48d8035b7451724328c57c8ee40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a18c48d8035b7451724328c57c8ee40">&#9670;&nbsp;</a></span>clearQueueBEvents() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AUMIDIEventQueue::clearQueueBEvents </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>clear queue B </p>
+
+</div>
+</div>
+<a id="a7a18c48d8035b7451724328c57c8ee40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a18c48d8035b7451724328c57c8ee40">&#9670;&nbsp;</a></span>clearQueueBEvents() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -499,7 +855,7 @@ std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a 
 </div>
 </div>
 <a id="abcb3586e768a6c8b13f6b0835c9cc251"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abcb3586e768a6c8b13f6b0835c9cc251">&#9670;&nbsp;</a></span>fireMidiEvents() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abcb3586e768a6c8b13f6b0835c9cc251">&#9670;&nbsp;</a></span>fireMidiEvents() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -526,7 +882,61 @@ std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a 
 </div>
 </div>
 <a id="abcb3586e768a6c8b13f6b0835c9cc251"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abcb3586e768a6c8b13f6b0835c9cc251">&#9670;&nbsp;</a></span>fireMidiEvents() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abcb3586e768a6c8b13f6b0835c9cc251">&#9670;&nbsp;</a></span>fireMidiEvents() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool AUMIDIEventQueue::fireMidiEvents </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>sampleOffset</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>send MIDI event with this sample offset to the core for processing </p>
+
+</div>
+</div>
+<a id="abcb3586e768a6c8b13f6b0835c9cc251"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcb3586e768a6c8b13f6b0835c9cc251">&#9670;&nbsp;</a></span>fireMidiEvents() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool AUMIDIEventQueue::fireMidiEvents </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>sampleOffset</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>send MIDI event with this sample offset to the core for processing </p>
+
+</div>
+</div>
+<a id="abcb3586e768a6c8b13f6b0835c9cc251"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcb3586e768a6c8b13f6b0835c9cc251">&#9670;&nbsp;</a></span>fireMidiEvents() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -553,7 +963,7 @@ std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a 
 </div>
 </div>
 <a id="a2a92b0d116ef7e78ba2521d559aa9f24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a92b0d116ef7e78ba2521d559aa9f24">&#9670;&nbsp;</a></span>getEventCount() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a92b0d116ef7e78ba2521d559aa9f24">&#9670;&nbsp;</a></span>getEventCount() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -581,7 +991,63 @@ std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a 
 </div>
 </div>
 <a id="a2a92b0d116ef7e78ba2521d559aa9f24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a92b0d116ef7e78ba2521d559aa9f24">&#9670;&nbsp;</a></span>getEventCount() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a92b0d116ef7e78ba2521d559aa9f24">&#9670;&nbsp;</a></span>getEventCount() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual unsigned int AUMIDIEventQueue::getEventCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get a MIDI event from the currently active reading queue </p>
+
+<p>Implements <a class="el" href="class_i_midi_event_queue.html#ab9393c939d37a4d9c46dda2ca2d15587">IMidiEventQueue</a>.</p>
+
+</div>
+</div>
+<a id="a2a92b0d116ef7e78ba2521d559aa9f24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a92b0d116ef7e78ba2521d559aa9f24">&#9670;&nbsp;</a></span>getEventCount() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual unsigned int AUMIDIEventQueue::getEventCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get a MIDI event from the currently active reading queue </p>
+
+<p>Implements <a class="el" href="class_i_midi_event_queue.html#ab9393c939d37a4d9c46dda2ca2d15587">IMidiEventQueue</a>.</p>
+
+</div>
+</div>
+<a id="a2a92b0d116ef7e78ba2521d559aa9f24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a92b0d116ef7e78ba2521d559aa9f24">&#9670;&nbsp;</a></span>getEventCount() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -609,7 +1075,7 @@ std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a 
 </div>
 </div>
 <a id="ad0915a95a096b09a5ba7b582b63e6437"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0915a95a096b09a5ba7b582b63e6437">&#9670;&nbsp;</a></span>toggleQueue() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0915a95a096b09a5ba7b582b63e6437">&#9670;&nbsp;</a></span>toggleQueue() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -635,7 +1101,59 @@ std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a 
 </div>
 </div>
 <a id="ad0915a95a096b09a5ba7b582b63e6437"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0915a95a096b09a5ba7b582b63e6437">&#9670;&nbsp;</a></span>toggleQueue() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0915a95a096b09a5ba7b582b63e6437">&#9670;&nbsp;</a></span>toggleQueue() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AUMIDIEventQueue::toggleQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>atomic flag toggle </p>
+
+</div>
+</div>
+<a id="ad0915a95a096b09a5ba7b582b63e6437"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0915a95a096b09a5ba7b582b63e6437">&#9670;&nbsp;</a></span>toggleQueue() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AUMIDIEventQueue::toggleQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>atomic flag toggle </p>
+
+</div>
+</div>
+<a id="ad0915a95a096b09a5ba7b582b63e6437"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0915a95a096b09a5ba7b582b63e6437">&#9670;&nbsp;</a></span>toggleQueue() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -661,8 +1179,8 @@ std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/au_source/<a class="el" href="aufxplugin_8h_source.html">aufxplugin.h</a></li>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/au_source/<a class="el" href="ausynthplugin_8h_source.html">ausynthplugin.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/au_source/<a class="el" href="project__source_2source_2au__source_2aufxplugin_8h_source.html">aufxplugin.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/au_source/<a class="el" href="project__source_2source_2au__source_2ausynthplugin_8h_source.html">ausynthplugin.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('gui_designer11.html','');});
 <div class="title">Custom Views </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>ASPiK supports heavy GUI customization with custom views and sub-controllers. This part of the SDK will explain the DemoCustomViews plugin example which will show you how to create your own custom views. For ASPiK projects, you typically only ever need to modify the <a class="el" href="plugincore_8h.html" title="base class interface file for ASPiK plugincore object ">plugincore.h</a> and <a class="el" href="plugincore_8cpp.html" title="Implementation file for PluginCore object. ">plugincore.cpp</a> files from the kernel. For custom views, you will also need to modify the plugingui.cpp file, in addition to creating the custom view objects. The WaveSpectrumView plugin includes the <a class="el" href="customviews_8h.html" title="interface file for example ASPiK custom view and custom sub-controller objects, includes waveform vie...">customviews.h</a> and <a class="el" href="customviews_8cpp.html" title="implementation file for example ASPiK custom view and custom sub-controller objects ...">customviews.cpp</a> files (which are automatically installed into every ASPiK project). These files contain the implementation of the three custom view objects and the sub-controller mentioned previously.<br />
+<div class="textblock"><p>ASPiK supports heavy GUI customization with custom views and sub-controllers. This part of the SDK will explain the DemoCustomViews plugin example which will show you how to create your own custom views. For ASPiK projects, you typically only ever need to modify the plugincore.h and plugincore.cpp files from the kernel. For custom views, you will also need to modify the plugingui.cpp file, in addition to creating the custom view objects. The WaveSpectrumView plugin includes the customviews.h and customviews.cpp files (which are automatically installed into every ASPiK project). These files contain the implementation of the three custom view objects and the sub-controller mentioned previously.<br />
  <br />
  The figure below shows the GUI for the DemoCustomViews plugin project with the Custom View objects labeled. There are two visualizer views and one custom knob control. In this tutorial, you will learn all about these objects' construction and communication. The linked knobs are part of the sub-controller paradigm and are described separately. <br />
  </p><div class="image">
@@ -108,6 +108,7 @@ $(document).ready(function(){initNavTree('gui_designer11.html','');});
 </p>
 <ul>
 <li><a class="el" href="cv1.html">Creation &amp; Communication</a></li>
+<li><a class="el" href="cv1_a.html">Built-In Custom Views</a></li>
 <li><a class="el" href="cv2.html">ICustomView</a></li>
 <li><a class="el" href="cv3.html">GUI Designer</a></li>
 <li><a class="el" href="cv3_a.html">Reserved View Names</a></li>

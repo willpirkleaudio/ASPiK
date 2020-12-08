@@ -1,7 +1,7 @@
 var searchData=
 [
   ['edgetype',['edgeType',['../struct_transition_band_data.html#a1931bffa41d41a8cce9a91dc3c0e862f',1,'TransitionBandData']]],
-  ['editcontroller',['editController',['../class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_plugin_host_connector.html#a5b8ed1558bd26fcf664bb98ef4c540c3',1,'Steinberg::Vst::ASPiK::PluginHostConnector::editController()'],['../class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_g_u_i_plugin_connector.html#aa147287c0c3c67b2843806a934203f03',1,'Steinberg::Vst::ASPiK::GUIPluginConnector::editController()'],['../class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_plugin_editor.html#a85b400cc1dfb74681ac0a51d7e7d00e0',1,'Steinberg::Vst::ASPiK::PluginEditor::editController()']]],
+  ['editcontroller',['editController',['../class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_plugin_host_connector.html#a76aac3d14238e0747895a80644484597',1,'Steinberg::Vst::ASPiK::PluginHostConnector::editController()'],['../class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_g_u_i_plugin_connector.html#a04b2c3a1bea47dbc8ed04181fb8bf37a',1,'Steinberg::Vst::ASPiK::GUIPluginConnector::editController()'],['../class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_plugin_editor.html#ac9c9ecd0d4c77aad18ef940d47989b9c',1,'Steinberg::Vst::ASPiK::PluginEditor::editController()']]],
   ['enablegaincomp',['enableGainComp',['../struct_z_v_a_filter_parameters.html#a7400b3813cbfcd7ea7869601be447a9f',1,'ZVAFilterParameters']]],
   ['enablehpf',['enableHPF',['../struct_triode_class_a_parameters.html#a08273bc35cd315083054a04a4d1e2740',1,'TriodeClassAParameters']]],
   ['enablelfo',['enableLFO',['../struct_delay_a_p_f_parameters.html#a770ca3aa5bdb248eb0cd531af21f7343',1,'DelayAPFParameters::enableLFO()'],['../struct_nested_delay_a_p_f_parameters.html#af7ccd6c5e21cb0192f41586b0342d6c8',1,'NestedDelayAPFParameters::enableLFO()']]],
@@ -15,10 +15,10 @@ var searchData=
   ['enablesidechain',['enableSidechain',['../struct_dynamics_processor_parameters.html#aaf7517baa81d23e4a8dfee750a609c53',1,'DynamicsProcessorParameters']]],
   ['enablevst3sampleaccurateautomation',['enableVST3SampleAccurateAutomation',['../struct_a_p_i_specific_info.html#abe1d3fee651484281153069c98f9983c',1,'APISpecificInfo']]],
   ['enablevstsampleaccurateautomation',['enableVSTSampleAccurateAutomation',['../class_plugin_parameter.html#a4324dba09b1c56f519c4f9f655d86162',1,'PluginParameter']]],
-  ['envelope_5fanalog_5ftc',['ENVELOPE_ANALOG_TC',['../group___constants-_enums.html#gac3b2b06b6a6ee3de9f0051bd583b62fa',1,'guiconstants.h']]],
-  ['envelope_5fdetect_5fmode_5fms',['ENVELOPE_DETECT_MODE_MS',['../group___constants-_enums.html#gaa54b1d9c0298c43fe7ef63175e1f5bbc',1,'guiconstants.h']]],
-  ['envelope_5fdetect_5fmode_5fnone',['ENVELOPE_DETECT_MODE_NONE',['../group___constants-_enums.html#gaedd4bb0ee7634adc9c5ef43bb4222714',1,'guiconstants.h']]],
-  ['envelope_5fdetect_5fmode_5fpeak',['ENVELOPE_DETECT_MODE_PEAK',['../group___constants-_enums.html#gaafa256add92827ad54cc59ab38916e87',1,'guiconstants.h']]],
-  ['envelope_5fdetect_5fmode_5frms',['ENVELOPE_DETECT_MODE_RMS',['../group___constants-_enums.html#ga7d7426d194c2faf64e7b31c24f2c7bb4',1,'guiconstants.h']]],
-  ['envelope_5fdigital_5ftc',['ENVELOPE_DIGITAL_TC',['../group___constants-_enums.html#ga392a561f271726fd0baa6d58c86bc48f',1,'guiconstants.h']]]
+  ['envelope_5fanalog_5ftc',['ENVELOPE_ANALOG_TC',['../group___constants-_enums.html#gac3b2b06b6a6ee3de9f0051bd583b62fa',1,'ENVELOPE_ANALOG_TC():&#160;guiconstants.h'],['../group___constants-_enums.html#gac3b2b06b6a6ee3de9f0051bd583b62fa',1,'ENVELOPE_ANALOG_TC():&#160;guiconstants.h']]],
+  ['envelope_5fdetect_5fmode_5fms',['ENVELOPE_DETECT_MODE_MS',['../group___constants-_enums.html#gaa54b1d9c0298c43fe7ef63175e1f5bbc',1,'ENVELOPE_DETECT_MODE_MS():&#160;guiconstants.h'],['../group___constants-_enums.html#gaa54b1d9c0298c43fe7ef63175e1f5bbc',1,'ENVELOPE_DETECT_MODE_MS():&#160;guiconstants.h']]],
+  ['envelope_5fdetect_5fmode_5fnone',['ENVELOPE_DETECT_MODE_NONE',['../group___constants-_enums.html#gaedd4bb0ee7634adc9c5ef43bb4222714',1,'ENVELOPE_DETECT_MODE_NONE():&#160;guiconstants.h'],['../group___constants-_enums.html#gaedd4bb0ee7634adc9c5ef43bb4222714',1,'ENVELOPE_DETECT_MODE_NONE():&#160;guiconstants.h']]],
+  ['envelope_5fdetect_5fmode_5fpeak',['ENVELOPE_DETECT_MODE_PEAK',['../group___constants-_enums.html#gaafa256add92827ad54cc59ab38916e87',1,'ENVELOPE_DETECT_MODE_PEAK():&#160;guiconstants.h'],['../group___constants-_enums.html#gaafa256add92827ad54cc59ab38916e87',1,'ENVELOPE_DETECT_MODE_PEAK():&#160;guiconstants.h']]],
+  ['envelope_5fdetect_5fmode_5frms',['ENVELOPE_DETECT_MODE_RMS',['../group___constants-_enums.html#ga7d7426d194c2faf64e7b31c24f2c7bb4',1,'ENVELOPE_DETECT_MODE_RMS():&#160;guiconstants.h'],['../group___constants-_enums.html#ga7d7426d194c2faf64e7b31c24f2c7bb4',1,'ENVELOPE_DETECT_MODE_RMS():&#160;guiconstants.h']]],
+  ['envelope_5fdigital_5ftc',['ENVELOPE_DIGITAL_TC',['../group___constants-_enums.html#ga392a561f271726fd0baa6d58c86bc48f',1,'ENVELOPE_DIGITAL_TC():&#160;guiconstants.h'],['../group___constants-_enums.html#ga392a561f271726fd0baa6d58c86bc48f',1,'ENVELOPE_DIGITAL_TC():&#160;guiconstants.h']]]
 ];
