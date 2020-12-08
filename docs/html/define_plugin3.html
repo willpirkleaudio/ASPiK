@@ -93,8 +93,8 @@ $(document).ready(function(){initNavTree('define_plugin3.html','');});
 <br />
  This is one of the things that you will need to code by hand, but it is quite simple. The reason that the ASPiK Tool-Kit doesn't attempt to code this information for you is that most programmers have their own methods for making unique enumerations and may even have preset enumeration files from other projects.<br />
 <br />
- <b><a class="el" href="plugincore_8h.html" title="base class interface file for ASPiK plugincore object ">plugincore.h</a></b><br />
- For ASPiK, the <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a> object is the monolithic plugin device. It is coded in the <a class="el" href="plugincore_8h.html" title="base class interface file for ASPiK plugincore object ">plugincore.h</a> and <a class="el" href="plugincore_8cpp.html" title="Implementation file for PluginCore object. ">plugincore.cpp</a> files. You will spend the majority of your time modifying these two files. In fact you can write the entire plugin within just these two files if you like. Open the <a class="el" href="plugincore_8h.html" title="base class interface file for ASPiK plugincore object ">plugincore.h</a> file and add an enumeration at the top of the file:<br />
+ <b>plugincore.h</b><br />
+ For ASPiK, the <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a> object is the monolithic plugin device. It is coded in the plugincore.h and plugincore.cpp files. You will spend the majority of your time modifying these two files. In fact you can write the entire plugin within just these two files if you like. Open the plugincore.h file and add an enumeration at the top of the file:<br />
 <br />
  <b>enum controlID {<br />
  volume_dB,<br />

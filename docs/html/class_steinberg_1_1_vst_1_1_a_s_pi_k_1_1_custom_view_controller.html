@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('class_steinberg_1_1_vst_1_1_a_s_pi_k_1
 <p>The <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html" title="The CustomViewController is part of the safe ICustomView feature in ASPiK. The CustomViewController m...">CustomViewController</a> is part of the safe <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> feature in ASPiK. The <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html" title="The CustomViewController is part of the safe ICustomView feature in ASPiK. The CustomViewController m...">CustomViewController</a> maintains an <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> pointer. When the GUI registers and de-registers custom views during creation or destuction, the plugin shell is responsible for making sure that the original <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> pointer registered with the plugin core object <em>never goes out of scope</em> and this object is part of that system.  
  <a href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="vst3plugin_8h_source.html">vst3plugin.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="project__source_2source_2vst__source_2vst3plugin_8h_source.html">vst3plugin.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Steinberg::Vst::ASPiK::CustomViewController:</div>
 <div class="dyncontent">
@@ -104,11 +104,26 @@ Inheritance diagram for Steinberg::Vst::ASPiK::CustomViewController:</div>
   <img src="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.png" usemap="#Steinberg::Vst::ASPiK::CustomViewController_map" alt=""/>
   <map id="Steinberg::Vst::ASPiK::CustomViewController_map" name="Steinberg::Vst::ASPiK::CustomViewController_map">
 <area href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view..." alt="ICustomView" shape="rect" coords="0,0,263,24"/>
+<area href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view..." alt="ICustomView" shape="rect" coords="273,0,536,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a0d0c8dad0329e55b27b1ac21673ec970"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#a0d0c8dad0329e55b27b1ac21673ec970">CustomViewController</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *_customViewIF)</td></tr>
+<tr class="separator:a0d0c8dad0329e55b27b1ac21673ec970"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1440455ce421ba65cf9fae3ca7f12f09"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#a1440455ce421ba65cf9fae3ca7f12f09">updateView</a> ()</td></tr>
+<tr class="separator:a1440455ce421ba65cf9fae3ca7f12f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acac88d276aec0c0c0b6ac99daa81628c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#acac88d276aec0c0c0b6ac99daa81628c">pushDataValue</a> (double data)</td></tr>
+<tr class="separator:acac88d276aec0c0c0b6ac99daa81628c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab84062147af16ad0080fe36ca0f79b0b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#ab84062147af16ad0080fe36ca0f79b0b">sendMessage</a> (void *data)</td></tr>
+<tr class="separator:ab84062147af16ad0080fe36ca0f79b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae06e727ea17dd034d570e39d6791da54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#ae06e727ea17dd034d570e39d6791da54">setCustomViewPtr</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *_customViewIF)</td></tr>
+<tr class="separator:ae06e727ea17dd034d570e39d6791da54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a063be03927767370587b451ee151ca65"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#a063be03927767370587b451ee151ca65">getCustomViewPtr</a> ()</td></tr>
+<tr class="separator:a063be03927767370587b451ee151ca65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46063eefc1cbe5b612a8abb2c12c4c91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#a46063eefc1cbe5b612a8abb2c12c4c91">clearCustomViewPtr</a> ()</td></tr>
+<tr class="separator:a46063eefc1cbe5b612a8abb2c12c4c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d0c8dad0329e55b27b1ac21673ec970"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#a0d0c8dad0329e55b27b1ac21673ec970">CustomViewController</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *_customViewIF)</td></tr>
 <tr class="separator:a0d0c8dad0329e55b27b1ac21673ec970"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1440455ce421ba65cf9fae3ca7f12f09"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#a1440455ce421ba65cf9fae3ca7f12f09">updateView</a> ()</td></tr>
@@ -132,7 +147,34 @@ Public Member Functions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>Date : 2018 / 09 / 7 </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0d0c8dad0329e55b27b1ac21673ec970"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d0c8dad0329e55b27b1ac21673ec970">&#9670;&nbsp;</a></span>CustomViewController()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d0c8dad0329e55b27b1ac21673ec970">&#9670;&nbsp;</a></span>CustomViewController() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Steinberg::Vst::ASPiK::CustomViewController::CustomViewController </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>_customViewIF</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>constructor: pass the newly registered ICustomView* </p>
+
+</div>
+</div>
+<a id="a0d0c8dad0329e55b27b1ac21673ec970"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d0c8dad0329e55b27b1ac21673ec970">&#9670;&nbsp;</a></span>CustomViewController() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -160,7 +202,33 @@ Public Member Functions</h2></td></tr>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a46063eefc1cbe5b612a8abb2c12c4c91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46063eefc1cbe5b612a8abb2c12c4c91">&#9670;&nbsp;</a></span>clearCustomViewPtr()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a46063eefc1cbe5b612a8abb2c12c4c91">&#9670;&nbsp;</a></span>clearCustomViewPtr() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Steinberg::Vst::ASPiK::CustomViewController::clearCustomViewPtr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>clear the stored ICustomView* &ndash; this is called when a custom view is de-registered </p>
+
+</div>
+</div>
+<a id="a46063eefc1cbe5b612a8abb2c12c4c91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46063eefc1cbe5b612a8abb2c12c4c91">&#9670;&nbsp;</a></span>clearCustomViewPtr() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -186,7 +254,33 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a063be03927767370587b451ee151ca65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a063be03927767370587b451ee151ca65">&#9670;&nbsp;</a></span>getCustomViewPtr()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a063be03927767370587b451ee151ca65">&#9670;&nbsp;</a></span>getCustomViewPtr() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_i_custom_view.html">ICustomView</a>* Steinberg::Vst::ASPiK::CustomViewController::getCustomViewPtr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get the current ICustomView* &ndash; note this is read-only (const) and it also MAY be NULL </p>
+
+</div>
+</div>
+<a id="a063be03927767370587b451ee151ca65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a063be03927767370587b451ee151ca65">&#9670;&nbsp;</a></span>getCustomViewPtr() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -212,7 +306,36 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="acac88d276aec0c0c0b6ac99daa81628c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acac88d276aec0c0c0b6ac99daa81628c">&#9670;&nbsp;</a></span>pushDataValue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acac88d276aec0c0c0b6ac99daa81628c">&#9670;&nbsp;</a></span>pushDataValue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Steinberg::Vst::ASPiK::CustomViewController::pushDataValue </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>forward call to <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> interface <em>if it is still alive</em> </p>
+
+<p>Reimplemented from <a class="el" href="class_i_custom_view.html#a60c73575c3bba7d0491dd35ec7ae757d">ICustomView</a>.</p>
+
+</div>
+</div>
+<a id="acac88d276aec0c0c0b6ac99daa81628c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acac88d276aec0c0c0b6ac99daa81628c">&#9670;&nbsp;</a></span>pushDataValue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -241,7 +364,36 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="ab84062147af16ad0080fe36ca0f79b0b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab84062147af16ad0080fe36ca0f79b0b">&#9670;&nbsp;</a></span>sendMessage()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab84062147af16ad0080fe36ca0f79b0b">&#9670;&nbsp;</a></span>sendMessage() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Steinberg::Vst::ASPiK::CustomViewController::sendMessage </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>forward call to <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> interface <em>if it is still alive</em> </p>
+
+<p>Reimplemented from <a class="el" href="class_i_custom_view.html#ae254a94e1d754ece5ba4678583b1ddd1">ICustomView</a>.</p>
+
+</div>
+</div>
+<a id="ab84062147af16ad0080fe36ca0f79b0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab84062147af16ad0080fe36ca0f79b0b">&#9670;&nbsp;</a></span>sendMessage() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -270,7 +422,34 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="ae06e727ea17dd034d570e39d6791da54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae06e727ea17dd034d570e39d6791da54">&#9670;&nbsp;</a></span>setCustomViewPtr()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae06e727ea17dd034d570e39d6791da54">&#9670;&nbsp;</a></span>setCustomViewPtr() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Steinberg::Vst::ASPiK::CustomViewController::setCustomViewPtr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>_customViewIF</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>set a NEW ICustomView* &ndash; this is called when a custom view is registered </p>
+
+</div>
+</div>
+<a id="ae06e727ea17dd034d570e39d6791da54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae06e727ea17dd034d570e39d6791da54">&#9670;&nbsp;</a></span>setCustomViewPtr() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -297,7 +476,35 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a1440455ce421ba65cf9fae3ca7f12f09"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1440455ce421ba65cf9fae3ca7f12f09">&#9670;&nbsp;</a></span>updateView()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1440455ce421ba65cf9fae3ca7f12f09">&#9670;&nbsp;</a></span>updateView() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Steinberg::Vst::ASPiK::CustomViewController::updateView </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>forward call to <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> interface <em>if it is still alive</em> </p>
+
+<p>Implements <a class="el" href="class_i_custom_view.html#a09b3386cc82f837cf6f04945590cb848">ICustomView</a>.</p>
+
+</div>
+</div>
+<a id="a1440455ce421ba65cf9fae3ca7f12f09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1440455ce421ba65cf9fae3ca7f12f09">&#9670;&nbsp;</a></span>updateView() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -325,7 +532,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/vst_source/<a class="el" href="vst3plugin_8h_source.html">vst3plugin.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/vst_source/<a class="el" href="project__source_2source_2vst__source_2vst3plugin_8h_source.html">vst3plugin.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

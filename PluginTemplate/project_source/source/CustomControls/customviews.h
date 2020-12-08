@@ -23,6 +23,11 @@ namespace VSTGUI {
 // --- with an update cycle of ~50mSec, we need at least 2205 samples; this should be more than enough
 const int DATA_QUEUE_LEN = 4096;
 
+// --- custom message; add more here...
+const unsigned int MESSAGE_SET_STRINGLIST = 0;
+const unsigned int MESSAGE_SET_STRING = 1;
+
+
 /**
 \class WaveView
 \ingroup Custom-Views
@@ -564,5 +569,165 @@ protected:
 };
 
 
+/**
+\struct TextDisplayViewMessage
+\ingroup Custom-Views
+\brief
+Custom structure for dynamic option menus.\n
+
+\author Will Pirkle http://www.willpirkle.com
+\version Revision : 1.0
+\date Date : 2020 / 12/ 4
+*/
+struct TextDisplayViewMessage
+{
+    TextDisplayViewMessage() {}
+
+    // --- members
+    unsigned int message = MESSAGE_SET_STRING;
+
+    std::string labelString;
+    std::vector<std::string> stringList;
+    uint32_t stringCount = 0;
+};
+
+/**
+\struct RAFX2CustomViewMessage
+\ingroup Custom-Views
+\brief
+Custom structure for dynamic option menus in RackAFX only - NOTE:  unused in ASPiK and not needed.\n
+
+\author Will Pirkle http://www.willpirkle.com
+\version Revision : 1.0
+\date Date : 2020 / 12/ 4
+*/
+struct RAFX2CustomViewMessage
+{
+    RAFX2CustomViewMessage() {}
+    // --- for external thunk clients, RackAFX or standalone ASPiK
+    uint32_t message = MESSAGE_SET_STRING;
+
+    const char* labelString;
+    char** stringList;
+    uint32_t stringCount = 0;
+};
+
+/**
+\class CustomTextLabel
+\ingroup Custom-Views
+\brief
+Custom object for dynamic lables that can change their text programmatically.\n
+
+\author Will Pirkle http://www.willpirkle.com
+\version Revision : 1.0
+\date Date : 2020 / 12/ 4
+*/
+class CustomTextLabel : public CTextLabel, public ICustomView
+{
+public:
+    CustomTextLabel(const CRect& size, UTF8StringPtr txt = 0, CBitmap* background = 0, const int32_t style = 0)
+        : CTextLabel(size, txt, background, style)
+    {    }
+
+    /** ICustomView method: this repaints the control */
+    virtual void updateView() override {
+        // --- force redraw
+        invalid();
+    }
+
+    /** ICustomView method: send a message to the object (!) */
+    virtual void sendMessage(void* data) override
+    {
+        TextDisplayViewMessage* viewMessage = (TextDisplayViewMessage*)data;
+
+        // --- set the text in the label
+        if (viewMessage->message == MESSAGE_SET_STRING)
+        {
+            // --- change the label
+            this->setText(viewMessage->labelString.c_str());
+        }
+    }
+
+protected:
+    /** virtual D-TOR: just kill the queue */
+    virtual ~CustomTextLabel(void) {    }
+};
+
+
+/**
+\class CustomOptionMenu
+\ingroup Custom-Views
+\brief
+Custom object for dynamic menus that can change their contents programmatically - NOTE: the number of items can NOT change, only the text strings.\n
+
+\author Will Pirkle http://www.willpirkle.com
+\version Revision : 1.0
+\date Date : 2020 / 12/ 4
+*/
+class CustomOptionMenu : public COptionMenu, public ICustomView
+{
+public:
+    CustomOptionMenu(const CRect& size, IControlListener* listener, int32_t tag, CBitmap* background = nullptr, CBitmap* bgWhenClick = nullptr, const int32_t style = 0)
+        : COptionMenu(size, listener, tag, background, bgWhenClick, style)
+    {    }
+
+    /** ICustomView method: this repaints the control */
+    virtual void updateView() override {
+        // --- force redraw
+        invalid();
+    }
+
+    virtual CMenuItem* addEntry(const UTF8String& title, int32_t index = -1, int32_t itemFlags = CMenuItem::kNoFlags) override
+    {
+    //    for (int i = 0; i < omStringCount; i++)
+        //{
+            if (index < activeStringCount)
+                return COptionMenu::addEntry(stringList[index].c_str(), index);
+            else
+                return COptionMenu::addEntry("-----", index);
+        //}
+    }
+
+    /** ICustomView method: send a message to the object (!) */
+    virtual void sendMessage(void* data) override
+    {
+        TextDisplayViewMessage* viewMessage = (TextDisplayViewMessage*)data;
+
+        // --- set the text in the label
+        if (viewMessage->message == MESSAGE_SET_STRINGLIST)
+        {
+            // --- adjust size to fit: note this should be kept consistent or automation will fail
+            int32_t numNewEntries = viewMessage->stringList.size();
+            this->setMin(0);
+            if (viewMessage->stringCount > 0)
+            {
+                this->setMax(viewMessage->stringCount);
+                omStringCount = viewMessage->stringCount;
+            }
+
+            // --- clear items
+            this->removeAllEntry();
+            stringList = viewMessage->stringList;
+            activeStringCount = numNewEntries;
+
+            for (int i = 0; i < omStringCount; i++)
+            {
+                if (i < activeStringCount)
+                    addEntry(stringList[i].c_str(), i);
+                else
+                    addEntry("-----", i);
+            }
+        }
+    }
+
+protected:
+    /** virtual D-TOR: just kill the queue */
+    virtual ~CustomOptionMenu(void) {    }
+    bool updatingCustomStrings = false;
+    std::vector<std::string> stringList;
+    uint32_t activeStringCount = 0;
+    uint32_t omStringCount = 0;
+
+};
 
 }

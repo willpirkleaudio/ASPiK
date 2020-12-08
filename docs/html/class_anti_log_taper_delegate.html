@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('class_anti_log_taper_delegate.html',''
 <p>The <a class="el" href="class_anti_log_taper_delegate.html" title="The AntiLogTaperDelegate object encapsulates an anti-log parameter. Note that the standard log potent...">AntiLogTaperDelegate</a> object encapsulates an anti-log parameter. Note that the standard log potentiometer in electronics is actually anti-log! This is used in the construction of AAX parameters.  
  <a href="class_anti_log_taper_delegate.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_anti_log_taper_delegate_8h_source.html">AntiLogTaperDelegate.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="project__source_2source_2aax__source_2_anti_log_taper_delegate_8h_source.html">AntiLogTaperDelegate.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for AntiLogTaperDelegate&lt; T, RealPrecision &gt;:</div>
 <div class="dyncontent">
@@ -130,9 +130,39 @@ T&#160;</td><td class="memItemRight" valign="bottom"><b>NormalizedToReal</b> (do
 <tr class="memitem:af967f7e90bc3e58327dd0b25d264a834"><td class="memItemLeft" align="right" valign="top"><a id="af967f7e90bc3e58327dd0b25d264a834"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>RealToNormalized</b> (T realValue) const</td></tr>
 <tr class="separator:af967f7e90bc3e58327dd0b25d264a834"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0440f2910063a1eac3d93bc22607048b"><td class="memItemLeft" align="right" valign="top"><a id="a0440f2910063a1eac3d93bc22607048b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>AntiLogTaperDelegate</b> (T minValue=0, T maxValue=1)</td></tr>
+<tr class="separator:a0440f2910063a1eac3d93bc22607048b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19234e94ebc6de0c7dfd6698eaa259d9"><td class="memItemLeft" align="right" valign="top"><a id="a19234e94ebc6de0c7dfd6698eaa259d9"></a>
+<a class="el" href="class_anti_log_taper_delegate.html">AntiLogTaperDelegate</a>&lt; T, RealPrecision &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>Clone</b> () const</td></tr>
+<tr class="separator:a19234e94ebc6de0c7dfd6698eaa259d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6c298455f14348b09bbfed4946476c4"><td class="memItemLeft" align="right" valign="top"><a id="ad6c298455f14348b09bbfed4946476c4"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><b>GetMinimumValue</b> () const</td></tr>
+<tr class="separator:ad6c298455f14348b09bbfed4946476c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9be4650deb24889aa6fbf481feb3ceb"><td class="memItemLeft" align="right" valign="top"><a id="ad9be4650deb24889aa6fbf481feb3ceb"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><b>GetMaximumValue</b> () const</td></tr>
+<tr class="separator:ad9be4650deb24889aa6fbf481feb3ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10bcf4ff834a1ee8c1e6b6edcc79b91d"><td class="memItemLeft" align="right" valign="top"><a id="a10bcf4ff834a1ee8c1e6b6edcc79b91d"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><b>ConstrainRealValue</b> (T value) const</td></tr>
+<tr class="separator:a10bcf4ff834a1ee8c1e6b6edcc79b91d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66732ebfa27e338887c39f1479295257"><td class="memItemLeft" align="right" valign="top"><a id="a66732ebfa27e338887c39f1479295257"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><b>NormalizedToReal</b> (double normalizedValue) const</td></tr>
+<tr class="separator:a66732ebfa27e338887c39f1479295257"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af967f7e90bc3e58327dd0b25d264a834"><td class="memItemLeft" align="right" valign="top"><a id="af967f7e90bc3e58327dd0b25d264a834"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>RealToNormalized</b> (T realValue) const</td></tr>
+<tr class="separator:af967f7e90bc3e58327dd0b25d264a834"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
+<tr class="memitem:a726f1383a89cf46635de0fb1ec4de34f"><td class="memItemLeft" align="right" valign="top"><a id="a726f1383a89cf46635de0fb1ec4de34f"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><b>Round</b> (double iValue) const</td></tr>
+<tr class="separator:a726f1383a89cf46635de0fb1ec4de34f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1cc30056d84f6d49171ef621db3946c"><td class="memItemLeft" align="right" valign="top"><a id="af1cc30056d84f6d49171ef621db3946c"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>calcAntiLogParameter</b> (double fNormalizedParam) const</td></tr>
+<tr class="separator:af1cc30056d84f6d49171ef621db3946c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7daeb454f522895091796a0edef8f443"><td class="memItemLeft" align="right" valign="top"><a id="a7daeb454f522895091796a0edef8f443"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>calcAntiLogPluginValue</b> (double fPluginValue) const</td></tr>
+<tr class="separator:a7daeb454f522895091796a0edef8f443"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a726f1383a89cf46635de0fb1ec4de34f"><td class="memItemLeft" align="right" valign="top"><a id="a726f1383a89cf46635de0fb1ec4de34f"></a>
 T&#160;</td><td class="memItemRight" valign="bottom"><b>Round</b> (double iValue) const</td></tr>
 <tr class="separator:a726f1383a89cf46635de0fb1ec4de34f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,7 +193,7 @@ class AntiLogTaperDelegate&lt; T, RealPrecision &gt;</h3>
 <dl class="section version"><dt>Version</dt><dd>Revision : 1.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>Date : 2018 / 09 / 7 </dd></dl>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/aax_source/<a class="el" href="_anti_log_taper_delegate_8h_source.html">AntiLogTaperDelegate.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/aax_source/<a class="el" href="project__source_2source_2aax__source_2_anti_log_taper_delegate_8h_source.html">AntiLogTaperDelegate.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

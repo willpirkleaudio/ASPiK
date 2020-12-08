@@ -190,11 +190,12 @@ public:
 
 public:
 	// --- Overrides from AAX_CEffectParameters
-	virtual AAX_Result EffectInit();                ///< AAX Override
-	virtual AAX_Result ResetFieldData (AAX_CFieldIndex inFieldIndex, void * oData, uint32_t iDataSize) const;///< AAX Override
-	virtual AAX_Result GenerateCoefficients();      ///< AAX Override
-	virtual AAX_Result TimerWakeup();               ///< AAX Override
-
+	virtual AAX_Result EffectInit() AAX_OVERRIDE;                ///< AAX Override
+	virtual AAX_Result ResetFieldData (AAX_CFieldIndex inFieldIndex, void * oData, uint32_t iDataSize) const AAX_OVERRIDE;///< AAX Override
+	virtual AAX_Result GenerateCoefficients() AAX_OVERRIDE;      ///< AAX Override
+	virtual AAX_Result TimerWakeup() AAX_OVERRIDE;               ///< AAX Override
+    AAX_Result GetParameterNormalizedValue (AAX_CParamID iParameterID, double * oValuePtr )  const AAX_OVERRIDE;
+    
 	/** static render function for processing; can not be distributed */
 	static void AAX_CALLBACK StaticRenderAudio(AAXAlgorithm* const inInstancesBegin[], const void* inInstancesEnd);
 
@@ -202,7 +203,7 @@ public:
     static AAX_Result StaticDescribe(AAX_IComponentDescriptor& outDesc);
 
 	/** mechism to transfer custom data to GUI (AAX approved) */
-	virtual AAX_Result GetCustomData(AAX_CTypeID iDataBlockID, uint32_t iDataSize, void* oData, uint32_t* oDataWritten) const;
+	virtual AAX_Result GetCustomData(AAX_CTypeID iDataBlockID, uint32_t iDataSize, void* oData, uint32_t* oDataWritten) const AAX_OVERRIDE;
 
     /** get info from host for this buffer process cycle */
     void updateHostInfo(AAXAlgorithm* ioRenderInfo, HostInfo* hostInfo);
@@ -318,7 +319,18 @@ private:
     GUIPluginConnector* guiPluginConnector = nullptr;   ///< GUI Plugin interface
     PluginHostConnector* pluginHostConnector = nullptr; ///< Plugin Host interface
     AAXMIDIEventQueue* midiEventQueue = nullptr;        ///< double-buffered-queue for MIDI messaging
-
+    AAX_CParameterManager mMeterParameterManager;
+    
+    AAX_Result SetMeterParameterNormalizedValue (AAX_CParamID iParameterID, double aValue)
+    {
+        AAX_IParameter* parameter = mMeterParameterManager.GetParameterByID(iParameterID);
+        if (parameter == 0)
+            return AAX_ERROR_INVALID_PARAMETER_ID;
+        
+        parameter->SetNormalizedValue ( aValue );
+        return AAX_SUCCESS;
+    }
+    
     /** helper for channel format identification; converts AAX_EStemFormat into ASPiK channel format enumeration */
     uint32_t getChannelFormatForAAXStemFormat(AAX_EStemFormat format)
     {
@@ -588,7 +600,7 @@ class GUIPluginConnector : public IGUIPluginConnector
 {
 public:
     /** construct with two pointers */
-    GUIPluginConnector(AAX_IEffectParameters* _aaxParameters, PluginCore* _pluginCore){pluginCore = _pluginCore; aaxParameters = _aaxParameters;}
+    GUIPluginConnector(AAXPluginParameters* _aaxParameters, PluginCore* _pluginCore){pluginCore = _pluginCore; aaxParameters = _aaxParameters;}
 
     /** destroy subcontroller and custom view container objects */
     virtual ~GUIPluginConnector()
@@ -613,6 +625,7 @@ public:
     /** get AAX parameter in normalized form */
     virtual double getNormalizedPluginParameter(int32_t controlID)
     {
+        //if(aaxParameters->)
         // --- NOTE: this is the proper way for the GUI to get parameter values
         std::stringstream str;
         str << controlID + 1;
@@ -797,7 +810,8 @@ public:
 
 protected:
     PluginCore* pluginCore = nullptr;                   ///< the core object
-    AAX_IEffectParameters* aaxParameters = nullptr;     ///< the parent object
+//    AAX_IEffectParameters* aaxParameters = nullptr;     ///< the parent object
+    AAXPluginParameters* aaxParameters = nullptr;     ///< the parent object
 
     // --- this is for supporting the persistent interface pointer for the core object
     //     and is required by ASPiK Specifications

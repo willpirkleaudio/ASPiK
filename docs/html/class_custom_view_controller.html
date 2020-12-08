@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('class_custom_view_controller.html','')
 <p>The <a class="el" href="class_custom_view_controller.html" title="The CustomViewController is part of the safe ICustomView feature in ASPiK. The CustomViewController m...">CustomViewController</a> is part of the safe <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> feature in ASPiK. The <a class="el" href="class_custom_view_controller.html" title="The CustomViewController is part of the safe ICustomView feature in ASPiK. The CustomViewController m...">CustomViewController</a> maintains an <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> pointer. When the GUI registers and de-registers custom views during creation or destuction, the plugin shell is responsible for making sure that the original <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> pointer registered with the plugin core object <em>never goes out of scope</em> and this object is part of that system.  
  <a href="class_custom_view_controller.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_a_a_x_plugin_parameters_8h_source.html">AAXPluginParameters.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="project__source_2source_2aax__source_2_a_a_x_plugin_parameters_8h_source.html">AAXPluginParameters.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for CustomViewController:</div>
 <div class="dyncontent">
@@ -106,11 +106,56 @@ Inheritance diagram for CustomViewController:</div>
 <area href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view..." alt="ICustomView" shape="rect" coords="0,0,137,24"/>
 <area href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view..." alt="ICustomView" shape="rect" coords="147,0,284,24"/>
 <area href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view..." alt="ICustomView" shape="rect" coords="294,0,431,24"/>
+<area href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view..." alt="ICustomView" shape="rect" coords="441,0,578,24"/>
+<area href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view..." alt="ICustomView" shape="rect" coords="588,0,725,24"/>
+<area href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view..." alt="ICustomView" shape="rect" coords="735,0,872,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a4f16d12734de18657508ec02725eb19c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#a4f16d12734de18657508ec02725eb19c">CustomViewController</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *_customViewIF)</td></tr>
+<tr class="separator:a4f16d12734de18657508ec02725eb19c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91776207634fbece48c85235a5060af3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#a91776207634fbece48c85235a5060af3">updateView</a> ()</td></tr>
+<tr class="separator:a91776207634fbece48c85235a5060af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00ad52df5cda64c57f9b998d7f034c33"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#a00ad52df5cda64c57f9b998d7f034c33">pushDataValue</a> (double data)</td></tr>
+<tr class="separator:a00ad52df5cda64c57f9b998d7f034c33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74318c70a672a0ca8fdd8d64037ee257"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#a74318c70a672a0ca8fdd8d64037ee257">sendMessage</a> (void *data)</td></tr>
+<tr class="separator:a74318c70a672a0ca8fdd8d64037ee257"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c97f7f4ca37a1992e51ee93bc468320"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#a3c97f7f4ca37a1992e51ee93bc468320">setCustomViewPtr</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *_customViewIF)</td></tr>
+<tr class="separator:a3c97f7f4ca37a1992e51ee93bc468320"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d8c01baaf8c692d67f098fd187b3f2b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#a0d8c01baaf8c692d67f098fd187b3f2b">getCustomViewPtr</a> ()</td></tr>
+<tr class="separator:a0d8c01baaf8c692d67f098fd187b3f2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac17ac0e2da6f4d50329d64b82e700d47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#ac17ac0e2da6f4d50329d64b82e700d47">clearCustomViewPtr</a> ()</td></tr>
+<tr class="separator:ac17ac0e2da6f4d50329d64b82e700d47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f16d12734de18657508ec02725eb19c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#a4f16d12734de18657508ec02725eb19c">CustomViewController</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *_customViewIF)</td></tr>
+<tr class="separator:a4f16d12734de18657508ec02725eb19c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91776207634fbece48c85235a5060af3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#a91776207634fbece48c85235a5060af3">updateView</a> ()</td></tr>
+<tr class="separator:a91776207634fbece48c85235a5060af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00ad52df5cda64c57f9b998d7f034c33"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#a00ad52df5cda64c57f9b998d7f034c33">pushDataValue</a> (double data)</td></tr>
+<tr class="separator:a00ad52df5cda64c57f9b998d7f034c33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74318c70a672a0ca8fdd8d64037ee257"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#a74318c70a672a0ca8fdd8d64037ee257">sendMessage</a> (void *data)</td></tr>
+<tr class="separator:a74318c70a672a0ca8fdd8d64037ee257"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c97f7f4ca37a1992e51ee93bc468320"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#a3c97f7f4ca37a1992e51ee93bc468320">setCustomViewPtr</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *_customViewIF)</td></tr>
+<tr class="separator:a3c97f7f4ca37a1992e51ee93bc468320"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d8c01baaf8c692d67f098fd187b3f2b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#a0d8c01baaf8c692d67f098fd187b3f2b">getCustomViewPtr</a> ()</td></tr>
+<tr class="separator:a0d8c01baaf8c692d67f098fd187b3f2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac17ac0e2da6f4d50329d64b82e700d47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#ac17ac0e2da6f4d50329d64b82e700d47">clearCustomViewPtr</a> ()</td></tr>
+<tr class="separator:ac17ac0e2da6f4d50329d64b82e700d47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f16d12734de18657508ec02725eb19c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#a4f16d12734de18657508ec02725eb19c">CustomViewController</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *_customViewIF)</td></tr>
+<tr class="separator:a4f16d12734de18657508ec02725eb19c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91776207634fbece48c85235a5060af3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#a91776207634fbece48c85235a5060af3">updateView</a> ()</td></tr>
+<tr class="separator:a91776207634fbece48c85235a5060af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00ad52df5cda64c57f9b998d7f034c33"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#a00ad52df5cda64c57f9b998d7f034c33">pushDataValue</a> (double data)</td></tr>
+<tr class="separator:a00ad52df5cda64c57f9b998d7f034c33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74318c70a672a0ca8fdd8d64037ee257"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#a74318c70a672a0ca8fdd8d64037ee257">sendMessage</a> (void *data)</td></tr>
+<tr class="separator:a74318c70a672a0ca8fdd8d64037ee257"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c97f7f4ca37a1992e51ee93bc468320"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#a3c97f7f4ca37a1992e51ee93bc468320">setCustomViewPtr</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *_customViewIF)</td></tr>
+<tr class="separator:a3c97f7f4ca37a1992e51ee93bc468320"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d8c01baaf8c692d67f098fd187b3f2b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#a0d8c01baaf8c692d67f098fd187b3f2b">getCustomViewPtr</a> ()</td></tr>
+<tr class="separator:a0d8c01baaf8c692d67f098fd187b3f2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac17ac0e2da6f4d50329d64b82e700d47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#ac17ac0e2da6f4d50329d64b82e700d47">clearCustomViewPtr</a> ()</td></tr>
+<tr class="separator:ac17ac0e2da6f4d50329d64b82e700d47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f16d12734de18657508ec02725eb19c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#a4f16d12734de18657508ec02725eb19c">CustomViewController</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *_customViewIF)</td></tr>
 <tr class="separator:a4f16d12734de18657508ec02725eb19c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91776207634fbece48c85235a5060af3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_view_controller.html#a91776207634fbece48c85235a5060af3">updateView</a> ()</td></tr>
@@ -162,7 +207,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>Date : 2018 / 09 / 7 </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4f16d12734de18657508ec02725eb19c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f16d12734de18657508ec02725eb19c">&#9670;&nbsp;</a></span>CustomViewController() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f16d12734de18657508ec02725eb19c">&#9670;&nbsp;</a></span>CustomViewController() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -189,7 +234,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a4f16d12734de18657508ec02725eb19c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f16d12734de18657508ec02725eb19c">&#9670;&nbsp;</a></span>CustomViewController() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f16d12734de18657508ec02725eb19c">&#9670;&nbsp;</a></span>CustomViewController() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -216,7 +261,88 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a4f16d12734de18657508ec02725eb19c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f16d12734de18657508ec02725eb19c">&#9670;&nbsp;</a></span>CustomViewController() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f16d12734de18657508ec02725eb19c">&#9670;&nbsp;</a></span>CustomViewController() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CustomViewController::CustomViewController </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>_customViewIF</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>constructor: pass the newly registered ICustomView* </p>
+
+</div>
+</div>
+<a id="a4f16d12734de18657508ec02725eb19c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f16d12734de18657508ec02725eb19c">&#9670;&nbsp;</a></span>CustomViewController() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CustomViewController::CustomViewController </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>_customViewIF</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>constructor: pass the newly registered ICustomView* </p>
+
+</div>
+</div>
+<a id="a4f16d12734de18657508ec02725eb19c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f16d12734de18657508ec02725eb19c">&#9670;&nbsp;</a></span>CustomViewController() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CustomViewController::CustomViewController </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>_customViewIF</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>constructor: pass the newly registered ICustomView* </p>
+
+</div>
+</div>
+<a id="a4f16d12734de18657508ec02725eb19c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f16d12734de18657508ec02725eb19c">&#9670;&nbsp;</a></span>CustomViewController() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -244,7 +370,7 @@ Public Member Functions</h2></td></tr>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac17ac0e2da6f4d50329d64b82e700d47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac17ac0e2da6f4d50329d64b82e700d47">&#9670;&nbsp;</a></span>clearCustomViewPtr() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac17ac0e2da6f4d50329d64b82e700d47">&#9670;&nbsp;</a></span>clearCustomViewPtr() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -270,7 +396,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="ac17ac0e2da6f4d50329d64b82e700d47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac17ac0e2da6f4d50329d64b82e700d47">&#9670;&nbsp;</a></span>clearCustomViewPtr() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac17ac0e2da6f4d50329d64b82e700d47">&#9670;&nbsp;</a></span>clearCustomViewPtr() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -296,7 +422,85 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="ac17ac0e2da6f4d50329d64b82e700d47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac17ac0e2da6f4d50329d64b82e700d47">&#9670;&nbsp;</a></span>clearCustomViewPtr() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac17ac0e2da6f4d50329d64b82e700d47">&#9670;&nbsp;</a></span>clearCustomViewPtr() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CustomViewController::clearCustomViewPtr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>clear the stored ICustomView* &ndash; this is called when a custom view is de-registered </p>
+
+</div>
+</div>
+<a id="ac17ac0e2da6f4d50329d64b82e700d47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac17ac0e2da6f4d50329d64b82e700d47">&#9670;&nbsp;</a></span>clearCustomViewPtr() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CustomViewController::clearCustomViewPtr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>clear the stored ICustomView* &ndash; this is called when a custom view is de-registered </p>
+
+</div>
+</div>
+<a id="ac17ac0e2da6f4d50329d64b82e700d47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac17ac0e2da6f4d50329d64b82e700d47">&#9670;&nbsp;</a></span>clearCustomViewPtr() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CustomViewController::clearCustomViewPtr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>clear the stored ICustomView* &ndash; this is called when a custom view is de-registered </p>
+
+</div>
+</div>
+<a id="ac17ac0e2da6f4d50329d64b82e700d47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac17ac0e2da6f4d50329d64b82e700d47">&#9670;&nbsp;</a></span>clearCustomViewPtr() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -322,7 +526,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a0d8c01baaf8c692d67f098fd187b3f2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d8c01baaf8c692d67f098fd187b3f2b">&#9670;&nbsp;</a></span>getCustomViewPtr() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d8c01baaf8c692d67f098fd187b3f2b">&#9670;&nbsp;</a></span>getCustomViewPtr() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -348,7 +552,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a0d8c01baaf8c692d67f098fd187b3f2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d8c01baaf8c692d67f098fd187b3f2b">&#9670;&nbsp;</a></span>getCustomViewPtr() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d8c01baaf8c692d67f098fd187b3f2b">&#9670;&nbsp;</a></span>getCustomViewPtr() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -374,7 +578,85 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a0d8c01baaf8c692d67f098fd187b3f2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d8c01baaf8c692d67f098fd187b3f2b">&#9670;&nbsp;</a></span>getCustomViewPtr() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d8c01baaf8c692d67f098fd187b3f2b">&#9670;&nbsp;</a></span>getCustomViewPtr() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_i_custom_view.html">ICustomView</a>* CustomViewController::getCustomViewPtr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get the current ICustomView* &ndash; note this is read-only (const) and it also MAY be NULL </p>
+
+</div>
+</div>
+<a id="a0d8c01baaf8c692d67f098fd187b3f2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d8c01baaf8c692d67f098fd187b3f2b">&#9670;&nbsp;</a></span>getCustomViewPtr() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_i_custom_view.html">ICustomView</a>* CustomViewController::getCustomViewPtr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get the current ICustomView* &ndash; note this is read-only (const) and it also MAY be NULL </p>
+
+</div>
+</div>
+<a id="a0d8c01baaf8c692d67f098fd187b3f2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d8c01baaf8c692d67f098fd187b3f2b">&#9670;&nbsp;</a></span>getCustomViewPtr() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_i_custom_view.html">ICustomView</a>* CustomViewController::getCustomViewPtr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get the current ICustomView* &ndash; note this is read-only (const) and it also MAY be NULL </p>
+
+</div>
+</div>
+<a id="a0d8c01baaf8c692d67f098fd187b3f2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d8c01baaf8c692d67f098fd187b3f2b">&#9670;&nbsp;</a></span>getCustomViewPtr() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -400,7 +682,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a00ad52df5cda64c57f9b998d7f034c33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00ad52df5cda64c57f9b998d7f034c33">&#9670;&nbsp;</a></span>pushDataValue() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a00ad52df5cda64c57f9b998d7f034c33">&#9670;&nbsp;</a></span>pushDataValue() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -429,7 +711,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a00ad52df5cda64c57f9b998d7f034c33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00ad52df5cda64c57f9b998d7f034c33">&#9670;&nbsp;</a></span>pushDataValue() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a00ad52df5cda64c57f9b998d7f034c33">&#9670;&nbsp;</a></span>pushDataValue() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -458,7 +740,94 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a00ad52df5cda64c57f9b998d7f034c33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00ad52df5cda64c57f9b998d7f034c33">&#9670;&nbsp;</a></span>pushDataValue() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a00ad52df5cda64c57f9b998d7f034c33">&#9670;&nbsp;</a></span>pushDataValue() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CustomViewController::pushDataValue </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>forward call to <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> interface <em>if it is still alive</em> </p>
+
+<p>Reimplemented from <a class="el" href="class_i_custom_view.html#a60c73575c3bba7d0491dd35ec7ae757d">ICustomView</a>.</p>
+
+</div>
+</div>
+<a id="a00ad52df5cda64c57f9b998d7f034c33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00ad52df5cda64c57f9b998d7f034c33">&#9670;&nbsp;</a></span>pushDataValue() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CustomViewController::pushDataValue </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>forward call to <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> interface <em>if it is still alive</em> </p>
+
+<p>Reimplemented from <a class="el" href="class_i_custom_view.html#a60c73575c3bba7d0491dd35ec7ae757d">ICustomView</a>.</p>
+
+</div>
+</div>
+<a id="a00ad52df5cda64c57f9b998d7f034c33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00ad52df5cda64c57f9b998d7f034c33">&#9670;&nbsp;</a></span>pushDataValue() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CustomViewController::pushDataValue </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>forward call to <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> interface <em>if it is still alive</em> </p>
+
+<p>Reimplemented from <a class="el" href="class_i_custom_view.html#a60c73575c3bba7d0491dd35ec7ae757d">ICustomView</a>.</p>
+
+</div>
+</div>
+<a id="a00ad52df5cda64c57f9b998d7f034c33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00ad52df5cda64c57f9b998d7f034c33">&#9670;&nbsp;</a></span>pushDataValue() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -487,7 +856,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a74318c70a672a0ca8fdd8d64037ee257"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74318c70a672a0ca8fdd8d64037ee257">&#9670;&nbsp;</a></span>sendMessage() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a74318c70a672a0ca8fdd8d64037ee257">&#9670;&nbsp;</a></span>sendMessage() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -516,7 +885,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a74318c70a672a0ca8fdd8d64037ee257"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74318c70a672a0ca8fdd8d64037ee257">&#9670;&nbsp;</a></span>sendMessage() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a74318c70a672a0ca8fdd8d64037ee257">&#9670;&nbsp;</a></span>sendMessage() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -545,7 +914,94 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a74318c70a672a0ca8fdd8d64037ee257"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74318c70a672a0ca8fdd8d64037ee257">&#9670;&nbsp;</a></span>sendMessage() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a74318c70a672a0ca8fdd8d64037ee257">&#9670;&nbsp;</a></span>sendMessage() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CustomViewController::sendMessage </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>forward call to <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> interface <em>if it is still alive</em> </p>
+
+<p>Reimplemented from <a class="el" href="class_i_custom_view.html#ae254a94e1d754ece5ba4678583b1ddd1">ICustomView</a>.</p>
+
+</div>
+</div>
+<a id="a74318c70a672a0ca8fdd8d64037ee257"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74318c70a672a0ca8fdd8d64037ee257">&#9670;&nbsp;</a></span>sendMessage() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CustomViewController::sendMessage </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>forward call to <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> interface <em>if it is still alive</em> </p>
+
+<p>Reimplemented from <a class="el" href="class_i_custom_view.html#ae254a94e1d754ece5ba4678583b1ddd1">ICustomView</a>.</p>
+
+</div>
+</div>
+<a id="a74318c70a672a0ca8fdd8d64037ee257"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74318c70a672a0ca8fdd8d64037ee257">&#9670;&nbsp;</a></span>sendMessage() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CustomViewController::sendMessage </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>forward call to <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> interface <em>if it is still alive</em> </p>
+
+<p>Reimplemented from <a class="el" href="class_i_custom_view.html#ae254a94e1d754ece5ba4678583b1ddd1">ICustomView</a>.</p>
+
+</div>
+</div>
+<a id="a74318c70a672a0ca8fdd8d64037ee257"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74318c70a672a0ca8fdd8d64037ee257">&#9670;&nbsp;</a></span>sendMessage() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -574,7 +1030,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a3c97f7f4ca37a1992e51ee93bc468320"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c97f7f4ca37a1992e51ee93bc468320">&#9670;&nbsp;</a></span>setCustomViewPtr() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c97f7f4ca37a1992e51ee93bc468320">&#9670;&nbsp;</a></span>setCustomViewPtr() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -601,7 +1057,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a3c97f7f4ca37a1992e51ee93bc468320"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c97f7f4ca37a1992e51ee93bc468320">&#9670;&nbsp;</a></span>setCustomViewPtr() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c97f7f4ca37a1992e51ee93bc468320">&#9670;&nbsp;</a></span>setCustomViewPtr() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -628,7 +1084,88 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a3c97f7f4ca37a1992e51ee93bc468320"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c97f7f4ca37a1992e51ee93bc468320">&#9670;&nbsp;</a></span>setCustomViewPtr() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c97f7f4ca37a1992e51ee93bc468320">&#9670;&nbsp;</a></span>setCustomViewPtr() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CustomViewController::setCustomViewPtr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>_customViewIF</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>set a NEW ICustomView* &ndash; this is called when a custom view is registered </p>
+
+</div>
+</div>
+<a id="a3c97f7f4ca37a1992e51ee93bc468320"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c97f7f4ca37a1992e51ee93bc468320">&#9670;&nbsp;</a></span>setCustomViewPtr() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CustomViewController::setCustomViewPtr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>_customViewIF</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>set a NEW ICustomView* &ndash; this is called when a custom view is registered </p>
+
+</div>
+</div>
+<a id="a3c97f7f4ca37a1992e51ee93bc468320"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c97f7f4ca37a1992e51ee93bc468320">&#9670;&nbsp;</a></span>setCustomViewPtr() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CustomViewController::setCustomViewPtr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>_customViewIF</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>set a NEW ICustomView* &ndash; this is called when a custom view is registered </p>
+
+</div>
+</div>
+<a id="a3c97f7f4ca37a1992e51ee93bc468320"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c97f7f4ca37a1992e51ee93bc468320">&#9670;&nbsp;</a></span>setCustomViewPtr() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -655,7 +1192,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a91776207634fbece48c85235a5060af3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91776207634fbece48c85235a5060af3">&#9670;&nbsp;</a></span>updateView() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a91776207634fbece48c85235a5060af3">&#9670;&nbsp;</a></span>updateView() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -683,7 +1220,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a91776207634fbece48c85235a5060af3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91776207634fbece48c85235a5060af3">&#9670;&nbsp;</a></span>updateView() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a91776207634fbece48c85235a5060af3">&#9670;&nbsp;</a></span>updateView() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -711,7 +1248,91 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a91776207634fbece48c85235a5060af3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91776207634fbece48c85235a5060af3">&#9670;&nbsp;</a></span>updateView() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a91776207634fbece48c85235a5060af3">&#9670;&nbsp;</a></span>updateView() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CustomViewController::updateView </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>forward call to <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> interface <em>if it is still alive</em> </p>
+
+<p>Implements <a class="el" href="class_i_custom_view.html#a09b3386cc82f837cf6f04945590cb848">ICustomView</a>.</p>
+
+</div>
+</div>
+<a id="a91776207634fbece48c85235a5060af3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91776207634fbece48c85235a5060af3">&#9670;&nbsp;</a></span>updateView() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CustomViewController::updateView </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>forward call to <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> interface <em>if it is still alive</em> </p>
+
+<p>Implements <a class="el" href="class_i_custom_view.html#a09b3386cc82f837cf6f04945590cb848">ICustomView</a>.</p>
+
+</div>
+</div>
+<a id="a91776207634fbece48c85235a5060af3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91776207634fbece48c85235a5060af3">&#9670;&nbsp;</a></span>updateView() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CustomViewController::updateView </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>forward call to <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> interface <em>if it is still alive</em> </p>
+
+<p>Implements <a class="el" href="class_i_custom_view.html#a09b3386cc82f837cf6f04945590cb848">ICustomView</a>.</p>
+
+</div>
+</div>
+<a id="a91776207634fbece48c85235a5060af3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91776207634fbece48c85235a5060af3">&#9670;&nbsp;</a></span>updateView() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -739,9 +1360,9 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/aax_source/<a class="el" href="_a_a_x_plugin_parameters_8h_source.html">AAXPluginParameters.h</a></li>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/au_source/<a class="el" href="aufxplugin_8h_source.html">aufxplugin.h</a></li>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/au_source/<a class="el" href="ausynthplugin_8h_source.html">ausynthplugin.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/aax_source/<a class="el" href="project__source_2source_2aax__source_2_a_a_x_plugin_parameters_8h_source.html">AAXPluginParameters.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/au_source/<a class="el" href="project__source_2source_2au__source_2aufxplugin_8h_source.html">aufxplugin.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/au_source/<a class="el" href="project__source_2source_2au__source_2ausynthplugin_8h_source.html">ausynthplugin.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

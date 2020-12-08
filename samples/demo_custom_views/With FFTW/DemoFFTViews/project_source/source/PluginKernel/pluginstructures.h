@@ -687,7 +687,7 @@ enum messageType {
 	PLUGIN_QUERY_DESCRIPTION,				/* fill in a Rafx2PluginDescriptor for host */
 	PLUGIN_QUERY_PARAMETER,					/* fill in a Rafx2PluginParameter for host inMessageData = index of parameter*/
 	PLUGIN_QUERY_TRACKPAD_X,
-	PLUGIN_QUERY_TRACKPAD_Y
+	PLUGIN_QUERY_TRACKPAD_Y,
 };
 
 
@@ -990,7 +990,8 @@ struct HostInfo
     double cycleStartMusic = 0.0;		///<- cycle start in quarter notes
     double cycleEndMusic = 0.0;			///< cycle end in quarter notes
     uint32_t samplesToNextClock = 0;	///< MIDI Clock Resolution (24 Per Quarter Note), can be negative (nearest)
-    /*
+	bool enableVSTSampleAccurateAutomation = false;
+	/*
      IF you need SMPTE information, you need to get the information yourself at the start of the process( ) function
      where the above values are filled out. See the variables here in VST3 SDK\pluginterfaces\vst\ivstprocesscontext.h:
 

@@ -12,7 +12,7 @@
 			<key>manufacturer</key>
 			<string>VENDOR_4CHAR_CODE</string>
 			<key>name</key>
-      <string>Your Company Name: My Plugin</string>
+      <string>ASPiK User: Plugin Template</string>
       <key>sandboxSafe</key>
 			<true/>
 			<key>subtype</key>

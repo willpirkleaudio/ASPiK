@@ -123,6 +123,18 @@ Macros</h2></td></tr>
 <tr class="memitem:ga2ee0bf5bea5e945860ea1c3019bd8a8b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_s_pi_k-_g_u_i.html#ga2ee0bf5bea5e945860ea1c3019bd8a8b">convertIntToEnum</a>(INT,  ENUM)&#160;&#160;&#160;static_cast&lt;ENUM&gt;(INT)</td></tr>
 <tr class="memdesc:ga2ee0bf5bea5e945860ea1c3019bd8a8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert an int to an enum, e.g. for passing to functions  <a href="#ga2ee0bf5bea5e945860ea1c3019bd8a8b">More...</a><br /></td></tr>
 <tr class="separator:ga2ee0bf5bea5e945860ea1c3019bd8a8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafe6b97a9f03775e21060ed411465d1a6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_s_pi_k-_g_u_i.html#gafe6b97a9f03775e21060ed411465d1a6">enumToInt</a>(ENUM)&#160;&#160;&#160;static_cast&lt;int&gt;(ENUM)</td></tr>
+<tr class="memdesc:gafe6b97a9f03775e21060ed411465d1a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">macro helper to cast a typed enum to an int  <a href="#gafe6b97a9f03775e21060ed411465d1a6">More...</a><br /></td></tr>
+<tr class="separator:gafe6b97a9f03775e21060ed411465d1a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa82d29ed61e701d851f38e8976464133"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_s_pi_k-_g_u_i.html#gaa82d29ed61e701d851f38e8976464133">compareEnumToInt</a>(ENUM,  INT)&#160;&#160;&#160;(static_cast&lt;int&gt;(ENUM) == (INT))</td></tr>
+<tr class="memdesc:gaa82d29ed61e701d851f38e8976464133"><td class="mdescLeft">&#160;</td><td class="mdescRight">compare a typed enum value to an int  <a href="#gaa82d29ed61e701d851f38e8976464133">More...</a><br /></td></tr>
+<tr class="separator:gaa82d29ed61e701d851f38e8976464133"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafff0d380df2f3386c6ef55cdca6fbac6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_s_pi_k-_g_u_i.html#gafff0d380df2f3386c6ef55cdca6fbac6">compareIntToEnum</a>(INT,  ENUM)&#160;&#160;&#160;((INT) == static_cast&lt;int&gt;(ENUM))</td></tr>
+<tr class="memdesc:gafff0d380df2f3386c6ef55cdca6fbac6"><td class="mdescLeft">&#160;</td><td class="mdescRight">compare a typed enum value to an int  <a href="#gafff0d380df2f3386c6ef55cdca6fbac6">More...</a><br /></td></tr>
+<tr class="separator:gafff0d380df2f3386c6ef55cdca6fbac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2ee0bf5bea5e945860ea1c3019bd8a8b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_s_pi_k-_g_u_i.html#ga2ee0bf5bea5e945860ea1c3019bd8a8b">convertIntToEnum</a>(INT,  ENUM)&#160;&#160;&#160;static_cast&lt;ENUM&gt;(INT)</td></tr>
+<tr class="memdesc:ga2ee0bf5bea5e945860ea1c3019bd8a8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert an int to an enum, e.g. for passing to functions  <a href="#ga2ee0bf5bea5e945860ea1c3019bd8a8b">More...</a><br /></td></tr>
+<tr class="separator:ga2ee0bf5bea5e945860ea1c3019bd8a8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -157,6 +169,29 @@ Functions</h2></td></tr>
 <li>encodes the entire GUI in a single XML file, including the graphics file data; this one file may be moved or copied from one project to another, allowing the whole GUI to be easily moved or reused in other projects; advanced users may define multiple GUIs in multiple XML files which may be swapped in and out</li>
 <li>contains API-specific code in the few places where it is absolutely needed (namely for the AU event-listener system)</li>
 <li>supports the VTSGUI4 Custom View and Sub-Controller paradigms to extend its functionality</li>
+<li>exists independently from the <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a> and does not know, or need to know, of the PluginCore’s existence</li>
+<li>does not hold a pointer to the <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a> object or share any resources with it</li>
+<li>NOTE: the PluginGUI object is defined within the VSTGUI namespace and is grouped with more VSTGUI objects that you may use</li>
+</ul>
+<p>The <a class="el" href="class_plugin_parameter.html" title="The PluginParameter object stores all of the data needed for any type of plugin parameter. It is a large object, but it is not complex as it really just stores LOTS of information about plugin parameters. ">PluginParameter</a>:</p><ul>
+<li>stores plugin parameters as atomic variables for thread-safe operation</li>
+<li>encapsulates each parameter specific to the plugin as a C++ object</li>
+<li>can store all types of input parameters; ints, floats, doubles, string-lists, and custom user types</li>
+<li>can implement audio meters, complete with meter ballistics (attack and release times) and various envelope detection schemes: peak, MS, RMS and in linear or log format</li>
+<li>implements optional automatic variable-binding to connect GUI parameter changes to plugin variables in a completely thread-safe manner across all APIs</li>
+<li>has an optional auxiliary storage system to maintain other information along with any of the plugin parameters allowing you to easily customize and extend the object</li>
+<li>implements optional parameter smoothing for glitch-free GUI controls with two types of smoothing available: linear and exponential</li>
+<li>automatically implements four types of control tapering: linear, log, anti-log, and volt/octave</li>
+<li>implements optional sample-accurate automation for VST3 plugins (VST3 is the only API that has a specification for sample-accurate automation)</li>
+</ul>
+<p>The <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" title="The PluginGUI object that maintains the entire GUI operation and has #defines to use with AAX...">VSTGUI::PluginGUI</a>:</p><ul>
+<li>handles all of the GUI functionality including the GUI designer</li>
+<li>is built using the VSTGUI4 library</li>
+<li>is platform independent</li>
+<li>does not link to any pre-compiled libraries</li>
+<li>encodes the entire GUI in a single XML file, including the graphics file data; this one file may be moved or copied from one project to another, allowing the whole GUI to be easily moved or reused in other projects; advanced users may define multiple GUIs in multiple XML files which may be swapped in and out</li>
+<li>contains API-specific code in the few places where it is absolutely needed (namely for the AU event-listener system)</li>
+<li>supports the VTSGUI4 Custom View and Sub-Controller paradigms to extend its functionality</li>
 <li>exists independently from the <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a> and does not know, or need to know, of the PluginCoreï¿½s existence</li>
 <li>does not hold a pointer to the <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a> object or share any resources with it</li>
 <li>NOTE: the PluginGUI object is defined within the VSTGUI namespace and is grouped with more VSTGUI objects that you may use</li>
@@ -174,7 +209,45 @@ Functions</h2></td></tr>
 </ul>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="gaa82d29ed61e701d851f38e8976464133"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa82d29ed61e701d851f38e8976464133">&#9670;&nbsp;</a></span>compareEnumToInt</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa82d29ed61e701d851f38e8976464133">&#9670;&nbsp;</a></span>compareEnumToInt <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define compareEnumToInt</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ENUM, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">INT&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;(static_cast&lt;int&gt;(ENUM) == (INT))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>compare a typed enum value to an int </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ENUM</td><td>- the typed enum to compare with </td></tr>
+    <tr><td class="paramname">INT</td><td>- the int to compare with </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if equal false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="gaa82d29ed61e701d851f38e8976464133"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa82d29ed61e701d851f38e8976464133">&#9670;&nbsp;</a></span>compareEnumToInt <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -212,7 +285,45 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="gafff0d380df2f3386c6ef55cdca6fbac6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gafff0d380df2f3386c6ef55cdca6fbac6">&#9670;&nbsp;</a></span>compareIntToEnum</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#gafff0d380df2f3386c6ef55cdca6fbac6">&#9670;&nbsp;</a></span>compareIntToEnum <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define compareIntToEnum</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">INT, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ENUM&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;((INT) == static_cast&lt;int&gt;(ENUM))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>compare a typed enum value to an int </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">INT</td><td>- the int to compare with </td></tr>
+    <tr><td class="paramname">ENUM</td><td>- the typed enum to compare with </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if equal false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="gafff0d380df2f3386c6ef55cdca6fbac6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafff0d380df2f3386c6ef55cdca6fbac6">&#9670;&nbsp;</a></span>compareIntToEnum <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -250,7 +361,45 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="ga2ee0bf5bea5e945860ea1c3019bd8a8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2ee0bf5bea5e945860ea1c3019bd8a8b">&#9670;&nbsp;</a></span>convertIntToEnum</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2ee0bf5bea5e945860ea1c3019bd8a8b">&#9670;&nbsp;</a></span>convertIntToEnum <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define convertIntToEnum</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">INT, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ENUM&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;static_cast&lt;ENUM&gt;(INT)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>convert an int to an enum, e.g. for passing to functions </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">INT</td><td>- the int to compare with </td></tr>
+    <tr><td class="paramname">ENUM</td><td>- the typed enum to compare with </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the int value properly cast as the enum type </dd></dl>
+
+</div>
+</div>
+<a id="ga2ee0bf5bea5e945860ea1c3019bd8a8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2ee0bf5bea5e945860ea1c3019bd8a8b">&#9670;&nbsp;</a></span>convertIntToEnum <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -288,7 +437,34 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="gafe6b97a9f03775e21060ed411465d1a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gafe6b97a9f03775e21060ed411465d1a6">&#9670;&nbsp;</a></span>enumToInt</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#gafe6b97a9f03775e21060ed411465d1a6">&#9670;&nbsp;</a></span>enumToInt <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define enumToInt</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ENUM</td><td>)</td>
+          <td>&#160;&#160;&#160;static_cast&lt;int&gt;(ENUM)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>macro helper to cast a typed enum to an int </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ENUM</td><td>- the typed enum to convert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the enum properly cast as an int (the true underlying datatype for enum class) </dd></dl>
+
+</div>
+</div>
+<a id="gafe6b97a9f03775e21060ed411465d1a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafe6b97a9f03775e21060ed411465d1a6">&#9670;&nbsp;</a></span>enumToInt <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

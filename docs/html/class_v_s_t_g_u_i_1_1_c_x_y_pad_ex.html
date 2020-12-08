@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.htm
 It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" title="The PluginGUI object that maintains the entire GUI operation and has #defines to use with AAX...">PluginGUI</a> object for creating custom views.  
  <a href="class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="customcontrols_8h_source.html">customcontrols.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="project__source_2source_2_custom_controls_2customcontrols_8h_source.html">customcontrols.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for VSTGUI::CXYPadEx:</div>
 <div class="dyncontent">
@@ -143,9 +143,48 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (CDrawContex
 <tr class="memitem:ad6a459f7ce5147d19214650a26fb9500"><td class="memItemLeft" align="right" valign="top"><a id="ad6a459f7ce5147d19214650a26fb9500"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>pointInPolygon</b> (int nvert, float *vertx, float *verty, float testx, float testy)</td></tr>
 <tr class="separator:ad6a459f7ce5147d19214650a26fb9500"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad089647ff678f0f323b442eacc5aae80"><td class="memItemLeft" align="right" valign="top"><a id="ad089647ff678f0f323b442eacc5aae80"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CXYPadEx</b> (const CRect &amp;size=CRect(0, 0, 0, 0))</td></tr>
+<tr class="separator:ad089647ff678f0f323b442eacc5aae80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd6fe071a055bf4db93d6bd74beefaa0"><td class="memItemLeft" align="right" valign="top"><a id="afd6fe071a055bf4db93d6bd74beefaa0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setTagX</b> (int32_t tag)</td></tr>
+<tr class="separator:afd6fe071a055bf4db93d6bd74beefaa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a351686a9fdee189d844b04f56e2965da"><td class="memItemLeft" align="right" valign="top"><a id="a351686a9fdee189d844b04f56e2965da"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getTagX</b> ()</td></tr>
+<tr class="separator:a351686a9fdee189d844b04f56e2965da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95d296349f44a462e6f8059ee1d1924b"><td class="memItemLeft" align="right" valign="top"><a id="a95d296349f44a462e6f8059ee1d1924b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setTagY</b> (int32_t tag)</td></tr>
+<tr class="separator:a95d296349f44a462e6f8059ee1d1924b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ddeb21ff0d23d04029da7ac9e3c221d"><td class="memItemLeft" align="right" valign="top"><a id="a1ddeb21ff0d23d04029da7ac9e3c221d"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getTagY</b> ()</td></tr>
+<tr class="separator:a1ddeb21ff0d23d04029da7ac9e3c221d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19cf971c50f6106643aa71cce7bd596b"><td class="memItemLeft" align="right" valign="top"><a id="a19cf971c50f6106643aa71cce7bd596b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (CDrawContext *context) override</td></tr>
+<tr class="separator:a19cf971c50f6106643aa71cce7bd596b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad158c1374b29d2d25f6d9cea5be6ada6"><td class="memItemLeft" align="right" valign="top">CMouseEventResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#ad158c1374b29d2d25f6d9cea5be6ada6">onMouseMoved</a> (CPoint &amp;where, const CButtonState &amp;buttons) override</td></tr>
+<tr class="memdesc:ad158c1374b29d2d25f6d9cea5be6ada6"><td class="mdescLeft">&#160;</td><td class="mdescRight">handle mouse moved event  <a href="#ad158c1374b29d2d25f6d9cea5be6ada6">More...</a><br /></td></tr>
+<tr class="separator:ad158c1374b29d2d25f6d9cea5be6ada6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06f251e75c13f9c678a71a89ebe8804d"><td class="memItemLeft" align="right" valign="top">CMouseEventResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#a06f251e75c13f9c678a71a89ebe8804d">onMouseUp</a> (CPoint &amp;where, const CButtonState &amp;buttons) override</td></tr>
+<tr class="memdesc:a06f251e75c13f9c678a71a89ebe8804d"><td class="mdescLeft">&#160;</td><td class="mdescRight">handle mouse up event  <a href="#a06f251e75c13f9c678a71a89ebe8804d">More...</a><br /></td></tr>
+<tr class="separator:a06f251e75c13f9c678a71a89ebe8804d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace313433cf0b6699ea6e5a28b9a6602a"><td class="memItemLeft" align="right" valign="top">CMouseEventResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#ace313433cf0b6699ea6e5a28b9a6602a">onMouseDown</a> (CPoint &amp;where, const CButtonState &amp;buttons) override</td></tr>
+<tr class="memdesc:ace313433cf0b6699ea6e5a28b9a6602a"><td class="mdescLeft">&#160;</td><td class="mdescRight">handle mouse down event  <a href="#ace313433cf0b6699ea6e5a28b9a6602a">More...</a><br /></td></tr>
+<tr class="separator:ace313433cf0b6699ea6e5a28b9a6602a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cf2c629d1b2f49ed82a9b18160cade4"><td class="memItemLeft" align="right" valign="top"><a id="a6cf2c629d1b2f49ed82a9b18160cade4"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setValue</b> (float val) override</td></tr>
+<tr class="separator:a6cf2c629d1b2f49ed82a9b18160cade4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6a459f7ce5147d19214650a26fb9500"><td class="memItemLeft" align="right" valign="top"><a id="ad6a459f7ce5147d19214650a26fb9500"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>pointInPolygon</b> (int nvert, float *vertx, float *verty, float testx, float testy)</td></tr>
+<tr class="separator:ad6a459f7ce5147d19214650a26fb9500"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a2d75fdb94f97fe5f6a3e6267d46efe09"><td class="memItemLeft" align="right" valign="top"><a id="a2d75fdb94f97fe5f6a3e6267d46efe09"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>calculateXY</b> (float value, float &amp;x, float &amp;y)</td></tr>
+<tr class="separator:a2d75fdb94f97fe5f6a3e6267d46efe09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb254a764cee87ca03dfa77ddcf918ac"><td class="memItemLeft" align="right" valign="top"><a id="acb254a764cee87ca03dfa77ddcf918ac"></a>
+static float&#160;</td><td class="memItemRight" valign="bottom"><b>calculateValue</b> (float x, float y)</td></tr>
+<tr class="separator:acb254a764cee87ca03dfa77ddcf918ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d75fdb94f97fe5f6a3e6267d46efe09"><td class="memItemLeft" align="right" valign="top"><a id="a2d75fdb94f97fe5f6a3e6267d46efe09"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>calculateXY</b> (float value, float &amp;x, float &amp;y)</td></tr>
 <tr class="separator:a2d75fdb94f97fe5f6a3e6267d46efe09"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,12 +203,12 @@ int32_t&#160;</td><td class="memItemRight" valign="bottom"><b>tagY</b></td></tr>
 <tr class="memitem:a8f844fa30371526193c13dc945a6f18a"><td class="memItemLeft" align="right" valign="top"><a id="a8f844fa30371526193c13dc945a6f18a"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isJoystickPad</b></td></tr>
 <tr class="separator:a8f844fa30371526193c13dc945a6f18a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fe8b9f96724e2b230c084ccd683d9d3"><td class="memItemLeft" align="right" valign="top"><a id="a7fe8b9f96724e2b230c084ccd683d9d3"></a>
+<tr class="memitem:a70639d7d8d9ac1d30351a49eb4f6aa27"><td class="memItemLeft" align="right" valign="top"><a id="a70639d7d8d9ac1d30351a49eb4f6aa27"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>vertX</b> [4]</td></tr>
-<tr class="separator:a7fe8b9f96724e2b230c084ccd683d9d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecee8141efbca7a1d014709569133dea"><td class="memItemLeft" align="right" valign="top"><a id="aecee8141efbca7a1d014709569133dea"></a>
+<tr class="separator:a70639d7d8d9ac1d30351a49eb4f6aa27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d529135cb4d9a97fc9430cbbe38cea9"><td class="memItemLeft" align="right" valign="top"><a id="a6d529135cb4d9a97fc9430cbbe38cea9"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>vertY</b> [4]</td></tr>
-<tr class="separator:aecee8141efbca7a1d014709569133dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a6d529135cb4d9a97fc9430cbbe38cea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d21a2b365c41b0a80be87b28150c087"><td class="memItemLeft" align="right" valign="top"><a id="a4d21a2b365c41b0a80be87b28150c087"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>lastX</b></td></tr>
 <tr class="separator:a4d21a2b365c41b0a80be87b28150c087"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -186,7 +225,52 @@ It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" t
 <dl class="section date"><dt>Date</dt><dd>Date : 2018 / 09 / 7 </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ace313433cf0b6699ea6e5a28b9a6602a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace313433cf0b6699ea6e5a28b9a6602a">&#9670;&nbsp;</a></span>onMouseDown()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ace313433cf0b6699ea6e5a28b9a6602a">&#9670;&nbsp;</a></span>onMouseDown() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CMouseEventResult VSTGUI::CXYPadEx::onMouseDown </td>
+          <td>(</td>
+          <td class="paramtype">CPoint &amp;&#160;</td>
+          <td class="paramname"><em>where</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const CButtonState &amp;&#160;</td>
+          <td class="paramname"><em>buttons</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>handle mouse down event </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">where</td><td>- coordinates of mouse event </td></tr>
+    <tr><td class="paramname">buttons</td><td>- button state during mouse event </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ace313433cf0b6699ea6e5a28b9a6602a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace313433cf0b6699ea6e5a28b9a6602a">&#9670;&nbsp;</a></span>onMouseDown() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -231,7 +315,52 @@ It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" t
 </div>
 </div>
 <a id="ad158c1374b29d2d25f6d9cea5be6ada6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad158c1374b29d2d25f6d9cea5be6ada6">&#9670;&nbsp;</a></span>onMouseMoved()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad158c1374b29d2d25f6d9cea5be6ada6">&#9670;&nbsp;</a></span>onMouseMoved() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CMouseEventResult VSTGUI::CXYPadEx::onMouseMoved </td>
+          <td>(</td>
+          <td class="paramtype">CPoint &amp;&#160;</td>
+          <td class="paramname"><em>where</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const CButtonState &amp;&#160;</td>
+          <td class="paramname"><em>buttons</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>handle mouse moved event </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">where</td><td>- coordinates of mouse event </td></tr>
+    <tr><td class="paramname">buttons</td><td>- button state during mouse event </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad158c1374b29d2d25f6d9cea5be6ada6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad158c1374b29d2d25f6d9cea5be6ada6">&#9670;&nbsp;</a></span>onMouseMoved() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -276,7 +405,52 @@ It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" t
 </div>
 </div>
 <a id="a06f251e75c13f9c678a71a89ebe8804d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06f251e75c13f9c678a71a89ebe8804d">&#9670;&nbsp;</a></span>onMouseUp()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a06f251e75c13f9c678a71a89ebe8804d">&#9670;&nbsp;</a></span>onMouseUp() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CMouseEventResult VSTGUI::CXYPadEx::onMouseUp </td>
+          <td>(</td>
+          <td class="paramtype">CPoint &amp;&#160;</td>
+          <td class="paramname"><em>where</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const CButtonState &amp;&#160;</td>
+          <td class="paramname"><em>buttons</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>handle mouse up event </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">where</td><td>- coordinates of mouse event </td></tr>
+    <tr><td class="paramname">buttons</td><td>- button state during mouse event </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a06f251e75c13f9c678a71a89ebe8804d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06f251e75c13f9c678a71a89ebe8804d">&#9670;&nbsp;</a></span>onMouseUp() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -343,13 +517,14 @@ It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" t
   </tr>
 </table>
 </div><div class="memdoc">
+<p>else ignore</p>
 <p>else ignore </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/CustomControls/<a class="el" href="customcontrols_8h_source.html">customcontrols.h</a></li>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/CustomControls/<a class="el" href="customcontrols_8cpp.html">customcontrols.cpp</a></li>
+<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/CustomControls/<a class="el" href="project__source_2source_2_custom_controls_2customcontrols_8h_source.html">customcontrols.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/CustomControls/customcontrols.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

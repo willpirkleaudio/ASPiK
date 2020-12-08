@@ -21,7 +21,7 @@ namespace ASPiK {
 // --- for versioning in serialization
 static uint64 VSTPluginVersion = 0;		///< VST versioning for serialization
 static FUID* VST3PluginCID = nullptr;	///< the FUID
-
+    
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	VST3Plugin::VST3Plugin
 //
@@ -35,13 +35,24 @@ NOTES:
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 VST3Plugin::VST3Plugin()
 {
+    // --- VST3.7 support for IProcessContextRequirements
+    //
+    // --- these are variables that are transferred into the
+    //     PluginCore's HostInfo structure for sync to BPM and
+    //     other uses
+    // --- See the processcontextrequirements.h file in the VST3 SDK
+    //     for more options (e.g. transport state)∫.
+    processContextRequirements.needTempo();
+    processContextRequirements.wantsTimeSignature();
+    processContextRequirements.wantsContinousTimeSamples();
+    processContextRequirements.wantsSystemTime();
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	VST3Plugin::~VST3Plugin
 //
 /**
-\brief object destructor: because of class factory, do NOT use this for destruction;
+\brief object destructor: because of class factory, do NOT use this for destruction; 
 use terminate() instead
 
 NOTES:
@@ -52,7 +63,7 @@ NOTES:
 VST3Plugin::~VST3Plugin()
 {
 }
-
+    
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	VST3Plugin::initialize
 //
@@ -76,12 +87,12 @@ tresult PLUGIN_API VST3Plugin::initialize(FUnknown* context)
     enableSAAVST3 = false;
     sampleAccuracy = 1;
 	plugInSideBypass = false;
-
+    
     // --- create the core
     pluginCore = new PluginCore;
     if(!pluginCore)
         return kResultFalse; // fail
-
+    
     // --- initialize the plugin core
     //     Currently, this only passes the folder location of the DLL to the core for storage and use
     //     for example to load samples or other non-internal plugin stuff
@@ -104,16 +115,16 @@ tresult PLUGIN_API VST3Plugin::initialize(FUnknown* context)
     // --- send to core
     if (initInfo.pathToDLL)
         pluginCore->initialize(initInfo);
-
+    
 
     // --- setup IGUIPluginConnector - must be done early as possible
     guiPluginConnector = new GUIPluginConnector(pluginCore, this);
     pluginHostConnector = new PluginHostConnector(this);
     pluginCore->setPluginHostConnector(pluginHostConnector);
-
+    
     // --- MIDI queue setup
     midiEventQueue = new VSTMIDIEventQueue(pluginCore);
-
+    
     // --- setup needs
     m_uLatencyInSamples = pluginCore->getLatencyInSamples();
     hasSidechain = pluginCore->hasSidechain();
@@ -131,7 +142,7 @@ tresult PLUGIN_API VST3Plugin::initialize(FUnknown* context)
             String128 name;
             hostApplication->getName(name);
         }
-
+        
         // --- BUSS SETUP
         // --- our plugin wants one input bus and one output bus
         //     so we default to stereo here, however we will refine the
@@ -147,14 +158,14 @@ tresult PLUGIN_API VST3Plugin::initialize(FUnknown* context)
             addAudioInput(STR16("Stereo Input"), SpeakerArr::kStereo);
             addAudioOutput(STR16("Stereo Output"), SpeakerArr::kStereo);
         }
-
+        
         // --- sidechain bus is stereo
         if(hasSidechain)
             addAudioInput(STR16("AuxInput"), SpeakerArr::kStereo, kAux);
 
 		// --- MIDI event input bus, 16 channels (note we support MIDI for all plugin types)
 		addEventInput(STR16("Event Input"), 16);
-
+       
         // --- create the queue
         if (enableSAAVST3)
         {
@@ -175,7 +186,7 @@ tresult PLUGIN_API VST3Plugin::initialize(FUnknown* context)
                     m_pParamUpdateQueueArray[i] = new VSTParamUpdateQueue();
                     m_pParamUpdateQueueArray[i]->initialize(piParam->getDefaultValue(), piParam->getMinValue(), piParam->getMaxValue(), &sampleAccuracy);
                 }
-
+                
                 // --- you can choose to register non-bound controls as parameters
                 if(piParam->isNonVariableBoundParam())
                 {
@@ -228,14 +239,14 @@ tresult PLUGIN_API VST3Plugin::initialize(FUnknown* context)
                 }
                 else if(piParam->isVoltOctaveTaper())
                 {
-
+   
                     Parameter* param = new VoltOctaveParameter(USTRING(piParam->getControlName()),
                                                                piParam->getControlID(),
                                                                USTRING(piParam->getControlUnits()),
                                                                piParam->getMinValue(),
                                                                piParam->getMaxValue(),
                                                                piParam->getDefaultValue());
-
+   
                     param->setPrecision(piParam->isIntParam() ? 0 : piParam->getDisplayPrecision()); // fractional sig digits
                     parameters.addParameter(param);
                 }
@@ -247,43 +258,78 @@ tresult PLUGIN_API VST3Plugin::initialize(FUnknown* context)
                                                          piParam->getMinValue(),
                                                          piParam->getMaxValue(),
                                                          piParam->getDefaultValue());
-
+  
                     param->setPrecision(piParam->isIntParam() ? 0 : piParam->getDisplayPrecision()); // fractional sig digits
                     parameters.addParameter(param);
                 }
             }
         }
-
+        
         // --- one and only bypass parameter
         Parameter* param = new RangeParameter(USTRING("Bypass"), PLUGIN_SIDE_BYPASS, USTRING(""),
                                    0, 1, 0, 0, ParameterInfo::kCanAutomate|ParameterInfo::kIsBypass);
         parameters.addParameter(param);
+        
+        // --- root
+        UnitInfo uinfoRoot;
+        uinfoRoot.id = 1;
+        uinfoRoot.parentUnitId = kRootUnitId;
+        uinfoRoot.programListId = kNoProgramListId;
+        Steinberg::UString (uinfoRoot.name, USTRINGSIZE (uinfoRoot.name)).assign (USTRING ("RootUnit"));
+        addUnit(new Unit (uinfoRoot));
 
         // --- presets
         if(pluginCore->getPresetCount() > 0)
         {
-            // --- create root unit with list ID = preset tag
-            addUnit (new Unit (String ("Root"), kRootUnitId, kNoParentUnitId, kPresetParam));
+            // --- add presets
+            UnitInfo uinfoPreset;
+            uinfoPreset.id = kRootUnitId;
+            uinfoPreset.parentUnitId = 1;
+            uinfoPreset.programListId = kPresetParam;
+            UString name(uinfoPreset.name, 128);
+            name.fromAscii("PresetsUnit");
+            addUnit(new Unit (uinfoPreset));
 
-            // --- create list of programs without Pitch names (presets)
-            ProgramList* presetProgList = new ProgramList (String ("Factory Presets"), kPresetParam, kRootUnitId);
-    
-            // --- add programs for each preset name
-            for (int32 i = 0; i < pluginCore->getPresetCount(); i++)
-             {
-                  presetProgList->addProgram (USTRING(pluginCore->getPresetName(i)));
-             }
-            
-            // --- add the list
-            addProgramList (presetProgList);
-   
-            // --- add the parameter that corresponds to the list
-            //     internally it is a stringlist parameter
-            parameters.addParameter(presetProgList->getParameter ());
+//         //   if(false)
+//         //   {
+                ProgramList* prgList = new ProgramList (String ("Bank"), PRESET_NAME, kRootUnitId);
+                addProgramList (prgList);
+
+           //     prgList->addProgram (title);
+                for (unsigned int i = 0; i<pluginCore->getPresetCount(); i++)
+                {
+                    prgList->addProgram (USTRING(pluginCore->getPresetName(i)));
+
+                    //presetParam->appendString(USTRING(pluginCore->getPresetName(i)));
+                }
+
+                //---Program Change parameter---
+                Parameter* prgParam = prgList->getParameter ();
+
+                // by default this program change parameter if automatable we can overwrite this:
+                prgParam->getInfo ().flags &= ~ParameterInfo::kCanAutomate;
+
+                parameters.addParameter (prgParam);
+//       //     }
+        //    else
+        //    {
+                // --- the PRESET parameter
+                StringListParameter* presetParam = new StringListParameter(USTRING("Factory Presets"),
+                                                                           kPresetParam, USTRING(""),
+                                                                           ParameterInfo::kIsProgramChange | ParameterInfo::kIsList,
+                                                                           kRootUnitId);
+                // --- enumerate names
+                int count = pluginCore->getPresetCount();
+
+                for (unsigned int i = 0; i<pluginCore->getPresetCount(); i++)
+                {
+                    presetParam->appendString(USTRING(pluginCore->getPresetName(i)));
+                }
+
+                //  --- add preset
+                parameters.addParameter(presetParam);
+          //  }
         }
-        else
-            // --- create root unit with NO list ID
-            addUnit (new Unit (String ("Root"), kRootUnitId, kNoParentUnitId, kNoProgramListId));
     }
 
     return result;
@@ -307,7 +353,7 @@ tresult PLUGIN_API VST3Plugin::terminate()
         delete VST3PluginCID;
         VST3PluginCID = nullptr;
     }
-
+    
     if(pluginCore)
     {
         // --- sample accurate automation
@@ -320,15 +366,15 @@ tresult PLUGIN_API VST3Plugin::terminate()
             }
         }
     }
-
+    
     if(m_pParamUpdateQueueArray)
         delete[] m_pParamUpdateQueueArray;
-
+    
     if(pluginCore) delete pluginCore;
     if(guiPluginConnector) delete guiPluginConnector;
     if(midiEventQueue) delete midiEventQueue;
     if(pluginHostConnector) delete pluginHostConnector;
-
+    
     return SingleComponentEffect::terminate();
 }
 
@@ -359,10 +405,10 @@ tresult PLUGIN_API VST3Plugin::setBusArrangements(SpeakerArrangement* inputs, in
     {
         CString inStr = SpeakerArr::getSpeakerArrangementString(inputs[0], false);
         CString outStr = SpeakerArr::getSpeakerArrangementString(outputs[0], false);
-
+        
         uint32_t inFormat = getChannelFormatForSpkrArrangement(inputs[0]);
         uint32_t outFormat = getChannelFormatForSpkrArrangement(outputs[0]);
-
+        
         // --- does plugin support this format?
         if(pluginCore->hasSupportedInputChannelFormat(inFormat) &&
            pluginCore->hasSupportedOutputChannelFormat(outFormat))
@@ -375,11 +421,7 @@ tresult PLUGIN_API VST3Plugin::setBusArrangements(SpeakerArrangement* inputs, in
             std::string strOutput(outStr);
             strOutput.append(" Output");
             addAudioOutput(USTRING(strOutput.c_str()), outputs[0]);
-
-            // --- sidechain bus is stereo
-            if(hasSidechain)
-                addAudioInput(STR16("AuxInput"), SpeakerArr::kStereo, kAux);
-
+            
             return kResultTrue;
         }
     }
@@ -387,7 +429,7 @@ tresult PLUGIN_API VST3Plugin::setBusArrangements(SpeakerArrangement* inputs, in
      {
         CString outStr = SpeakerArr::getSpeakerArrangementString(outputs[0], false);
         uint32_t outFormat = getChannelFormatForSpkrArrangement(outputs[0]);
-
+         
          // --- does plugin support this format?
          if(pluginCore->hasSupportedOutputChannelFormat(outFormat))
          {
@@ -395,11 +437,7 @@ tresult PLUGIN_API VST3Plugin::setBusArrangements(SpeakerArrangement* inputs, in
              std::string strOutput(outStr);
              strOutput.append(" Output");
              addAudioOutput(USTRING(strOutput.c_str()), outputs[0]);
-
-             // --- sidechain bus is stereo
-             if(hasSidechain)
-                 addAudioInput(STR16("AuxInput"), SpeakerArr::kStereo, kAux);
-
+             
              return kResultTrue;
          }
      }
@@ -408,14 +446,10 @@ tresult PLUGIN_API VST3Plugin::setBusArrangements(SpeakerArrangement* inputs, in
         removeAudioBusses ();
         addAudioInput  (STR16 ("Stereo In"),  SpeakerArr::kStereo);
         addAudioOutput (STR16 ("Stereo Out"), SpeakerArr::kStereo);
-
-        // --- sidechain bus is stereo
-        if(hasSidechain)
-            addAudioInput(STR16("AuxInput"), SpeakerArr::kStereo, kAux);
-
+        
         return kResultFalse;
     }
-
+    
     // else not supported bus count (should never happen, according to SDK
     return kResultFalse;
 }
@@ -555,7 +589,7 @@ tresult PLUGIN_API VST3Plugin::setState(IBStream* fileStream)
 	for (unsigned int i = 0; i < pluginCore->getPluginParameterCount(); i++)
     {
         PluginParameter* piParam = pluginCore->getPluginParameterByIndex(i);
-
+        
         if(piParam)
         {
             if(!s.readDouble(data))
@@ -568,16 +602,16 @@ tresult PLUGIN_API VST3Plugin::setState(IBStream* fileStream)
 
                 // --- init actual, no smooth
                 piParam->setControlValue(data);
-
+                
                 // --- reset
                 piParam->setParameterSmoothing(smooth);
             }
         }
     }
-
+    
     // --- add plugin side bypassing
     if(!s.readBool(plugInSideBypass)) return kResultFalse;
-
+    
     // --- set the bypass state
     setParamNormalized (PLUGIN_SIDE_BYPASS, plugInSideBypass);
 
@@ -618,7 +652,7 @@ tresult PLUGIN_API VST3Plugin::getState(IBStream* fileStream)
 	for (unsigned int i = 0; i < pluginCore->getPluginParameterCount(); i++)
     {
         PluginParameter* piParam = pluginCore->getPluginParameterByIndex(i);
-
+        
         if(piParam)
         {
            if(!s.writeDouble(piParam->getControlValue()))
@@ -642,7 +676,7 @@ tresult PLUGIN_API VST3Plugin::getState(IBStream* fileStream)
 \brief Find and issue Control Changes
 
 \return true if a control was changed
-
+	
 NOTES:
 - see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide
 - see VST3 SDK Documentation for more information on this function and its parameters
@@ -656,7 +690,7 @@ bool VST3Plugin::doControlUpdate(ProcessData& data)
     IParameterChanges* paramChanges = data.inputParameterChanges;
 	if(!paramChanges)
 		return paramChange;
-
+    
 	// --- get the param count and setup a loop for processing queue data
     int32 count = paramChanges->getParameterCount();
 
@@ -688,9 +722,9 @@ bool VST3Plugin::doControlUpdate(ProcessData& data)
 			{
 				// --- at least one param changed
 				paramChange = true;
-
+ 
                 PluginParameter* piParam = pluginCore->getPluginParameterByControlID(pid);
-
+                
                 if(piParam)
                 {
                     // --- add the sample accurate queue
@@ -730,9 +764,9 @@ NOTES:
 void VST3Plugin::updateHostInfo(ProcessData& data, HostInfo* hostInfo)
 {
     if(!pluginCore) return;
-
+    
     double dSampleInterval = 1.0 / pluginCore->getSampleRate();
-
+    
     if (data.processContext) // NOTE: data.processContext is NULL during the VSTValidator process Test part I
     {
         hostInfo->dBPM = data.processContext->tempo;
@@ -764,10 +798,10 @@ tresult PLUGIN_API VST3Plugin::process(ProcessData& data)
     doControlUpdate(data);
 
 	if (!pluginCore) return kResultFalse;
-
+    
     // --- handle synth plugins differently - no input buss
     bool isSynth = pluginCore->getPluginType() == kSynthPlugin;
-
+    
     // --- check for validator tests with bad input or output buffer
     if (isSynth && !data.outputs)
         return kResultTrue;
@@ -776,10 +810,10 @@ tresult PLUGIN_API VST3Plugin::process(ProcessData& data)
 
     // --- setup buffer processing
     ProcessBufferInfo info;
-
+ 
     info.inputs = isSynth ? nullptr : &data.inputs[0].channelBuffers32[0];
     info.outputs = &data.outputs[0].channelBuffers32[0];
-
+    
     // --- setup channel formats
     SpeakerArrangement inputArr;
     SpeakerArrangement outputArr;
@@ -792,11 +826,11 @@ tresult PLUGIN_API VST3Plugin::process(ProcessData& data)
     }
     getBusArrangement(kOutput, 0, outputArr);
     info.numAudioOutChannels = SpeakerArr::getChannelCount(outputArr);
-
-    // --- setup the channel configs
+    
+    // --- setup the channel configs 
     if(isSynth) info.channelIOConfig.inputChannelFormat = kCFNone;
     else info.channelIOConfig.inputChannelFormat = getChannelFormatForSpkrArrangement(inputArr);
-
+    
     // --- output (always)
     info.channelIOConfig.outputChannelFormat = getChannelFormatForSpkrArrangement(outputArr);
 
@@ -814,10 +848,10 @@ tresult PLUGIN_API VST3Plugin::process(ProcessData& data)
 
         // --- update the meters, force OFF
         updateMeters(data, true);
-
+        
         return kResultTrue;
     }
-
+    
     // --- set sidechain info
     if(hasSidechain)
     {
@@ -829,32 +863,34 @@ tresult PLUGIN_API VST3Plugin::process(ProcessData& data)
             info.auxInputs = &data.inputs[1].channelBuffers32[0]; //** to sidechain
         }
     }
-
+    
     info.auxOutputs = nullptr; // --- for future use
     info.numAuxAudioOutChannels = 0; // --- for future use
 
     info.numFramesToProcess = data.numSamples;
-
+    
     // --- sidechain channel config
     info.auxChannelIOConfig.inputChannelFormat = pluginCore->getDefaultChannelIOConfigForChannelCount(info.numAuxAudioInChannels);
     info.auxChannelIOConfig.outputChannelFormat = pluginCore->getDefaultChannelIOConfigForChannelCount(0);
-
+    
     // --- MIDI
     IEventList* inputEvents = data.inputEvents;
     midiEventQueue->setEventList(inputEvents);
     info.midiEventQueue = midiEventQueue;
-
+    
     // --- get host info
     HostInfo hostInfo;
     updateHostInfo(data, &hostInfo);
+    // --- sample accurate automation is only available for VST3 hosts, and supercedes normal smoothing
+    hostInfo.enableVSTSampleAccurateAutomation = pluginCore->wantsVST3SampleAccurateAutomation();
     info.hostInfo = &hostInfo;
-
+    
     // --- process the buffers
     pluginCore->processAudioBuffers(info);
-
+   
     // --- update the meters
     updateMeters(data);
-
+ 
     return kResultTrue;
 }
 
@@ -874,7 +910,7 @@ NOTES:
 void VST3Plugin::updateMeters(ProcessData& data, bool forceOff)
 {
     if(!pluginCore) return;
-
+    
     if(data.outputParameterChanges)
     {
         int32_t startIndex = 0;
@@ -886,7 +922,7 @@ void VST3Plugin::updateMeters(ProcessData& data, bool forceOff)
             {
                 int32 queueIndex = 0;
                 IParamValueQueue* queue = data.outputParameterChanges->addParameterData(piParam->getControlID(), queueIndex);
-
+                
                 if(queue)
                 {
                     double meterValue = forceOff ? 0.0 : piParam->getControlValue();
@@ -896,7 +932,7 @@ void VST3Plugin::updateMeters(ProcessData& data, bool forceOff)
         }
     }
 }
-
+    
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	VST3Plugin::getMidiControllerAssignment
@@ -1023,7 +1059,7 @@ tresult VST3Plugin::receiveText(const char8* text)
 //	VST3Plugin::setComponentState
 //
 /**
-\brief This is the serialization-read function so the GUI can be updated from a preset or startup
+\brief This is the serialization-read function so the GUI can be updated from a preset or startup 
 
 NOTES:
 - see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide
@@ -1035,15 +1071,15 @@ tresult PLUGIN_API VST3Plugin::setComponentState(IBStream* fileStream)
     IBStreamer s(fileStream, kLittleEndian);
     uint64 version = 0;
     double data = 0;
-
+    
     // --- read the version
     if(!s.readInt64u(version)) return kResultFalse;
-
+    
     // --- serialize
 	for (unsigned int i = 0; i < pluginCore->getPluginParameterCount(); i++)
     {
         PluginParameter* piParam = pluginCore->getPluginParameterByIndex(i);
-
+        
         if(piParam)
         {
             if(!s.readDouble(data))
@@ -1052,10 +1088,10 @@ tresult PLUGIN_API VST3Plugin::setComponentState(IBStream* fileStream)
                 setParamNormalizedFromFile(piParam->getControlID(), data);
         }
     }
-
+    
     // --- add plugin side bypassing
     if(!s.readBool(plugInSideBypass)) return kResultFalse;
-
+    
     // --- do next version...
     if(version >= 1)
     {
@@ -1080,18 +1116,18 @@ tresult PLUGIN_API VST3Plugin::setParamNormalizedFromFile(ParamID tag, ParamValu
 {
     // --- get the parameter
     Parameter* pParam = SingleComponentEffect::getParameterObject(tag);
-
+    
     // --- verify pointer
     if(!pParam)
         return kResultFalse;
-
+    
     // --- sync parameter
     //     this will call the update handler to modify the GUI controls (safe)
     tresult res = SingleComponentEffect::setParamNormalized(tag, pParam->toNormalized(value));
-
+ 
     return res;
 }
-
+    
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	VST3Plugin::setParamNormalized
 //
@@ -1105,6 +1141,7 @@ NOTES:
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tresult PLUGIN_API VST3Plugin::setParamNormalized(ParamID tag, ParamValue value)
 {
+    //tresult res = SingleComponentEffect::setParamNormalized(tag, value); //kResultFalse;
     tresult res = kResultFalse;
 
 	// --- handle preset changes
@@ -1118,12 +1155,12 @@ tresult PLUGIN_API VST3Plugin::setParamNormalized(ParamID tag, ParamValue value)
 			for (unsigned int j = 0; j<preset->presetParameters.size(); j++)
             {
                 PresetParameter preParam = preset->presetParameters[j];
-
+                
                 if(pluginCore)
                     pluginCore->setPIParamValue(preParam.controlID, preParam.actualValue);
 
                 ParamValue normalizedValue = plainParamToNormalized(preParam.controlID, preParam.actualValue);
-
+               
                 // --- sync parameter
                 //     this will call the update handler to modify the GUI controls (safe)
                 res = SingleComponentEffect::setParamNormalized(preParam.controlID, normalizedValue);
@@ -1131,18 +1168,18 @@ tresult PLUGIN_API VST3Plugin::setParamNormalized(ParamID tag, ParamValue value)
         }
         return res;
 	}
-
+    
     // --- sync parameter
     //     this will call the update handler to modify the GUI controls (safe)
     res = SingleComponentEffect::setParamNormalized(tag, value);
-
+    
     // --- sync to pluginCore
     if(pluginCore)
     {
         ParamValue actualValue = normalizedParamToPlain(tag, value);
         pluginCore->setPIParamValue(tag, actualValue);
     }
-
+    
  	return res;
 }
 
@@ -1159,10 +1196,11 @@ NOTES:
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 bool VST3Plugin::addProgramList(ProgramList* list)
 {
-	programIndexMap[list->getID()] = programLists.size();
-	programLists.push_back(IPtr<ProgramList>(list, false));
-	list->addDependent(this);
-	return true;
+    programIndexMap[list->getID ()] = programLists.size ();
+    programLists.emplace_back (list, false);
+    list->addDependent (this);
+    return true;
+
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1179,8 +1217,8 @@ NOTES:
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ProgramList* VST3Plugin::getProgramList(ProgramListID listId) const
 {
-	ProgramIndexMap::const_iterator it = programIndexMap.find(listId);
-	return it == programIndexMap.end() ? 0 : programLists[it->second];
+    auto it = programIndexMap.find (listId);
+    return it == programIndexMap.end () ? nullptr : programLists[it->second];
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1196,7 +1234,7 @@ NOTES:
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tresult VST3Plugin::notifyPogramListChange (ProgramListID listId, int32 programIndex)
 {
-	tresult result = kResultFalse;
+  	tresult result = kResultFalse;
 	FUnknownPtr<IUnitHandler> unitHandler(componentHandler);
 	if (unitHandler)
 		result = unitHandler->notifyProgramListChange (listId, programIndex);
@@ -1393,32 +1431,11 @@ NOTES:
 - see VST3 SDK Documentation for more information on this function and its parameters
 */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bool VST3Plugin::addUnit(Unit* unit)
-{
-	units.push_back(IPtr<Unit>(unit, false));
-	return true;
-}
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//    VST3Plugin::getUnitInfo
-//
-/**
-\brief IUnitInfo handler.
-
-NOTES:
-- see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide
-- see VST3 SDK Documentation for more information on this function and its parameters
-*/
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-tresult PLUGIN_API VST3Plugin::getUnitInfo (int32 unitIndex, UnitInfo& info /*out*/)
-{
-    if (Unit* unit = units.at (unitIndex))
-    {
-        info = unit->getInfo ();
-        return kResultTrue;
-    }
-    return kResultFalse;
-}
+//bool VST3Plugin::addUnit(Unit* unit)
+//{
+//	units.emplace_back(IPtr<Unit>(unit, false));
+//	return true;
+//}
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	VST3Plugin::getFUID
@@ -1455,7 +1472,7 @@ const char* VST3Plugin::getPluginName()
 {
     return PluginCore::getPluginName();
 }
-
+  
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	VST3Plugin::getVendorName
 //
@@ -1487,7 +1504,7 @@ const char* VST3Plugin::getVendorURL()
 {
     return PluginCore::getVendorURL();
 }
-
+    
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	VST3Plugin::getVendorEmail
 //
@@ -1521,7 +1538,7 @@ CString VST3Plugin::getPluginType()
         return Vst::PlugType::kFx;
     else if(PluginCore::getPluginType() == pluginType::kSynthPlugin)
         return Vst::PlugType::kInstrumentSynth;
-
+    
     return Vst::PlugType::kFx;
 }
 
@@ -1700,7 +1717,7 @@ int VSTParamUpdateQueue::needsUpdate(int x, ParamValue &value)
 
 	if (x == 0 || x == x2)
 		setSlope();
-
+	
     // return 0 if slope is 0
 	if (slope == 0.0)
 		return 0;
@@ -1790,7 +1807,7 @@ bool VSTParamUpdateQueue::getNextValue(double& _nextValue)
 
 	return false;
 }
-
+ 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	PluginEditor::PluginEditor
 //
@@ -1825,7 +1842,7 @@ NOTES:
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 PluginEditor::~PluginEditor ()
 {
-
+    
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1861,14 +1878,14 @@ tresult PLUGIN_API PluginEditor::attached(void* parent, FIDString type)
 #if MAC
     if (isPlatformTypeSupported(type) != kResultTrue)
         return kResultFalse;
-
+    
 #if MAC_COCOA && MAC_CARBON && !(VSTGUI_VERSION_MAJOR >= 4 && VSTGUI_VERSION_MINOR >= 1)
     CFrame::setCocoaMode(strcmp(type, kPlatformTypeNSView) == 0);
 #endif
 #endif
-
+    
     VSTGUI::PlatformType platformType = VSTGUI::kDefaultNative;
-
+    
 #if MAC
 #if TARGET_OS_IPHONE
     if (strcmp(type, kPlatformTypeUIView) == 0)
@@ -1878,14 +1895,14 @@ tresult PLUGIN_API PluginEditor::attached(void* parent, FIDString type)
     if (strcmp(type, kPlatformTypeHIView) == 0)
         platformType = kWindowRef;
 #endif
-
+    
 #if MAC_COCOA
     if (strcmp(type, kPlatformTypeNSView) == 0)
         platformType = VSTGUI::kNSView;
 #endif
 #endif
 #endif
-
+    
     // --- open the gui here
 	// --- set up the GUI parameter copy list
 	std::vector<PluginParameter*>* PluginParameterPtr = pluginCore->makePluginParameterVectorCopy();
@@ -1920,7 +1937,7 @@ tresult PLUGIN_API PluginEditor::attached(void* parent, FIDString type)
                     }
                 }
 
-
+            
             }
          }
 
@@ -1978,7 +1995,7 @@ tresult PLUGIN_API PluginEditor::removed()
                         param->removeDependent(vst3Updater);
                         param->release();
                     }
-                    delete vst3Updater;
+                    
                     updateHandlers.erase(info.id);
                 }
             }
@@ -1986,10 +2003,10 @@ tresult PLUGIN_API PluginEditor::removed()
     }
 
     close();
-
+    
     return kResultTrue;
 }
-
+ 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	PluginEditor::isPlatformTypeSupported
 //
@@ -2006,7 +2023,7 @@ tresult PLUGIN_API PluginEditor::isPlatformTypeSupported(FIDString type)
 #if WINDOWS
     if (strcmp(type, kPlatformTypeHWND) == 0)
         return kResultTrue;
-
+    
 #elif MAC
 #if TARGET_OS_IPHONE
     if (strcmp(type, kPlatformTypeUIView) == 0)
@@ -2016,17 +2033,17 @@ tresult PLUGIN_API PluginEditor::isPlatformTypeSupported(FIDString type)
     if (strcmp(type, kPlatformTypeHIView) == 0)
         return kResultTrue;
 #endif
-
+    
 #if MAC_COCOA
     if (strcmp(type, kPlatformTypeNSView) == 0)
         return kResultTrue;
 #endif
 #endif
 #endif
-
+    
     return kInvalidArgument;
 }
-
+    
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	PluginEditor::onSize
 //
@@ -2042,10 +2059,10 @@ tresult PLUGIN_API PluginEditor::onSize(ViewRect* newSize)
 {
     if (frame)
         frame->setSize(newSize->right - newSize->left, newSize->bottom - newSize->top);
-
+    
     if (newSize)
         rect = *newSize;
-
+    
     return kResultTrue;
 }
 
@@ -2069,8 +2086,8 @@ tresult PLUGIN_API PluginEditor::getSize(ViewRect* size)
     }
     return kInvalidArgument;
 }
-
-
+    
+    
 }}} // namespaces
 
 

@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('class_v_s_t_g_u_i_1_1_c_anim_knob_ex.h
 It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" title="The PluginGUI object that maintains the entire GUI operation and has #defines to use with AAX...">PluginGUI</a> object for creating custom views.  
  <a href="class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="customcontrols_8h_source.html">customcontrols.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="project__source_2source_2_custom_controls_2customcontrols_8h_source.html">customcontrols.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for VSTGUI::CAnimKnobEx:</div>
 <div class="dyncontent">
@@ -143,6 +143,39 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>valueChanged<
 <tr class="memitem:ae0bf2470fc246520b5a3dce63b82469d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#ae0bf2470fc246520b5a3dce63b82469d">isAAXKnob</a> ()</td></tr>
 <tr class="memdesc:ae0bf2470fc246520b5a3dce63b82469d"><td class="mdescLeft">&#160;</td><td class="mdescRight">query if control wants Pro Tools keyboard modifiers  <a href="#ae0bf2470fc246520b5a3dce63b82469d">More...</a><br /></td></tr>
 <tr class="separator:ae0bf2470fc246520b5a3dce63b82469d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06146543f80561cc8859170cc0931dcc"><td class="memItemLeft" align="right" valign="top"><a id="a06146543f80561cc8859170cc0931dcc"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CAnimKnobEx</b> (const CRect &amp;size, IControlListener *listener, int32_t tag, int32_t subPixmaps, CCoord heightOfOneImage, CBitmap *background, const CPoint &amp;offset, bool bSwitchKnob=false)</td></tr>
+<tr class="separator:a06146543f80561cc8859170cc0931dcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16aef86c190fa574a08f0f754645cde2"><td class="memItemLeft" align="right" valign="top"><a id="a16aef86c190fa574a08f0f754645cde2"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (CDrawContext *pContext) override</td></tr>
+<tr class="separator:a16aef86c190fa574a08f0f754645cde2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a328bf16ec0f9ec25134244a06e709b72"><td class="memItemLeft" align="right" valign="top">CMouseEventResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#a328bf16ec0f9ec25134244a06e709b72">onMouseUp</a> (CPoint &amp;where, const CButtonState &amp;buttons) override</td></tr>
+<tr class="memdesc:a328bf16ec0f9ec25134244a06e709b72"><td class="mdescLeft">&#160;</td><td class="mdescRight">handle mouse up event  <a href="#a328bf16ec0f9ec25134244a06e709b72">More...</a><br /></td></tr>
+<tr class="separator:a328bf16ec0f9ec25134244a06e709b72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2ebb7f6329106c5fbec8c120e2e6c66"><td class="memItemLeft" align="right" valign="top">CMouseEventResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#ae2ebb7f6329106c5fbec8c120e2e6c66">onMouseDown</a> (CPoint &amp;where, const CButtonState &amp;buttons) override</td></tr>
+<tr class="memdesc:ae2ebb7f6329106c5fbec8c120e2e6c66"><td class="mdescLeft">&#160;</td><td class="mdescRight">handle mouse down event  <a href="#ae2ebb7f6329106c5fbec8c120e2e6c66">More...</a><br /></td></tr>
+<tr class="separator:ae2ebb7f6329106c5fbec8c120e2e6c66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41a69b0da1843fed31c328c87f4989f9"><td class="memItemLeft" align="right" valign="top">virtual CMouseEventResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#a41a69b0da1843fed31c328c87f4989f9">onMouseMoved</a> (CPoint &amp;where, const CButtonState &amp;buttons) override</td></tr>
+<tr class="memdesc:a41a69b0da1843fed31c328c87f4989f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">handle mouse moved event  <a href="#a41a69b0da1843fed31c328c87f4989f9">More...</a><br /></td></tr>
+<tr class="separator:a41a69b0da1843fed31c328c87f4989f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a832edf8dc807a95332a797819ac88b17"><td class="memItemLeft" align="right" valign="top"><a id="a832edf8dc807a95332a797819ac88b17"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>checkDefaultValue</b> (CButtonState button) override</td></tr>
+<tr class="separator:a832edf8dc807a95332a797819ac88b17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfa9c4d37006e4c357e399d6938a6e00"><td class="memItemLeft" align="right" valign="top"><a id="abfa9c4d37006e4c357e399d6938a6e00"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>valueChanged</b> () override</td></tr>
+<tr class="separator:abfa9c4d37006e4c357e399d6938a6e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ed94250e17a7e7b1ba1c4a6a14247d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#a4ed94250e17a7e7b1ba1c4a6a14247d5">setSwitchMax</a> (float f)</td></tr>
+<tr class="memdesc:a4ed94250e17a7e7b1ba1c4a6a14247d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">set max discrete switching value  <a href="#a4ed94250e17a7e7b1ba1c4a6a14247d5">More...</a><br /></td></tr>
+<tr class="separator:a4ed94250e17a7e7b1ba1c4a6a14247d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97f155391dc0e5982503280d3d9338fe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#a97f155391dc0e5982503280d3d9338fe">isSwitchKnob</a> ()</td></tr>
+<tr class="memdesc:a97f155391dc0e5982503280d3d9338fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">query if control is in "switch" mode  <a href="#a97f155391dc0e5982503280d3d9338fe">More...</a><br /></td></tr>
+<tr class="separator:a97f155391dc0e5982503280d3d9338fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add094cbdf48a5c3829c2e4408cbc4a4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#add094cbdf48a5c3829c2e4408cbc4a4f">setAAXKnob</a> (bool b)</td></tr>
+<tr class="memdesc:add094cbdf48a5c3829c2e4408cbc4a4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the AAX flag for this control  <a href="#add094cbdf48a5c3829c2e4408cbc4a4f">More...</a><br /></td></tr>
+<tr class="separator:add094cbdf48a5c3829c2e4408cbc4a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0bf2470fc246520b5a3dce63b82469d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#ae0bf2470fc246520b5a3dce63b82469d">isAAXKnob</a> ()</td></tr>
+<tr class="memdesc:ae0bf2470fc246520b5a3dce63b82469d"><td class="mdescLeft">&#160;</td><td class="mdescRight">query if control wants Pro Tools keyboard modifiers  <a href="#ae0bf2470fc246520b5a3dce63b82469d">More...</a><br /></td></tr>
+<tr class="separator:ae0bf2470fc246520b5a3dce63b82469d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -165,7 +198,35 @@ It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" t
 <dl class="section date"><dt>Date</dt><dd>Date : 2018 / 09 / 7 </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae0bf2470fc246520b5a3dce63b82469d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0bf2470fc246520b5a3dce63b82469d">&#9670;&nbsp;</a></span>isAAXKnob()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0bf2470fc246520b5a3dce63b82469d">&#9670;&nbsp;</a></span>isAAXKnob() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool VSTGUI::CAnimKnobEx::isAAXKnob </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>query if control wants Pro Tools keyboard modifiers </p>
+<dl class="section return"><dt>Returns</dt><dd>true if in "switch" mode </dd></dl>
+
+</div>
+</div>
+<a id="ae0bf2470fc246520b5a3dce63b82469d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0bf2470fc246520b5a3dce63b82469d">&#9670;&nbsp;</a></span>isAAXKnob() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -193,7 +254,35 @@ It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" t
 </div>
 </div>
 <a id="a97f155391dc0e5982503280d3d9338fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97f155391dc0e5982503280d3d9338fe">&#9670;&nbsp;</a></span>isSwitchKnob()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a97f155391dc0e5982503280d3d9338fe">&#9670;&nbsp;</a></span>isSwitchKnob() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool VSTGUI::CAnimKnobEx::isSwitchKnob </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>query if control is in "switch" mode </p>
+<dl class="section return"><dt>Returns</dt><dd>true if in "switch" mode </dd></dl>
+
+</div>
+</div>
+<a id="a97f155391dc0e5982503280d3d9338fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97f155391dc0e5982503280d3d9338fe">&#9670;&nbsp;</a></span>isSwitchKnob() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -221,7 +310,7 @@ It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" t
 </div>
 </div>
 <a id="ae2ebb7f6329106c5fbec8c120e2e6c66"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2ebb7f6329106c5fbec8c120e2e6c66">&#9670;&nbsp;</a></span>onMouseDown()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2ebb7f6329106c5fbec8c120e2e6c66">&#9670;&nbsp;</a></span>onMouseDown() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -265,8 +354,98 @@ It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" t
 
 </div>
 </div>
+<a id="ae2ebb7f6329106c5fbec8c120e2e6c66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2ebb7f6329106c5fbec8c120e2e6c66">&#9670;&nbsp;</a></span>onMouseDown() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CMouseEventResult VSTGUI::CAnimKnobEx::onMouseDown </td>
+          <td>(</td>
+          <td class="paramtype">CPoint &amp;&#160;</td>
+          <td class="paramname"><em>where</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const CButtonState &amp;&#160;</td>
+          <td class="paramname"><em>buttons</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>handle mouse down event </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">where</td><td>- coordinates of mouse event </td></tr>
+    <tr><td class="paramname">buttons</td><td>- button state during mouse event </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a41a69b0da1843fed31c328c87f4989f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41a69b0da1843fed31c328c87f4989f9">&#9670;&nbsp;</a></span>onMouseMoved() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual CMouseEventResult VSTGUI::CAnimKnobEx::onMouseMoved </td>
+          <td>(</td>
+          <td class="paramtype">CPoint &amp;&#160;</td>
+          <td class="paramname"><em>where</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const CButtonState &amp;&#160;</td>
+          <td class="paramname"><em>buttons</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>handle mouse moved event </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">where</td><td>- coordinates of mouse event </td></tr>
+    <tr><td class="paramname">buttons</td><td>- button state during mouse event </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a79262b7377b8d4f98d31648532b0932d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79262b7377b8d4f98d31648532b0932d">&#9670;&nbsp;</a></span>onMouseMoved()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a79262b7377b8d4f98d31648532b0932d">&#9670;&nbsp;</a></span>onMouseMoved() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -311,7 +490,52 @@ It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" t
 </div>
 </div>
 <a id="a328bf16ec0f9ec25134244a06e709b72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a328bf16ec0f9ec25134244a06e709b72">&#9670;&nbsp;</a></span>onMouseUp()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a328bf16ec0f9ec25134244a06e709b72">&#9670;&nbsp;</a></span>onMouseUp() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CMouseEventResult VSTGUI::CAnimKnobEx::onMouseUp </td>
+          <td>(</td>
+          <td class="paramtype">CPoint &amp;&#160;</td>
+          <td class="paramname"><em>where</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const CButtonState &amp;&#160;</td>
+          <td class="paramname"><em>buttons</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>handle mouse up event </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">where</td><td>- coordinates of mouse event </td></tr>
+    <tr><td class="paramname">buttons</td><td>- button state during mouse event </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a328bf16ec0f9ec25134244a06e709b72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a328bf16ec0f9ec25134244a06e709b72">&#9670;&nbsp;</a></span>onMouseUp() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -356,7 +580,41 @@ It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" t
 </div>
 </div>
 <a id="add094cbdf48a5c3829c2e4408cbc4a4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add094cbdf48a5c3829c2e4408cbc4a4f">&#9670;&nbsp;</a></span>setAAXKnob()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#add094cbdf48a5c3829c2e4408cbc4a4f">&#9670;&nbsp;</a></span>setAAXKnob() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VSTGUI::CAnimKnobEx::setAAXKnob </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>sets the AAX flag for this control </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td>flag to enable AAX mode </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="add094cbdf48a5c3829c2e4408cbc4a4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add094cbdf48a5c3829c2e4408cbc4a4f">&#9670;&nbsp;</a></span>setAAXKnob() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -390,7 +648,41 @@ It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" t
 </div>
 </div>
 <a id="a4ed94250e17a7e7b1ba1c4a6a14247d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ed94250e17a7e7b1ba1c4a6a14247d5">&#9670;&nbsp;</a></span>setSwitchMax()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ed94250e17a7e7b1ba1c4a6a14247d5">&#9670;&nbsp;</a></span>setSwitchMax() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VSTGUI::CAnimKnobEx::setSwitchMax </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>set max discrete switching value </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>- the max value as a float </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4ed94250e17a7e7b1ba1c4a6a14247d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ed94250e17a7e7b1ba1c4a6a14247d5">&#9670;&nbsp;</a></span>setSwitchMax() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -424,8 +716,8 @@ It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" t
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/CustomControls/<a class="el" href="customcontrols_8h_source.html">customcontrols.h</a></li>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/CustomControls/<a class="el" href="customcontrols_8cpp.html">customcontrols.cpp</a></li>
+<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/CustomControls/<a class="el" href="project__source_2source_2_custom_controls_2customcontrols_8h_source.html">customcontrols.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/CustomControls/customcontrols.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

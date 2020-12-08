@@ -172,6 +172,16 @@ public:
 
 	/** initalizer */
 	bool initPluginDescriptors();
+    
+    /** Status Window Messages for hosts that can show it */
+    void sendHostTextMessage(std::string messageString)
+    {
+        HostMessageInfo hostMessageInfo;
+        hostMessageInfo.hostMessage = sendRAFXStatusWndText;
+        hostMessageInfo.rafxStatusWndText.assign(messageString);
+        if(pluginHostConnector)
+            pluginHostConnector->sendHostMessage(hostMessageInfo);
+    }
 
 };
 

@@ -99,11 +99,11 @@ $(document).ready(function(){initNavTree('aax_plugins.html','');});
  <br />
  <br />
  <b>AAX Parameter Count</b><br />
- The AAX monolithic parameters paradigm requires a queue of parameters for tight sync with the GUI and audio. This is part of a static defintion and can't be changed programmatically after the object has been created. The definition of the maximum number of parameters is in the <a class="el" href="_a_a_x_plugin_parameters_8h.html" title="interface file for the AAXPluginParameters object; this code is based heavily off of the monolithic p...">AAXPluginParameters.h</a> file and is set to a value of 64. If your plugin needs more than 64 parameters, you need to change this value (OK if this is a large number, but it needs to be changed before compiling). See: <br />
+ The AAX monolithic parameters paradigm requires a queue of parameters for tight sync with the GUI and audio. This is part of a static defintion and can't be changed programmatically after the object has been created. The definition of the maximum number of parameters is in the AAXPluginParameters.h file and is set to a value of 64. If your plugin needs more than 64 parameters, you need to change this value (OK if this is a large number, but it needs to be changed before compiling). See: <br />
  <br />
  <b>#define kSynchronizedParameterQueueSize 64</b> <br />
  <br />
- in the <a class="el" href="_a_a_x_plugin_parameters_8h.html" title="interface file for the AAXPluginParameters object; this code is based heavily off of the monolithic p...">AAXPluginParameters.h</a> file if you need to change it! <br />
+ in the AAXPluginParameters.h file if you need to change it! <br />
  <br />
  <b>AAX Library</b><br />
  You must compile the AAX Base Library first. You only need to do this once per SDK release (or if you update your compiler to a newer version). You can find the XCode and Visual Studio generated library projects in these folders: <br />

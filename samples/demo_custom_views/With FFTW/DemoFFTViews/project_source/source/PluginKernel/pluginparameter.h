@@ -276,8 +276,12 @@ public:
 	\brief get control value as normalied value
 	\return control value in normalized form
 	*/
-	inline double getControlValueNormalized()
+	inline double getControlValueNormalized(bool applyTaper = true)
     {
+		// --- for edit controls specifically
+		if(!applyTaper)
+			return getNormalizedControlValue();
+
         // --- apply taper as needed
         switch (controlTaper)
         {

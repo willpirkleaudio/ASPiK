@@ -1,10 +1,7 @@
 var dir_cd630c8eb299de6f282c955ceab24f32 =
 [
-    [ "._customviews.h", "_8__customviews_8h_source.html", null ],
-    [ "atomicops.h", "atomicops_8h_source.html", null ],
-    [ "customcontrols.cpp", "customcontrols_8cpp.html", null ],
-    [ "customcontrols.h", "customcontrols_8h.html", "customcontrols_8h" ],
-    [ "customviews.cpp", "customviews_8cpp.html", null ],
-    [ "customviews.h", "customviews_8h.html", "customviews_8h" ],
-    [ "readerwriterqueue.h", "readerwriterqueue_8h_source.html", null ]
+    [ "atomicops.h", "project__source_2source_2_custom_controls_2atomicops_8h_source.html", null ],
+    [ "customcontrols.h", "project__source_2source_2_custom_controls_2customcontrols_8h_source.html", null ],
+    [ "customviews.h", "project__source_2source_2_custom_controls_2customviews_8h_source.html", null ],
+    [ "readerwriterqueue.h", "project__source_2source_2_custom_controls_2readerwriterqueue_8h_source.html", null ]
 ];

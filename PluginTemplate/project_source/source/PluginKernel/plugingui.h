@@ -256,7 +256,7 @@ public:
 
                     for (uint32_t i = 0; i < refGuiControl.getStringCount(); i++)
                     {
-                        oMenu->addEntry(refGuiControl.getStringByIndex(i).c_str());
+                        oMenu->addEntry(refGuiControl.getStringByIndex(i).c_str(), i);
                     }
 
 					oMenu->setValue((float)refGuiControl.getControlValue());

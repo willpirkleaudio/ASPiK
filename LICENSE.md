@@ -1,5 +1,5 @@
 
-# Copyright (c) 2019, Tritone Systems, Inc
+# Copyright (c) 2017-2021, Tritone Systems, Inc
 ## Will Pirkle
 ## All rights reserved.
 
