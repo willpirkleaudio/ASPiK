@@ -1547,26 +1547,45 @@ void PluginGUI::valueChanged(VSTGUI::CControl* pControl)
 	}
 
 	ControlUpdateReceiver* receiver = getControlUpdateReceiver(pControl->getTag());
-
 	float normalizedValue = pControl->getValueNormalized();
 
 	if (receiver)
 	{
+        float num = 0.0;
+
 		// --- need to handle labels (or edits) differently
 		CTextLabel* label = dynamic_cast<CTextLabel*>(pControl);
 		if (label)
 		{
+            // --- the edit string MUST be numeric for ASPiK parameters
+            //     you can use a custom view if you need edit controls for text strings
 			std::string strLabel(label->getText());
+            std::stringstream ss;
+            ss << strLabel;
+            ss >> num;
+            if(num == 0.0 && strLabel[0] != '0')
+            {
+                PluginParameter refGuiControl = receiver->getGuiControl();
+                label->setText(refGuiControl.getControlValueAsString().c_str());
+                return;
+            }
+            
+            // --- continue tests
 			actualValue = stof(strLabel);
+            
+            // --- is value out of bounds?
+            PluginParameter refGuiControl = receiver->getGuiControl();
+            actualValue = fmin(actualValue, refGuiControl.getMaxValue());
+            actualValue = fmax(actualValue, refGuiControl.getMinValue());
 
 			// --- update
 			receiver->updateControlsWithActualValue(actualValue, label);
 
 			// --- add units string to edit display
-			//     CHECK FLICKERING AAX!
-			PluginParameter refGuiControl = receiver->getGuiControl();
+            refGuiControl = receiver->getGuiControl(); // needs to be done again to get updated value
 			label->setText(refGuiControl.getControlValueAsString().c_str());
-
+            label->invalid();
+            
 			// --- get the normalized value, no taper
 			normalizedValue = refGuiControl.getControlValueNormalized();
 		}

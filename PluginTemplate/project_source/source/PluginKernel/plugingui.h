@@ -173,6 +173,14 @@ public:
 	*/
 	float getActualValueWithNormalizedValue(float normalizedValue)
     {
+        if (hasRefGuiControl)
+        {
+            if (normalizedValue == (float)refGuiControl.getDefaultValueNormalized())
+            {
+                return (float)refGuiControl.getDefaultValue();
+            }
+        }
+
         return (float)refGuiControl.getControlValueWithNormalizedValue(normalizedValue);
     }
 
@@ -199,6 +207,16 @@ public:
 	*/
 	void updateControlsWithNormalizedValue(float normalizedValue, CControl* control = nullptr)
     {
+		// --- is this the defalt value?
+		if (hasRefGuiControl)
+		{
+			if (normalizedValue == (float)refGuiControl.getDefaultValueNormalized())
+			{
+				updateControlsWithActualValue(refGuiControl.getDefaultValue(), control);
+				return;
+			}
+		}
+
         updateControlsWithActualValue(getActualValueWithNormalizedValue(normalizedValue), control);
     }
 
@@ -449,6 +467,9 @@ public:
 	/** for preset saving helper which writes preset code for you */
 	void writeToPresetFile();
 
+    /** clear the interface prior to shutdown; AU onlyl */
+    void clearGUIPluginConnector(){ guiPluginConnector = nullptr; }
+    
 protected:
 	/** the udpate and repaint function */
 	virtual void idle();
