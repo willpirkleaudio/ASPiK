@@ -1,5 +1,5 @@
 # ---- ASPiK Plugin Framework --------------------------------------------------
-By Will Pirkle Copyright (C) Tritone Systems, Inc 2019
+By Will Pirkle Copyright (C) Tritone Systems, Inc 2004-2021
 
 www.aspikplugins.com
 www.willpirkle.com
@@ -7,7 +7,18 @@ www.willpirkle.com
 
 #define ASPiK_VERSION_MAJOR  1
 #define ASPiK_VERSION_MINOR  6
-#define ASPiK_VERSION_BUILD  6
+#define ASPiK_VERSION_BUILD  7
+
+Release Notes 1.6.7:
+* VST3: tightened up log/antilog conversion code
+* AU: fixed bug when Reaper closes the AU without first closing the GUI window
+* Fixed "-inf" error with Log controls
+* Fixed annoyance where default values are slightly off for text readouts (but OK internally)
+  For example, the GUI shows 2799.999 when the default value is 2800.0
+* PluginGUI: fixed crash when typing non-numeric data into numeric box
+* PluginGUI: changed validation code to snap to min or max when user enters values out of bounds rather than retaining old value
+* ASPiKreator: changed Windows implementation, added diagnostics report
+
 
 Release Notes 1.6.6:
 * VST3: Updated to VST SDK 3.7.1

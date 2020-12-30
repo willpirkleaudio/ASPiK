@@ -132,27 +132,55 @@ AUSynthPlugin::AUSynthPlugin(AudioUnit component) : AUInstrumentBase(component, 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 AUSynthPlugin::~AUSynthPlugin()
 {
+    // --- fixes reaper bug that destroys AU before closing GUI for final time
+    if(pluginGUI)
+    {
+        pluginGUI->clearGUIPluginConnector();
+        pluginGUI->close();
+    }
+
     if(presetsArrayData)
+    {
         free(presetsArrayData);
+        presetsArrayData = nullptr;
+    }
 
     // -- cio
     if(auChannelInfo)
+    {
         delete [] auChannelInfo;
+        auChannelInfo = nullptr;
+    }
 
     if(pluginCore)
+    {
         delete pluginCore;
+        pluginCore = nullptr;
+    }
 
     if(guiPluginConnector)
+    {
         delete guiPluginConnector;
+        guiPluginConnector = nullptr;
+    }
 
     if(inputBuffers)
+    {
         delete [] inputBuffers;
+        inputBuffers = nullptr;
+    }
 
     if(outputBuffers)
+    {
         delete [] outputBuffers;
+        inputBuffers = nullptr;
+    }
 
     if(sidechainInputBuffers)
+    {
         delete [] sidechainInputBuffers;
+        sidechainInputBuffers = nullptr;
+    }
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -331,11 +359,11 @@ double AUSynthPlugin::getAUParameter(unsigned int controlID)
 void AUSynthPlugin::initAUParametersWithPluginCore()
 {
     if(!pluginCore) return;
-    
+
     for(int32_t i = 0; i < pluginCore->getPluginParameterCount(); i++)
     {
         PluginParameter* piParam = pluginCore->getPluginParameterByIndex(i);
-        
+
         if(piParam)
         {
             // --- AudioUnitParameterID = piParam->getControlID()
@@ -419,51 +447,51 @@ OSStatus AUSynthPlugin::Render(AudioUnitRenderActionFlags &		ioActionFlags,
                                   UInt32                            inNumberFrames)
 {
     if(!pluginCore) return noErr;
-    
+
     // --- threadsafe sync to globals
     updatePluginCoreParameters();
-    
+
     // --- switch double-queue
     if(midiEventQueue)
         midiEventQueue->toggleQueue();
-    
+
     // --- audio processing
     ProcessBufferInfo info;
-    
+
     // --- get the number of channels
     AudioBufferList& bufferList = GetOutput(0)->GetBufferList();
     size_t numInputChannels = 0;//(size_t) GetInput(0)->GetStreamFormat().mChannelsPerFrame;
     size_t numOutputChannels = bufferList.mNumberBuffers;
     size_t numAuxInputChannels = 0;
-    
+
     for(int i=0; i<numOutputChannels; i++)
     {
         outputBuffers[i] = (float*)bufferList.mBuffers[i].mData;//
     }
-    
+
     info.inputs = inputBuffers;
     info.outputs = outputBuffers;
     info.auxInputs = sidechainInputBuffers;
     info.auxOutputs = nullptr; // --- for future use
-    
+
     // --- may not even need this...
     info.numAudioInChannels = numInputChannels;
     info.numAudioOutChannels = numOutputChannels;
     info.numAuxAudioInChannels = 0;
     info.numAuxAudioOutChannels = 0; // --- for future use
-    
+
     info.numFramesToProcess = inNumberFrames;
-    
+
     // --- setup the channel configs
     info.channelIOConfig.inputChannelFormat = pluginCore->getDefaultChannelIOConfigForChannelCount(info.numAudioInChannels);
     info.channelIOConfig.outputChannelFormat = pluginCore->getDefaultChannelIOConfigForChannelCount(info.numAudioOutChannels);
-    
+
     // --- sidechain channel config
     info.auxChannelIOConfig.inputChannelFormat = pluginCore->getDefaultChannelIOConfigForChannelCount(sidechainChannelCount);
     info.auxChannelIOConfig.outputChannelFormat = pluginCore->getDefaultChannelIOConfigForChannelCount(0);
-    
+
     info.midiEventQueue = midiEventQueue;
-    
+
     // --- NEED HOST INFO STUFF
     HostInfo hostInfo;// = {0};
     updateHostInfo(&hostInfo);
@@ -471,10 +499,10 @@ OSStatus AUSynthPlugin::Render(AudioUnitRenderActionFlags &		ioActionFlags,
 
     // --- process the buffers
     pluginCore->processAudioBuffers(info);
-    
+
     // --- thread safe update to meters
     updateAUParametersWithPluginCore();
-    
+
     return noErr;
 }
 
@@ -743,7 +771,7 @@ ComponentResult	AUSynthPlugin::GetProperty(AudioUnitPropertyID       inID,
                   CFBundleRef bundle = CFBundleGetBundleWithIdentifier(CFStringCreateWithCString(nullptr, pluginCore->getAUBundleID(), kCFStringEncodingASCII));
 
                  if(bundle == NULL) return fnfErr;
-                 
+
                  CFURLRef bundleURL = CFBundleCopyResourceURL(bundle,
                                                                CFStringCreateWithCString(nullptr, pluginCore->getAUBundleName(), kCFStringEncodingASCII),
                                                                CFSTR("bundle"),
@@ -813,11 +841,11 @@ OSStatus	AUSynthPlugin::SetProperty(AudioUnitPropertyID inID,
                     // --- create GUI
                     pluginGUI = new VSTGUI::PluginGUI(path);
                     pluginGUI->setGUIWindowFrame(pVS->pGUIFrame);
-                    
+
                     if(pluginGUI)
                     {
                         bool openedGUI = pluginGUI->open("Editor", pVS->pWindow, PluginParameterPtr, VSTGUI::kNSView, guiPluginConnector, pVS->au);
-	
+
                         // --- delete the PluginParameterPtr guts, and pointer too...
                         for(std::vector<PluginParameter*>::iterator it = PluginParameterPtr->begin(); it !=  PluginParameterPtr->end(); ++it)
                         {

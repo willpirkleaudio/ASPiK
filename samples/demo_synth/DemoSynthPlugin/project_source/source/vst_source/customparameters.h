@@ -88,7 +88,7 @@ protected:
         if(fNormalizedParam >= 1.0) return 1.0;
 
         // --- MMA Convex Transform Inverse
-        return kCTCorrFactorAnitZero * ( pow (10.0, (fNormalizedParam - 1) / kCTCoefficient) - kCTCorrFactorZero);
+        return kCTCorrFactorAnitZero * ( pow (10.0, (fNormalizedParam - 1.0) / kCTCoefficient) - kCTCorrFactorZero);
     }
 
     // fPluginValue = 0->1 log scaled value

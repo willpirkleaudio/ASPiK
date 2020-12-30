@@ -132,27 +132,55 @@ AUFXPlugin::AUFXPlugin(AudioUnit component) : AUMIDIEffectBase(component, false)
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 AUFXPlugin::~AUFXPlugin()
 {
+    // --- fixes reaper bug that destroys AU before closing GUI for final time
+    if(pluginGUI)
+    {
+        pluginGUI->clearGUIPluginConnector();
+        pluginGUI->close();
+    }
+    
     if(presetsArrayData)
+    {
         free(presetsArrayData);
+        presetsArrayData = nullptr;
+    }
 
     // -- cio
     if(auChannelInfo)
+    {
         delete [] auChannelInfo;
+        auChannelInfo = nullptr;
+    }
 
     if(pluginCore)
+    {
         delete pluginCore;
-
+        pluginCore = nullptr;
+    }
+    
     if(guiPluginConnector)
+    {
         delete guiPluginConnector;
+        guiPluginConnector = nullptr;
+    }
 
     if(inputBuffers)
+    {
         delete [] inputBuffers;
+        inputBuffers = nullptr;
+    }
 
     if(outputBuffers)
+    {
         delete [] outputBuffers;
+        inputBuffers = nullptr;
+    }
 
     if(sidechainInputBuffers)
+    {
         delete [] sidechainInputBuffers;
+        sidechainInputBuffers = nullptr;
+    }
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

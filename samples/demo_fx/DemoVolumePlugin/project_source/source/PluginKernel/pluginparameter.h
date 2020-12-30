@@ -381,30 +381,35 @@ public:
     /** normalized to Log-normalized version (convex transform) */
     inline double normToLogNorm(double normalizedValue)
     {
-        return 1.0 + kCTCoefficient*log10(normalizedValue);
+		if (normalizedValue <= 0.0) return 0.0;
+		if (normalizedValue >= 1.0) return 1.0;
+		return kCTCorrFactorUnity*(1.0 + kCTCoefficient*log10(normalizedValue + kCTCorrFactorZero));
     }
 
 	/** Log-normalized to normalized version (reverse-convex transform) */
     inline double logNormToNorm(double logNormalizedValue)
     {
-        return pow(10.0, (logNormalizedValue - 1.0) / kCTCoefficient);
+		if (logNormalizedValue <= 0.0) return 0.0;
+		if (logNormalizedValue >= 1.0) return 1.0;
+		return kCTCorrFactorAnitZero * (pow(10.0, (logNormalizedValue - 1.0) / kCTCoefficient) - kCTCorrFactorZero);
     }
 
      /** normalized to AntiLog-normalized version */
     inline double normToAntiLogNorm(double normalizedValue)
     {
-		if (normalizedValue == 1.0)
-			return 1.0;
-
-		double aln = -kCTCoefficient*log10(1.0 - normalizedValue);
-		aln = fmin(1.0, aln);
-		return aln;
+		if (normalizedValue <= 0.0) return 0.0;
+		if (normalizedValue >= 1.0) return 1.0;
+		double transformed = -kCTCoefficient*kCTCorrFactorAntiLogScale*log10(1.0 - normalizedValue + kCTCorrFactorZero) + kCTCorrFactorAntiLog;
+		if (transformed >= 1.0) transformed = 1.0;
+		return transformed;
 	}
 
      /** AntiLog-normalized to normalized version */
     inline double antiLogNormToNorm(double aLogNormalizedValue)
     {
-        return -pow(10.0, (-aLogNormalizedValue / kCTCoefficient)) + 1.0;
+		if (aLogNormalizedValue <= 0.0) return 0.0;
+		if (aLogNormalizedValue >= 1.0) return 1.0;
+		return (kCTCorrFactorAntiUnity)*(-pow(10.0, (-aLogNormalizedValue / kCTCoefficient)) + 1.0);
     }
 
 	/**
