@@ -35,12 +35,12 @@ set(UNI_VST3_SDK_FOLDER 	VST_SDK/VST3_SDK)
 
 # --- Universal Build Flag - when using combined SDKs; can still build independently
 #                            with individual flags below
-set(UNIVERSAL_SDK_BUILD $UNI_BUILD_BOOL$) 	# <-- set TRUE or FALSE
+set(UNIVERSAL_SDK_BUILD TRUE) 	# <-- set TRUE or FALSE
 
 # --- Individual project builds
-set(AAX_SDK_BUILD $AAX_BUILD_BOOL$)# <-- set TRUE or FALSE
-set(AU_SDK_BUILD $AU_BUILD_BOOL$)# <-- set TRUE or FALSE
-set(VST_SDK_BUILD $VST_BUILD_BOOL$)# <-- set TRUE or FALSE
+set(AAX_SDK_BUILD TRUE)# <-- set TRUE or FALSE
+set(AU_SDK_BUILD TRUE)# <-- set TRUE or FALSE
+set(VST_SDK_BUILD TRUE)# <-- set TRUE or FALSE
 
 # ---------------------------------------------------------------------------------
 #
@@ -48,48 +48,48 @@ set(VST_SDK_BUILD $VST_BUILD_BOOL$)# <-- set TRUE or FALSE
 #
 # ---------------------------------------------------------------------------------
 # --- the name of the project must be valid CMAKE name: must not contain spaces or numbers
-set(PLUGIN_PROJECT_NAME $$$PROJECT_NAME$$$)	# <-- set PROJECT NAME with or without quotes
+set(PLUGIN_PROJECT_NAME PluginTemplate)	# <-- set PROJECT NAME with or without quotes
 
 # --- the name of the PLUGIN as you want it to appear in DAW menus for the user
-set(PLUGIN_NAME "$$$PLUGIN_NAME$$$")	# <-- set PLUGIN NAME with quotes; ok to have spaces or numbers if you like
+set(PLUGIN_NAME "Plugin Template")	# <-- set PLUGIN NAME with quotes; ok to have spaces or numbers if you like
 
 # --- Synth Flag: FALSE = FX plugin, TRUE = Synth Plugin
-set(IS_SYNTH_PLUGIN $$$SYNTH_BOOL$$$)		# <-- set Synth Flag to TRUE only for an output-only (synth) plugin
+set(IS_SYNTH_PLUGIN FALSE)		# <-- set Synth Flag to TRUE only for an output-only (synth) plugin
 
 # --- AAX Sidechain Flag:
-set(WANT_AAX_SIDECHAIN $$$AAX_SC_BOOL$$$)	# <-- for AAX Sidechaining Only
+set(WANT_AAX_SIDECHAIN FALSE)	# <-- for AAX Sidechaining Only
 
 # --- AAX ProTools Gain Reduction Meter Flag:
-set(HAS_AAX_GR_METER $$$AAX_GR_BOOL$$$)		# <-- for special Pro-Tools AAX Gain Reduction Meter Only
+set(HAS_AAX_GR_METER FALSE)		# <-- for special Pro-Tools AAX Gain Reduction Meter Only
 
 # --- VENDOR information (your company stuff)
-set(VENDOR_NAME "$$$VENDOR_NAME$$$")			# <-- required!
-set(VENDOR_URL "$$$VENDOR_URL$$$")			# <-- OPTIONAL (ok if blank)
-set(VENDOR_EMAIL "$$$VENDOR_EMAIL$$$")		# <-- OPTIONAL (ok if blank)
+set(VENDOR_NAME "ASPiK User")			# <-- required!
+set(VENDOR_URL "www.yourcompany.com")			# <-- OPTIONAL (ok if blank)
+set(VENDOR_EMAIL "help@yourcompany.com")		# <-- OPTIONAL (ok if blank)
 
 # --- 4-Character Codes (for AAX and VST3)
-set(4CHAR_CODE "$$$4_CHAR_CODE$$$")				# MUST be unique for each plugin your company creates/sells
-set(4CHAR_MANUFACTURER_ID "$$$4_CHAR_MANU$$$")			# your company CODE (does NOT need to be unique for each plugin; can be re-used)
-set(4CHAR_AAX_PRODUCT_ID "$$$4_CHAR_AAXID$$$")			# MUST be unique for each plugin your company creates/sells
+set(4CHAR_CODE "PLUG")				# MUST be unique for each plugin your company creates/sells
+set(4CHAR_MANUFACTURER_ID "COMP")			# your company CODE (does NOT need to be unique for each plugin; can be re-used)
+set(4CHAR_AAX_PRODUCT_ID "plUg")			# MUST be unique for each plugin your company creates/sells
 
 # --- Plugin Options ---
-set(INCLUDE_FX_OBJECTS $$$INC_FX_OBJECTS$$$)		# <-- set TRUE or FALSE
-set(LINK_FFTW  $$$LINK_FFTW$$$)				# <-- set TRUE or FALSE
-set(EXPOSE_SIDECHAIN $$$WANT_SIDECHAIN$$$) 		# <-- set TRUE or FALSE
-set(LATENCY_IN_SAMPLES $$$LATENCY_SAMPLES$$$) 		# <-- numerical, in samples
-set(TAIL_TIME_MSEC $$$TAIL_TIME_MSEC$$$)		# <-- numerical, in mSec
-set(PROCESS_FRAMES $$$PROCESS_FRAMES$$$)		# <-- set TRUE or FALSE
-set(PROCESS_BUFFERS $$$PROCESS_BUFFERS$$$)		# <-- set TRUE or FALSE
-set(PROCESS_BLOCKS $$$PROCESS_BLOCKS$$$)		# <-- set TRUE or FALSE
-set(BLOCK_SIZE $$$BLOCK_SIZE$$$) 			# <-- numerical, in samples (per channel) if using blocks
+set(INCLUDE_FX_OBJECTS FALSE)		# <-- set TRUE or FALSE
+set(LINK_FFTW  FALSE)						# <-- set TRUE or FALSE
+set(EXPOSE_SIDECHAIN FALSE) 		# <-- set TRUE or FALSE
+set(LATENCY_IN_SAMPLES 0) 			# <-- numerical, in samples
+set(TAIL_TIME_MSEC 0.000000)				# <-- numerical, in mSec
+set(PROCESS_FRAMES TRUE)		# <-- set TRUE or FALSE
+set(PROCESS_BUFFERS FALSE)		# <-- set TRUE or FALSE
+set(PROCESS_BLOCKS FALSE)		# <-- set TRUE or FALSE
+set(BLOCK_SIZE 64) # <-- numerical, in samples (per channel) if using blocks
 
 # --- VST3 Only ---
-set(VST3_INFINITE_TAIL $$$INF_TAIL$$$)
-set(VST3_SAMPLE_ACCURATE_AUTOMATION $$$ENABLE_SAA$$$)
-set(VST3_SAMPLE_ACCURATE_GRANULARITY $$$SAAA_GRAN$$$)
+set(VST3_INFINITE_TAIL FALSE)
+set(VST3_SAMPLE_ACCURATE_AUTOMATION FALSE)
+set(VST3_SAMPLE_ACCURATE_GRANULARITY 0)
 
 # --- AAX Only ---
-set(AAX_CATEGORY $$AAX_PLUGIN_CATEGORY$$)
+set(AAX_CATEGORY 0)
 
 # ---------------------------------------------------------------------------------
 #
@@ -340,24 +340,6 @@ endif()
 string(CONCAT VST3_SAMPLE_ACCURATE_GRANULARITY_ASVAR "const uint32_t kVST3SAAGranularity = " ${VST3_SAMPLE_ACCURATE_GRANULARITY})
 string(CONCAT AAX_CAT_ASVAR "const uint32_t kAAXCategory = " ${AAX_CATEGORY})
 
-
-if(PROCESS_FRAMES)
-	set(PROCESS_FRAMES_ASVAR "const bool kProcessFrames = true")
-	set(BLOCK_SIZE_ASVAR "const uint32_t kBlockSize = DEFAULT_AUDIO_BLOCK_SIZE")
-else()
-	set(PROCESS_FRAMES_ASVAR "const bool kProcessFrames = false")
-	set(BLOCK_SIZE_ASVAR "const uint32_t kBlockSize = DEFAULT_AUDIO_BLOCK_SIZE")
-endif()
-
-if(PROCESS_BUFFERS)
-	set(BLOCK_SIZE_ASVAR "const uint32_t kBlockSize = 0")
-endif()
-
-if(PROCESS_BLOCKS)
-	string(CONCAT BLOCK_SIZE_ASVAR "const uint32_t kBlockSize = " ${BLOCK_SIZE})
-endif()
-
-
 # --- the plugindescription.h file - this is edited to contain your string settings for the project!
 set(PI_DESCRIPTION_H_FILE project_source/source/PluginKernel/plugindescription.h)
 file(WRITE ${PI_DESCRIPTION_H_FILE} "")
@@ -436,7 +418,6 @@ file(APPEND ${PI_DESCRIPTION_H_FILE} ${VST3_SAMPLE_ACCURATE_GRANULARITY_ASVAR}\;
 file(APPEND ${PI_DESCRIPTION_H_FILE} ${AAX_CAT_ASVAR}\;\n)
 
 file(APPEND ${PI_DESCRIPTION_H_FILE} \n)
-
 
 # --- the EOF
 file(APPEND ${PI_DESCRIPTION_H_FILE} "#endif\n")
