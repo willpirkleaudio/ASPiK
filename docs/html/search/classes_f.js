@@ -20,6 +20,7 @@ var searchData=
   ['pluginprivatedata',['pluginPrivateData',['../structplugin_private_data.html',1,'']]],
   ['presetinfo',['PresetInfo',['../struct_preset_info.html',1,'']]],
   ['presetparameter',['PresetParameter',['../struct_preset_parameter.html',1,'']]],
+  ['processblockinfo',['ProcessBlockInfo',['../struct_process_block_info.html',1,'']]],
   ['processbufferinfo',['ProcessBufferInfo',['../struct_process_buffer_info.html',1,'']]],
   ['processframeinfo',['ProcessFrameInfo',['../struct_process_frame_info.html',1,'']]],
   ['psmvocoder',['PSMVocoder',['../class_p_s_m_vocoder.html',1,'']]],

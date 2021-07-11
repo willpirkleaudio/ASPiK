@@ -912,7 +912,7 @@ OSStatus	AUFXPlugin::SetProperty(AudioUnitPropertyID inID,
 
                     if(pluginGUI)
                     {
-                        bool openedGUI = pluginGUI->open("Editor", pVS->pWindow, PluginParameterPtr, VSTGUI::kNSView, guiPluginConnector, pVS->au);
+                        bool openedGUI = pluginGUI->open("Editor", pVS->pWindow, PluginParameterPtr, VSTGUI::PlatformType::kNSView, guiPluginConnector, pVS->au);
 
                         // --- delete the PluginParameterPtr guts, and pointer too...
                         for(std::vector<PluginParameter*>::iterator it = PluginParameterPtr->begin(); it !=  PluginParameterPtr->end(); ++it)

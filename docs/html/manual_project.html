@@ -98,99 +98,18 @@ $(document).ready(function(){initNavTree('manual_project.html','');});
  <b>Step 2: Edit the CMake File</b><br />
  Open the outermost CMakeLists.txt file in any text editor and alter the variables at the top of the file according to your plugin needs. In the example here, we are setting up a project for the book's IIRFilters plugin: <br />
  <br />
- At the top of the file are the names of the SDK root folders and they will be preset to the names we used in Section 6.2 and will look like this: <br />
- <br />
- // &mdash; Here you can set the names of your UNIVERSAL SDK folders <br />
- <b>set(UNI_AAX_SDK_FOLDER        AAX_SDK)</b><br />
- <b>set(UNI_AU_SDK_FOLDER         AU_SDK)</b><br />
- <b>set(UNI_VST3_SDK_FOLDER VST_SDK/VST3_SDK)</b><br />
- <br />
- These folder names are only needed for universal projects where you target one or more SDKs and you use the outside myprojects folder in Section 6.2.5. If you are targeting individual APIs, you don’t need to bother with the naming as CMake uses relative path locations. The next section contains the build flags. Here is where you choose which APIs to target for the compiler. The settings below show a VST-only build setting. The UNIVERSAL_SDK_BUILD flag is set to FALSE (for an individual build) and the VST_SDK_BUILD flag is set to TRUE, indicating that API as the target. <br />
- <br />
- // &mdash; Universal Build Flag - when using combined SDKs<br />
- <b>set(UNIVERSAL_SDK_BUILD FALSE) </b> # &lt;&ndash; set TRUE or FALSE <br />
- <br />
- // &mdash; Individual project builds<br />
- <b>set(AAX_SDK_BUILD FALSE)</b> # &lt;&ndash; set TRUE or FALSE<br />
- <b>set(AU_SDK_BUILD  FALSE)</b> # &lt;&ndash; set TRUE or FALSE<br />
- <b>set(VST_SDK_BUILD TRUE) </b> # &lt;&ndash; set TRUE or FALSE <br />
- <br />
- To build a Universal project that targets VST and AU, you would set these flags accordingly: <br />
- <br />
- // &mdash; Universal Build Flag - when using combined SDKs<br />
- <b>set(UNIVERSAL_SDK_BUILD TRUE)</b> # &lt;&ndash; set TRUE or FALSE <br />
- <br />
- // &mdash; Individual project builds<br />
- <b>set(AAX_SDK_BUILD FALSE)</b> # &lt;&ndash; set TRUE or FALSE<br />
- <b>set(AU_SDK_BUILD  TRUE)</b> # &lt;&ndash; set TRUE or FALSE<br />
- <b>set(VST_SDK_BUILD TRUE)</b> # &lt;&ndash; set TRUE or FALSE <br />
- <br />
- With the build flags set, you can finish the edits with the project information. These values are set in the next section of the file and are generally self-explanatory. The first is the compiler project name (IIRFilters) and this project name must not contain whitespaces or special characters. <br />
- <br />
- // &mdash; the name of the project must be valid CMAKE name: set PROJECT NAME with or without quotes<br />
- <b>set(PLUGIN_PROJECT_NAME IIRFilters)</b> <br />
- <br />
- The next edit is for the plugin name that the DAW will expose to the user; here we are calling it the Filterizer. Notice that this name contains quotes and can be the same as or different than the iroject name. You can include whitespaces, numbers, other characters, or almost anything else in this text description. <br />
- <br />
- // &mdash; the name of the PLUGIN as you want it to appear in DAW: set PLUGIN NAME with quotes<br />
- <b>set(PLUGIN_NAME "Filterizer")</b> <br />
- <br />
- The next edit is for identifying the plugin as a FX or Synth plugin. It uses a boolean flag to identify the synth-ness of the project. A synth plugin only has outputs and does not process an audio input (unless it is a sidechain). All projects in this book are FX plugins. <br />
- <br />
- // &mdash; Synth Flag: FALSE = FX plugin, TRUE = Synth Plugin<br />
- <b>set(IS_SYNTH_PLUGIN FALSE)</b> # &lt;&ndash; set Synth Flag <br />
- <br />
- Then, you need to fill in your vendor (company) information <br />
- <br />
- // &mdash; VENDOR information (your company stuff)<br />
- <b>set(VENDOR_NAME "Plugin Makers")</b> # &lt;&ndash; required!<br />
- <b>set(VENDOR_URL "www.yourcompany.com") </b># &lt;&ndash; OPTIONAL (ok if blank)<br />
- <b>set(VENDOR_EMAIL "help@yourcompany.com")</b> # &lt;&ndash; OPTIONAL (ok if blank) <br />
- <br />
- Next, you need to set some special four-character codes that are required for identification in the various APIs. You need to be careful here, and be sure to change the codes for each plugin you develop. You can use combinations of capital and lower case letters and numbers or other characters. <br />
- <br />
- // &mdash; 4-Character Codes (for AAX and VST3): MUST be unique for each plugin your company creates/sells<br />
- <b>set(4CHAR_CODE "IIR1")</b> <br />
- <br />
- // your company CODE (does NOT need to be unique for each plugin)<br />
- <b>set(4CHAR_MANUFACTURER_ID "PLMK")</b> <br />
- <br />
- // MUST be unique for each AAX plugin your company creates/sells<br />
- <b>set(4CHAR_AAX_PRODUCT_ID "iir1")</b> <br />
- <br />
- Lastly, there are some plugin options that need to be set. The first option is for side chaining. If you would like the DAW to expose side chain inputs to your plugin, set the EXPOSE_SIDECHAIN flag to TRUE, otherwise false. Our volume plugin won’t need it so we will set it to FALSE here. <br />
- <br />
- // &mdash; expose SC<br />
- <b>set(EXPOSE_SIDECHAIN FALSE) </b> # &lt;&ndash; set TRUE or FALSE <br />
- <br />
- Next is the latency setting in samples. This is a special setting for lookahead compressors or FFT processing plugins that necessarily introduce a latency or time-delay to the audio signal. Set this parameter in samples. <br />
- <br />
- // &mdash; LATENCY for lookahead plugins<br />
- <b>set(LATENCY_IN_SAMPLES 0) </b> # &lt;&ndash; numerical, in samples <br />
- <br />
- The tail time may be set so that you can hear your reverb or delay tails. For VST3, there is an option for an infinite tail – it this variable is set to true, the DAW will run a continuous stream of zeros through your plugin forever after the user stops playback the very first time. We’ll use a default tail time of 1 second here, even though our volume plugin won’t need a tail and we’ll set the VST3 infinite tail to FALSE. <br />
- <br />
- // &mdash; tail-time for reverb/delay plugins<br />
- <b>set(TAIL_TIME_MSEC 1000)</b> # &lt;&ndash; numerical, in mSec <br />
- <br />
- // &mdash; VST3 options: infinite tail (DAW keeps streaming forever)<br />
- <b>set(VST3_INFINITE_TAIL FALSE)</b> <br />
- <br />
- The last option involves sample accurate automation for VST3 plugins only. For our IIRFilters plugin, we will leave this in their default settings of no sample accurate automation and a granularity of 1 sample. <br />
- <br />
- <b>set(VST3_SAMPLE_ACCURATE_AUTOMATION FALSE)</b> <br />
- <br />
- <b>set(VST3_SAMPLE_ACCURATE_GRANULARITY 1)</b> <br />
- <br />
- There are three more flags to set – one will automatically include the <a class="el" href="fxobjects_8h.html" title="a collection of 54 objects and support structures, functions and enuemrations for all projects docume...">fxobjects.h</a> and <a class="el" href="fxobjects_8cpp.html" title="a collection of 54 objects and support structures, functions and enuemrations for all projects docume...">fxobjects.cpp</a> files to integrate the book C++ objects into your project. The next is for linking with the FFTW library for the advanced plugins in Chapters 20 and 22. Note that you must install FFTW on your system prior to setting the link flag. <br />
- <br />
- // &mdash; more flags <br />
- <b>set(INCLUDE_FX_OBJECTS TRUE)</b> # &lt;&ndash; set TRUE or FALSE<br />
- <b>set(LINK_FFTW  FALSE) </b> # &lt;&ndash; set TRUE or FALSE<br />
- <br />
- <b>AAX Plugin Category</b><br />
+ At the top of the file are the names of the SDK root folders and they will be preset to the names we used in Section 6.2 and will look like this:</p>
+<div class="fragment"><div class="line"><span class="preprocessor"># --- Here you can set the names of your UNIVERSAL SDK folders  &lt;br&gt;</span></div><div class="line"><span class="keyword">set</span>(UNI_AAX_SDK_FOLDER AAX_SDK)</div><div class="line"><span class="keyword">set</span>(UNI_AU_SDK_FOLDER AU_SDK)</div><div class="line"><span class="keyword">set</span>(UNI_VST3_SDK_FOLDER VST_SDK/VST3_SDK)</div></div><!-- fragment --><p>These folder names are only needed for universal projects where you target one or more SDKs and you use the outside myprojects folder in Section 6.2.5. If you are targeting individual APIs, you don’t need to bother with the naming as CMake uses relative path locations. The next section contains the build flags. Here is where you choose which APIs to target for the compiler. The settings below show a VST-only build setting. The UNIVERSAL_SDK_BUILD flag is set to FALSE (for an individual build) and the VST_SDK_BUILD flag is set to TRUE, indicating that API as the target.</p>
+<div class="fragment"><div class="line"><span class="preprocessor"># --- Universal Build Flag - when using combined SDKs</span></div><div class="line"><span class="keyword">set</span>(UNIVERSAL_SDK_BUILD FALSE) # &lt;-- <span class="keyword">set</span> TRUE or FALSE</div><div class="line"></div><div class="line"># Individual project builds&lt;br&gt;</div><div class="line"><span class="keyword">set</span>(AAX_SDK_BUILD FALSE) # &lt;-- <span class="keyword">set</span> TRUE or FALSE</div><div class="line"><span class="keyword">set</span>(AU_SDK_BUILD  FALSE) # &lt;-- <span class="keyword">set</span> TRUE or FALSE</div><div class="line"><span class="keyword">set</span>(VST_SDK_BUILD TRUE)  <span class="preprocessor"># &lt;-- set TRUE or FALSE</span></div></div><!-- fragment --><p>To build a Universal project that targets VST and AU, you would set these flags accordingly: </p><div class="fragment"><div class="line"><span class="preprocessor"># --- Universal Build Flag - when using combined SDKs</span></div><div class="line"><span class="keyword">set</span>(UNIVERSAL_SDK_BUILD TRUE)# &lt;-- <span class="keyword">set</span> TRUE or FALSE</div><div class="line"></div><div class="line"># --- Individual project builds</div><div class="line"><span class="keyword">set</span>(AAX_SDK_BUILD FALSE) # &lt;-- <span class="keyword">set</span> TRUE or FALSE&lt;br&gt;</div><div class="line"><span class="keyword">set</span>(AU_SDK_BUILD  TRUE)  # &lt;-- <span class="keyword">set</span> TRUE or FALSE&lt;br&gt;</div><div class="line"><span class="keyword">set</span>(VST_SDK_BUILD TRUE)  <span class="preprocessor"># &lt;-- set TRUE or FALSE</span></div><div class="line"><span class="preprocessor">#</span></div></div><!-- fragment --><p>With the build flags set, you can finish the edits with the project information. These values are set in the next section of the file and are generally self-explanatory. The first is the compiler project name (IIRFilters) and this project name must not contain whitespaces or special characters.</p>
+<div class="fragment"><div class="line"><span class="preprocessor"># --- the name of the project must be valid CMAKE name: set PROJECT NAME with or without quotes</span></div><div class="line"><span class="keyword">set</span>(PLUGIN_PROJECT_NAME IIRFilters)</div><div class="line">#</div></div><!-- fragment --><p>The next edit is for the plugin name that the DAW will expose to the user; here we are calling it the Filterizer. Notice that this name contains quotes and can be the same as or different than the iroject name. You can include whitespaces, numbers, other characters, or almost anything else in this text description.</p>
+<div class="fragment"><div class="line"><span class="preprocessor"># --- the name of the PLUGIN as you want it to appear in DAW: set PLUGIN NAME with quotes&lt;br&gt;</span></div><div class="line"><span class="keyword">set</span>(PLUGIN_NAME <span class="stringliteral">&quot;Filterizer&quot;</span>)</div><div class="line">#</div></div><!-- fragment --><p>The next edit is for identifying the plugin as a FX or Synth plugin. It uses a boolean flag to identify the synth-ness of the project. A synth plugin only has outputs and does not process an audio input (unless it is a sidechain). All projects in this book are FX plugins.</p>
+<div class="fragment"><div class="line"><span class="preprocessor"># --- Synth Flag: FALSE = FX plugin, TRUE = Synth Plugin&lt;br&gt;</span></div><div class="line"><span class="keyword">set</span>(IS_SYNTH_PLUGIN FALSE) # &lt;-- <span class="keyword">set</span> Synth Flag</div><div class="line">#</div></div><!-- fragment --><p>Then, you need to fill in your vendor (company) information </p><div class="fragment"><div class="line"><span class="preprocessor"># --- VENDOR information (your company stuff)</span></div><div class="line"><span class="keyword">set</span>(VENDOR_NAME <span class="stringliteral">&quot;Plugin Makers&quot;</span>)        # &lt;-- required!&lt;br&gt;</div><div class="line"><span class="keyword">set</span>(VENDOR_URL <span class="stringliteral">&quot;www.yourcompany.com&quot;</span>)   # &lt;-- OPTIONAL (ok <span class="keywordflow">if</span> blank)&lt;br&gt;</div><div class="line"><span class="keyword">set</span>(VENDOR_EMAIL <span class="stringliteral">&quot;help@yourcompany.com&quot;</span>)# &lt;-- OPTIONAL (ok <span class="keywordflow">if</span> blank)</div></div><!-- fragment --><p>Next, you need to set some special four-character codes that are required for identification in the various APIs. You need to be careful here, and be sure to change the codes for each plugin you develop. You can use combinations of capital and lower case letters and numbers or other characters. </p><div class="fragment"><div class="line"><span class="preprocessor"># --- 4-Character Codes (for AAX and VST3): MUST be unique for each plugin your company creates/sells&lt;br&gt;</span></div><div class="line"><span class="keyword">set</span>(4CHAR_CODE <span class="stringliteral">&quot;IIR1&quot;</span>)</div><div class="line"></div><div class="line"># --- your company CODE (does NOT need to be unique <span class="keywordflow">for each</span> plugin)&lt;br&gt;</div><div class="line"><span class="keyword">set</span>(4CHAR_MANUFACTURER_ID <span class="stringliteral">&quot;PLMK&quot;</span>)</div><div class="line"></div><div class="line"># --- MUST be unique <span class="keywordflow">for each</span> AAX plugin your company creates/sells&lt;br&gt;</div><div class="line"><span class="keyword">set</span>(4CHAR_AAX_PRODUCT_ID <span class="stringliteral">&quot;iir1&quot;</span>)</div><div class="line"><span class="preprocessor">#</span></div></div><!-- fragment --><p>Lastly, there are some plugin options that need to be set. First is the audio processing (see <a class="el" href="define_plugin7.html">Frame, Buffer and Sub-Block Processing</a>); here I am settign up sub-block procssing of 64 samples at a time:</p>
+<div class="fragment"><div class="line"><span class="preprocessor"># --- Plugin Options ---</span></div><div class="line"><span class="keyword">set</span>(PROCESS_FRAMES FALSE)    # &lt;-- <span class="keyword">set</span> TRUE or FALSE</div><div class="line"><span class="keyword">set</span>(PROCESS_BUFFERS FALSE)   # &lt;-- <span class="keyword">set</span> TRUE or FALSE</div><div class="line"><span class="keyword">set</span>(PROCESS_BLOCKS TRUE)     # &lt;-- <span class="keyword">set</span> TRUE or FALSE</div><div class="line"><span class="keyword">set</span>(BLOCK_SIZE 64)           <span class="preprocessor"># &lt;-- numerical, in samples (per channel) if using blocks</span></div><div class="line"><span class="preprocessor">###</span></div></div><!-- fragment --><p>The next option is for side chaining. If you would like the DAW to expose side chain inputs to your plugin, set the EXPOSE_SIDECHAIN flag to TRUE, otherwise false. Our volume plugin won’t need it so we will set it to FALSE here.</p>
+<div class="fragment"><div class="line"><span class="preprocessor"># --- expose SC&lt;br&gt;</span></div><div class="line">(EXPOSE_SIDECHAIN FALSE) &lt;/strong&gt;# &lt;-- <span class="keyword">set</span> TRUE or FALSE</div><div class="line">#</div></div><!-- fragment --><p>Next is the latency setting in samples. This is a special setting for lookahead compressors or FFT processing plugins that necessarily introduce a latency or time-delay to the audio signal. Set this parameter in samples. </p><div class="fragment"><div class="line"><span class="preprocessor"># --- LATENCY for lookahead plugins&lt;br&gt;</span></div><div class="line"><span class="keyword">set</span>(LATENCY_IN_SAMPLES 0) # &lt;-- numerical, in samples</div><div class="line"># </div></div><!-- fragment --><p>The tail time may be set so that you can hear your reverb or delay tails. For VST3, there is an option for an infinite tail – it this variable is set to true, the DAW will run a continuous stream of zeros through your plugin forever after the user stops playback the very first time. We’ll use a default tail time of 1 second here, even though our volume plugin won’t need a tail and we’ll set the VST3 infinite tail to FALSE.</p>
+<div class="fragment"><div class="line"><span class="preprocessor"># --- tail-time for reverb/delay plugins&lt;br&gt;</span></div><div class="line"><span class="keyword">set</span>(TAIL_TIME_MSEC 1000) # &lt;-- numerical, in mSec</div><div class="line"></div><div class="line"># --- VST3 options: infinite tail (DAW keeps streaming forever)&lt;br&gt;</div><div class="line"><span class="keyword">set</span>(VST3_INFINITE_TAIL FALSE)</div><div class="line">#</div></div><!-- fragment --><p>The last option involves sample accurate automation for VST3 plugins only. For our IIRFilters plugin, we will leave this in their default settings of no sample accurate automation and a granularity of 1 sample. </p><div class="fragment"><div class="line"><span class="preprocessor">#</span></div><div class="line"><span class="keyword">set</span>(VST3_SAMPLE_ACCURATE_AUTOMATION FALSE)</div><div class="line"><span class="keyword">set</span>(VST3_SAMPLE_ACCURATE_GRANULARITY 1)</div><div class="line"><span class="preprocessor">#</span></div></div><!-- fragment --><p>There are three more flags to set – one will automatically include the <a class="el" href="fxobjects_8h.html" title="a collection of 54 objects and support structures, functions and enuemrations for all projects docume...">fxobjects.h</a> and <a class="el" href="fxobjects_8cpp.html" title="a collection of 54 objects and support structures, functions and enuemrations for all projects docume...">fxobjects.cpp</a> files to integrate the book C++ objects into your project. The next is for linking with the FFTW library for the advanced plugins in Chapters 20 and 22. Note that you must install FFTW on your system prior to setting the link flag.</p>
+<div class="fragment"><div class="line"><span class="preprocessor"># --- more flags  &lt;br&gt;</span></div><div class="line"><span class="keyword">set</span>(INCLUDE_FX_OBJECTS TRUE) # &lt;-- <span class="keyword">set</span> TRUE or FALSE&lt;br&gt;</div><div class="line"><span class="keyword">set</span>(LINK_FFTW  FALSE)        # &lt;-- <span class="keyword">set</span> TRUE or FALSE&lt;br&gt;</div><div class="line"><span class="preprocessor">#</span></div></div><!-- fragment --><p><b>AAX Plugin Category</b><br />
  The AAX plugin category is coded as an unsigned integer and based on a list of plugin codes. If you use the ASPiKreator software, you can see this list in the drop-down combo box. The encoding from the documentation is: <br />
- AAX_ePlugInCategory_None = 0x00000000,<br />
+ AAX_ePlugInCategory_None = 0x00000000, <br />
  AAX_ePlugInCategory_EQ = 0x00000001, ///&lt; Equalization<br />
  AAX_ePlugInCategory_Dynamics = 0x00000002, ///&lt; Compressor, expander, limiter, etc.<br />
  AAX_ePlugInCategory_PitchShift = 0x00000004, ///&lt; Pitch processing<br />
@@ -198,16 +117,15 @@ $(document).ready(function(){initNavTree('manual_project.html','');});
  AAX_ePlugInCategory_Delay = 0x00000010, ///&lt; Delay and echo<br />
  AAX_ePlugInCategory_Modulation = 0x00000020, ///&lt; Phasing, flanging, chorus, etc.<br />
  AAX_ePlugInCategory_Harmonic = 0x00000040, ///&lt; Distortion, saturation, and harmonic enhancement<br />
- AAX_ePlugInCategory_NoiseReduction= 0x00000080, ///&lt; Noise reduction<br />
+ AAX_ePlugInCategory_NoiseReduction = 0x00000080, ///&lt; Noise reduction<br />
  AAX_ePlugInCategory_Dither = 0x00000100, ///&lt; Dither, noise shaping, etc.<br />
  AAX_ePlugInCategory_SoundField = 0x00000200, ///&lt; Pan, auto-pan, upmix and downmix, and surround handling<br />
  AAX_ePlugInCategory_HWGenerators = 0x00000400, ///&lt; Fixed hardware audio sources such as SampleCell<br />
  AAX_ePlugInCategory_SWGenerators = 0x00000800, ///&lt; Virtual instruments and other software audio sources<br />
  AAX_ePlugInCategory_WrappedPlugin = 0x00001000, ///&lt; All plug-ins wrapped by a third party wrapper<br />
  AAX_EPlugInCategory_Effect = 0x00002000, ///&lt; Special effects<br />
- <br />
- <b>set(AAX_CATEGORY 0)</b> # &lt;&ndash; see AAX Category codes in ASPiK SDK Documentation <br />
- That’s all there is to editing this file unless you want to make changes regarding the relative locations of the SDK folders or other tweaks. Be sure to visit www.willpirkle.com for these instructions if you are interested. Now you can save the file and we can run CMake to finish off the project process. <br />
+</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#</span></div><div class="line"><span class="keyword">set</span>(AAX_CATEGORY 0) # &lt;-- see AAX Category codes in ASPiK SDK Documentation</div><div class="line">#</div></div><!-- fragment --><p>That’s all there is to editing this file unless you want to make changes regarding the relative locations of the SDK folders or other tweaks. Be sure to visit www.willpirkle.com for these instructions if you are interested. Now you can save the file and we can run CMake to finish off the project process. <br />
  <br />
  </p>
 </div></div><!-- contents -->

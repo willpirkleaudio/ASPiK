@@ -22,10 +22,10 @@ static TCHAR gGLWindowClassName[100];
 //-----------------------------------------------------------------------------
 Win32OpenGLView::Win32OpenGLView (Win32Frame* win32Frame)
 : win32Frame (win32Frame)
-, view (0)
-, windowHandle (0)
-, deviceContext (0)
-, openGLContext (0)
+, view (nullptr)
+, windowHandle (nullptr)
+, deviceContext (nullptr)
+, openGLContext (nullptr)
 {
 	initWindowClass ();
 	InitializeCriticalSection (&lock);
@@ -53,10 +53,10 @@ void Win32OpenGLView::initWindowClass ()
 		windowClass.cbClsExtra  = 0; 
 		windowClass.cbWndExtra  = 0; 
 		windowClass.hInstance   = GetInstance ();
-		windowClass.hIcon = 0; 
+		windowClass.hIcon = nullptr; 
 
-		windowClass.hCursor = LoadCursor (NULL, IDC_ARROW);
-		windowClass.lpszMenuName  = 0; 
+		windowClass.hCursor = LoadCursor (nullptr, IDC_ARROW);
+		windowClass.lpszMenuName  = nullptr; 
 		windowClass.lpszClassName = gGLWindowClassName; 
 		RegisterClass (&windowClass);
 	}
@@ -75,7 +75,7 @@ void Win32OpenGLView::destroyWindowClass ()
 //-----------------------------------------------------------------------------
 LONG_PTR WINAPI Win32OpenGLView::WindowProc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	Win32OpenGLView* oglView = (Win32OpenGLView*)(LONG_PTR)GetWindowLongPtr (hwnd, GWLP_USERDATA);
+	auto* oglView = (Win32OpenGLView*)(LONG_PTR)GetWindowLongPtr (hwnd, GWLP_USERDATA);
 	if (oglView)
 	{
 		switch (message)
@@ -156,7 +156,7 @@ bool Win32OpenGLView::createWindow (PixelFormat* pixelFormat)
 	windowHandle = CreateWindowEx (style, gGLWindowClassName, TEXT("Window"),
 									WS_CHILD | WS_VISIBLE, 
 									0, 0, (int)0, (int)0, 
-									win32Frame->getPlatformWindow (), NULL, GetInstance (), NULL);
+									win32Frame->getPlatformWindow (), nullptr, GetInstance (), nullptr);
 
 	if (windowHandle)
 	{
@@ -195,14 +195,14 @@ void Win32OpenGLView::remove ()
 		if (openGLContext)
 		{
 			if (wglGetCurrentContext () == openGLContext)
-				wglMakeCurrent (0, 0);
+				wglMakeCurrent (nullptr, nullptr);
 			ReleaseDC (windowHandle, deviceContext);
 			wglDeleteContext (openGLContext);
-			openGLContext = 0;
+			openGLContext = nullptr;
 		}
 		SetWindowLongPtr (windowHandle, GWLP_USERDATA, (LONG_PTR)NULL);
 		DestroyWindow (windowHandle);
-		windowHandle = 0;
+		windowHandle = nullptr;
 	}
 }
 
@@ -256,7 +256,7 @@ void Win32OpenGLView::swapBuffers ()
 {
 	if (deviceContext)
 	{
-		wglMakeCurrent (deviceContext, 0);
+		wglMakeCurrent (deviceContext, nullptr);
 		SwapBuffers (deviceContext);
 	}
 }

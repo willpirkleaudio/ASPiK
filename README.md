@@ -7,11 +7,11 @@ Will Pirkle https://aspikplugins.com
 Supported OS:
 
 - Microsoft Windows 7-10
-- Apple OSX 10.0-10.15
+- Apple OSX 10.0-10.16 (Catalina and Big Sur are supported and never had issues)
 
 Supported IDE:
 - Visual Studio 2015/2017/2019 
-- minimum Xcode 8
+- minimum Xcode 12 
 
 ## Contributing
 

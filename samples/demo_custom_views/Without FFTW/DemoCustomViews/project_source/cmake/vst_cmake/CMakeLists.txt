@@ -115,6 +115,12 @@ else()
 	smtg_add_vst3plugin(${target} ${kernel_sources} ${vst_core_sources} ${custom_vstgui_sources} ${vstsdk_sources})
 endif()
 
+# --- VST3 SDK 3.7.2 addition
+target_compile_features(${target}
+PUBLIC
+    cxx_std_14
+)
+
 # ---  setup header search paths
 target_include_directories(${target} PUBLIC ${VSTGUI_ROOT}/)
 target_include_directories(${target} PUBLIC ${VSTGUI_ROOT}/vstgui4)

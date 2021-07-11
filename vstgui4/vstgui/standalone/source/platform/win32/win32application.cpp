@@ -7,7 +7,9 @@
 #include "win32preference.h"
 #include "win32window.h"
 
+#include "../../../../lib/vstguiinit.h"
 #include "../../../../lib/platform/win32/win32dll.h"
+#include "../../../../lib/platform/win32/win32factory.h"
 #include "../../../../lib/platform/win32/win32support.h"
 #include "../../../../lib/platform/platform_win32.h"
 #include "../../../include/iappdelegate.h"
@@ -24,10 +26,12 @@
 #pragma comment(lib, "d2d1.lib")
 #pragma comment(lib, "dwrite.lib")
 
+#ifndef __clang__
 #pragma comment(linker, \
                 "\"/manifestdependency:type='win32' \
 name='Microsoft.Windows.Common-Controls' version='6.0.0.0' \
 processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
+#endif
 
 //------------------------------------------------------------------------
 namespace VSTGUI {
@@ -98,8 +102,10 @@ void Application::init (HINSTANCE instance, LPWSTR commandLine)
 		auto utf8Path = std::string (helper.getUTF8String ());
 		if (auto p = ascendPath (utf8Path))
 		{
-			*p += "\\Resources";
-			IWin32PlatformFrame::setResourceBasePath (UTF8String (*p));
+			*p += "\\Resources\\";
+			UTF8String resourcePath (*p);
+			getPlatformFactory ().asWin32Factory ()->setResourceBasePath (resourcePath);
+			commonDirectories.setAppResourcePath (resourcePath);
 		}
 	}
 
@@ -162,8 +168,11 @@ AlertResult Application::showAlert (const AlertBoxConfig& config)
 			if (auto winWindow = toWin32Window (w))
 				winWindow->setModalWindow (window);
 		}
-		winModalWindow->center ();
-		SetCapture (winModalWindow->getHWND ());
+		if (winModalWindow)
+		{
+			winModalWindow->center ();
+			SetCapture (winModalWindow->getHWND ());
+		}
 		window->show ();
 	}
 	else
@@ -306,25 +315,22 @@ void Application::run ()
 } // Standalone
 } // VSTGUI
 
-void* hInstance = nullptr; // for VSTGUI
-
 //------------------------------------------------------------------------
 int APIENTRY wWinMain (_In_ HINSTANCE instance, _In_opt_ HINSTANCE prevInstance,
                        _In_ LPWSTR lpCmdLine, _In_ int nCmdShow)
 {
-	HeapSetInformation (NULL, HeapEnableTerminationOnCorruption, NULL, 0);
+	HeapSetInformation (nullptr, HeapEnableTerminationOnCorruption, nullptr, 0);
 
 	HRESULT hr = OleInitialize (nullptr);
 	if (FAILED (hr))
 		return FALSE;
 
-	hInstance = instance;
-
-	VSTGUI::useD2DHardwareRenderer (true);
+	VSTGUI::init (instance);
+	VSTGUI::getPlatformFactory ().asWin32Factory ()->useD2DHardwareRenderer (true);
 	VSTGUI::Standalone::Platform::Win32::Application app;
 	app.init (instance, lpCmdLine);
 	app.run ();
-
+	VSTGUI::exit ();
 	OleUninitialize ();
 	return 0;
 }

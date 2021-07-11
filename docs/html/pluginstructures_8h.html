@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ASPiK SDK: C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/PluginKernel/pluginstructures.h File Reference</title>
+<title>ASPiK SDK: C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/PluginKernel/pluginstructures.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,7 +89,8 @@ $(document).ready(function(){initNavTree('pluginstructures_8h.html','');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">pluginstructures.h File Reference</div>  </div>
 </div><!--header-->
@@ -156,6 +157,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_host_info.html">HostInfo</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Information from the host that is updated on each buffer process cycle; includes BPM, time signature, SMPTE and other data. The values in the stock structure are consistent across most APIs, however others may be added (commnted out here)  <a href="struct_host_info.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_process_block_info.html">ProcessBlockInfo</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure for setting up block processing.  <a href="struct_process_block_info.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_process_buffer_info.html">ProcessBufferInfo</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Information package that arrives with each new audio buffer process cycle. Contains everything needed for one buffer's worth of data.  <a href="struct_process_buffer_info.html#details">More...</a><br /></td></tr>
@@ -346,6 +350,15 @@ Functions</h2></td></tr>
 <tr class="memitem:gab35d7722483843f5939b88632e44ade1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_s_pi_k-_g_u_i.html#gab35d7722483843f5939b88632e44ade1">boolToStdString</a> (bool value)</td></tr>
 <tr class="memdesc:gab35d7722483843f5939b88632e44ade1"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts bool value to std::string  <a href="group___a_s_pi_k-_g_u_i.html#gab35d7722483843f5939b88632e44ade1">More...</a><br /></td></tr>
 <tr class="separator:gab35d7722483843f5939b88632e44ade1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a20537dce78afeb31c64fb75a2d662977"><td class="memItemLeft" align="right" valign="top"><a id="a20537dce78afeb31c64fb75a2d662977"></a>
+const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>DEFAULT_AUDIO_BLOCK_SIZE</b> = 64</td></tr>
+<tr class="separator:a20537dce78afeb31c64fb75a2d662977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50abca8c4c305a8df519da99eeae3801"><td class="memItemLeft" align="right" valign="top"><a id="a50abca8c4c305a8df519da99eeae3801"></a>
+const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>WANT_WHOLE_BUFFER</b> = 0</td></tr>
+<tr class="separator:a50abca8c4c305a8df519da99eeae3801"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>globally utilized structures and enumerations </p>

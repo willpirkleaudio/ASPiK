@@ -103,19 +103,25 @@ tresult PLUGIN_API VST3Plugin::initialize(FUnknown* context)
     {
         CFStringRef bundleID = CFStringCreateWithCString(NULL, bundleIDStr, kCFStringEncodingASCII);
         initInfo.pathToDLL = getMyComponentDirectory(bundleID);
-    }
+     }
 #else // Windows
-#ifdef ENABLE_WINDOWS_H
     std::string strBundleName(pluginCore->getPluginBundleName());
     strBundleName.append(".vst3");
+    char* pathToVST = getMyDLLDirectory(USTRING(strBundleName.c_str()));
+    std::string strPath(pathToVST);
+    strBundleName = "\\" + strBundleName;
+    strBundleName.append("\\Contents\\x86_64-win");
+    std::string::size_type i = strPath.find(strBundleName);
+    if (i != std::string::npos)
+        strPath.erase(i, strBundleName.length());
 
-    initInfo.pathToDLL = getMyDLLDirectory(USTRING(strBundleName.c_str()));
-#endif
-#endif
+    initInfo.pathToDLL = strPath.c_str();
+    delete[] pathToVST;
+  #endif
+
     // --- send to core
     if (initInfo.pathToDLL)
         pluginCore->initialize(initInfo);
-    
 
     // --- setup IGUIPluginConnector - must be done early as possible
     guiPluginConnector = new GUIPluginConnector(pluginCore, this);
@@ -131,6 +137,7 @@ tresult PLUGIN_API VST3Plugin::initialize(FUnknown* context)
     enableSAAVST3 = pluginCore->wantsVST3SampleAccurateAutomation();
     sampleAccuracy = pluginCore->getVST3SampleAccuracyGranularity();
 
+    // --- base class initilizer
     tresult result = SingleComponentEffect::initialize(context);
 
 	if(result == kResultTrue)
@@ -265,71 +272,77 @@ tresult PLUGIN_API VST3Plugin::initialize(FUnknown* context)
             }
         }
         
+        // --- setup the MIDI CC proxy paramters
+        //     see: https://forums.steinberg.net/t/vst3-and-midi-cc-pitfall/201879
+        std::string ccBaseStr = "midiCC_";
+        for (uint32_t i = 0; i < ControllerNumbers::kCountCtrlNumber /*midiCCMapping.size()*/; i++)
+        {
+            std::ostringstream ss;
+            ss << i;
+            std::string val(ss.str());
+            std::string paramName;
+            if (i < 128)
+                paramName = ccBaseStr + val;
+            else if (i == 128)
+                paramName = "midiAT";
+            else if (i == 129)
+                paramName = "midiPB";
+
+            ParamValue defaultValue = 0.0;
+            if (i == 7)
+                defaultValue = 1.0; // set MIDI CC7 at full volume so synth does not appear broken
+
+            // --- all proxies are normalized values [0.0, 1.0]
+            Parameter* param = new RangeParameter(USTRING(paramName.c_str()), baseCCParamID + i, USTRING(""), 0.0, 1.0, defaultValue);
+            parameters.addParameter(param);
+        }
+
         // --- one and only bypass parameter
         Parameter* param = new RangeParameter(USTRING("Bypass"), PLUGIN_SIDE_BYPASS, USTRING(""),
                                    0, 1, 0, 0, ParameterInfo::kCanAutomate|ParameterInfo::kIsBypass);
         parameters.addParameter(param);
         
         // --- root
-        UnitInfo uinfoRoot;
-        uinfoRoot.id = 1;
-        uinfoRoot.parentUnitId = kRootUnitId;
-        uinfoRoot.programListId = kNoProgramListId;
-        Steinberg::UString (uinfoRoot.name, USTRINGSIZE (uinfoRoot.name)).assign (USTRING ("RootUnit"));
-        addUnit(new Unit (uinfoRoot));
+        Steinberg::Vst::UnitInfo unitInfo;
+        unitInfo.id = Steinberg::Vst::kRootUnitId;
+        unitInfo.parentUnitId = Steinberg::Vst::kNoParentUnitId;
+        Steinberg::UString unitNameSetter(unitInfo.name, 128);
+        unitNameSetter.fromAscii("Root");
 
         // --- presets
         if(pluginCore->getPresetCount() > 0)
         {
-            // --- add presets
-            UnitInfo uinfoPreset;
-            uinfoPreset.id = kRootUnitId;
-            uinfoPreset.parentUnitId = 1;
-            uinfoPreset.programListId = kPresetParam;
-            UString name(uinfoPreset.name, 128);
-            name.fromAscii("PresetsUnit");
-            addUnit(new Unit (uinfoPreset));
+            unitInfo.programListId = kPresetParam;
+            // --- list for storing preset names; this could be done directly with core, but keeping this for future
+            StringListParameter* presetParam = new StringListParameter(USTRING("MyPresets"),
+                                                    kPresetParam, USTRING(""),
+                                                    ParameterInfo::kIsProgramChange,
+                                                    kRootUnitId);
 
-//         //   if(false)
-//         //   {
-                ProgramList* prgList = new ProgramList (String ("Bank"), PRESET_NAME, kRootUnitId);
-                addProgramList (prgList);
+            // --- enumerate names
+            for (unsigned int i = 0; i<pluginCore->getPresetCount(); i++)
+            {
+                presetParam->appendString(USTRING(pluginCore->getPresetName(i)));
+            }
 
-           //     prgList->addProgram (title);
-                for (unsigned int i = 0; i<pluginCore->getPresetCount(); i++)
-                {
-                    prgList->addProgram (USTRING(pluginCore->getPresetName(i)));
+            //  --- add preset param helper
+            parameters.addParameter(presetParam);
 
-                    //presetParam->appendString(USTRING(pluginCore->getPresetName(i)));
-                }
+            // --- note the ID here (PRESET_NAME) can not be the same as the kPresetParam
+            ProgramList* prgList = new ProgramList(String("Factory Presets"), PRESET_NAME , kRootUnitId);
 
-                //---Program Change parameter---
-                Parameter* prgParam = prgList->getParameter ();
-
-                // by default this program change parameter if automatable we can overwrite this:
-                prgParam->getInfo ().flags &= ~ParameterInfo::kCanAutomate;
-
-                parameters.addParameter (prgParam);
-//       //     }
-        //    else
-        //    {
-                // --- the PRESET parameter
-                StringListParameter* presetParam = new StringListParameter(USTRING("Factory Presets"),
-                                                                           kPresetParam, USTRING(""),
-                                                                           ParameterInfo::kIsProgramChange | ParameterInfo::kIsList,
-                                                                           kRootUnitId);
-                // --- enumerate names
-                int count = pluginCore->getPresetCount();
-
-                for (unsigned int i = 0; i<pluginCore->getPresetCount(); i++)
-                {
-                    presetParam->appendString(USTRING(pluginCore->getPresetName(i)));
-                }
-
-                //  --- add preset
-                parameters.addParameter(presetParam);
-          //  }
+            for (unsigned int i = 0; i < pluginCore->getPresetCount(); i++)
+            {
+                Steinberg::Vst::String128 programName;
+                Steinberg::UString(programName, str16BufferSize(Steinberg::Vst::String128)).assign(pluginCore->getPresetName(i));
+                prgList->addProgram(programName);
+            }
+            // --- add the list, then the unit
+            addProgramList(prgList);
+            addUnit(new Steinberg::Vst::Unit(unitInfo));
         }
+        else
+            unitInfo.programListId = Steinberg::Vst::kNoProgramListId; // this will never happen; all cores have a factory preset
     }
 
     return result;
@@ -670,6 +683,54 @@ tresult PLUGIN_API VST3Plugin::getState(IBStream* fileStream)
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//    VST3Plugin::issueMIDICCProxyMessage
+//
+/**
+\brief Find and issue Control Changes
+
+\return true if a control was changed
+    
+NOTES:
+- see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide
+- see VST3 SDK Documentation for more information on this function and its parameters
+*/
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bool VST3Plugin::issueMIDICCProxyMessage(ParamID proxyParamID, ParamValue proxyParamValue)
+{
+    if (!midiEventQueue) return false;
+    proxyParamID -= baseCCParamID; // number is now 0 to 129 
+    midiEvent event;
+    event.midiMessage = (uint32_t)CONTROL_CHANGE;
+    event.midiChannel = 0;
+    event.midiData1 = proxyParamID;
+    event.midiData2 = (uint32_t)(127.0 * proxyParamValue);
+    event.midiSampleOffset = 0;
+
+    // --- first 128 are MIDI CC
+    if (proxyParamID < ControllerNumbers::kAfterTouch)
+    {
+        midiEventQueue->addMIDIProxyEvent(event);
+        return true;
+    }
+    else if (proxyParamID == ControllerNumbers::kAfterTouch)
+    {
+        // --- change "cc" to aftertouch
+        event.midiMessage = CHANNEL_PRESSURE;
+        midiEventQueue->addMIDIProxyEvent(event);
+        return true;
+    }
+    else if (proxyParamID == kPitchBend)
+    {
+        event.midiMessage = (uint32_t)PITCH_BEND;
+        unipolarDoubleToMIDI14_bit(proxyParamValue, event.midiData1, event.midiData2);
+        midiEventQueue->addMIDIProxyEvent(event);
+        return true;
+    }
+
+    return false;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	VST3Plugin::doControlUpdate
 //
 /**
@@ -685,6 +746,7 @@ NOTES:
 bool VST3Plugin::doControlUpdate(ProcessData& data)
 {
 	bool paramChange = false;
+    midiEventQueue->clearMIDIProxyEvents();
 
 	// --- check
     IParameterChanges* paramChanges = data.inputParameterChanges;
@@ -722,9 +784,7 @@ bool VST3Plugin::doControlUpdate(ProcessData& data)
 			{
 				// --- at least one param changed
 				paramChange = true;
- 
                 PluginParameter* piParam = pluginCore->getPluginParameterByControlID(pid);
-                
                 if(piParam)
                 {
                     // --- add the sample accurate queue
@@ -740,7 +800,15 @@ bool VST3Plugin::doControlUpdate(ProcessData& data)
 				{
                     plugInSideBypass = value > 0.5f ? true : false;
                     break;
-				}
+				}           
+                // --- check for MIDI proxy parameters (** sigh **)
+                else if (pid >= baseCCParamID && pid <= baseCCParamIDEnd)
+                {
+                    // --- see function just above; this issues MIDI CC messages from proxy params
+                    issueMIDICCProxyMessage(pid, value);
+                    break;
+                }
+
 			}
 		}
 	}
@@ -949,37 +1017,27 @@ NOTES:
 tresult PLUGIN_API VST3Plugin::getMidiControllerAssignment(int32 busIndex, int16 channel, CtrlNumber midiControllerNumber, ParamID& id/*out*/)
 {
     // --- add for synth plugin book
-	if(!pluginCore) return kResultFalse;
+    if(!pluginCore) return kResultFalse;
 
-	// NOTE: we only have one EventBus(0)
-	//       but it has 16 channels on it
+    // --- NOTE: setup for omni (rx on all 16 MIDI channels) to minimize the number of parameters
+    //
+    // --- To support multiple MIDI channels, you will need to declare a set or parameters for each
+    //     channel and each MIDI message = 16 * 130 = 2080 parameters in total (ridiculous)
     id = -1;
-	if(busIndex == 0)
-	{
-        // --- decode the channel and controller
-		switch(midiControllerNumber)
-		{
-			case kPitchBend:
-   			case kCtrlModWheel:
-			case kCtrlVolume:
-			case kCtrlPan:
-			case kCtrlExpression:
-			case kAfterTouch:
-			case kCtrlSustainOnOff:
-			case kCtrlAllNotesOff:
-                break;
-		}
-
-		if(id == -1)
-		{
-            id = 0;
-			return kResultFalse;
-		}
-		else
-			return kResultTrue;
-	}
-
-	return kResultFalse;
+    if (busIndex == 0 && midiControllerNumber < ControllerNumbers::kCountCtrlNumber)
+    {
+        id = baseCCParamID + midiControllerNumber;
+        return kResultTrue;
+    }
+    
+    // --- this weird logic has to do with validator, and is here from older code that supported all 16
+    //     MIDI channels (requiring >1000 proxy parameters
+    if (busIndex == 0 && id == -1)
+    {
+        id = 0;
+        return kResultFalse;
+    }
+    return kResultFalse;
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1184,108 +1242,6 @@ tresult PLUGIN_API VST3Plugin::setParamNormalized(ParamID tag, ParamValue value)
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//	VST3Plugin::addProgramList
-//
-/**
-\brief part of the IUnitInfo support for presets; generally no user editable code here.
-
-NOTES:
-- see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide
-- see VST3 SDK Documentation for more information on this function and its parameters
-*/
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bool VST3Plugin::addProgramList(ProgramList* list)
-{
-    programIndexMap[list->getID ()] = programLists.size ();
-    programLists.emplace_back (list, false);
-    list->addDependent (this);
-    return true;
-
-}
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//	VST3Plugin::getProgramList
-//
-/**
-\brief part of the IUnitInfo support for presets; generally no user editable code here.
-
-NOTES:
-- selects a program list (aka preset list)
-- see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide
-- see VST3 SDK Documentation for more information on this function and its parameters
-*/
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ProgramList* VST3Plugin::getProgramList(ProgramListID listId) const
-{
-    auto it = programIndexMap.find (listId);
-    return it == programIndexMap.end () ? nullptr : programLists[it->second];
-}
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//	VST3Plugin::notifyPogramListChange
-//
-/**
-\brief If list changes; should not be called as we only have one program list
-
-NOTES:
-- see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide
-- see VST3 SDK Documentation for more information on this function and its parameters
-*/
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-tresult VST3Plugin::notifyPogramListChange (ProgramListID listId, int32 programIndex)
-{
-  	tresult result = kResultFalse;
-	FUnknownPtr<IUnitHandler> unitHandler(componentHandler);
-	if (unitHandler)
-		result = unitHandler->notifyProgramListChange (listId, programIndex);
-	return result;
-}
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//	VST3Plugin::getProgramListCount
-//
-/**
-\brief We have one list for our one set of presets
-
-NOTES:
-- see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide
-- see VST3 SDK Documentation for more information on this function and its parameters
-*/
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-int32 PLUGIN_API VST3Plugin::getProgramListCount ()
-{
-	if (parameters.getParameter(kPresetParam))
-		return 1;
-	return 0;
-}
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//	VST3Plugin::getProgramListInfo
-//
-/**
-\brief Get information about our preset list.
-
-NOTES:
-- see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide
-- see VST3 SDK Documentation for more information on this function and its parameters
-*/
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-tresult PLUGIN_API VST3Plugin::getProgramListInfo(int32 listIndex, ProgramListInfo& info /*out*/)
-{
-	Parameter* param = parameters.getParameter(kPresetParam);
-	if(param && listIndex == 0)
-	{
-		info.id = kPresetParam;
-		info.programCount = (int32)param->toPlain (1) + 1;
-		UString name (info.name, 128);
-		name.fromAscii("Presets");
-		return kResultTrue;
-	}
-	return kResultFalse;
-
-}
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	VST3Plugin::getProgramName
 //
 /**
@@ -1298,105 +1254,21 @@ NOTES:
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tresult PLUGIN_API VST3Plugin::getProgramName(ProgramListID listId, int32 programIndex, String128 name /*out*/)
 {
-	if(listId == kPresetParam)
+	if(listId == PRESET_NAME)
 	{
 		Parameter* param = parameters.getParameter(kPresetParam);
 		if (param)
 		{
 			ParamValue normalized = param->toNormalized (programIndex);
 			param->toString (normalized, name);
+            const char* pp = pluginCore->getPresetName(programIndex);
+
 			return kResultTrue;
 		}
 	}
 	return kResultFalse;
 }
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//	VST3Plugin::setProgramName
-//
-/**
-\brief Set preset name
-
-NOTES:
-- see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide
-- see VST3 SDK Documentation for more information on this function and its parameters
-*/
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-tresult VST3Plugin::setProgramName(ProgramListID listId, int32 programIndex, const String128 name /*in*/)
-{
-	ProgramIndexMap::const_iterator it = programIndexMap.find(listId);
-	if (it != programIndexMap.end())
-	{
-		return programLists[it->second]->setProgramName(programIndex, name);
-	}
-	return kResultFalse;
-
-}
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//	VST3Plugin::getProgramInfo
-//
-/**
-\brief Only used for presets.
-
-NOTES:
-- see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide
-- see VST3 SDK Documentation for more information on this function and its parameters
-*/
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-tresult PLUGIN_API VST3Plugin::getProgramInfo(ProgramListID listId, int32 programIndex, CString attributeId /*in*/, String128 attributeValue /*out*/)
-{
-	ProgramIndexMap::const_iterator it = programIndexMap.find(listId);
-	if (it != programIndexMap.end())
-	{
-		return programLists[it->second]->getProgramInfo(programIndex, attributeId, attributeValue);
-	}
-	return kResultFalse;
-
-}
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//	VST3Plugin::hasProgramPitchNames
-//
-/**
-\brief Not Used.
-
-NOTES:
-- see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide
-- see VST3 SDK Documentation for more information on this function and its parameters
-*/
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-tresult PLUGIN_API VST3Plugin::hasProgramPitchNames(ProgramListID listId, int32 programIndex)
-{
-	ProgramIndexMap::const_iterator it = programIndexMap.find(listId);
-	if (it != programIndexMap.end())
-	{
-		return programLists[it->second]->hasPitchNames(programIndex);
-	}
-	return kResultFalse;
-}
-
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//	VST3Plugin::getProgramPitchName
-//
-/**
-\brief Not Used.
-
-NOTES:
-- see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide
-- see VST3 SDK Documentation for more information on this function and its parameters
-*/
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-tresult PLUGIN_API VST3Plugin::getProgramPitchName (ProgramListID listId, int32 programIndex, int16 midiPitch, String128 name /*out*/)
-{
-	ProgramIndexMap::const_iterator it = programIndexMap.find(listId);
-	if (it != programIndexMap.end())
-	{
-		return programLists[it->second]->getPitchName(programIndex, midiPitch, name);
-	}
-	return kResultFalse;
-}
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	VST3Plugin::update
@@ -1884,7 +1756,7 @@ tresult PLUGIN_API PluginEditor::attached(void* parent, FIDString type)
 #endif
 #endif
     
-    VSTGUI::PlatformType platformType = VSTGUI::kDefaultNative;
+    VSTGUI::PlatformType platformType = VSTGUI::PlatformType::kDefaultNative;
     
 #if MAC
 #if TARGET_OS_IPHONE
@@ -1898,7 +1770,7 @@ tresult PLUGIN_API PluginEditor::attached(void* parent, FIDString type)
     
 #if MAC_COCOA
     if (strcmp(type, kPlatformTypeNSView) == 0)
-        platformType = VSTGUI::kNSView;
+        platformType = VSTGUI::PlatformType::kNSView;
 #endif
 #endif
 #endif
@@ -1936,13 +1808,12 @@ tresult PLUGIN_API PluginEditor::attached(void* parent, FIDString type)
                         }
                     }
                 }
-
-            
             }
          }
 
 		setGUIWindowFrame((IGUIWindowFrame*)this);
 
+        // --- this had been problematic in older versions of several DAWs so is still "commented" this way
 		if (true)
 		{
 			ViewRect vr(0, 0, (int32)frame->getWidth(), (int32)frame->getHeight());

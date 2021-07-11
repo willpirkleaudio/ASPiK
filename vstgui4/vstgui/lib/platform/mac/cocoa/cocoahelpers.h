@@ -46,10 +46,23 @@ inline HIDDEN void set_Objc_Value (id obj, const char* name, id value)
 }
 
 #define __OBJC_SUPER(x) objc_super __os; __os.receiver = x; __os.super_class = class_getSuperclass ([x class]);
-#define SUPER	&__os
+#define SUPER	static_cast<id> (&__os)
 #define OBJC_GET_VALUE(x,y) get_Objc_Value (x, #y)
 #define OBJC_SET_VALUE(x,y,z) set_Objc_Value (x, #y, (id)z)
 
+//------------------------------------------------------------------------------------
+static id (*SuperInit) (id, SEL) = (id (*) (id, SEL))objc_msgSendSuper;
+static id (*SuperInitWithFrame) (id, SEL, NSRect) = (id (*) (id, SEL, NSRect))objc_msgSendSuper;
+static void (*SuperDealloc) (id, SEL) = (void (*) (id, SEL))objc_msgSendSuper;
+static void (*SuperRemoveFromSuperview) (id, SEL) = SuperDealloc;
+static void (*SuperEventMsg) (id, SEL, NSEvent*) = (void (*) (id, SEL, NSEvent*))objc_msgSendSuper;
+static void (*SuperUpdateTrackingAreas) (id, SEL) = (void (*) (id, SEL))objc_msgSendSuper;
+static void (*SuperTextDidChange) (id, SEL, NSNotification*) = (void (*) (id, SEL, NSNotification*))objc_msgSendSuper;
+static void (*SuperSetNeedsDisplayInRect) (id, SEL,
+										   NSRect) = (void (*) (id, SEL, NSRect))objc_msgSendSuper;
+static void (*SuperViewWillRedraw) (id, SEL) = SuperDealloc;
+
+//------------------------------------------------------------------------------------
 extern HIDDEN Class generateUniqueClass (NSMutableString* className, Class baseClass);
 extern HIDDEN VstKeyCode CreateVstKeyCodeFromNSEvent (NSEvent* theEvent);
 extern HIDDEN NSString* GetVirtualKeyCodeString (int32_t virtualKeyCode);
@@ -135,10 +148,14 @@ namespace MacEventType
 	static constexpr auto LeftMouseDown = ::NSEventTypeLeftMouseDown;
 	static constexpr auto LeftMouseDragged = ::NSEventTypeLeftMouseDragged;
 	static constexpr auto MouseMoved = ::NSEventTypeMouseMoved;
+	static constexpr auto KeyDown = ::NSEventTypeKeyDown;
+	static constexpr auto KeyUp = ::NSEventTypeKeyUp;
 #else
 	static constexpr auto LeftMouseDown = ::NSLeftMouseDown;
 	static constexpr auto LeftMouseDragged = ::NSLeftMouseDragged;
 	static constexpr auto MouseMoved = ::NSMouseMoved;
+	static constexpr auto KeyDown = ::NSKeyDown;
+	static constexpr auto KeyUp = ::NSKeyUp;
 #endif
 }
 
@@ -152,6 +169,7 @@ namespace MacWindowStyleMask
 	static constexpr auto Miniaturizable = ::NSWindowStyleMaskMiniaturizable;
 	static constexpr auto Closable = ::NSWindowStyleMaskClosable;
 	static constexpr auto Utility = ::NSWindowStyleMaskUtilityWindow;
+	static constexpr auto FullSizeContentView = ::NSWindowStyleMaskFullSizeContentView;
 #else
 	static constexpr auto Borderless = ::NSBorderlessWindowMask;
 	static constexpr auto Titled = ::NSTitledWindowMask;
@@ -159,6 +177,7 @@ namespace MacWindowStyleMask
 	static constexpr auto Miniaturizable = ::NSMiniaturizableWindowMask;
 	static constexpr auto Closable = ::NSClosableWindowMask;
 	static constexpr auto Utility = ::NSUtilityWindowMask;
+	static constexpr auto FullSizeContentView = ::NSFullSizeContentViewWindowMask;
 #endif
 }
 

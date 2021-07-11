@@ -17,6 +17,7 @@
 #include "vstgui/vstgui_uidescription.h" // for IController
 
 #include "../PluginKernel/pluginstructures.h"
+// #pragma warning(disable: 4244)
 
 namespace VSTGUI {
 
@@ -588,7 +589,8 @@ struct TextDisplayViewMessage
 
     std::string labelString;
     std::vector<std::string> stringList;
-    uint32_t stringCount = 0;
+	// uint32_t stringCount = 0;
+	uint32_t controlStringCount = 0;
 };
 
 /**
@@ -625,32 +627,41 @@ Custom object for dynamic lables that can change their text programmatically.\n
 class CustomTextLabel : public CTextLabel, public ICustomView
 {
 public:
-    CustomTextLabel(const CRect& size, UTF8StringPtr txt = 0, CBitmap* background = 0, const int32_t style = 0)
-        : CTextLabel(size, txt, background, style)
-    {    }
+	CustomTextLabel(const CRect& size, CHoriTxtAlign horizTA = CHoriTxtAlign::kCenterText, UTF8StringPtr txt = 0, CBitmap* background = 0, const int32_t style = 0)
+		: CTextLabel(size, txt, background, style)
+	{
+		textAlignment = horizTA;
+	}
 
-    /** ICustomView method: this repaints the control */
-    virtual void updateView() override {
-        // --- force redraw
-        invalid();
-    }
+	/** ICustomView method: this repaints the control */
+	virtual void updateView() override {
+		// --- force redraw
+		invalid();
+	}
 
-    /** ICustomView method: send a message to the object (!) */
-    virtual void sendMessage(void* data) override
-    {
-        TextDisplayViewMessage* viewMessage = (TextDisplayViewMessage*)data;
+	void draw(CDrawContext* pContext) override
+	{
+		setHoriAlign(textAlignment);
+		CTextLabel::draw(pContext);
+	}
 
-        // --- set the text in the label
-        if (viewMessage->message == MESSAGE_SET_STRING)
-        {
-            // --- change the label
-            this->setText(viewMessage->labelString.c_str());
-        }
-    }
+	/** ICustomView method: send a message to the object (!) */
+	virtual void sendMessage(void* data) override
+	{
+		TextDisplayViewMessage* viewMessage = (TextDisplayViewMessage*)data;
+
+		// --- set the text in the label
+		if (viewMessage->message == MESSAGE_SET_STRING)
+		{
+			// --- change the label
+			this->setText(viewMessage->labelString.c_str());
+		}
+	}
 
 protected:
-    /** virtual D-TOR: just kill the queue */
-    virtual ~CustomTextLabel(void) {    }
+	/** virtual D-TOR: just kill the queue */
+	virtual ~CustomTextLabel(void) {    }
+	CHoriTxtAlign textAlignment = CHoriTxtAlign::kCenterText;
 };
 
 
@@ -669,7 +680,9 @@ class CustomOptionMenu : public COptionMenu, public ICustomView
 public:
     CustomOptionMenu(const CRect& size, IControlListener* listener, int32_t tag, CBitmap* background = nullptr, CBitmap* bgWhenClick = nullptr, const int32_t style = 0)
         : COptionMenu(size, listener, tag, background, bgWhenClick, style)
-    {    }
+    {
+		this->setNbItemsPerColumn(8);
+	}
 
     /** ICustomView method: this repaints the control */
     virtual void updateView() override {
@@ -677,16 +690,20 @@ public:
         invalid();
     }
 
-    virtual CMenuItem* addEntry(const UTF8String& title, int32_t index = -1, int32_t itemFlags = CMenuItem::kNoFlags) override
-    {
-    //    for (int i = 0; i < omStringCount; i++)
-        //{
-            if (index < activeStringCount)
-                return COptionMenu::addEntry(stringList[index].c_str(), index);
-            else
-                return COptionMenu::addEntry("-----", index);
-        //}
-    }
+
+	/** Override to check for empty string condition; selects last "good" string */
+	virtual void valueChanged() override
+	{
+		CMenuItem* item = getEntry((int32_t)getValue());
+		if (!item) return;
+		if (item->getTitle() == "-----")
+		{
+			setValue((float)lastActualEntryIndex);
+			setDirty();
+		}
+
+		COptionMenu::valueChanged();
+	}
 
     /** ICustomView method: send a message to the object (!) */
     virtual void sendMessage(void* data) override
@@ -696,38 +713,28 @@ public:
         // --- set the text in the label
         if (viewMessage->message == MESSAGE_SET_STRINGLIST)
         {
-            // --- adjust size to fit: note this should be kept consistent or automation will fail
-            int32_t numNewEntries = viewMessage->stringList.size();
-            this->setMin(0);
-            if (viewMessage->stringCount > 0)
-            {
-                this->setMax(viewMessage->stringCount);
-                omStringCount = viewMessage->stringCount;
-            }
-
             // --- clear items
             this->removeAllEntry();
-            stringList = viewMessage->stringList;
-            activeStringCount = numNewEntries;
-
-            for (int i = 0; i < omStringCount; i++)
-            {
-                if (i < activeStringCount)
-                    addEntry(stringList[i].c_str(), i);
-                else
-                    addEntry("-----", i);
-            }
-        }
+			for (uint32_t i = 0; i < viewMessage->controlStringCount; i++)
+			{
+				if (i < viewMessage->stringList.size())
+				{
+					COptionMenu::addEntry(viewMessage->stringList[i].c_str(), i);
+					if(viewMessage->stringList[i].compare("-----") != 0)
+						lastActualEntryIndex = i;// --- save for later to avoid a non-setting
+				}
+				else
+					COptionMenu::addEntry("-----", i);
+			}
+			// --- should never happen
+			if (lastActualEntryIndex < 0) lastActualEntryIndex = 0;
+		}
     }
 
 protected:
     /** virtual D-TOR: just kill the queue */
     virtual ~CustomOptionMenu(void) {    }
-    bool updatingCustomStrings = false;
-    std::vector<std::string> stringList;
-    uint32_t activeStringCount = 0;
-    uint32_t omStringCount = 0;
-
+	int32_t lastActualEntryIndex = 0;
 };
 
 }

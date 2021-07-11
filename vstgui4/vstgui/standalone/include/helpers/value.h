@@ -217,6 +217,16 @@ inline IStepValue::StepType currentStepValue (IValue& value)
 }
 
 //------------------------------------------------------------------------
+inline UTF8String currentStringValue (IValue& value)
+{
+	if (auto stringValue = value.dynamicCast<IStringValue> ())
+	{
+		return stringValue->getString ();
+	}
+	return value.getConverter ().valueAsString (value.getValue ());
+}
+
+//------------------------------------------------------------------------
 inline void performSingleEdit (IValue& value, IValue::Type newValue)
 {
 	value.beginEdit ();
@@ -248,6 +258,19 @@ inline bool performStringValueEdit (IValue& value, const UTF8String& str)
 	{
 		value.beginEdit ();
 		stringValue->setString (str);
+		value.endEdit ();
+		return true;
+	}
+	return false;
+}
+
+//------------------------------------------------------------------------
+inline bool performStringAppendValueEdit (IValue& value, const UTF8String& str)
+{
+	if (auto stringValue = value.dynamicCast<IStringValue> ())
+	{
+		value.beginEdit ();
+		stringValue->setString (stringValue->getString () + str);
 		value.endEdit ();
 		return true;
 	}

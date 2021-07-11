@@ -53,34 +53,6 @@ PluginCore::PluginCore()
 }
 
 /**
-\brief create all of your plugin parameters here
-
-\return true if parameters were created, false if they already existed
-*/
-bool PluginCore::initPluginParameters()
-{
-	if (pluginParameterMap.size() > 0)
-		return false;
-
-    // --- Add your plugin parameter instantiation code bewtween these hex codes
-	// **--0xDEA7--**
-
-    
-    
-	// **--0xEDA5--**
-   
-    // --- BONUS Parameter
-    // --- SCALE_GUI_SIZE
-    PluginParameter* piParamBonus = new PluginParameter(SCALE_GUI_SIZE, "Scale GUI", "tiny,small,medium,normal,large,giant", "normal");
-    addPluginParameter(piParamBonus);
-
-	// --- create the super fast access array
-	initPluginParameterArray();
-
-    return true;
-}
-
-/**
 \brief initialize object for a new run of audio; called just before audio streams
 
 Operation:
@@ -137,6 +109,33 @@ bool PluginCore::preProcessAudioBuffers(ProcessBufferInfo& processInfo)
     return true;
 }
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//	--- FRAME PROCESSING FUNCTION --- //
+/*
+	This is where you do your DSP processing on a PER-FRAME basis; this means that you are
+	processing one sample per channel at a time, and is the default mechanism in ASPiK.
+
+	You will get better performance is you process buffers or blocks instead, HOWEVER for
+	some kinds of processing (e.g. ping pong delay) you must process on a per-sample
+	basis anyway. This is also easier to understand for most newbies.
+
+	NOTE:
+	You can enable and disable frame/buffer procssing in the constructor of this object:
+
+	// --- to process audio frames call:
+	processAudioByFrames();
+
+	// --- to process complete DAW buffers call:
+	processAudioByBlocks(WANT_WHOLE_BUFFER);
+
+	// --- to process sub-blocks of the incoming DAW buffer in 64 sample blocks call:
+	processAudioByBlocks(DEFAULT_AUDIO_BLOCK_SIZE);
+
+	// --- to process sub-blocks of size N, call:
+	processAudioByBlocks(N);
+*/
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 /**
 \brief frame-processing method
 
@@ -154,8 +153,17 @@ bool PluginCore::processAudioFrame(ProcessFrameInfo& processFrameInfo)
     // --- fire any MIDI events for this sample interval
     processFrameInfo.midiEventQueue->fireMidiEvents(processFrameInfo.currentFrame);
 
-	// --- do per-frame updates; VST automation and parameter smoothing
-	doSampleAccurateParameterUpdates();
+	// --- do per-frame smoothing
+	doParameterSmoothing();
+
+	// --- call your GUI update/cooking function here, now that smoothing has occurred
+	//
+	//     NOTE:
+	//     updateParameters is the name used in Will Pirkle's books for the GUI update function
+	//     you may name it what you like - this is where GUI control values are cooked
+	//     for the DSP algorithm at hand
+	// updateParameters();
+
 
     // --- decode the channelIOConfiguration and process accordingly
     //
@@ -204,6 +212,189 @@ bool PluginCore::processAudioFrame(ProcessFrameInfo& processFrameInfo)
     }
 
     return false; /// NOT processed
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//	--- BLOCK/BUFFER PRE-PROCESSING FUNCTION --- //
+//      Only used when BLOCKS or BUFFERS are processed
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+/**
+\brief pre-process the audio block
+
+Operation:
+- fire MIDI events for the audio block; see processMIDIEvent( ) for the code that loads
+  the vector on the ProcessBlockInfo structure
+
+\param IMidiEventQueue ASPIK event queue of MIDI events for the entire buffer; this
+       function only fires the MIDI events for this audio block
+
+\return true if operation succeeds, false otherwise
+*/
+bool PluginCore::preProcessAudioBlock(IMidiEventQueue* midiEventQueue)
+{
+	// --- pre-process the block
+	processBlockInfo.clearMidiEvents();
+
+	// --- sample accurate parameter updates
+	for (uint32_t sample = processBlockInfo.blockStartIndex;
+		sample < processBlockInfo.blockStartIndex + processBlockInfo.blockSize;
+		sample++)
+	{
+		// --- the MIDI handler will load up the vector in processBlockInfo
+		if (midiEventQueue)
+			midiEventQueue->fireMidiEvents(sample);
+	}
+
+	// --- this will do parameter smoothing ONLY ONCE AT THE TOP OF THE BLOCK PROCESSING
+	//
+	// --- to perform per-sample parameter smoothing, move this line of code, AND your updating
+	//     functions (see updateParameters( ) in comment below) into the for( ) loop above
+	//     NOTE: smoothing only once per block usually SAVES CPU cycles
+	//           smoothing once per sample period usually EATS CPU cycles, potentially unnecessarily
+	doParameterSmoothing();
+
+	// --- call your GUI update/cooking function here, now that smoothing has occurred
+	//
+	//     NOTE:
+	//     updateParameters is the name used in Will Pirkle's books for the GUI update function
+	//     you may name it what you like - this is where GUI control values are cooked
+	//     for the DSP algorithm at hand
+	//     NOTE: updating (cooking) only once per block usually SAVES CPU cycles
+	//           updating (cooking) once per sample period usually EATS CPU cycles, potentially unnecessarily
+	// updateParameters();
+
+	return true;
+}
+
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//	--- BLOCK/BUFFER PROCESSING FUNCTION --- //
+/*
+This is where you do your DSP processing on a PER-BLOCK basis; this means that you are
+processing entire blocks at a time -- each audio channel has its own block to process.
+
+A BUFFER is simply a single block of audio that is the size of the incoming buffer from the
+DAW. A BLOCK is a sub-block portion of that buffer.
+
+In the event that the incoming buffer is SMALLER than your requested audio block, the
+entire buffer will be sent to this block processing function. This is also true when your
+block size is not a divisor of the actual incoming buffer, OR when an incoming buffer
+is partially filled (which is rare, but may happen under certain circumstances), resulting
+in a "partial block" of data that is smaller than your requested block size.
+
+NOTE:
+You can enable and disable frame/buffer procssing in the constructor of this object:
+
+// --- to process audio frames call:
+processAudioByFrames();
+
+// --- to process complete DAW buffers call:
+processAudioByBlocks(WANT_WHOLE_BUFFER);
+
+// --- to process sub-blocks of the incoming DAW buffer in 64 sample blocks call:
+processAudioByBlocks(DEFAULT_AUDIO_BLOCK_SIZE);
+
+// --- to process sub-blocks of size N, call:
+processAudioByBlocks(N);
+*/
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+/**
+\brief block or buffer-processing method
+
+Operation:
+- process one block of audio data; see example functions for template code
+- renderSynthSilence: render a block of 0.0 values (synth, silence when no notes are rendered)
+- renderFXPassThrough: pass audio from input to output (FX)
+
+\param processBlockInfo structure of information about *block* processing
+
+\return true if operation succeeds, false otherwise
+*/
+bool PluginCore::processAudioBlock(ProcessBlockInfo& processBlockInfo)
+{
+	// --- FX or Synth Render
+	//     call your block processing function here
+	// --- Synth
+	if (getPluginType() == kSynthPlugin)
+		renderSynthSilence(processBlockInfo);
+
+	// --- or FX
+	else if (getPluginType() == kFXPlugin)
+		renderFXPassThrough(processBlockInfo);
+
+	return true;
+}
+
+
+/**
+\brief
+renders a block of silence (all 0.0 values) as an example
+your synth code would render the synth using the MIDI messages and output buffers
+
+Operation:
+- process all MIDI events for the block
+- perform render into block's audio buffers
+
+\param blockInfo structure of information about *block* processing
+\return true if operation succeeds, false otherwise
+*/
+bool PluginCore::renderSynthSilence(ProcessBlockInfo& blockInfo)
+{
+	// --- process all MIDI events in this block (same as SynthLab)
+	uint32_t midiEvents = blockInfo.getMidiEventCount();
+	for (uint32_t i = 0; i < midiEvents; i++)
+	{
+		// --- get the event
+		midiEvent event = *blockInfo.getMidiEvent(i);
+
+		// --- do something with it...
+		// myMIDIMessageHandler(event); // <-- you write this
+	}
+
+	// --- render a block of audio; here it is silence but in your synth
+	//     it will likely be dependent on the MIDI processing you just did above
+	for (uint32_t sample = blockInfo.blockStartIndex, i = 0;
+		 sample < blockInfo.blockStartIndex + blockInfo.blockSize;
+		 sample++, i++)
+	{
+		// --- write outputs
+		for (uint32_t channel = 0; channel < blockInfo.numAudioOutChannels; channel++)
+		{
+			// --- silence (or, your synthesized block of samples)
+			blockInfo.outputs[channel][sample] = 0.0;
+		}
+	}
+	return true;
+}
+
+/**
+\brief
+Renders pass-through code as an example; replace with meaningful DSP for audio goodness
+
+Operation:
+- loop over samples in block
+- write inputs to outputs, per channel basis
+
+\param blockInfo structure of information about *block* processing
+\return true if operation succeeds, false otherwise
+*/
+bool PluginCore::renderFXPassThrough(ProcessBlockInfo& blockInfo)
+{
+	// --- block processing -- write to outputs
+	for (uint32_t sample = blockInfo.blockStartIndex, i = 0;
+		sample < blockInfo.blockStartIndex + blockInfo.blockSize;
+		sample++, i++)
+	{
+		// --- handles multiple channels, but up to you for bookkeeping
+		for (uint32_t channel = 0; channel < blockInfo.numAudioOutChannels; channel++)
+		{
+			// --- pass through code, or your processed FX version
+			blockInfo.outputs[channel][sample] = blockInfo.inputs[channel][sample];
+		}
+	}
+	return true;
 }
 
 
@@ -414,6 +605,17 @@ NOTES:
 */
 bool PluginCore::processMIDIEvent(midiEvent& event)
 {
+	// --- IF PROCESSING AUDIO BLOCKS: push into vector for block processing
+	if (!pluginDescriptor.processFrames)
+	{
+		processBlockInfo.pushMidiEvent(event);
+		return true;
+	}
+
+	// --- IF PROCESSING AUDIO FRAMES: decode AND service this MIDI event here
+	//     for sample accurate MIDI
+	// myMIDIMessageHandler(event); // <-- you write this
+
 	return true;
 }
 
@@ -430,6 +632,34 @@ NOTES:
 */
 bool PluginCore::setVectorJoystickParameters(const VectorJoystickData& vectorJoysickData)
 {
+	return true;
+}
+
+/**
+\brief create all of your plugin parameters here
+
+\return true if parameters were created, false if they already existed
+*/
+bool PluginCore::initPluginParameters()
+{
+	if (pluginParameterMap.size() > 0)
+		return false;
+
+	// --- Add your plugin parameter instantiation code bewtween these hex codes
+	// **--0xDEA7--**
+
+
+
+	// **--0xEDA5--**
+
+	// --- BONUS Parameter
+	// --- SCALE_GUI_SIZE
+	PluginParameter* piParamBonus = new PluginParameter(SCALE_GUI_SIZE, "Scale GUI", "tiny,small,medium,normal,large,giant", "normal");
+	addPluginParameter(piParamBonus);
+
+	// --- create the super fast access array
+	initPluginParameterArray();
+
 	return true;
 }
 
@@ -459,6 +689,18 @@ bool PluginCore::initPluginPresets()
 */
 bool PluginCore::initPluginDescriptors()
 {
+	// --- setup audio procssing style
+	//
+	// --- kProcessFrames and kBlockSize are set in plugindescription.h
+	//
+	// --- true:  process audio frames --- less efficient, but easier to understand when starting out
+	//     false: process audio blocks --- most efficient, but somewhat more complex code
+	pluginDescriptor.processFrames = kProcessFrames;
+
+	// --- for block processing (if pluginDescriptor.processFrame == false),
+	//     this is the block size
+	processBlockInfo.blockSize = kBlockSize;
+
     pluginDescriptor.pluginName = PluginCore::getPluginName();
     pluginDescriptor.shortPluginName = PluginCore::getShortPluginName();
     pluginDescriptor.vendorName = PluginCore::getVendorName();
@@ -495,7 +737,7 @@ bool PluginCore::initPluginDescriptors()
 }
 
 // --- static functions required for VST3/AU only --------------------------------------------- //
-const char* PluginCore::getPluginBundleName() { return kAUBundleName; }
+const char* PluginCore::getPluginBundleName() { return getPluginDescBundleName(); }
 const char* PluginCore::getPluginName(){ return kPluginName; }
 const char* PluginCore::getShortPluginName(){ return kShortPluginName; }
 const char* PluginCore::getVendorName(){ return kVendorName; }
@@ -505,3 +747,6 @@ const char* PluginCore::getAUCocoaViewFactoryName(){ return AU_COCOA_VIEWFACTORY
 pluginType PluginCore::getPluginType(){ return kPluginType; }
 const char* PluginCore::getVSTFUID(){ return kVSTFUID; }
 int32_t PluginCore::getFourCharCode(){ return kFourCharCode; }
+
+
+

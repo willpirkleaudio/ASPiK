@@ -13,22 +13,22 @@ struct IUnknown;
 
 namespace VSTGUI {
 
-static FORMATETC formatTEXTDrop		= {CF_UNICODETEXT,0, DVASPECT_CONTENT, -1, TYMED_HGLOBAL};
-static FORMATETC formatHDrop		= {CF_HDROP, 0, DVASPECT_CONTENT, -1, TYMED_HGLOBAL};
-static FORMATETC formatBinaryDrop	= {CF_PRIVATEFIRST, 0, DVASPECT_CONTENT, -1, TYMED_HGLOBAL};
+static FORMATETC formatTEXTDrop		= {CF_UNICODETEXT, nullptr, DVASPECT_CONTENT, -1, TYMED_HGLOBAL};
+static FORMATETC formatHDrop		= {CF_HDROP, nullptr, DVASPECT_CONTENT, -1, TYMED_HGLOBAL};
+static FORMATETC formatBinaryDrop	= {CF_PRIVATEFIRST, nullptr, DVASPECT_CONTENT, -1, TYMED_HGLOBAL};
 
 //-----------------------------------------------------------------------------
 Win32DataPackage::Win32DataPackage (::IDataObject* platformDataObject)
 : platformDataObject (platformDataObject)
 , nbItems (0)
 , stringsAreFiles (false)
-, data (0)
+, data (nullptr)
 , dataSize (0)
 {
 	if (!platformDataObject)
 		return;
 
-	STGMEDIUM medium = {0};
+	STGMEDIUM medium = {};
 	HRESULT hr = platformDataObject->QueryGetData (&formatTEXTDrop);
 	if (hr == S_OK) // text
 	{
@@ -58,7 +58,7 @@ Win32DataPackage::Win32DataPackage (::IDataObject* platformDataObject)
 			hr = platformDataObject->GetData (&formatHDrop, &medium);
 			if (hr == S_OK)
 			{
-				nbItems = DragQueryFile ((HDROP)medium.hGlobal, 0xFFFFFFFFL, 0, 0);
+				nbItems = DragQueryFile ((HDROP)medium.hGlobal, 0xFFFFFFFFL, nullptr, 0);
 				stringsAreFiles = true;
 
 				TCHAR fileDropped[1024];
@@ -83,8 +83,11 @@ Win32DataPackage::Win32DataPackage (::IDataObject* platformDataObject)
 				if (blob && dataSize)
 				{
 					data = std::malloc (dataSize);
-					memcpy (data, blob, dataSize);
-					nbItems = 1;
+					if (data)
+					{
+						memcpy (data, blob, dataSize);
+						nbItems = 1;
+					}
 				}
 				GlobalUnlock (medium.hGlobal);
 				if (medium.pUnkForRelease)
@@ -163,11 +166,11 @@ bool Win32DataPackage::checkResolveLink (const TCHAR* nativePath, TCHAR* resolve
 	{
 		IShellLink* psl;
 		IPersistFile* ppf;
-		WIN32_FIND_DATA wfd;
+		WIN32_FIND_DATA wfd {0};
 		HRESULT hres;
 		
 		// Get a pointer to the IShellLink interface.
-		hres = CoCreateInstance (CLSID_ShellLink, NULL, CLSCTX_INPROC_SERVER,
+		hres = CoCreateInstance (CLSID_ShellLink, nullptr, CLSCTX_INPROC_SERVER,
 			IID_IShellLink, (void**)&psl);
 		if (SUCCEEDED (hres))
 		{
@@ -179,7 +182,7 @@ bool Win32DataPackage::checkResolveLink (const TCHAR* nativePath, TCHAR* resolve
 				hres = ppf->Load (nativePath, STGM_READ);
 				if (SUCCEEDED (hres))
 				{					
-					hres = psl->Resolve (0, static_cast<DWORD> (MAKELONG (SLR_ANY_MATCH | SLR_NO_UI, 500)));
+					hres = psl->Resolve (nullptr, static_cast<DWORD> (MAKELONG (SLR_ANY_MATCH | SLR_NO_UI, 500)));
 					if (SUCCEEDED (hres))
 					{
 						// Get the path to the link target.

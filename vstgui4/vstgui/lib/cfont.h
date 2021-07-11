@@ -30,11 +30,9 @@ enum CTxtFace
 class CFontDesc : public AtomicReferenceCounted
 {
 public:
-	using PlatformFontPtr = SharedPointer<IPlatformFont>;
-	
 	CFontDesc (const UTF8String& name = "", const CCoord& size = 0, const int32_t style = 0);
 	CFontDesc (const CFontDesc& font);
-	~CFontDesc () noexcept override = default;
+	~CFontDesc () noexcept override;
 
 	//-----------------------------------------------------------------------------
 	/// @name Size, Name and Style Methods

@@ -100,7 +100,7 @@ $(document).ready(function(){initNavTree('class_steinberg_1_1_vst_1_1_a_s_pi_k_1
 <p>The <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html" title="The VST3Plugin object is the ASPiK plugin shell for the VST3 API. ">VST3Plugin</a> object is the ASPiK plugin shell for the VST3 API.  
  <a href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="project__source_2source_2vst__source_2vst3plugin_8h_source.html">vst3plugin.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="vst3plugin_8h_source.html">vst3plugin.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Steinberg::Vst::ASPiK::VST3Plugin:</div>
 <div class="dyncontent">
@@ -148,6 +148,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9ebddcfe240956d127cd5904ef617509"><td class="memItemLeft" align="right" valign="top">virtual tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a9ebddcfe240956d127cd5904ef617509">getMidiControllerAssignment</a> (int32 busIndex, int16 channel, CtrlNumber midiControllerNumber, ParamID &amp;id) override</td></tr>
 <tr class="memdesc:a9ebddcfe240956d127cd5904ef617509"><td class="mdescLeft">&#160;</td><td class="mdescRight">The client queries this 129 times for 130 possible control messages, see ivstsmidicontrollers.h for the VST defines for kPitchBend, kCtrlModWheel, etc... for each MIDI Channel in our Event Bus.  <a href="#a9ebddcfe240956d127cd5904ef617509">More...</a><br /></td></tr>
 <tr class="separator:a9ebddcfe240956d127cd5904ef617509"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad25945d1686e3d268bf4d1863fd8c3d8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#ad25945d1686e3d268bf4d1863fd8c3d8">issueMIDICCProxyMessage</a> (ParamID proxyParamID, ParamValue proxyParamValue)</td></tr>
+<tr class="memdesc:ad25945d1686e3d268bf4d1863fd8c3d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find and issue Control Changes.  <a href="#ad25945d1686e3d268bf4d1863fd8c3d8">More...</a><br /></td></tr>
+<tr class="separator:ad25945d1686e3d268bf4d1863fd8c3d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fd94d4ae09eeda241d4aa7f5efa160d"><td class="memItemLeft" align="right" valign="top"><a id="a0fd94d4ae09eeda241d4aa7f5efa160d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>unipolarDoubleToMIDI14_bit</b> (double unipolarValue, uint32_t &amp;midiDataLSB, uint32_t &amp;midiDataMSB)</td></tr>
+<tr class="separator:a0fd94d4ae09eeda241d4aa7f5efa160d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fae420876c4e4795f6f8012b994359b"><td class="memItemLeft" align="right" valign="top">IPlugView *PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a6fae420876c4e4795f6f8012b994359b">createView</a> (const char *_name) override</td></tr>
 <tr class="memdesc:a6fae420876c4e4795f6f8012b994359b"><td class="mdescLeft">&#160;</td><td class="mdescRight">creates the custom GUI view  <a href="#a6fae420876c4e4795f6f8012b994359b">More...</a><br /></td></tr>
 <tr class="separator:a6fae420876c4e4795f6f8012b994359b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -166,39 +172,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aeacf4ceee0f0190e6d6f27f6c0b7e190"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#aeacf4ceee0f0190e6d6f27f6c0b7e190">updateMeters</a> (ProcessData &amp;data, bool forceOff=false)</td></tr>
 <tr class="memdesc:aeacf4ceee0f0190e6d6f27f6c0b7e190"><td class="mdescLeft">&#160;</td><td class="mdescRight">update the outbound VST3 parameters that correspond to plugin meter variables  <a href="#aeacf4ceee0f0190e6d6f27f6c0b7e190">More...</a><br /></td></tr>
 <tr class="separator:aeacf4ceee0f0190e6d6f27f6c0b7e190"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87fe8dc22d8ea67c6335069e758775c2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a87fe8dc22d8ea67c6335069e758775c2">addProgramList</a> (ProgramList *list)</td></tr>
-<tr class="memdesc:a87fe8dc22d8ea67c6335069e758775c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">part of the IUnitInfo support for presets; generally no user editable code here.  <a href="#a87fe8dc22d8ea67c6335069e758775c2">More...</a><br /></td></tr>
-<tr class="separator:a87fe8dc22d8ea67c6335069e758775c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70a1c904dc87bc1a0fe42d0592b62634"><td class="memItemLeft" align="right" valign="top">ProgramList *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a70a1c904dc87bc1a0fe42d0592b62634">getProgramList</a> (ProgramListID listId) const</td></tr>
-<tr class="memdesc:a70a1c904dc87bc1a0fe42d0592b62634"><td class="mdescLeft">&#160;</td><td class="mdescRight">part of the IUnitInfo support for presets; generally no user editable code here.  <a href="#a70a1c904dc87bc1a0fe42d0592b62634">More...</a><br /></td></tr>
-<tr class="separator:a70a1c904dc87bc1a0fe42d0592b62634"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9c9f07ac7fda10b228c0a02047f7e1c"><td class="memItemLeft" align="right" valign="top">tresult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#aa9c9f07ac7fda10b228c0a02047f7e1c">notifyPogramListChange</a> (ProgramListID listId, int32 programIndex=kAllProgramInvalid)</td></tr>
-<tr class="memdesc:aa9c9f07ac7fda10b228c0a02047f7e1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">If list changes; should not be called as we only have one program list.  <a href="#aa9c9f07ac7fda10b228c0a02047f7e1c">More...</a><br /></td></tr>
-<tr class="separator:aa9c9f07ac7fda10b228c0a02047f7e1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ff0b9d70e356531ef80bbf901801569"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a3ff0b9d70e356531ef80bbf901801569">setParamNormalized</a> (ParamID tag, ParamValue value) override</td></tr>
 <tr class="memdesc:a3ff0b9d70e356531ef80bbf901801569"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is overridden for selecting a preset, this is also called when automating parameters.  <a href="#a3ff0b9d70e356531ef80bbf901801569">More...</a><br /></td></tr>
 <tr class="separator:a3ff0b9d70e356531ef80bbf901801569"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06a43c681a26123827371471bcac69ee"><td class="memItemLeft" align="right" valign="top">virtual int32 PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a06a43c681a26123827371471bcac69ee">getProgramListCount</a> () override</td></tr>
-<tr class="memdesc:a06a43c681a26123827371471bcac69ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">We have one list for our one set of presets.  <a href="#a06a43c681a26123827371471bcac69ee">More...</a><br /></td></tr>
-<tr class="separator:a06a43c681a26123827371471bcac69ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a543530bdb04ef1355b388cf891e1e9"><td class="memItemLeft" align="right" valign="top">virtual tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a4a543530bdb04ef1355b388cf891e1e9">getProgramListInfo</a> (int32 listIndex, ProgramListInfo &amp;info) override</td></tr>
-<tr class="memdesc:a4a543530bdb04ef1355b388cf891e1e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get information about our preset list.  <a href="#a4a543530bdb04ef1355b388cf891e1e9">More...</a><br /></td></tr>
-<tr class="separator:a4a543530bdb04ef1355b388cf891e1e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a375ac180973f51cf42fe9841c82b7c87"><td class="memItemLeft" align="right" valign="top">virtual tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a375ac180973f51cf42fe9841c82b7c87">getProgramName</a> (ProgramListID listId, int32 programIndex, String128 name) override</td></tr>
 <tr class="memdesc:a375ac180973f51cf42fe9841c82b7c87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get preset name.  <a href="#a375ac180973f51cf42fe9841c82b7c87">More...</a><br /></td></tr>
 <tr class="separator:a375ac180973f51cf42fe9841c82b7c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af14e595eb99c037f34d4f03485ed958a"><td class="memItemLeft" align="right" valign="top">virtual tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#af14e595eb99c037f34d4f03485ed958a">getProgramInfo</a> (ProgramListID listId, int32 programIndex, CString attributeId, String128 <a class="el" href="unionattribute_value.html">attributeValue</a>) override</td></tr>
-<tr class="memdesc:af14e595eb99c037f34d4f03485ed958a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only used for presets.  <a href="#af14e595eb99c037f34d4f03485ed958a">More...</a><br /></td></tr>
-<tr class="separator:af14e595eb99c037f34d4f03485ed958a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab66f60aca98919941a3f71693f647f36"><td class="memItemLeft" align="right" valign="top">virtual tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#ab66f60aca98919941a3f71693f647f36">hasProgramPitchNames</a> (ProgramListID listId, int32 programIndex) override</td></tr>
-<tr class="memdesc:ab66f60aca98919941a3f71693f647f36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not Used.  <a href="#ab66f60aca98919941a3f71693f647f36">More...</a><br /></td></tr>
-<tr class="separator:ab66f60aca98919941a3f71693f647f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ac18ae43b59efa21a8b1989f763b4ea"><td class="memItemLeft" align="right" valign="top">virtual tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a7ac18ae43b59efa21a8b1989f763b4ea">getProgramPitchName</a> (ProgramListID listId, int32 programIndex, int16 midiPitch, String128 name) override</td></tr>
-<tr class="memdesc:a7ac18ae43b59efa21a8b1989f763b4ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not Used.  <a href="#a7ac18ae43b59efa21a8b1989f763b4ea">More...</a><br /></td></tr>
-<tr class="separator:a7ac18ae43b59efa21a8b1989f763b4ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c0efeca237507f58db13835eb4bf75a"><td class="memItemLeft" align="right" valign="top">virtual tresult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a5c0efeca237507f58db13835eb4bf75a">setProgramName</a> (ProgramListID listId, int32 programIndex, const String128 name) override</td></tr>
-<tr class="memdesc:a5c0efeca237507f58db13835eb4bf75a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set preset name.  <a href="#a5c0efeca237507f58db13835eb4bf75a">More...</a><br /></td></tr>
-<tr class="separator:a5c0efeca237507f58db13835eb4bf75a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2deab827ed104eaae3098be4a4feff78"><td class="memItemLeft" align="right" valign="top">virtual void PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a2deab827ed104eaae3098be4a4feff78">update</a> (FUnknown *changedUnknown, int32 message) override</td></tr>
 <tr class="memdesc:a2deab827ed104eaae3098be4a4feff78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggle preset.  <a href="#a2deab827ed104eaae3098be4a4feff78">More...</a><br /></td></tr>
 <tr class="separator:a2deab827ed104eaae3098be4a4feff78"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -209,85 +188,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7fc93a7131edad44713ce769c1a86650"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9168a6417f34fccde889d90a81170890"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a9168a6417f34fccde889d90a81170890">updateHostInfo</a> (ProcessData &amp;data, <a class="el" href="struct_host_info.html">HostInfo</a> *hostInfo)</td></tr>
 <tr class="memdesc:a9168a6417f34fccde889d90a81170890"><td class="mdescLeft">&#160;</td><td class="mdescRight">update the incoming host data for the plugin core  <a href="#a9168a6417f34fccde889d90a81170890">More...</a><br /></td></tr>
-<tr class="separator:a9168a6417f34fccde889d90a81170890"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2221a6c87dbfb18cf504c7cf89179daa"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a2221a6c87dbfb18cf504c7cf89179daa">initialize</a> (FUnknown *context) override</td></tr>
-<tr class="separator:a2221a6c87dbfb18cf504c7cf89179daa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3ee25b04dee6f91b24e90fc6de0e92c"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#ab3ee25b04dee6f91b24e90fc6de0e92c">setBusArrangements</a> (SpeakerArrangement *inputs, int32 numIns, SpeakerArrangement *outputs, int32 numOuts) override</td></tr>
-<tr class="separator:ab3ee25b04dee6f91b24e90fc6de0e92c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2f8e1d0d43b52138d4dacab55fd710d"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#aa2f8e1d0d43b52138d4dacab55fd710d">canProcessSampleSize</a> (int32 symbolicSampleSize) override</td></tr>
-<tr class="separator:aa2f8e1d0d43b52138d4dacab55fd710d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0636c200d453e501988ae39b2870e972"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a0636c200d453e501988ae39b2870e972">setupProcessing</a> (ProcessSetup &amp;newSetup) override</td></tr>
-<tr class="separator:a0636c200d453e501988ae39b2870e972"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8370c86860e43de8b3df6f210b996040"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a8370c86860e43de8b3df6f210b996040">setActive</a> (TBool state) override</td></tr>
-<tr class="separator:a8370c86860e43de8b3df6f210b996040"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1da681ea80eb6b2455ff86c7fd799be4"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a1da681ea80eb6b2455ff86c7fd799be4">setState</a> (IBStream *fileStream) override</td></tr>
-<tr class="separator:a1da681ea80eb6b2455ff86c7fd799be4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8440cc7cad092381639a86aefb75e3cd"><td class="memItemLeft" align="right" valign="top"><a id="a8440cc7cad092381639a86aefb75e3cd"></a>
-tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><b>getState</b> (IBStream *fileStream) override</td></tr>
-<tr class="separator:a8440cc7cad092381639a86aefb75e3cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae310ff1e0f12c65e31053c71fe81e85b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#ae310ff1e0f12c65e31053c71fe81e85b">doControlUpdate</a> (ProcessData &amp;data)</td></tr>
-<tr class="separator:ae310ff1e0f12c65e31053c71fe81e85b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92837850fb7a75ff3b0eb3bf1a8f711e"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a92837850fb7a75ff3b0eb3bf1a8f711e">process</a> (ProcessData &amp;data) override</td></tr>
-<tr class="separator:a92837850fb7a75ff3b0eb3bf1a8f711e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7552daeb3291cdcd8f771677104fab03"><td class="memItemLeft" align="right" valign="top">virtual tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a7552daeb3291cdcd8f771677104fab03">getMidiControllerAssignment</a> (int32 busIndex, int16 channel, CtrlNumber midiControllerNumber, ParamID &amp;id) override</td></tr>
-<tr class="separator:a7552daeb3291cdcd8f771677104fab03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71180ef90972f7f0b273b0b75dd66949"><td class="memItemLeft" align="right" valign="top">IPlugView *PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a71180ef90972f7f0b273b0b75dd66949">createView</a> (const char *_name) override</td></tr>
-<tr class="separator:a71180ef90972f7f0b273b0b75dd66949"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abeebd32d7be80516734414c1291d0651"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#abeebd32d7be80516734414c1291d0651">terminate</a> () override</td></tr>
-<tr class="separator:abeebd32d7be80516734414c1291d0651"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20f2d0e33620d4c37afe09ce07c2abbc"><td class="memItemLeft" align="right" valign="top">virtual tresult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a20f2d0e33620d4c37afe09ce07c2abbc">receiveText</a> (const char8 *text) override</td></tr>
-<tr class="separator:a20f2d0e33620d4c37afe09ce07c2abbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24714418be17408c4230289b11d271b3"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a24714418be17408c4230289b11d271b3">setParamNormalizedFromFile</a> (ParamID tag, ParamValue value)</td></tr>
-<tr class="separator:a24714418be17408c4230289b11d271b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ff0b9d70e356531ef80bbf901801569"><td class="memItemLeft" align="right" valign="top"><a id="a3ff0b9d70e356531ef80bbf901801569"></a>
-tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><b>setParamNormalized</b> (ParamID tag, ParamValue value) override</td></tr>
-<tr class="separator:a3ff0b9d70e356531ef80bbf901801569"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cc99b66d67fcabe6e530ed1ee226aed"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a2cc99b66d67fcabe6e530ed1ee226aed">setComponentState</a> (IBStream *fileStream) override</td></tr>
-<tr class="separator:a2cc99b66d67fcabe6e530ed1ee226aed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeacf4ceee0f0190e6d6f27f6c0b7e190"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#aeacf4ceee0f0190e6d6f27f6c0b7e190">updateMeters</a> (ProcessData &amp;data, bool forceOff=false)</td></tr>
-<tr class="separator:aeacf4ceee0f0190e6d6f27f6c0b7e190"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9472b7ef0d574e7335a9c9916f8e5ca4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a9472b7ef0d574e7335a9c9916f8e5ca4">addUnit</a> (Unit *unit)</td></tr>
-<tr class="memdesc:a9472b7ef0d574e7335a9c9916f8e5ca4"><td class="mdescLeft">&#160;</td><td class="mdescRight">IUnitInfo handler.  <a href="#a9472b7ef0d574e7335a9c9916f8e5ca4">More...</a><br /></td></tr>
-<tr class="separator:a9472b7ef0d574e7335a9c9916f8e5ca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d905defa4374e5a7b5980379845e654"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a4d905defa4374e5a7b5980379845e654">getUnitInfo</a> (int32 unitIndex, UnitInfo &amp;info) override</td></tr>
-<tr class="memdesc:a4d905defa4374e5a7b5980379845e654"><td class="mdescLeft">&#160;</td><td class="mdescRight">IUnitInfo handler.  <a href="#a4d905defa4374e5a7b5980379845e654">More...</a><br /></td></tr>
-<tr class="separator:a4d905defa4374e5a7b5980379845e654"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87fe8dc22d8ea67c6335069e758775c2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a87fe8dc22d8ea67c6335069e758775c2">addProgramList</a> (ProgramList *list)</td></tr>
-<tr class="separator:a87fe8dc22d8ea67c6335069e758775c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d5b070a3f9ce486f8800245d851d4cf"><td class="memItemLeft" align="right" valign="top"><a id="a7d5b070a3f9ce486f8800245d851d4cf"></a>
-ProgramList *&#160;</td><td class="memItemRight" valign="bottom"><b>getProgramList</b> (ProgramListID listId) const</td></tr>
-<tr class="separator:a7d5b070a3f9ce486f8800245d851d4cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9c9f07ac7fda10b228c0a02047f7e1c"><td class="memItemLeft" align="right" valign="top"><a id="aa9c9f07ac7fda10b228c0a02047f7e1c"></a>
-tresult&#160;</td><td class="memItemRight" valign="bottom"><b>notifyPogramListChange</b> (ProgramListID listId, int32 programIndex=kAllProgramInvalid)</td></tr>
-<tr class="separator:aa9c9f07ac7fda10b228c0a02047f7e1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac279947a770a51c718b16000ccb4d420"><td class="memItemLeft" align="right" valign="top"><a id="ac279947a770a51c718b16000ccb4d420"></a>
-virtual int32 PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><b>getProgramListCount</b> () override</td></tr>
-<tr class="separator:ac279947a770a51c718b16000ccb4d420"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad871ce8c61ca66a83a7998dc1ed4031e"><td class="memItemLeft" align="right" valign="top"><a id="ad871ce8c61ca66a83a7998dc1ed4031e"></a>
-virtual tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><b>getProgramListInfo</b> (int32 listIndex, ProgramListInfo &amp;info) override</td></tr>
-<tr class="separator:ad871ce8c61ca66a83a7998dc1ed4031e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc5f62f24b5529a5740b8245b9a70e9d"><td class="memItemLeft" align="right" valign="top"><a id="adc5f62f24b5529a5740b8245b9a70e9d"></a>
-virtual tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><b>getProgramName</b> (ProgramListID listId, int32 programIndex, String128 name) override</td></tr>
-<tr class="separator:adc5f62f24b5529a5740b8245b9a70e9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcde75fe1730555e367e13181bc8eedf"><td class="memItemLeft" align="right" valign="top"><a id="abcde75fe1730555e367e13181bc8eedf"></a>
-virtual tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><b>getProgramInfo</b> (ProgramListID listId, int32 programIndex, CString attributeId, String128 <a class="el" href="unionattribute_value.html">attributeValue</a>) override</td></tr>
-<tr class="separator:abcde75fe1730555e367e13181bc8eedf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab171cc0b89d6b03fb82aa0676505faa4"><td class="memItemLeft" align="right" valign="top"><a id="ab171cc0b89d6b03fb82aa0676505faa4"></a>
-virtual tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><b>hasProgramPitchNames</b> (ProgramListID listId, int32 programIndex) override</td></tr>
-<tr class="separator:ab171cc0b89d6b03fb82aa0676505faa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85ab839acce17ee9737a7ab8bb114e12"><td class="memItemLeft" align="right" valign="top"><a id="a85ab839acce17ee9737a7ab8bb114e12"></a>
-virtual tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><b>getProgramPitchName</b> (ProgramListID listId, int32 programIndex, int16 midiPitch, String128 name) override</td></tr>
-<tr class="separator:a85ab839acce17ee9737a7ab8bb114e12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d172c18709547e483af36fd58490f37"><td class="memItemLeft" align="right" valign="top"><a id="a0d172c18709547e483af36fd58490f37"></a>
-virtual tresult&#160;</td><td class="memItemRight" valign="bottom"><b>setProgramName</b> (ProgramListID listId, int32 programIndex, const String128 name) override</td></tr>
-<tr class="separator:a0d172c18709547e483af36fd58490f37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a610819c99db1cc710c993be384cebd25"><td class="memItemLeft" align="right" valign="top">virtual void PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a610819c99db1cc710c993be384cebd25">update</a> (FUnknown *changedUnknown, int32 message) override</td></tr>
-<tr class="separator:a610819c99db1cc710c993be384cebd25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75d7ec90c09d4deccc3ac44e7cd4568c"><td class="memItemLeft" align="right" valign="top">virtual uint32 PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a75d7ec90c09d4deccc3ac44e7cd4568c">getLatencySamples</a> () override</td></tr>
-<tr class="separator:a75d7ec90c09d4deccc3ac44e7cd4568c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bd4ef69183c22ec59227734b622d921"><td class="memItemLeft" align="right" valign="top">virtual uint32 PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a9bd4ef69183c22ec59227734b622d921">getTailSamples</a> () override</td></tr>
-<tr class="separator:a9bd4ef69183c22ec59227734b622d921"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9168a6417f34fccde889d90a81170890"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a9168a6417f34fccde889d90a81170890">updateHostInfo</a> (ProcessData &amp;data, <a class="el" href="struct_host_info.html">HostInfo</a> *hostInfo)</td></tr>
 <tr class="separator:a9168a6417f34fccde889d90a81170890"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -312,32 +212,6 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a971543f5385026413468c85cd43845d2"><td class="memItemLeft" align="right" valign="top">static CString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a971543f5385026413468c85cd43845d2">getPluginType</a> ()</td></tr>
 <tr class="memdesc:a971543f5385026413468c85cd43845d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">static function for VST3 clsss factory  <a href="#a971543f5385026413468c85cd43845d2">More...</a><br /></td></tr>
 <tr class="separator:a971543f5385026413468c85cd43845d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab033c8bf14fc48ac066f09456891342a"><td class="memItemLeft" align="right" valign="top">static FUnknown *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#ab033c8bf14fc48ac066f09456891342a">createInstance</a> (void *context)</td></tr>
-<tr class="separator:ab033c8bf14fc48ac066f09456891342a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09f263cf47290244606266025e51346e"><td class="memItemLeft" align="right" valign="top"><a id="a09f263cf47290244606266025e51346e"></a>
-static FUID *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a09f263cf47290244606266025e51346e">getFUID</a> ()</td></tr>
-<tr class="memdesc:a09f263cf47290244606266025e51346e"><td class="mdescLeft">&#160;</td><td class="mdescRight">static function for VST3 clsss factory <br /></td></tr>
-<tr class="separator:a09f263cf47290244606266025e51346e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0c5be2e93b7684f1f27d64a0620eee5"><td class="memItemLeft" align="right" valign="top"><a id="aa0c5be2e93b7684f1f27d64a0620eee5"></a>
-static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#aa0c5be2e93b7684f1f27d64a0620eee5">getPluginName</a> ()</td></tr>
-<tr class="memdesc:aa0c5be2e93b7684f1f27d64a0620eee5"><td class="mdescLeft">&#160;</td><td class="mdescRight">static function for VST3 clsss factory <br /></td></tr>
-<tr class="separator:aa0c5be2e93b7684f1f27d64a0620eee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0931719bd20033aa2ac615139bf2fd99"><td class="memItemLeft" align="right" valign="top"><a id="a0931719bd20033aa2ac615139bf2fd99"></a>
-static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a0931719bd20033aa2ac615139bf2fd99">getVendorName</a> ()</td></tr>
-<tr class="memdesc:a0931719bd20033aa2ac615139bf2fd99"><td class="mdescLeft">&#160;</td><td class="mdescRight">static function for VST3 clsss factory <br /></td></tr>
-<tr class="separator:a0931719bd20033aa2ac615139bf2fd99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23133947596b2f09c4be68ffccab512f"><td class="memItemLeft" align="right" valign="top"><a id="a23133947596b2f09c4be68ffccab512f"></a>
-static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a23133947596b2f09c4be68ffccab512f">getVendorURL</a> ()</td></tr>
-<tr class="memdesc:a23133947596b2f09c4be68ffccab512f"><td class="mdescLeft">&#160;</td><td class="mdescRight">static function for VST3 clsss factory <br /></td></tr>
-<tr class="separator:a23133947596b2f09c4be68ffccab512f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa92a93db9ffed638392e81182ee1196b"><td class="memItemLeft" align="right" valign="top"><a id="aa92a93db9ffed638392e81182ee1196b"></a>
-static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#aa92a93db9ffed638392e81182ee1196b">getVendorEmail</a> ()</td></tr>
-<tr class="memdesc:aa92a93db9ffed638392e81182ee1196b"><td class="mdescLeft">&#160;</td><td class="mdescRight">static function for VST3 clsss factory <br /></td></tr>
-<tr class="separator:aa92a93db9ffed638392e81182ee1196b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01401b0a80cbf64b256f9d851cc16d64"><td class="memItemLeft" align="right" valign="top"><a id="a01401b0a80cbf64b256f9d851cc16d64"></a>
-static CString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a01401b0a80cbf64b256f9d851cc16d64">getPluginType</a> ()</td></tr>
-<tr class="memdesc:a01401b0a80cbf64b256f9d851cc16d64"><td class="mdescLeft">&#160;</td><td class="mdescRight">static function for VST3 clsss factory <br /></td></tr>
-<tr class="separator:a01401b0a80cbf64b256f9d851cc16d64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -357,22 +231,13 @@ typedef std::map&lt; ProgramListID, ProgramListVector::size_type &gt;&#160;</td>
 <tr class="memitem:a5bf290b75fc28d891c6bd23a686051dd"><td class="memItemLeft" align="right" valign="top"><a id="a5bf290b75fc28d891c6bd23a686051dd"></a>
 typedef std::vector&lt; IPtr&lt; Unit &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>UnitVector</b></td></tr>
 <tr class="separator:a5bf290b75fc28d891c6bd23a686051dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0b15c713e477c33d349164bfa834ed9"><td class="memItemLeft" align="right" valign="top"><a id="aa0b15c713e477c33d349164bfa834ed9"></a>
-typedef std::vector&lt; IPtr&lt; ProgramList &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ProgramListVector</b></td></tr>
-<tr class="separator:aa0b15c713e477c33d349164bfa834ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb3e267cd60561fa4b8f66a445e02639"><td class="memItemLeft" align="right" valign="top"><a id="acb3e267cd60561fa4b8f66a445e02639"></a>
-typedef std::map&lt; ProgramListID, ProgramListVector::size_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ProgramIndexMap</b></td></tr>
-<tr class="separator:acb3e267cd60561fa4b8f66a445e02639"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bf290b75fc28d891c6bd23a686051dd"><td class="memItemLeft" align="right" valign="top"><a id="a5bf290b75fc28d891c6bd23a686051dd"></a>
-typedef std::vector&lt; IPtr&lt; Unit &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>UnitVector</b></td></tr>
-<tr class="separator:a5bf290b75fc28d891c6bd23a686051dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a1c5be67f920af46fd8415efa646b98cd"><td class="memItemLeft" align="right" valign="top"><a id="a1c5be67f920af46fd8415efa646b98cd"></a>
-<a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html">VSTParamUpdateQueue</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a1c5be67f920af46fd8415efa646b98cd">m_pParamUpdateQueueArray</a> = nullptr</td></tr>
-<tr class="memdesc:a1c5be67f920af46fd8415efa646b98cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample accurate parameter automation <br /></td></tr>
-<tr class="separator:a1c5be67f920af46fd8415efa646b98cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a672b31e3616e3888c337b403617e0520"><td class="memItemLeft" align="right" valign="top"><a id="a672b31e3616e3888c337b403617e0520"></a>
+<a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html">VSTParamUpdateQueue</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a672b31e3616e3888c337b403617e0520">m_pParamUpdateQueueArray</a> = nullptr</td></tr>
+<tr class="memdesc:a672b31e3616e3888c337b403617e0520"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample accurate parameter automation <br /></td></tr>
+<tr class="separator:a672b31e3616e3888c337b403617e0520"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9678c7f781ba716688242653d4875b2"><td class="memItemLeft" align="right" valign="top"><a id="ae9678c7f781ba716688242653d4875b2"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#ae9678c7f781ba716688242653d4875b2">sampleAccuracy</a> = 1</td></tr>
 <tr class="memdesc:ae9678c7f781ba716688242653d4875b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample accurate parameter automation <br /></td></tr>
@@ -448,104 +313,8 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a87fe8dc22d8ea67c6335069e758775c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87fe8dc22d8ea67c6335069e758775c2">&#9670;&nbsp;</a></span>addProgramList() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Steinberg::Vst::ASPiK::VST3Plugin::addProgramList </td>
-          <td>(</td>
-          <td class="paramtype">ProgramList *&#160;</td>
-          <td class="paramname"><em>list</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>for future compat for added programs, etc... </p>
-
-</div>
-</div>
-<a id="a87fe8dc22d8ea67c6335069e758775c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87fe8dc22d8ea67c6335069e758775c2">&#9670;&nbsp;</a></span>addProgramList() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Steinberg::Vst::ASPiK::VST3Plugin::addProgramList </td>
-          <td>(</td>
-          <td class="paramtype">ProgramList *&#160;</td>
-          <td class="paramname"><em>list</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>part of the IUnitInfo support for presets; generally no user editable code here. </p>
-<p>IUnitInfo for future compat; not curently supporting program lists; only have/need Factory Presets!</p>
-<p>NOTES:</p><ul>
-<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
-<li>see VST3 SDK Documentation for more information on this function and its parameters </li>
-</ul>
-
-</div>
-</div>
-<a id="a9472b7ef0d574e7335a9c9916f8e5ca4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9472b7ef0d574e7335a9c9916f8e5ca4">&#9670;&nbsp;</a></span>addUnit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Steinberg::Vst::ASPiK::VST3Plugin::addUnit </td>
-          <td>(</td>
-          <td class="paramtype">Unit *&#160;</td>
-          <td class="paramname"><em>unit</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>IUnitInfo handler. </p>
-<p>IUnitInfo</p>
-<p>NOTES:</p><ul>
-<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
-<li>see VST3 SDK Documentation for more information on this function and its parameters </li>
-</ul>
-
-</div>
-</div>
 <a id="aa2f8e1d0d43b52138d4dacab55fd710d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2f8e1d0d43b52138d4dacab55fd710d">&#9670;&nbsp;</a></span>canProcessSampleSize() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::canProcessSampleSize </td>
-          <td>(</td>
-          <td class="paramtype">int32&#160;</td>
-          <td class="paramname"><em>symbolicSampleSize</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Define our word-length capabilities (currently 32 bit only) </p>
-
-</div>
-</div>
-<a id="aa2f8e1d0d43b52138d4dacab55fd710d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2f8e1d0d43b52138d4dacab55fd710d">&#9670;&nbsp;</a></span>canProcessSampleSize() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2f8e1d0d43b52138d4dacab55fd710d">&#9670;&nbsp;</a></span>canProcessSampleSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -578,7 +347,7 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 </div>
 </div>
 <a id="ab033c8bf14fc48ac066f09456891342a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab033c8bf14fc48ac066f09456891342a">&#9670;&nbsp;</a></span>createInstance() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab033c8bf14fc48ac066f09456891342a">&#9670;&nbsp;</a></span>createInstance()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -601,65 +370,11 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 </table>
 </div><div class="memdoc">
 <p>our COM creation method </p>
-
-</div>
-</div>
-<a id="ab033c8bf14fc48ac066f09456891342a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab033c8bf14fc48ac066f09456891342a">&#9670;&nbsp;</a></span>createInstance() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static FUnknown* Steinberg::Vst::ASPiK::VST3Plugin::createInstance </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>context</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>our COM creation method </p>
-
-</div>
-</div>
-<a id="a71180ef90972f7f0b273b0b75dd66949"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71180ef90972f7f0b273b0b75dd66949">&#9670;&nbsp;</a></span>createView() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">IPlugView* PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::createView </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>_name</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>IPlugView: create our custom GUI </p>
 
 </div>
 </div>
 <a id="a6fae420876c4e4795f6f8012b994359b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6fae420876c4e4795f6f8012b994359b">&#9670;&nbsp;</a></span>createView() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fae420876c4e4795f6f8012b994359b">&#9670;&nbsp;</a></span>createView()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -692,26 +407,7 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 </div>
 </div>
 <a id="ae310ff1e0f12c65e31053c71fe81e85b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae310ff1e0f12c65e31053c71fe81e85b">&#9670;&nbsp;</a></span>doControlUpdate() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Steinberg::Vst::ASPiK::VST3Plugin::doControlUpdate </td>
-          <td>(</td>
-          <td class="paramtype">ProcessData &amp;&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>functions to reduce size of <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a92837850fb7a75ff3b0eb3bf1a8f711e" title="the VST3 audio processing function ">process()</a> </p>
-
-</div>
-</div>
-<a id="ae310ff1e0f12c65e31053c71fe81e85b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae310ff1e0f12c65e31053c71fe81e85b">&#9670;&nbsp;</a></span>doControlUpdate() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae310ff1e0f12c65e31053c71fe81e85b">&#9670;&nbsp;</a></span>doControlUpdate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -760,16 +456,11 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 </div><div class="memdoc">
 
 <p>static function for VST3 clsss factory </p>
-<p>static function for class facgtory access to plugin core's corresponding static function</p>
 <p>IUnitInfo handler.</p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters <br />
 static function for class facgtory access to plugin core's corresponding static function</li>
-</ul>
-<p>NOTES:</p><ul>
-<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
-<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
 </ul>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
@@ -779,7 +470,7 @@ static function for class facgtory access to plugin core's corresponding static 
 </div>
 </div>
 <a id="a75d7ec90c09d4deccc3ac44e7cd4568c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75d7ec90c09d4deccc3ac44e7cd4568c">&#9670;&nbsp;</a></span>getLatencySamples() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a75d7ec90c09d4deccc3ac44e7cd4568c">&#9670;&nbsp;</a></span>getLatencySamples()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -801,86 +492,11 @@ static function for class facgtory access to plugin core's corresponding static 
 </table>
 </div><div class="memdoc">
 <p>base class override </p>
-
-</div>
-</div>
-<a id="a75d7ec90c09d4deccc3ac44e7cd4568c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75d7ec90c09d4deccc3ac44e7cd4568c">&#9670;&nbsp;</a></span>getLatencySamples() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual uint32 PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::getLatencySamples </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>base class override </p>
-
-</div>
-</div>
-<a id="a7552daeb3291cdcd8f771677104fab03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7552daeb3291cdcd8f771677104fab03">&#9670;&nbsp;</a></span>getMidiControllerAssignment() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::getMidiControllerAssignment </td>
-          <td>(</td>
-          <td class="paramtype">int32&#160;</td>
-          <td class="paramname"><em>busIndex</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16&#160;</td>
-          <td class="paramname"><em>channel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CtrlNumber&#160;</td>
-          <td class="paramname"><em>midiControllerNumber</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">ParamID &amp;&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>IMidiMapping </p>
 
 </div>
 </div>
 <a id="a9ebddcfe240956d127cd5904ef617509"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ebddcfe240956d127cd5904ef617509">&#9670;&nbsp;</a></span>getMidiControllerAssignment() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ebddcfe240956d127cd5904ef617509">&#9670;&nbsp;</a></span>getMidiControllerAssignment()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -998,158 +614,6 @@ static function for class facgtory access to plugin core's corresponding static 
 
 </div>
 </div>
-<a id="af14e595eb99c037f34d4f03485ed958a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af14e595eb99c037f34d4f03485ed958a">&#9670;&nbsp;</a></span>getProgramInfo()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::getProgramInfo </td>
-          <td>(</td>
-          <td class="paramtype">ProgramListID&#160;</td>
-          <td class="paramname"><em>listId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32&#160;</td>
-          <td class="paramname"><em>programIndex</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CString&#160;</td>
-          <td class="paramname"><em>attributeId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">String128&#160;</td>
-          <td class="paramname"><em>attributeValue</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Only used for presets. </p>
-<p>NOTES:</p><ul>
-<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
-<li>see VST3 SDK Documentation for more information on this function and its parameters </li>
-</ul>
-
-</div>
-</div>
-<a id="a70a1c904dc87bc1a0fe42d0592b62634"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70a1c904dc87bc1a0fe42d0592b62634">&#9670;&nbsp;</a></span>getProgramList()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">ProgramList * Steinberg::Vst::ASPiK::VST3Plugin::getProgramList </td>
-          <td>(</td>
-          <td class="paramtype">ProgramListID&#160;</td>
-          <td class="paramname"><em>listId</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>part of the IUnitInfo support for presets; generally no user editable code here. </p>
-<p>NOTES:</p><ul>
-<li>selects a program list (aka preset list)</li>
-<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
-<li>see VST3 SDK Documentation for more information on this function and its parameters </li>
-</ul>
-
-</div>
-</div>
-<a id="a06a43c681a26123827371471bcac69ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06a43c681a26123827371471bcac69ee">&#9670;&nbsp;</a></span>getProgramListCount()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int32 PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::getProgramListCount </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>We have one list for our one set of presets. </p>
-<p>NOTES:</p><ul>
-<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
-<li>see VST3 SDK Documentation for more information on this function and its parameters </li>
-</ul>
-
-</div>
-</div>
-<a id="a4a543530bdb04ef1355b388cf891e1e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a543530bdb04ef1355b388cf891e1e9">&#9670;&nbsp;</a></span>getProgramListInfo()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::getProgramListInfo </td>
-          <td>(</td>
-          <td class="paramtype">int32&#160;</td>
-          <td class="paramname"><em>listIndex</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">ProgramListInfo &amp;&#160;</td>
-          <td class="paramname"><em>info</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get information about our preset list. </p>
-<p>NOTES:</p><ul>
-<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
-<li>see VST3 SDK Documentation for more information on this function and its parameters </li>
-</ul>
-
-</div>
-</div>
 <a id="a375ac180973f51cf42fe9841c82b7c87"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a375ac180973f51cf42fe9841c82b7c87">&#9670;&nbsp;</a></span>getProgramName()</h2>
 
@@ -1191,60 +655,7 @@ static function for class facgtory access to plugin core's corresponding static 
 </div><div class="memdoc">
 
 <p>Get preset name. </p>
-<p>NOTES:</p><ul>
-<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
-<li>see VST3 SDK Documentation for more information on this function and its parameters </li>
-</ul>
-
-</div>
-</div>
-<a id="a7ac18ae43b59efa21a8b1989f763b4ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ac18ae43b59efa21a8b1989f763b4ea">&#9670;&nbsp;</a></span>getProgramPitchName()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::getProgramPitchName </td>
-          <td>(</td>
-          <td class="paramtype">ProgramListID&#160;</td>
-          <td class="paramname"><em>listId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32&#160;</td>
-          <td class="paramname"><em>programIndex</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16&#160;</td>
-          <td class="paramname"><em>midiPitch</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">String128&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Not Used. </p>
+<p>IUnitInfo</p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
@@ -1285,34 +696,8 @@ static function for class facgtory access to plugin core's corresponding static 
 
 </div>
 </div>
-<a id="a9bd4ef69183c22ec59227734b622d921"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bd4ef69183c22ec59227734b622d921">&#9670;&nbsp;</a></span>getTailSamples() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual uint32 PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::getTailSamples </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>base class override for tailtime </p>
-
-</div>
-</div>
 <a id="a7fc93a7131edad44713ce769c1a86650"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fc93a7131edad44713ce769c1a86650">&#9670;&nbsp;</a></span>getTailSamples() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fc93a7131edad44713ce769c1a86650">&#9670;&nbsp;</a></span>getTailSamples()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1336,48 +721,6 @@ static function for class facgtory access to plugin core's corresponding static 
 
 <p>Returns the tail-time in samples. </p>
 <p>base class override for tailtime</p>
-<p>NOTES:</p><ul>
-<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
-<li>see VST3 SDK Documentation for more information on this function and its parameters </li>
-</ul>
-
-</div>
-</div>
-<a id="a4d905defa4374e5a7b5980379845e654"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d905defa4374e5a7b5980379845e654">&#9670;&nbsp;</a></span>getUnitInfo()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::getUnitInfo </td>
-          <td>(</td>
-          <td class="paramtype">int32&#160;</td>
-          <td class="paramname"><em>unitIndex</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">UnitInfo &amp;&#160;</td>
-          <td class="paramname"><em>info</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>IUnitInfo handler. </p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
@@ -1481,77 +824,8 @@ static function for class facgtory access to plugin core's corresponding static 
 
 </div>
 </div>
-<a id="ab66f60aca98919941a3f71693f647f36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab66f60aca98919941a3f71693f647f36">&#9670;&nbsp;</a></span>hasProgramPitchNames()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::hasProgramPitchNames </td>
-          <td>(</td>
-          <td class="paramtype">ProgramListID&#160;</td>
-          <td class="paramname"><em>listId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32&#160;</td>
-          <td class="paramname"><em>programIndex</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Not Used. </p>
-<p>NOTES:</p><ul>
-<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
-<li>see VST3 SDK Documentation for more information on this function and its parameters </li>
-</ul>
-
-</div>
-</div>
 <a id="a2221a6c87dbfb18cf504c7cf89179daa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2221a6c87dbfb18cf504c7cf89179daa">&#9670;&nbsp;</a></span>initialize() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::initialize </td>
-          <td>(</td>
-          <td class="paramtype">FUnknown *&#160;</td>
-          <td class="paramname"><em>context</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>One time init to define our I/O and vsteditcontroller parameters </p>
-
-</div>
-</div>
-<a id="a2221a6c87dbfb18cf504c7cf89179daa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2221a6c87dbfb18cf504c7cf89179daa">&#9670;&nbsp;</a></span>initialize() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2221a6c87dbfb18cf504c7cf89179daa">&#9670;&nbsp;</a></span>initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1587,23 +861,23 @@ static function for class facgtory access to plugin core's corresponding static 
 
 </div>
 </div>
-<a id="aa9c9f07ac7fda10b228c0a02047f7e1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9c9f07ac7fda10b228c0a02047f7e1c">&#9670;&nbsp;</a></span>notifyPogramListChange()</h2>
+<a id="ad25945d1686e3d268bf4d1863fd8c3d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad25945d1686e3d268bf4d1863fd8c3d8">&#9670;&nbsp;</a></span>issueMIDICCProxyMessage()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">tresult Steinberg::Vst::ASPiK::VST3Plugin::notifyPogramListChange </td>
+          <td class="memname">bool Steinberg::Vst::ASPiK::VST3Plugin::issueMIDICCProxyMessage </td>
           <td>(</td>
-          <td class="paramtype">ProgramListID&#160;</td>
-          <td class="paramname"><em>listId</em>, </td>
+          <td class="paramtype">ParamID&#160;</td>
+          <td class="paramname"><em>proxyParamID</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32&#160;</td>
-          <td class="paramname"><em>programIndex</em> = <code>kAllProgramInvalid</code>&#160;</td>
+          <td class="paramtype">ParamValue&#160;</td>
+          <td class="paramname"><em>proxyParamValue</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1613,7 +887,8 @@ static function for class facgtory access to plugin core's corresponding static 
       </table>
 </div><div class="memdoc">
 
-<p>If list changes; should not be called as we only have one program list. </p>
+<p>Find and issue Control Changes. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if a control was changed</dd></dl>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
@@ -1622,34 +897,7 @@ static function for class facgtory access to plugin core's corresponding static 
 </div>
 </div>
 <a id="a92837850fb7a75ff3b0eb3bf1a8f711e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92837850fb7a75ff3b0eb3bf1a8f711e">&#9670;&nbsp;</a></span>process() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::process </td>
-          <td>(</td>
-          <td class="paramtype">ProcessData &amp;&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>The all important process method where the audio is rendered/effected </p>
-
-</div>
-</div>
-<a id="a92837850fb7a75ff3b0eb3bf1a8f711e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92837850fb7a75ff3b0eb3bf1a8f711e">&#9670;&nbsp;</a></span>process() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a92837850fb7a75ff3b0eb3bf1a8f711e">&#9670;&nbsp;</a></span>process()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1687,35 +935,8 @@ static function for class facgtory access to plugin core's corresponding static 
 
 </div>
 </div>
-<a id="a20f2d0e33620d4c37afe09ce07c2abbc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20f2d0e33620d4c37afe09ce07c2abbc">&#9670;&nbsp;</a></span>receiveText() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual tresult Steinberg::Vst::ASPiK::VST3Plugin::receiveText </td>
-          <td>(</td>
-          <td class="paramtype">const char8 *&#160;</td>
-          <td class="paramname"><em>text</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>for GUI_TIMER_PING and recreate view operations </p>
-
-</div>
-</div>
 <a id="af4900dbc47d93d3b815a648590ae9efc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4900dbc47d93d3b815a648590ae9efc">&#9670;&nbsp;</a></span>receiveText() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af4900dbc47d93d3b815a648590ae9efc">&#9670;&nbsp;</a></span>receiveText()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1748,34 +969,7 @@ static function for class facgtory access to plugin core's corresponding static 
 </div>
 </div>
 <a id="a8370c86860e43de8b3df6f210b996040"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8370c86860e43de8b3df6f210b996040">&#9670;&nbsp;</a></span>setActive() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::setActive </td>
-          <td>(</td>
-          <td class="paramtype">TBool&#160;</td>
-          <td class="paramname"><em>state</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Turn on/off </p>
-
-</div>
-</div>
-<a id="a8370c86860e43de8b3df6f210b996040"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8370c86860e43de8b3df6f210b996040">&#9670;&nbsp;</a></span>setActive() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8370c86860e43de8b3df6f210b996040">&#9670;&nbsp;</a></span>setActive()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1808,56 +1002,7 @@ static function for class facgtory access to plugin core's corresponding static 
 </div>
 </div>
 <a id="ab3ee25b04dee6f91b24e90fc6de0e92c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3ee25b04dee6f91b24e90fc6de0e92c">&#9670;&nbsp;</a></span>setBusArrangements() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::setBusArrangements </td>
-          <td>(</td>
-          <td class="paramtype">SpeakerArrangement *&#160;</td>
-          <td class="paramname"><em>inputs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32&#160;</td>
-          <td class="paramname"><em>numIns</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SpeakerArrangement *&#160;</td>
-          <td class="paramname"><em>outputs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32&#160;</td>
-          <td class="paramname"><em>numOuts</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Define the audio I/O we support </p>
-
-</div>
-</div>
-<a id="ab3ee25b04dee6f91b24e90fc6de0e92c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3ee25b04dee6f91b24e90fc6de0e92c">&#9670;&nbsp;</a></span>setBusArrangements() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3ee25b04dee6f91b24e90fc6de0e92c">&#9670;&nbsp;</a></span>setBusArrangements()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1922,34 +1067,7 @@ static function for class facgtory access to plugin core's corresponding static 
 </div>
 </div>
 <a id="a2cc99b66d67fcabe6e530ed1ee226aed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2cc99b66d67fcabe6e530ed1ee226aed">&#9670;&nbsp;</a></span>setComponentState() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::setComponentState </td>
-          <td>(</td>
-          <td class="paramtype">IBStream *&#160;</td>
-          <td class="paramname"><em>fileStream</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>serialize-read from file to setup the GUI parameters </p>
-
-</div>
-</div>
-<a id="a2cc99b66d67fcabe6e530ed1ee226aed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2cc99b66d67fcabe6e530ed1ee226aed">&#9670;&nbsp;</a></span>setComponentState() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cc99b66d67fcabe6e530ed1ee226aed">&#9670;&nbsp;</a></span>setComponentState()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2024,36 +1142,7 @@ static function for class facgtory access to plugin core's corresponding static 
 </div>
 </div>
 <a id="a24714418be17408c4230289b11d271b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24714418be17408c4230289b11d271b3">&#9670;&nbsp;</a></span>setParamNormalizedFromFile() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::setParamNormalizedFromFile </td>
-          <td>(</td>
-          <td class="paramtype">ParamID&#160;</td>
-          <td class="paramname"><em>tag</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">ParamValue&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>helper function for serialization </p>
-
-</div>
-</div>
-<a id="a24714418be17408c4230289b11d271b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24714418be17408c4230289b11d271b3">&#9670;&nbsp;</a></span>setParamNormalizedFromFile() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a24714418be17408c4230289b11d271b3">&#9670;&nbsp;</a></span>setParamNormalizedFromFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2087,83 +1176,8 @@ static function for class facgtory access to plugin core's corresponding static 
 
 </div>
 </div>
-<a id="a5c0efeca237507f58db13835eb4bf75a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c0efeca237507f58db13835eb4bf75a">&#9670;&nbsp;</a></span>setProgramName()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">tresult Steinberg::Vst::ASPiK::VST3Plugin::setProgramName </td>
-          <td>(</td>
-          <td class="paramtype">ProgramListID&#160;</td>
-          <td class="paramname"><em>listId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32&#160;</td>
-          <td class="paramname"><em>programIndex</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const String128&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set preset name. </p>
-<p>NOTES:</p><ul>
-<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
-<li>see VST3 SDK Documentation for more information on this function and its parameters </li>
-</ul>
-
-</div>
-</div>
 <a id="a1da681ea80eb6b2455ff86c7fd799be4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1da681ea80eb6b2455ff86c7fd799be4">&#9670;&nbsp;</a></span>setState() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::setState </td>
-          <td>(</td>
-          <td class="paramtype">IBStream *&#160;</td>
-          <td class="paramname"><em>fileStream</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Serialization: Save and load presets from a file stream </p>
-
-</div>
-</div>
-<a id="a1da681ea80eb6b2455ff86c7fd799be4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1da681ea80eb6b2455ff86c7fd799be4">&#9670;&nbsp;</a></span>setState() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1da681ea80eb6b2455ff86c7fd799be4">&#9670;&nbsp;</a></span>setState()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2197,34 +1211,7 @@ static function for class facgtory access to plugin core's corresponding static 
 </div>
 </div>
 <a id="a0636c200d453e501988ae39b2870e972"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0636c200d453e501988ae39b2870e972">&#9670;&nbsp;</a></span>setupProcessing() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::setupProcessing </td>
-          <td>(</td>
-          <td class="paramtype">ProcessSetup &amp;&#160;</td>
-          <td class="paramname"><em>newSetup</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>you can access info about the processing via ProcessSetup; see ivstaudioprocessor.h </p>
-
-</div>
-</div>
-<a id="a0636c200d453e501988ae39b2870e972"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0636c200d453e501988ae39b2870e972">&#9670;&nbsp;</a></span>setupProcessing() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0636c200d453e501988ae39b2870e972">&#9670;&nbsp;</a></span>setupProcessing()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2257,33 +1244,7 @@ static function for class facgtory access to plugin core's corresponding static 
 </div>
 </div>
 <a id="abeebd32d7be80516734414c1291d0651"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abeebd32d7be80516734414c1291d0651">&#9670;&nbsp;</a></span>terminate() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::terminate </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>the end. this destroys the core </p>
-
-</div>
-</div>
-<a id="abeebd32d7be80516734414c1291d0651"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abeebd32d7be80516734414c1291d0651">&#9670;&nbsp;</a></span>terminate() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abeebd32d7be80516734414c1291d0651">&#9670;&nbsp;</a></span>terminate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2314,45 +1275,8 @@ static function for class facgtory access to plugin core's corresponding static 
 
 </div>
 </div>
-<a id="a610819c99db1cc710c993be384cebd25"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a610819c99db1cc710c993be384cebd25">&#9670;&nbsp;</a></span>update() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::update </td>
-          <td>(</td>
-          <td class="paramtype">FUnknown *&#160;</td>
-          <td class="paramname"><em>changedUnknown</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32&#160;</td>
-          <td class="paramname"><em>message</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>from IDependent---------------&mdash; </p>
-
-</div>
-</div>
 <a id="a2deab827ed104eaae3098be4a4feff78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2deab827ed104eaae3098be4a4feff78">&#9670;&nbsp;</a></span>update() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2deab827ed104eaae3098be4a4feff78">&#9670;&nbsp;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2395,36 +1319,7 @@ static function for class facgtory access to plugin core's corresponding static 
 </div>
 </div>
 <a id="a9168a6417f34fccde889d90a81170890"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9168a6417f34fccde889d90a81170890">&#9670;&nbsp;</a></span>updateHostInfo() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Steinberg::Vst::ASPiK::VST3Plugin::updateHostInfo </td>
-          <td>(</td>
-          <td class="paramtype">ProcessData &amp;&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="struct_host_info.html">HostInfo</a> *&#160;</td>
-          <td class="paramname"><em>hostInfo</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>update host info for this process loop </p>
-
-</div>
-</div>
-<a id="a9168a6417f34fccde889d90a81170890"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9168a6417f34fccde889d90a81170890">&#9670;&nbsp;</a></span>updateHostInfo() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9168a6417f34fccde889d90a81170890">&#9670;&nbsp;</a></span>updateHostInfo()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2465,36 +1360,7 @@ static function for class facgtory access to plugin core's corresponding static 
 </div>
 </div>
 <a id="aeacf4ceee0f0190e6d6f27f6c0b7e190"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeacf4ceee0f0190e6d6f27f6c0b7e190">&#9670;&nbsp;</a></span>updateMeters() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Steinberg::Vst::ASPiK::VST3Plugin::updateMeters </td>
-          <td>(</td>
-          <td class="paramtype">ProcessData &amp;&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>forceOff</em> = <code>false</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>for meters </p>
-
-</div>
-</div>
-<a id="aeacf4ceee0f0190e6d6f27f6c0b7e190"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeacf4ceee0f0190e6d6f27f6c0b7e190">&#9670;&nbsp;</a></span>updateMeters() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aeacf4ceee0f0190e6d6f27f6c0b7e190">&#9670;&nbsp;</a></span>updateMeters()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2535,8 +1401,8 @@ static function for class facgtory access to plugin core's corresponding static 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/vst_source/<a class="el" href="project__source_2source_2vst__source_2vst3plugin_8h_source.html">vst3plugin.h</a></li>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/vst_source/vst3plugin.cpp</li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/vst_source/<a class="el" href="vst3plugin_8h_source.html">vst3plugin.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/vst_source/vst3plugin.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

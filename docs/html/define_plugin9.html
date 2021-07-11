@@ -97,49 +97,14 @@ $(document).ready(function(){initNavTree('define_plugin9.html','');});
  <br />
  The <em>processAudioFrame</em> function is already set up to decode these three I/O configurations as well. Adding more configurations is very easy and you can also add your own configuration definitions.<br />
  <br />
- AU, AAX and VST all support different types of multi-channel operation that is beyond simple stereo. However, there are variations within each API, and there are some formats that are not supported in every API. So, if you decide you want to write a plugin for a multi-channel Ambisonics format you will likely not be able to write it for all APIs. For example, AU does not support channel I/O greater than 10 inputs and 10 outputs. On the other hand, VST3 supports up to 22.1 channel plugins, including variations for both Sony and DTS surround sound, while AAX supports Sony, DTS and most of the obscure Ambisonics formats. The first thing you need to decide is how many formats to support. Then, you need to describe each supported combination. If you support a side-chain input, you will need to describe the channel combinations your plugin will support (though there are some limitations on side-chains that are API-specific). This is best explained with the sample code, so go back to the <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a> constructor. There are two base class functions that will make setting up your supported channels a simple operation. You just call the functions to add your supported combinations. The functions are:<br />
- <br />
- <b>addSupportedIOCombination( )</b><br />
- <b>addSupportedAuxIOCombination( )</b><br />
- <br />
- The channel configurations consist of a simple array that stores an input and output channel configuration pair. Enumerations for each type of channel configuration are found in the pluginstructures.h file.<br />
- <br />
- <b>enum channelFormat</b><br />
- {<br />
- &emsp;<b>kCFNone,</b><br />
- &emsp;<b>kCFMono,</b><br />
- &emsp;<b>kCFStereo,</b><br />
- &emsp;<b>kCFLCR,</b><br />
- &emsp;<b>kCFLCRS,</b><br />
- &emsp;<b>kCFQuad,</b><br />
- &emsp;<b>kCF5p0,</b><br />
- &emsp;<b>kCF5p1</b><br />
- &emsp;etc…<br />
- <br />
- You define a channel I/O configuration as an array pair using the enumerations above, and past this value to the helper functions. For ASPiK projects, this is pre-coded for you as: <br />
- <br />
- // &mdash; for FX plugins<br />
- <b>if(getPluginType() == kFXPlugin)</b><br />
- {<br />
- &emsp;<b>addSupportedIOCombination({kCFMono, kCFMono});</b><br />
- &emsp;<b>addSupportedIOCombination({kCFMono, kCFStereo});</b><br />
- &emsp;<b>addSupportedIOCombination({kCFStereo, kCFStereo});</b><br />
- }<br />
- <br />
- Besides mono and stereo, the most popular multi-channel format might be 5.1, which is encoded as <em>kCF5p1</em> above. To add support for 5.1 plugins, you would add the following to the above if() statement:<br />
- <b>addSupportedIOCombination({kCF5p1, kCF5p1});</b><br />
- <br />
- For a 5.1-to-stereo fold-down plugin, you would write:<br />
- <b>addSupportedIOCombination({kCF5p1, kCFStereo});</b><br />
- <br />
- You can also see that there are both Sony and DTS versions of higher channel-count formats. After describing your plugin’s normal input/output channel configurations, you do the same for the side-chain using the aux IO variables. If you enable the side chain during the ASPiK CMake setup, then this code is written for you.<br />
- <br />
- // &mdash; for sidechaining, we support mono and stereo inputs; <br />
- <b>addSupportedAuxIOCombination({kCFMono, kCFNone});</b><br />
- <b>addSupportedAuxIOCombination({kCFStereo, kCFNone});</b><br />
- <br />
- </p>
-</div></div><!-- contents -->
+ AU, AAX and VST all support different types of multi-channel operation that is beyond simple stereo. However, there are variations within each API, and there are some formats that are not supported in every API. So, if you decide you want to write a plugin for a multi-channel Ambisonics format you will likely not be able to write it for all APIs. For example, AU does not support channel I/O greater than 10 inputs and 10 outputs. On the other hand, VST3 supports up to 22.1 channel plugins, including variations for both Sony and DTS surround sound, while AAX supports Sony, DTS and most of the obscure Ambisonics formats. The first thing you need to decide is how many formats to support. Then, you need to describe each supported combination. If you support a side-chain input, you will need to describe the channel combinations your plugin will support (though there are some limitations on side-chains that are API-specific). This is best explained with the sample code, so go back to the <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a> constructor. There are two base class functions that will make setting up your supported channels a simple operation. You just call the functions to add your supported combinations. The functions are:</p>
+<div class="fragment"><div class="line">addSupportedIOCombination( )</div><div class="line">addSupportedAuxIOCombination( )</div></div><!-- fragment --><p>The channel configurations consist of a simple array that stores an input and output channel configuration pair. Enumerations for each type of channel configuration are found in the <a class="el" href="pluginstructures_8h.html" title="globally utilized structures and enumerations ">pluginstructures.h</a> file.</p>
+<div class="fragment"><div class="line"><span class="comment">//</span></div><div class="line">&lt;strong&gt;<span class="keyword">enum</span> <a class="code" href="group___constants-_enums.html#ga52e348ed94297a3d3eb40fef52ad5729">channelFormat</a>&lt;/strong&gt;&lt;br&gt;</div><div class="line">{</div><div class="line">   kCFNone,</div><div class="line">   kCFMono,</div><div class="line">   kCFStereo,</div><div class="line">   kCFLCR,</div><div class="line">   kCFLCRS,</div><div class="line">   kCFQuad,</div><div class="line">   kCF5p0,</div><div class="line">   kCF5p1</div><div class="line">   etc . . .</div><div class="line">}</div></div><!-- fragment --><p>You define a channel I/O configuration as an array pair using the enumerations above, and past this value to the helper functions. For ASPiK projects, this is pre-coded for you as:</p>
+<div class="fragment"><div class="line"><span class="comment">// --- for FX plugins</span></div><div class="line"><span class="keywordflow">if</span>(getPluginType() == kFXPlugin)</div><div class="line">{</div><div class="line">   addSupportedIOCombination({kCFMono, kCFMono});</div><div class="line">   addSupportedIOCombination({kCFMono, kCFStereo});</div><div class="line">a   ddSupportedIOCombination({kCFStereo, kCFStereo});</div><div class="line">}</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>Besides mono and stereo, the most popular multi-channel format might be 5.1, which is encoded as <em>kCF5p1</em> above. To add support for 5.1 plugins, you would add the following to the above if() statement:</p>
+<div class="fragment"><div class="line"><span class="comment">//</span></div><div class="line">addSupportedIOCombination({kCF5p1, kCF5p1});</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>For a 5.1-to-stereo fold-down plugin, you would write:</p>
+<div class="fragment"><div class="line"><span class="comment">//</span></div><div class="line">addSupportedIOCombination({kCF5p1, kCFStereo});</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p><br />
+ You can also see that there are both Sony and DTS versions of higher channel-count formats. After describing your plugin's normal input/output channel configurations, you do the same for the side-chain using the aux IO variables. If you enable the side chain during the ASPiK CMake setup, then this code is written for you.</p>
+<div class="fragment"><div class="line"><span class="comment">// --- for sidechaining, we support mono and stereo inputs; &lt;br&gt;</span></div><div class="line">addSupportedAuxIOCombination({kCFMono, kCFNone});</div><div class="line">addSupportedAuxIOCombination({kCFStereo, kCFNone});</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

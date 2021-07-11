@@ -100,87 +100,9 @@ $(document).ready(function(){initNavTree('audio_proc3.html','');});
 </div>
 <p> <br />
  <br />
- This introduces an important concept: the GUI control delivered a value that we could not immediately use. We needed to manipulate this value to arrive at something we can use directly in the signal processing routine. The data delivered from the GUI control is sometimes called <b>raw</b> data. We then take that data and cook it to create our final volume multiplier coefficient. This produces <b>cooked</b> data and the dB equation above can be thought of as the <b>cooking equation</b>. Very often the cooking process is complex, in which case we will create a separate <b>cooking function</b> to handle this chore. We will use the terms <b>raw</b> and <b>cooked</b> throughout the SDK when referring to these values. Referring to the block diagram again, we see that we need to not only calculate a volume multiplier value, but we also need to take into account the mute and channel settings. Rather than dwell on each line of code, let’s examine a simple and perhaps naïve approach, disregarding the parameter smoothing or VST3 sample accurate automation options. Here we will create left and right channel volume multiplier values which will take on either the cooked volume value, or 0.0 if the channel selection does not include it, or if the mute switch is engaged. In this case, we may fill in the signal processing with this code:<br />
- <br />
- // &mdash; convert dB to raw<br />
- <b>double volumeCooked = pow(10.0, volume_dB / 20.0);</b><br />
- <b>double volume_L = volumeCooked;</b><br />
- <b>double volume_R = volumeCooked;</b><br />
- <br />
- // &mdash; compare with channel setting<br />
- <b>if (<a class="el" href="group___a_s_pi_k-_g_u_i.html#gafff0d380df2f3386c6ef55cdca6fbac6" title="compare a typed enum value to an int ">compareIntToEnum(channels, channelsEnum::stereo)</a>)</b><br />
- {<br />
- &emsp;<b>volume_L = volumeCooked; </b>// redundant, just for demonstration<br />
- &emsp;<b>volume_R = volumeCooked;</b><br />
- }<br />
- <b>else if (<a class="el" href="group___a_s_pi_k-_g_u_i.html#gafff0d380df2f3386c6ef55cdca6fbac6" title="compare a typed enum value to an int ">compareIntToEnum(channels, channelsEnum::left)</a>)</b><br />
- {<br />
- &emsp;<b>volume_L = volumeCooked;</b><br />
- &emsp;<b>volume_R = 0.0;</b><br />
- }<br />
- <b>else if (<a class="el" href="group___a_s_pi_k-_g_u_i.html#gafff0d380df2f3386c6ef55cdca6fbac6" title="compare a typed enum value to an int ">compareIntToEnum(channels, channelsEnum::right)</a>)</b><br />
- {<br />
- &emsp;<b>volume_L = 0.0;</b><br />
- &emsp;<b>volume_R = volumeCooked;</b><br />
- }<br />
- // &mdash; last in sequence = most significant<br />
- <b>if (enableMute)</b><br />
- {<br />
- &emsp;<b>volume_L = 0.0;</b><br />
- &emsp;<b>volume_R = 0.0;</b><br />
- }<br />
- <br />
- With our left and right channel volume multiplier values calculated we can then do the actual signal processing. Notice how the VU meter value is formed; since the <a class="el" href="class_plugin_parameter.html" title="The PluginParameter object stores all of the data needed for any type of plugin parameter. It is a large object, but it is not complex as it really just stores LOTS of information about plugin parameters. ">PluginParameter</a> will automatically rectify the signal as part of the meter ballistics operation, we only need to feed it the ordinary audio signal value of interest that is the output value here. Also, note how the mono-in-stereo-out logic simply copies the left output to both the left and right channels, which is appropriate for this plugin.<br />
- <br />
- // &mdash; left channel:<br />
- <b>double xn_L = processFrameInfo.audioInputFrame[0];</b><br />
- <b>double yn_L = volume_L * xn_L;</b><br />
- <br />
- <b>if(processFrameInfo.channelIOConfig.inputChannelFormat == kCFMono &amp;&amp;<br />
- &emsp;processFrameInfo.channelIOConfig.outputChannelFormat == kCFMono)</b><br />
- {<br />
- &emsp;// &mdash; write to output<br />
- &emsp;<b>processFrameInfo.audioOutputFrame[0] = yn_L;</b><br />
- <br />
- &emsp;// &mdash; set VU meter<br />
- &emsp;<b>vuMeter = yn_L;</b><br />
- <br />
- &emsp;return true; // processed<br />
- }<br />
- <br />
- // &mdash; Mono-In/Stereo-Out<br />
- <b>if(processFrameInfo.channelIOConfig.inputChannelFormat == kCFMono &amp;&amp;<br />
- &emsp;processFrameInfo.channelIOConfig.outputChannelFormat == kCFStereo)</b><br />
- {<br />
- &emsp;// &mdash; write to output<br />
- &emsp;<b>processFrameInfo.audioOutputFrame[0] = yn_L;</b><br />
- &emsp;<b>processFrameInfo.audioOutputFrame[1] = yn_L;</b><br />
-</p>
-<p>&emsp;// &mdash; set VU meter<br />
- &emsp;<b>vuMeter = yn_L;</b><br />
- <br />
- &emsp;return true; // processed<br />
- }<br />
- <br />
- // &mdash; Stereo-In/Stereo-Out<br />
- <b>if(processFrameInfo.channelIOConfig.inputChannelFormat == kCFStereo &amp;&amp;<br />
- &emsp;processFrameInfo.channelIOConfig.outputChannelFormat == kCFStereo)</b><br />
- {<br />
- &emsp;// &mdash; right channel:<br />
- &emsp;<b>double xn_R = processFrameInfo.audioInputFrame[1];</b><br />
- &emsp;<b>double yn_R = volume_R * xn_R;</b><br />
-</p>
-<p>&emsp;// &mdash; write to output<br />
- &emsp;<b>processFrameInfo.audioOutputFrame[0] = yn_L;</b><br />
- &emsp;<b>processFrameInfo.audioOutputFrame[1] = yn_R;</b><br />
-</p>
-<p>&emsp;// &mdash; sum L &amp; R into mono<br />
- &emsp;<b>vuMeter = 0.5*yn_L + 0.5*yn_R;</b><br />
-</p>
-<p>&emsp;return true; // processed<br />
- }<br />
- <br />
- If you compile and test the plugin, you will see that it behaves as designed, though perhaps a bit underwhelming since it is just a volume control. Now let’s step back and think about our CPU intensive calculation part: the only really complicated math involves cooking the raw dB value into a volume coefficient. But do we really need to run this equation on every function call to processAudioFrame? This is going to depend on whether the volume parameter has undergone smoothing (either automatic, or via the VST3 sample accurate process). </p>
+ This introduces an important concept: the GUI control delivered a value that we could not immediately use. We needed to manipulate this value to arrive at something we can use directly in the signal processing routine. The data delivered from the GUI control is sometimes called <b>raw</b> data. We then take that data and cook it to create our final volume multiplier coefficient. This produces <b>cooked</b> data and the dB equation above can be thought of as the <b>cooking equation</b>. Very often the cooking process is complex, in which case we will create a separate <b>cooking function</b> to handle this chore. We will use the terms <b>raw</b> and <b>cooked</b> throughout the SDK when referring to these values. Referring to the block diagram again, we see that we need to not only calculate a volume multiplier value, but we also need to take into account the mute and channel settings. Rather than dwell on each line of code, let's examine a simple and perhaps naïve approach, disregarding the parameter smoothing or VST3 sample accurate automation options. Here we will create left and right channel volume multiplier values which will take on either the cooked volume value, or 0.0 if the channel selection does not include it, or if the mute switch is engaged. In this case, we may fill in the signal processing with this code:</p>
+<div class="fragment"><div class="line"><span class="comment">// --- convert dB to raw</span></div><div class="line"><span class="keywordtype">double</span> volumeCooked = pow(10.0, volume_dB / 20.0);</div><div class="line"><span class="keywordtype">double</span> volume_L = volumeCooked;</div><div class="line"><span class="keywordtype">double</span> volume_R = volumeCooked;</div><div class="line"></div><div class="line"><span class="comment">// --- compare with channel setting</span></div><div class="line"><span class="keywordflow">if</span> (<a class="code" href="group___a_s_pi_k-_g_u_i.html#gafff0d380df2f3386c6ef55cdca6fbac6">compareIntToEnum</a>(channels, channelsEnum::stereo))</div><div class="line">{</div><div class="line">   volume_L = volumeCooked; <span class="comment">// redundant, just for demonstration</span></div><div class="line">   volume_R = volumeCooked;</div><div class="line">}</div><div class="line"><span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="group___a_s_pi_k-_g_u_i.html#gafff0d380df2f3386c6ef55cdca6fbac6">compareIntToEnum</a>(channels, channelsEnum::left))</div><div class="line">{</div><div class="line">   volume_L = volumeCooked;</div><div class="line">   volume_R = 0.0;</div><div class="line">}</div><div class="line"><span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="group___a_s_pi_k-_g_u_i.html#gafff0d380df2f3386c6ef55cdca6fbac6">compareIntToEnum</a>(channels, channelsEnum::right))</div><div class="line">{</div><div class="line">   volume_L = 0.0;</div><div class="line">   volume_R = volumeCooked;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// --- last in sequence = most significant</span></div><div class="line"><span class="keywordflow">if</span> (enableMute)</div><div class="line">{</div><div class="line">   volume_L = 0.0;</div><div class="line">   volume_R = 0.0;</div><div class="line">}</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>With our left and right channel volume multiplier values calculated we can then do the actual signal processing. Notice how the VU meter value is formed; since the <a class="el" href="class_plugin_parameter.html" title="The PluginParameter object stores all of the data needed for any type of plugin parameter. It is a large object, but it is not complex as it really just stores LOTS of information about plugin parameters. ">PluginParameter</a> will automatically rectify the signal as part of the meter ballistics operation, we only need to feed it the ordinary audio signal value of interest that is the output value here. Also, note how the mono-in-stereo-out logic simply copies the left output to both the left and right channels, which is appropriate for this plugin.</p>
+<div class="fragment"><div class="line"><span class="comment">// --- left channel:</span></div><div class="line"><span class="keywordtype">double</span> xn_L = processFrameInfo.audioInputFrame[0];</div><div class="line"><span class="keywordtype">double</span> yn_L = volume_L * xn_L;</div><div class="line"></div><div class="line"><span class="keywordflow">if</span>(processFrameInfo.channelIOConfig.inputChannelFormat == kCFMono &amp;&amp;</div><div class="line">   processFrameInfo.channelIOConfig.outputChannelFormat == kCFMono)</div><div class="line">{</div><div class="line">   <span class="comment">// --- write to output</span></div><div class="line">   processFrameInfo.audioOutputFrame[0] = yn_L;</div><div class="line"></div><div class="line">   <span class="comment">// --- set VU meter</span></div><div class="line">   vuMeter = yn_L;</div><div class="line"></div><div class="line">   <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// processed</span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// --- Mono-In/Stereo-Out</span></div><div class="line"><span class="keywordflow">if</span>(processFrameInfo.channelIOConfig.inputChannelFormat == kCFMono &amp;&amp;</div><div class="line">   processFrameInfo.channelIOConfig.outputChannelFormat == kCFStereo)</div><div class="line">{</div><div class="line">   <span class="comment">// --- write to output</span></div><div class="line">   processFrameInfo.audioOutputFrame[0] = yn_L;</div><div class="line">   processFrameInfo.audioOutputFrame[1] = yn_L;</div><div class="line"></div><div class="line">   <span class="comment">// --- set VU meter</span></div><div class="line">   vuMeter = yn_L;</div><div class="line"></div><div class="line">   <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// processed</span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// --- Stereo-In/Stereo-Out</span></div><div class="line"><span class="keywordflow">if</span>(processFrameInfo.channelIOConfig.inputChannelFormat == kCFStereo &amp;&amp;</div><div class="line">   processFrameInfo.channelIOConfig.outputChannelFormat == kCFStereo)</div><div class="line">{</div><div class="line">   <span class="comment">// --- right channel:</span></div><div class="line">   <span class="keywordtype">double</span> xn_R = processFrameInfo.audioInputFrame[1];</div><div class="line">   <span class="keywordtype">double</span> yn_R = volume_R * xn_R;</div><div class="line"></div><div class="line">   <span class="comment">// --- write to output</span></div><div class="line">   processFrameInfo.audioOutputFrame[0] = yn_L;</div><div class="line">   processFrameInfo.audioOutputFrame[1] = yn_R;</div><div class="line"></div><div class="line">   <span class="comment">// --- sum L &amp; R into mono</span></div><div class="line">   vuMeter = 0.5*yn_L + 0.5*yn_R;</div><div class="line"></div><div class="line">   <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// processed</span></div><div class="line">}</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>If you compile and test the plugin, you will see that it behaves as designed, though perhaps a bit underwhelming since it is just a volume control. Now let's step back and think about our CPU intensive calculation part: the only really complicated math involves cooking the raw dB value into a volume coefficient. But do we really need to run this equation on every function call to processAudioFrame? This is going to depend on whether the volume parameter has undergone smoothing (either automatic, or via the VST3 sample accurate process). </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

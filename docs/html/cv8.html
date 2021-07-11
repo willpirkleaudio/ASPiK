@@ -89,48 +89,8 @@ $(document).ready(function(){initNavTree('cv8.html','');});
 <div class="title">Use the <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> Pointer </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Back in the <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a>'s <b><a class="el" href="class_plugin_core.html#adbc0df1ec8d13b5ed0540feadaab4c2f" title="For Custom View and Custom Sub-Controller Operations. ">PluginCore::processMessage( )</a></b> function, we add the code to the handler for the PLUGINGUI_TIMERPING message that will pump out the queued audio data and call the repaint message on the custom view object. Note that we are sharing the same lock-free ring buffer that the <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a> object owns and distributing (copying) data to both custom views:<br />
- <br />
- <b>case PLUGINGUI_TIMERPING:</b><br />
- {<br />
- &emsp;<b>if (waveView || spectrumView)</b><br />
- &emsp;{<br />
- &emsp;float audioSample = 0.0;<br />
-</p>
-<p>&emsp;// &mdash; try to get a value from queue<br />
- &emsp;<b>bool success = customViewDataQueue.try_dequeue(audioSample);</b><br />
-</p>
-<p>&emsp;// &mdash; if succeeds:<br />
- &emsp;<b>if (success)</b><br />
- &emsp;{<br />
- &emsp;// &mdash; empty queue into views; the each handle this differently<br />
- &emsp;<b>while (success)</b><br />
- &emsp;{<br />
- &emsp;&emsp;if (waveView)<br />
- &emsp;&emsp;&emsp;<b>waveView-&gt;pushDataValue(audioSample);</b><br />
- <br />
- &emsp;&emsp;if (spectrumView)<br />
- &emsp;&emsp;&emsp;<b>spectrumView-&gt;pushDataValue(audioSample);</b><br />
- <br />
- &emsp;&emsp;// &ndash; try to get next value until queue is empty<br />
- &emsp;&emsp;<b>success = customViewDataQueue.try_dequeue(audioSample);</b><br />
- &emsp;&emsp;}<br />
- &emsp;}<br />
- <br />
- &emsp;// &mdash; update and mark view as dirty<br />
- &emsp;if (waveView)<br />
- &emsp;&emsp;<b>waveView-&gt;updateView();</b><br />
- <br />
- &emsp;if (spectrumView)<br />
- &emsp;&emsp;<b>spectrumView-&gt;updateView();</b><br />
- <br />
- &emsp;return true;<br />
- &emsp;}<br />
- <br />
- &emsp;return false;<br />
- }<br />
- <br />
- This is all the code that you need to make the system work. The lock-free ring buffers and the custom view object handle the rest of the work.<br />
+<div class="textblock"><p>Back in the <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a>'s <b><a class="el" href="class_plugin_core.html#adbc0df1ec8d13b5ed0540feadaab4c2f" title="For Custom View and Custom Sub-Controller Operations. ">PluginCore::processMessage( )</a></b> function, we add the code to the handler for the PLUGINGUI_TIMERPING message that will pump out the queued audio data and call the repaint message on the custom view object. Note that we are sharing the same lock-free ring buffer that the <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a> object owns and distributing (copying) data to both custom views:</p>
+<div class="fragment"><div class="line"><span class="keywordflow">case</span> PLUGINGUI_TIMERPING:</div><div class="line">{</div><div class="line">   <span class="keywordflow">if</span> (waveView || spectrumView)</div><div class="line">   {</div><div class="line">      <span class="keywordtype">float</span> audioSample = 0.0;</div><div class="line"></div><div class="line">      <span class="comment">// --- try to get a value from queue</span></div><div class="line">      <span class="keywordtype">bool</span> success = customViewDataQueue.try_dequeue(audioSample);</div><div class="line"></div><div class="line">      <span class="comment">// --- if succeeds:</span></div><div class="line">      <span class="keywordflow">if</span> (success)</div><div class="line">      {</div><div class="line">         <span class="comment">// --- empty queue into views; the each handle this differently</span></div><div class="line">         <span class="keywordflow">while</span> (success)</div><div class="line">         {</div><div class="line">            <span class="keywordflow">if</span> (waveView)</div><div class="line">               waveView-&gt;pushDataValue(audioSample);</div><div class="line"></div><div class="line">            <span class="keywordflow">if</span> (spectrumView)</div><div class="line">               spectrumView-&gt;pushDataValue(audioSample);</div><div class="line"></div><div class="line">            <span class="comment">// -- try to get next value until queue is empty</span></div><div class="line">            success = customViewDataQueue.try_dequeue(audioSample);</div><div class="line">         }</div><div class="line">      }</div><div class="line"></div><div class="line">      <span class="comment">// --- update and mark view as dirty</span></div><div class="line">      <span class="keywordflow">if</span> (waveView)</div><div class="line">         waveView-&gt;updateView();</div><div class="line"></div><div class="line">      <span class="keywordflow">if</span> (spectrumView)</div><div class="line">         spectrumView-&gt;updateView();</div><div class="line"></div><div class="line">      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line">   }</div><div class="line"></div><div class="line">   <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line">}</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>This is all the code that you need to make the system work. The lock-free ring buffers and the custom view object handle the rest of the work.<br />
 <br />
  </p>
 </div></div><!-- contents -->

@@ -94,46 +94,16 @@ $(document).ready(function(){initNavTree('define_plugin6.html','');});
 <img src="bufferproc.png" alt="bufferproc.png"/>
 </div>
 <p> <br />
- You can see from the above figure that the buffer processing cycle consists of three components: reading incoming parameter updates from the GUI controls, processing the audio, then writing output parameter information to the VU meters or other output-only controls. The <a class="el" href="class_plugin_base.html" title="The PluginBase object is the base class for the Plugin Core object. ">PluginBase</a> defines three functions that correspond to this three-step architecture. These three functions will always be called in this exact order during each and every buffer processing cycle. <br />
-<br />
- // &mdash; preProcess: sync GUI parameters here<br />
- <b>virtual bool preProcessAudioBuffers(ProcessBufferInfo&amp; processInfo);</b><br />
-</p>
-<p>// &mdash; process buffers – the DSP<br />
- <b>virtual bool processAudioBuffers(ProcessBufferInfo&amp; processBufferInfo);</b><br />
-</p>
-<p>// &mdash; postProcess: do update meters, plots, graphs<br />
- <b>virtual bool postProcessAudioBuffers(ProcessBufferInfo&amp; processInfo);</b><br />
-<br />
-</p>
-<p><b>Buffer Pre-Processing</b><br />
+ You can see from the above figure that the buffer processing cycle consists of three components: reading incoming parameter updates from the GUI controls, processing the audio, then writing output parameter information to the VU meters or other output-only controls. The <a class="el" href="class_plugin_base.html" title="The PluginBase object is the base class for the Plugin Core object. ">PluginBase</a> defines three functions that correspond to this three-step architecture. These three functions will always be called in this exact order during each and every buffer processing cycle.</p>
+<div class="fragment"><div class="line"><span class="comment">// --- preProcess: sync GUI parameters here   </span></div><div class="line"><span class="keyword">virtual</span> <span class="keywordtype">bool</span> preProcessAudioBuffers(<a class="code" href="struct_process_buffer_info.html">ProcessBufferInfo</a>&amp; processInfo);      </div><div class="line"></div><div class="line"><span class="comment">// --- process buffers – the DSP   </span></div><div class="line"><span class="keyword">virtual</span> <span class="keywordtype">bool</span> processAudioBuffers(<a class="code" href="struct_process_buffer_info.html">ProcessBufferInfo</a>&amp; processBufferInfo);      </div><div class="line"></div><div class="line"><span class="comment">// --- postProcess: do update meters, plots, graphs   </span></div><div class="line"><span class="keyword">virtual</span> <span class="keywordtype">bool</span> postProcessAudioBuffers(<a class="code" href="struct_process_buffer_info.html">ProcessBufferInfo</a>&amp; processInfo);      </div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p><b>Buffer Pre-Processing</b><br />
  During the pre-processing phase, we make a single call to the function that synchronizes our plugin variables with the values stored in our plugin parameters. During this phase, it is impossible for the DAW, GUI or other entity to manipulate the parameters or the variables. The pre-processing function is:<br />
-<br />
- // &mdash; do pre buffer processing<br />
- <b>bool <a class="el" href="class_plugin_core.html#a90fa43d29dbcb37c3fbaca6647dd492e" title="do anything needed prior to arrival of audio buffers ">PluginCore::preProcessAudioBuffers(ProcessBufferInfo&amp; processInfo)</a></b><br />
- {<br />
- &emsp;// &mdash; sync internal variables to GUI parameters<br />
- &emsp;<b>syncInBoundVariables();</b><br />
- &emsp;return true;<br />
- }<br />
-<br />
- The <em>syncInBoundVariables</em> method has two components. The first part simply copies the updated parameter information into the bound variables we supplied during the parameter instantiation. More importantly, this function calls a secondary function that allows you to do any post-update calculations. This base class function is implemented in the <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a>: <br />
- <br />
- <b>bool postUpdatePluginParameter(int32_t controlID, double controlValue, ParameterUpdateInfo&amp; paramInfo)</b><br />
- <br />
- This function will be called for every parameter that is updated and will give you the chance to “cook” any variables that may need alteration as a result. We will demonstrate when you might use this function shortly. The incoming <a class="el" href="struct_parameter_update_info.html" title="Information about a paraemeter being updated. Used when bound variables are updated. Multiple advanced uses. ">ParameterUpdateInfo</a> structure contains boolean flags that will indicate why this function was called. Once the pre-processing phase is complete, your plugin needs to be fully setup to process audio. We will show an example of using this function later.<br />
+</p>
+<div class="fragment"><div class="line"><span class="comment">// --- do pre buffer processing   </span></div><div class="line"><span class="keywordtype">bool</span> <a class="code" href="class_plugin_core.html#a90fa43d29dbcb37c3fbaca6647dd492e">PluginCore::preProcessAudioBuffers</a>(<a class="code" href="struct_process_buffer_info.html">ProcessBufferInfo</a>&amp; processInfo)      </div><div class="line">{   </div><div class="line">   <span class="comment">// --- sync internal variables to GUI parameters   </span></div><div class="line">   <a class="code" href="class_plugin_base.html#a53d3f0a290476d4313a18a5b1f7e8260">syncInBoundVariables</a>();      </div><div class="line">   <span class="keywordflow">return</span> <span class="keyword">true</span>;   </div><div class="line">}</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>The <em>syncInBoundVariables</em> method has two components. The first part simply copies the updated parameter information into the bound variables we supplied during the parameter instantiation. More importantly, this function calls a secondary function that allows you to do any post-update calculations. This base class function is implemented in the <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a>:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> postUpdatePluginParameter(int32_t controlID, <span class="keywordtype">double</span> controlValue, <a class="code" href="struct_parameter_update_info.html">ParameterUpdateInfo</a>&amp; paramInfo);</div></div><!-- fragment --><p>This function will be called for every parameter that is updated and will give you the chance to “cook” any variables that may need alteration as a result. We will demonstrate when you might use this function shortly. The incoming <a class="el" href="struct_parameter_update_info.html" title="Information about a paraemeter being updated. Used when bound variables are updated. Multiple advanced uses. ">ParameterUpdateInfo</a> structure contains boolean flags that will indicate why this function was called. Once the pre-processing phase is complete, your plugin needs to be fully setup to process audio. We will show an example of using this function later.<br />
  <br />
  <b>Buffer Post-Processing</b><br />
- The <em>postProcessAudioBuffers</em> method is called after all incoming buffers have been processed. The default implementation for this function is:<br />
- <br />
- <b>bool <a class="el" href="class_plugin_core.html#ac89ad17043e4c76c20685a3f45a8c75f" title="do anything needed prior to arrival of audio buffers ">PluginCore::postProcessAudioBuffers(ProcessBufferInfo&amp; processInfo)</a></b><br />
- {<br />
- &emsp;// &mdash; update outbound variables<br />
- &emsp;<b>updateOutBoundVariables();</b><br />
- &emsp;return true;<br />
- }<br />
- <br />
- This function simply calls the sub-function <em>updateOutboundVariables</em> which copies output parameter values into a special list that will be delivered back to the native parameter list, and then back to the GUI in a thread-safe manner. You won’t need to modify or mess with that function, but this is the opportunity for your plugin to do any other processing after the buffer processing is completed. This would only include processing after ALL audio data has been processed.<br />
+ The <em>postProcessAudioBuffers</em> method is called after all incoming buffers have been processed. The default implementation for this function is:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> <a class="code" href="class_plugin_core.html#ac89ad17043e4c76c20685a3f45a8c75f">PluginCore::postProcessAudioBuffers</a>(<a class="code" href="struct_process_buffer_info.html">ProcessBufferInfo</a>&amp; processInfo)      </div><div class="line">{   </div><div class="line">   <span class="comment">// --- update outbound variables   </span></div><div class="line">   <a class="code" href="class_plugin_base.html#a28afc5f563995e922b126d19fd4c3656">updateOutBoundVariables</a>();      </div><div class="line">   <span class="keywordflow">return</span> <span class="keyword">true</span>;   </div><div class="line">}   </div></div><!-- fragment --><p>This function simply calls the sub-function <em>updateOutboundVariables</em> which copies output parameter values into a special list that will be delivered back to the native parameter list, and then back to the GUI in a thread-safe manner. You won't need to modify or mess with that function, but this is the opportunity for your plugin to do any other processing after the buffer processing is completed. This would only include processing after ALL audio data has been processed.<br />
 <br />
  </p>
 </div></div><!-- contents -->

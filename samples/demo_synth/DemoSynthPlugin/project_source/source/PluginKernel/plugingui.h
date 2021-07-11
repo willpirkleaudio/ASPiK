@@ -33,8 +33,12 @@
 #include "vstgui/uidescription/uiviewswitchcontainer.h"
 #include "vstgui/vstgui_uidescription.h"
 #include "vstgui/lib/crect.h"
-// 4.9
+
+// --- 4.9
 #include "vstgui/uidescription/cstream.h"
+
+// --- 4.10 new way to initialize the library
+#include "vstgui/lib/vstguiinit.h"
 
 #if VSTGUI_LIVE_EDITING
 #include "vstgui/uidescription/editing/uieditcontroller.h"
@@ -212,7 +216,7 @@ public:
 		{
 			if (normalizedValue == (float)refGuiControl.getDefaultValueNormalized())
 			{
-				updateControlsWithActualValue(refGuiControl.getDefaultValue(), control);
+				updateControlsWithActualValue((float)refGuiControl.getDefaultValue(), control);
 				return;
 			}
 		}
@@ -448,7 +452,7 @@ public:
     bool open(UTF8StringPtr _viewName,
 			  void* parent,
 			  const std::vector<PluginParameter*>* pluginParameterPtr,
-			  const PlatformType& platformType = kDefaultNative,
+			  const PlatformType& platformType = PlatformType::kDefaultNative,
 			  IGUIPluginConnector* _guiPluginConnector = nullptr,
 			  void* data = nullptr);
 
@@ -708,10 +712,10 @@ public:
 	int32_t onKeyUp(const VstKeyCode& code, CFrame* frame) override { return -1; }
 
 	/** ICommandMenuItemTarget called before the item is shown to validate its state */
-	virtual bool validateCommandMenuItem(CCommandMenuItem* item);
+	virtual bool validateCommandMenuItem(CCommandMenuItem* item) override;
 	
 	/** ICommandMenuItemTarget called when the item was selected */
-	virtual bool onCommandMenuItemSelected(CCommandMenuItem* item);
+	virtual bool onCommandMenuItemSelected(CCommandMenuItem* item) override;
 
 	/**
 	\brief set the interface pointer for resizing from the GUI

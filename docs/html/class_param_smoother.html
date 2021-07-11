@@ -96,16 +96,10 @@ $(document).ready(function(){initNavTree('class_param_smoother.html','');});
 <p>The <a class="el" href="class_param_smoother.html" title="The ParamSmoother object performs parameter smoothing on GUI control information. You can choose line...">ParamSmoother</a> object performs parameter smoothing on GUI control information. You can choose linear or exponential smoothing.  
  <a href="class_param_smoother.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="project__source_2source_2_plugin_kernel_2guiconstants_8h_source.html">guiconstants.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="guiconstants_8h_source.html">guiconstants.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aacebc34d3029ef2073126029178f7ad9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_param_smoother.html#aacebc34d3029ef2073126029178f7ad9">setSampleRate</a> (T samplingRate)</td></tr>
-<tr class="separator:aacebc34d3029ef2073126029178f7ad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad796714c7a8ff6b593a6509d22b93f64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_param_smoother.html#ad796714c7a8ff6b593a6509d22b93f64">initParamSmoother</a> (T smoothingTimeInMs, T samplingRate, T initValue, T minControlValue, T maxControlValue, <a class="el" href="group___constants-_enums.html#ga4cfbd15c3638e96f0b1b5527f6bb6fa8">smoothingMethod</a> smoother=smoothingMethod::kLPFSmoother)</td></tr>
-<tr class="separator:ad796714c7a8ff6b593a6509d22b93f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c7bce12b8e707f461900ccd1402fe29"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_param_smoother.html#a9c7bce12b8e707f461900ccd1402fe29">smoothParameter</a> (T in, T &amp;out)</td></tr>
-<tr class="separator:a9c7bce12b8e707f461900ccd1402fe29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aacebc34d3029ef2073126029178f7ad9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_param_smoother.html#aacebc34d3029ef2073126029178f7ad9">setSampleRate</a> (T samplingRate)</td></tr>
 <tr class="separator:aacebc34d3029ef2073126029178f7ad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad796714c7a8ff6b593a6509d22b93f64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_param_smoother.html#ad796714c7a8ff6b593a6509d22b93f64">initParamSmoother</a> (T smoothingTimeInMs, T samplingRate, T initValue, T minControlValue, T maxControlValue, <a class="el" href="group___constants-_enums.html#ga4cfbd15c3638e96f0b1b5527f6bb6fa8">smoothingMethod</a> smoother=smoothingMethod::kLPFSmoother)</td></tr>
@@ -124,80 +118,7 @@ class ParamSmoother&lt; T &gt;</h3>
 <dl class="section date"><dt>Date</dt><dd>Date : 2018 / 09 / 7 </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ad796714c7a8ff6b593a6509d22b93f64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad796714c7a8ff6b593a6509d22b93f64">&#9670;&nbsp;</a></span>initParamSmoother() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_param_smoother.html">ParamSmoother</a>&lt; T &gt;::initParamSmoother </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>smoothingTimeInMs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>samplingRate</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>initValue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>minControlValue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>maxControlValue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="group___constants-_enums.html#ga4cfbd15c3638e96f0b1b5527f6bb6fa8">smoothingMethod</a>&#160;</td>
-          <td class="paramname"><em>smoother</em> = <code>smoothingMethod::kLPFSmoother</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>initialize the smoother; this recalculates internal coefficients </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">smoothingTimeInMs</td><td>the smoothing time in mSec to move from the two control extrema (min and max values) </td></tr>
-    <tr><td class="paramname">samplingRate</td><td>the new sampling rate </td></tr>
-    <tr><td class="paramname">initValue</td><td>initial (pre-smoothed) value </td></tr>
-    <tr><td class="paramname">minControlValue</td><td>minimum numerical value control takes </td></tr>
-    <tr><td class="paramname">maxControlValue</td><td>maximum numerical value control takes </td></tr>
-    <tr><td class="paramname">smoother</td><td>type of smoothing </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ad796714c7a8ff6b593a6509d22b93f64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad796714c7a8ff6b593a6509d22b93f64">&#9670;&nbsp;</a></span>initParamSmoother() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad796714c7a8ff6b593a6509d22b93f64">&#9670;&nbsp;</a></span>initParamSmoother()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -270,41 +191,7 @@ template&lt;class T&gt; </div>
 </div>
 </div>
 <a id="aacebc34d3029ef2073126029178f7ad9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aacebc34d3029ef2073126029178f7ad9">&#9670;&nbsp;</a></span>setSampleRate() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_param_smoother.html">ParamSmoother</a>&lt; T &gt;::setSampleRate </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>samplingRate</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>set a new sample rate; this recalculates internal coefficients </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">samplingRate</td><td>the new sampling rate </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aacebc34d3029ef2073126029178f7ad9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aacebc34d3029ef2073126029178f7ad9">&#9670;&nbsp;</a></span>setSampleRate() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aacebc34d3029ef2073126029178f7ad9">&#9670;&nbsp;</a></span>setSampleRate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -338,53 +225,7 @@ template&lt;class T&gt; </div>
 </div>
 </div>
 <a id="a9c7bce12b8e707f461900ccd1402fe29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c7bce12b8e707f461900ccd1402fe29">&#9670;&nbsp;</a></span>smoothParameter() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="class_param_smoother.html">ParamSmoother</a>&lt; T &gt;::smoothParameter </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>in</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T &amp;&#160;</td>
-          <td class="paramname"><em>out</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>perform smoothing operation </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">in</td><td>input sample </td></tr>
-    <tr><td class="paramname">out</td><td>smoothed value </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true if smoothing occurred, false otherwise (e.g. once control has assumed final value, smoothing is turned off) </dd></dl>
-
-</div>
-</div>
-<a id="a9c7bce12b8e707f461900ccd1402fe29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c7bce12b8e707f461900ccd1402fe29">&#9670;&nbsp;</a></span>smoothParameter() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c7bce12b8e707f461900ccd1402fe29">&#9670;&nbsp;</a></span>smoothParameter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -430,7 +271,7 @@ template&lt;class T&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/PluginKernel/<a class="el" href="project__source_2source_2_plugin_kernel_2guiconstants_8h_source.html">guiconstants.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/PluginKernel/<a class="el" href="guiconstants_8h_source.html">guiconstants.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

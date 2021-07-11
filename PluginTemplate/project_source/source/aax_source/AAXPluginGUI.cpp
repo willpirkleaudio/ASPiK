@@ -133,7 +133,7 @@ void AAXPluginGUI::CreateViewContainer()
             if(pluginGUI)
             {
                 // --- create GUI
-                bool opened = pluginGUI->open("Editor", this->GetViewContainerPtr(), PluginParameterPtr, VSTGUI::kHWND, customData.guiPlugin_Connector, nullptr);
+                bool opened = pluginGUI->open("Editor", this->GetViewContainerPtr(), PluginParameterPtr, VSTGUI::PlatformType::kHWND, customData.guiPlugin_Connector, nullptr);
                 
                 // --- delete the PluginParameterPtr guts, and pointer too...
                 for(std::vector<PluginParameter*>::iterator it = PluginParameterPtr->begin(); it !=  PluginParameterPtr->end(); ++it)
@@ -204,7 +204,7 @@ void AAXPluginGUI::CreateViewContainer()
             if(pluginGUI)
             {
                 // --- create GUI
-                bool opened = pluginGUI->open("Editor", this->GetViewContainerPtr(), PluginParameterPtr, VSTGUI::kNSView, customData.guiPlugin_Connector, nullptr);
+                bool opened = pluginGUI->open("Editor", this->GetViewContainerPtr(), PluginParameterPtr, VSTGUI::PlatformType::kNSView, customData.guiPlugin_Connector, nullptr);
 
                 // --- delete the PluginParameterPtr guts, and pointer too...
                 for(std::vector<PluginParameter*>::iterator it = PluginParameterPtr->begin(); it !=  PluginParameterPtr->end(); ++it)

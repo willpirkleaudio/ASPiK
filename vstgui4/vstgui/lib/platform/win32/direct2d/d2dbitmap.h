@@ -21,14 +21,14 @@ struct IWICBitmapLock;
 namespace VSTGUI {
 
 //-----------------------------------------------------------------------------
-class D2DBitmap : public Win32BitmapBase
+class D2DBitmap final : public Win32BitmapBase
 {
 public:
 	D2DBitmap ();
 	D2DBitmap (const CPoint& size);
 	~D2DBitmap ();
 
-	bool load (const CResourceDescription& desc) override;
+	bool load (const CResourceDescription& desc);
 	const CPoint& getSize () const override { return size; }
 	SharedPointer<IPlatformBitmapPixelAccess> lockPixels (bool alphaPremultiplied) override;
 	void setScaleFactor (double factor) override { scaleFactor = factor; }
@@ -44,7 +44,7 @@ public:
 protected:
 	void replaceBitmapSource (IWICBitmapSource* newSourceBitmap);
 
-	class PixelAccess : public IPlatformBitmapPixelAccess
+	class PixelAccess final : public IPlatformBitmapPixelAccess
 	{
 	public:
 		PixelAccess ();
@@ -52,9 +52,9 @@ protected:
 
 		bool init (D2DBitmap* bitmap, bool alphaPremultiplied);
 
-		uint8_t* getAddress () const { return (uint8_t*)ptr; }
-		uint32_t getBytesPerRow () const { return bytesPerRow; }
-		PixelFormat getPixelFormat () const { return kBGRA; }
+		uint8_t* getAddress () const override { return (uint8_t*)ptr; }
+		uint32_t getBytesPerRow () const override { return bytesPerRow; }
+		PixelFormat getPixelFormat () const override { return kBGRA; }
 
 	protected:
 		static void premultiplyAlpha (BYTE* ptr, UINT bytesPerRow, const CPoint& size);

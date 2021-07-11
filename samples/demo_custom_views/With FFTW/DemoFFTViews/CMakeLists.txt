@@ -78,6 +78,10 @@ set(LINK_FFTW  TRUE)						# <-- set TRUE or FALSE
 set(EXPOSE_SIDECHAIN FALSE) 		# <-- set TRUE or FALSE
 set(LATENCY_IN_SAMPLES 0) 			# <-- numerical, in samples
 set(TAIL_TIME_MSEC 0)				# <-- numerical, in mSec
+set(PROCESS_FRAMES TRUE)		# <-- set TRUE or FALSE
+set(PROCESS_BUFFERS FALSE)		# <-- set TRUE or FALSE
+set(PROCESS_BLOCKS FALSE)		# <-- set TRUE or FALSE
+set(BLOCK_SIZE 64) 			# <-- numerical, in samples (per channel) if using blocks
 
 # --- VST3 Only ---
 set(VST3_INFINITE_TAIL FALSE)
@@ -251,8 +255,16 @@ string(CONCAT VST_BUNDLE_ID_ASVAR "const char* kVST3BundleID = \"" ${VST_BUNDLE_
 if(UNIVERSAL_SDK_BUILD)
 	string(CONCAT AU_BUNDLE_NAME_ASVAR_P1 "const char* kAUBundleName = \"" ${PLUGIN_PROJECT_NAME})
 	string(CONCAT AU_BUNDLE_NAME_ASVAR ${AU_BUNDLE_NAME_ASVAR_P1} "_AU\"")
+	
+	string(CONCAT AAX_BUNDLE_NAME_ASVAR_P1 "const char* kAAXBundleName = \"" ${PLUGIN_PROJECT_NAME})
+	string(CONCAT AAX_BUNDLE_NAME_ASVAR ${AAX_BUNDLE_NAME_ASVAR_P1} "_AAX\"")
+	
+	string(CONCAT VST_BUNDLE_NAME_ASVAR_P1 "const char* kVSTBundleName = \"" ${PLUGIN_PROJECT_NAME})
+	string(CONCAT VST_BUNDLE_NAME_ASVAR ${VST_BUNDLE_NAME_ASVAR_P1} "_VST\"")
 else()
 	string(CONCAT AU_BUNDLE_NAME_ASVAR "const char* kAUBundleName = \"" ${PLUGIN_PROJECT_NAME} "\"")
+	string(CONCAT AAX_BUNDLE_NAME_ASVAR "const char* kAAXBundleName = \"" ${PLUGIN_PROJECT_NAME} "\"")
+	string(CONCAT VST_BUNDLE_NAME_ASVAR "const char* kVSTBundleName = \"" ${PLUGIN_PROJECT_NAME} "\"")
 endif()
 
 # --- short AAX plugin name
@@ -328,6 +340,24 @@ endif()
 string(CONCAT VST3_SAMPLE_ACCURATE_GRANULARITY_ASVAR "const uint32_t kVST3SAAGranularity = " ${VST3_SAMPLE_ACCURATE_GRANULARITY})
 string(CONCAT AAX_CAT_ASVAR "const uint32_t kAAXCategory = " ${AAX_CATEGORY})
 
+
+if(PROCESS_FRAMES)
+	set(PROCESS_FRAMES_ASVAR "const bool kProcessFrames = true")
+	set(BLOCK_SIZE_ASVAR "const uint32_t kBlockSize = DEFAULT_AUDIO_BLOCK_SIZE")
+else()
+	set(PROCESS_FRAMES_ASVAR "const bool kProcessFrames = false")
+	set(BLOCK_SIZE_ASVAR "const uint32_t kBlockSize = DEFAULT_AUDIO_BLOCK_SIZE")
+endif()
+
+if(PROCESS_BUFFERS)
+	set(BLOCK_SIZE_ASVAR "const uint32_t kBlockSize = 0")
+endif()
+
+if(PROCESS_BLOCKS)
+	string(CONCAT BLOCK_SIZE_ASVAR "const uint32_t kBlockSize = " ${BLOCK_SIZE})
+endif()
+
+
 # --- the plugindescription.h file - this is edited to contain your string settings for the project!
 set(PI_DESCRIPTION_H_FILE project_source/source/PluginKernel/plugindescription.h)
 file(WRITE ${PI_DESCRIPTION_H_FILE} "")
@@ -354,7 +384,25 @@ file(APPEND ${PI_DESCRIPTION_H_FILE} "// --- Plugin Names \n")
 file(APPEND ${PI_DESCRIPTION_H_FILE} ${PLUGIN_NAME_ASVAR}\;\n)
 file(APPEND ${PI_DESCRIPTION_H_FILE} ${SHORT_PLUGIN_NAME_ASVAR}\;\n)
 file(APPEND ${PI_DESCRIPTION_H_FILE} ${AU_BUNDLE_NAME_ASVAR}\;\n)
+file(APPEND ${PI_DESCRIPTION_H_FILE} ${AAX_BUNDLE_NAME_ASVAR}\;\n)
+file(APPEND ${PI_DESCRIPTION_H_FILE} ${VST_BUNDLE_NAME_ASVAR}\;\n)
 file(APPEND ${PI_DESCRIPTION_H_FILE} \n)
+
+file(APPEND ${PI_DESCRIPTION_H_FILE} "// --- bundle name helper \n")
+file(APPEND ${PI_DESCRIPTION_H_FILE} "inline static const char* getPluginDescBundleName() \n")
+file(APPEND ${PI_DESCRIPTION_H_FILE} "{ \n")
+file(APPEND ${PI_DESCRIPTION_H_FILE} "#ifdef AUPLUGIN \n")
+file(APPEND ${PI_DESCRIPTION_H_FILE} "\treturn kAUBundleName; \n")
+file(APPEND ${PI_DESCRIPTION_H_FILE} "#endif \n\n")
+file(APPEND ${PI_DESCRIPTION_H_FILE} "#ifdef AAXPLUGIN \n")
+file(APPEND ${PI_DESCRIPTION_H_FILE} "\treturn kAAXBundleName; \n")
+file(APPEND ${PI_DESCRIPTION_H_FILE} "#endif \n\n")
+file(APPEND ${PI_DESCRIPTION_H_FILE} "#ifdef VSTPLUGIN \n")
+file(APPEND ${PI_DESCRIPTION_H_FILE} "\treturn kVSTBundleName; \n")
+file(APPEND ${PI_DESCRIPTION_H_FILE} "#endif \n\n")
+file(APPEND ${PI_DESCRIPTION_H_FILE} "\t// --- should never get here \n")
+file(APPEND ${PI_DESCRIPTION_H_FILE} "\treturn kPluginName; \n")
+file(APPEND ${PI_DESCRIPTION_H_FILE} "} \n\n")
 
 file(APPEND ${PI_DESCRIPTION_H_FILE} "// --- Plugin Type \n")
 file(APPEND ${PI_DESCRIPTION_H_FILE} ${PLUGIN_TYPE_ASVAR}\;\n)
@@ -377,6 +425,8 @@ file(APPEND ${PI_DESCRIPTION_H_FILE} ${VENDOR_EMAIL_ASVAR}\;\n)
 file(APPEND ${PI_DESCRIPTION_H_FILE} \n)
 
 file(APPEND ${PI_DESCRIPTION_H_FILE} "// --- Plugin Options \n")
+file(APPEND ${PI_DESCRIPTION_H_FILE} ${PROCESS_FRAMES_ASVAR}\;\n)
+file(APPEND ${PI_DESCRIPTION_H_FILE} ${BLOCK_SIZE_ASVAR}\;\n)
 file(APPEND ${PI_DESCRIPTION_H_FILE} ${EXPOSE_SIDECHAIN_ASVAR}\;\n)
 file(APPEND ${PI_DESCRIPTION_H_FILE} ${LATENCY_IN_SAMPLES_ASVAR}\;\n)
 file(APPEND ${PI_DESCRIPTION_H_FILE} ${TAIL_TIME_MSEC_ASVAR}\;\n)

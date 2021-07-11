@@ -133,10 +133,12 @@ PluginGUI::PluginGUI(UTF8StringPtr _xmlFile) :
 {
 #if MAC
 	CreateVSTGUIBundleRef();
+    VSTGUI::init((CFBundleRef)gBundleRef);
 #elif WINDOWS
 #ifndef AAXPLUGIN // VST or RAFX Win
 	hInstance = moduleHandle;
 #endif
+	VSTGUI::init((HINSTANCE)hInstance);
 #endif
 
 #ifdef AUPLUGIN
@@ -187,6 +189,9 @@ PluginGUI::~PluginGUI()
 #if MAC
 	ReleaseVSTGUIBundleRef();
 #endif
+    
+    // --- 4.10
+    VSTGUI::exit();
 }
 
 /**
@@ -1575,8 +1580,8 @@ void PluginGUI::valueChanged(VSTGUI::CControl* pControl)
             
             // --- is value out of bounds?
             PluginParameter refGuiControl = receiver->getGuiControl();
-            actualValue = fmin(actualValue, refGuiControl.getMaxValue());
-            actualValue = fmax(actualValue, refGuiControl.getMinValue());
+            actualValue = fmin(actualValue, (float)refGuiControl.getMaxValue());
+            actualValue = fmax(actualValue, (float)refGuiControl.getMinValue());
 
 			// --- update
 			receiver->updateControlsWithActualValue(actualValue, label);
@@ -1587,7 +1592,7 @@ void PluginGUI::valueChanged(VSTGUI::CControl* pControl)
             label->invalid();
             
 			// --- get the normalized value, no taper
-			normalizedValue = refGuiControl.getControlValueNormalized();
+			normalizedValue = (float)refGuiControl.getControlValueNormalized();
 		}
 		else
 		{

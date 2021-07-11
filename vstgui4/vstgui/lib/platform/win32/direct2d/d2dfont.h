@@ -9,6 +9,7 @@
 #if WINDOWS
 
 #include "../win32support.h"
+#include "../../platformfactory.h"
 
 struct IDWriteTextFormat;
 struct IDWriteTextLayout;
@@ -16,7 +17,7 @@ struct IDWriteTextLayout;
 namespace VSTGUI {
 
 //-----------------------------------------------------------------------------
-class D2DFont : public IPlatformFont, public IFontPainter
+class D2DFont final : public IPlatformFont, public IFontPainter
 {
 public:
 	D2DFont (const UTF8String& name, const CCoord& size, const int32_t& style);
@@ -25,8 +26,7 @@ public:
 
 	bool asLogFont (LOGFONTW& logfont) const;
 
-	static bool getAllPlatformFontFamilies (std::list<std::string>& fontFamilyNames);
-
+	static bool getAllFontFamilies (const FontFamilyCallback& callback);
 protected:
 	~D2DFont ();
 	

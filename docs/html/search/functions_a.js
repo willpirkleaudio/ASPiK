@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lognormtonorm',['logNormToNorm',['../class_plugin_parameter.html#adf372791b618698ae44e17fbabe49d7c',1,'PluginParameter::logNormToNorm(double logNormalizedValue)'],['../class_plugin_parameter.html#adf372791b618698ae44e17fbabe49d7c',1,'PluginParameter::logNormToNorm(double logNormalizedValue)']]]
+  ['lognormtonorm',['logNormToNorm',['../class_plugin_parameter.html#adf372791b618698ae44e17fbabe49d7c',1,'PluginParameter']]]
 ];

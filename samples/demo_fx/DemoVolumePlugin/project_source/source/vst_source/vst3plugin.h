@@ -1,10 +1,8 @@
 // --- header
-
-
 #ifndef __VST3Plugin__
 #define __VST3Plugin__
 
-#// --- VST3
+// --- VST3
 #include "public.sdk/source/vst/vstsinglecomponenteffect.h"
 #include "pluginterfaces/vst/ivstparameterchanges.h"
 
@@ -19,7 +17,7 @@
 #include "plugingui.h"
 
 // --- windows.h bug
-// #define ENABLE_WINDOWS_H 1
+#define ENABLE_WINDOWS_H 1
 
 #if MAC
 #include <CoreFoundation/CoreFoundation.h>
@@ -44,9 +42,19 @@ class GUIPluginConnector;
 class PluginHostConnector;
 class VSTMIDIEventQueue;
 
-// static const ProgramListID kProgramListId = 1;    ///< no programs are used in the unit.
+// --- sets up proxy MIDI CC parameters for one MIDI channel (these are shared across ALL MIDI channels)
+//     IF you want to have separate CC's decoded on separated channels, you need to duplicate this 15 (more) times
+//     see: https://forums.steinberg.net/t/vst3-and-midi-cc-pitfall/201879
+//
+// --- this sets up proxy parameters for the 128 MIDI CC [0, 127] + aftertouch [128] + pitchbend [129]
+//     thus the range of 130 IDs, from 1000 to 1129
+const ParamID baseCCParamID = 1000;       // *** VST3 MIDI CC Proxy Variables STATRT Channel 0, shared with all other channels
+const ParamID baseCCParamIDEnd = 1129;    // *** VST3 MIDI CC Proxy Variables END    Channel 0, shared with all other channels
 
-
+// --- MIDI helpers; replace with your own if needed
+const unsigned char CONTROL_CHANGE = 0xB0;
+const unsigned char CHANNEL_PRESSURE = 0xD0;
+const unsigned char PITCH_BEND = 0xE0;
 
 /**
 \class VST3Plugin
@@ -98,6 +106,31 @@ public:
 
 	/** IMidiMapping */
     virtual tresult PLUGIN_API getMidiControllerAssignment(int32 busIndex, int16 channel, CtrlNumber midiControllerNumber, ParamID& id/*out*/) override;
+    
+    // --- issue a MIDI CC message from a proxy parameter value
+    //     see: https://forums.steinberg.net/t/vst3-and-midi-cc-pitfall/201879
+    bool issueMIDICCProxyMessage(ParamID proxyParamID, ParamValue proxyParamValue);
+
+    // --- helper function for the proxy method
+    inline void unipolarDoubleToMIDI14_bit(double unipolarValue, uint32_t& midiDataLSB, uint32_t& midiDataMSB)
+    {
+        // --- convert to 16-bit unsigned short
+        unsigned short shValue = (unsigned short)(unipolarValue * (double)(0x4000));
+        unsigned short shd1 = shValue & 0x007F;
+
+        // --- shift back by 1
+        unsigned short shd2 = shValue << 1;
+
+        // --- split into MSB, LSB
+        shd2 = shd2 & 0x7F00;
+
+        // --- shift  MSB back to fill LSB position
+        shd2 = shd2 >> 8;
+
+        // --- copy into unsigned ints, fill lower portions
+        midiDataLSB = shd1;
+        midiDataMSB = shd2;
+    }
 
 	/** IPlugView: create our custom GUI */
     IPlugView* PLUGIN_API createView(const char* _name) override;
@@ -120,22 +153,10 @@ public:
 	/** our COM creation method */
 	static FUnknown* createInstance(void* context) {return (IAudioProcessor*)new VST3Plugin(); }
 
+    tresult PLUGIN_API setParamNormalized(ParamID tag, ParamValue value) override;
+
 	/** IUnitInfo */
-	//bool addUnit (Unit* unit);
-
-	/** for future compat; not curently supporting program lists; only have/need Factory Presets! */
-	bool addProgramList (ProgramList* list);
-	ProgramList* getProgramList(ProgramListID listId) const;
-	tresult notifyPogramListChange(ProgramListID listId, int32 programIndex = kAllProgramInvalid);
-
-	tresult PLUGIN_API setParamNormalized (ParamID tag, ParamValue value) override;
-    virtual int32 PLUGIN_API getProgramListCount() override;
-	virtual tresult PLUGIN_API getProgramListInfo(int32 listIndex, ProgramListInfo& info /*out*/) override;
 	virtual tresult PLUGIN_API getProgramName(ProgramListID listId, int32 programIndex, String128 name /*out*/) override;
-	virtual tresult PLUGIN_API getProgramInfo(ProgramListID listId, int32 programIndex, CString attributeId /*in*/, String128 attributeValue /*out*/) override;
-	virtual tresult PLUGIN_API hasProgramPitchNames(ProgramListID listId, int32 programIndex) override;
-	virtual tresult PLUGIN_API getProgramPitchName(ProgramListID listId, int32 programIndex, int16 midiPitch, String128 name /*out*/) override;
-    virtual tresult setProgramName(ProgramListID listId, int32 programIndex, const String128 name /*in*/) override;
 
 	/** from IDependent------------------ */
     virtual void PLUGIN_API update(FUnknown* changedUnknown, int32 message) override ;
@@ -727,9 +748,20 @@ public:
         pluginCore = _pluginCore;
     };
 
-    virtual ~VSTMIDIEventQueue(){}
+    virtual ~VSTMIDIEventQueue(){ clearMIDIProxyEvents(); }
 
 public:
+     // --- VST3 only for CC mess
+     void clearMIDIProxyEvents()
+     {
+         proxyMIDIEvents.clear();
+     }
+
+     void addMIDIProxyEvent(midiEvent& event)
+     {
+         proxyMIDIEvents.push_back(event);
+     }
+
     /** set a new list from VST host*/
     void setEventList(IEventList* _inputEvents)
     {
@@ -749,6 +781,15 @@ public:
     /** send MIDI event at this sample offset to core */
     virtual bool fireMidiEvents(unsigned int sampleOffset)
     {
+        if (sampleOffset == 0 && pluginCore)
+        {
+            uint32_t count = proxyMIDIEvents.size();
+            for (uint32_t i = 0; i < count; i++)
+            {
+                pluginCore->processMIDIEvent(proxyMIDIEvents[i]);
+            }
+        }
+
         if (!inputEvents)
            return false;
 
@@ -838,7 +879,10 @@ public:
                         currentEventIndex++;
                     }
                     else
+                    {
                         haveEvents = false;
+                        currentEventIndex++; // setup for next time
+                    }
                 }
                 else
                     haveEvents = false;
@@ -852,6 +896,8 @@ protected:
     PluginCore* pluginCore = nullptr; ///< the core object
     IEventList* inputEvents = nullptr;	///< the current event list for this buffer cycle
     unsigned int currentEventIndex = 0;	///< index of current event
+    std::vector<midiEvent> proxyMIDIEvents;
+
 };
 
 /**

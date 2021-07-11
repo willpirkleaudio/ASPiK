@@ -89,41 +89,15 @@ $(document).ready(function(){initNavTree('define_plugin10.html','');});
 <div class="title">Adding Factory Presets </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Adding factory presets to your ASPiK plugin project is fairly straightforward. The <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a> object contains a function named <b> <a class="el" href="class_plugin_core.html#afeda9bd5f14ddfa914955366505f5526" title="use this method to add new presets to the list ">PluginCore::initPluginPresets( )</a></b> and you will need to create <b><a class="el" href="struct_preset_info.html">PresetInfo</a></b> objects for each preset. This is easiest to explain with a few examples. You will need to:<br />
- <br />
- • create a new <a class="el" href="struct_preset_info.html">PresetInfo</a> object and give it a zero-based index value and a name string<br />
- • call the helper function <b>initPresetParameters( )</b> to setup the object<br />
- • call <b>setPresetParameter( )</b> for each <a class="el" href="class_plugin_parameter.html" title="The PluginParameter object stores all of the data needed for any type of plugin parameter. It is a large object, but it is not complex as it really just stores LOTS of information about plugin parameters. ">PluginParameter</a> object in your plugin, along with the control ID and value<br />
- • call the helper function <b>addPreset( )</b> to add the object to the plugin's list<br />
- <br />
- Here is a code example that will show you how it works - you only need to set the actual (not normalized) value for each parameter in the plugin:<br />
- <br />
- <b>bool <a class="el" href="class_plugin_core.html#afeda9bd5f14ddfa914955366505f5526" title="use this method to add new presets to the list ">PluginCore::initPluginPresets()</a></b><br />
- {<br />
- &emsp;// &mdash; Plugin Presets <br />
- &emsp;<b>int index = 0;</b><br />
- &emsp;<b>PresetInfo* preset = nullptr;</b><br />
- <br />
- &emsp;// &mdash; Preset: Factory Preset<br />
- &emsp;<b>preset = new <a class="el" href="struct_preset_info.html">PresetInfo</a>(index++, "Factory Preset");</b><br />
- &emsp;<b>initPresetParameters(preset-&gt;presetParameters);</b><br />
- &emsp;<b>setPresetParameter(preset-&gt;presetParameters, controlID::volume_dB, 0.000000);</b><br />
- &emsp;<b>setPresetParameter(preset-&gt;presetParameters, controlID::enableMute, -0.000000);</b><br />
- &emsp;<b>setPresetParameter(preset-&gt;presetParameters, controlID::channels, -0.000000);</b><br />
- &emsp;<b>addPreset(preset);</b><br />
- <br />
- &emsp;// &mdash; Preset: MinusTwelve<br />
- &emsp;<b>preset = new <a class="el" href="struct_preset_info.html">PresetInfo</a>(index++, "MinusTwelveLeft");</b><br />
- &emsp;<b>initPresetParameters(preset-&gt;presetParameters);</b><br />
- &emsp;<b>setPresetParameter(preset-&gt;presetParameters, controlID::volume_dB, -12.000000);</b><br />
- &emsp;<b>setPresetParameter(preset-&gt;presetParameters, controlID::enableMute, -0.000000);</b><br />
- &emsp;<b>setPresetParameter(preset-&gt;presetParameters, controlID::channels, 1.000);</b><br />
- &emsp;<b>addPreset(preset);</b><br />
- <br />
- &emsp;return true;<br />
- }<br />
- <br />
- If your plugin has a large number of parameters, you can use a built-in ASPiK exclusive to add a button to your GUI that will write a .txt file that contains the above code for one complete preset. You can then copy and paste that code right into your project. See the Plugin GUI section for more information on using this helper control.<br />
+<div class="textblock"><p>Adding factory presets to your ASPiK plugin project is fairly straightforward. The <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a> object contains a function named <b> <a class="el" href="class_plugin_core.html#afeda9bd5f14ddfa914955366505f5526" title="use this method to add new presets to the list ">PluginCore::initPluginPresets( )</a></b> and you will need to create <b><a class="el" href="struct_preset_info.html">PresetInfo</a></b> objects for each preset. This is easiest to explain with a few examples. You will need to:</p>
+<ol type="1">
+<li>create a new <a class="el" href="struct_preset_info.html">PresetInfo</a> object and give it a zero-based index value and a name string</li>
+<li>call the helper function <b>initPresetParameters( )</b> to setup the object</li>
+<li>call <b>setPresetParameter( )</b> for each <a class="el" href="class_plugin_parameter.html" title="The PluginParameter object stores all of the data needed for any type of plugin parameter. It is a large object, but it is not complex as it really just stores LOTS of information about plugin parameters. ">PluginParameter</a> object in your plugin, along with the control ID and value</li>
+<li>call the helper function <b>addPreset( )</b> to add the object to the plugin's list</li>
+</ol>
+<p>Here is a code example that will show you how it works - you only need to set the actual (not normalized) value for each parameter in the plugin:</p>
+<div class="fragment"><div class="line"><span class="comment">//</span></div><div class="line"><span class="keywordtype">bool</span> <a class="code" href="class_plugin_core.html#afeda9bd5f14ddfa914955366505f5526">PluginCore::initPluginPresets</a>()</div><div class="line">{</div><div class="line">   <span class="comment">// --- Plugin Presets </span></div><div class="line">   <span class="keywordtype">int</span> index = 0;</div><div class="line">   <a class="code" href="struct_preset_info.html">PresetInfo</a>* preset = <span class="keyword">nullptr</span>;</div><div class="line"></div><div class="line">   <span class="comment">// --- Preset: Factory Preset</span></div><div class="line">   preset = <span class="keyword">new</span> <a class="code" href="struct_preset_info.html">PresetInfo</a>(index++, <span class="stringliteral">&quot;Factory Preset&quot;</span>);</div><div class="line">   <a class="code" href="class_plugin_base.html#a5212e269dcf3d3b9ccea6c4c2bba90de">initPresetParameters</a>(preset-&gt;<a class="code" href="struct_preset_info.html#addfe6fc2b60312628fcf04efd66e8e49">presetParameters</a>);</div><div class="line">   <a class="code" href="class_plugin_base.html#a0fcf20dbb275556627f307555742745e">setPresetParameter</a>(preset-&gt;<a class="code" href="struct_preset_info.html#addfe6fc2b60312628fcf04efd66e8e49">presetParameters</a>, controlID::volume_dB, 0.000000);</div><div class="line">   <a class="code" href="class_plugin_base.html#a0fcf20dbb275556627f307555742745e">setPresetParameter</a>(preset-&gt;<a class="code" href="struct_preset_info.html#addfe6fc2b60312628fcf04efd66e8e49">presetParameters</a>, controlID::enableMute, -0.000000);</div><div class="line">   <a class="code" href="class_plugin_base.html#a0fcf20dbb275556627f307555742745e">setPresetParameter</a>(preset-&gt;<a class="code" href="struct_preset_info.html#addfe6fc2b60312628fcf04efd66e8e49">presetParameters</a>, controlID::channels, -0.000000);</div><div class="line">   <a class="code" href="class_plugin_base.html#a021d38844c32cc8c0ac08e54ae27238d">addPreset</a>(preset);</div><div class="line"></div><div class="line">   <span class="comment">// --- Preset: MinusTwelve</span></div><div class="line">   preset = <span class="keyword">new</span> <a class="code" href="struct_preset_info.html">PresetInfo</a>(index++, <span class="stringliteral">&quot;MinusTwelveLeft&quot;</span>);</div><div class="line">   <a class="code" href="class_plugin_base.html#a5212e269dcf3d3b9ccea6c4c2bba90de">initPresetParameters</a>(preset-&gt;<a class="code" href="struct_preset_info.html#addfe6fc2b60312628fcf04efd66e8e49">presetParameters</a>);</div><div class="line">   <a class="code" href="class_plugin_base.html#a0fcf20dbb275556627f307555742745e">setPresetParameter</a>(preset-&gt;<a class="code" href="struct_preset_info.html#addfe6fc2b60312628fcf04efd66e8e49">presetParameters</a>, controlID::volume_dB, -12.000000);</div><div class="line">   <a class="code" href="class_plugin_base.html#a0fcf20dbb275556627f307555742745e">setPresetParameter</a>(preset-&gt;<a class="code" href="struct_preset_info.html#addfe6fc2b60312628fcf04efd66e8e49">presetParameters</a>, controlID::enableMute, -0.000000);</div><div class="line">   <a class="code" href="class_plugin_base.html#a0fcf20dbb275556627f307555742745e">setPresetParameter</a>(preset-&gt;<a class="code" href="struct_preset_info.html#addfe6fc2b60312628fcf04efd66e8e49">presetParameters</a>, controlID::channels, 1.000);</div><div class="line">   <a class="code" href="class_plugin_base.html#a021d38844c32cc8c0ac08e54ae27238d">addPreset</a>(preset);</div><div class="line"></div><div class="line">   <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line">}</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>If your plugin has a large number of parameters, you can use a built-in ASPiK exclusive to add a button to your GUI that will write a .txt file that contains the above code for one complete preset. You can then copy and paste that code right into your project. See the Plugin GUI section for more information on using this helper control.<br />
  <br />
  </p>
 </div></div><!-- contents -->

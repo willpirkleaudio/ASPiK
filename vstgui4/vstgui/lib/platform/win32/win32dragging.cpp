@@ -186,7 +186,7 @@ bool Win32DraggingSession::doDrag (const DragDescription& dragDescription, const
 CDropTarget::CDropTarget (Win32Frame* pFrame)
 : refCount (0)
 , pFrame (pFrame)
-, dragData (0)
+, dragData (nullptr)
 {
 }
 
@@ -196,7 +196,7 @@ CDropTarget::~CDropTarget () noexcept
 }
 
 //-----------------------------------------------------------------------------
-STDMETHODIMP CDropTarget::QueryInterface (REFIID riid, void** object)
+COM_DECLSPEC_NOTHROW STDMETHODIMP CDropTarget::QueryInterface (REFIID riid, void** object)
 {
 	if (riid == IID_IDropTarget || riid == IID_IUnknown)
 	{
@@ -204,18 +204,18 @@ STDMETHODIMP CDropTarget::QueryInterface (REFIID riid, void** object)
 		AddRef ();
       return NOERROR;
 	}
-	*object = 0;
+	*object = nullptr;
 	return E_NOINTERFACE;
 }
 
 //-----------------------------------------------------------------------------
-STDMETHODIMP_(ULONG) CDropTarget::AddRef (void)
+COM_DECLSPEC_NOTHROW STDMETHODIMP_(ULONG) CDropTarget::AddRef ()
 {
 	return static_cast<ULONG> (++refCount);
 }
 
 //-----------------------------------------------------------------------------
-STDMETHODIMP_(ULONG) CDropTarget::Release (void)
+COM_DECLSPEC_NOTHROW STDMETHODIMP_(ULONG) CDropTarget::Release ()
 {
 	refCount--;
 	if (refCount <= 0)
@@ -227,7 +227,7 @@ STDMETHODIMP_(ULONG) CDropTarget::Release (void)
 }
 
 //-----------------------------------------------------------------------------
-STDMETHODIMP CDropTarget::DragEnter (IDataObject* dataObject, DWORD keyState, POINTL pt, DWORD* effect)
+COM_DECLSPEC_NOTHROW STDMETHODIMP CDropTarget::DragEnter (IDataObject* dataObject, DWORD keyState, POINTL pt, DWORD* effect)
 {
 	if (dataObject && pFrame)
 	{
@@ -251,7 +251,7 @@ STDMETHODIMP CDropTarget::DragEnter (IDataObject* dataObject, DWORD keyState, PO
 }
 
 //-----------------------------------------------------------------------------
-STDMETHODIMP CDropTarget::DragOver (DWORD keyState, POINTL pt, DWORD* effect)
+COM_DECLSPEC_NOTHROW STDMETHODIMP CDropTarget::DragOver (DWORD keyState, POINTL pt, DWORD* effect)
 {
 	if (dragData && pFrame)
 	{
@@ -271,7 +271,7 @@ STDMETHODIMP CDropTarget::DragOver (DWORD keyState, POINTL pt, DWORD* effect)
 }
 
 //-----------------------------------------------------------------------------
-STDMETHODIMP CDropTarget::DragLeave (void)
+COM_DECLSPEC_NOTHROW STDMETHODIMP CDropTarget::DragLeave ()
 {
 	if (dragData && pFrame)
 	{
@@ -287,7 +287,7 @@ STDMETHODIMP CDropTarget::DragLeave (void)
 }
 
 //-----------------------------------------------------------------------------
-STDMETHODIMP CDropTarget::Drop (IDataObject* dataObject, DWORD keyState, POINTL pt, DWORD* effect)
+COM_DECLSPEC_NOTHROW STDMETHODIMP CDropTarget::Drop (IDataObject* dataObject, DWORD keyState, POINTL pt, DWORD* effect)
 {
 	if (dragData && pFrame)
 	{
@@ -305,7 +305,7 @@ STDMETHODIMP CDropTarget::Drop (IDataObject* dataObject, DWORD keyState, POINTL 
 //-----------------------------------------------------------------------------
 // Win32DropSource
 //-----------------------------------------------------------------------------
-STDMETHODIMP Win32DropSource::QueryInterface (REFIID riid, void** object)
+COM_DECLSPEC_NOTHROW STDMETHODIMP Win32DropSource::QueryInterface (REFIID riid, void** object)
 {
 	if (riid == ::IID_IDropSource)
 	{
@@ -323,7 +323,7 @@ STDMETHODIMP Win32DropSource::QueryInterface (REFIID riid, void** object)
 }
 
 //-----------------------------------------------------------------------------
-STDMETHODIMP Win32DropSource::QueryContinueDrag (BOOL escapePressed, DWORD keyState)
+COM_DECLSPEC_NOTHROW STDMETHODIMP Win32DropSource::QueryContinueDrag (BOOL escapePressed, DWORD keyState)
 {
 	if (escapePressed)
 		return DRAGDROP_S_CANCEL;
@@ -335,7 +335,7 @@ STDMETHODIMP Win32DropSource::QueryContinueDrag (BOOL escapePressed, DWORD keySt
 }
 
 //-----------------------------------------------------------------------------
-STDMETHODIMP Win32DropSource::GiveFeedback (DWORD effect)
+COM_DECLSPEC_NOTHROW STDMETHODIMP Win32DropSource::GiveFeedback (DWORD effect)
 {
 	return DRAGDROP_S_USEDEFAULTCURSORS;
 }
@@ -356,7 +356,7 @@ Win32DataObject::~Win32DataObject () noexcept
 }
 
 //-----------------------------------------------------------------------------
-STDMETHODIMP Win32DataObject::QueryInterface (REFIID riid, void** object)
+COM_DECLSPEC_NOTHROW STDMETHODIMP Win32DataObject::QueryInterface (REFIID riid, void** object)
 {
 	if (riid == ::IID_IDataObject)                        
 	{                                                              
@@ -374,11 +374,11 @@ STDMETHODIMP Win32DataObject::QueryInterface (REFIID riid, void** object)
 }
 
 //-----------------------------------------------------------------------------
-STDMETHODIMP Win32DataObject::GetData (FORMATETC* format, STGMEDIUM* medium)
+COM_DECLSPEC_NOTHROW STDMETHODIMP Win32DataObject::GetData (FORMATETC* format, STGMEDIUM* medium)
 {
 	medium->tymed = 0;
-	medium->hGlobal = 0;
-	medium->pUnkForRelease = 0;
+	medium->hGlobal = nullptr;
+	medium->pUnkForRelease = nullptr;
 
 	if (format->cfFormat == CF_TEXT || format->cfFormat == CF_UNICODETEXT)
 	{
@@ -391,7 +391,7 @@ STDMETHODIMP Win32DataObject::GetData (FORMATETC* format, STGMEDIUM* medium)
 				uint32_t bufferSize = dataPackage->getData (i, buffer, type);
 				UTF8StringHelper utf8String (static_cast<const char*> (buffer), bufferSize);
 				SIZE_T size = 0;
-				const void* data = 0;
+				const void* data = nullptr;
 				if (format->cfFormat == CF_UNICODETEXT)
 				{
 					size = bufferSize * sizeof (WCHAR);
@@ -405,8 +405,9 @@ STDMETHODIMP Win32DataObject::GetData (FORMATETC* format, STGMEDIUM* medium)
 				if (data && size > 0)
 				{
 					HGLOBAL	memoryHandle = GlobalAlloc (GMEM_MOVEABLE, size); 
-					void* memory = GlobalLock (memoryHandle);
-					if (memory)
+					if (!memoryHandle)
+						return E_OUTOFMEMORY;
+					if (void* memory = GlobalLock (memoryHandle))
 					{
 						memcpy (memory, data, size);
 						GlobalUnlock (memoryHandle);
@@ -422,7 +423,10 @@ STDMETHODIMP Win32DataObject::GetData (FORMATETC* format, STGMEDIUM* medium)
 	else if (format->cfFormat == CF_HDROP)
 	{
 		HRESULT result = E_UNEXPECTED;
-		UTF8StringHelper** wideStringFileNames = (UTF8StringHelper**)std::malloc (sizeof (UTF8StringHelper*) * dataPackage->getCount ());
+		auto** wideStringFileNames = (UTF8StringHelper**)std::malloc (sizeof (UTF8StringHelper*) * dataPackage->getCount ());
+		if (!wideStringFileNames)
+			return result;
+		
 		memset (wideStringFileNames, 0, sizeof (UTF8StringHelper*) * dataPackage->getCount ());
 		uint32_t fileNamesIndex = 0;
 		uint32_t bufferSizeNeeded = 0;
@@ -442,32 +446,35 @@ STDMETHODIMP Win32DataObject::GetData (FORMATETC* format, STGMEDIUM* medium)
 		bufferSizeNeeded++;
 		bufferSizeNeeded *= sizeof (WCHAR);
 		bufferSizeNeeded += sizeof (DROPFILES);
-		HGLOBAL	memoryHandle = GlobalAlloc (GMEM_MOVEABLE, bufferSizeNeeded); 
-		void* memory = GlobalLock (memoryHandle);
-		if (memory)
+		if (HGLOBAL memoryHandle = GlobalAlloc (GMEM_MOVEABLE, bufferSizeNeeded))
 		{
-			DROPFILES* dropFiles = (DROPFILES*)memory;
-			dropFiles->pFiles = sizeof (DROPFILES);
-			dropFiles->pt.x   = 0; 
-			dropFiles->pt.y   = 0;
-			dropFiles->fNC    = FALSE;
-			dropFiles->fWide  = TRUE;
-			int8_t* memAddr = ((int8_t*)memory) + sizeof (DROPFILES);
-			for (uint32_t i = 0; i < fileNamesIndex; i++)
+			if (void* memory = GlobalLock (memoryHandle))
 			{
-				size_t len = (wcslen (wideStringFileNames[i]->getWideString ()) + 1) * 2;
-				memcpy (memAddr, wideStringFileNames[i]->getWideString (), len);
-				memAddr += len;
+				auto* dropFiles = (DROPFILES*)memory;
+				dropFiles->pFiles = sizeof (DROPFILES);
+				dropFiles->pt.x = 0;
+				dropFiles->pt.y = 0;
+				dropFiles->fNC = FALSE;
+				dropFiles->fWide = TRUE;
+				int8_t* memAddr = ((int8_t*)memory) + sizeof (DROPFILES);
+				for (uint32_t i = 0; i < fileNamesIndex; i++)
+				{
+					size_t len = (wcslen (wideStringFileNames[i]->getWideString ()) + 1) * 2;
+					memcpy (memAddr, wideStringFileNames[i]->getWideString (), len);
+					memAddr += len;
+				}
+				*memAddr = 0;
+				memAddr++;
+				*memAddr = 0;
+				memAddr++;
+				GlobalUnlock (memoryHandle);
+				medium->hGlobal = memoryHandle;
+				medium->tymed = TYMED_HGLOBAL;
+				result = S_OK;
 			}
-			*memAddr = 0;
-			memAddr++;
-			*memAddr = 0;
-			memAddr++;
-			GlobalUnlock (memoryHandle);
-			medium->hGlobal = memoryHandle;
-			medium->tymed = TYMED_HGLOBAL;
-			result = S_OK;
 		}
+		else
+			result = E_OUTOFMEMORY;
 		for (uint32_t i = 0; i < fileNamesIndex; i++)
 			delete wideStringFileNames[i];
 		std::free (wideStringFileNames);
@@ -484,8 +491,10 @@ STDMETHODIMP Win32DataObject::GetData (FORMATETC* format, STGMEDIUM* medium)
 				uint32_t bufferSize = dataPackage->getData (i, buffer, type);
 
 				HGLOBAL	memoryHandle = GlobalAlloc (GMEM_MOVEABLE, bufferSize); 
-				void* memory = GlobalLock (memoryHandle);
-				if (memory)
+				if (!memoryHandle)
+					return E_OUTOFMEMORY;
+
+				if (void* memory = GlobalLock (memoryHandle))
 				{
 					memcpy (memory, buffer, bufferSize);
 					GlobalUnlock (memoryHandle);
@@ -502,13 +511,13 @@ STDMETHODIMP Win32DataObject::GetData (FORMATETC* format, STGMEDIUM* medium)
 }
 
 //-----------------------------------------------------------------------------
-STDMETHODIMP Win32DataObject::GetDataHere (FORMATETC *format, STGMEDIUM *pmedium)
+COM_DECLSPEC_NOTHROW STDMETHODIMP Win32DataObject::GetDataHere (FORMATETC *format, STGMEDIUM *pmedium)
 {
 	return E_NOTIMPL;
 }
 
 //-----------------------------------------------------------------------------
-STDMETHODIMP Win32DataObject::QueryGetData (FORMATETC *format)
+COM_DECLSPEC_NOTHROW STDMETHODIMP Win32DataObject::QueryGetData (FORMATETC *format)
 {
 	if (format->cfFormat == CF_TEXT || format->cfFormat == CF_UNICODETEXT)
 	{
@@ -538,13 +547,13 @@ STDMETHODIMP Win32DataObject::QueryGetData (FORMATETC *format)
 }
 
 //-----------------------------------------------------------------------------
-STDMETHODIMP Win32DataObject::GetCanonicalFormatEtc (FORMATETC *formatIn, FORMATETC *formatOut)
+COM_DECLSPEC_NOTHROW STDMETHODIMP Win32DataObject::GetCanonicalFormatEtc (FORMATETC *formatIn, FORMATETC *formatOut)
 {
 	return E_NOTIMPL;
 }
 
 //-----------------------------------------------------------------------------
-STDMETHODIMP Win32DataObject::SetData (FORMATETC *pformatetc, STGMEDIUM *pmedium, BOOL fRelease)
+COM_DECLSPEC_NOTHROW STDMETHODIMP Win32DataObject::SetData (FORMATETC *pformatetc, STGMEDIUM *pmedium, BOOL fRelease)
 {
 	return E_NOTIMPL;
 }
@@ -554,7 +563,7 @@ struct Win32DataObjectEnumerator : IEnumFORMATETC, AtomicReferenceCounted
 {
 	Win32DataObjectEnumerator (const SharedPointer<IDataPackage>& data) : data (data) {}
 
-	HRESULT STDMETHODCALLTYPE QueryInterface (REFIID riid, void** object) override
+	COM_DECLSPEC_NOTHROW HRESULT STDMETHODCALLTYPE QueryInterface (REFIID riid, void** object) override
 	{
 		if (riid == ::IID_IEnumFORMATETC)
 		{
@@ -571,19 +580,19 @@ struct Win32DataObjectEnumerator : IEnumFORMATETC, AtomicReferenceCounted
 		return E_NOINTERFACE;
 	}
 
-	ULONG STDMETHODCALLTYPE AddRef (void) override
+	COM_DECLSPEC_NOTHROW ULONG STDMETHODCALLTYPE AddRef () override
 	{
 		remember ();
 		return static_cast<ULONG> (getNbReference ());
 	}
-	ULONG STDMETHODCALLTYPE Release (void) override
+	COM_DECLSPEC_NOTHROW ULONG STDMETHODCALLTYPE Release () override
 	{
 		ULONG refCount = static_cast<ULONG> (getNbReference ()) - 1;
 		forget ();
 		return refCount;
 	}
 
-	HRESULT STDMETHODCALLTYPE Next (ULONG celt, FORMATETC* rgelt, ULONG* pceltFetched) override
+	COM_DECLSPEC_NOTHROW HRESULT STDMETHODCALLTYPE Next (ULONG celt, FORMATETC* rgelt, ULONG* pceltFetched) override
 	{
 		if (!rgelt)
 			return E_INVALIDARG;
@@ -617,7 +626,7 @@ struct Win32DataObjectEnumerator : IEnumFORMATETC, AtomicReferenceCounted
 		return S_FALSE;
 	}
 
-	HRESULT STDMETHODCALLTYPE Skip (ULONG celt) override
+	COM_DECLSPEC_NOTHROW HRESULT STDMETHODCALLTYPE Skip (ULONG celt) override
 	{
 		if (index + celt >= data->getCount ())
 			return S_FALSE;
@@ -625,13 +634,13 @@ struct Win32DataObjectEnumerator : IEnumFORMATETC, AtomicReferenceCounted
 		return S_OK;
 	}
 
-	HRESULT STDMETHODCALLTYPE Reset (void) override
+	COM_DECLSPEC_NOTHROW HRESULT STDMETHODCALLTYPE Reset () override
 	{
 		index = 0;
 		return S_OK;
 	}
 
-	HRESULT STDMETHODCALLTYPE Clone (IEnumFORMATETC** ppenum) override
+	COM_DECLSPEC_NOTHROW HRESULT STDMETHODCALLTYPE Clone (IEnumFORMATETC** ppenum) override
 	{
 		return E_NOTIMPL;
 	}
@@ -641,7 +650,7 @@ struct Win32DataObjectEnumerator : IEnumFORMATETC, AtomicReferenceCounted
 };
 
 //-----------------------------------------------------------------------------
-STDMETHODIMP Win32DataObject::EnumFormatEtc (DWORD dwDirection, IEnumFORMATETC** ppenumFormatEtc)
+COM_DECLSPEC_NOTHROW STDMETHODIMP Win32DataObject::EnumFormatEtc (DWORD dwDirection, IEnumFORMATETC** ppenumFormatEtc)
 {
 	if (dwDirection != DATADIR_GET)
 		return E_INVALIDARG;
@@ -652,19 +661,19 @@ STDMETHODIMP Win32DataObject::EnumFormatEtc (DWORD dwDirection, IEnumFORMATETC**
 }
 
 //-----------------------------------------------------------------------------
-STDMETHODIMP Win32DataObject::DAdvise (FORMATETC* pformatetc, DWORD advf, IAdviseSink* pAdvSink, DWORD* pdwConnection)
+COM_DECLSPEC_NOTHROW STDMETHODIMP Win32DataObject::DAdvise (FORMATETC* pformatetc, DWORD advf, IAdviseSink* pAdvSink, DWORD* pdwConnection)
 {
 	return E_NOTIMPL;
 }
 
 //-----------------------------------------------------------------------------
-STDMETHODIMP Win32DataObject::DUnadvise (DWORD dwConnection)
+COM_DECLSPEC_NOTHROW STDMETHODIMP Win32DataObject::DUnadvise (DWORD dwConnection)
 {
 	return E_NOTIMPL;
 }
 
 //-----------------------------------------------------------------------------
-STDMETHODIMP Win32DataObject::EnumDAdvise (IEnumSTATDATA** ppenumAdvise)
+COM_DECLSPEC_NOTHROW STDMETHODIMP Win32DataObject::EnumDAdvise (IEnumSTATDATA** ppenumAdvise)
 {
 	return E_NOTIMPL;
 }
@@ -786,15 +795,17 @@ void Win32DragBitmapWindow::paint ()
 	rect.setWidth (clientRect.right - clientRect.left);
 	rect.setHeight (clientRect.bottom - clientRect.top);
 
-	auto drawContext = owned (createDrawContext (hwnd, hdc, rect));
-	drawContext->beginDraw ();
+	if (auto drawContext = owned (createDrawContext (hwnd, hdc, rect)))
+	{
+		drawContext->beginDraw ();
 
-	drawContext->clearRect (rect);
-	drawContext->setGlobalAlpha (0.9f);
-	CDrawContext::Transform t (*drawContext, CGraphicsTransform ().scale (scaleFactor, scaleFactor));
-	bitmap->draw (drawContext, rect);
+		drawContext->clearRect (rect);
+		drawContext->setGlobalAlpha (0.9f);
+		CDrawContext::Transform t (*drawContext, CGraphicsTransform ().scale (scaleFactor, scaleFactor));
+		bitmap->draw (drawContext, rect);
 
-	drawContext->endDraw ();
+		drawContext->endDraw ();
+	}
 	EndPaint (hwnd, &ps);
 }
 

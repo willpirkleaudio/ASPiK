@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['design_20the_20sub_2dcontroller',['Design the Sub-Controller',['../cs2.html',1,'guiDesigner12']]],
-  ['design_20the_20custom_20view_20objects',['Design the Custom View Objects',['../cv4.html',1,'guiDesigner11']]],
-  ['design_20the_20gui',['Design the GUI',['../define_g_u_i5.html',1,'guiDesign']]],
-  ['design_20a_20gui',['Design a GUI',['../gui_design.html',1,'index']]]
+  ['example_20projects',['Example Projects',['../aspik_samples.html',1,'index']]],
+  ['enumerating_20the_20plugin_20parameters',['Enumerating the Plugin Parameters',['../define_plugin3.html',1,'simplePlugin']]],
+  ['extended_20kickbutton_20and_20textbutton',['Extended KickButton and TextButton',['../gui_designer11_a.html',1,'defineGUI6']]]
 ];

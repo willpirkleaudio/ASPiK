@@ -91,74 +91,10 @@ $(document).ready(function(){initNavTree('cv9.html','');});
 <div class="contents">
 <div class="textblock"><p>We implemented custom knob as an example of using the same lock-free ring buffer concept to move messages between the plugin core and the custom objects as opposed to moving audio data. Here we have set up a custom data structure that contains the messaging information - some basic stuff is there and you are encouraged to experiment with your own messaging and custom view work. In this example, we will pick up the knob's custom view interface pointer and use it to send a custom message to the object, which will acknowledge back (pretty cool, huh?).<br />
  <br />
- The custom message structure is shown below; in this example, we are only going to use the two std::strings, one to query the object and the other to access information it returns to us:<br />
- <br />
- <b>struct CustomViewMessage </b><br />
- {<br />
- &emsp;// &mdash; show/hide flag<br />
- &emsp;unsigned int message = MESSAGE_HIDE_CONTROL;<br />
- <br />
- &emsp;bool visible = true;<br />
- &emsp;bool showAlternateGraphic = false;<br />
- &emsp;double controlAlpha = 1.0; // transparency: 0 = invisible (100% transparent) and 1 = solidly visible (0% transparent)<br />
- &emsp;<b>std::string queryString;</b><br />
- &emsp;<b>std::string replyString;</b><br />
- &emsp;void* messageData = nullptr;<br />
- };<br />
- <br />
- In the <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a>, we'll communicate with the knob when the custom view is registered (only as an example - you can experiment with this all you like). The code for the PLUGINGUI_REGISTER_CUSTOMVIEW is shown here (it follows the registration code for the two custom audio viewer objects). Set a breakpoint in the debugger and run the plugin - when you open the GUI, you can check the communication and reply you get back by examining the return string. Notice also that we set up this object so that it copies it's "this" poitner into the messageData variable on the message data structure. Using this, you can (in theory) obtain a pointer to the underlying object itself, HOWEVER THIS IS NOT RECOMMENDED AS IT IS VERY DANGEROUS CODING.<br />
- <br />
- <b>if (messageInfo.inMessageString.compare("CustomKnobView") == 0) </b><br />
- {<br />
- &emsp;// &mdash; (1) get the custom view interface via incoming message data*<br />
- &emsp;<b>if (knobView != static_cast&lt;ICustomView*&gt;(messageInfo.inMessageData))</b><br />
- &emsp;&emsp;<b> knobView = static_cast&lt;ICustomView*&gt;(messageInfo.inMessageData);</b><br />
- <br />
- &emsp;if (!knobView) return false;<br />
- <br />
- &emsp;// &mdash; send the view a message<br />
- &emsp;<b>CustomViewMessage knobMessage;</b><br />
- &emsp;<b>knobMessage.message = MESSAGE_QUERY_CONTROL;</b><br />
- &emsp;<b>knobMessage.queryString.assign("Hello There!");</b><br />
- <br />
- &emsp;// &mdash; send the message<br />
- &emsp;<b>knobView-&gt;sendMessage(&amp;knobMessage);</b><br />
- <br />
- &emsp;// &mdash; check the reply string<br />
- &emsp;<b>const char* reply = knobMessage.replyString.c_str();</b><br />
- <br />
- &emsp;// &mdash; this will dequeue the object's ring buffer<br />
- &emsp;knobView-&gt;updateView();<br />
- <br />
- &emsp;// &mdash; DO NOT DO THIS!!! (but it is possible)<br />
- &emsp;//CAnimKnob* customKnob = static_cast&lt;CAnimKnob*&gt;(knobMessage.messageData);<br />
- <br />
- &emsp;// &mdash; registered!<br />
- &emsp;return true;<br />
- }<br />
- <br />
- The knob's ::sendMessage( ) function that decodes the query, fixes the reply, and (risky) copies its THIS pointer to the message structure is here:<br />
- <br />
- <b>void CustomKnobView::sendMessage(void* data)</b><br />
- {<br />
- &emsp;<b>CustomViewMessage* viewMessage = static_cast&lt;CustomViewMessage*&gt;(data);</b><br />
- &emsp;if (!viewMessage) return;<br />
-</p>
-<p>&emsp;if (viewMessage-&gt;message == MESSAGE_QUERY_CONTROL)<br />
- &emsp;{<br />
- &emsp;&emsp;<b>if (viewMessage-&gt;queryString.compare("Hello There!") == 0)</b><br />
- &emsp;&emsp;{<br />
- &emsp;&emsp;&emsp;<b>viewMessage-&gt;replyString.assign("I'm Here!!");</b><br />
- &emsp;&emsp;&emsp;<b>viewMessage-&gt;messageData = this; </b>// &lt;&ndash; example of VERY risky thing to do; not recommended<br />
- &emsp;&emsp;}<br />
- &emsp;&emsp;return; // do not process further<br />
- &emsp;}<br />
- <br />
- &emsp;// &mdash;&gt;&gt; CustomViewMessage has =operator<br />
- &emsp;<b>dataQueue-&gt;enqueue(*viewMessage);</b><br />
- }<br />
- <br />
- At the end of the function, the message is added to the local lock-free ring buffer queue for further processing (not needed here) and in the updateView() method the ring-buffer is emptied (note that we called it after getting the reply message in the previous function).<br />
+ The custom message structure is shown below; in this example, we are only going to use the two std::strings, one to query the object and the other to access information it returns to us:</p>
+<div class="fragment"><div class="line"><span class="keyword">struct </span>CustomViewMessage </div><div class="line">{</div><div class="line">   <span class="comment">// --- show/hide flag</span></div><div class="line">   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> message = MESSAGE_HIDE_CONTROL;</div><div class="line"></div><div class="line">   <span class="keywordtype">bool</span> visible = <span class="keyword">true</span>;</div><div class="line">   <span class="keywordtype">bool</span> showAlternateGraphic = <span class="keyword">false</span>;</div><div class="line">   <span class="keywordtype">double</span> controlAlpha = 1.0; <span class="comment">// transparency: 0 = invisible (100% transparent) and 1 = solidly visible (0% transparent)</span></div><div class="line">   std::string queryString;</div><div class="line">   std::string replyString;</div><div class="line">   <span class="keywordtype">void</span>* messageData = <span class="keyword">nullptr</span>;</div><div class="line">};</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>In the <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a>, we'll communicate with the knob when the custom view is registered (only as an example - you can experiment with this all you like). The code for the PLUGINGUI_REGISTER_CUSTOMVIEW is shown here (it follows the registration code for the two custom audio viewer objects). Set a breakpoint in the debugger and run the plugin - when you open the GUI, you can check the communication and reply you get back by examining the return string. Notice also that we set up this object so that it copies it's "this" poitner into the messageData variable on the message data structure. Using this, you can (in theory) obtain a pointer to the underlying object itself, <b>HOWEVER THIS IS NOT RECOMMENDED AS IT IS VERY DANGEROUS WAY OF CODING</b>.</p>
+<div class="fragment"><div class="line"><span class="keywordflow">if</span> (messageInfo.<a class="code" href="struct_message_info.html#ab0600e93ca0b692670c301a269d64c56">inMessageString</a>.compare(<span class="stringliteral">&quot;CustomKnobView&quot;</span>) == 0) </div><div class="line">{</div><div class="line">   <span class="comment">// --- (1) get the custom view interface via incoming message data*</span></div><div class="line">   <span class="keywordflow">if</span> (knobView != static_cast&lt;ICustomView*&gt;(messageInfo.<a class="code" href="struct_message_info.html#a7a5400b80ef813190902ad1b96a20f72">inMessageData</a>))</div><div class="line">      knobView = static_cast&lt;ICustomView*&gt;(messageInfo.<a class="code" href="struct_message_info.html#a7a5400b80ef813190902ad1b96a20f72">inMessageData</a>);</div><div class="line"></div><div class="line">   <span class="keywordflow">if</span> (!knobView) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line"></div><div class="line">   <span class="comment">// --- send the view a message</span></div><div class="line">   CustomViewMessage knobMessage;</div><div class="line">   knobMessage.message = MESSAGE_QUERY_CONTROL;</div><div class="line">   knobMessage.queryString.assign(<span class="stringliteral">&quot;Hello There!&quot;</span>);</div><div class="line"></div><div class="line">   <span class="comment">// --- send the message</span></div><div class="line">   knobView-&gt;sendMessage(&amp;knobMessage);</div><div class="line"></div><div class="line">   <span class="comment">// --- check the reply string</span></div><div class="line">   <span class="keyword">const</span> <span class="keywordtype">char</span>* reply = knobMessage.replyString.c_str();</div><div class="line"></div><div class="line">   <span class="comment">// --- this will dequeue the object&#39;s ring buffer</span></div><div class="line">   knobView-&gt;updateView();</div><div class="line"></div><div class="line">   <span class="comment">// --- DO NOT DO THIS!!! (but it is possible)</span></div><div class="line">   <span class="comment">//CAnimKnob* customKnob = static_cast&lt;CAnimKnob*&gt;(knobMessage.messageData);</span></div><div class="line"></div><div class="line">   <span class="comment">// --- registered!</span></div><div class="line">   <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line">}</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>The knob's ::sendMessage( ) function that decodes the query, fixes the reply, and (risky) copies its THIS pointer to the message structure is here:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> CustomKnobView::sendMessage(<span class="keywordtype">void</span>* data)</div><div class="line">{</div><div class="line">   CustomViewMessage* viewMessage = <span class="keyword">static_cast&lt;</span>CustomViewMessage*<span class="keyword">&gt;</span>(data);</div><div class="line">   <span class="keywordflow">if</span> (!viewMessage) <span class="keywordflow">return</span>;</div><div class="line"></div><div class="line">   <span class="keywordflow">if</span> (viewMessage-&gt;message == MESSAGE_QUERY_CONTROL)</div><div class="line">   {</div><div class="line">      <span class="keywordflow">if</span> (viewMessage-&gt;queryString.compare(<span class="stringliteral">&quot;Hello There!&quot;</span>) == 0)</div><div class="line">      {</div><div class="line">         viewMessage-&gt;replyString.assign(<span class="stringliteral">&quot;I&#39;m Here!!&quot;</span>);</div><div class="line">         viewMessage-&gt;messageData = <span class="keyword">this</span>; <span class="comment">// &lt;-- example of VERY risky thing to do; not recommended</span></div><div class="line">      }</div><div class="line">   </div><div class="line">      <span class="keywordflow">return</span>; <span class="comment">// do not process further</span></div><div class="line">   }</div><div class="line"></div><div class="line">   <span class="comment">// ---&gt;&gt; CustomViewMessage has =operator</span></div><div class="line">   dataQueue-&gt;enqueue(*viewMessage);</div><div class="line">}</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>At the end of the function, the message is added to the local lock-free ring buffer queue for further processing (not needed here) and in the updateView() method the ring-buffer is emptied (note that we called it after getting the reply message in the previous function).<br />
  <br />
  </p>
 </div></div><!-- contents -->
