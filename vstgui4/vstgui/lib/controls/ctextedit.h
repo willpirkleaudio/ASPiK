@@ -5,6 +5,7 @@
 #pragma once
 
 #include "ctextlabel.h"
+#include "../dispatchlist.h"
 #include "../platform/iplatformtextedit.h"
 #include <functional>
 
@@ -60,13 +61,16 @@ public:
 	
 	virtual void setPlaceholderString (const UTF8String& str);
 	const UTF8String& getPlaceholderString () const { return placeholderString; }
+
+	void registerTextEditListener (ITextEditListener* listener);
+	void unregisterTextEditListener (ITextEditListener* listener);
 	//@}
 
 	// overrides
 	void setText (const UTF8String& txt) override;
 	void valueChanged () override;
 	void setValue (float val) override;
-	void setTextRotation (double angle) override { return; } // not supported
+	void setTextRotation (double angle) override { } // not supported
 
 	void draw (CDrawContext* pContext) override;
 	CMouseEventResult onMouseDown (CPoint& where, const CButtonState& buttons) override;
@@ -112,6 +116,7 @@ protected:
 	bool secureStyle {false};
 	mutable SharedPointer<CFontDesc> platformFont;
 	UTF8String placeholderString;
+	DispatchList<ITextEditListener*> textEditListeners;
 };
 
 } // VSTGUI

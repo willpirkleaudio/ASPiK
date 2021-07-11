@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('class_plugin_core.html','');});
 <p>The <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a> object is the default <a class="el" href="class_plugin_base.html" title="The PluginBase object is the base class for the Plugin Core object. ">PluginBase</a> derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...)  
  <a href="class_plugin_core.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="project__source_2source_2_plugin_kernel_2plugincore_8h_source.html">plugincore.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="plugincore_8h_source.html">plugincore.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for PluginCore:</div>
 <div class="dyncontent">
@@ -105,7 +105,6 @@ Inheritance diagram for PluginCore:</div>
   <img src="class_plugin_core.png" usemap="#PluginCore_map" alt=""/>
   <map id="PluginCore_map" name="PluginCore_map">
 <area href="class_plugin_base.html" title="The PluginBase object is the base class for the Plugin Core object. " alt="PluginBase" shape="rect" coords="0,0,75,24"/>
-<area href="class_plugin_base.html" title="The PluginBase object is the base class for the Plugin Core object. " alt="PluginBase" shape="rect" coords="85,0,160,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -131,6 +130,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aeeb07448e6d662d8643b221b7c4413b5"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#aeeb07448e6d662d8643b221b7c4413b5">processAudioFrame</a> (<a class="el" href="struct_process_frame_info.html">ProcessFrameInfo</a> &amp;processFrameInfo)</td></tr>
 <tr class="memdesc:aeeb07448e6d662d8643b221b7c4413b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">frame-processing method  <a href="#aeeb07448e6d662d8643b221b7c4413b5">More...</a><br /></td></tr>
 <tr class="separator:aeeb07448e6d662d8643b221b7c4413b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa666c83c775e45f4d38fdc280f436b5b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#aa666c83c775e45f4d38fdc280f436b5b">preProcessAudioBlock</a> (<a class="el" href="class_i_midi_event_queue.html">IMidiEventQueue</a> *midiEventQueue=nullptr)</td></tr>
+<tr class="memdesc:aa666c83c775e45f4d38fdc280f436b5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">pre-process the audio block  <a href="#aa666c83c775e45f4d38fdc280f436b5b">More...</a><br /></td></tr>
+<tr class="separator:aa666c83c775e45f4d38fdc280f436b5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c3778215d6aed6382a5e710c07724d0"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#a8c3778215d6aed6382a5e710c07724d0">processAudioBlock</a> (<a class="el" href="struct_process_block_info.html">ProcessBlockInfo</a> &amp;processBlockInfo)</td></tr>
+<tr class="memdesc:a8c3778215d6aed6382a5e710c07724d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">block or buffer-processing method  <a href="#a8c3778215d6aed6382a5e710c07724d0">More...</a><br /></td></tr>
+<tr class="separator:a8c3778215d6aed6382a5e710c07724d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac89ad17043e4c76c20685a3f45a8c75f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#ac89ad17043e4c76c20685a3f45a8c75f">postProcessAudioBuffers</a> (<a class="el" href="struct_process_buffer_info.html">ProcessBufferInfo</a> &amp;processInfo)</td></tr>
 <tr class="memdesc:ac89ad17043e4c76c20685a3f45a8c75f"><td class="mdescLeft">&#160;</td><td class="mdescRight">do anything needed prior to arrival of audio buffers  <a href="#ac89ad17043e4c76c20685a3f45a8c75f">More...</a><br /></td></tr>
 <tr class="separator:ac89ad17043e4c76c20685a3f45a8c75f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -158,43 +163,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afeda9bd5f14ddfa914955366505f5526"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#afeda9bd5f14ddfa914955366505f5526">initPluginPresets</a> ()</td></tr>
 <tr class="memdesc:afeda9bd5f14ddfa914955366505f5526"><td class="mdescLeft">&#160;</td><td class="mdescRight">use this method to add new presets to the list  <a href="#afeda9bd5f14ddfa914955366505f5526">More...</a><br /></td></tr>
 <tr class="separator:afeda9bd5f14ddfa914955366505f5526"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4a56794c946f9a5324e49af599f6c47"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#ac4a56794c946f9a5324e49af599f6c47">renderFXPassThrough</a> (<a class="el" href="struct_process_block_info.html">ProcessBlockInfo</a> &amp;blockInfo)</td></tr>
+<tr class="memdesc:ac4a56794c946f9a5324e49af599f6c47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders pass-through code as an example; replace with meaningful DSP for audio goodness.  <a href="#ac4a56794c946f9a5324e49af599f6c47">More...</a><br /></td></tr>
+<tr class="separator:ac4a56794c946f9a5324e49af599f6c47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cc167703b4a3f7145490b334ce35a91"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#a0cc167703b4a3f7145490b334ce35a91">renderSynthSilence</a> (<a class="el" href="struct_process_block_info.html">ProcessBlockInfo</a> &amp;blockInfo)</td></tr>
+<tr class="memdesc:a0cc167703b4a3f7145490b334ce35a91"><td class="mdescLeft">&#160;</td><td class="mdescRight">renders a block of silence (all 0.0 values) as an example your synth code would render the synth using the MIDI messages and output buffers  <a href="#a0cc167703b4a3f7145490b334ce35a91">More...</a><br /></td></tr>
+<tr class="separator:a0cc167703b4a3f7145490b334ce35a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac816de585bd710a50c1bb78135d027f6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#ac816de585bd710a50c1bb78135d027f6">initPluginDescriptors</a> ()</td></tr>
 <tr class="memdesc:ac816de585bd710a50c1bb78135d027f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">setup the plugin description strings, flags and codes; this is ordinarily done through the ASPiKreator or CMake  <a href="#ac816de585bd710a50c1bb78135d027f6">More...</a><br /></td></tr>
 <tr class="separator:ac816de585bd710a50c1bb78135d027f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a5af2f96f12d12ebe502b5f5cb7e538"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#a1a5af2f96f12d12ebe502b5f5cb7e538">sendHostTextMessage</a> (std::string messageString)</td></tr>
 <tr class="separator:a1a5af2f96f12d12ebe502b5f5cb7e538"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebc7a77a8afdbd8920d70233f590e2f7"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#aebc7a77a8afdbd8920d70233f590e2f7">~PluginCore</a> ()</td></tr>
-<tr class="separator:aebc7a77a8afdbd8920d70233f590e2f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17c56408d2f63abe0627b7f64d0ad514"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#a17c56408d2f63abe0627b7f64d0ad514">initPluginParameters</a> ()</td></tr>
-<tr class="separator:a17c56408d2f63abe0627b7f64d0ad514"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54f19a377d73d137f13cbbdcbe069982"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#a54f19a377d73d137f13cbbdcbe069982">reset</a> (<a class="el" href="struct_reset_info.html">ResetInfo</a> &amp;resetInfo)</td></tr>
-<tr class="separator:a54f19a377d73d137f13cbbdcbe069982"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfda1473a06ab47cca5a9ead27c9a53d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#abfda1473a06ab47cca5a9ead27c9a53d">initialize</a> (<a class="el" href="struct_plugin_info.html">PluginInfo</a> &amp;_pluginInfo)</td></tr>
-<tr class="separator:abfda1473a06ab47cca5a9ead27c9a53d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae06820b208d850ed639cc0c5760890d8"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#ae06820b208d850ed639cc0c5760890d8">preProcessAudioBuffers</a> (<a class="el" href="struct_process_buffer_info.html">ProcessBufferInfo</a> &amp;processInfo)</td></tr>
-<tr class="separator:ae06820b208d850ed639cc0c5760890d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a473dda7cd0a076c7f0f0a7b52dd6885e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#a473dda7cd0a076c7f0f0a7b52dd6885e">processAudioFrame</a> (<a class="el" href="struct_process_frame_info.html">ProcessFrameInfo</a> &amp;processFrameInfo)</td></tr>
-<tr class="separator:a473dda7cd0a076c7f0f0a7b52dd6885e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97bf19419f2bfedfe8c657a8644e210c"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#a97bf19419f2bfedfe8c657a8644e210c">postProcessAudioBuffers</a> (<a class="el" href="struct_process_buffer_info.html">ProcessBufferInfo</a> &amp;processInfo)</td></tr>
-<tr class="separator:a97bf19419f2bfedfe8c657a8644e210c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2a82eb18af3494bef107a398f407408"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#af2a82eb18af3494bef107a398f407408">updatePluginParameter</a> (int32_t controlID, double controlValue, <a class="el" href="struct_parameter_update_info.html">ParameterUpdateInfo</a> &amp;paramInfo)</td></tr>
-<tr class="separator:af2a82eb18af3494bef107a398f407408"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ba0ac16cccc2e9ee2bfcaad56565600"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#a7ba0ac16cccc2e9ee2bfcaad56565600">updatePluginParameterNormalized</a> (int32_t controlID, double normalizedValue, <a class="el" href="struct_parameter_update_info.html">ParameterUpdateInfo</a> &amp;paramInfo)</td></tr>
-<tr class="separator:a7ba0ac16cccc2e9ee2bfcaad56565600"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1fce50dc4615b836e279f933d710e3d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#ae1fce50dc4615b836e279f933d710e3d">postUpdatePluginParameter</a> (int32_t controlID, double controlValue, <a class="el" href="struct_parameter_update_info.html">ParameterUpdateInfo</a> &amp;paramInfo)</td></tr>
-<tr class="separator:ae1fce50dc4615b836e279f933d710e3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a159aa51b26b7eaf60f2c9c5ab61fafb6"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#a159aa51b26b7eaf60f2c9c5ab61fafb6">guiParameterChanged</a> (int32_t controlID, double actualValue)</td></tr>
-<tr class="separator:a159aa51b26b7eaf60f2c9c5ab61fafb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1db7a511cff57683e4b43ab1832b8753"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#a1db7a511cff57683e4b43ab1832b8753">processMessage</a> (<a class="el" href="struct_message_info.html">MessageInfo</a> &amp;messageInfo)</td></tr>
-<tr class="separator:a1db7a511cff57683e4b43ab1832b8753"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7ab66bd047ef6610ccdf3cf33a4c0b4"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#ad7ab66bd047ef6610ccdf3cf33a4c0b4">processMIDIEvent</a> (<a class="el" href="structmidi_event.html">midiEvent</a> &amp;event)</td></tr>
-<tr class="separator:ad7ab66bd047ef6610ccdf3cf33a4c0b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11cf24fee7540e32bad7bb9210f50571"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#a11cf24fee7540e32bad7bb9210f50571">setVectorJoystickParameters</a> (const <a class="el" href="struct_vector_joystick_data.html">VectorJoystickData</a> &amp;vectorJoysickData)</td></tr>
-<tr class="separator:a11cf24fee7540e32bad7bb9210f50571"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afeda9bd5f14ddfa914955366505f5526"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#afeda9bd5f14ddfa914955366505f5526">initPluginPresets</a> ()</td></tr>
-<tr class="separator:afeda9bd5f14ddfa914955366505f5526"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac816de585bd710a50c1bb78135d027f6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#ac816de585bd710a50c1bb78135d027f6">initPluginDescriptors</a> ()</td></tr>
-<tr class="separator:ac816de585bd710a50c1bb78135d027f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_plugin_base"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_plugin_base')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_plugin_base.html">PluginBase</a></td></tr>
 <tr class="memitem:ab59f1c42801522322ebf1dd6a0d5d0b8 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#ab59f1c42801522322ebf1dd6a0d5d0b8">PluginBase</a> ()</td></tr>
 <tr class="memdesc:ab59f1c42801522322ebf1dd6a0d5d0b8 inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_plugin_base.html" title="The PluginBase object is the base class for the Plugin Core object. ">PluginBase</a> constructor.  <a href="class_plugin_base.html#ab59f1c42801522322ebf1dd6a0d5d0b8">More...</a><br /></td></tr>
@@ -211,9 +190,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a28afc5f563995e922b126d19fd4c3656 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a28afc5f563995e922b126d19fd4c3656">updateOutBoundVariables</a> ()</td></tr>
 <tr class="memdesc:a28afc5f563995e922b126d19fd4c3656 inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy newly updated metering variables into GUI parameters for display  <a href="class_plugin_base.html#a28afc5f563995e922b126d19fd4c3656">More...</a><br /></td></tr>
 <tr class="separator:a28afc5f563995e922b126d19fd4c3656 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9540dda2fa29f24f748967d76cd5416 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#af9540dda2fa29f24f748967d76cd5416">doSampleAccurateParameterUpdates</a> ()</td></tr>
-<tr class="memdesc:af9540dda2fa29f24f748967d76cd5416 inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">combines parameter smoothing and VST3 sample accurate updates  <a href="class_plugin_base.html#af9540dda2fa29f24f748967d76cd5416">More...</a><br /></td></tr>
-<tr class="separator:af9540dda2fa29f24f748967d76cd5416 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fd755c14fd5c60ca66da0834361651f inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a9fd755c14fd5c60ca66da0834361651f">doVST3SAAUpdates</a> ()</td></tr>
+<tr class="memdesc:a9fd755c14fd5c60ca66da0834361651f inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">ONLY for VST3 plugins with sample accurate automation enabled.  <a href="class_plugin_base.html#a9fd755c14fd5c60ca66da0834361651f">More...</a><br /></td></tr>
+<tr class="separator:a9fd755c14fd5c60ca66da0834361651f inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bd040679f4980bdd81bf7a1293958c9 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a3bd040679f4980bdd81bf7a1293958c9">doParameterSmoothing</a> ()</td></tr>
+<tr class="memdesc:a3bd040679f4980bdd81bf7a1293958c9 inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">combines parameter smoothing and VST3 sample accurate updates  <a href="class_plugin_base.html#a3bd040679f4980bdd81bf7a1293958c9">More...</a><br /></td></tr>
+<tr class="separator:a3bd040679f4980bdd81bf7a1293958c9 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a409eb9bed8fa0800488603b2c8a48d3b inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a409eb9bed8fa0800488603b2c8a48d3b">addPluginParameter</a> (<a class="el" href="class_plugin_parameter.html">PluginParameter</a> *piParam, double sampleRate=44100)</td></tr>
 <tr class="memdesc:a409eb9bed8fa0800488603b2c8a48d3b inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds a new plugin parameter to the parameter map  <a href="class_plugin_base.html#a409eb9bed8fa0800488603b2c8a48d3b">More...</a><br /></td></tr>
 <tr class="separator:a409eb9bed8fa0800488603b2c8a48d3b inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -397,167 +379,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a432d6f9f4d4e12d31613f721450f2811 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a432d6f9f4d4e12d31613f721450f2811">getAUBundleName</a> ()</td></tr>
 <tr class="memdesc:a432d6f9f4d4e12d31613f721450f2811 inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: AU Bundle Name.  <a href="class_plugin_base.html#a432d6f9f4d4e12d31613f721450f2811">More...</a><br /></td></tr>
 <tr class="separator:a432d6f9f4d4e12d31613f721450f2811 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53d3f0a290476d4313a18a5b1f7e8260 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a53d3f0a290476d4313a18a5b1f7e8260">syncInBoundVariables</a> ()</td></tr>
-<tr class="separator:a53d3f0a290476d4313a18a5b1f7e8260 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36ea45471b2b552c1ba40faff1d318a4 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a36ea45471b2b552c1ba40faff1d318a4">processAudioBuffers</a> (<a class="el" href="struct_process_buffer_info.html">ProcessBufferInfo</a> &amp;processInfo)</td></tr>
-<tr class="separator:a36ea45471b2b552c1ba40faff1d318a4 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28afc5f563995e922b126d19fd4c3656 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a28afc5f563995e922b126d19fd4c3656">updateOutBoundVariables</a> ()</td></tr>
-<tr class="separator:a28afc5f563995e922b126d19fd4c3656 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9540dda2fa29f24f748967d76cd5416 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#af9540dda2fa29f24f748967d76cd5416">doSampleAccurateParameterUpdates</a> ()</td></tr>
-<tr class="separator:af9540dda2fa29f24f748967d76cd5416 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a409eb9bed8fa0800488603b2c8a48d3b inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a409eb9bed8fa0800488603b2c8a48d3b">addPluginParameter</a> (<a class="el" href="class_plugin_parameter.html">PluginParameter</a> *piParam, double sampleRate=44100)</td></tr>
-<tr class="separator:a409eb9bed8fa0800488603b2c8a48d3b inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb5a7c1b89440ffc88fd71619574d694 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#abb5a7c1b89440ffc88fd71619574d694">setParamAuxAttribute</a> (uint32_t controlID, const <a class="el" href="struct_aux_parameter_attribute.html">AuxParameterAttribute</a> &amp;auxAttribute)</td></tr>
-<tr class="separator:abb5a7c1b89440ffc88fd71619574d694 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae01c0f790c66738f5b1d34a4862a122c inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#ae01c0f790c66738f5b1d34a4862a122c">getPluginParameterCount</a> ()</td></tr>
-<tr class="separator:ae01c0f790c66738f5b1d34a4862a122c inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d0de014a83965ede371490b8e3f33ef inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_plugin_parameter.html">PluginParameter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a9d0de014a83965ede371490b8e3f33ef">getPluginParameterByIndex</a> (int32_t index)</td></tr>
-<tr class="memdesc:a9d0de014a83965ede371490b8e3f33ef inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">get a parameter by index location in vector or array  <a href="class_plugin_base.html#a9d0de014a83965ede371490b8e3f33ef">More...</a><br /></td></tr>
-<tr class="separator:a9d0de014a83965ede371490b8e3f33ef inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5b459c90d8d0a6350bc8bc393ebee0b inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_plugin_parameter.html">PluginParameter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#aa5b459c90d8d0a6350bc8bc393ebee0b">getPluginParameterByControlID</a> (int32_t controlID)</td></tr>
-<tr class="memdesc:aa5b459c90d8d0a6350bc8bc393ebee0b inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">get a parameter by control ID - uses map (slowest)  <a href="class_plugin_base.html#aa5b459c90d8d0a6350bc8bc393ebee0b">More...</a><br /></td></tr>
-<tr class="separator:aa5b459c90d8d0a6350bc8bc393ebee0b inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f9e1c751b11ab8807faa2065fabae82 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_plugin_parameter.html">PluginParameter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a8f9e1c751b11ab8807faa2065fabae82">getNextParameterOfType</a> (int32_t &amp;startIndex, <a class="el" href="group___constants-_enums.html#ga5662de719b542fc93b850bea1bae81f7">controlVariableType</a> controlType)</td></tr>
-<tr class="separator:a8f9e1c751b11ab8807faa2065fabae82 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af12678d53fe787121585f5595e22974d inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#af12678d53fe787121585f5595e22974d">getPIParamValueDouble</a> (int32_t controlID)</td></tr>
-<tr class="separator:af12678d53fe787121585f5595e22974d inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb386f7cb823cb63fc1f2604debb2fa0 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#aeb386f7cb823cb63fc1f2604debb2fa0">getPIParamValueFloat</a> (int32_t controlID)</td></tr>
-<tr class="separator:aeb386f7cb823cb63fc1f2604debb2fa0 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a203f5f9db02566afaf84ae46cdfad9cc inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a203f5f9db02566afaf84ae46cdfad9cc">getPIParamValueInt</a> (int32_t controlID)</td></tr>
-<tr class="separator:a203f5f9db02566afaf84ae46cdfad9cc inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7e9344413faac631b6dddb2301b9d57 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#ac7e9344413faac631b6dddb2301b9d57">getPIParamValueUInt</a> (int32_t controlID)</td></tr>
-<tr class="separator:ac7e9344413faac631b6dddb2301b9d57 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a995ecec4f3a574af3df5b5f4e8ffcf49 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a995ecec4f3a574af3df5b5f4e8ffcf49">hasProToolsGRMeters</a> ()</td></tr>
-<tr class="separator:a995ecec4f3a574af3df5b5f4e8ffcf49 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a916a1cdf304b0f93cf36592006d7f3ac inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a916a1cdf304b0f93cf36592006d7f3ac">getProToolsGRValue</a> ()</td></tr>
-<tr class="separator:a916a1cdf304b0f93cf36592006d7f3ac inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f5a9ea44149b1632961e8a8d52eb10a inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a0f5a9ea44149b1632961e8a8d52eb10a">addSupportedIOCombination</a> (<a class="el" href="struct_channel_i_o_config.html">ChannelIOConfig</a> ioConfig)</td></tr>
-<tr class="separator:a0f5a9ea44149b1632961e8a8d52eb10a inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61ff146290e30f3c8b5aabbf079a8dff inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a61ff146290e30f3c8b5aabbf079a8dff">addSupportedAuxIOCombination</a> (<a class="el" href="struct_channel_i_o_config.html">ChannelIOConfig</a> ioConfig)</td></tr>
-<tr class="separator:a61ff146290e30f3c8b5aabbf079a8dff inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe04453b5c33a9f5eeee5d74b9637fee inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#abe04453b5c33a9f5eeee5d74b9637fee">getNumSupportedIOCombinations</a> ()</td></tr>
-<tr class="memdesc:abe04453b5c33a9f5eeee5d74b9637fee inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">get I/O channel pair count  <a href="class_plugin_base.html#abe04453b5c33a9f5eeee5d74b9637fee">More...</a><br /></td></tr>
-<tr class="separator:abe04453b5c33a9f5eeee5d74b9637fee inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff2dc5515e3998e5748dc6f8780818f1 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#aff2dc5515e3998e5748dc6f8780818f1">hasSupportedInputChannelFormat</a> (uint32_t <a class="el" href="group___constants-_enums.html#ga52e348ed94297a3d3eb40fef52ad5729">channelFormat</a>)</td></tr>
-<tr class="separator:aff2dc5515e3998e5748dc6f8780818f1 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cb6f1b70ce5e7f1ce8cd92d5f18218f inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a4cb6f1b70ce5e7f1ce8cd92d5f18218f">hasSupportedOutputChannelFormat</a> (uint32_t <a class="el" href="group___constants-_enums.html#ga52e348ed94297a3d3eb40fef52ad5729">channelFormat</a>)</td></tr>
-<tr class="separator:a4cb6f1b70ce5e7f1ce8cd92d5f18218f inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb82e104bcc64b67071a08fe813d205d inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#adb82e104bcc64b67071a08fe813d205d">getChannelInputFormat</a> (uint32_t ioConfigIndex)</td></tr>
-<tr class="memdesc:adb82e104bcc64b67071a08fe813d205d inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">get input cj  <a href="class_plugin_base.html#adb82e104bcc64b67071a08fe813d205d">More...</a><br /></td></tr>
-<tr class="separator:adb82e104bcc64b67071a08fe813d205d inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade5fd64023d7eaef59742ff236a022cc inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#ade5fd64023d7eaef59742ff236a022cc">getChannelOutputFormat</a> (uint32_t ioConfigIndex)</td></tr>
-<tr class="memdesc:ade5fd64023d7eaef59742ff236a022cc inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">get I/O channel pair count  <a href="class_plugin_base.html#ade5fd64023d7eaef59742ff236a022cc">More...</a><br /></td></tr>
-<tr class="separator:ade5fd64023d7eaef59742ff236a022cc inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a538030bcceebd5e3e0869ca2d3aaa094 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a538030bcceebd5e3e0869ca2d3aaa094">getInputChannelCount</a> (uint32_t ioConfigIndex)</td></tr>
-<tr class="separator:a538030bcceebd5e3e0869ca2d3aaa094 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d1333d3cbf365f4d9a674e179d2cec3 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a0d1333d3cbf365f4d9a674e179d2cec3">getOutputChannelCount</a> (uint32_t ioConfigIndex)</td></tr>
-<tr class="separator:a0d1333d3cbf365f4d9a674e179d2cec3 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1c53f065fb3af40cb1a1ac6844134dd inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#aa1c53f065fb3af40cb1a1ac6844134dd">getDefaultChannelIOConfigForChannelCount</a> (uint32_t channelCount)</td></tr>
-<tr class="memdesc:aa1c53f065fb3af40cb1a1ac6844134dd inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the configuration (e.g. kCFStereo) for a given channel count; mainly for AU that does not discriminate between formats with same channel counts (e.g. Sony 7.1 vs DTS 7.1 which have same channel count)  <a href="class_plugin_base.html#aa1c53f065fb3af40cb1a1ac6844134dd">More...</a><br /></td></tr>
-<tr class="separator:aa1c53f065fb3af40cb1a1ac6844134dd inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a761bf8326c3fcc9f7fda83a2db1151b2 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a761bf8326c3fcc9f7fda83a2db1151b2">setPIParamValue</a> (uint32_t _controlID, double _controlValue)</td></tr>
-<tr class="separator:a761bf8326c3fcc9f7fda83a2db1151b2 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a069921851fed43515516d5bb9a5c271d inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a069921851fed43515516d5bb9a5c271d">setPIParamValueNormalized</a> (uint32_t _controlID, double _normalizedValue, bool applyTaper=true)</td></tr>
-<tr class="separator:a069921851fed43515516d5bb9a5c271d inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3517a774ab9d4e0efe883de0956b5ac6 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a3517a774ab9d4e0efe883de0956b5ac6">updatePIParamBoundValue</a> (uint32_t _controlID)</td></tr>
-<tr class="separator:a3517a774ab9d4e0efe883de0956b5ac6 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19087e4a6b24d3da5eb5fa0c891b2a2a inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a19087e4a6b24d3da5eb5fa0c891b2a2a">clearUpdateGUIParameters</a> (std::vector&lt; <a class="el" href="struct_g_u_i_parameter.html">GUIParameter</a> *&gt; &amp;guiParameters)</td></tr>
-<tr class="separator:a19087e4a6b24d3da5eb5fa0c891b2a2a inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad0487d9634b42fcd16729ac8c644da0 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_plugin_parameter.html">PluginParameter</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#aad0487d9634b42fcd16729ac8c644da0">makePluginParameterVectorCopy</a> (bool disableSmoothing=true)</td></tr>
-<tr class="separator:aad0487d9634b42fcd16729ac8c644da0 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5212e269dcf3d3b9ccea6c4c2bba90de inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a5212e269dcf3d3b9ccea6c4c2bba90de">initPresetParameters</a> (std::vector&lt; <a class="el" href="struct_preset_parameter.html">PresetParameter</a> &gt; &amp;presetParameters, bool disableSmoothing=true)</td></tr>
-<tr class="separator:a5212e269dcf3d3b9ccea6c4c2bba90de inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fcf20dbb275556627f307555742745e inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a0fcf20dbb275556627f307555742745e">setPresetParameter</a> (std::vector&lt; <a class="el" href="struct_preset_parameter.html">PresetParameter</a> &gt; &amp;presetParameters, uint32_t _controlID, double _controlValue)</td></tr>
-<tr class="separator:a0fcf20dbb275556627f307555742745e inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15b4ded8417d40e091284d20fc07d7a9 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a15b4ded8417d40e091284d20fc07d7a9">setPluginHostConnector</a> (<a class="el" href="class_i_plugin_host_connector.html">IPluginHostConnector</a> *_pluginHostConnector)</td></tr>
-<tr class="memdesc:a15b4ded8417d40e091284d20fc07d7a9 inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">store the plugin host interface pointer: this pointer will never go out of scope or be invalid once stored!  <a href="class_plugin_base.html#a15b4ded8417d40e091284d20fc07d7a9">More...</a><br /></td></tr>
-<tr class="separator:a15b4ded8417d40e091284d20fc07d7a9 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5b8670606144d73e21ea70ba37bad6b inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#ab5b8670606144d73e21ea70ba37bad6b">getPresetCount</a> ()</td></tr>
-<tr class="memdesc:ab5b8670606144d73e21ea70ba37bad6b inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">get number of stored presets  <a href="class_plugin_base.html#ab5b8670606144d73e21ea70ba37bad6b">More...</a><br /></td></tr>
-<tr class="separator:ab5b8670606144d73e21ea70ba37bad6b inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d22ffb6b20701ffccaa4a29f55fe75e inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a2d22ffb6b20701ffccaa4a29f55fe75e">getPresetName</a> (uint32_t index)</td></tr>
-<tr class="separator:a2d22ffb6b20701ffccaa4a29f55fe75e inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a021d38844c32cc8c0ac08e54ae27238d inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a021d38844c32cc8c0ac08e54ae27238d">addPreset</a> (<a class="el" href="struct_preset_info.html">PresetInfo</a> *preset)</td></tr>
-<tr class="separator:a021d38844c32cc8c0ac08e54ae27238d inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac29dc9b09fe26006ad3eba548b1cde7b inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#ac29dc9b09fe26006ad3eba548b1cde7b">removePreset</a> (uint32_t index)</td></tr>
-<tr class="separator:ac29dc9b09fe26006ad3eba548b1cde7b inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade8e2799adf33754460798c7add60ea7 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#ade8e2799adf33754460798c7add60ea7">removeAllPresets</a> ()</td></tr>
-<tr class="separator:ade8e2799adf33754460798c7add60ea7 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c14d7d9d7a4307a3e964c4baefcd55a inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_preset_info.html">PresetInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a3c14d7d9d7a4307a3e964c4baefcd55a">getPreset</a> (uint32_t index)</td></tr>
-<tr class="separator:a3c14d7d9d7a4307a3e964c4baefcd55a inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeaf6170a14f93ebfd284fa4694bd59d2 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#aeaf6170a14f93ebfd284fa4694bd59d2">initPluginParameterArray</a> ()</td></tr>
-<tr class="separator:aeaf6170a14f93ebfd284fa4694bd59d2 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf9000e01dae6ee04068594afa57ac3b inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#abf9000e01dae6ee04068594afa57ac3b">compareSelectedString</a> (int32_t controlID, const char *compareString)</td></tr>
-<tr class="separator:abf9000e01dae6ee04068594afa57ac3b inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0cf5449f57e71c91e755d223eaecfb8 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#ae0cf5449f57e71c91e755d223eaecfb8">hasSidechain</a> ()</td></tr>
-<tr class="memdesc:ae0cf5449f57e71c91e755d223eaecfb8 inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: sidechain.  <a href="class_plugin_base.html#ae0cf5449f57e71c91e755d223eaecfb8">More...</a><br /></td></tr>
-<tr class="separator:ae0cf5449f57e71c91e755d223eaecfb8 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a287a35a2d57a3b4f42ddf4bfe92c6082 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a287a35a2d57a3b4f42ddf4bfe92c6082">wantsMIDI</a> ()</td></tr>
-<tr class="memdesc:a287a35a2d57a3b4f42ddf4bfe92c6082 inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: MIDI.  <a href="class_plugin_base.html#a287a35a2d57a3b4f42ddf4bfe92c6082">More...</a><br /></td></tr>
-<tr class="separator:a287a35a2d57a3b4f42ddf4bfe92c6082 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbba049ffbf2d77b90273b128aa41818 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#abbba049ffbf2d77b90273b128aa41818">hasCustomGUI</a> ()</td></tr>
-<tr class="memdesc:abbba049ffbf2d77b90273b128aa41818 inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: has GUI.  <a href="class_plugin_base.html#abbba049ffbf2d77b90273b128aa41818">More...</a><br /></td></tr>
-<tr class="separator:abbba049ffbf2d77b90273b128aa41818 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef0c9b8e786089d331c2a80b503fb7e3 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#aef0c9b8e786089d331c2a80b503fb7e3">getLatencyInSamples</a> ()</td></tr>
-<tr class="memdesc:aef0c9b8e786089d331c2a80b503fb7e3 inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: latency.  <a href="class_plugin_base.html#aef0c9b8e786089d331c2a80b503fb7e3">More...</a><br /></td></tr>
-<tr class="separator:aef0c9b8e786089d331c2a80b503fb7e3 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcc3fe4c12e2bcb8b66fafa04ef9b8a3 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#abcc3fe4c12e2bcb8b66fafa04ef9b8a3">getTailTimeInMSec</a> ()</td></tr>
-<tr class="memdesc:abcc3fe4c12e2bcb8b66fafa04ef9b8a3 inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: tail time.  <a href="class_plugin_base.html#abcc3fe4c12e2bcb8b66fafa04ef9b8a3">More...</a><br /></td></tr>
-<tr class="separator:abcc3fe4c12e2bcb8b66fafa04ef9b8a3 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79c1d8215068baf77df3a1428b6f2e27 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a79c1d8215068baf77df3a1428b6f2e27">wantsInfiniteTailVST3</a> ()</td></tr>
-<tr class="memdesc:a79c1d8215068baf77df3a1428b6f2e27 inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: infinite tail (VST3 only)  <a href="class_plugin_base.html#a79c1d8215068baf77df3a1428b6f2e27">More...</a><br /></td></tr>
-<tr class="separator:a79c1d8215068baf77df3a1428b6f2e27 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d0b35cf76ce0f45162ca0281a262029 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a3d0b35cf76ce0f45162ca0281a262029">getPluginName</a> ()</td></tr>
-<tr class="memdesc:a3d0b35cf76ce0f45162ca0281a262029 inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: name.  <a href="class_plugin_base.html#a3d0b35cf76ce0f45162ca0281a262029">More...</a><br /></td></tr>
-<tr class="separator:a3d0b35cf76ce0f45162ca0281a262029 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a1dba6359df2d9d008b020b7c154467 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a0a1dba6359df2d9d008b020b7c154467">getShortPluginName</a> ()</td></tr>
-<tr class="memdesc:a0a1dba6359df2d9d008b020b7c154467 inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: short name (AAX)  <a href="class_plugin_base.html#a0a1dba6359df2d9d008b020b7c154467">More...</a><br /></td></tr>
-<tr class="separator:a0a1dba6359df2d9d008b020b7c154467 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfa337ce7de95983b2197b163a822e50 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#adfa337ce7de95983b2197b163a822e50">getVendorName</a> ()</td></tr>
-<tr class="memdesc:adfa337ce7de95983b2197b163a822e50 inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query:vendor name.  <a href="class_plugin_base.html#adfa337ce7de95983b2197b163a822e50">More...</a><br /></td></tr>
-<tr class="separator:adfa337ce7de95983b2197b163a822e50 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcae29dc63c5e401c41bfadad290bf52 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#abcae29dc63c5e401c41bfadad290bf52">getPluginType</a> ()</td></tr>
-<tr class="memdesc:abcae29dc63c5e401c41bfadad290bf52 inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: plugin type.  <a href="class_plugin_base.html#abcae29dc63c5e401c41bfadad290bf52">More...</a><br /></td></tr>
-<tr class="separator:abcae29dc63c5e401c41bfadad290bf52 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9aca015b5aaab5e7be7445a93447650e inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a9aca015b5aaab5e7be7445a93447650e">getSampleRate</a> ()</td></tr>
-<tr class="memdesc:a9aca015b5aaab5e7be7445a93447650e inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: sample rate.  <a href="class_plugin_base.html#a9aca015b5aaab5e7be7445a93447650e">More...</a><br /></td></tr>
-<tr class="separator:a9aca015b5aaab5e7be7445a93447650e inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adec142bf7bddea166cb604020fa2a7ef inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#adec142bf7bddea166cb604020fa2a7ef">getFourCharCode</a> ()</td></tr>
-<tr class="memdesc:adec142bf7bddea166cb604020fa2a7ef inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: 4-char code.  <a href="class_plugin_base.html#adec142bf7bddea166cb604020fa2a7ef">More...</a><br /></td></tr>
-<tr class="separator:adec142bf7bddea166cb604020fa2a7ef inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4aa68cf395b5948cb49c777798b5af20 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a4aa68cf395b5948cb49c777798b5af20">getAAXManufacturerID</a> ()</td></tr>
-<tr class="memdesc:a4aa68cf395b5948cb49c777798b5af20 inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: AAX Man ID.  <a href="class_plugin_base.html#a4aa68cf395b5948cb49c777798b5af20">More...</a><br /></td></tr>
-<tr class="separator:a4aa68cf395b5948cb49c777798b5af20 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8263a555e176da42e748feb8120aa2ab inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a8263a555e176da42e748feb8120aa2ab">getAAXProductID</a> ()</td></tr>
-<tr class="memdesc:a8263a555e176da42e748feb8120aa2ab inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: AAX Prod ID.  <a href="class_plugin_base.html#a8263a555e176da42e748feb8120aa2ab">More...</a><br /></td></tr>
-<tr class="separator:a8263a555e176da42e748feb8120aa2ab inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d811a3390a2b653a0f8bfeb601adda4 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a9d811a3390a2b653a0f8bfeb601adda4">getAAXBundleID</a> ()</td></tr>
-<tr class="memdesc:a9d811a3390a2b653a0f8bfeb601adda4 inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: AAX Bundle ID.  <a href="class_plugin_base.html#a9d811a3390a2b653a0f8bfeb601adda4">More...</a><br /></td></tr>
-<tr class="separator:a9d811a3390a2b653a0f8bfeb601adda4 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10b88114ba734f82053adee7e4a097bf inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a10b88114ba734f82053adee7e4a097bf">getAAXEffectID</a> ()</td></tr>
-<tr class="memdesc:a10b88114ba734f82053adee7e4a097bf inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: AAX Effect ID.  <a href="class_plugin_base.html#a10b88114ba734f82053adee7e4a097bf">More...</a><br /></td></tr>
-<tr class="separator:a10b88114ba734f82053adee7e4a097bf inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8469568337e2fa72d0dcf87bd2ed6775 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a8469568337e2fa72d0dcf87bd2ed6775">getAAXPluginCategory</a> ()</td></tr>
-<tr class="memdesc:a8469568337e2fa72d0dcf87bd2ed6775 inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: AAX Category.  <a href="class_plugin_base.html#a8469568337e2fa72d0dcf87bd2ed6775">More...</a><br /></td></tr>
-<tr class="separator:a8469568337e2fa72d0dcf87bd2ed6775 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4e235fd5ba74bdf62e8c5e42214cb3d inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#ab4e235fd5ba74bdf62e8c5e42214cb3d">getVST3_FUID</a> ()</td></tr>
-<tr class="memdesc:ab4e235fd5ba74bdf62e8c5e42214cb3d inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: VST3 FUID.  <a href="class_plugin_base.html#ab4e235fd5ba74bdf62e8c5e42214cb3d">More...</a><br /></td></tr>
-<tr class="separator:ab4e235fd5ba74bdf62e8c5e42214cb3d inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebd28a0dc798d6c57023e4c0c62643b9 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#aebd28a0dc798d6c57023e4c0c62643b9">wantsVST3SampleAccurateAutomation</a> ()</td></tr>
-<tr class="memdesc:aebd28a0dc798d6c57023e4c0c62643b9 inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: VST Sample Accurate Automation.  <a href="class_plugin_base.html#aebd28a0dc798d6c57023e4c0c62643b9">More...</a><br /></td></tr>
-<tr class="separator:aebd28a0dc798d6c57023e4c0c62643b9 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e96022e79653c8d1f8a5044949039af inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a4e96022e79653c8d1f8a5044949039af">getVST3SampleAccuracyGranularity</a> ()</td></tr>
-<tr class="memdesc:a4e96022e79653c8d1f8a5044949039af inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: VST Sample Accurate Automation granularity.  <a href="class_plugin_base.html#a4e96022e79653c8d1f8a5044949039af">More...</a><br /></td></tr>
-<tr class="separator:a4e96022e79653c8d1f8a5044949039af inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a634c092f992205169adcd7c50f059d inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a4a634c092f992205169adcd7c50f059d">getVST3BundleID</a> ()</td></tr>
-<tr class="memdesc:a4a634c092f992205169adcd7c50f059d inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: VST3 Bundle ID.  <a href="class_plugin_base.html#a4a634c092f992205169adcd7c50f059d">More...</a><br /></td></tr>
-<tr class="separator:a4a634c092f992205169adcd7c50f059d inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa2830091ba0fd8edb190917476b46ca inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#afa2830091ba0fd8edb190917476b46ca">getAUBundleID</a> ()</td></tr>
-<tr class="memdesc:afa2830091ba0fd8edb190917476b46ca inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: AU Bundle ID.  <a href="class_plugin_base.html#afa2830091ba0fd8edb190917476b46ca">More...</a><br /></td></tr>
-<tr class="separator:afa2830091ba0fd8edb190917476b46ca inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a432d6f9f4d4e12d31613f721450f2811 inherit pub_methods_class_plugin_base"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a432d6f9f4d4e12d31613f721450f2811">getAUBundleName</a> ()</td></tr>
-<tr class="memdesc:a432d6f9f4d4e12d31613f721450f2811 inherit pub_methods_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description query: AU Bundle Name.  <a href="class_plugin_base.html#a432d6f9f4d4e12d31613f721450f2811">More...</a><br /></td></tr>
-<tr class="separator:a432d6f9f4d4e12d31613f721450f2811 inherit pub_methods_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -581,34 +402,10 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a9e0134cf53d23b57eec6c90187391c17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf81f0a79b9aab057589ecf5e7387a54"><td class="memItemLeft" align="right" valign="top">static int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#adf81f0a79b9aab057589ecf5e7387a54">getFourCharCode</a> ()</td></tr>
 <tr class="separator:adf81f0a79b9aab057589ecf5e7387a54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a434a7edbe263e0921e1f213d0f45cecc"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#a434a7edbe263e0921e1f213d0f45cecc">getPluginBundleName</a> ()</td></tr>
-<tr class="separator:a434a7edbe263e0921e1f213d0f45cecc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab712b4bbe573c9eab471876a5306a111"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#ab712b4bbe573c9eab471876a5306a111">getPluginName</a> ()</td></tr>
-<tr class="separator:ab712b4bbe573c9eab471876a5306a111"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aece6753c686f1ce9ddbce52d7d3f0ebd"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#aece6753c686f1ce9ddbce52d7d3f0ebd">getShortPluginName</a> ()</td></tr>
-<tr class="separator:aece6753c686f1ce9ddbce52d7d3f0ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00d3e8875aefcdfd2f00497e76ea1f38"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#a00d3e8875aefcdfd2f00497e76ea1f38">getVendorName</a> ()</td></tr>
-<tr class="separator:a00d3e8875aefcdfd2f00497e76ea1f38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc50f26ff08b56a5fcc1bb482177b8f0"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#afc50f26ff08b56a5fcc1bb482177b8f0">getVendorURL</a> ()</td></tr>
-<tr class="separator:afc50f26ff08b56a5fcc1bb482177b8f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe030e508c6f741ec7799f0b5199e266"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#abe030e508c6f741ec7799f0b5199e266">getVendorEmail</a> ()</td></tr>
-<tr class="separator:abe030e508c6f741ec7799f0b5199e266"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d82773bed22f75c0fe0ac15b219edfc"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#a4d82773bed22f75c0fe0ac15b219edfc">getAUCocoaViewFactoryName</a> ()</td></tr>
-<tr class="separator:a4d82773bed22f75c0fe0ac15b219edfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e6b286fc8fbef462a601cbeef8add68"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="group___constants-_enums.html#gadcd0744e537d692747d91584da9eff4a">pluginType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#a7e6b286fc8fbef462a601cbeef8add68">getPluginType</a> ()</td></tr>
-<tr class="separator:a7e6b286fc8fbef462a601cbeef8add68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60504bcb372db81b27aabeacd5cd57c4"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#a60504bcb372db81b27aabeacd5cd57c4">getVSTFUID</a> ()</td></tr>
-<tr class="separator:a60504bcb372db81b27aabeacd5cd57c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c49b92732da984f5502ce8baefb46c1"><td class="memItemLeft" align="right" valign="top">static int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_core.html#a5c49b92732da984f5502ce8baefb46c1">getFourCharCode</a> ()</td></tr>
-<tr class="separator:a5c49b92732da984f5502ce8baefb46c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_types_class_plugin_base"><td colspan="2" onclick="javascript:toggleInherit('pro_types_class_plugin_base')"><img src="closed.png" alt="-"/>&#160;Protected Types inherited from <a class="el" href="class_plugin_base.html">PluginBase</a></td></tr>
-<tr class="memitem:afa4c426782b73aae7bd9a31aecc24b81 inherit pro_types_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="afa4c426782b73aae7bd9a31aecc24b81"></a>
-typedef std::map&lt; uint32_t, <a class="el" href="class_plugin_parameter.html">PluginParameter</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#afa4c426782b73aae7bd9a31aecc24b81">pluginParameterControlIDMap</a></td></tr>
-<tr class="memdesc:afa4c426782b73aae7bd9a31aecc24b81 inherit pro_types_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">map version of parameter list <br /></td></tr>
-<tr class="separator:afa4c426782b73aae7bd9a31aecc24b81 inherit pro_types_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa4c426782b73aae7bd9a31aecc24b81 inherit pro_types_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="afa4c426782b73aae7bd9a31aecc24b81"></a>
 typedef std::map&lt; uint32_t, <a class="el" href="class_plugin_parameter.html">PluginParameter</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#afa4c426782b73aae7bd9a31aecc24b81">pluginParameterControlIDMap</a></td></tr>
 <tr class="memdesc:afa4c426782b73aae7bd9a31aecc24b81 inherit pro_types_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">map version of parameter list <br /></td></tr>
@@ -630,62 +427,73 @@ typedef std::map&lt; uint32_t, <a class="el" href="class_plugin_parameter.html">
 <a class="el" href="struct_plugin_info.html">PluginInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a89c92fd48ac4db5be00272dcffb083b7">pluginInfo</a></td></tr>
 <tr class="memdesc:a89c92fd48ac4db5be00272dcffb083b7 inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">info about the DLL (component) itself, includes path to DLL <br /></td></tr>
 <tr class="separator:a89c92fd48ac4db5be00272dcffb083b7 inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa8fbcc17a695f1607d71c20d431e2d1 inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="aaa8fbcc17a695f1607d71c20d431e2d1"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#aaa8fbcc17a695f1607d71c20d431e2d1">inputFrame</a> [MAX_CHANNEL_COUNT]</td></tr>
-<tr class="memdesc:aaa8fbcc17a695f1607d71c20d431e2d1 inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">input array for frame processing <br /></td></tr>
-<tr class="separator:aaa8fbcc17a695f1607d71c20d431e2d1 inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abae8c277a79c24eff63ad507d0fa7dce inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="abae8c277a79c24eff63ad507d0fa7dce"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#abae8c277a79c24eff63ad507d0fa7dce">outputFrame</a> [MAX_CHANNEL_COUNT]</td></tr>
-<tr class="memdesc:abae8c277a79c24eff63ad507d0fa7dce inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">output array for frame processing <br /></td></tr>
-<tr class="separator:abae8c277a79c24eff63ad507d0fa7dce inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afba56a61198620e1a5c9b0bc8b641a42 inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="afba56a61198620e1a5c9b0bc8b641a42"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#afba56a61198620e1a5c9b0bc8b641a42">auxInputFrame</a> [MAX_CHANNEL_COUNT]</td></tr>
-<tr class="memdesc:afba56a61198620e1a5c9b0bc8b641a42 inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">aux input array for frame processing <br /></td></tr>
-<tr class="separator:afba56a61198620e1a5c9b0bc8b641a42 inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9347548d2245dc3d0d35e0c0c5fd6563 inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="a9347548d2245dc3d0d35e0c0c5fd6563"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a9347548d2245dc3d0d35e0c0c5fd6563">auxOutputFrame</a> [MAX_CHANNEL_COUNT]</td></tr>
-<tr class="memdesc:a9347548d2245dc3d0d35e0c0c5fd6563 inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">aux output array for frame processing <br /></td></tr>
-<tr class="separator:a9347548d2245dc3d0d35e0c0c5fd6563 inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a968b81e4b6a72eee0b2269150993e792 inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="a968b81e4b6a72eee0b2269150993e792"></a>
-<a class="el" href="class_plugin_parameter.html">PluginParameter</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a968b81e4b6a72eee0b2269150993e792">pluginParameterArray</a> = nullptr</td></tr>
-<tr class="memdesc:a968b81e4b6a72eee0b2269150993e792 inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">old-fashioned C-arrays of pointers for ultra-fast access for real-time audio processing <br /></td></tr>
-<tr class="separator:a968b81e4b6a72eee0b2269150993e792 inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3adf51d8d31d3d3f82dd8c02ad0838a0 inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="a3adf51d8d31d3d3f82dd8c02ad0838a0"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a3adf51d8d31d3d3f82dd8c02ad0838a0">inputFrame</a> [MAX_CHANNEL_COUNT]</td></tr>
+<tr class="memdesc:a3adf51d8d31d3d3f82dd8c02ad0838a0 inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">input array for frame processing <br /></td></tr>
+<tr class="separator:a3adf51d8d31d3d3f82dd8c02ad0838a0 inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15803ff862e6cb5411eb64c6ced534ba inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="a15803ff862e6cb5411eb64c6ced534ba"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a15803ff862e6cb5411eb64c6ced534ba">outputFrame</a> [MAX_CHANNEL_COUNT]</td></tr>
+<tr class="memdesc:a15803ff862e6cb5411eb64c6ced534ba inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">output array for frame processing <br /></td></tr>
+<tr class="separator:a15803ff862e6cb5411eb64c6ced534ba inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ddde2ba5364eee44bf0221fdbd8fed2 inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="a1ddde2ba5364eee44bf0221fdbd8fed2"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a1ddde2ba5364eee44bf0221fdbd8fed2">auxInputFrame</a> [MAX_CHANNEL_COUNT]</td></tr>
+<tr class="memdesc:a1ddde2ba5364eee44bf0221fdbd8fed2 inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">aux input array for frame processing <br /></td></tr>
+<tr class="separator:a1ddde2ba5364eee44bf0221fdbd8fed2 inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16dd291839d1ca2475b5136b2128b297 inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="a16dd291839d1ca2475b5136b2128b297"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a16dd291839d1ca2475b5136b2128b297">auxOutputFrame</a> [MAX_CHANNEL_COUNT]</td></tr>
+<tr class="memdesc:a16dd291839d1ca2475b5136b2128b297 inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">aux output array for frame processing <br /></td></tr>
+<tr class="separator:a16dd291839d1ca2475b5136b2128b297 inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35b0757540c2a6a49d37498c24e2c4f8 inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="a35b0757540c2a6a49d37498c24e2c4f8"></a>
+<a class="el" href="struct_process_block_info.html">ProcessBlockInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><b>processBlockInfo</b></td></tr>
+<tr class="separator:a35b0757540c2a6a49d37498c24e2c4f8 inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bad0394558e04dce67a6376730fb70e inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="a6bad0394558e04dce67a6376730fb70e"></a>
+<a class="el" href="class_plugin_parameter.html">PluginParameter</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a6bad0394558e04dce67a6376730fb70e">pluginParameterArray</a> = nullptr</td></tr>
+<tr class="memdesc:a6bad0394558e04dce67a6376730fb70e inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">old-fashioned C-arrays of pointers for ultra-fast access for real-time audio processing <br /></td></tr>
+<tr class="separator:a6bad0394558e04dce67a6376730fb70e inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada3c4e08558df80a7afa1d77536bb399 inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="ada3c4e08558df80a7afa1d77536bb399"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#ada3c4e08558df80a7afa1d77536bb399">numPluginParameters</a> = 0</td></tr>
 <tr class="memdesc:ada3c4e08558df80a7afa1d77536bb399 inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">total number of parameters <br /></td></tr>
 <tr class="separator:ada3c4e08558df80a7afa1d77536bb399 inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0143098e8437904a3b567804adebb066 inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="a0143098e8437904a3b567804adebb066"></a>
-<a class="el" href="class_plugin_parameter.html">PluginParameter</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a0143098e8437904a3b567804adebb066">smoothablePluginParameters</a> = nullptr</td></tr>
-<tr class="memdesc:a0143098e8437904a3b567804adebb066 inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">old-fashioned C-arrays of pointers for smoothable parameters <br /></td></tr>
-<tr class="separator:a0143098e8437904a3b567804adebb066 inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08b634a4eba10d83ad012b11ed41fecb inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="a08b634a4eba10d83ad012b11ed41fecb"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a08b634a4eba10d83ad012b11ed41fecb">numSmoothablePluginParameters</a> = 0</td></tr>
-<tr class="memdesc:a08b634a4eba10d83ad012b11ed41fecb inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of smoothable parameters only <br /></td></tr>
-<tr class="separator:a08b634a4eba10d83ad012b11ed41fecb inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc760ac799fae22ade73e6019aadae5e inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="acc760ac799fae22ade73e6019aadae5e"></a>
-<a class="el" href="class_plugin_parameter.html">PluginParameter</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#acc760ac799fae22ade73e6019aadae5e">outboundPluginParameters</a> = nullptr</td></tr>
-<tr class="memdesc:acc760ac799fae22ade73e6019aadae5e inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">old-fashioned C-arrays of pointers for outbound (meter) parameters <br /></td></tr>
-<tr class="separator:acc760ac799fae22ade73e6019aadae5e inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b70e52e2d1d7b2c979bb569a198a35d inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="a2b70e52e2d1d7b2c979bb569a198a35d"></a>
+<a class="el" href="class_plugin_parameter.html">PluginParameter</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a2b70e52e2d1d7b2c979bb569a198a35d">VSTSAAPluginParameters</a> = nullptr</td></tr>
+<tr class="memdesc:a2b70e52e2d1d7b2c979bb569a198a35d inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">old-fashioned C-arrays of pointers for smoothable parameters <br /></td></tr>
+<tr class="separator:a2b70e52e2d1d7b2c979bb569a198a35d inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a888c2c488a0c0731ffff7622cb8182fe inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="a888c2c488a0c0731ffff7622cb8182fe"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a888c2c488a0c0731ffff7622cb8182fe">numVSTSAAPluginParameters</a> = 0</td></tr>
+<tr class="memdesc:a888c2c488a0c0731ffff7622cb8182fe inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of smoothable parameters only <br /></td></tr>
+<tr class="separator:a888c2c488a0c0731ffff7622cb8182fe inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6efc8bc15785a354c94603850e52634d inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="a6efc8bc15785a354c94603850e52634d"></a>
+<a class="el" href="class_plugin_parameter.html">PluginParameter</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a6efc8bc15785a354c94603850e52634d">smoothingPluginParameters</a> = nullptr</td></tr>
+<tr class="memdesc:a6efc8bc15785a354c94603850e52634d inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">old-fashioned C-arrays of pointers for smoothable parameters <br /></td></tr>
+<tr class="separator:a6efc8bc15785a354c94603850e52634d inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a211f713dc523fa1eb133ad49799a53d2 inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="a211f713dc523fa1eb133ad49799a53d2"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a211f713dc523fa1eb133ad49799a53d2">numSmoothingPluginParameters</a> = 0</td></tr>
+<tr class="memdesc:a211f713dc523fa1eb133ad49799a53d2 inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of smoothable parameters only <br /></td></tr>
+<tr class="separator:a211f713dc523fa1eb133ad49799a53d2 inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad172f221b698e630c0935899e6c52f4c inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="ad172f221b698e630c0935899e6c52f4c"></a>
+<a class="el" href="class_plugin_parameter.html">PluginParameter</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#ad172f221b698e630c0935899e6c52f4c">outboundPluginParameters</a> = nullptr</td></tr>
+<tr class="memdesc:ad172f221b698e630c0935899e6c52f4c inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">old-fashioned C-arrays of pointers for outbound (meter) parameters <br /></td></tr>
+<tr class="separator:ad172f221b698e630c0935899e6c52f4c inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9ae9ac78dba4e5ec79471cb2b763655 inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="ac9ae9ac78dba4e5ec79471cb2b763655"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#ac9ae9ac78dba4e5ec79471cb2b763655">numOutboundPluginParameters</a> = 0</td></tr>
 <tr class="memdesc:ac9ae9ac78dba4e5ec79471cb2b763655 inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">total number of outbound (meter) parameters <br /></td></tr>
 <tr class="separator:ac9ae9ac78dba4e5ec79471cb2b763655 inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0105070d7bafde2aa602346c0ebbcdbe inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="a0105070d7bafde2aa602346c0ebbcdbe"></a>
-std::vector&lt; <a class="el" href="class_plugin_parameter.html">PluginParameter</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a0105070d7bafde2aa602346c0ebbcdbe">pluginParameters</a></td></tr>
-<tr class="memdesc:a0105070d7bafde2aa602346c0ebbcdbe inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector version of parameter list <br /></td></tr>
-<tr class="separator:a0105070d7bafde2aa602346c0ebbcdbe inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef4150fcddb454c87e53cf0eccc32766 inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="aef4150fcddb454c87e53cf0eccc32766"></a>
+std::vector&lt; <a class="el" href="class_plugin_parameter.html">PluginParameter</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#aef4150fcddb454c87e53cf0eccc32766">pluginParameters</a></td></tr>
+<tr class="memdesc:aef4150fcddb454c87e53cf0eccc32766 inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector version of parameter list <br /></td></tr>
+<tr class="separator:aef4150fcddb454c87e53cf0eccc32766 inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5238a5f4ebc1aba0e09f85aa9da44a38 inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="a5238a5f4ebc1aba0e09f85aa9da44a38"></a>
 <a class="el" href="class_plugin_base.html#afa4c426782b73aae7bd9a31aecc24b81">pluginParameterControlIDMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a5238a5f4ebc1aba0e09f85aa9da44a38">pluginParameterMap</a></td></tr>
 <tr class="memdesc:a5238a5f4ebc1aba0e09f85aa9da44a38 inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">member map of parameter list <br /></td></tr>
 <tr class="separator:a5238a5f4ebc1aba0e09f85aa9da44a38 inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab6f6f463355886faef5de6ecd46dfed inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="aab6f6f463355886faef5de6ecd46dfed"></a>
-<a class="el" href="class_i_plugin_host_connector.html">IPluginHostConnector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#aab6f6f463355886faef5de6ecd46dfed">pluginHostConnector</a> = nullptr</td></tr>
-<tr class="memdesc:aab6f6f463355886faef5de6ecd46dfed inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">created and destroyed on host <br /></td></tr>
-<tr class="separator:aab6f6f463355886faef5de6ecd46dfed inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65efa2fabc37945b240c4402c53227ea inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="a65efa2fabc37945b240c4402c53227ea"></a>
-std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a65efa2fabc37945b240c4402c53227ea">presets</a></td></tr>
-<tr class="memdesc:a65efa2fabc37945b240c4402c53227ea inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">preset list <br /></td></tr>
-<tr class="separator:a65efa2fabc37945b240c4402c53227ea inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4cbf64e8c7ccac16088962f57bdb810 inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="ac4cbf64e8c7ccac16088962f57bdb810"></a>
+<a class="el" href="class_i_plugin_host_connector.html">IPluginHostConnector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#ac4cbf64e8c7ccac16088962f57bdb810">pluginHostConnector</a> = nullptr</td></tr>
+<tr class="memdesc:ac4cbf64e8c7ccac16088962f57bdb810 inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">created and destroyed on host <br /></td></tr>
+<tr class="separator:ac4cbf64e8c7ccac16088962f57bdb810 inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a794ffec599a2f0fd26a09eda41cb08fd inherit pro_attribs_class_plugin_base"><td class="memItemLeft" align="right" valign="top"><a id="a794ffec599a2f0fd26a09eda41cb08fd"></a>
+std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_base.html#a794ffec599a2f0fd26a09eda41cb08fd">presets</a></td></tr>
+<tr class="memdesc:a794ffec599a2f0fd26a09eda41cb08fd inherit pro_attribs_class_plugin_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">preset list <br /></td></tr>
+<tr class="separator:a794ffec599a2f0fd26a09eda41cb08fd inherit pro_attribs_class_plugin_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a> object is the default <a class="el" href="class_plugin_base.html" title="The PluginBase object is the base class for the Plugin Core object. ">PluginBase</a> derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) </p>
@@ -727,33 +535,7 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 </div>
 </div>
 <a id="aebc7a77a8afdbd8920d70233f590e2f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebc7a77a8afdbd8920d70233f590e2f7">&#9670;&nbsp;</a></span>~PluginCore() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual PluginCore::~PluginCore </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Destructor: empty in default version </p>
-
-</div>
-</div>
-<a id="aebc7a77a8afdbd8920d70233f590e2f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebc7a77a8afdbd8920d70233f590e2f7">&#9670;&nbsp;</a></span>~PluginCore() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aebc7a77a8afdbd8920d70233f590e2f7">&#9670;&nbsp;</a></span>~PluginCore()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -780,7 +562,7 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="af22b0bc872fdd2e01eb57ab001674893"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af22b0bc872fdd2e01eb57ab001674893">&#9670;&nbsp;</a></span>getAUCocoaViewFactoryName() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af22b0bc872fdd2e01eb57ab001674893">&#9670;&nbsp;</a></span>getAUCocoaViewFactoryName()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -806,35 +588,8 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 
 </div>
 </div>
-<a id="a4d82773bed22f75c0fe0ac15b219edfc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d82773bed22f75c0fe0ac15b219edfc">&#9670;&nbsp;</a></span>getAUCocoaViewFactoryName() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static const char* PluginCore::getAUCocoaViewFactoryName </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>static description: Cocoa View Factory Name</p>
-<dl class="section return"><dt>Returns</dt><dd>Cocoa View Factory Name as a const char* </dd></dl>
-
-</div>
-</div>
 <a id="adf81f0a79b9aab057589ecf5e7387a54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf81f0a79b9aab057589ecf5e7387a54">&#9670;&nbsp;</a></span>getFourCharCode() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adf81f0a79b9aab057589ecf5e7387a54">&#9670;&nbsp;</a></span>getFourCharCode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -860,35 +615,8 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 
 </div>
 </div>
-<a id="a5c49b92732da984f5502ce8baefb46c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c49b92732da984f5502ce8baefb46c1">&#9670;&nbsp;</a></span>getFourCharCode() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static int32_t PluginCore::getFourCharCode </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>static description: 4-char code</p>
-<dl class="section return"><dt>Returns</dt><dd>4-char code as int </dd></dl>
-
-</div>
-</div>
 <a id="aa282c2399c59c43d40c28396d145373e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa282c2399c59c43d40c28396d145373e">&#9670;&nbsp;</a></span>getPluginBundleName() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa282c2399c59c43d40c28396d145373e">&#9670;&nbsp;</a></span>getPluginBundleName()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -914,35 +642,8 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 
 </div>
 </div>
-<a id="a434a7edbe263e0921e1f213d0f45cecc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a434a7edbe263e0921e1f213d0f45cecc">&#9670;&nbsp;</a></span>getPluginBundleName() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static const char* PluginCore::getPluginBundleName </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>static description: bundle folder name</p>
-<dl class="section return"><dt>Returns</dt><dd>bundle folder name as a const char* </dd></dl>
-
-</div>
-</div>
 <a id="a48e5689b679d48cb091e6dec7ffacb46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48e5689b679d48cb091e6dec7ffacb46">&#9670;&nbsp;</a></span>getPluginName() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a48e5689b679d48cb091e6dec7ffacb46">&#9670;&nbsp;</a></span>getPluginName()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -968,35 +669,8 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 
 </div>
 </div>
-<a id="ab712b4bbe573c9eab471876a5306a111"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab712b4bbe573c9eab471876a5306a111">&#9670;&nbsp;</a></span>getPluginName() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static const char* PluginCore::getPluginName </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>static description: name</p>
-<dl class="section return"><dt>Returns</dt><dd>name as a const char* </dd></dl>
-
-</div>
-</div>
 <a id="a24c18ff253faa477a02b52dc143ac9fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24c18ff253faa477a02b52dc143ac9fe">&#9670;&nbsp;</a></span>getPluginType() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a24c18ff253faa477a02b52dc143ac9fe">&#9670;&nbsp;</a></span>getPluginType()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1022,35 +696,8 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 
 </div>
 </div>
-<a id="a7e6b286fc8fbef462a601cbeef8add68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e6b286fc8fbef462a601cbeef8add68">&#9670;&nbsp;</a></span>getPluginType() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="group___constants-_enums.html#gadcd0744e537d692747d91584da9eff4a">pluginType</a> PluginCore::getPluginType </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>static description: plugin type</p>
-<dl class="section return"><dt>Returns</dt><dd>type (FX or Synth) </dd></dl>
-
-</div>
-</div>
 <a id="aa81e40b11cf5466ebb27cc0eddbf605d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa81e40b11cf5466ebb27cc0eddbf605d">&#9670;&nbsp;</a></span>getShortPluginName() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa81e40b11cf5466ebb27cc0eddbf605d">&#9670;&nbsp;</a></span>getShortPluginName()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1076,35 +723,8 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 
 </div>
 </div>
-<a id="aece6753c686f1ce9ddbce52d7d3f0ebd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aece6753c686f1ce9ddbce52d7d3f0ebd">&#9670;&nbsp;</a></span>getShortPluginName() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static const char* PluginCore::getShortPluginName </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>static description: short name</p>
-<dl class="section return"><dt>Returns</dt><dd>short name as a const char* </dd></dl>
-
-</div>
-</div>
 <a id="ace244d0716bc71657d4e2e0267eb81a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace244d0716bc71657d4e2e0267eb81a8">&#9670;&nbsp;</a></span>getVendorEmail() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ace244d0716bc71657d4e2e0267eb81a8">&#9670;&nbsp;</a></span>getVendorEmail()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1130,35 +750,8 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 
 </div>
 </div>
-<a id="abe030e508c6f741ec7799f0b5199e266"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe030e508c6f741ec7799f0b5199e266">&#9670;&nbsp;</a></span>getVendorEmail() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static const char* PluginCore::getVendorEmail </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>static description: email</p>
-<dl class="section return"><dt>Returns</dt><dd>email address as a const char* </dd></dl>
-
-</div>
-</div>
 <a id="a7af2c04c7e5cd26f9ce2a102a93079c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7af2c04c7e5cd26f9ce2a102a93079c2">&#9670;&nbsp;</a></span>getVendorName() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7af2c04c7e5cd26f9ce2a102a93079c2">&#9670;&nbsp;</a></span>getVendorName()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1184,35 +777,8 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 
 </div>
 </div>
-<a id="a00d3e8875aefcdfd2f00497e76ea1f38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00d3e8875aefcdfd2f00497e76ea1f38">&#9670;&nbsp;</a></span>getVendorName() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static const char* PluginCore::getVendorName </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>static description: vendor name</p>
-<dl class="section return"><dt>Returns</dt><dd>vendor name as a const char* </dd></dl>
-
-</div>
-</div>
 <a id="a443b0a06d24662116e0705491cee02e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a443b0a06d24662116e0705491cee02e1">&#9670;&nbsp;</a></span>getVendorURL() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a443b0a06d24662116e0705491cee02e1">&#9670;&nbsp;</a></span>getVendorURL()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1238,35 +804,8 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 
 </div>
 </div>
-<a id="afc50f26ff08b56a5fcc1bb482177b8f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc50f26ff08b56a5fcc1bb482177b8f0">&#9670;&nbsp;</a></span>getVendorURL() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static const char* PluginCore::getVendorURL </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>static description: URL</p>
-<dl class="section return"><dt>Returns</dt><dd>URL as a const char* </dd></dl>
-
-</div>
-</div>
 <a id="a9e0134cf53d23b57eec6c90187391c17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e0134cf53d23b57eec6c90187391c17">&#9670;&nbsp;</a></span>getVSTFUID() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e0134cf53d23b57eec6c90187391c17">&#9670;&nbsp;</a></span>getVSTFUID()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1292,74 +831,8 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 
 </div>
 </div>
-<a id="a60504bcb372db81b27aabeacd5cd57c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60504bcb372db81b27aabeacd5cd57c4">&#9670;&nbsp;</a></span>getVSTFUID() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static const char* PluginCore::getVSTFUID </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>static description: VST3 GUID</p>
-<dl class="section return"><dt>Returns</dt><dd>VST3 GUID as a const char* </dd></dl>
-
-</div>
-</div>
-<a id="a159aa51b26b7eaf60f2c9c5ab61fafb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a159aa51b26b7eaf60f2c9c5ab61fafb6">&#9670;&nbsp;</a></span>guiParameterChanged() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool PluginCore::guiParameterChanged </td>
-          <td>(</td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>controlID</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>actualValue</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>this is ony called when the user makes a GUI control change </p>
-
-<p>Reimplemented from <a class="el" href="class_plugin_base.html#a5d2414ef9f85891243bdb8aed1e05077">PluginBase</a>.</p>
-
-</div>
-</div>
 <a id="a18d115498e985f680ded2ecf2422c2ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18d115498e985f680ded2ecf2422c2ac">&#9670;&nbsp;</a></span>guiParameterChanged() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a18d115498e985f680ded2ecf2422c2ac">&#9670;&nbsp;</a></span>guiParameterChanged()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1415,7 +888,7 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 </div>
 </div>
 <a id="a028dc5f74f3773ec1fa677bd5b4ebd2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a028dc5f74f3773ec1fa677bd5b4ebd2d">&#9670;&nbsp;</a></span>initialize() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a028dc5f74f3773ec1fa677bd5b4ebd2d">&#9670;&nbsp;</a></span>initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1448,55 +921,8 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 
 </div>
 </div>
-<a id="abfda1473a06ab47cca5a9ead27c9a53d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abfda1473a06ab47cca5a9ead27c9a53d">&#9670;&nbsp;</a></span>initialize() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool PluginCore::initialize </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_plugin_info.html">PluginInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>_pluginInfo</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>one-time post creation init function; pluginInfo contains path to this plugin </p>
-
-<p>Reimplemented from <a class="el" href="class_plugin_base.html#a19806ef971f722cef1376358bd82c688">PluginBase</a>.</p>
-
-</div>
-</div>
 <a id="ac816de585bd710a50c1bb78135d027f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac816de585bd710a50c1bb78135d027f6">&#9670;&nbsp;</a></span>initPluginDescriptors() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool PluginCore::initPluginDescriptors </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>initalizer </p>
-
-</div>
-</div>
-<a id="ac816de585bd710a50c1bb78135d027f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac816de585bd710a50c1bb78135d027f6">&#9670;&nbsp;</a></span>initPluginDescriptors() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac816de585bd710a50c1bb78135d027f6">&#9670;&nbsp;</a></span>initPluginDescriptors()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1517,25 +943,7 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 </div>
 </div>
 <a id="a17c56408d2f63abe0627b7f64d0ad514"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17c56408d2f63abe0627b7f64d0ad514">&#9670;&nbsp;</a></span>initPluginParameters() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool PluginCore::initPluginParameters </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>this is the creation function for all plugin parameters </p>
-
-</div>
-</div>
-<a id="a17c56408d2f63abe0627b7f64d0ad514"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17c56408d2f63abe0627b7f64d0ad514">&#9670;&nbsp;</a></span>initPluginParameters() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a17c56408d2f63abe0627b7f64d0ad514">&#9670;&nbsp;</a></span>initPluginParameters()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1556,25 +964,7 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 </div>
 </div>
 <a id="afeda9bd5f14ddfa914955366505f5526"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afeda9bd5f14ddfa914955366505f5526">&#9670;&nbsp;</a></span>initPluginPresets() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool PluginCore::initPluginPresets </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>create the presets </p>
-
-</div>
-</div>
-<a id="afeda9bd5f14ddfa914955366505f5526"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afeda9bd5f14ddfa914955366505f5526">&#9670;&nbsp;</a></span>initPluginPresets() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afeda9bd5f14ddfa914955366505f5526">&#9670;&nbsp;</a></span>initPluginPresets()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1598,37 +988,8 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 
 </div>
 </div>
-<a id="a97bf19419f2bfedfe8c657a8644e210c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97bf19419f2bfedfe8c657a8644e210c">&#9670;&nbsp;</a></span>postProcessAudioBuffers() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool PluginCore::postProcessAudioBuffers </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_process_buffer_info.html">ProcessBufferInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>processInfo</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>preProcess: do any post-buffer processing required; default operation is to send metering data to GUI </p>
-
-<p>Implements <a class="el" href="class_plugin_base.html#a10afddbcac5f8a79328794ced23f978b">PluginBase</a>.</p>
-
-</div>
-</div>
 <a id="ac89ad17043e4c76c20685a3f45a8c75f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac89ad17043e4c76c20685a3f45a8c75f">&#9670;&nbsp;</a></span>postProcessAudioBuffers() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac89ad17043e4c76c20685a3f45a8c75f">&#9670;&nbsp;</a></span>postProcessAudioBuffers()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1652,7 +1013,7 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 </div><div class="memdoc">
 
 <p>do anything needed prior to arrival of audio buffers </p>
-<p>preProcess: do any post-buffer processing required; default operation is to send metering data to GUI</p>
+<p>This is the native buffer processing function; you may override and implement it if you want to roll your own buffer or block procssing code preProcess: do any post-buffer processing required; default operation is to send metering data to GUI</p>
 <p>Operation:</p><ul>
 <li>updateOutBoundVariables sends metering data to the GUI meters</li>
 </ul>
@@ -1668,53 +1029,8 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 
 </div>
 </div>
-<a id="ae1fce50dc4615b836e279f933d710e3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1fce50dc4615b836e279f933d710e3d">&#9670;&nbsp;</a></span>postUpdatePluginParameter() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool PluginCore::postUpdatePluginParameter </td>
-          <td>(</td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>controlID</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>controlValue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="struct_parameter_update_info.html">ParameterUpdateInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>paramInfo</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>this can be called: 1) after bound variable has been updated or 2) after smoothing occurs </p>
-
-<p>Implements <a class="el" href="class_plugin_base.html#a2b1db1f15d4f458283c7392aac27d3ca">PluginBase</a>.</p>
-
-</div>
-</div>
 <a id="ac9434dc2b1d2abe3b69357f48aa20513"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9434dc2b1d2abe3b69357f48aa20513">&#9670;&nbsp;</a></span>postUpdatePluginParameter() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9434dc2b1d2abe3b69357f48aa20513">&#9670;&nbsp;</a></span>postUpdatePluginParameter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1769,8 +1085,49 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 
 </div>
 </div>
+<a id="aa666c83c775e45f4d38fdc280f436b5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa666c83c775e45f4d38fdc280f436b5b">&#9670;&nbsp;</a></span>preProcessAudioBlock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PluginCore::preProcessAudioBlock </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_midi_event_queue.html">IMidiEventQueue</a> *&#160;</td>
+          <td class="paramname"><em>midiEventQueue</em> = <code>nullptr</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>pre-process the audio block </p>
+<p>Pre-process the block with: MIDI events for the block and parametet smoothing</p>
+<p>Operation:</p><ul>
+<li>fire MIDI events for the audio block; see <a class="el" href="class_plugin_core.html#a24f1a0b139eb08b87adb902bfb4fbce0" title="process a MIDI event ">processMIDIEvent( )</a> for the code that loads the vector on the <a class="el" href="struct_process_block_info.html" title="Structure for setting up block processing. ">ProcessBlockInfo</a> structure</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="class_i_midi_event_queue.html" title="Double buffered queue for MIDI messages. ">IMidiEventQueue</a></td><td>ASPIK event queue of MIDI events for the entire buffer; this function only fires the MIDI events for this audio block</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if operation succeeds, false otherwise </dd></dl>
+
+<p>Reimplemented from <a class="el" href="class_plugin_base.html#a5bd687f32debb99b893eec2849984461">PluginBase</a>.</p>
+
+</div>
+</div>
 <a id="a90fa43d29dbcb37c3fbaca6647dd492e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90fa43d29dbcb37c3fbaca6647dd492e">&#9670;&nbsp;</a></span>preProcessAudioBuffers() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a90fa43d29dbcb37c3fbaca6647dd492e">&#9670;&nbsp;</a></span>preProcessAudioBuffers()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1794,6 +1151,7 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 </div><div class="memdoc">
 
 <p>do anything needed prior to arrival of audio buffers </p>
+<p>preProcess: sync GUI parameters here; override if you don't want to use automatic variable-binding</p>
 <p>Operation:</p><ul>
 <li>syncInBoundVariables when preProcessAudioBuffers is called, it is <em>guaranteed</em> that all GUI control change information has been applied to plugin parameters; this binds parameter changes to your underlying variables</li>
 <li>NOTE: <a class="el" href="class_plugin_core.html#ac9434dc2b1d2abe3b69357f48aa20513" title="perform any operations after the plugin parameter has been updated; this is one paradigm for transfer...">postUpdatePluginParameter( )</a> will be called for all bound variables that are acutally updated; if you need to process them individually, do so in that function</li>
@@ -1811,8 +1169,8 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 
 </div>
 </div>
-<a id="ae06820b208d850ed639cc0c5760890d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae06820b208d850ed639cc0c5760890d8">&#9670;&nbsp;</a></span>preProcessAudioBuffers() <span class="overload">[2/2]</span></h2>
+<a id="a8c3778215d6aed6382a5e710c07724d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c3778215d6aed6382a5e710c07724d0">&#9670;&nbsp;</a></span>processAudioBlock()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1821,10 +1179,10 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool PluginCore::preProcessAudioBuffers </td>
+          <td class="memname">bool PluginCore::processAudioBlock </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_process_buffer_info.html">ProcessBufferInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>processInfo</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_process_block_info.html">ProcessBlockInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>processBlockInfo</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1834,14 +1192,28 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
   </tr>
 </table>
 </div><div class="memdoc">
-<p>pure virtual function: do any last preparation for arrival of fresh audio buffers </p>
 
-<p>Implements <a class="el" href="class_plugin_base.html#aaa7bb94d07ed1aeac1d30d4456a245d2">PluginBase</a>.</p>
+<p>block or buffer-processing method </p>
+<p>process sub-blocks of data (OPTIONAL MODE)</p>
+<p>Operation:</p><ul>
+<li>process one block of audio data; see example functions for template code</li>
+<li>renderSynthSilence: render a block of 0.0 values (synth, silence when no notes are rendered)</li>
+<li>renderFXPassThrough: pass audio from input to output (FX)</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">processBlockInfo</td><td>structure of information about <em>block</em> processing</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if operation succeeds, false otherwise </dd></dl>
+
+<p>Reimplemented from <a class="el" href="class_plugin_base.html#a282d8825d94c03c9dabad83ea6a3e515">PluginBase</a>.</p>
 
 </div>
 </div>
 <a id="aeeb07448e6d662d8643b221b7c4413b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeeb07448e6d662d8643b221b7c4413b5">&#9670;&nbsp;</a></span>processAudioFrame() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aeeb07448e6d662d8643b221b7c4413b5">&#9670;&nbsp;</a></span>processAudioFrame()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1865,7 +1237,7 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 </div><div class="memdoc">
 
 <p>frame-processing method </p>
-<p>process frames of data</p>
+<p>process frames of data (DEFAULT MODE)</p>
 <p>Operation:</p><ul>
 <li>decode the plugin type - for synth plugins, fill in the rendering code; for FX plugins, delete the if(synth) portion and add your processing code</li>
 <li>note that MIDI events are fired for each sample interval so that MIDI is tightly sunk with audio</li>
@@ -1888,66 +1260,8 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 
 </div>
 </div>
-<a id="a473dda7cd0a076c7f0f0a7b52dd6885e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a473dda7cd0a076c7f0f0a7b52dd6885e">&#9670;&nbsp;</a></span>processAudioFrame() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool PluginCore::processAudioFrame </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_process_frame_info.html">ProcessFrameInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>processFrameInfo</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>process frames of data </p>
-
-<p>Implements <a class="el" href="class_plugin_base.html#a1ae5bc7c4557ea2992fed67c9e45aa4e">PluginBase</a>.</p>
-
-</div>
-</div>
-<a id="a1db7a511cff57683e4b43ab1832b8753"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1db7a511cff57683e4b43ab1832b8753">&#9670;&nbsp;</a></span>processMessage() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool PluginCore::processMessage </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_message_info.html">MessageInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>messageInfo</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>processMessage: messaging system; currently used for custom/special GUI operations </p>
-
-<p>Reimplemented from <a class="el" href="class_plugin_base.html#ae3e874eb07888a68da0d289907252424">PluginBase</a>.</p>
-
-</div>
-</div>
 <a id="adbc0df1ec8d13b5ed0540feadaab4c2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbc0df1ec8d13b5ed0540feadaab4c2f">&#9670;&nbsp;</a></span>processMessage() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adbc0df1ec8d13b5ed0540feadaab4c2f">&#9670;&nbsp;</a></span>processMessage()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1990,7 +1304,7 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 </div>
 </div>
 <a id="a24f1a0b139eb08b87adb902bfb4fbce0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24f1a0b139eb08b87adb902bfb4fbce0">&#9670;&nbsp;</a></span>processMIDIEvent() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a24f1a0b139eb08b87adb902bfb4fbce0">&#9670;&nbsp;</a></span>processMIDIEvent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2031,37 +1345,72 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 
 </div>
 </div>
-<a id="ad7ab66bd047ef6610ccdf3cf33a4c0b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7ab66bd047ef6610ccdf3cf33a4c0b4">&#9670;&nbsp;</a></span>processMIDIEvent() <span class="overload">[2/2]</span></h2>
+<a id="ac4a56794c946f9a5324e49af599f6c47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4a56794c946f9a5324e49af599f6c47">&#9670;&nbsp;</a></span>renderFXPassThrough()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool PluginCore::processMIDIEvent </td>
+          <td class="memname">bool PluginCore::renderFXPassThrough </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structmidi_event.html">midiEvent</a> &amp;&#160;</td>
-          <td class="paramname"><em>event</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_process_block_info.html">ProcessBlockInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>blockInfo</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<p>processMIDIEvent: MIDI event processing </p>
 
-<p>Reimplemented from <a class="el" href="class_plugin_base.html#ad7bf2fc3923090ddc1e492acff1f2a8a">PluginBase</a>.</p>
+<p>Renders pass-through code as an example; replace with meaningful DSP for audio goodness. </p>
+<p>FX EXAMPLE: process audio by passing through</p>
+<p>Operation:</p><ul>
+<li>loop over samples in block</li>
+<li>write inputs to outputs, per channel basis</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">blockInfo</td><td>structure of information about <em>block</em> processing </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if operation succeeds, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a0cc167703b4a3f7145490b334ce35a91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cc167703b4a3f7145490b334ce35a91">&#9670;&nbsp;</a></span>renderSynthSilence()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PluginCore::renderSynthSilence </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_process_block_info.html">ProcessBlockInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>blockInfo</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>renders a block of silence (all 0.0 values) as an example your synth code would render the synth using the MIDI messages and output buffers </p>
+<p>SYNTH EXAMPLE: render a block of silence</p>
+<p>Operation:</p><ul>
+<li>process all MIDI events for the block</li>
+<li>perform render into block's audio buffers</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">blockInfo</td><td>structure of information about <em>block</em> processing </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if operation succeeds, false otherwise </dd></dl>
 
 </div>
 </div>
 <a id="abb761153a535c8726037fe0895e14618"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb761153a535c8726037fe0895e14618">&#9670;&nbsp;</a></span>reset() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abb761153a535c8726037fe0895e14618">&#9670;&nbsp;</a></span>reset()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2102,35 +1451,6 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 
 </div>
 </div>
-<a id="a54f19a377d73d137f13cbbdcbe069982"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54f19a377d73d137f13cbbdcbe069982">&#9670;&nbsp;</a></span>reset() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool PluginCore::reset </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_reset_info.html">ResetInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>resetInfo</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>called when plugin is loaded, a new audio file is playing or sample rate changes </p>
-
-<p>Reimplemented from <a class="el" href="class_plugin_base.html#af02b3cb8d504953938c6751cea2d28e5">PluginBase</a>.</p>
-
-</div>
-</div>
 <a id="a1a5af2f96f12d12ebe502b5f5cb7e538"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1a5af2f96f12d12ebe502b5f5cb7e538">&#9670;&nbsp;</a></span>sendHostTextMessage()</h2>
 
@@ -2158,37 +1478,8 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 
 </div>
 </div>
-<a id="a11cf24fee7540e32bad7bb9210f50571"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11cf24fee7540e32bad7bb9210f50571">&#9670;&nbsp;</a></span>setVectorJoystickParameters() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool PluginCore::setVectorJoystickParameters </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_vector_joystick_data.html">VectorJoystickData</a> &amp;&#160;</td>
-          <td class="paramname"><em>vectorJoysickData</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>specialized joystick servicing (currently not used) </p>
-
-<p>Reimplemented from <a class="el" href="class_plugin_base.html#ac3eaa9df76a521f1179542c461182bc8">PluginBase</a>.</p>
-
-</div>
-</div>
 <a id="a36c8bf2e17d4953d0703b092b96fd651"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36c8bf2e17d4953d0703b092b96fd651">&#9670;&nbsp;</a></span>setVectorJoystickParameters() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a36c8bf2e17d4953d0703b092b96fd651">&#9670;&nbsp;</a></span>setVectorJoystickParameters()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2230,7 +1521,7 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 </div>
 </div>
 <a id="a445d6261c1b6a85a24e2a192d47cdab0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a445d6261c1b6a85a24e2a192d47cdab0">&#9670;&nbsp;</a></span>updatePluginParameter() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a445d6261c1b6a85a24e2a192d47cdab0">&#9670;&nbsp;</a></span>updatePluginParameter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2290,98 +1581,8 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 
 </div>
 </div>
-<a id="af2a82eb18af3494bef107a398f407408"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2a82eb18af3494bef107a398f407408">&#9670;&nbsp;</a></span>updatePluginParameter() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool PluginCore::updatePluginParameter </td>
-          <td>(</td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>controlID</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>controlValue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="struct_parameter_update_info.html">ParameterUpdateInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>paramInfo</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>called by host plugin at top of buffer proccess; this alters parameters prior to variable binding operation </p>
-
-<p>Implements <a class="el" href="class_plugin_base.html#ac10a3d8b3c8f0e6217c46bfe19c1cfb0">PluginBase</a>.</p>
-
-</div>
-</div>
-<a id="a7ba0ac16cccc2e9ee2bfcaad56565600"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ba0ac16cccc2e9ee2bfcaad56565600">&#9670;&nbsp;</a></span>updatePluginParameterNormalized() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool PluginCore::updatePluginParameterNormalized </td>
-          <td>(</td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>controlID</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>normalizedValue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="struct_parameter_update_info.html">ParameterUpdateInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>paramInfo</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>called by host plugin at top of buffer proccess; this alters parameters prior to variable binding operation </p>
-
-<p>Implements <a class="el" href="class_plugin_base.html#a33567787299a06df75d6de52ba5237b0">PluginBase</a>.</p>
-
-</div>
-</div>
 <a id="a3fb17fb9aaea5352631bed09aa2a3638"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3fb17fb9aaea5352631bed09aa2a3638">&#9670;&nbsp;</a></span>updatePluginParameterNormalized() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fb17fb9aaea5352631bed09aa2a3638">&#9670;&nbsp;</a></span>updatePluginParameterNormalized()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2442,8 +1643,8 @@ std::vector&lt; <a class="el" href="struct_preset_info.html">PresetInfo</a> * &g
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/PluginKernel/<a class="el" href="project__source_2source_2_plugin_kernel_2plugincore_8h_source.html">plugincore.h</a></li>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/PluginKernel/plugincore.cpp</li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/PluginKernel/<a class="el" href="plugincore_8h_source.html">plugincore.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/PluginKernel/<a class="el" href="plugincore_8cpp.html">plugincore.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

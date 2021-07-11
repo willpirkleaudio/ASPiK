@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('class_i_parameter_update_queue.html','
 <p>Interface for VST3 parameter value update queue (sample accurate automation)  
  <a href="class_i_parameter_update_queue.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="project__source_2source_2_plugin_kernel_2pluginstructures_8h_source.html">pluginstructures.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="pluginstructures_8h_source.html">pluginstructures.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for IParameterUpdateQueue:</div>
 <div class="dyncontent">
@@ -104,18 +104,11 @@ Inheritance diagram for IParameterUpdateQueue:</div>
   <img src="class_i_parameter_update_queue.png" usemap="#IParameterUpdateQueue_map" alt=""/>
   <map id="IParameterUpdateQueue_map" name="IParameterUpdateQueue_map">
 <area href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html" title="The VSTParamUpdateQueue object maintains a parameter update queue for one ASPiK PluginParameter objec..." alt="Steinberg::Vst::ASPiK::VSTParamUpdateQueue" shape="rect" coords="0,56,275,80"/>
-<area href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html" title="The VSTParamUpdateQueue object maintains a parameter update queue for one ASPiK PluginParameter objec..." alt="Steinberg::Vst::ASPiK::VSTParamUpdateQueue" shape="rect" coords="285,56,560,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a08b3adddad0a568fc1ee9d8e392a3c86"><td class="memItemLeft" align="right" valign="top">virtual uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_parameter_update_queue.html#a08b3adddad0a568fc1ee9d8e392a3c86">getParameterIndex</a> ()=0</td></tr>
-<tr class="separator:a08b3adddad0a568fc1ee9d8e392a3c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a429d0ff69dd4aa82fe35bf50fad94914"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_parameter_update_queue.html#a429d0ff69dd4aa82fe35bf50fad94914">getValueAtOffset</a> (long int _sampleOffset, double _previousValue, double &amp;_nextValue)=0</td></tr>
-<tr class="separator:a429d0ff69dd4aa82fe35bf50fad94914"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a693735fb393bd1272a2dcc8a1841d0cc"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_parameter_update_queue.html#a693735fb393bd1272a2dcc8a1841d0cc">getNextValue</a> (double &amp;_nextValue)=0</td></tr>
-<tr class="separator:a693735fb393bd1272a2dcc8a1841d0cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08b3adddad0a568fc1ee9d8e392a3c86"><td class="memItemLeft" align="right" valign="top">virtual uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_parameter_update_queue.html#a08b3adddad0a568fc1ee9d8e392a3c86">getParameterIndex</a> ()=0</td></tr>
 <tr class="separator:a08b3adddad0a568fc1ee9d8e392a3c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a429d0ff69dd4aa82fe35bf50fad94914"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_parameter_update_queue.html#a429d0ff69dd4aa82fe35bf50fad94914">getValueAtOffset</a> (long int _sampleOffset, double _previousValue, double &amp;_nextValue)=0</td></tr>
@@ -131,7 +124,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>Date : 2018 / 09 / 7 </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a693735fb393bd1272a2dcc8a1841d0cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a693735fb393bd1272a2dcc8a1841d0cc">&#9670;&nbsp;</a></span>getNextValue() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a693735fb393bd1272a2dcc8a1841d0cc">&#9670;&nbsp;</a></span>getNextValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -155,41 +148,12 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Get the sample-accurate value of the parameter at the next sample offset, determined by an internal counter Returns true if dNextValue is different than the previous value </p>
 
-<p>Implemented in <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#abeb2adc5777b01618d7fd41fba9147e0">Steinberg::Vst::ASPiK::VSTParamUpdateQueue</a>, and <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#abeb2adc5777b01618d7fd41fba9147e0">Steinberg::Vst::ASPiK::VSTParamUpdateQueue</a>.</p>
-
-</div>
-</div>
-<a id="a693735fb393bd1272a2dcc8a1841d0cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a693735fb393bd1272a2dcc8a1841d0cc">&#9670;&nbsp;</a></span>getNextValue() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool IParameterUpdateQueue::getNextValue </td>
-          <td>(</td>
-          <td class="paramtype">double &amp;&#160;</td>
-          <td class="paramname"><em>_nextValue</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Get the sample-accurate value of the parameter at the next sample offset, determined by an internal counter Returns true if dNextValue is different than the previous value </p>
-
-<p>Implemented in <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#abeb2adc5777b01618d7fd41fba9147e0">Steinberg::Vst::ASPiK::VSTParamUpdateQueue</a>, and <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#abeb2adc5777b01618d7fd41fba9147e0">Steinberg::Vst::ASPiK::VSTParamUpdateQueue</a>.</p>
+<p>Implemented in <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#abeb2adc5777b01618d7fd41fba9147e0">Steinberg::Vst::ASPiK::VSTParamUpdateQueue</a>.</p>
 
 </div>
 </div>
 <a id="a08b3adddad0a568fc1ee9d8e392a3c86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08b3adddad0a568fc1ee9d8e392a3c86">&#9670;&nbsp;</a></span>getParameterIndex() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a08b3adddad0a568fc1ee9d8e392a3c86">&#9670;&nbsp;</a></span>getParameterIndex()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -212,40 +176,12 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Get the index number associated with the parameter </p>
 
-<p>Implemented in <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#ac9ed96e85d33934d9dd1d7016bc30dd5">Steinberg::Vst::ASPiK::VSTParamUpdateQueue</a>, and <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#ac9ed96e85d33934d9dd1d7016bc30dd5">Steinberg::Vst::ASPiK::VSTParamUpdateQueue</a>.</p>
-
-</div>
-</div>
-<a id="a08b3adddad0a568fc1ee9d8e392a3c86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08b3adddad0a568fc1ee9d8e392a3c86">&#9670;&nbsp;</a></span>getParameterIndex() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual uint32_t IParameterUpdateQueue::getParameterIndex </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Get the index number associated with the parameter </p>
-
-<p>Implemented in <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#ac9ed96e85d33934d9dd1d7016bc30dd5">Steinberg::Vst::ASPiK::VSTParamUpdateQueue</a>, and <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#ac9ed96e85d33934d9dd1d7016bc30dd5">Steinberg::Vst::ASPiK::VSTParamUpdateQueue</a>.</p>
+<p>Implemented in <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#ac9ed96e85d33934d9dd1d7016bc30dd5">Steinberg::Vst::ASPiK::VSTParamUpdateQueue</a>.</p>
 
 </div>
 </div>
 <a id="a429d0ff69dd4aa82fe35bf50fad94914"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a429d0ff69dd4aa82fe35bf50fad94914">&#9670;&nbsp;</a></span>getValueAtOffset() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a429d0ff69dd4aa82fe35bf50fad94914">&#9670;&nbsp;</a></span>getValueAtOffset()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -285,57 +221,12 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Get the sample-accurate value of the parameter at the given sample offset. Pass in the last known normalized value. Returns true if dPreviousValue != dNextValue </p>
 
-<p>Implemented in <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#abd8bb804cfcab62cc19c01bf362c44d5">Steinberg::Vst::ASPiK::VSTParamUpdateQueue</a>, and <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#abd8bb804cfcab62cc19c01bf362c44d5">Steinberg::Vst::ASPiK::VSTParamUpdateQueue</a>.</p>
-
-</div>
-</div>
-<a id="a429d0ff69dd4aa82fe35bf50fad94914"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a429d0ff69dd4aa82fe35bf50fad94914">&#9670;&nbsp;</a></span>getValueAtOffset() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool IParameterUpdateQueue::getValueAtOffset </td>
-          <td>(</td>
-          <td class="paramtype">long int&#160;</td>
-          <td class="paramname"><em>_sampleOffset</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>_previousValue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double &amp;&#160;</td>
-          <td class="paramname"><em>_nextValue</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Get the sample-accurate value of the parameter at the given sample offset. Pass in the last known normalized value. Returns true if dPreviousValue != dNextValue </p>
-
-<p>Implemented in <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#abd8bb804cfcab62cc19c01bf362c44d5">Steinberg::Vst::ASPiK::VSTParamUpdateQueue</a>, and <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#abd8bb804cfcab62cc19c01bf362c44d5">Steinberg::Vst::ASPiK::VSTParamUpdateQueue</a>.</p>
+<p>Implemented in <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#abd8bb804cfcab62cc19c01bf362c44d5">Steinberg::Vst::ASPiK::VSTParamUpdateQueue</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/PluginKernel/<a class="el" href="project__source_2source_2_plugin_kernel_2pluginstructures_8h_source.html">pluginstructures.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/PluginKernel/<a class="el" href="pluginstructures_8h_source.html">pluginstructures.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

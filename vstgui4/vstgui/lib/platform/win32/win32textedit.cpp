@@ -25,10 +25,10 @@ HWND CreateEditControl (DWORD wxStyle, const WCHAR* string, DWORD wstyle, const 
 //-----------------------------------------------------------------------------
 Win32TextEdit::Win32TextEdit (HWND parent, IPlatformTextEditCallback* textEdit)
 : IPlatformTextEdit (textEdit)
-, platformControl (0)
-, platformFont (0)
-, platformBackColor (0)
-, oldWndProcEdit (0)
+, platformControl (nullptr)
+, platformFont (nullptr)
+, platformBackColor (nullptr)
+, oldWndProcEdit (nullptr)
 {
 	CRect rect = textEdit->platformGetSize ();
 	CFontRef fontID = textEdit->platformGetFont ();
@@ -184,7 +184,7 @@ void Win32TextEdit::textChanged ()
 //-----------------------------------------------------------------------------
 LONG_PTR WINAPI Win32TextEdit::procEdit (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {	
-	Win32TextEdit* win32TextEdit = (Win32TextEdit*)(LONG_PTR) GetWindowLongPtr (hwnd, GWLP_USERDATA);
+	auto* win32TextEdit = (Win32TextEdit*)(LONG_PTR) GetWindowLongPtr (hwnd, GWLP_USERDATA);
 	if (win32TextEdit)
 	{
 		WINDOWSPROC oldProc = win32TextEdit->oldWndProcEdit;

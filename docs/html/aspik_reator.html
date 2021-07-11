@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('aspik_reator.html','');});
  <br />
  The main panels for both Mac and Windows versions have identical controls and the Mac version is shown here for a plugin project named ASPiKompressor: <br />
  </p><div class="image">
-<img src="kreator_mac.png" align="left"/>
+<img src="kreator1.png" align="left"/>
 </div>
 <p> <br />
  <br />
@@ -138,15 +138,27 @@ $(document).ready(function(){initNavTree('aspik_reator.html','');});
  <b>Step 2: Set your Project Attributes</b><br />
  Fill in the text fields for the various components and choose the AAX category; check all the boxes that apply to your project. Select the type of project (universal or individual) and choose the APIs to include. Make sure you set the <b>Plugin Code to a 4-character sequence unique among YOUR products</b>. <br />
  <br />
- <b>Step 3: Create the Project</b><br />
+ <b>Step 3: Choose the Audio Processing</b><br />
+ Starting with ASPiK 1.6.8, you may now setup the project to process audio in three different ways (this has always been available, but required the user to add this code - now that is done for you). .</p><ol type="1">
+<li><b>Process Frames</b>: this is the default mechanism that sets up processing on each sample interval so that you process one sample per channel at a time; this is conceptually the simplest (great for newbies) but is the least efficient on the CPU.</li>
+<li><b>Process Entire Buffers</b>: in this paradigm, you process entire buffers directly from the DAW's buffer pointers; each channel has its own buffer (explained in my FX plugin book in high detail). This is the most CPU efficient and will produce blazingly fast code.</li>
+<li><b>Process Sub-Blocks</b>: here, the incoming DAW buffers are broken into sub-blocks with a block-size that you prescribe. You still operate directly on the DAW's buffers (so it is also very efficient) but you operate on chunks of audio at a time; this is a common paradigm for synth plugins, or if you are working with FFTs of a set length. NOTE: if a partial block arrives from the DAW (this used to be common, but is now somewhat rare) then the entire partial buffer is sent to your processing function.</li>
+</ol>
+<p>Note: The <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a> already contains two example sub-block processing functions named <b>renderFXPassThrough</b> and <b>renderSynthSilence</b> that demonstrate how to iterate over the sub-blocks for processing as well as setting up the GUI parameter transfers (cooking functions) for your objects. <br />
+ <br />
+ <b>Step 4: Create the Project</b><br />
  Use the [Create Project] button to spawn off a new project folder and setup the CMakeLists.txt file with the values from the ASPiKreator interface. With the new project in place, you only need to run CMake to generate the Visual Studio and/or XCode compiler project to build your plugins. <br />
  <br />
- <b>Step 4: Save your Settings</b><br />
+ <b>Step 5: Save your Settings</b><br />
  Use the [Exit] button to quit ASPiKreator - when you use this button (and not the X close toolbar button) your settings will be saved for: company name, 4-char company ID, company URL, company email, and your ASPiK Project folder. Note that all of the other attributes must be set for each plugin project (many items are necessarily different). <br />
  <br />
  <b>Step 5: OPTIONAL - Customizing Project Creation: Template Source</b><br />
- At the lower left you can see an area named Template Source. When you use the ASPiKreator, it uses an encrypted PluginTemplate as a starting point, the "Secure (recommended)" option which is the default. However, you can always create a project manually by copying the PluginTemplate folder and doing some text editing as described in the "Optional: Manual Project Creation" section. With v1.6.6, you can now opt to use that folder rather than the encrypted version that cannot be modified. This allows you to customize the template, for example to add extra files of your own design, and then use that customized version to create your new projects. Use the "PluginTemplate (custom)" option to do this. If during the customization process you corrupt the PluginTemplate folder, or you become suspicoius that something is incorrect, you can use the "Restore Template" button to erase and restor the PluginTemplate folder to its factory fresh condition. <br />
- <br />
+ The ASPiKreator uses a special copy of the PluginTemplate folder that you find in the SDK. This special copy is slightly different in that the CMakeLists.txt file includes special text placeholders, and the ASPiKreator softare uses them to fill in the file with your settings. However the rest of the PluginTemplate is unmodified. If you want to modify some of the code in this template so that each new project includes your additions, then you may do that by simply modifying the files that the ASPiKreator uses. You may even add files to the template so that they will be automatically copied to each new project, but you will need to manually add them to the compiler if they are source files.</p>
+<h2>MacOS </h2>
+<p>The Template Source is located within the ASPiKreator bundle itself; right click on the application and choose "Show Package Contents" then browse to the Resources folder, where you will find the special template folder that you may modify</p>
+<h2>Windows </h2>
+<p>The Template Source is located within the ASPiKreator folder that you find in the C: Files folder, in parallel with the ASPiKreator.exe binary. You may modify this template folder as you wish, but you will need admin privaleges to do so.</p>
+<p><br />
  </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->

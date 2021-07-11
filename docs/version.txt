@@ -7,7 +7,33 @@ www.willpirkle.com
 
 #define ASPiK_VERSION_MAJOR  1
 #define ASPiK_VERSION_MINOR  6
-#define ASPiK_VERSION_BUILD  7
+#define ASPiK_VERSION_BUILD  8
+
+Release Notes 1.6.8:
+* Updated to latest VSTGUI 4.10 -- NOTE: Steinberg made numerous changes to this version
+  I suggest creating a new "myprojects2" folder for the current version 
+* VST3: added MIDI proxy parameters for synths
+        fixed and streamlined the factory preset mechanism and IUnitInfo
+        added support for VSTGUI 4.10
+* AU: added support for VSTGUI 4.10
+* AAX: added support for VSTGUI 4.10
+* Added support and custom code for audio processing:
+  NOTE: this functionality was *always* available, but you had to write your own code
+        You can now set this up in the ASPiKreator (or in code) and it is easy to change
+        later if you want. 
+  - Frames: the default, newbie approved audio processing mechanism
+  - Buffers: process entire buffers directly on the DAW I/O arrays 
+  - Sub-block: process sub-blocks of the buffers (break the buffer into smaller pieces)
+               this also processes the DAW arrays directly (no audio copying)
+* Added two new CustomViews: 
+  - CustomTextLabel: dynamically changeable label with left/center/right horiz align
+  - CustomOptionMenu: dynamically changeable option menu, allows you to change the 
+    contents of the menu (but not the number of items, which would ruin automation)
+* Streamlined the parameter smoothing processing for more efficient CPU usage
+* Separated VST3 Sample Accurate Automation out from param smoothing loop allowing
+  you to easily turn this on or off (most users don't use it)
+* ASPiKreator: changed both MacOS and Windows to full installers with support folders, codesigned MacOS 
+* Documentation: re-worked portions for better readability and added block/buffer processing materials
 
 Release Notes 1.6.7:
 * VST3: tightened up log/antilog conversion code

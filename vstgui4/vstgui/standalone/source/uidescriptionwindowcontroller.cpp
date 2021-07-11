@@ -20,6 +20,7 @@
 #include "../../uidescription/editing/uieditmenucontroller.h"
 #include "../../uidescription/icontroller.h"
 #include "../../uidescription/uiattributes.h"
+#include "../../uidescription/uicontentprovider.h"
 #include "../../uidescription/uidescription.h"
 #include "../include/helpers/menubuilder.h"
 #include "../include/helpers/valuelistener.h"
@@ -63,7 +64,7 @@ public:
 	bool canHandleCommand (const Command& command) override;
 	bool handleCommand (const Command& command) override;
 
-	IMenuBuilder* getWindowMenuBuilder (const IWindow& window) const override;
+	const IMenuBuilder* getWindowMenuBuilder (const IWindow& window) const override;
 
 private:
 	struct Impl;
@@ -316,8 +317,7 @@ struct WindowController::Impl : public IController, public ICommandHandler
 	bool initStatic (WindowPtr& inWindow, UTF8String inXml, const char* inTemplateName)
 	{
 		window = inWindow.get ();
-		Xml::MemoryContentProvider xmlContentProvider (inXml,
-		                                               static_cast<uint32_t> (inXml.length ()));
+		MemoryContentProvider xmlContentProvider (inXml, static_cast<uint32_t> (inXml.length ()));
 		uiDesc = makeOwned<UIDescription> (&xmlContentProvider);
 		if (!uiDesc->parse ())
 			return false;
@@ -669,9 +669,6 @@ struct WindowController::Impl : public IController, public ICommandHandler
 };
 
 #if VSTGUI_LIVE_EDITING
-static const Command ToggleEditingCommand {"Debug", "Toggle Inline Editor"};
-static const Command ResaveSharedResourcesCommand {"Debug", "Resave Shared Resources"};
-
 //------------------------------------------------------------------------
 struct WindowController::EditImpl : WindowController::Impl
 {
@@ -679,9 +676,9 @@ struct WindowController::EditImpl : WindowController::Impl
 	          const CustomizationPtr& customization)
 	: Impl (controller, modelBinding, customization)
 	{
-		IApplication::instance ().registerCommand (ToggleEditingCommand, 'E');
+		IApplication::instance ().registerCommand (Commands::Debug::ToggleInlineUIEditor, 'E');
 		if (IApplication::instance ().getDelegate ().getSharedUIResourceFilename ())
-			IApplication::instance ().registerCommand (ResaveSharedResourcesCommand, 0);
+			IApplication::instance ().registerCommand (Commands::Debug::ResaveSharedResources, 0);
 	}
 
 	bool init (WindowPtr& inWindow, const char* fileName, const char* templateName) override
@@ -791,7 +788,7 @@ struct WindowController::EditImpl : WindowController::Impl
 		{
 			if (uiEditController->getUndoManager ()->isSavePosition () == false)
 				Detail::saveSharedUIDescription ();
-			int32_t flags = UIDescription::kWriteImagesIntoXMLFile |
+			int32_t flags = UIDescription::kWriteImagesIntoUIDescFile |
 			                CompressedUIDescription::kForceWriteCompressedDesc;
 			if (!uiDesc->save (uiDesc->getFilePath (), flags))
 			{
@@ -878,9 +875,9 @@ struct WindowController::EditImpl : WindowController::Impl
 
 	bool canHandleCommand (const Command& command) override
 	{
-		if (command == ToggleEditingCommand)
+		if (command == Commands::Debug::ToggleInlineUIEditor)
 			return frame->getModalView () == nullptr;
-		if (command == ResaveSharedResourcesCommand)
+		if (command == Commands::Debug::ResaveSharedResources)
 			return true;
 		else if (uiEditController && uiEditController->getMenuController ()->canHandleCommand (
 		                                 command.group, command.name))
@@ -890,12 +887,12 @@ struct WindowController::EditImpl : WindowController::Impl
 
 	bool handleCommand (const Command& command) override
 	{
-		if (command == ToggleEditingCommand)
+		if (command == Commands::Debug::ToggleInlineUIEditor)
 		{
 			enableEditing (!isEditing);
 			return true;
 		}
-		else if (command == ResaveSharedResourcesCommand)
+		else if (command == Commands::Debug::ResaveSharedResources)
 		{
 			Detail::saveSharedUIDescription ();
 			return true;
@@ -1027,7 +1024,7 @@ bool WindowController::handleCommand (const Command& command)
 }
 
 //------------------------------------------------------------------------
-IMenuBuilder* WindowController::getWindowMenuBuilder (const IWindow& window) const
+const IMenuBuilder* WindowController::getWindowMenuBuilder (const IWindow& window) const
 {
 	if (auto menuBuilder = dynamicPtrCast<IMenuBuilder> (impl->customization))
 		return menuBuilder.get ();

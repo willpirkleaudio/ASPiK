@@ -2,9 +2,6 @@ var struct_vector_joystick_data =
 [
     [ "VectorJoystickData", "struct_vector_joystick_data.html#af9defd0a9cf648348ddec86ccfb27d04", null ],
     [ "VectorJoystickData", "struct_vector_joystick_data.html#a72fcb316877c4014857122f4d5d6a68d", null ],
-    [ "VectorJoystickData", "struct_vector_joystick_data.html#af9defd0a9cf648348ddec86ccfb27d04", null ],
-    [ "VectorJoystickData", "struct_vector_joystick_data.html#a72fcb316877c4014857122f4d5d6a68d", null ],
-    [ "operator=", "struct_vector_joystick_data.html#ae923466ae11b0d3cb7a7d53147eff4ce", null ],
     [ "operator=", "struct_vector_joystick_data.html#ae923466ae11b0d3cb7a7d53147eff4ce", null ],
     [ "vectorA", "struct_vector_joystick_data.html#acba44b1ad98b75b32a3a31edc75ce0b1", null ],
     [ "vectorACMix", "struct_vector_joystick_data.html#a4c8f8e520f49850b5bd4c936449067dd", null ],

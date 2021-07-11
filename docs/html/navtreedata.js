@@ -42,7 +42,11 @@ var NAVTREE =
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
-        [ "Enumerations", "globals_enum.html", null ]
+        [ "Variables", "globals_vars.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
+        [ "Enumerations", "globals_enum.html", null ],
+        [ "Enumerator", "globals_eval.html", null ],
+        [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
   ] ]
@@ -51,24 +55,20 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"class_a_u_m_i_d_i_event_queue.html#adfc292fa7f21af35556edde3e9d6f496",
-"class_custom_view_controller.html#a4f16d12734de18657508ec02725eb19c",
-"class_g_u_i_plugin_connector.html#a680760ce808b262751f99dc56fbab5d1",
-"class_l_f_o.html#a5a78519677bc0baf726f62559f6c7ea3",
-"class_plugin_base.html#a79c1d8215068baf77df3a1428b6f2e27",
-"class_plugin_parameter.html#a3537c9e590d329c7e373d2f496305520",
-"class_plugin_parameter.html#ab7320d09e6b440fef163e970f7680ae4",
-"class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_g_u_i_plugin_connector.html#aa4929de159ee83bff8208bfdb867ceee",
-"class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_volt_octave_parameter.html#a40b197740ecbf0e9687701f897c208c0",
-"class_v_s_t_g_u_i_1_1_control_update_receiver.html#abf8aeb4915138a64985a1cf2119e6f6c",
-"class_volt_octave_taper_delegate.html#a8e58a230972d2138d3b09c715d98022c",
-"class_wdf_parallel_r_c.html#a8e026a9ac558ce91b573e564ff297705",
-"classmoodycamel_1_1_reader_writer_queue.html#a517681fb05b80acdf29b9b4c0589b4cf",
-"fxobjects_8h.html#ga1c6355051e8afc378d165d649053880ea8eb8a9108907f30e9eb0be3a3520be8e",
-"group___f_x-_functions.html#ga4db9fd3dae30d14bdf0ad46b4570a57f",
-"struct_aux_parameter_attribute.html#aeb7feeb4bced0a75e0a774ac5ba58f76",
-"struct_parameter_update_info.html#aedbeddcf847d0023262ceda36a813335",
-"structmidi_event.html#ac0a1d6cdb84da2647ad2e20464bc05dc"
+"class_analog_f_i_r_filter.html#a8d0ded31ae423283ef225992484364c1",
+"class_fast_f_f_t.html#a402a890558a540525e5147825231ac75",
+"class_linear_buffer.html#a6829cc4a96758b3f0fb1aeba26d7742a",
+"class_plugin_core.html#ac4a56794c946f9a5324e49af599f6c47",
+"class_plugin_parameter.html#ad0cc2acda7cd2938ad488b8495af01a9",
+"class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#ae5cd2ed7a73b28297d2bf1f12b415b62",
+"class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a5aff782e53170a99e84065d27189aa75",
+"class_wdf_inductor.html#a4fa1597ec29347486c86e0bc6b5b783a",
+"class_wdf_series_r_l.html#ac3ebe92d8669a2776a74adea499f24b3",
+"fxobjects_8h.html#a01f0041cbb6ec5179f33fe8a00462e1a",
+"group___constants-_enums.html#ga7d7426d194c2faf64e7b31c24f2c7bb4",
+"pluginstructures_8h.html#ga52e348ed94297a3d3eb40fef52ad5729a3da7257446e8b0d256d18ae3c13c51aa",
+"struct_create_g_u_i_info.html#aeba4a45374a8698a1309b86a9c493ef0",
+"struct_process_frame_info.html#a4aa496615cb5eb454b385c3372d25110"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

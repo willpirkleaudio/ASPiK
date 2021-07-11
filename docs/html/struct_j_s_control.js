@@ -1,8 +1,6 @@
 var struct_j_s_control =
 [
     [ "JSControl", "struct_j_s_control.html#a9e8a244a14879b2d70ed07a9ea10bf28", null ],
-    [ "JSControl", "struct_j_s_control.html#a9e8a244a14879b2d70ed07a9ea10bf28", null ],
-    [ "operator=", "struct_j_s_control.html#ab43c4ad767c9239e24d11d80256b2684", null ],
     [ "operator=", "struct_j_s_control.html#ab43c4ad767c9239e24d11d80256b2684", null ],
     [ "enableParamSmoothing", "struct_j_s_control.html#ace42a91b022af7215db7341e5342472a", null ],
     [ "joystickValue", "struct_j_s_control.html#aacfd8b357e75abcbb0e0eb9de41e36cc", null ],

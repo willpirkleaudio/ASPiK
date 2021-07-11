@@ -56,7 +56,8 @@ PluginBase::~PluginBase()
     pluginParameters.clear();
     pluginParameterMap.clear();
 	delete [] pluginParameterArray;
-	delete [] smoothablePluginParameters;
+	delete[] VSTSAAPluginParameters;
+	delete[] smoothingPluginParameters;
 	delete [] outboundPluginParameters;
 }
 
@@ -204,6 +205,86 @@ bool PluginBase::processAudioBuffers(ProcessBufferInfo& processBufferInfo)
 
 		return true; /// processed
 	}
+	// --- process in blocks of audio at a time
+	else
+	{
+		// --- sync internal bound variables
+		preProcessAudioBuffers(processBufferInfo);
+
+		// --- setup blocks and partials (if a partial block arrives, 
+		//     it is processed along with the others, but with the partial 
+		//     value as block size; no attempt is made to sew together blocks (that is up to you)
+		// 
+		// --- if processBlockInfo.blockSize == WANT_WHOLE_BUFFER, just send one "partial"
+		//     buffer that is the whole block
+		uint32_t blocksPerBuffer = 0;
+		uint32_t partialBlockSize = processBufferInfo.numFramesToProcess;
+
+		// --- calculate blocks & partial blocks (non-whole buffer)
+		if (processBlockInfo.blockSize != WANT_WHOLE_BUFFER)
+		{
+			div_t blockDiv = div((int)processBufferInfo.numFramesToProcess, processBlockInfo.blockSize);
+			blocksPerBuffer = blockDiv.quot;
+			partialBlockSize = blockDiv.rem;
+		}
+
+		// --- setup once at top of block
+		//
+		// --- note that I am setting the direct (raw) pointers from the host here
+		processBlockInfo.inputs = processBufferInfo.inputs;
+		processBlockInfo.outputs = processBufferInfo.outputs;
+		processBlockInfo.auxInputs = processBufferInfo.auxInputs;
+		processBlockInfo.auxOutputs = processBufferInfo.auxOutputs;
+
+		processBlockInfo.numAudioInChannels = processBufferInfo.numAudioInChannels;
+		processBlockInfo.numAudioOutChannels = processBufferInfo.numAudioOutChannels;
+		processBlockInfo.numAuxAudioInChannels = processBufferInfo.numAuxAudioInChannels;
+		processBlockInfo.numAuxAudioOutChannels = processBufferInfo.numAuxAudioOutChannels;
+
+		// --- host info
+		processBlockInfo.BPM = processBufferInfo.hostInfo->dBPM;
+		processBlockInfo.timeSigDenomintor = processBufferInfo.hostInfo->uTimeSigDenomintor;
+		processBlockInfo.timeSigNumerator = processBufferInfo.hostInfo->fTimeSigNumerator;
+		processBlockInfo.absoluteBufferTime_Sec = processBufferInfo.hostInfo->dAbsoluteFrameBufferTime;
+
+		// --- do the block processing by sectioning the incoming buffer, 
+		//     and using startIndex + size for iterations; the block processing
+		//     then operates on a window of samples, then the window is advanced
+		//     by the blocksize
+		for (uint32_t block = 0; block < blocksPerBuffer; block++)
+		{
+			// --- set the block index (may be used for math operations)
+			processBlockInfo.currentBlock = block;
+
+			// --- this code updates the start index, so the block process function
+			//     is operating on a section of the buffer; no audio sample copies
+			processBlockInfo.blockStartIndex = block * processBlockInfo.blockSize;
+
+			// --- do sample accurate updates and internal parameter smoothing
+			preProcessAudioBlock(processBufferInfo.midiEventQueue);
+
+			// --- do the block
+			processAudioBlock(processBlockInfo);
+		}
+
+		// --- process partial blocks; note downstream objects may need their own buffering method
+		if (partialBlockSize > 0)
+		{
+			processBlockInfo.blockSize = partialBlockSize;
+			processBlockInfo.currentBlock = blocksPerBuffer;
+			processBlockInfo.blockStartIndex = processBufferInfo.numFramesToProcess - processBlockInfo.blockSize;
+
+			// --- do sample accurate updates and internal parameter smoothing
+			preProcessAudioBlock(processBufferInfo.midiEventQueue);
+
+			// --- process the block
+			processAudioBlock(processBlockInfo);
+		}
+
+		// --- generally not used
+		postProcessAudioBuffers(processBufferInfo);
+
+	}
 
 	return false; /// processed
 }
@@ -233,8 +314,6 @@ bool PluginBase::updateOutBoundVariables()
 	return updated;
 }
 
-
-
 /**
 \brief combines parameter smoothing and VST3 sample accurate updates
 
@@ -243,36 +322,77 @@ NOTE:
 - to combat CPU usage, you can set the VST3 sample granularity in initPluginDescriptors() apiSpecificInfo.vst3SampleAccurateGranularity
 - you can also change the parameter smoothing granularity
 - but in either case, the list MUST be iterated; this function is the reason for the old-fashioned C-array of pointers\n
-  as it was found to be faster than any other list method for entire-list iteration (if you have a faster way, let me knmow!)
+as it was found to be faster than any other list method for entire-list iteration (if you have a faster way, let me knmow!)
 - the parameter is updated with the smoothed value
 - the post-parameter update function is then called (complex cooking functions here will eat the CPU as well)
 */
-void PluginBase::doSampleAccurateParameterUpdates()
+bool PluginBase::doParameterSmoothing()
 {
-	if (numSmoothablePluginParameters == 0)
-		return;
+	// --- TRY VST3 first; note that this will be very fast if (a) this isn't a VST Plugin, 
+	//                     or (b) VST3 sample accurate smoothing is not enabled
+	bool smoothed = doVST3SAAUpdates();
+
+	if (!smoothed && numSmoothingPluginParameters > 0)
+	{
+		ParameterUpdateInfo paramSmoothUpdate(true, false); /// true = this is called from smoothing operation, false = NOT VST sample accurate update
+		paramSmoothUpdate.isSmoothing = true;
+
+		for (uint32_t i = 0; i < numSmoothingPluginParameters; i++)
+		{
+			PluginParameter* piParam = VSTSAAPluginParameters[i];
+			if (piParam && piParam->smoothParameterValue())
+			{
+				// --- save state
+				smoothed = true; // at least one was smoothed
+
+				// --- update bound variable, if there is one
+				if (piParam->updateInBoundVariable())
+				{
+					paramSmoothUpdate.boundVariableUpdate = true;
+				}
+				// --- post update function (normally this is empty and unused)
+				postUpdatePluginParameter(piParam->getControlID(), piParam->getControlValue(), paramSmoothUpdate);
+			}
+		}
+	}
+	return smoothed;
+}
+
+/**
+\brief ONLY for VST3 plugins with sample accurate automation enabled
+- NOTE: this can really eat up your CPU if the cooking functions are mathematically intnesive
+*/
+bool PluginBase::doVST3SAAUpdates()
+{
+	bool smoothed = false;
+
+#ifndef VSTPLUGIN
+	return smoothed;
+#endif
+
+	// --- do we have anything to smooth?
+	if (numVSTSAAPluginParameters == 0 || !wantsVST3SampleAccurateAutomation())
+		return smoothed;
 
 	// --- do updates
 	double value = 0;
-	bool vstSAAEnabled = wantsVST3SampleAccurateAutomation();
 	ParameterUpdateInfo vst3Update(false, true); /// false = this is NOT called from smoothing operation, true: this is a VST sample accurate update
 	vst3Update.isVSTSampleAccurateUpdate = true;
 
-	ParameterUpdateInfo paramSmoothUpdate(true, false); /// true = this is called from smoothing operation, false = NOT VST sample accurate update
-	paramSmoothUpdate.isSmoothing = true;
-
 	// --- rip through the array
-	for (unsigned int i = 0; i < numSmoothablePluginParameters; i++)
+	for (unsigned int i = 0; i < numVSTSAAPluginParameters; i++)
 	{
-		PluginParameter* piParam = smoothablePluginParameters[i];
+		PluginParameter* piParam = VSTSAAPluginParameters[i];
 		if (piParam)
 		{
 			// --- do smoothing: first choice is for VST SAA (VST3 hosts only)
-			if (vstSAAEnabled && piParam->getEnableVSTSampleAccurateAutomation() && piParam->getParameterUpdateQueue())
+			if (piParam->getParameterUpdateQueue())
 			{
 				if (piParam->getParameterUpdateQueue()->getNextValue(value))
 				{
 					piParam->setControlValueNormalized(value, false, true); // false = do not apply taper, true = ignore smoothing (not needed here)
+					smoothed = true; // at least one param was smoothed
+
 					// --- now update the bound variable
 					if (piParam->updateInBoundVariable())
 					{
@@ -281,18 +401,10 @@ void PluginBase::doSampleAccurateParameterUpdates()
 					postUpdatePluginParameter(piParam->getControlID(), piParam->getControlValue(), vst3Update);
 				}
 			}
-			// --- if not already smoothed with VST, use normal smoothing
-			else if (piParam->smoothParameterValue())
-			{
-				// --- update bound variable, if there is one
-				if (piParam->updateInBoundVariable())
-				{
-					paramSmoothUpdate.boundVariableUpdate = true;
-				}
-				postUpdatePluginParameter(piParam->getControlID(), piParam->getControlValue(), paramSmoothUpdate);
-			}
 		}
 	}
+
+	return smoothed;
 }
 
 /**
@@ -802,20 +914,33 @@ void PluginBase::initPluginParameterArray()
 		delete[] pluginParameterArray;
 
 	numPluginParameters = pluginParameters.size();
-	numSmoothablePluginParameters = 0;
 	numOutboundPluginParameters = 0;
+	numSmoothingPluginParameters = 0;
+	numVSTSAAPluginParameters = 0;
 
+	// --- this is the fast access array for ALL parameters
 	pluginParameterArray = new PluginParameter*[numPluginParameters];
 	for (unsigned int i = 0; i < numPluginParameters; i++)
 	{
+		// --- initialize the main list
 		pluginParameterArray[i] = pluginParameters[i];
 
-		// --- how many are potentially smoothable?
-		if ((pluginParameters[i]->getParameterSmoothing() || pluginParameters[i]->getEnableVSTSampleAccurateAutomation()) &&
+		// --- VST3 ONLY
+#ifdef VSTPLUGIN
+		if (pluginParameters[i]->getEnableVSTSampleAccurateAutomation() &&
 			(pluginParameters[i]->getControlVariableType() == controlVariableType::kDouble ||
 				pluginParameters[i]->getControlVariableType() == controlVariableType::kFloat))
 		{
-			numSmoothablePluginParameters++;
+			numVSTSAAPluginParameters++;
+		}
+#endif
+
+		// --- normal ASPiK param smoothing
+		if (pluginParameters[i]->getParameterSmoothing() &&
+			(pluginParameters[i]->getControlVariableType() == controlVariableType::kDouble ||
+			 pluginParameters[i]->getControlVariableType() == controlVariableType::kFloat))
+		{
+			numSmoothingPluginParameters++;
 		}
 
 		// --- how many are outbound?
@@ -823,25 +948,40 @@ void PluginBase::initPluginParameterArray()
 			numOutboundPluginParameters++;
 	}
 
-	// --- smoothable parameters; this is called during audio processing so we want this array to be as small as possible
-	if (smoothablePluginParameters)
-		delete[] smoothablePluginParameters;
+	if (VSTSAAPluginParameters)
+		delete[] VSTSAAPluginParameters;
 
-	int m = 0;
-	if (numSmoothablePluginParameters > 0)
-	{
-		smoothablePluginParameters = new PluginParameter*[numSmoothablePluginParameters];
-		for (unsigned int i = 0; i < numPluginParameters; i++)
-		{
-			if ((pluginParameters[i]->getParameterSmoothing() || pluginParameters[i]->getEnableVSTSampleAccurateAutomation()) &&
-				(pluginParameters[i]->getControlVariableType() == controlVariableType::kDouble ||
-				 pluginParameters[i]->getControlVariableType() == controlVariableType::kFloat) )
-				smoothablePluginParameters[m++] = pluginParameters[i];
-		}
-	}
+	if (smoothingPluginParameters)
+		delete[] smoothingPluginParameters;
 
 	if (outboundPluginParameters)
 		delete[] outboundPluginParameters;
+
+	int m = 0;
+	if (numVSTSAAPluginParameters > 0)
+	{
+		VSTSAAPluginParameters = new PluginParameter*[numVSTSAAPluginParameters];
+		for (unsigned int i = 0; i < numPluginParameters; i++)
+		{
+			if (pluginParameters[i]->getEnableVSTSampleAccurateAutomation() &&
+				(pluginParameters[i]->getControlVariableType() == controlVariableType::kDouble ||
+					pluginParameters[i]->getControlVariableType() == controlVariableType::kFloat))
+				VSTSAAPluginParameters[m++] = pluginParameters[i];
+		}
+	}
+
+	m = 0;
+	if (numSmoothingPluginParameters > 0)
+	{
+		smoothingPluginParameters = new PluginParameter*[numSmoothingPluginParameters];
+		for (unsigned int i = 0; i < numPluginParameters; i++)
+		{
+			if (pluginParameters[i]->getParameterSmoothing() &&
+				(pluginParameters[i]->getControlVariableType() == controlVariableType::kDouble ||
+				 pluginParameters[i]->getControlVariableType() == controlVariableType::kFloat))
+				smoothingPluginParameters[m++] = pluginParameters[i];
+		}
+	}
 
 	m = 0;
 	if (numOutboundPluginParameters > 0)
@@ -853,7 +993,6 @@ void PluginBase::initPluginParameterArray()
 				outboundPluginParameters[m++] = pluginParameters[i];
 		}
 	}
-
 }
 
 /**

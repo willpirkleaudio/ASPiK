@@ -1041,6 +1041,71 @@ struct HostInfo
      */
 };
 
+// --- block size constants
+const uint32_t DEFAULT_AUDIO_BLOCK_SIZE = 64;
+const uint32_t WANT_WHOLE_BUFFER = 0; // --- reserved for full buffer
+
+/**
+\struct ProcessBlockInfo
+\ingroup Structures
+\brief Structure for setting up block processing
+- this generic version is NOT for SynthLab projects; see the SynthLab RAFX projects for that paradigm
+- NOTE: SynthLab is not part of ASPiK nor RackAFX and is API-independent
+- includes a vector of MIDI event structures that are parsed from the ASPiK host (or RackAFX) via IMidiEventQueue
+
+\author Will Pirkle https://www.willpirkle.com
+\remark
+This object is not included in SynthLab(TM); see the SynthLab_SDK for that specific block processing paradigm
+\version Revision : 1.0
+\date Date : 2021 / 06 / 30
+*/
+struct ProcessBlockInfo
+{
+	ProcessBlockInfo() { }
+
+	float** inputs = nullptr;			///< audio input buffers
+	float** outputs = nullptr;			///< audio output buffers
+	float** auxInputs = nullptr;			///< aux (sidechain) input buffers
+	float** auxOutputs = nullptr;			///< aux outputs - for future use
+
+	uint32_t numAudioInChannels = 0;		///< audio input channel count
+	uint32_t numAudioOutChannels = 0;		///< audio input channel count
+	uint32_t numAuxAudioInChannels = 0;		///< audio input channel count
+	uint32_t numAuxAudioOutChannels = 0;		///< audio input channel count
+
+	uint32_t currentBlock = 0;			///< index of this block
+	uint32_t blockSize = 64;			///< size of this block
+	uint32_t blockStartIndex = 0;		///< start
+	uint32_t blockEndIndex = 0;			///< end
+
+	/** MIDI events and functions*/
+	void pushMidiEvent(midiEvent event) {
+		midiEventList.push_back(event);
+	}
+	void clearMidiEvents() {
+		midiEventList.clear();
+	}
+	uint32_t getMidiEventCount() {
+		return midiEventList.size();
+	}
+	midiEvent* getMidiEvent(uint32_t index) {
+		if (index >= getMidiEventCount())
+			return nullptr;
+
+		return &midiEventList[index];
+	}
+
+	/** Aux information from the DAW */
+	double absoluteBufferTime_Sec = 0.0;			///< the time in seconds of the sample index at top of buffer
+	double BPM = 0.0;								///< beats per minute, aka "tempo"
+	double timeSigNumerator = 0.0;					///< time signature numerator
+	uint32_t timeSigDenomintor = 0;					///< time signature denominator
+
+protected:
+	/** set of MIDI events for this audio processing block */
+	std::vector<midiEvent> midiEventList;          ///< queue
+};
+
 class IMidiEventQueue;
 
 /**
@@ -1212,8 +1277,8 @@ struct PluginDescriptor
     uint32_t pluginTypeCode = 0;	///< FX or synth
 
     bool hasSidechain = false;		///< sidechain flag
-    bool processFrames = true;		///< want frames (default)
-    bool wantsMIDI = true;			///< want MIDI (don't need to actually use it)
+	bool processFrames = true;		///< want frames (default)
+	bool wantsMIDI = true;			///< want MIDI (don't need to actually use it)
     bool hasCustomGUI = true;		///< default on
     uint32_t latencyInSamples = 0;	///< latency
     double tailTimeInMSec = 0.0;	///< tail time

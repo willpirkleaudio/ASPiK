@@ -13,6 +13,7 @@ var searchData=
   ['combfilterparameters',['CombFilterParameters',['../struct_comb_filter_parameters.html',1,'']]],
   ['complexnumber',['ComplexNumber',['../struct_complex_number.html',1,'']]],
   ['controlupdatereceiver',['ControlUpdateReceiver',['../class_v_s_t_g_u_i_1_1_control_update_receiver.html',1,'VSTGUI']]],
+  ['creadonlyknob',['CReadOnlyKnob',['../class_v_s_t_g_u_i_1_1_c_read_only_knob.html',1,'VSTGUI']]],
   ['createguiinfo',['CreateGUIInfo',['../struct_create_g_u_i_info.html',1,'']]],
   ['customknobview',['CustomKnobView',['../class_v_s_t_g_u_i_1_1_custom_knob_view.html',1,'VSTGUI']]],
   ['customoptionmenu',['CustomOptionMenu',['../class_v_s_t_g_u_i_1_1_custom_option_menu.html',1,'VSTGUI']]],

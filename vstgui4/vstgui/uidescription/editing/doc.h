@@ -22,17 +22,9 @@ TODO:
 */
 
 /**
-@page page_uidescription_editor New Inline UI Editor for VST3 (WYSIWYG)
+@page page_uidescription_editor Inline UI Editor for VST3 (WYSIWYG)
 
-- @ref ui_editor_intro @n
-- @ref ui_editor_preparation @n
-- @ref ui_editor_parameter_binding @n
-- @ref ui_editor_the_editor @n
-- @ref ui_editor_custom_view_creation @n
-- @ref ui_editor_sub_controllers @n
-- @ref ui_editor_templates @n
-
-<hr/>
+@tableofcontents
 
 @section ui_editor_intro Introduction
 
@@ -286,39 +278,35 @@ If you want to be notified about value changes for controls in your sub-controll
 class MyController : public DelegationController, public CBaseObject
 {
 public:
-	MyController (IController* baseController) : DelegationController (baseController), controlView (0) {}
+	MyController (IController* baseController) : DelegationController (baseController), controlView (nullptr) {}
 	~MyController ()
 	{
 		if (controlView)
 		{
-			controlView->removeDependent (this);
+			controlView->unregisterControlListener (this);
 			controlView->forget ();
 		}
 	}
 	
-	CView* verifyView (CView* view, const UIAttributes& attributes, IUIDescription* description)
+	CView* verifyView (CView* view, const UIAttributes& attributes, IUIDescription* description) override
 	{
 		auto* control = dynamic_cast<CControl*> (view);
 		if (control && control->getTag () == 20)
 		{
 			controlView = control;
-			controlView->addDependent (this);
+			controlView->registerControlListener (this);
 			controlView->remember ();
 		}
 		return controller->verifyView (view, attributes, description);
 	}
-	
-	CMessageResult notify (CBaseObject* sender, IdStringPtr message)
+
+	void valueChanged (CControl* pControl) override
 	{
-		if (sender == controlView)
+		if (pControl == controlView)
 		{
-			if (message == CControl::kMessageValueChanged)
-			{
-				// do something
-			}
-			return kMessageNotified;
+			// value of the control view changed, do whatever you like
 		}
-		return kMessageUnknown;
+		DelegationController::valueChanged (pControl);
 	}
 	
 protected:

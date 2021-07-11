@@ -102,40 +102,9 @@ $(document).ready(function(){initNavTree('cs2.html','');});
  • We know that there will be one and only one CTextButton for the link control, so we can just declare a single pointer for it <br />
  • We are going to also cache a pointer to the parent object that creates the sub-controller, which is the PluginGUI - it is also a IController subclassed object! We'll handle the stuff we need to make our knobs link together, and then we'll forward our unused calls back to the parent IController for further processing. You can approach this design from several vantage points, and this strategy will allow us to only minimally affect the GUI operation, with all other chores handled on the parent object. <br />
  <br />
- The sub-controller is defined in the customviews.h file near the bottom so be sure to follow along in that code:<br />
- <br />
- <b>class KnobLinkController : public IController</b><br />
- {<br />
- &emsp;// snipped coded<br />
- <b>protected:</b><br />
- &emsp;// &mdash; the parent controller; we can issue IController commands to it!<br />
- &emsp;<b>IController* parentController = nullptr;</b><br />
- <br />
- &emsp;// &mdash; a CTextButton is the switcher (linkControl)<br />
- &emsp;<b>CTextButton* linkControl = nullptr;</b><br />
- <br />
- &emsp;// &mdash; when linked, all of these controls move when one of them moves,<br />
- &emsp;// regardless of their control tags<br />
- &emsp;<b>typedef std::vector&lt;CAnimKnob*&gt; KnobList;</b><br />
- &emsp;<b>KnobList linkedKnobs;</b><br />
- <br />
- &emsp;// &mdash; flag for linking knobs<br />
- &emsp;<b>bool linkControls = false;</b><br />
- };<br />
- <br />
- <b>Constructor</b><br />
- In the sub-controller constructor, we will cache the parent pointer and reset the boolean linking flag:<br />
- <br />
- <b>KnobLinkController(IController* _parentController)</b><br />
- {<br />
- &emsp;// &mdash; save the parent listener<br />
- &emsp;<b>parentController = _parentController;</b><br />
- <br />
- &emsp;// &mdash; INITIALIZE LINK STATE<br />
- &emsp;<b>linkControls = false;</b><br />
- }<br />
- <br />
- <b>IController Overrides</b><br />
+ The sub-controller is defined in the <a class="el" href="customviews_8h.html" title="interface file for example ASPiK custom view and custom sub-controller objects, includes waveform vie...">customviews.h</a> file near the bottom so be sure to follow along in that code:</p>
+<div class="fragment"><div class="line"><span class="keyword">class </span>KnobLinkController : <span class="keyword">public</span> IController</div><div class="line">{</div><div class="line">   <span class="comment">// snipped code</span></div><div class="line"><span class="keyword">protected</span>:</div><div class="line">   <span class="comment">// --- the parent controller; we can issue IController commands to it!</span></div><div class="line">   IController* parentController = <span class="keyword">nullptr</span>;</div><div class="line"></div><div class="line">   <span class="comment">// --- a CTextButton is the switcher (linkControl)</span></div><div class="line">   CTextButton* linkControl = <span class="keyword">nullptr</span>;</div><div class="line"></div><div class="line">   <span class="comment">// --- when linked, all of these controls move when one of them moves,</span></div><div class="line">   <span class="comment">//     regardless of their control tags</span></div><div class="line">   <span class="keyword">typedef</span> std::vector&lt;CAnimKnob*&gt; KnobList;</div><div class="line">   KnobList linkedKnobs;</div><div class="line"></div><div class="line">   <span class="comment">// --- flag for linking knobs</span></div><div class="line">   <span class="keywordtype">bool</span> linkControls = <span class="keyword">false</span>;</div><div class="line">};</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>Constructor In the sub-controller constructor, we will cache the parent pointer and reset the boolean linking flag:</p>
+<div class="fragment"><div class="line">KnobLinkController(IController* _parentController)</div><div class="line">{</div><div class="line">   <span class="comment">// --- save the parent listener</span></div><div class="line">   parentController = _parentController;</div><div class="line"></div><div class="line">   <span class="comment">// --- INITIALIZE LINK STATE</span></div><div class="line">   linkControls = <span class="keyword">false</span>;</div><div class="line">}</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p><b>IController Overrides</b><br />
  There are multiple ways to handle the sub-controller functionality and in our case we will have a fairly simple setup. You should first read the documentation for the IController in the VSTGUI4 SDK (it uses Doxygen as well for documenting the library). You can find the IController interface in the ..\vstgui4\vstgui\uidescription\icontroller.h file. <br />
  <br />
  Here are a list of the functions we'll override and implement with a brief note on their operation:<br />
@@ -146,81 +115,16 @@ $(document).ready(function(){initNavTree('cs2.html','');});
  • if it is the button, we will set it as the linking device <br />
  • we will check the button to see if it is already pressed at creation time (it could be a saved state or preset) and we will set our boolean flag if so <br />
  <br />
- The fundamental code is here:<br />
- <br />
- <b>CAnimKnob* knob = dynamic_cast&lt;CAnimKnob*&gt;(view);</b><br />
- <b>CTextButton* button = dynamic_cast&lt;CTextButton*&gt;(view);</b><br />
- <br />
- // &mdash; save button, push back knob onto list<br />
- <b>if (button)</b><br />
- {<br />
- &emsp;<b>linkControl = button;</b><br />
- &emsp;if (button-&gt;getValueNormalized() != 0)<br />
- &emsp;&emsp;linkControls = true;<br />
- &emsp;else<br />
- &emsp;&emsp;linkControls = false;<br />
- }<br />
- <b>else if (knob)</b><br />
- &emsp;<b>linkedKnobs.push_back(knob);</b><br />
- <br />
- <br />
- <b>virtual void valueChanged(CControl* control) </b><br />
+ The fundamental code is here:</p>
+<div class="fragment"><div class="line">CAnimKnob* knob = <span class="keyword">dynamic_cast&lt;</span>CAnimKnob*<span class="keyword">&gt;</span>(view);</div><div class="line">CTextButton* button = <span class="keyword">dynamic_cast&lt;</span>CTextButton*<span class="keyword">&gt;</span>(view);</div><div class="line"></div><div class="line"><span class="comment">// --- save button, push back knob onto list</span></div><div class="line"><span class="keywordflow">if</span> (button)</div><div class="line">{</div><div class="line">   linkControl = button;</div><div class="line">   <span class="keywordflow">if</span> (button-&gt;getValueNormalized() != 0)</div><div class="line">      linkControls = <span class="keyword">true</span>;</div><div class="line">   <span class="keywordflow">else</span></div><div class="line">      linkControls = <span class="keyword">false</span>;</div><div class="line">}</div><div class="line"><span class="keywordflow">else</span> <span class="keywordflow">if</span> (knob)</div><div class="line">   linkedKnobs.push_back(knob);</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p><b>virtual void valueChanged(CControl* control) </b><br />
  • we will check the incoming CControl* - if it is the link button, we'll set our flag <br />
  • if it is one of the knobs, we will check its value and if the linking flag is set, we will set all the other knobs in the list to match <br />
- • after any changes are applied, we will forward the call to the parent's valueChanged( ) function for further processing. <br />
+ • after any changes are applied, we will forward the call to the parent's valueChanged( ) function for further processing.</p>
+<div class="fragment"><div class="line"><span class="keyword">virtual</span> <span class="keywordtype">void</span> valueChanged(CControl* control) </div><div class="line">{</div><div class="line">   <span class="comment">// --- snipped code</span></div><div class="line"></div><div class="line">   <span class="keywordflow">if</span> (control == linkControl)</div><div class="line">   {</div><div class="line">      <span class="keywordflow">if</span> (control-&gt;getValueNormalized() != 0)</div><div class="line">         linkControls = <span class="keyword">true</span>;</div><div class="line">      <span class="keywordflow">else</span></div><div class="line">         linkControls = <span class="keyword">false</span>;</div><div class="line"></div><div class="line">      <span class="keywordflow">return</span> parentController-&gt;valueChanged(control);</div><div class="line">   }</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>To set all the knobs together, we just iterate the list of controls:</p>
+<div class="fragment"><div class="line"><span class="comment">// --- iterate list</span></div><div class="line"><span class="keywordflow">for</span> (std::vector&lt;CAnimKnob*&gt;::iterator itr = linkedKnobs.begin(); itr != linkedKnobs.end(); ++itr)</div><div class="line">{</div><div class="line">   <span class="comment">// --- set the control value for all knobs except the one generating this message</span></div><div class="line">   CControl* ctrl = *&lt;/i&gt;i&lt;/i&gt;tr;</div><div class="line"></div><div class="line">   <span class="keywordflow">if</span> (ctrl &amp;&amp; control != ctrl)</div><div class="line">   {</div><div class="line">      <span class="comment">// --- set the control visually</span></div><div class="line">      ctrl-&gt;setValueNormalized(control-&gt;getValueNormalized());</div><div class="line"></div><div class="line">      <span class="comment">// --- do the value change at parent level, to set on plugin</span></div><div class="line">      parentController-&gt;valueChanged(ctrl);</div><div class="line">   }</div><div class="line">}</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>For the rest of these functions, we will forward the function call to the parent (see the code - it is straightforward) </p><div class="fragment"><div class="line"><span class="comment">// --- -just forward these to parent object</span></div><div class="line"><span class="keyword">virtual</span> CView* createView(<span class="keyword">const</span> UIAttributes&amp; attributes, <span class="keyword">const</span> IUIDescription* description)</div><div class="line"><span class="keyword">virtual</span> <span class="keywordtype">void</span> controlBeginEdit(CControl* pControl)</div><div class="line"><span class="keyword">virtual</span> <span class="keywordtype">void</span> controlEndEdit(CControl* pControl)</div><div class="line"><span class="keyword">virtual</span> <span class="keywordtype">void</span> controlTagWillChange(CControl* pControl)</div><div class="line"><span class="keyword">virtual</span> <span class="keywordtype">void</span> controlTagDidChange(CControl* pControl)</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>Notice how the sub-controller intelligently handles the connections between the GUI objects and that it is coded in the GUI portion of the ASPiK project - the <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a> does not know of the sub-controller's existence (in this case, but that is possible - see below). This is the proper way to handle this kind of arrangement of control functions and you should use the sub-controller paradigm for this kind of GUI customization.<br />
  <br />
- <b>virtual void valueChanged(CControl* control) </b><br />
- // &mdash; snipped code<br />
- <b>if (control == linkControl)</b><br />
- {<br />
- &emsp;<b>if (control-&gt;getValueNormalized() != 0)</b><br />
- &emsp;&emsp;<b>linkControls = true;</b><br />
- &emsp;<b>else</b><br />
- &emsp;&emsp;<b>linkControls = false;</b><br />
- <br />
- &emsp;<b>return parentController-&gt;valueChanged(control);</b><br />
- }<br />
- <br />
- To set all the knobs together, we just iterate the list of controls:<br />
- <br />
- &mdash; iterate list<br />
- <b>for (std::vector&lt;CAnimKnob*&gt;::iterator itr = linkedKnobs.begin(); itr != linkedKnobs.end(); ++itr)</b><br />
- {<br />
- &emsp;// &mdash; set the control value for all knobs except the one generating this message<br />
- &emsp;<b>CControl* ctrl = *itr;</b><br />
- <br />
- &emsp;<b>if (ctrl &amp;&amp; control != ctrl)</b><br />
- &emsp;{<br />
- &emsp;&emsp;// &mdash; set the control visually<br />
- &emsp;&emsp;<b>ctrl-&gt;setValueNormalized(control-&gt;getValueNormalized());</b><br />
- <br />
- &emsp;&emsp;// &mdash; do the value change at parent level, to set on plugin<br />
- &emsp;&emsp;<b>parentController-&gt;valueChanged(ctrl);</b><br />
- &emsp;}<br />
- }<br />
- <br />
- <b>virtual CView* createView(const UIAttributes&amp; attributes, const IUIDescription* description)</b><br />
- <b>virtual void controlBeginEdit(CControl* pControl)</b><br />
- <b>virtual void controlEndEdit(CControl* pControl)</b><br />
- <b>virtual void controlTagWillChange(CControl* pControl)</b><br />
- <b>virtual void controlTagDidChange(CControl* pControl)</b><br />
- • For the rest of these functions, we will forward the function call to the parent (see the code - it is straightforward)<br />
- <br />
- Notice how the sub-controller intelligently handles the connections between the GUI objects and that it is coded in the GUI portion of the ASPiK project - the <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a> does not know of the sub-controller's existence (in this case, but that is possible - see below). This is the proper way to handle this kind of arrangement of control functions and you should use the sub-controller paradigm for this kind of GUI customization.<br />
- <br />
- With the sub-controller link in place, we need to modify the <b>PluginGUI::createSubController( )</b> function to decode the incoming sub-controller name string and create the device:<br />
- <br />
- <b>IController* PluginGUI::createSubController(UTF8StringPtr name, const IUIDescription* description)</b><br />
- {<br />
- &emsp;<b>std::string strName(name);</b><br />
- &emsp;<b>int findIt = strName.find("KnobLinkController");</b><br />
- &emsp;if (findIt &gt;= 0)<br />
- &emsp;{<br />
- &emsp;// &mdash; create the sub-controller<br />
- &emsp;<b>KnobLinkController* knobLinker = new KnobLinkController(this);</b><br />
- <br />
- </p>
-</div></div><!-- contents -->
+ With the sub-controller link in place, we need to modify the <b>PluginGUI::createSubController( )</b> function to decode the incoming sub-controller name string and create the device:</p>
+<div class="fragment"><div class="line">IController* PluginGUI::createSubController(UTF8StringPtr name, <span class="keyword">const</span> IUIDescription* description)</div><div class="line">{</div><div class="line">   std::string strName(name);</div><div class="line">   <span class="keywordtype">int</span> findIt = strName.find(<span class="stringliteral">&quot;KnobLinkController&quot;</span>);</div><div class="line">   <span class="keywordflow">if</span> (findIt &gt;= 0)</div><div class="line">   {</div><div class="line">      <span class="comment">// --- create the sub-controller</span></div><div class="line">      KnobLinkController* knobLinker = <span class="keyword">new</span> KnobLinkController(<span class="keyword">this</span>);</div><div class="line">      </div><div class="line">      <span class="keywordflow">return</span> KnobLinkController;</div><div class="line">   }</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

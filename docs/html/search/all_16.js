@@ -1,12 +1,12 @@
 var searchData=
 [
   ['write_20a_20plugin',['Write a Plugin',['../simple_plugin.html',1,'index']]],
-  ['wantsinfinitetailvst3',['wantsInfiniteTailVST3',['../class_plugin_base.html#a79c1d8215068baf77df3a1428b6f2e27',1,'PluginBase::wantsInfiniteTailVST3()'],['../class_plugin_base.html#a79c1d8215068baf77df3a1428b6f2e27',1,'PluginBase::wantsInfiniteTailVST3()']]],
-  ['wantsmidi',['wantsMIDI',['../struct_plugin_descriptor.html#ad45faf070e754821e85bd0293444c27d',1,'PluginDescriptor::wantsMIDI()'],['../class_plugin_base.html#a287a35a2d57a3b4f42ddf4bfe92c6082',1,'PluginBase::wantsMIDI()'],['../class_plugin_base.html#a287a35a2d57a3b4f42ddf4bfe92c6082',1,'PluginBase::wantsMIDI()']]],
-  ['wantsvst3sampleaccurateautomation',['wantsVST3SampleAccurateAutomation',['../class_plugin_base.html#aebd28a0dc798d6c57023e4c0c62643b9',1,'PluginBase::wantsVST3SampleAccurateAutomation()'],['../class_plugin_base.html#aebd28a0dc798d6c57023e4c0c62643b9',1,'PluginBase::wantsVST3SampleAccurateAutomation()']]],
+  ['wantsinfinitetailvst3',['wantsInfiniteTailVST3',['../class_plugin_base.html#a79c1d8215068baf77df3a1428b6f2e27',1,'PluginBase']]],
+  ['wantsmidi',['wantsMIDI',['../struct_plugin_descriptor.html#ad45faf070e754821e85bd0293444c27d',1,'PluginDescriptor::wantsMIDI()'],['../class_plugin_base.html#a287a35a2d57a3b4f42ddf4bfe92c6082',1,'PluginBase::wantsMIDI()']]],
+  ['wantsvst3sampleaccurateautomation',['wantsVST3SampleAccurateAutomation',['../class_plugin_base.html#aebd28a0dc798d6c57023e4c0c62643b9',1,'PluginBase']]],
   ['waveform',['waveform',['../struct_oscillator_parameters.html#ae0835a7645dbf2e143ecc32bab5f6dbb',1,'OscillatorParameters']]],
   ['waveshaper',['waveshaper',['../struct_triode_class_a_parameters.html#ae74a8af27c043d70d92ffc38e71879f3',1,'TriodeClassAParameters']]],
-  ['waveview',['WaveView',['../class_v_s_t_g_u_i_1_1_wave_view.html',1,'VSTGUI']]],
+  ['waveview',['WaveView',['../class_v_s_t_g_u_i_1_1_wave_view.html',1,'VSTGUI::WaveView'],['../class_v_s_t_g_u_i_1_1_wave_view.html#a8fa5fcfc43c987ece49844f08d8feeff',1,'VSTGUI::WaveView::WaveView()']]],
   ['wdf_2dobjects',['WDF-Objects',['../group___w_d_f-_objects.html',1,'']]],
   ['wdfadaptorbase',['WdfAdaptorBase',['../class_wdf_adaptor_base.html',1,'']]],
   ['wdfbesselbsf3',['WDFBesselBSF3',['../class_w_d_f_bessel_b_s_f3.html',1,'']]],
@@ -39,7 +39,7 @@ var searchData=
   ['weak_5fatomic_3c_20ssize_5ft_20_3e',['weak_atomic&lt; ssize_t &gt;',['../classmoodycamel_1_1weak__atomic.html',1,'moodycamel']]],
   ['wetlevel_5fdb',['wetLevel_dB',['../struct_audio_delay_parameters.html#a007b75d9b5b9522b60ab788ed4615912',1,'AudioDelayParameters::wetLevel_dB()'],['../struct_reverb_tank_parameters.html#a1448fc9e00e598b58b0054b7fcdc532c',1,'ReverbTankParameters::wetLevel_dB()']]],
   ['width',['width',['../struct_create_g_u_i_info.html#a0fa20e48fc37c0aa1f76dc63d82e55c7',1,'CreateGUIInfo']]],
-  ['window',['window',['../struct_create_g_u_i_info.html#a62d2499ec22c2254ae6b3c91eafe0771',1,'CreateGUIInfo::window()'],['../class_fast_f_f_t.html#a4f4c7562820a8f1d711f6039705da191',1,'FastFFT::window()'],['../class_phase_vocoder.html#abf1c79c7d4251d687cf8717a4d85484e',1,'PhaseVocoder::window()']]],
+  ['window',['window',['../class_fast_f_f_t.html#a4f4c7562820a8f1d711f6039705da191',1,'FastFFT::window()'],['../class_phase_vocoder.html#abf1c79c7d4251d687cf8717a4d85484e',1,'PhaseVocoder::window()'],['../struct_create_g_u_i_info.html#abab980b6c1b50afb2628102a5e44c921',1,'CreateGUIInfo::window()']]],
   ['windowbuff',['windowBuff',['../class_p_s_m_vocoder.html#a927e439a7785a6196c2d31ebc083cb50',1,'PSMVocoder']]],
   ['windowbuffer',['windowBuffer',['../class_fast_f_f_t.html#a5dd86db5d849c71baf670071551729f9',1,'FastFFT::windowBuffer()'],['../class_phase_vocoder.html#a841003936c8477b8bad4c2e4fee24c8d',1,'PhaseVocoder::windowBuffer()']]],
   ['windowcorrection',['windowCorrection',['../class_p_s_m_vocoder.html#a4e90d8754a6f937bce0b393a51944fe1',1,'PSMVocoder']]],
@@ -48,9 +48,10 @@ var searchData=
   ['windowtype',['windowType',['../group___constants-_enums.html#ga5ba5998a4b763cca3f33e544f93973ce',1,'fxobjects.h']]],
   ['wrapmask',['wrapMask',['../class_phase_vocoder.html#ac49c19cf7dc60dc671e9a62e58f2fc80',1,'PhaseVocoder']]],
   ['wrapmaskout',['wrapMaskOut',['../class_phase_vocoder.html#ad60cb40a8b5b386f5985c1e1ac82d9f3',1,'PhaseVocoder']]],
+  ['write_5fpreset_5ffile',['WRITE_PRESET_FILE',['../guiconstants_8h.html#a7044cfcc24c3fe3c74551f17752b6312',1,'guiconstants.h']]],
   ['writebuffer',['writeBuffer',['../class_linear_buffer.html#a28baafc3d7ea309886e22c8abfcc41a2',1,'LinearBuffer::writeBuffer()'],['../class_circular_buffer.html#a765bb1ef5b78d36df9d68a11e6508f06',1,'CircularBuffer::writeBuffer()']]],
   ['writedelay',['writeDelay',['../class_simple_delay.html#ad4ea3945686427a80c5b718579923e78',1,'SimpleDelay']]],
   ['writeindex',['writeIndex',['../class_v_s_t_g_u_i_1_1_wave_view.html#a27687765d418fdd2524b8b6c6fb3e00e',1,'VSTGUI::WaveView']]],
-  ['writetopresetfile',['writeToPresetFile',['../class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a6528be9591c7dee170eb948ec1fe3229',1,'VSTGUI::PluginGUI::writeToPresetFile()'],['../class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a4eb8a98cc204e94c478aca72f136f211',1,'VSTGUI::PluginGUI::writeToPresetFile()']]],
+  ['writetopresetfile',['writeToPresetFile',['../class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a4eb8a98cc204e94c478aca72f136f211',1,'VSTGUI::PluginGUI']]],
   ['writingqueuea',['writingQueueA',['../class_a_u_m_i_d_i_event_queue.html#ae41aabfbebc9fa63c7025fca958e487c',1,'AUMIDIEventQueue']]]
 ];

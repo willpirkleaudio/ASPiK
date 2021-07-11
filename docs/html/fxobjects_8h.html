@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ASPiK SDK: C:/RackAFX_v7/ASPIK_SDK/PluginTemplate OLD/project_source/source/PluginObjects/fxobjects.h File Reference</title>
+<title>ASPiK SDK: C:/RackAFX_v7/ASPIK_Doxygen/PluginObjects/fxobjects.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,8 +99,9 @@ $(document).ready(function(){initNavTree('fxobjects_8h.html','');});
 <p>a collection of 54 objects and support structures, functions and enuemrations for all projects documented in:  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;math.h&gt;</code><br />
-<code>#include &quot;guiconstants.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="guiconstants_8h_source.html">guiconstants.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="filters_8h_source.html">filters.h</a>&quot;</code><br />
 <code>#include &lt;time.h&gt;</code><br />
 <code>#include &quot;fftw3.h&quot;</code><br />
@@ -388,15 +389,15 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:aa408c37d4cd84ad52f036f7c66cd17d7"><td class="memItemLeft" align="right" valign="top"><a id="aa408c37d4cd84ad52f036f7c66cd17d7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HAVE_FFTW</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:aa408c37d4cd84ad52f036f7c66cd17d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8da539b402ed6856028a0a60240bbff"><td class="memItemLeft" align="right" valign="top"><a id="ae8da539b402ed6856028a0a60240bbff"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>NEGATIVE</b>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:ae8da539b402ed6856028a0a60240bbff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefb7723e1092c450754ef6c07922b1bf"><td class="memItemLeft" align="right" valign="top"><a id="aefb7723e1092c450754ef6c07922b1bf"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>POSITIVE</b>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:aefb7723e1092c450754ef6c07922b1bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa408c37d4cd84ad52f036f7c66cd17d7"><td class="memItemLeft" align="right" valign="top"><a id="aa408c37d4cd84ad52f036f7c66cd17d7"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>HAVE_FFTW</b></td></tr>
-<tr class="separator:aa408c37d4cd84ad52f036f7c66cd17d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -803,13 +804,14 @@ const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>maxSamp
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>a collection of 54 objects and support structures, functions and enuemrations for all projects documented in: </p>
-<p>HELLO LOOK.</p>
+<p>FX Objects File.</p>
 <dl class="section author"><dt>Author</dt><dd>Will Pirkle </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>17-September-2018<ul>
+<dl class="section date"><dt>Date</dt><dd>20-May-2020<ul>
 <li>Designing Audio Effects Plugins in C++ 2nd Ed. by Will Pirkle</li>
 <li>see the book for detailed explanations of theory and inner operations of obejcts</li>
 <li><a href="http://www.aspikplugins.com">http://www.aspikplugins.com</a></li>
 <li><a href="http://www.willpirkle.com">http://www.willpirkle.com</a></li>
+<li>5/20/2020: fixed <a class="el" href="group___f_x-_functions.html#ga4db9fd3dae30d14bdf0ad46b4570a57f" title="function that resamples an input array of length N into an output array of length M...">resample( )</a> and cleaned up array definitions</li>
 </ul>
 </dd></dl>
 </div></div><!-- contents -->
@@ -817,7 +819,7 @@ const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>maxSamp
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_cefe269fccee059c17716d5122a0dcb9.html">PluginTemplate OLD</a></li><li class="navelem"><a class="el" href="dir_8946b64d0b5334e33c38d11143150845.html">project_source</a></li><li class="navelem"><a class="el" href="dir_21758bb7fe474386c218e45c87f87071.html">source</a></li><li class="navelem"><a class="el" href="dir_91c182b8fdc6ac24ff012fda31301b27.html">PluginObjects</a></li><li class="navelem"><a class="el" href="fxobjects_8h.html">fxobjects.h</a></li>
+    <li class="navelem"><a class="el" href="dir_316b726d19e600d6b65444cab43e39fd.html">PluginObjects</a></li><li class="navelem"><a class="el" href="fxobjects_8h.html">fxobjects.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>

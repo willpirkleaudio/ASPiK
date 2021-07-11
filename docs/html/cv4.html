@@ -89,27 +89,10 @@ $(document).ready(function(){initNavTree('cv4.html','');});
 <div class="title">Design the Custom View Objects </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>With the custom view names set in the GUI designer, we can turn our attention to the custom view objects. We have two view objects that we'll discuss first and then we'll look at the custom knob view. All of these controls and their associated structures are contained in the customviews.h and customviews.cpp files that come standard with all ASPiK projects. You are free to use and modify the objects as you like. Since all of the code is available and open-source we won't spend a lot of time on the details here - you are encouraged to use the Forum at the ASPiK website to ask more questions and get help.<br />
+<div class="textblock"><p>With the custom view names set in the GUI designer, we can turn our attention to the custom view objects. We have two view objects that we'll discuss first and then we'll look at the custom knob view. All of these controls and their associated structures are contained in the <a class="el" href="customviews_8h.html" title="interface file for example ASPiK custom view and custom sub-controller objects, includes waveform vie...">customviews.h</a> and <a class="el" href="customviews_8cpp.html" title="implementation file for example ASPiK custom view and custom sub-controller objects ...">customviews.cpp</a> files that come standard with all ASPiK projects. You are free to use and modify the objects as you like. Since all of the code is available and open-source we won't spend a lot of time on the details here - you are encouraged to use the Forum at the ASPiK website to ask more questions and get help.<br />
  <br />
- The custom view objects must be derived from CView at the minimum, though we often use the CControl instead. Because you are designing the view as well as writing the mechanism for passing the <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> pointer to the plugin shell, you can implement the interface however you wish. In our example here we will simply derive the custom view from <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> (along with CControl) but you could implement this differently if you would like. The WaveView object declaration is shown here. For this document, we will only be discussing the mechanism for communicating with the custom view. Refer to <b>Designing Audio Effects Plugins in C++ 2nd Ed.</b> for details on the view operations. The important stuff is shown in below, consisting of the two <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> overrides plus the inclusion of the lock-free ring buffer. Note how the ring-buffer is declared - it will store a queue of double data values; DATA_QUEUE_LEN is defined at the top of the file and is set to 1024 - you can adjust the size as you like.<br />
- <br />
- <b>class WaveView : public CControl, public <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> </b><br />
- {<br />
- public:<br />
- &emsp;WaveView(const CRect&amp; size, IControlListener* listener, int32_t tag);<br />
- &emsp;~WaveView();<br />
- <br />
- &emsp;// &mdash; <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> <br />
- &emsp;<b>virtual void updateView() override;</b><br />
- &emsp;<b>virtual void pushDataValue(double data) override;</b><br />
- <br />
- &emsp;// &mdash; snipped out code... //<br />
- private:<br />
- &emsp;// &mdash; lock-free queue for incoming data, sized to DATA_QUEUE_LEN in length<br />
- &emsp;<b>moodycamel::ReaderWriterQueue&lt;double, DATA_QUEUE_LEN&gt;* dataQueue = nullptr;</b><br />
- };<br />
- <br />
- The implementation of the object may be found in customviews.cpp. It uses a circular buffer to store data that will be printed into the waveform view. The circular buffer indexing is what causes the data to move from the left to the right across the screen. The circular buffer is exactly the same length as the view is wide (in pixels) so each slot in the buffer corresponds to one column of pixels in the view. The object works as follows:<br />
+ The custom view objects must be derived from CView at the minimum, though we often use the CControl instead. Because you are designing the view as well as writing the mechanism for passing the <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> pointer to the plugin shell, you can implement the interface however you wish. In our example here we will simply derive the custom view from <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> (along with CControl) but you could implement this differently if you would like. The WaveView object declaration is shown here. For this document, we will only be discussing the mechanism for communicating with the custom view. Refer to <b>Designing Audio Effects Plugins in C++ 2nd Ed.</b> for details on the view operations. The important stuff is shown in below, consisting of the two <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> overrides plus the inclusion of the lock-free ring buffer. Note how the ring-buffer is declared - it will store a queue of double data values; DATA_QUEUE_LEN is defined at the top of the file and is set to 1024 - you can adjust the size as you like.</p>
+<div class="fragment"><div class="line"><span class="keyword">class </span>WaveView : <span class="keyword">public</span> CControl, <span class="keyword">public</span> <a class="code" href="class_i_custom_view.html">ICustomView</a> </div><div class="line">{</div><div class="line"><span class="keyword">public</span>:</div><div class="line">   WaveView(<span class="keyword">const</span> CRect&amp; size, IControlListener* listener, int32_t tag);</div><div class="line">   ~WaveView();</div><div class="line"></div><div class="line">   <span class="comment">// --- ICustomView </span></div><div class="line">   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_i_custom_view.html#a09b3386cc82f837cf6f04945590cb848">updateView</a>() <span class="keyword">override</span>;</div><div class="line">   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_i_custom_view.html#a60c73575c3bba7d0491dd35ec7ae757d">pushDataValue</a>(<span class="keywordtype">double</span> data) <span class="keyword">override</span>;</div><div class="line"></div><div class="line">   <span class="comment">// --- snipped out code... //</span></div><div class="line"><span class="keyword">private</span>:</div><div class="line">   <span class="comment">// --- lock-free queue for incoming data, sized to DATA_QUEUE_LEN in length</span></div><div class="line">   <a class="code" href="classmoodycamel_1_1_reader_writer_queue.html">moodycamel::ReaderWriterQueue&lt;double, DATA_QUEUE_LEN&gt;</a>* dataQueue = <span class="keyword">nullptr</span>;</div><div class="line">};</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>The implementation of the object may be found in <a class="el" href="customviews_8cpp.html" title="implementation file for example ASPiK custom view and custom sub-controller objects ...">customviews.cpp</a>. It uses a circular buffer to store data that will be printed into the waveform view. The circular buffer indexing is what causes the data to move from the left to the right across the screen. The circular buffer is exactly the same length as the view is wide (in pixels) so each slot in the buffer corresponds to one column of pixels in the view. The object works as follows:<br />
  <br />
  • the plugin pushes audio data into the custom view, which buffers it in the lock-free ring buffer<br />
  • the plugin will push some number of samples into the view during one GUI timer ping call; this represents all of the audio data that was acquired during the previous 50 mSec timer interval<br />
@@ -118,44 +101,9 @@ $(document).ready(function(){initNavTree('cv4.html','');});
  <br />
  So, the WaveView object actually paints the maximum value that occurred during each 50 mSec timer interval. The circular buffer holds the samples to be painted; the lock free ring buffer acts as the incoming data buffer that isolates the circular buffer’s data which is the part used for painting. <br />
  <br />
- Let’s look at the two <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> methods, starting with pushDataValue( ) which simply pushes the next double value into the queue. <br />
- <b>void WaveView::pushDataValue(double data)</b><br />
- {<br />
- &emsp;if(!dataQueue) return;<br />
- <br />
- &emsp;// &mdash; add data point, make room if needed<br />
- &emsp;<b>DataQueue-&gt;enqueue(data);</b><br />
- }<br />
- <br />
- The updateView( ) method sorts the buffer for the maximum value and dequeues the information. Notice the loop that empties the queue (try_dequeue( )) while also finding the maximum value. The addWaveDataPoint( ) function adds the max value into the circular buffer. The rest of the object handles the drawing of the data into the view and is discussed in Designing Audio Effects Plugins in C++ 2nd Ed. so it will not be detailed again here.<br />
- <br />
- <b>void WaveView::updateView()</b><br />
- {<br />
- &emsp;// &mdash; get the max value that was added to the queue during the last<br />
- &emsp;// GUI timer ping interval<br />
- &emsp;double audioSample = 0.0;<br />
- &emsp;double max = 0.0;<br />
- &emsp;<b>bool success = dataQueue-&gt;try_dequeue(audioSample);</b><br />
- &emsp;<b>if(success)</b><br />
- &emsp; {<br />
- &emsp;&emsp;<b> max = audioSample;</b><br />
- &emsp;&emsp;<b>while(success)</b><br />
- &emsp;&emsp;{<br />
- &emsp;&emsp;<b>success = dataQueue-&gt;try_dequeue(audioSample);</b><br />
- &emsp;&emsp;<b>if(success &amp;&amp; audioSample &gt; max)</b><br />
- &emsp;&emsp;&emsp;<b>max = audioSample;</b><br />
- &emsp;&emsp;}<br />
- <br />
- &emsp; // &mdash; add to circular buffer<br />
- &emsp;<b>addWaveDataPoint(fabs(max));</b><br />
- &emsp;}<br />
- <br />
- &emsp;// &mdash; this will set the dirty flag to repaint the view<br />
- &emsp;invalid();<br />
- }<br />
- <br />
- </p>
-</div></div><!-- contents -->
+ Let’s look at the two <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> methods, starting with pushDataValue( ) which simply pushes the next double value into the queue.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> WaveView::pushDataValue(<span class="keywordtype">double</span> data)</div><div class="line">{</div><div class="line">   <span class="keywordflow">if</span>(!dataQueue) <span class="keywordflow">return</span>;</div><div class="line"> </div><div class="line">   <span class="comment">// --- add data point, make room if needed</span></div><div class="line">   DataQueue-&gt;enqueue(data);</div><div class="line">}</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>The updateView( ) method sorts the buffer for the maximum value and dequeues the information. Notice the loop that empties the queue (try_dequeue( )) while also finding the maximum value. The addWaveDataPoint( ) function adds the max value into the circular buffer. The rest of the object handles the drawing of the data into the view and is discussed in Designing Audio Effects Plugins in C++ 2nd Ed. so it will not be detailed again here.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> WaveView::updateView()</div><div class="line">{</div><div class="line">   <span class="comment">// --- get the max value that was added to the queue during the last</span></div><div class="line">   <span class="comment">//     GUI timer ping interval</span></div><div class="line">   <span class="keywordtype">double</span> audioSample = 0.0;</div><div class="line">   <span class="keywordtype">double</span> max = 0.0;</div><div class="line">   <span class="keywordtype">bool</span> success = dataQueue-&gt;try_dequeue(audioSample);</div><div class="line">   <span class="keywordflow">if</span>(success)</div><div class="line">   {</div><div class="line">      max = audioSample;</div><div class="line">      <span class="keywordflow">while</span>(success)</div><div class="line">      {</div><div class="line">         success = dataQueue-&gt;try_dequeue(audioSample);</div><div class="line">         <span class="keywordflow">if</span>(success &amp;&amp; audioSample &gt; max)</div><div class="line">            max = audioSample;</div><div class="line">      }</div><div class="line"></div><div class="line">      <span class="comment">// --- add to circular buffer</span></div><div class="line">      addWaveDataPoint(fabs(max));</div><div class="line">   }</div><div class="line">       </div><div class="line">   <span class="comment">// --- this will set the dirty flag to repaint the view</span></div><div class="line">   invalid();</div><div class="line">}</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

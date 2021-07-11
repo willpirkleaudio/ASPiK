@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ASPiK SDK: C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/PluginKernel/plugingui.h File Reference</title>
+<title>ASPiK SDK: C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/PluginKernel/plugingui.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -101,6 +101,13 @@ $(document).ready(function(){initNavTree('plugingui_8h.html','');});
 <code>#include &quot;vstgui/uidescription/uiviewswitchcontainer.h&quot;</code><br />
 <code>#include &quot;vstgui/vstgui_uidescription.h&quot;</code><br />
 <code>#include &quot;vstgui/lib/crect.h&quot;</code><br />
+<code>#include &quot;vstgui/uidescription/cstream.h&quot;</code><br />
+<code>#include &quot;vstgui/lib/vstguiinit.h&quot;</code><br />
+<code>#import &lt;CoreFoundation/CoreFoundation.h&gt;</code><br />
+<code>#import &lt;AudioUnit/AudioUnit.h&gt;</code><br />
+<code>#import &lt;AudioToolbox/AudioToolbox.h&gt;</code><br />
+<code>#include &quot;AAX_IEffectParameters.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_a_a_xto_v_s_t_g_u_i_button_state_8h_source.html">AAXtoVSTGUIButtonState.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="pluginparameter_8h_source.html">pluginparameter.h</a>&quot;</code><br />
 <code>#include &lt;sstream&gt;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
@@ -119,6 +126,27 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html">VSTGUI::PluginGUI</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" title="The PluginGUI object that maintains the entire GUI operation and has #defines to use with AAX...">PluginGUI</a> object that maintains the entire GUI operation and has #defines to use with AAX, AU, VST3 and RAFX2 plugins. Note the multiple inheritance inolved with this very complex object. The <a class="el" href="class_i_g_u_i_view.html" title="Custom interface to allow resizing of GUI window; this is mainly used for the GUI designer...">IGUIView</a> interface is the only non-VSTGUI4 base class. It allows for GUI resizing and manipulation, if and only if the host DAW allows and provides the mechanism for it.  <a href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:aefc4476b19d1a5905f8b1107563b1d29"><td class="memItemLeft" align="right" valign="top"><a id="aefc4476b19d1a5905f8b1107563b1d29"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>__PluginGUI__</b></td></tr>
+<tr class="separator:aefc4476b19d1a5905f8b1107563b1d29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e4a39005373d7169236df7d78bc68c1"><td class="memItemLeft" align="right" valign="top"><a id="a3e4a39005373d7169236df7d78bc68c1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>DOXYDOC</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a3e4a39005373d7169236df7d78bc68c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a965b0bdae42d3ed20b36d9912fed2b67"><td class="memItemLeft" align="right" valign="top"><a id="a965b0bdae42d3ed20b36d9912fed2b67"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AUPLUGIN</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a965b0bdae42d3ed20b36d9912fed2b67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4207c1cca8e2f70d591204bb3af312da"><td class="memItemLeft" align="right" valign="top"><a id="a4207c1cca8e2f70d591204bb3af312da"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AAXPLUGIN</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a4207c1cca8e2f70d591204bb3af312da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cf2717d6ac308ab738c8bfcc66a3c04"><td class="memItemLeft" align="right" valign="top"><a id="a9cf2717d6ac308ab738c8bfcc66a3c04"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>VSTPLUGIN</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a9cf2717d6ac308ab738c8bfcc66a3c04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9001477920f7d5ba63dbb50677647c4d"><td class="memItemLeft" align="right" valign="top"><a id="a9001477920f7d5ba63dbb50677647c4d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>RAFXPLUGIN</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a9001477920f7d5ba63dbb50677647c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>

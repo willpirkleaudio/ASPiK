@@ -59,15 +59,21 @@ public:
 	/** one-time post creation init function; pluginInfo contains path to this plugin */
 	virtual bool initialize(PluginInfo& _pluginInfo);
 
-	// --- preProcess: sync GUI parameters here; override if you don't want to use automatic variable-binding
+	/** preProcess: sync GUI parameters here; override if you don't want to use automatic variable-binding */
 	virtual bool preProcessAudioBuffers(ProcessBufferInfo& processInfo);
 
-	/** process frames of data */
+	/** process frames of data (DEFAULT MODE) */
 	virtual bool processAudioFrame(ProcessFrameInfo& processFrameInfo);
 
-	// --- uncomment and override this for buffer processing; see base class implementation for
-	//     help on breaking up buffers and getting info from processBufferInfo
-	//virtual bool processAudioBuffers(ProcessBufferInfo& processBufferInfo);
+	/** Pre-process the block with: MIDI events for the block and parametet smoothing */
+	virtual bool preProcessAudioBlock(IMidiEventQueue* midiEventQueue = nullptr);
+
+	/** process sub-blocks of data (OPTIONAL MODE) */
+	virtual bool processAudioBlock(ProcessBlockInfo& processBlockInfo);
+
+	/** This is the native buffer processing function; you may override and implement
+	     it if you want to roll your own buffer or block procssing code */
+	// virtual bool processAudioBuffers(ProcessBufferInfo& processBufferInfo);
 
 	/** preProcess: do any post-buffer processing required; default operation is to send metering data to GUI  */
 	virtual bool postProcessAudioBuffers(ProcessBufferInfo& processInfo);
@@ -96,12 +102,22 @@ public:
 	/** create the presets */
 	bool initPluginPresets();
 
+	// --- example block processing template functions (OPTIONAL)
+	//
+	/** FX EXAMPLE: process audio by passing through */
+	bool renderFXPassThrough(ProcessBlockInfo& blockInfo);
+
+	/** SYNTH EXAMPLE: render a block of silence */
+	bool renderSynthSilence(ProcessBlockInfo& blockInfo);
+
 	// --- BEGIN USER VARIABLES AND FUNCTIONS -------------------------------------- //
 	//	   Add your variables and methods here
 
 
 
 	// --- END USER VARIABLES AND FUNCTIONS -------------------------------------- //
+
+protected:
 
 private:
 	//  **--0x07FD--**
@@ -172,7 +188,7 @@ public:
 
 	/** initalizer */
 	bool initPluginDescriptors();
-    
+
     /** Status Window Messages for hosts that can show it */
     void sendHostTextMessage(std::string messageString)
     {
@@ -189,3 +205,5 @@ public:
 
 
 #endif /* defined(__pluginCore_h__) */
+
+

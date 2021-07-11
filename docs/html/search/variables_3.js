@@ -13,7 +13,7 @@ var searchData=
   ['delayratio_5fpct',['delayRatio_Pct',['../struct_audio_delay_parameters.html#a1df4afd7265ff9b8b4fbfd4a93b7d574',1,'AudioDelayParameters']]],
   ['delaytime_5fmsec',['delayTime_mSec',['../struct_simple_delay_parameters.html#ad33a431ea87f9f95035e412501631dc4',1,'SimpleDelayParameters::delayTime_mSec()'],['../struct_comb_filter_parameters.html#acd7cf2ad24e0b645d7b3335dd5911cb5',1,'CombFilterParameters::delayTime_mSec()'],['../struct_delay_a_p_f_parameters.html#a6f6a16eb812ae18bc67bb34c2e9a95a8',1,'DelayAPFParameters::delayTime_mSec()']]],
   ['density',['density',['../struct_reverb_tank_parameters.html#a649bbc5cc8c0c68c65f38b3f597dda81',1,'ReverbTankParameters']]],
-  ['description',['description',['../class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a59720d55969d23f2ecff1d19eaef923a',1,'VSTGUI::PluginGUI']]],
+  ['description',['description',['../class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#ab130bb56cafff4fd37aca54bc9fb75ef',1,'VSTGUI::PluginGUI']]],
   ['detect_5fdb',['detect_dB',['../struct_audio_detector_parameters.html#a71f4b9c85b4e000dec80589a1882b253',1,'AudioDetectorParameters']]],
   ['detectmode',['detectMode',['../struct_audio_detector_parameters.html#a42d56bb3acfc40b5da9f9e7405e317c1',1,'AudioDetectorParameters']]],
   ['detector',['detector',['../class_dynamics_processor.html#a8e874dd2bf97ad565217fc555fe9167b',1,'DynamicsProcessor::detector()'],['../class_peak_limiter.html#a7e85674a8b5923f2fc6c9822a3d5666f',1,'PeakLimiter::detector()'],['../class_envelope_follower.html#a843b31748960343191cad293bbe741df',1,'EnvelopeFollower::detector()']]],

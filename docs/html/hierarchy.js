@@ -1,20 +1,15 @@
 var hierarchy =
 [
     [ "AAX_CEffectGUI", null, [
-      [ "AAXPluginGUI", "class_a_a_x_plugin_g_u_i.html", null ],
       [ "AAXPluginGUI", "class_a_a_x_plugin_g_u_i.html", null ]
     ] ],
     [ "AAX_CEffectParameters", null, [
-      [ "AAXPluginParameters", "class_a_a_x_plugin_parameters.html", null ],
       [ "AAXPluginParameters", "class_a_a_x_plugin_parameters.html", null ]
     ] ],
     [ "AAX_CVSTGUIButtonState", "class_a_a_x___c_v_s_t_g_u_i_button_state.html", null ],
     [ "AAX_ITaperDelegate", null, [
       [ "AntiLogTaperDelegate< T, RealPrecision >", "class_anti_log_taper_delegate.html", null ],
-      [ "AntiLogTaperDelegate< T, RealPrecision >", "class_anti_log_taper_delegate.html", null ],
       [ "LogTaperDelegate< T, RealPrecision >", "class_log_taper_delegate.html", null ],
-      [ "LogTaperDelegate< T, RealPrecision >", "class_log_taper_delegate.html", null ],
-      [ "VoltOctaveTaperDelegate", "class_volt_octave_taper_delegate.html", null ],
       [ "VoltOctaveTaperDelegate", "class_volt_octave_taper_delegate.html", null ]
     ] ],
     [ "AAXAlgorithm", "struct_a_a_x_algorithm.html", null ],
@@ -24,7 +19,6 @@ var hierarchy =
     [ "APISpecificInfo", "struct_a_p_i_specific_info.html", null ],
     [ "attributeValue", "unionattribute_value.html", null ],
     [ "<AUCocoaUIBase>", null, [
-      [ "AU_COCOA_VIEWFACTORY_NAME", "interface_a_u___c_o_c_o_a___v_i_e_w_f_a_c_t_o_r_y___n_a_m_e.html", null ],
       [ "AU_COCOA_VIEWFACTORY_NAME", "interface_a_u___c_o_c_o_a___v_i_e_w_f_a_c_t_o_r_y___n_a_m_e.html", null ]
     ] ],
     [ "AudioDelayParameters", "struct_audio_delay_parameters.html", null ],
@@ -32,11 +26,9 @@ var hierarchy =
     [ "AudioFilterParameters", "struct_audio_filter_parameters.html", null ],
     [ "AudioProcDescriptor", "struct_audio_proc_descriptor.html", null ],
     [ "AUInstrumentBase", null, [
-      [ "AUSynthPlugin", "class_a_u_synth_plugin.html", null ],
       [ "AUSynthPlugin", "class_a_u_synth_plugin.html", null ]
     ] ],
     [ "AUMIDIEffectBase", null, [
-      [ "AUFXPlugin", "class_a_u_f_x_plugin.html", null ],
       [ "AUFXPlugin", "class_a_u_f_x_plugin.html", null ]
     ] ],
     [ "AuxParameterAttribute", "struct_aux_parameter_attribute.html", null ],
@@ -46,30 +38,24 @@ var hierarchy =
     [ "BrickwallMagData", "struct_brickwall_mag_data.html", null ],
     [ "CAnimKnob", null, [
       [ "VSTGUI::CAnimKnobEx", "class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html", null ],
-      [ "VSTGUI::CAnimKnobEx", "class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html", null ],
-      [ "VSTGUI::CustomKnobView", "class_v_s_t_g_u_i_1_1_custom_knob_view.html", null ],
+      [ "VSTGUI::CReadOnlyKnob", "class_v_s_t_g_u_i_1_1_c_read_only_knob.html", null ],
       [ "VSTGUI::CustomKnobView", "class_v_s_t_g_u_i_1_1_custom_knob_view.html", null ]
     ] ],
     [ "CBaseObject", null, [
       [ "VSTGUI::PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html", [
-        [ "Steinberg::Vst::ASPiK::PluginEditor", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_plugin_editor.html", null ],
         [ "Steinberg::Vst::ASPiK::PluginEditor", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_plugin_editor.html", null ]
-      ] ],
-      [ "VSTGUI::PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html", null ]
+      ] ]
     ] ],
     [ "CControl", null, [
-      [ "VSTGUI::WaveView", "class_v_s_t_g_u_i_1_1_wave_view.html", null ],
       [ "VSTGUI::WaveView", "class_v_s_t_g_u_i_1_1_wave_view.html", null ]
     ] ],
     [ "ChannelIOConfig", "struct_channel_i_o_config.html", null ],
     [ "CHorizontalSlider", null, [
-      [ "VSTGUI::CHorizontalSliderEx", "class_v_s_t_g_u_i_1_1_c_horizontal_slider_ex.html", null ],
       [ "VSTGUI::CHorizontalSliderEx", "class_v_s_t_g_u_i_1_1_c_horizontal_slider_ex.html", null ]
     ] ],
     [ "CircularBuffer< T >", "class_circular_buffer.html", null ],
     [ "CircularBuffer< double >", "class_circular_buffer.html", null ],
     [ "CKickButton", null, [
-      [ "VSTGUI::CKickButtonEx", "class_v_s_t_g_u_i_1_1_c_kick_button_ex.html", null ],
       [ "VSTGUI::CKickButtonEx", "class_v_s_t_g_u_i_1_1_c_kick_button_ex.html", null ]
     ] ],
     [ "ClassATubePreParameters", "struct_class_a_tube_pre_parameters.html", null ],
@@ -79,27 +65,22 @@ var hierarchy =
       [ "VSTGUI::CustomOptionMenu", "class_v_s_t_g_u_i_1_1_custom_option_menu.html", null ]
     ] ],
     [ "CPluginView", null, [
-      [ "Steinberg::Vst::ASPiK::PluginEditor", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_plugin_editor.html", null ],
       [ "Steinberg::Vst::ASPiK::PluginEditor", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_plugin_editor.html", null ]
     ] ],
     [ "CreateGUIInfo", "struct_create_g_u_i_info.html", null ],
     [ "CTextButton", null, [
-      [ "VSTGUI::TextButtonEx", "class_v_s_t_g_u_i_1_1_text_button_ex.html", null ],
       [ "VSTGUI::TextButtonEx", "class_v_s_t_g_u_i_1_1_text_button_ex.html", null ]
     ] ],
     [ "CTextLabel", null, [
       [ "VSTGUI::CustomTextLabel", "class_v_s_t_g_u_i_1_1_custom_text_label.html", null ]
     ] ],
     [ "CVerticalSlider", null, [
-      [ "VSTGUI::CVerticalSliderEx", "class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html", null ],
       [ "VSTGUI::CVerticalSliderEx", "class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html", null ]
     ] ],
     [ "CVuMeter", null, [
-      [ "VSTGUI::CVuMeterEx", "class_v_s_t_g_u_i_1_1_c_vu_meter_ex.html", null ],
       [ "VSTGUI::CVuMeterEx", "class_v_s_t_g_u_i_1_1_c_vu_meter_ex.html", null ]
     ] ],
     [ "CXYPad", null, [
-      [ "VSTGUI::CXYPadEx", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html", null ],
       [ "VSTGUI::CXYPadEx", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html", null ]
     ] ],
     [ "Decimator", "class_decimator.html", null ],
@@ -113,7 +94,6 @@ var hierarchy =
     [ "fftw_iodim_do_not_use_me", "structfftw__iodim__do__not__use__me.html", null ],
     [ "FilterBankOutput", "struct_filter_bank_output.html", null ],
     [ "FObject", null, [
-      [ "Steinberg::Vst::ASPiK::VST3UpdateHandler", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_update_handler.html", null ],
       [ "Steinberg::Vst::ASPiK::VST3UpdateHandler", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_update_handler.html", null ]
     ] ],
     [ "GUIParameter", "struct_g_u_i_parameter.html", null ],
@@ -160,7 +140,6 @@ var hierarchy =
       [ "ZVAFilter", "class_z_v_a_filter.html", null ]
     ] ],
     [ "ICommandMenuItemTarget", null, [
-      [ "VSTGUI::PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html", null ],
       [ "VSTGUI::PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html", null ]
     ] ],
     [ "IComponentAdaptor", "class_i_component_adaptor.html", [
@@ -182,88 +161,59 @@ var hierarchy =
     ] ],
     [ "IController", null, [
       [ "VSTGUI::KnobLinkController", "class_v_s_t_g_u_i_1_1_knob_link_controller.html", null ],
-      [ "VSTGUI::KnobLinkController", "class_v_s_t_g_u_i_1_1_knob_link_controller.html", null ],
-      [ "VSTGUI::PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html", null ],
       [ "VSTGUI::PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html", null ]
     ] ],
     [ "ICustomView", "class_i_custom_view.html", [
       [ "CustomViewController", "class_custom_view_controller.html", null ],
       [ "CustomViewController", "class_custom_view_controller.html", null ],
       [ "CustomViewController", "class_custom_view_controller.html", null ],
-      [ "CustomViewController", "class_custom_view_controller.html", null ],
-      [ "CustomViewController", "class_custom_view_controller.html", null ],
-      [ "CustomViewController", "class_custom_view_controller.html", null ],
       [ "Steinberg::Vst::ASPiK::CustomViewController", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html", null ],
-      [ "Steinberg::Vst::ASPiK::CustomViewController", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html", null ],
-      [ "VSTGUI::CustomKnobView", "class_v_s_t_g_u_i_1_1_custom_knob_view.html", null ],
       [ "VSTGUI::CustomKnobView", "class_v_s_t_g_u_i_1_1_custom_knob_view.html", null ],
       [ "VSTGUI::CustomOptionMenu", "class_v_s_t_g_u_i_1_1_custom_option_menu.html", null ],
       [ "VSTGUI::CustomTextLabel", "class_v_s_t_g_u_i_1_1_custom_text_label.html", null ],
-      [ "VSTGUI::WaveView", "class_v_s_t_g_u_i_1_1_wave_view.html", null ],
       [ "VSTGUI::WaveView", "class_v_s_t_g_u_i_1_1_wave_view.html", null ]
     ] ],
     [ "IGUIPluginConnector", "class_i_g_u_i_plugin_connector.html", [
       [ "GUIPluginConnector", "class_g_u_i_plugin_connector.html", null ],
       [ "GUIPluginConnector", "class_g_u_i_plugin_connector.html", null ],
       [ "GUIPluginConnector", "class_g_u_i_plugin_connector.html", null ],
-      [ "GUIPluginConnector", "class_g_u_i_plugin_connector.html", null ],
-      [ "GUIPluginConnector", "class_g_u_i_plugin_connector.html", null ],
-      [ "GUIPluginConnector", "class_g_u_i_plugin_connector.html", null ],
-      [ "Steinberg::Vst::ASPiK::GUIPluginConnector", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_g_u_i_plugin_connector.html", null ],
       [ "Steinberg::Vst::ASPiK::GUIPluginConnector", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_g_u_i_plugin_connector.html", null ]
     ] ],
     [ "IGUIView", "class_i_g_u_i_view.html", [
-      [ "VSTGUI::PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html", null ],
       [ "VSTGUI::PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html", null ]
     ] ],
     [ "IGUIWindowFrame", "class_i_g_u_i_window_frame.html", [
       [ "AAXPluginGUI", "class_a_a_x_plugin_g_u_i.html", null ],
-      [ "AAXPluginGUI", "class_a_a_x_plugin_g_u_i.html", null ],
       [ "AUGUIWindowFrame", "class_a_u_g_u_i_window_frame.html", null ],
-      [ "AUGUIWindowFrame", "class_a_u_g_u_i_window_frame.html", null ],
-      [ "Steinberg::Vst::ASPiK::PluginEditor", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_plugin_editor.html", null ],
       [ "Steinberg::Vst::ASPiK::PluginEditor", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_plugin_editor.html", null ]
     ] ],
     [ "IKeyboardHook", null, [
-      [ "VSTGUI::PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html", null ],
       [ "VSTGUI::PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html", null ]
     ] ],
     [ "IMidiEventQueue", "class_i_midi_event_queue.html", [
       [ "AAXMIDIEventQueue", "class_a_a_x_m_i_d_i_event_queue.html", null ],
-      [ "AAXMIDIEventQueue", "class_a_a_x_m_i_d_i_event_queue.html", null ],
       [ "AUMIDIEventQueue", "class_a_u_m_i_d_i_event_queue.html", null ],
       [ "AUMIDIEventQueue", "class_a_u_m_i_d_i_event_queue.html", null ],
-      [ "AUMIDIEventQueue", "class_a_u_m_i_d_i_event_queue.html", null ],
-      [ "AUMIDIEventQueue", "class_a_u_m_i_d_i_event_queue.html", null ],
-      [ "Steinberg::Vst::ASPiK::VSTMIDIEventQueue", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_m_i_d_i_event_queue.html", null ],
       [ "Steinberg::Vst::ASPiK::VSTMIDIEventQueue", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_m_i_d_i_event_queue.html", null ]
     ] ],
     [ "IMidiMapping", null, [
-      [ "Steinberg::Vst::ASPiK::VST3Plugin", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html", null ],
       [ "Steinberg::Vst::ASPiK::VST3Plugin", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html", null ]
     ] ],
     [ "IMouseObserver", null, [
-      [ "VSTGUI::PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html", null ],
       [ "VSTGUI::PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html", null ]
     ] ],
     [ "Interpolator", "class_interpolator.html", null ],
     [ "InterpolatorOutput", "struct_interpolator_output.html", null ],
     [ "IParameterUpdateQueue", "class_i_parameter_update_queue.html", [
-      [ "Steinberg::Vst::ASPiK::VSTParamUpdateQueue", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html", null ],
       [ "Steinberg::Vst::ASPiK::VSTParamUpdateQueue", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html", null ]
     ] ],
     [ "IPluginHostConnector", "class_i_plugin_host_connector.html", [
       [ "PluginHostConnector", "class_plugin_host_connector.html", null ],
       [ "PluginHostConnector", "class_plugin_host_connector.html", null ],
       [ "PluginHostConnector", "class_plugin_host_connector.html", null ],
-      [ "PluginHostConnector", "class_plugin_host_connector.html", null ],
-      [ "PluginHostConnector", "class_plugin_host_connector.html", null ],
-      [ "PluginHostConnector", "class_plugin_host_connector.html", null ],
-      [ "Steinberg::Vst::ASPiK::PluginHostConnector", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_plugin_host_connector.html", null ],
       [ "Steinberg::Vst::ASPiK::PluginHostConnector", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_plugin_host_connector.html", null ]
     ] ],
     [ "IViewAddedRemovedObserver", null, [
-      [ "VSTGUI::PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html", null ],
       [ "VSTGUI::PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html", null ]
     ] ],
     [ "JSControl", "struct_j_s_control.html", null ],
@@ -279,22 +229,16 @@ var hierarchy =
     [ "moodycamel::weak_atomic< T >", "classmoodycamel_1_1weak__atomic.html", null ],
     [ "NestedDelayAPFParameters", "struct_nested_delay_a_p_f_parameters.html", null ],
     [ "NSObject", null, [
-      [ "AU_COCOA_VIEWFACTORY_NAME", "interface_a_u___c_o_c_o_a___v_i_e_w_f_a_c_t_o_r_y___n_a_m_e.html", null ],
       [ "AU_COCOA_VIEWFACTORY_NAME", "interface_a_u___c_o_c_o_a___v_i_e_w_f_a_c_t_o_r_y___n_a_m_e.html", null ]
     ] ],
     [ "NSView", null, [
-      [ "AudioUnitNSView", "interface_audio_unit_n_s_view.html", null ],
       [ "AudioUnitNSView", "interface_audio_unit_n_s_view.html", null ]
     ] ],
     [ "OscillatorParameters", "struct_oscillator_parameters.html", null ],
     [ "Parameter", null, [
       [ "Steinberg::Vst::ASPiK::AntiLogParameter", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html", null ],
-      [ "Steinberg::Vst::ASPiK::AntiLogParameter", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html", null ],
-      [ "Steinberg::Vst::ASPiK::LogParameter", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_log_parameter.html", null ],
       [ "Steinberg::Vst::ASPiK::LogParameter", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_log_parameter.html", null ],
       [ "Steinberg::Vst::ASPiK::PeakParameter", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_peak_parameter.html", null ],
-      [ "Steinberg::Vst::ASPiK::PeakParameter", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_peak_parameter.html", null ],
-      [ "Steinberg::Vst::ASPiK::VoltOctaveParameter", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_volt_octave_parameter.html", null ],
       [ "Steinberg::Vst::ASPiK::VoltOctaveParameter", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_volt_octave_parameter.html", null ]
     ] ],
     [ "ParameterUpdateInfo", "struct_parameter_update_info.html", null ],
@@ -303,7 +247,6 @@ var hierarchy =
     [ "PhaseShifterParameters", "struct_phase_shifter_parameters.html", null ],
     [ "PhaseVocoder", "class_phase_vocoder.html", null ],
     [ "PluginBase", "class_plugin_base.html", [
-      [ "PluginCore", "class_plugin_core.html", null ],
       [ "PluginCore", "class_plugin_core.html", null ]
     ] ],
     [ "pluginCustomData", "structplugin_custom_data.html", null ],
@@ -313,6 +256,7 @@ var hierarchy =
     [ "pluginPrivateData", "structplugin_private_data.html", null ],
     [ "PresetInfo", "struct_preset_info.html", null ],
     [ "PresetParameter", "struct_preset_parameter.html", null ],
+    [ "ProcessBlockInfo", "struct_process_block_info.html", null ],
     [ "ProcessBufferInfo", "struct_process_buffer_info.html", null ],
     [ "ProcessFrameInfo", "struct_process_frame_info.html", null ],
     [ "PSMVocoderParameters", "struct_p_s_m_vocoder_parameters.html", null ],
@@ -324,7 +268,6 @@ var hierarchy =
     [ "SimpleDelayParameters", "struct_simple_delay_parameters.html", null ],
     [ "SimpleLPFParameters", "struct_simple_l_p_f_parameters.html", null ],
     [ "SingleComponentEffect", null, [
-      [ "Steinberg::Vst::ASPiK::VST3Plugin", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html", null ],
       [ "Steinberg::Vst::ASPiK::VST3Plugin", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html", null ]
     ] ],
     [ "TransitionBandData", "struct_transition_band_data.html", null ],
@@ -337,7 +280,6 @@ var hierarchy =
     [ "VSTGUI::RAFX2CustomViewMessage", "struct_v_s_t_g_u_i_1_1_r_a_f_x2_custom_view_message.html", null ],
     [ "VSTGUI::TextDisplayViewMessage", "struct_v_s_t_g_u_i_1_1_text_display_view_message.html", null ],
     [ "VSTGUIEditorInterface", null, [
-      [ "VSTGUI::PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html", null ],
       [ "VSTGUI::PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html", null ]
     ] ],
     [ "WdfComponentInfo", "struct_wdf_component_info.html", null ],

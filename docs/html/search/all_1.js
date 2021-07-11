@@ -2,7 +2,7 @@ var searchData=
 [
   ['barpositionmusic',['barPositionMusic',['../struct_host_info.html#a32ccd1d66ce0f8dbb74fe8472b3c6df0',1,'HostInfo']]],
   ['begin_5ffactory_5fdef',['BEGIN_FACTORY_DEF',['../group___v_s_t-_shell.html#gaca6a9a784cebbc6ca37df3104336dfe1',1,'factory.cpp']]],
-  ['beginparameterchangegesture',['beginParameterChangeGesture',['../class_g_u_i_plugin_connector.html#a1613005dc2e99d86ff8b221993d72201',1,'GUIPluginConnector::beginParameterChangeGesture()'],['../class_i_g_u_i_plugin_connector.html#a13279e0a85ab3c8dc55f8acced1268d0',1,'IGUIPluginConnector::beginParameterChangeGesture()'],['../class_g_u_i_plugin_connector.html#a1613005dc2e99d86ff8b221993d72201',1,'GUIPluginConnector::beginParameterChangeGesture()'],['../class_i_g_u_i_plugin_connector.html#a13279e0a85ab3c8dc55f8acced1268d0',1,'IGUIPluginConnector::beginParameterChangeGesture()']]],
+  ['beginparameterchangegesture',['beginParameterChangeGesture',['../class_g_u_i_plugin_connector.html#a1613005dc2e99d86ff8b221993d72201',1,'GUIPluginConnector::beginParameterChangeGesture()'],['../class_i_g_u_i_plugin_connector.html#a13279e0a85ab3c8dc55f8acced1268d0',1,'IGUIPluginConnector::beginParameterChangeGesture()']]],
   ['beta',['beta',['../class_z_v_a_filter.html#ac4d747eca29e19b406a441ab9563f573',1,'ZVAFilter']]],
   ['bindata',['BinData',['../struct_bin_data.html',1,'BinData'],['../class_p_s_m_vocoder.html#ac1390d01a2684d1d1256689e8c102976',1,'PSMVocoder::binData()']]],
   ['bindataprevious',['binDataPrevious',['../class_p_s_m_vocoder.html#a40ab5fc8670de8168b2b506b624723be',1,'PSMVocoder']]],
@@ -17,7 +17,10 @@ var searchData=
   ['bitcrusher',['BitCrusher',['../class_bit_crusher.html',1,'']]],
   ['bitcrusherparameters',['BitCrusherParameters',['../struct_bit_crusher_parameters.html',1,'']]],
   ['bitdepth',['bitDepth',['../struct_reset_info.html#a5903757c8ece4cd1ccba6f558b7d0405',1,'ResetInfo::bitDepth()'],['../struct_audio_proc_descriptor.html#adb5e41a493cb37a2a289602662896dca',1,'AudioProcDescriptor::bitDepth()']]],
+  ['blockendindex',['blockEndIndex',['../struct_process_block_info.html#afd9bffb105baabc65d3cb8f2c5e64c89',1,'ProcessBlockInfo']]],
   ['blockingreaderwriterqueue',['BlockingReaderWriterQueue',['../classmoodycamel_1_1_blocking_reader_writer_queue.html',1,'moodycamel']]],
+  ['blocksize',['blockSize',['../struct_process_block_info.html#a1b5024b61e65f51c2ae02b6a3471b38e',1,'ProcessBlockInfo']]],
+  ['blockstartindex',['blockStartIndex',['../struct_process_block_info.html#aeb00318122b03f3187fdc3e097372e21',1,'ProcessBlockInfo']]],
   ['blooping',['bLooping',['../struct_host_info.html#afb016036f1d1af69309182faad06ad3b',1,'HostInfo']]],
   ['booltostdstring',['boolToStdString',['../group___a_s_pi_k-_g_u_i.html#gab35d7722483843f5939b88632e44ade1',1,'pluginstructures.h']]],
   ['boostcut_5fdb',['boostCut_dB',['../struct_audio_filter_parameters.html#a8d761ca792a81370cf96a6da6d55292a',1,'AudioFilterParameters::boostCut_dB()'],['../struct_w_d_f_parameters.html#a3edbde6db85fc07561b84f429bd771e2',1,'WDFParameters::boostCut_dB()']]],
@@ -25,10 +28,10 @@ var searchData=
   ['boundvariabledatatype',['boundVariableDataType',['../class_plugin_parameter.html#a2140d15af9b8c403785ad844cd04a0b0',1,'PluginParameter']]],
   ['boundvariabletype',['boundVariableType',['../group___constants-_enums.html#ga5e8b40246bb284dc48bee0f5cafb70a3',1,'guiconstants.h']]],
   ['boundvariableupdate',['boundVariableUpdate',['../struct_parameter_update_info.html#ada4619ce387f3cbc0cf2befb62734861',1,'ParameterUpdateInfo']]],
+  ['bpm',['BPM',['../struct_process_block_info.html#a076a33b59fb9e490229fd76949b244ea',1,'ProcessBlockInfo']]],
   ['brickwallfilter',['brickwallFilter',['../group___constants-_enums.html#gac7db6d5459b79579476acb4bbfd2ef4e',1,'fxobjects.h']]],
   ['brickwallmagdata',['BrickwallMagData',['../struct_brickwall_mag_data.html',1,'']]],
   ['btransportstatechanged',['bTransportStateChanged',['../struct_host_info.html#a2d1872439f21dc93fd3a726a61bf1d1f',1,'HostInfo']]],
   ['bufferlength_5fmsec',['bufferLength_mSec',['../class_delay_a_p_f.html#a9a8b6ce09469c832330d1fef4c4ef8cd',1,'DelayAPF']]],
-  ['bufferprocupdate',['bufferProcUpdate',['../struct_parameter_update_info.html#a8d63e39da7ab2d3ab1f5169d018392f6',1,'ParameterUpdateInfo']]],
-  ['buffer_20vs_2e_20frame_20processing',['Buffer vs. Frame Processing',['../define_plugin7.html',1,'simplePlugin']]]
+  ['bufferprocupdate',['bufferProcUpdate',['../struct_parameter_update_info.html#a8d63e39da7ab2d3ab1f5169d018392f6',1,'ParameterUpdateInfo']]]
 ];

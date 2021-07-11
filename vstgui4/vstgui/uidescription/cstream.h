@@ -11,6 +11,7 @@
 #include <limits>
 #include <memory>
 #include <vector>
+#include <iostream>
 
 namespace VSTGUI {
 
@@ -146,6 +147,7 @@ public:
 	};
 
 	bool open (UTF8StringPtr path, int32_t mode, ByteOrder byteOrder = kNativeByteOrder);
+	bool isEndOfFile () const;
 
 	uint32_t writeRaw (const void* buffer, uint32_t size) override;
 	uint32_t readRaw (void* buffer, uint32_t size) override;
@@ -226,7 +228,7 @@ public:
 
 	using InputStream::operator>>;
 protected:
-	std::unique_ptr<IPlatformResourceInputStream> platformStream;
+	PlatformResourceInputStreamPtr platformStream;
 };
 
 //------------------------------------------------------------------------
@@ -277,4 +279,26 @@ private:
 	size_t bufferSize;
 };
 
+//------------------------------------------------------------------------
+class StdOutStream : public OutputStream
+{
+public:
+	StdOutStream () {}
+	uint32_t writeRaw (const void* buffer, uint32_t size) override
+	{
+		auto byteBuffer = reinterpret_cast<const uint8_t*>(buffer);
+		for (auto i = 0u; i < size; ++i, ++byteBuffer)
+		{
+			std::cout << *byteBuffer;
+		}
+		return size;
+	}
+	bool operator<< (const std::string& str) override
+	{
+		std::cout << str;
+		return true;
+	}
+};
+
+//------------------------------------------------------------------------
 } // VSTGUI

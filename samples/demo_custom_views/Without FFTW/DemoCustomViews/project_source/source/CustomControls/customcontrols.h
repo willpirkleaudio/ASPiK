@@ -615,6 +615,55 @@ protected:
 };
 
 
+class CReadOnlyKnob : public CAnimKnob
+{
+public:
+	CReadOnlyKnob(const CRect& size, IControlListener* listener, int32_t tag, int32_t subPixmaps,
+		CCoord heightOfOneImage, CBitmap* background, const CPoint &offset)
+		: CAnimKnob(size, listener, tag, subPixmaps, heightOfOneImage, background, offset)
+	{}
+
+	/**
+	\brief handle mouse up event
+	\param where - coordinates of mouse event
+	\param buttons - button state during mouse event
+	*/
+	CMouseEventResult onMouseUp(CPoint& where, const CButtonState& buttons) override
+	{
+		return kMouseEventHandled;
+	}
+
+	/**
+	\brief handle mouse down event
+	\param where - coordinates of mouse event
+	\param buttons - button state during mouse event
+	*/
+	CMouseEventResult onMouseDown(CPoint& where, const CButtonState& buttons) override
+	{
+		return kMouseEventHandled;
+	}
+
+	/**
+	\brief handle mouse moved event
+	\param where - coordinates of mouse event
+	\param buttons - button state during mouse event
+	*/
+	virtual CMouseEventResult onMouseMoved(CPoint& where, const CButtonState& buttons) override
+	{
+		return kMouseEventHandled;
+	}
+
+	virtual void valueChanged() override
+	{
+		return;
+	}
+
+protected:
+	virtual ~CReadOnlyKnob(void) {}
+
+};
+
+
 }
 
 #endif

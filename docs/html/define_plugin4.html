@@ -95,124 +95,42 @@ $(document).ready(function(){initNavTree('define_plugin4.html','');});
 </div>
 <p> <br />
  With this data set, you can now generate the C++ code and paste it into your plugin project:<br />
- <b>Bound Variable Code:</b> goes in the plugincore.h file in the "private" area provided for your member variables; click the [Var -&gt; Clinpbaord] button to copy the code to the clipboard, then paste it into the plugincore.h file; note that it will add a default declaration value based on the default value you declared in the GUI Code Creator app.<br />
-<br />
- <b>class <a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore</a> : public <a class="el" href="class_plugin_base.html" title="The PluginBase object is the base class for the Plugin Core object. ">PluginBase</a></b><br />
- {<br />
- public:<br />
- &emsp;<a class="el" href="class_plugin_core.html" title="The PluginCore object is the default PluginBase derived object for ASPiK projects. Note that you are fre to change the name of this object (as long as you change it in the compiler settings, etc...) ">PluginCore()</a>;<br />
- &emsp;virtual ~PluginCore(){}<br />
-<br />
- &emsp; SNIP SNIP SNIP...<br />
-<br />
- <b>private:</b><br />
- &emsp;// &mdash; Continuous Plugin Variables <br />
- &emsp;<b>double volume_dB = 0.000000;</b><br />
-<br />
 </p>
-<p><b><a class="el" href="class_plugin_parameter.html" title="The PluginParameter object stores all of the data needed for any type of plugin parameter. It is a large object, but it is not complex as it really just stores LOTS of information about plugin parameters. ">PluginParameter</a> instantiation Code:</b> goes in the <a class="el" href="class_plugin_core.html#a17c56408d2f63abe0627b7f64d0ad514" title="create all of your plugin parameters here ">PluginCore::initPluginParameters( )</a> function at the top just after the if (pluginParameterMap.size() &gt; 0) statement. Click the [Code -&gt; Clinpbaord] button to copy the code to the clipboard, then paste it into the <a class="el" href="class_plugin_core.html#a17c56408d2f63abe0627b7f64d0ad514" title="create all of your plugin parameters here ">PluginCore::initPluginParameters( )</a> function;<br />
-<br />
-</p>
-<p><b>bool <a class="el" href="class_plugin_core.html#a17c56408d2f63abe0627b7f64d0ad514" title="create all of your plugin parameters here ">PluginCore::initPluginParameters()</a></b><br />
- {<br />
- &emsp;if (pluginParameterMap.size() &gt; 0)<br />
- &emsp;&emsp;return true;<br />
-</p>
-<p>&emsp;<b>PluginParameter* piParam = nullptr;</b><br />
-</p>
-<p>&emsp;/* Volume control that is linear in dB /*/ <br />
- &emsp;<b>piParam = new <a class="el" href="class_plugin_parameter.html" title="The PluginParameter object stores all of the data needed for any type of plugin parameter. It is a large object, but it is not complex as it really just stores LOTS of information about plugin parameters. ">PluginParameter</a>(controlID::volume_dB, "Volume", "dB", controlVariableType::kDouble, -60.000000, 12.000000, 0.000000, taper::kLinearTaper);</b><br />
- &emsp;<b>piParam-&gt;setBoundVariable(&amp;volume_dB, boundVariableType::kDouble);</b><br />
- &emsp;<b>addPluginParameter(piParam);</b><br />
- <br />
- <br />
+<p><b>Bound Variable Code:</b><br />
+ goes in the <a class="el" href="plugincore_8h.html" title="base class interface file for ASPiK plugincore object ">plugincore.h</a> file in the "private" area provided for your member variables; click the [Var -&gt; Clipboard] button to copy the code to the clipboard, then paste it into the <a class="el" href="plugincore_8h.html" title="base class interface file for ASPiK plugincore object ">plugincore.h</a> file; note that it will add a default declaration value based on the default value you declared in the GUI Code Creator app.</p>
+<div class="fragment"><div class="line"><span class="comment">//</span></div><div class="line"><span class="keyword">class </span><a class="code" href="class_plugin_core.html">PluginCore</a> : <span class="keyword">public</span> <a class="code" href="class_plugin_base.html">PluginBase</a></div><div class="line">{</div><div class="line"><span class="keyword">public</span>:</div><div class="line">   <a class="code" href="class_plugin_core.html#abc6de6103b9c47f1255f372bd0074c4c">PluginCore</a>();</div><div class="line">   <span class="keyword">virtual</span> <a class="code" href="class_plugin_core.html#aebc7a77a8afdbd8920d70233f590e2f7">~PluginCore</a>(){}</div><div class="line">   <span class="comment">// SNIP SNIP SNIP...</span></div><div class="line">   </div><div class="line"><span class="keyword">private</span>:</div><div class="line">   <span class="comment">// --- Continuous Plugin Variables </span></div><div class="line">   <span class="keywordtype">double</span> volume_dB = 0.000000; <span class="comment">// &lt;-- bound member variable!</span></div><div class="line">   </div><div class="line">   <span class="comment">// etc...</span></div></div><!-- fragment --><p><b><a class="el" href="class_plugin_parameter.html" title="The PluginParameter object stores all of the data needed for any type of plugin parameter. It is a large object, but it is not complex as it really just stores LOTS of information about plugin parameters. ">PluginParameter</a> instantiation Code:</b><br />
+ goes in the <a class="el" href="class_plugin_core.html#a17c56408d2f63abe0627b7f64d0ad514" title="create all of your plugin parameters here ">PluginCore::initPluginParameters( )</a> function at the top just after the if (pluginParameterMap.size() &gt; 0) statement. Click the [Code -&gt; Clinpbaord] button to copy the code to the clipboard, then paste it into the <a class="el" href="class_plugin_core.html#a17c56408d2f63abe0627b7f64d0ad514" title="create all of your plugin parameters here ">PluginCore::initPluginParameters( )</a> function;</p>
+<div class="fragment"><div class="line"><span class="comment">// </span></div><div class="line"><span class="keywordtype">bool</span> <a class="code" href="class_plugin_core.html#a17c56408d2f63abe0627b7f64d0ad514">PluginCore::initPluginParameters</a>()      </div><div class="line">{   </div><div class="line">   <span class="keywordflow">if</span> (<a class="code" href="class_plugin_base.html#a5238a5f4ebc1aba0e09f85aa9da44a38">pluginParameterMap</a>.size() &gt; 0)   </div><div class="line">      <span class="keywordflow">return</span> <span class="keyword">true</span>;   </div><div class="line"></div><div class="line">   <a class="code" href="class_plugin_parameter.html">PluginParameter</a>* piParam = <span class="keyword">nullptr</span>;      </div><div class="line"></div><div class="line">   <span class="comment">/* Volume control that is linear in dB */</span>    </div><div class="line">   piParam = <span class="keyword">new</span> <a class="code" href="class_plugin_parameter.html">PluginParameter</a>(controlID::volume_dB, <span class="stringliteral">&quot;Volume&quot;</span>, <span class="stringliteral">&quot;dB&quot;</span>, </div><div class="line">                                 controlVariableType::kDouble, -60.000000, 12.000000, 0.000000, </div><div class="line">                                 taper::kLinearTaper);      </div><div class="line">   piParam-&gt;<a class="code" href="class_plugin_parameter.html#a80f1c77ac23d9eb83ef636e0a42d4950">setBoundVariable</a>(&amp;volume_dB, boundVariableType::kDouble);   </div><div class="line">   <a class="code" href="class_plugin_base.html#a409eb9bed8fa0800488603b2c8a48d3b">addPluginParameter</a>(piParam);      </div><div class="line"></div><div class="line">   etc...</div><div class="line"><span class="comment">//   </span></div></div><!-- fragment --><p><br />
  <b>Parameter Smoothing</b><br />
  ASPiK features automatic parameter smoothing for continuous controls. It can be applied to any continuous control and is a local option, that is, it can be applied to individual parameters (or not at all) and parameters can have different parameter smoothing times (see the Pirkle text for much more information). Most programmers will use the same smoothing time for the majority of their controls. Therefore, parameter smoothing is set on the ASPiK Project Creator panel as a sort of global option. To use it, just open the ASPiK Project Creator panel and check the box along with a default smoothing time in milliseconds. You don't need to create a new project or anything - the parameter smoothing time is the only data that carries over into the GUI Code Creator panel. If you set up parameter smoothing you will have a few more lines of code added - note that you may manipulate the functions later to turn off parameter smoothing or change the smoothing time. These additional lines will be added after the instantiation: <br />
-<br />
- &emsp;<b>piParam-&gt;setParameterSmoothing(true);</b><br />
- &emsp;<b>piParam-&gt;setSmoothingTimeMsec(20.000000);</b><br />
- <br />
- Now you can add the other member variables. Next up is the Mute switch; it is implemented as a String-List parameter with two strings: OFF and ON that determine its state. Hit the [Reset] button on the <b>GUI Code Creator</b> to clear out the last entry. Then, select the "String List Switch (ON, OFF)" parameter type. In this case, we will use the default string list of OFF,ON and set the default to the OFF (0) state. Note that you can name the pair of strings however you like (e.g. ENABLED, DISABLED or OUI, NON) knowing that the first string will map to the value (0) while the second maps to (1). Notice also that we've de-selected the "Include PluginParameter*..." switch. <br />
+</p>
+<div class="fragment"><div class="line"><span class="comment">//</span></div><div class="line">piParam-&gt;<a class="code" href="class_plugin_parameter.html#a93dad92b04068eaa9c496f6c3dd87285">setParameterSmoothing</a>(<span class="keyword">true</span>);      </div><div class="line">piParam-&gt;<a class="code" href="class_plugin_parameter.html#ab66eb7de5587d1725d2e74c925e919d6">setSmoothingTimeMsec</a>(20.000000);      </div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>Now you can add the other member variables. Next up is the Mute switch; it is implemented as a String-List parameter with two strings: OFF and ON that determine its state. Hit the [Reset] button on the <b>GUI Code Creator</b> to clear out the last entry. Then, select the "String List Switch (ON, OFF)" parameter type. In this case, we will use the default string list of OFF,ON and set the default to the OFF (0) state. Note that you can name the pair of strings however you like (e.g. ENABLED, DISABLED or OUI, NON) knowing that the first string will map to the value (0) while the second maps to (1). Notice also that we've de-selected the "Include PluginParameter*..." switch. <br />
  </p><div class="image">
 <img src="koder2.png" alt="koder2.png"/>
 </div>
 <p> <br />
- You can now add the bound variable to the plugincore.h file and the parameter instantiation code to the plugincore.cpp file as before, pasting the code in sequence. First, notice how the String-List bound variable declaration resulted in two lines of code; one for the GUI control receiver variable (enableMute) and the other as a strongly typed enumeration that uses the variable name concatenated with "Enum" - this is to allow you to easily evaluate the state of the GUI control item using the built in MACROs that are listed in the SDK. You may decide to use other methods to identify the state of the receiver variable if you wish, but we use the strongly typed enumeration method in the sample code. In ASPiK, String-List controls are ALWAYS bound to variables with the <b>int</b> data-type and using the [Var -&gt; Clipboard] feature will always bind an integer type regardless of what you choose in the drop-list. <br />
-<br />
- <b>private:</b><br />
- &emsp;// &mdash; Continuous Plugin Variables <br />
- &emsp;double volume_dB = 0.000000;<br />
-<br />
- &emsp;// &mdash; String-List Plugin Variables <br />
- &emsp;<b>int enableMute = 0;</b><br />
- &emsp;<b>enum class enableMuteEnum { "OFF,ON" };</b><br />
- <br />
- Next, you can paste the code for the string list parameter just below the instantiation for the first parameter: <br />
-<br />
- &emsp;/* Simple mute control - default value is OFF /*/<br />
- &emsp;<b>piParam = new <a class="el" href="class_plugin_parameter.html" title="The PluginParameter object stores all of the data needed for any type of plugin parameter. It is a large object, but it is not complex as it really just stores LOTS of information about plugin parameters. ">PluginParameter</a>(controlID::enableMute, "Mute", "OFF,ON", "OFF");</b><br />
- &emsp;<b>piParam-&gt;setBoundVariable(&amp;enableMute, boundVariableType::kInt);</b><br />
- &emsp;<b>addPluginParameter(piParam);</b><br />
- <br />
+ You can now add the bound variable to the <a class="el" href="plugincore_8h.html" title="base class interface file for ASPiK plugincore object ">plugincore.h</a> file and the parameter instantiation code to the <a class="el" href="plugincore_8cpp.html" title="Implementation file for PluginCore object. ">plugincore.cpp</a> file as before, pasting the code in sequence. First, notice how the String-List bound variable declaration resulted in two lines of code; one for the GUI control receiver variable (enableMute) and the other as a strongly typed enumeration that uses the variable name concatenated with "Enum" - this is to allow you to easily evaluate the state of the GUI control item using the built in MACROs that are listed in the SDK. You may decide to use other methods to identify the state of the receiver variable if you wish, but we use the strongly typed enumeration method in the sample code. In ASPiK, String-List controls are ALWAYS bound to variables with the <b>int</b> data-type and using the [Var -&gt; Clipboard] feature will always bind an integer type regardless of what you choose in the drop-list.</p>
+<div class="fragment"><div class="line"><span class="comment">//</span></div><div class="line"><span class="keyword">private</span>:      </div><div class="line">   </div><div class="line"><span class="comment">// --- Continuous Plugin Variables     </span></div><div class="line"><span class="keywordtype">double</span> volume_dB = 0.000000;      </div><div class="line"></div><div class="line"><span class="comment">// --- String-List Plugin Variables    </span></div><div class="line"><span class="keywordtype">int</span> enableMute = 0;      </div><div class="line"><span class="keyword">enum class</span> enableMuteEnum { <span class="stringliteral">&quot;OFF,ON&quot;</span> };      </div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>Next, you can paste the code for the string list parameter just below the instantiation for the first parameter: <br />
+</p>
+<div class="fragment"><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">/* Simple mute control - default value is OFF */</span>   </div><div class="line">piParam = <span class="keyword">new</span> <a class="code" href="class_plugin_parameter.html">PluginParameter</a>(controlID::enableMute, <span class="stringliteral">&quot;Mute&quot;</span>, <span class="stringliteral">&quot;OFF,ON&quot;</span>, <span class="stringliteral">&quot;OFF&quot;</span>);      </div><div class="line">piParam-&gt;<a class="code" href="class_plugin_parameter.html#a80f1c77ac23d9eb83ef636e0a42d4950">setBoundVariable</a>(&amp;enableMute, boundVariableType::kInt);      </div><div class="line">addPluginParameter(piParam);   </div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p><br />
  Next up is the channel selection GUI control. This is done with another String-List, but this one will need more than just two states. Reset the GUI Control Creator and select the "String List Switch (multiple taps)" parameter, then enter the information from the GUI control table. Notice that you specify the default value with an unsigned integer index - the list is zero-indexed, so the first item is number 0, the second is 1, etc... <br />
  </p><div class="image">
 <img src="koder3.png" alt="koder3.png"/>
 </div>
 <p> <br />
- Once again use the [Var -&gt; Clipboard] and [Code -&gt; Clipboard] buttons to generate and paste the code into your plugincore.h and plugincore.cpp files:<br />
-<br />
- <b>private:</b><br />
- &emsp;// &mdash; Continuous Plugin Variables <br />
- &emsp;double volume_dB = 0.000000;<br />
-<br />
- &emsp;// &mdash; String-List Plugin Variables <br />
- &emsp;int enableMute = 0;<br />
- &emsp;enum class enableMuteEnum { "OFF,ON" };<br />
-<br />
- &emsp;<b>int channels = 0;</b><br />
- &emsp;<b>enum class channelsEnum { "stereo, left, right" };</b><br />
-<br />
- <br />
- Then, you can paste the code for the string list parameter just below the instantiation for the first parameter: <br />
-<br />
- &emsp;/* Channel selector /*/<br />
- &emsp;<b>piParam = new <a class="el" href="class_plugin_parameter.html" title="The PluginParameter object stores all of the data needed for any type of plugin parameter. It is a large object, but it is not complex as it really just stores LOTS of information about plugin parameters. ">PluginParameter</a>(controlID::channels, "Channel Select", "stereo, left, right", "stereo");</b><br />
- &emsp;<b>piParam-&gt;setBoundVariable(&amp;channels, boundVariableType::kInt);</b><br />
- &emsp;<b>addPluginParameter(piParam);</b><br />
-<br />
- <br />
- Our last parameter to encode is an output parameter in the form of a VU meter on the GUI. In ASPiK, meter controls are ALWAYS bound to variables with the <b><em>float</em></b> data-type and using the [Var -&gt; Clipboard] feature will always bind a floating point type regardless of what you choose in the drop-list. Once again reset the GUI Control Creator panel and select the "Meter" parameter type, then add the information from the GUI control table like before.<br />
+ Once again use the [Var -&gt; Clipboard] and [Code -&gt; Clipboard] buttons to generate and paste the code into your <a class="el" href="plugincore_8h.html" title="base class interface file for ASPiK plugincore object ">plugincore.h</a> and <a class="el" href="plugincore_8cpp.html" title="Implementation file for PluginCore object. ">plugincore.cpp</a> files:</p>
+<div class="fragment"><div class="line"><span class="comment">//</span></div><div class="line"><span class="keyword">private</span>: </div><div class="line">   <span class="comment">// --- Continuous Plugin Variables    </span></div><div class="line">   <span class="keywordtype">double</span> volume_dB = 0.000000;     </div><div class="line">   </div><div class="line">   <span class="comment">// --- String-List Plugin Variables    </span></div><div class="line">   <span class="keywordtype">int</span> enableMute = 0;      </div><div class="line">   <span class="keyword">enum class</span> enableMuteEnum { <span class="stringliteral">&quot;OFF,ON&quot;</span> };     </div><div class="line">   </div><div class="line">   <span class="keywordtype">int</span> channels = 0;      </div><div class="line">   <span class="keyword">enum class</span> channelsEnum { <span class="stringliteral">&quot;stereo, left, right&quot;</span> };         </div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>Then, you can paste the code for the string list parameter just below the instantiation for the first parameter: <br />
+</p>
+<div class="fragment"><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">/* Channel selector */</span>   </div><div class="line">piParam = <span class="keyword">new</span> <a class="code" href="class_plugin_parameter.html">PluginParameter</a>(controlID::channels, <span class="stringliteral">&quot;Channel Select&quot;</span>, <span class="stringliteral">&quot;stereo, left, right&quot;</span>, <span class="stringliteral">&quot;stereo&quot;</span>);      </div><div class="line">piParam-&gt;<a class="code" href="class_plugin_parameter.html#a80f1c77ac23d9eb83ef636e0a42d4950">setBoundVariable</a>(&amp;channels, boundVariableType::kInt);      </div><div class="line">addPluginParameter(piParam);      </div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>Our last parameter to encode is an output parameter in the form of a VU meter on the GUI. In ASPiK, meter controls are ALWAYS bound to variables with the <b><em>float</em></b> data-type and using the [Var -&gt; Clipboard] feature will always bind a floating point type regardless of what you choose in the drop-list. Once again reset the GUI Control Creator panel and select the "Meter" parameter type, then add the information from the GUI control table like before.<br />
 <br />
  <br />
  </p><div class="image">
 <img src="koder4.png" alt="koder4.png"/>
 </div>
 <p> <br />
- Once again use the [Var -&gt; Clipboard] and [Code -&gt; Clipboard] buttons to generate and paste the code into your plugincore.h and plugincore.cpp files:<br />
-<br />
- <b>private:</b><br />
- &emsp;// &mdash; Continuous Plugin Variables <br />
- &emsp;double volume_dB = 0.000000;<br />
-<br />
- &emsp;// &mdash; String-List Plugin Variables <br />
- &emsp;int enableMute = 0;<br />
- &emsp;enum class enableMuteEnum { "OFF,ON" };<br />
-<br />
- &emsp;int channels = 0;<br />
- &emsp;enum class channelsEnum { "stereo, left, right" };<br />
-<br />
- &emsp;<b>float vuMeter = 0.0;</b><br />
- <br />
- Then, you can paste the code for the VU meter parameter just below the instantiation for the last parameter: <br />
-<br />
- &emsp;/* Log VU meter control /*/<br />
- &emsp;<b>piParam = new <a class="el" href="class_plugin_parameter.html" title="The PluginParameter object stores all of the data needed for any type of plugin parameter. It is a large object, but it is not complex as it really just stores LOTS of information about plugin parameters. ">PluginParameter</a>(controlID::vuMeter, "Control", 10.00, 500.00, ENVELOPE_DETECT_MODE_RMS, meterCal::kLogMeter);</b><br />
- &emsp;<b>piParam-&gt;setInvertedMeter(false);</b><br />
- &emsp;<b>piParam-&gt;setIsProtoolsGRMeter(false);</b><br />
- &emsp;<b>piParam-&gt;setBoundVariable(&amp;vuMeter, boundVariableType::kFloat);</b><br />
- &emsp;<b>addPluginParameter(piParam);</b><br />
- <br />
- At this point, all of the plugin bound variables and plugin parameters have been declared and defined. We can now move on to the plugin's reset operation.<br />
+ Once again use the [Var -&gt; Clipboard] and [Code -&gt; Clipboard] buttons to generate and paste the code into your <a class="el" href="plugincore_8h.html" title="base class interface file for ASPiK plugincore object ">plugincore.h</a> and <a class="el" href="plugincore_8cpp.html" title="Implementation file for PluginCore object. ">plugincore.cpp</a> files:</p>
+<div class="fragment"><div class="line"><span class="comment">//</span></div><div class="line"><span class="keyword">private</span>:      </div><div class="line">   <span class="comment">// --- Continuous Plugin Variables    </span></div><div class="line">   <span class="keywordtype">double</span> volume_dB = 0.000000;     </div><div class="line">   </div><div class="line">   <span class="comment">// --- String-List Plugin Variables    </span></div><div class="line">   <span class="keywordtype">int</span> enableMute = 0;   </div><div class="line">   <span class="keyword">enum class</span> enableMuteEnum { <span class="stringliteral">&quot;OFF,ON&quot;</span> };   </div><div class="line">   </div><div class="line">   <span class="keywordtype">int</span> channels = 0;   </div><div class="line">   <span class="keyword">enum class</span> channelsEnum { <span class="stringliteral">&quot;stereo, left, right&quot;</span> };   </div><div class="line">   </div><div class="line">   <span class="keywordtype">float</span> vuMeter = 0.0;      </div></div><!-- fragment --><p>Then, you can paste the code for the VU meter parameter just below the instantiation for the last parameter:</p>
+<div class="fragment"><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">/* Log VU meter control */</span>  </div><div class="line">piParam = <span class="keyword">new</span> <a class="code" href="class_plugin_parameter.html">PluginParameter</a>(controlID::vuMeter, <span class="stringliteral">&quot;Control&quot;</span>, 10.00, 500.00, <a class="code" href="group___constants-_enums.html#ga7d7426d194c2faf64e7b31c24f2c7bb4">ENVELOPE_DETECT_MODE_RMS</a>, meterCal::kLogMeter);      </div><div class="line">piParam-&gt;<a class="code" href="class_plugin_parameter.html#af1b5d29011ed6e6f48f35deead10b57c">setInvertedMeter</a>(<span class="keyword">false</span>);      </div><div class="line">piParam-&gt;<a class="code" href="class_plugin_parameter.html#a7b558903d59dcee7fab45ac51cb342e3">setIsProtoolsGRMeter</a>(<span class="keyword">false</span>);      </div><div class="line">piParam-&gt;<a class="code" href="class_plugin_parameter.html#a80f1c77ac23d9eb83ef636e0a42d4950">setBoundVariable</a>(&amp;vuMeter, boundVariableType::kFloat);      </div><div class="line">addPluginParameter(piParam);      </div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>At this point, all of the plugin bound variables and plugin parameters have been declared and defined. We can now move on to the plugin's reset operation.<br />
 <br />
  </p>
 </div></div><!-- contents -->

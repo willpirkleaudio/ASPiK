@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('class_steinberg_1_1_vst_1_1_a_s_pi_k_1
 <p>The <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html" title="The VSTParamUpdateQueue object maintains a parameter update queue for one ASPiK PluginParameter objec...">VSTParamUpdateQueue</a> object maintains a parameter update queue for one ASPiK <a class="el" href="class_plugin_parameter.html" title="The PluginParameter object stores all of the data needed for any type of plugin parameter. It is a large object, but it is not complex as it really just stores LOTS of information about plugin parameters. ">PluginParameter</a> object. It is only used as part of the sample-accurate automation feature in ASPiK.  
  <a href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="project__source_2source_2vst__source_2vst3plugin_8h_source.html">vst3plugin.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="vst3plugin_8h_source.html">vst3plugin.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Steinberg::Vst::ASPiK::VSTParamUpdateQueue:</div>
 <div class="dyncontent">
@@ -105,7 +105,6 @@ Inheritance diagram for Steinberg::Vst::ASPiK::VSTParamUpdateQueue:</div>
   <img src="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.png" usemap="#Steinberg::Vst::ASPiK::VSTParamUpdateQueue_map" alt=""/>
   <map id="Steinberg::Vst::ASPiK::VSTParamUpdateQueue_map" name="Steinberg::Vst::ASPiK::VSTParamUpdateQueue_map">
 <area href="class_i_parameter_update_queue.html" title="Interface for VST3 parameter value update queue (sample accurate automation) " alt="IParameterUpdateQueue" shape="rect" coords="0,0,275,24"/>
-<area href="class_i_parameter_update_queue.html" title="Interface for VST3 parameter value update queue (sample accurate automation) " alt="IParameterUpdateQueue" shape="rect" coords="285,0,560,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -138,27 +137,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abeb2adc5777b01618d7fd41fba9147e0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#abeb2adc5777b01618d7fd41fba9147e0">getNextValue</a> (double &amp;_nextValue)</td></tr>
 <tr class="memdesc:abeb2adc5777b01618d7fd41fba9147e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASPiK support for sample accurate auatomation.  <a href="#abeb2adc5777b01618d7fd41fba9147e0">More...</a><br /></td></tr>
 <tr class="separator:abeb2adc5777b01618d7fd41fba9147e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5fdedd62b5b68a80469fc40b5f4b5653"><td class="memItemLeft" align="right" valign="top"><a id="a5fdedd62b5b68a80469fc40b5f4b5653"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>initialize</b> (ParamValue _initialValue, ParamValue _minValue, ParamValue _maxValue, unsigned int *_sampleAccuracy)</td></tr>
-<tr class="separator:a5fdedd62b5b68a80469fc40b5f4b5653"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af00fad65820d2e07d8b7013fa0d2200a"><td class="memItemLeft" align="right" valign="top"><a id="af00fad65820d2e07d8b7013fa0d2200a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setParamValueQueue</b> (IParamValueQueue *_paramValueQueue, unsigned int _bufferSize)</td></tr>
-<tr class="separator:af00fad65820d2e07d8b7013fa0d2200a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ee7d3c5b1bbfdb082b4069bd8f510c7"><td class="memItemLeft" align="right" valign="top"><a id="a8ee7d3c5b1bbfdb082b4069bd8f510c7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSlope</b> ()</td></tr>
-<tr class="separator:a8ee7d3c5b1bbfdb082b4069bd8f510c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22d86dc66708317589b14b55fbcdb797"><td class="memItemLeft" align="right" valign="top"><a id="a22d86dc66708317589b14b55fbcdb797"></a>
-ParamValue&#160;</td><td class="memItemRight" valign="bottom"><b>interpolate</b> (int x1, int x2, ParamValue y1, ParamValue y2, int x)</td></tr>
-<tr class="separator:a22d86dc66708317589b14b55fbcdb797"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d5a8ec0e035bc06d6fd2722a4e53cac"><td class="memItemLeft" align="right" valign="top"><a id="a4d5a8ec0e035bc06d6fd2722a4e53cac"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>needsUpdate</b> (int x, ParamValue &amp;value)</td></tr>
-<tr class="separator:a4d5a8ec0e035bc06d6fd2722a4e53cac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9ed96e85d33934d9dd1d7016bc30dd5"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#ac9ed96e85d33934d9dd1d7016bc30dd5">getParameterIndex</a> ()</td></tr>
-<tr class="separator:ac9ed96e85d33934d9dd1d7016bc30dd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd8bb804cfcab62cc19c01bf362c44d5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#abd8bb804cfcab62cc19c01bf362c44d5">getValueAtOffset</a> (long int _sampleOffset, double _previousValue, double &amp;_nextValue)</td></tr>
-<tr class="separator:abd8bb804cfcab62cc19c01bf362c44d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abeb2adc5777b01618d7fd41fba9147e0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#abeb2adc5777b01618d7fd41fba9147e0">getNextValue</a> (double &amp;_nextValue)</td></tr>
-<tr class="separator:abeb2adc5777b01618d7fd41fba9147e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -183,18 +161,18 @@ ParamValue&#160;</td><td class="memItemRight" valign="bottom"><b>slope</b></td><
 <tr class="memitem:a2572e0b811dba6a949104d846c333788"><td class="memItemLeft" align="right" valign="top"><a id="a2572e0b811dba6a949104d846c333788"></a>
 ParamValue&#160;</td><td class="memItemRight" valign="bottom"><b>yIntercept</b></td></tr>
 <tr class="separator:a2572e0b811dba6a949104d846c333788"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2028861139e87ec4baaa356da15c062e"><td class="memItemLeft" align="right" valign="top"><a id="a2028861139e87ec4baaa356da15c062e"></a>
+<tr class="memitem:a048974022e0aba532693e08d7b9dd543"><td class="memItemLeft" align="right" valign="top"><a id="a048974022e0aba532693e08d7b9dd543"></a>
 unsigned int *&#160;</td><td class="memItemRight" valign="bottom"><b>sampleAccuracy</b> = nullptr</td></tr>
-<tr class="separator:a2028861139e87ec4baaa356da15c062e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a048974022e0aba532693e08d7b9dd543"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af79b3470be640d1a9a06372dcc5667c6"><td class="memItemLeft" align="right" valign="top"><a id="af79b3470be640d1a9a06372dcc5667c6"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>queueIndex</b> = 0</td></tr>
 <tr class="separator:af79b3470be640d1a9a06372dcc5667c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae61a052f2703cff7789e09fb100312aa"><td class="memItemLeft" align="right" valign="top"><a id="ae61a052f2703cff7789e09fb100312aa"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>queueSize</b> = 0</td></tr>
 <tr class="separator:ae61a052f2703cff7789e09fb100312aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0182367e3dc9f4560b3e4e39b8886e22"><td class="memItemLeft" align="right" valign="top"><a id="a0182367e3dc9f4560b3e4e39b8886e22"></a>
+<tr class="memitem:a63b1d9c99783b4c1fdd0a3d195f304fa"><td class="memItemLeft" align="right" valign="top"><a id="a63b1d9c99783b4c1fdd0a3d195f304fa"></a>
 IParamValueQueue *&#160;</td><td class="memItemRight" valign="bottom"><b>parameterQueue</b> = nullptr</td></tr>
-<tr class="separator:a0182367e3dc9f4560b3e4e39b8886e22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a63b1d9c99783b4c1fdd0a3d195f304fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a512105f1a76f07f69c44cd58287a278c"><td class="memItemLeft" align="right" valign="top"><a id="a512105f1a76f07f69c44cd58287a278c"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>x1</b></td></tr>
 <tr class="separator:a512105f1a76f07f69c44cd58287a278c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -247,36 +225,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sampleOffset</b> = 0</
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="abeb2adc5777b01618d7fd41fba9147e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abeb2adc5777b01618d7fd41fba9147e0">&#9670;&nbsp;</a></span>getNextValue() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Steinberg::Vst::ASPiK::VSTParamUpdateQueue::getNextValue </td>
-          <td>(</td>
-          <td class="paramtype">double &amp;&#160;</td>
-          <td class="paramname"><em>_nextValue</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Get the sample-accurate value of the parameter at the next sample offset, determined by an internal counter Returns true if dNextValue is different than the previous value </p>
-
-<p>Implements <a class="el" href="class_i_parameter_update_queue.html#a693735fb393bd1272a2dcc8a1841d0cc">IParameterUpdateQueue</a>.</p>
-
-</div>
-</div>
-<a id="abeb2adc5777b01618d7fd41fba9147e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abeb2adc5777b01618d7fd41fba9147e0">&#9670;&nbsp;</a></span>getNextValue() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abeb2adc5777b01618d7fd41fba9147e0">&#9670;&nbsp;</a></span>getNextValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -310,35 +259,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sampleOffset</b> = 0</
 </div>
 </div>
 <a id="ac9ed96e85d33934d9dd1d7016bc30dd5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9ed96e85d33934d9dd1d7016bc30dd5">&#9670;&nbsp;</a></span>getParameterIndex() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int Steinberg::Vst::ASPiK::VSTParamUpdateQueue::getParameterIndex </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Get the index number associated with the parameter </p>
-
-<p>Implements <a class="el" href="class_i_parameter_update_queue.html#a08b3adddad0a568fc1ee9d8e392a3c86">IParameterUpdateQueue</a>.</p>
-
-</div>
-</div>
-<a id="ac9ed96e85d33934d9dd1d7016bc30dd5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9ed96e85d33934d9dd1d7016bc30dd5">&#9670;&nbsp;</a></span>getParameterIndex() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9ed96e85d33934d9dd1d7016bc30dd5">&#9670;&nbsp;</a></span>getParameterIndex()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -371,52 +292,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sampleOffset</b> = 0</
 </div>
 </div>
 <a id="abd8bb804cfcab62cc19c01bf362c44d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd8bb804cfcab62cc19c01bf362c44d5">&#9670;&nbsp;</a></span>getValueAtOffset() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Steinberg::Vst::ASPiK::VSTParamUpdateQueue::getValueAtOffset </td>
-          <td>(</td>
-          <td class="paramtype">long int&#160;</td>
-          <td class="paramname"><em>_sampleOffset</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>_previousValue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double &amp;&#160;</td>
-          <td class="paramname"><em>_nextValue</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Get the sample-accurate value of the parameter at the given sample offset. Pass in the last known normalized value. Returns true if dPreviousValue != dNextValue </p>
-
-<p>Implements <a class="el" href="class_i_parameter_update_queue.html#a429d0ff69dd4aa82fe35bf50fad94914">IParameterUpdateQueue</a>.</p>
-
-</div>
-</div>
-<a id="abd8bb804cfcab62cc19c01bf362c44d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd8bb804cfcab62cc19c01bf362c44d5">&#9670;&nbsp;</a></span>getValueAtOffset() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abd8bb804cfcab62cc19c01bf362c44d5">&#9670;&nbsp;</a></span>getValueAtOffset()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -655,8 +531,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sampleOffset</b> = 0</
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/vst_source/<a class="el" href="project__source_2source_2vst__source_2vst3plugin_8h_source.html">vst3plugin.h</a></li>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/vst_source/vst3plugin.cpp</li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/vst_source/<a class="el" href="vst3plugin_8h_source.html">vst3plugin.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/vst_source/vst3plugin.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

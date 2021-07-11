@@ -101,5 +101,7 @@ var pluginstructures_8h =
     [ "numberToString", "group___a_s_pi_k-_g_u_i.html#ga9f69aa44fbbdbff72aa58c40e4008cc2", null ],
     [ "numberToString", "group___a_s_pi_k-_g_u_i.html#ga5a922a3ad4cedc8a42c25d7122298591", null ],
     [ "numberToString", "group___a_s_pi_k-_g_u_i.html#gac2d7e05580a25958f7a31f71b9efb862", null ],
-    [ "numberToString", "group___a_s_pi_k-_g_u_i.html#gab8bb304a493b37767a3f1dcfa7e93733", null ]
+    [ "numberToString", "group___a_s_pi_k-_g_u_i.html#gab8bb304a493b37767a3f1dcfa7e93733", null ],
+    [ "DEFAULT_AUDIO_BLOCK_SIZE", "pluginstructures_8h.html#a20537dce78afeb31c64fb75a2d662977", null ],
+    [ "WANT_WHOLE_BUFFER", "pluginstructures_8h.html#a50abca8c4c305a8df519da99eeae3801", null ]
 ];

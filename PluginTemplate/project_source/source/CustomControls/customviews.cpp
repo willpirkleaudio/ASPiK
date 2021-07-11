@@ -77,7 +77,7 @@ void WaveView::updateView()
         }
 
         // --- add to circular buffer
-        addWaveDataPoint(fabs(max));
+        addWaveDataPoint((float)fabs(max));
     }
 
     // --- this will set the dirty flag to repaint the view
@@ -478,7 +478,7 @@ void CustomKnobView::updateView()
         //     you could use this to also show/hide the control, or move it to a new location
         if(viewMessage.message == MESSAGE_SET_CONTROL_ALPHA)
         {
-            this->setAlphaValue(viewMessage.controlAlpha);
+            setAlphaValue((float)viewMessage.controlAlpha);
         }
 
         // --- keep popping the queue in case there were multiple message insertions

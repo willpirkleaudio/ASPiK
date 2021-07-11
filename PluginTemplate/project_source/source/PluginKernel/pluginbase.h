@@ -10,190 +10,10 @@
     		- http://www.willpirkle.com
 */
 // -----------------------------------------------------------------------------
-/** \defgroup ASPiK-Core
-
-The PluginCore:
-\brief
-- handles the audio signal-processing and implements the DSP functionality
-- is straight C++ and does not contain any API-specific code, does not require any API-specific files or SDK components
-- does not link to any pre-compiled libraries
-- defines and maintains a set of PluginParameter objects, each of which corresponds to a GUI control or other plugin parameter that may be stored and loaded with DAW sessions and presets
-- defines factory presets for AU, VST and RAFX2 plugins (AAX factory presets are done in an entirely different manner and are discussed in Chapter 5)
-- exists independently from the PluginGUI and does not know, or need to know, of the PluginGUIs existence
-- does not create the PluginGUI object
-- does not hold a pointer to the PluginGUI object or share any resources with it
-
-The PluginParameter:
-\brief
-- stores plugin parameters as atomic variables for thread-safe operation
-- encapsulates each parameter specific to the plugin as a C++ object
-- can store all types of input parameters; ints, floats, doubles, string-lists, and custom user types
-- can implement audio meters, complete with meter ballistics (attack and release times) and various envelope detection schemes: peak, MS, RMS and in linear or log format
-- implements optional automatic variable-binding to connect GUI parameter changes to plugin variables in a completely thread-safe manner across all APIs
-- has an optional auxiliary storage system to maintain other information along with any of the plugin parameters allowing you to easily customize and extend the object
-- implements optional parameter smoothing for glitch-free GUI controls with two types of smoothing available: linear and exponential
-- automatically implements four types of control tapering: linear, log, anti-log, and volt/octave
-- implements optional sample-accurate automation for VST3 plugins (VST3 is the only API that has a specification for sample-accurate automation)
-
-**/
-
-/** \defgroup ASPiK-GUI
-
-The VSTGUI::PluginGUI:
-\brief
-- handles all of the GUI functionality including the GUI designer
-- is built using the VSTGUI4 library
-- is platform independent
-- does not link to any pre-compiled libraries
-- encodes the entire GUI in a single XML file, including the graphics file data; this one file may be moved or copied from one project to another, allowing the whole GUI to be easily moved or reused in other projects; advanced users may define multiple GUIs in multiple XML files which may be swapped in and out
-- contains API-specific code in the few places where it is absolutely needed (namely for the AU event-listener system)
-- supports the VTSGUI4 Custom View and Sub-Controller paradigms to extend its functionality
-- exists independently from the PluginCore and does not know, or need to know, of the PluginCore’s existence
-- does not hold a pointer to the PluginCore object or share any resources with it
-- NOTE: the PluginGUI object is defined within the VSTGUI namespace and is grouped with more VSTGUI objects that you may use
-
-The PluginParameter:
-\brief
-- stores plugin parameters as atomic variables for thread-safe operation
-- encapsulates each parameter specific to the plugin as a C++ object
-- can store all types of input parameters; ints, floats, doubles, string-lists, and custom user types
-- can implement audio meters, complete with meter ballistics (attack and release times) and various envelope detection schemes: peak, MS, RMS and in linear or log format
-- implements optional automatic variable-binding to connect GUI parameter changes to plugin variables in a completely thread-safe manner across all APIs
-- has an optional auxiliary storage system to maintain other information along with any of the plugin parameters allowing you to easily customize and extend the object
-- implements optional parameter smoothing for glitch-free GUI controls with two types of smoothing available: linear and exponential
-- automatically implements four types of control tapering: linear, log, anti-log, and volt/octave
-- implements optional sample-accurate automation for VST3 plugins (VST3 is the only API that has a specification for sample-accurate automation)
-
-**/
-
-/** \defgroup Interfaces
-
-Interfaces are used in the FX Objects as a common way of programming.
-
-\brief
-
-**/
-
-
-/** \defgroup Structures
-
-
-**/
-
-/** \defgroup Constants-Enums
-
-
-**/
-
-
-/** \defgroup Custom-Controls
-
-The ASPiK CustomControls folder contains C++ files that implement custom controls, views, and sub-controllers.
-\brief
-
-**/
-
-/** \defgroup Custom-Views
-
-The ASPiK CustomControls folder contains C++ files that implement custom controls, views, and sub-controllers.
-\brief
-
-**/
-
-/** \defgroup Custom-SubControllers
-
-The ASPiK CustomControls folder contains C++ files that implement custom controls, views, and sub-controllers.
-\brief
-
-**/
-
-/** \defgroup FX-Objects
-\brief
-The FX-Objects module contains specialized audio DSP C++ objects that are inlcuded with and documented in Will Pirkle's new plugin programming book. These objects will be available in May 2019 when the 2nd Edition of Designing Audio Effects Plugins in C++ is published and will be free to use in your projects, commercial or personal.
-
-\brief
-
-**/
-
-/** \defgroup FX-Functions
-
-\brief
-The FX-Functions module contains specialized audio DSP C++ functions that are inlcuded with and documented in Will Pirkle's new plugin programming book. These objects will be available in May 2019 when the 2nd Edition of Designing Audio Effects Plugins in C++ is published and will be free to use in your projects, commercial or personal.
-
-
-\brief
-
-**/
-
-/** \defgroup WDF-Objects
-
-\brief
-The WDF-Objects module contains specialized audio DSP C++ objects that are inlcuded with and documented in Will Pirkle's new plugin programming book. These objects will be available in May 2019 when the 2nd Edition of Designing Audio Effects Plugins in C++ is published and will be free to use in your projects, commercial or personal.
-
-
-\brief
-
-**/
-
-/** \defgroup FFTW-Objects
-\brief
-The FX-Objects module contains specialized audio DSP C++ objects that are inlcuded with and documented in Will Pirkle's new plugin programming book. These objects will be available in May 2019 when the 2nd Edition of Designing Audio Effects Plugins in C++ is published and will be free to use in your projects, commercial or personal.
-
-
-**/
-
-
-/** \defgroup Plugin-Shells
-
-
-**/
-
-/** @addtogroup AU-Shell
-  * \ingroup Plugin-Shells
-
-The AU plugin shell consists of the following files:
-- aufxplugin.h
-- aufxplugin.cpp
-- aufxplugin.exp
-- aucocoaviewfactory.mm
-*/
-
-/** @addtogroup VST-Shell
-  * \ingroup Plugin-Shells
-
-The VST plugin shell consists of the following files:
-- channelformats.h
-- factory.cpp
-- vst3plugin.h
-- vst3plugin.cpp
-- customparameters.h
-- customparameters.cpp
-*/
-
-/** @addtogroup AAX-Shell
-  * \ingroup Plugin-Shells
-
-The AAX plugin shell consists of the following files:
-- channelformats.h (not used)
-- antilogtaperdelegate.h
-- logtaperdelegate.h
-- voltoctavetaperdelegate.h
-- AAXPluginDescribe.h
-- AAXPluginDescribe.cpp
-- AAXPluginGUI.h
-- AAXPluginGUI.cpp
-- AAXPluginParameters.h
-- AAXPluginParameters.cpp
-*/
-
-
-
-
 #ifndef __PluginBase__
 #define __PluginBase__
 
 #include "pluginparameter.h"
-
 #include <map>
 
 /**
@@ -256,6 +76,12 @@ public:
 	/** Buffer Proc Cycle: II PluginCore overrides this method to process frames */
 	virtual bool processAudioBuffers(ProcessBufferInfo& processInfo);
 
+	/** MIDI */
+	virtual bool preProcessAudioBlock(IMidiEventQueue* midiEventQueue = nullptr) { return true; }
+
+	/** process sub-blocks of data (OPTIONAL MODE) PluginCore MUST override and implement this function */
+	virtual bool processAudioBlock(ProcessBlockInfo& processBlockInfo) { return true; }
+
 	/** Buffer Proc Cycle: III connects meter variables to outbound GUI control changes (part of ASPiK output variable binding option) */
 	bool updateOutBoundVariables();
 
@@ -268,8 +94,11 @@ public:
 	/** ASPiK midi event system: base class implementation is empty */
 	virtual bool processMIDIEvent(midiEvent& event) { return true; }
 
-	/** perform parameter smoothing or VST3 sample accurate upates */
-	void doSampleAccurateParameterUpdates();
+	/** perform\VST3 sample accurate upates */
+	bool doVST3SAAUpdates();
+
+	/** perform parameter smoothing (if no VST3 SAA updates were done) */
+	bool doParameterSmoothing();
 
 	/** only for a vector joystick control from DAW that implements it (reserved for future use): base class implementation is empty */
 	virtual bool setVectorJoystickParameters(const VectorJoystickData& vectorJoysickData) { return true; }
@@ -287,7 +116,6 @@ public:
 	\brief get a parameter by index location in vector or array
 
 	\param index the index in the array
-
 	\return a naked pointer to the PluginParameter object
 	*/
 	PluginParameter* getPluginParameterByIndex(int32_t index) { return pluginParameters[index]; }
@@ -296,7 +124,6 @@ public:
 	\brief get a parameter by control ID - uses map (slowest)
 
 	\param controlID the control ID of the parameter
-
 	\return a naked pointer to the PluginParameter object
 	*/
 	PluginParameter* getPluginParameterByControlID(int32_t controlID) { return pluginParameterMap[controlID]; }
@@ -596,18 +423,26 @@ protected:
     float auxInputFrame[MAX_CHANNEL_COUNT];		///< aux input array for frame processing
     float auxOutputFrame[MAX_CHANNEL_COUNT];	///< aux output array for frame processing
 
-	// --- ultra-fast access for real-time audio processing
+	// --- block info struct (optional for block processing, if enabled)
+	ProcessBlockInfo processBlockInfo;
+
+	// --- ultra-fast access ***for real-time audio processing***
 	PluginParameter** pluginParameterArray = nullptr;			///< old-fashioned C-arrays of pointers for ultra-fast access for real-time audio processing
 	uint32_t numPluginParameters = 0;							///< total number of parameters
-	PluginParameter** smoothablePluginParameters = nullptr;		///< old-fashioned C-arrays of pointers for smoothable parameters
-	uint32_t numSmoothablePluginParameters = 0;					///< number of smoothable parameters only
+
+	PluginParameter** VSTSAAPluginParameters = nullptr;		///< old-fashioned C-arrays of pointers for smoothable parameters
+	uint32_t numVSTSAAPluginParameters = 0;					///< number of smoothable parameters only
+
+	PluginParameter** smoothingPluginParameters = nullptr;		///< old-fashioned C-arrays of pointers for smoothable parameters
+	uint32_t numSmoothingPluginParameters = 0;					///< number of smoothable parameters only
+
 	PluginParameter** outboundPluginParameters = nullptr;		///< old-fashioned C-arrays of pointers for outbound (meter) parameters
 	uint32_t numOutboundPluginParameters = 0;					///< total number of outbound (meter) parameters
 
-    // --- vectorized version of pluginParameterMap for fast iteration when key not needed
+    // --- vectorized version of pluginParameterMap for faster iteration that the map version below
     std::vector<PluginParameter*> pluginParameters;				///< vector version of parameter list
 
-    // --- map<controlID , PluginParameter*>
+    // --- map<controlID , PluginParameter*> NOTE: VERY SLOW ITERATIONS -- only used for non-audio proc thread stuff
     typedef std::map<uint32_t, PluginParameter*> pluginParameterControlIDMap;	///< map version of parameter list
     pluginParameterControlIDMap pluginParameterMap;								///< member map of parameter list
 
@@ -619,3 +454,186 @@ protected:
 };
 
 #endif /* defined(__PluginBase__) */
+
+/** \defgroup ASPiK-Core
+
+The PluginCore:
+\brief
+- handles the audio signal-processing and implements the DSP functionality
+- is straight C++ and does not contain any API-specific code, does not require any API-specific files or SDK components
+- does not link to any pre-compiled libraries
+- defines and maintains a set of PluginParameter objects, each of which corresponds to a GUI control or other plugin parameter that may be stored and loaded with DAW sessions and presets
+- defines factory presets for AU, VST and RAFX2 plugins (AAX factory presets are done in an entirely different manner and are discussed in Chapter 5)
+- exists independently from the PluginGUI and does not know, or need to know, of the PluginGUIs existence
+- does not create the PluginGUI object
+- does not hold a pointer to the PluginGUI object or share any resources with it
+
+The PluginParameter:
+\brief
+- stores plugin parameters as atomic variables for thread-safe operation
+- encapsulates each parameter specific to the plugin as a C++ object
+- can store all types of input parameters; ints, floats, doubles, string-lists, and custom user types
+- can implement audio meters, complete with meter ballistics (attack and release times) and various envelope detection schemes: peak, MS, RMS and in linear or log format
+- implements optional automatic variable-binding to connect GUI parameter changes to plugin variables in a completely thread-safe manner across all APIs
+- has an optional auxiliary storage system to maintain other information along with any of the plugin parameters allowing you to easily customize and extend the object
+- implements optional parameter smoothing for glitch-free GUI controls with two types of smoothing available: linear and exponential
+- automatically implements four types of control tapering: linear, log, anti-log, and volt/octave
+- implements optional sample-accurate automation for VST3 plugins (VST3 is the only API that has a specification for sample-accurate automation)
+
+**/
+
+/** \defgroup ASPiK-GUI
+
+The VSTGUI::PluginGUI:
+\brief
+- handles all of the GUI functionality including the GUI designer
+- is built using the VSTGUI4 library
+- is platform independent
+- does not link to any pre-compiled libraries
+- encodes the entire GUI in a single XML file, including the graphics file data; this one file may be moved or copied from one project to another, allowing the whole GUI to be easily moved or reused in other projects; advanced users may define multiple GUIs in multiple XML files which may be swapped in and out
+- contains API-specific code in the few places where it is absolutely needed (namely for the AU event-listener system)
+- supports the VTSGUI4 Custom View and Sub-Controller paradigms to extend its functionality
+- exists independently from the PluginCore and does not know, or need to know, of the PluginCore’s existence
+- does not hold a pointer to the PluginCore object or share any resources with it
+- NOTE: the PluginGUI object is defined within the VSTGUI namespace and is grouped with more VSTGUI objects that you may use
+
+The PluginParameter:
+\brief
+- stores plugin parameters as atomic variables for thread-safe operation
+- encapsulates each parameter specific to the plugin as a C++ object
+- can store all types of input parameters; ints, floats, doubles, string-lists, and custom user types
+- can implement audio meters, complete with meter ballistics (attack and release times) and various envelope detection schemes: peak, MS, RMS and in linear or log format
+- implements optional automatic variable-binding to connect GUI parameter changes to plugin variables in a completely thread-safe manner across all APIs
+- has an optional auxiliary storage system to maintain other information along with any of the plugin parameters allowing you to easily customize and extend the object
+- implements optional parameter smoothing for glitch-free GUI controls with two types of smoothing available: linear and exponential
+- automatically implements four types of control tapering: linear, log, anti-log, and volt/octave
+- implements optional sample-accurate automation for VST3 plugins (VST3 is the only API that has a specification for sample-accurate automation)
+
+**/
+
+/** \defgroup Interfaces
+
+Interfaces are used in the FX Objects as a common way of programming.
+
+\brief
+
+**/
+
+
+/** \defgroup Structures
+
+
+**/
+
+/** \defgroup Constants-Enums
+
+
+**/
+
+
+/** \defgroup Custom-Controls
+
+The ASPiK CustomControls folder contains C++ files that implement custom controls, views, and sub-controllers.
+\brief
+
+**/
+
+/** \defgroup Custom-Views
+
+The ASPiK CustomControls folder contains C++ files that implement custom controls, views, and sub-controllers.
+\brief
+
+**/
+
+/** \defgroup Custom-SubControllers
+
+The ASPiK CustomControls folder contains C++ files that implement custom controls, views, and sub-controllers.
+\brief
+
+**/
+
+/** \defgroup FX-Objects
+\brief
+The FX-Objects module contains specialized audio DSP C++ objects that are inlcuded with and documented in Will Pirkle's new plugin programming book. These objects will be available in May 2019 when the 2nd Edition of Designing Audio Effects Plugins in C++ is published and will be free to use in your projects, commercial or personal.
+
+\brief
+
+**/
+
+/** \defgroup FX-Functions
+
+\brief
+The FX-Functions module contains specialized audio DSP C++ functions that are inlcuded with and documented in Will Pirkle's new plugin programming book. These objects are described with even more documentation in this book and are free to use in your projects, commercial or personal.
+
+Download them from https://www.willpirkle.com/Downloads/fxobjects.zip and then you may drop them into your ASPiK's PluginObject folder and import them into your Visual Studio or XCode projects (you need to do this manually for several reasons, one involving FFTW and that is why it is not a direct part of the SDK). These objects are 100% free for you to use in your commercial or non-commercial plugins. See the ASPiK licensing agreement for details.
+
+\brief
+
+**/
+
+/** \defgroup WDF-Objects
+
+\brief
+The WDF-Objects module contains specialized audio DSP C++ objects that are inlcuded with and documented in Will Pirkle's new plugin programming book. These objects are described with even more documentation in this book and are free to use in your projects, commercial or personal.
+
+Download them from https://www.willpirkle.com/Downloads/fxobjects.zip and then you may drop them into your ASPiK's PluginObject folder and import them into your Visual Studio or XCode projects (you need to do this manually for several reasons, one involving FFTW and that is why it is not a direct part of the SDK). These objects are 100% free for you to use in your commercial or non-commercial plugins. See the ASPiK licensing agreement for details.
+
+
+\brief
+
+**/
+
+/** \defgroup FFTW-Objects
+\brief
+The FX-Objects module contains specialized audio DSP C++ objects that are inlcuded with and documented in Will Pirkle's new plugin programming book. These objects are described with even more documentation in this book and are free to use in your projects, commercial or personal.
+
+Download them from https://www.willpirkle.com/Downloads/fxobjects.zip and then you may drop them into your ASPiK's PluginObject folder and import them into your Visual Studio or XCode projects (you need to do this manually for several reasons, one involving FFTW and that is why it is not a direct part of the SDK). These objects are 100% free for you to use in your commercial or non-commercial plugins. See the ASPiK licensing agreement for details.
+
+
+
+**/
+
+
+/** \defgroup Plugin-Shells
+
+
+**/
+
+/** @addtogroup AU-Shell
+  * \ingroup Plugin-Shells
+
+The AU plugin shell consists of the following files:
+- aufxplugin.h
+- aufxplugin.cpp
+- aufxplugin.exp
+- aucocoaviewfactory.mm
+*/
+
+/** @addtogroup VST-Shell
+  * \ingroup Plugin-Shells
+
+The VST plugin shell consists of the following files:
+- channelformats.h
+- factory.cpp
+- vst3plugin.h
+- vst3plugin.cpp
+- customparameters.h
+- customparameters.cpp
+*/
+
+/** @addtogroup AAX-Shell
+  * \ingroup Plugin-Shells
+
+The AAX plugin shell consists of the following files:
+- channelformats.h (not used)
+- antilogtaperdelegate.h
+- logtaperdelegate.h
+- voltoctavetaperdelegate.h
+- AAXPluginDescribe.h
+- AAXPluginDescribe.cpp
+- AAXPluginGUI.h
+- AAXPluginGUI.cpp
+- AAXPluginParameters.h
+- AAXPluginParameters.cpp
+*/
+

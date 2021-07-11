@@ -89,66 +89,11 @@ $(document).ready(function(){initNavTree('audio_proc2.html','');});
 <div class="title">Audio Input and Output Samples </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>We will need to decode the <a class="el" href="struct_channel_i_o_config.html" title="Structure of a pair of channel format enumerators that set an input/output channel I/O capability...">ChannelIOConfig</a> variable for the audio data and pick up the audio input data samples, process them, and then write our audio outputs into the <em>audioOutputFrame array</em> according to the output channel IO configuration. You may adapt this code as your plug requires it. The stock <em>processAudioFrame</em> function your plugin is created with looks something like this at the head of the function. <br />
- <br />
- // &mdash; fire any MIDI events for this sample interval<br />
- <b>processFrameInfo.midiEventQueue-&gt;fireMidiEvents(processFrameInfo.currentFrame);</b><br />
- <br />
- // &mdash; do per-frame updates; VST automation and parameter smoothing<br />
- <b>doSampleAccurateParameterUpdates();</b><br />
- <br />
- // &mdash; Synth or FX Plugin?<br />
- <b>if (getPluginType() == kFXPlugin)</b><br />
- {<br />
- do FX stuff<br />
- }<br />
- <br />
- From this point on, we will assume that we are processing for a FX plugin and we’ll omit those enclosing curly brackets for brevity. All ASPiK plugins will by default accommodate mono-mono, mono-stereo and stereo-stereo formats. You can add more channel formats as you like. Each new blank ASPiK plugin will pass audio from input to output directly. You will then modify the code to do some meaningful processing. The audio data samples arrive in slots in the <em>audioInputFrame</em> and <em>audioOutputFrame</em> arrays and we use standard C++ array notation to access them. We might write something like this to pick up the input samples, process them through some interesting audio processing function then and pass the resulting samples to the outputs:<br />
- <br />
- // &mdash; get left and right input samples<br />
- <b>double xn_L = processFrameInfo.audioInputFrame[0];</b><br />
- <b>double xn_R = processFrameInfo.audioInputFrame[1];</b><br />
- <br />
- // &mdash; process them to create outputs<br />
- <b>double yn_L = doSomeCoolAudioProcessing(xn_L);</b><br />
- <b>double yn_R = doSomeCoolAudioProcessing(xn_R);</b><br />
- <br />
- // &mdash; send audio out<br />
- <b>processFrameInfo.audioOutputFrame[0] = yn_L;</b><br />
- <b>processFrameInfo.audioOutputFrame[1] = yn_R;</b><br />
- <br />
- From this example, it should be obvious how to pick up input samples and write output samples. If we were processing a 5.1 input, we might write something like this instead:<br />
- <br />
- <b>double leftIn = processFrameInfo.audioInputFrame[0];</b><br />
- <b>double rightIn = processFrameInfo.audioInputFrame[1];</b><br />
- <b>double lfeIn = processFrameInfo.audioInputFrame[2];</b><br />
- <b>double leftSurroundIn = processFrameInfo.audioInputFrame[3];</b><br />
- <b>double rightSurroundIn= processFrameInfo.audioInputFrame[4];</b><br />
- <br />
- To decode our three I/O combinations, we use the following code:<br />
- <br />
- // &mdash; Mono-In/Mono-Out<br />
- <b>if(processFrameInfo.channelIOConfig.inputChannelFormat == kCFMono &amp;&amp; <br />
- &emsp;processFrameInfo.channelIOConfig.outputChannelFormat = kCFMono)</b><br />
- {<br />
- &emsp;// &mdash; DO mono-in &ndash;&gt; mono out processing<br />
- }<br />
-</p>
-<p>// &mdash; Mono-In/Stereo-Out<br />
- <b>if(processFrameInfo.channelIOConfig.inputChannelFormat == kCFMono &amp;&amp;<br />
- &emsp;processFrameInfo.channelIOConfig.outputChannelFormat == kCFStereo)</b><br />
- {<br />
- &emsp;// &mdash; DO mono-in &ndash;&gt; stereo out processing<br />
- }<br />
-</p>
-<p>// &mdash; Stereo-In/Stereo-Out<br />
- <b>if(processFrameInfo.channelIOConfig.inputChannelFormat == kCFStereo &amp;&amp;<br />
- &emsp;processFrameInfo.channelIOConfig.outputChannelFormat == kCFStereo)</b><br />
- {<br />
- &emsp;// &mdash; DO stereo-in &ndash;&gt; stereo out processing<br />
- }<br />
- <br />
- You can modify the channel decoding logic to suit your own taste. One thing to note is that this function (like all of the <a class="el" href="class_plugin_base.html" title="The PluginBase object is the base class for the Plugin Core object. ">PluginBase</a> functions) returns a boolean variable to signify whether we actually processed data or not. We can return true from inside each of those curly bracket sets and return false if none of our channel combinations are supported. </p>
+<div class="textblock"><p>We will need to decode the <a class="el" href="struct_channel_i_o_config.html" title="Structure of a pair of channel format enumerators that set an input/output channel I/O capability...">ChannelIOConfig</a> variable for the audio data and pick up the audio input data samples, process them, and then write our audio outputs into the <em>audioOutputFrame array</em> according to the output channel IO configuration. You may adapt this code as your plug requires it. The stock <em>processAudioFrame</em> function your plugin is created with looks something like this at the head of the function.</p>
+<div class="fragment"><div class="line"><span class="comment">// --- fire any MIDI events for this sample interval   </span></div><div class="line">processFrameInfo.midiEventQueue-&gt;fireMidiEvents(processFrameInfo.currentFrame);      </div><div class="line">   </div><div class="line"><span class="comment">// --- do per-frame smoothing</span></div><div class="line">doParameterSmoothing();      </div><div class="line">   </div><div class="line"><span class="comment">// --- Synth or FX Plugin?   </span></div><div class="line"><span class="keywordflow">if</span> (getPluginType() == kFXPlugin)      </div><div class="line">{  </div><div class="line">   <span class="comment">// do FX stuff   </span></div><div class="line">}</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>From this point on, we will assume that we are processing for a FX plugin and we'll omit those enclosing curly brackets for brevity. All ASPiK plugins will by default accommodate mono-mono, mono-stereo and stereo-stereo formats. You can add more channel formats as you like. Each new blank ASPiK plugin will pass audio from input to output directly. You will then modify the code to do some meaningful processing. The audio data samples arrive in slots in the <em>audioInputFrame</em> and <em>audioOutputFrame</em> arrays and we use standard C++ array notation to access them. We might write something like this to pick up the input samples, process them through some interesting audio processing function then and pass the resulting samples to the outputs:</p>
+<div class="fragment"><div class="line"><span class="comment">// --- get left and right input samples</span></div><div class="line"><span class="keywordtype">double</span> xn_L = processFrameInfo.audioInputFrame[0];</div><div class="line"><span class="keywordtype">double</span> xn_R = processFrameInfo.audioInputFrame[1];</div><div class="line"></div><div class="line"><span class="comment">// --- process them to create outputs</span></div><div class="line"><span class="keywordtype">double</span> yn_L = doSomeCoolAudioProcessing(xn_L);</div><div class="line"><span class="keywordtype">double</span> yn_R = doSomeCoolAudioProcessing(xn_R);</div><div class="line"></div><div class="line"><span class="comment">// --- send audio out</span></div><div class="line">processFrameInfo.audioOutputFrame[0] = yn_L;</div><div class="line">processFrameInfo.audioOutputFrame[1] = yn_R;</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>From this example, it should be obvious how to pick up input samples and write output samples. If we were processing a 5.1 input, we might write something like this instead:</p>
+<div class="fragment"><div class="line"><span class="comment">// --- 5.1</span></div><div class="line"><span class="keywordtype">double</span> leftIn = processFrameInfo.audioInputFrame[0];</div><div class="line"><span class="keywordtype">double</span> rightIn = processFrameInfo.audioInputFrame[1];</div><div class="line"><span class="keywordtype">double</span> lfeIn =  processFrameInfo.audioInputFrame[2];</div><div class="line"><span class="keywordtype">double</span> leftSurroundIn = processFrameInfo.audioInputFrame[3];</div><div class="line"><span class="keywordtype">double</span> rightSurroundIn= processFrameInfo.audioInputFrame[4];</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>To decode our three I/O combinations, we use the following code:</p>
+<div class="fragment"><div class="line"><span class="comment">// --- Mono-In/Mono-Out</span></div><div class="line"><span class="keywordflow">if</span>(processFrameInfo.channelIOConfig.inputChannelFormat == kCFMono &amp;&amp; </div><div class="line">   processFrameInfo.channelIOConfig.outputChannelFormat = kCFMono)</div><div class="line">{</div><div class="line">   <span class="comment">// --- DO mono-in --&gt; mono out processing</span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// --- Mono-In/Stereo-Out</span></div><div class="line"><span class="keywordflow">if</span>(processFrameInfo.channelIOConfig.inputChannelFormat == kCFMono &amp;&amp;</div><div class="line">   processFrameInfo.channelIOConfig.outputChannelFormat == kCFStereo)</div><div class="line">{</div><div class="line">   <span class="comment">// --- DO mono-in --&gt; stereo out processing</span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// --- Stereo-In/Stereo-Out</span></div><div class="line"><span class="keywordflow">if</span>(processFrameInfo.channelIOConfig.inputChannelFormat == kCFStereo &amp;&amp;</div><div class="line">   processFrameInfo.channelIOConfig.outputChannelFormat == kCFStereo)</div><div class="line">{</div><div class="line">   <span class="comment">// --- DO stereo-in --&gt; stereo out processing</span></div><div class="line">}</div><div class="line"><span class="comment">//</span></div></div><!-- fragment --><p>You can modify the channel decoding logic to suit your own taste. One thing to note is that this function (like all of the <a class="el" href="class_plugin_base.html" title="The PluginBase object is the base class for the Plugin Core object. ">PluginBase</a> functions) returns a boolean variable to signify whether we actually processed data or not. We can return true from inside each of those curly bracket sets and return false if none of our channel combinations are supported. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

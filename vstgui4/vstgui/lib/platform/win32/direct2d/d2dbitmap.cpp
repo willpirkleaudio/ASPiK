@@ -7,6 +7,8 @@
 #if WINDOWS
 
 #include "../win32support.h"
+#include "../win32resourcestream.h"
+#include "../win32factory.h"
 #include "../../../cstring.h"
 #include <wincodec.h>
 #include <d2d1.h>
@@ -18,7 +20,7 @@ namespace VSTGUI {
 //-----------------------------------------------------------------------------
 D2DBitmap::D2DBitmap ()
 : scaleFactor (1.)
-, source (0)
+, source (nullptr)
 {
 }
 
@@ -26,11 +28,11 @@ D2DBitmap::D2DBitmap ()
 D2DBitmap::D2DBitmap (const CPoint& size)
 : size (size)
 , scaleFactor (1.)
-, source (0)
+, source (nullptr)
 {
 	REFWICPixelFormatGUID pixelFormat = GUID_WICPixelFormat32bppPBGRA;
 	WICBitmapCreateCacheOption options = WICBitmapCacheOnLoad;
-	IWICBitmap* bitmap = 0;
+	IWICBitmap* bitmap = nullptr;
 	HRESULT hr = getWICImageingFactory ()->CreateBitmap ((UINT)size.x, (UINT)size.y, pixelFormat, options, &bitmap);
 	if (hr == S_OK && bitmap)
 	{
@@ -60,10 +62,10 @@ D2DBitmap::~D2DBitmap ()
 //-----------------------------------------------------------------------------
 IWICBitmap* D2DBitmap::getBitmap ()
 {
-	if (getSource () == 0)
-		return 0;
+	if (getSource () == nullptr)
+		return nullptr;
 
-	IWICBitmap* icBitmap = 0;
+	IWICBitmap* icBitmap = nullptr;
 	if (!SUCCEEDED (getSource ()->QueryInterface (IID_IWICBitmap, (void**)&icBitmap)))
 	{
 		if (SUCCEEDED (getWICImageingFactory ()->CreateBitmapFromSource (getSource (), WICBitmapCacheOnDemand, &icBitmap)))
@@ -84,19 +86,19 @@ PNGBitmapBuffer D2DBitmap::createMemoryPNGRepresentation ()
 
 	PNGBitmapBuffer buffer;
 	IWICBitmapEncoder* encoder = nullptr;
-	if (SUCCEEDED (getWICImageingFactory ()->CreateEncoder (GUID_ContainerFormatPng, NULL, &encoder)))
+	if (SUCCEEDED (getWICImageingFactory ()->CreateEncoder (GUID_ContainerFormatPng, nullptr, &encoder)))
 	{
 		IStream* stream = nullptr;
-		if (SUCCEEDED (CreateStreamOnHGlobal (NULL, TRUE, &stream)))
+		if (SUCCEEDED (CreateStreamOnHGlobal (nullptr, TRUE, &stream)))
 		{
 			if (SUCCEEDED (encoder->Initialize (stream, WICBitmapEncoderNoCache)))
 			{
 				IWICBitmapFrameEncode* frame = nullptr;
-				if (SUCCEEDED (encoder->CreateNewFrame (&frame, NULL)))
+				if (SUCCEEDED (encoder->CreateNewFrame (&frame, nullptr)))
 				{
-					if (SUCCEEDED (frame->Initialize (NULL)))
+					if (SUCCEEDED (frame->Initialize (nullptr)))
 					{
-						if (SUCCEEDED (frame->WriteSource (this->getSource (), NULL)))
+						if (SUCCEEDED (frame->WriteSource (this->getSource (), nullptr)))
 						{
 							if (SUCCEEDED (frame->Commit ()))
 							{
@@ -131,13 +133,13 @@ PNGBitmapBuffer D2DBitmap::createMemoryPNGRepresentation ()
 //-----------------------------------------------------------------------------
 bool D2DBitmap::loadFromStream (IStream* iStream)
 {
-	IWICBitmapDecoder* decoder = 0;
-	IWICStream* stream = 0;
+	IWICBitmapDecoder* decoder = nullptr;
+	IWICStream* stream = nullptr;
 	if (SUCCEEDED (getWICImageingFactory ()->CreateStream (&stream)))
 	{
 		if (SUCCEEDED (stream->InitializeFromIStream (iStream)))
 		{
-			getWICImageingFactory ()->CreateDecoderFromStream (stream, NULL, WICDecodeMetadataCacheOnLoad, &decoder);
+			getWICImageingFactory ()->CreateDecoderFromStream (stream, nullptr, WICDecodeMetadataCacheOnLoad, &decoder);
 		}
 		stream->Release ();
 	}
@@ -151,14 +153,14 @@ bool D2DBitmap::loadFromStream (IStream* iStream)
 			frame->GetSize (&w, &h);
 			size.x = w;
 			size.y = h;
-			IWICFormatConverter* converter = 0;
+			IWICFormatConverter* converter = nullptr;
 			getWICImageingFactory ()->CreateFormatConverter (&converter);
 			if (converter)
 			{
-				if (!SUCCEEDED (converter->Initialize (frame, GUID_WICPixelFormat32bppPBGRA, WICBitmapDitherTypeNone, NULL, 0.f, WICBitmapPaletteTypeMedianCut)))
+				if (!SUCCEEDED (converter->Initialize (frame, GUID_WICPixelFormat32bppPBGRA, WICBitmapDitherTypeNone, nullptr, 0.f, WICBitmapPaletteTypeMedianCut)))
 				{
 					converter->Release ();
-					converter = 0;
+					converter = nullptr;
 				}
 				else
 					source = converter;
@@ -167,7 +169,7 @@ bool D2DBitmap::loadFromStream (IStream* iStream)
 		}
 		decoder->Release ();
 	}
-	return source != 0;
+	return source != nullptr;
 }
 
 //-----------------------------------------------------------------------------
@@ -178,22 +180,26 @@ bool D2DBitmap::load (const CResourceDescription& resourceDesc)
 	bool result = false;
 	if (resourceDesc.type == CResourceDescription::kStringType)
 	{
-		if (auto path = WinResourceInputStream::getBasePath ())
+		if (auto factory = getPlatformFactory ().asWin32Factory ())
 		{
-			*path += resourceDesc.u.name;
-			UTF8StringHelper wpath (*path);
-			IStream* stream = 0;
-			if (SUCCEEDED (SHCreateStreamOnFileEx (wpath, STGM_READ|STGM_SHARE_DENY_WRITE, 0, false, 0, &stream)))
+			if (auto path = factory->getResourceBasePath ())
 			{
-				result = loadFromStream (stream);
-				stream->Release ();
+				*path += resourceDesc.u.name;
+				UTF8StringHelper wpath (*path);
+				IStream* stream = nullptr;
+				if (SUCCEEDED (SHCreateStreamOnFileEx (wpath, STGM_READ | STGM_SHARE_DENY_WRITE, 0,
+				                                       false, nullptr, &stream)))
+				{
+					result = loadFromStream (stream);
+					stream->Release ();
+				}
 			}
 		}
 	}
 
 	if (result == false)
 	{
-		ResourceStream* resourceStream = new ResourceStream;
+		auto* resourceStream = new ResourceStream;
 		if (resourceStream->open (resourceDesc, "PNG"))
 		{
 			result = loadFromStream (resourceStream);
@@ -206,8 +212,8 @@ bool D2DBitmap::load (const CResourceDescription& resourceDesc)
 	{
 		// In DEBUG mode we allow to load the bitmap from a path so that the WYSIWYG editor is usable
 		UTF8StringHelper path (resourceDesc.u.name);
-		IStream* stream = 0;
-		if (SUCCEEDED (SHCreateStreamOnFileEx (path, STGM_READ|STGM_SHARE_DENY_WRITE, 0, false, 0, &stream)))
+		IStream* stream = nullptr;
+		if (SUCCEEDED (SHCreateStreamOnFileEx (path, STGM_READ|STGM_SHARE_DENY_WRITE, 0, false, nullptr, &stream)))
 		{
 			result = loadFromStream (stream);
 			stream->Release ();
@@ -220,8 +226,8 @@ bool D2DBitmap::load (const CResourceDescription& resourceDesc)
 //-----------------------------------------------------------------------------
 HBITMAP D2DBitmap::createHBitmap ()
 {
-	if (getSource () == 0)
-		return 0;
+	if (getSource () == nullptr)
+		return nullptr;
 
 	BITMAPINFO pbmi {};
 	pbmi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
@@ -231,14 +237,14 @@ HBITMAP D2DBitmap::createHBitmap ()
 	pbmi.bmiHeader.biHeight = (LONG)size.y;
 	pbmi.bmiHeader.biBitCount = 32;
 
-	HDC hdc = GetDC (NULL);
-	if (hdc == 0)
-		return 0;
-	BYTE* bits = 0;
-	HBITMAP result = CreateDIBSection (hdc, &pbmi, DIB_RGB_COLORS, reinterpret_cast<void**> (&bits), 0, 0);
+	HDC hdc = GetDC (nullptr);
+	if (hdc == nullptr)
+		return nullptr;
+	BYTE* bits = nullptr;
+	HBITMAP result = CreateDIBSection (hdc, &pbmi, DIB_RGB_COLORS, reinterpret_cast<void**> (&bits), nullptr, 0);
 	if (result)
 	{
-		getSource ()->CopyPixels (NULL, (UINT)size.x * sizeof (DWORD), (UINT)size.x * sizeof (DWORD) * (UINT)size.y, bits);
+		getSource ()->CopyPixels (nullptr, (UINT)size.x * sizeof (DWORD), (UINT)size.x * sizeof (DWORD) * (UINT)size.y, bits);
 	}
 	return result;
 }
@@ -269,9 +275,9 @@ SharedPointer<IPlatformBitmapPixelAccess> D2DBitmap::lockPixels (bool alphaPremu
 
 //-----------------------------------------------------------------------------
 D2DBitmap::PixelAccess::PixelAccess ()
-: bitmap (0)
-, bLock (0)
-, ptr (0)
+: bitmap (nullptr)
+, bLock (nullptr)
+, ptr (nullptr)
 , bytesPerRow (0)
 {
 }
@@ -297,8 +303,7 @@ bool D2DBitmap::PixelAccess::init (D2DBitmap* inBitmap, bool _alphaPremultiplied
 {
 	bool result = false;
 	vstgui_assert (inBitmap);
-	IWICBitmap* icBitmap = inBitmap->getBitmap ();
-	if (icBitmap)
+	if (IWICBitmap* icBitmap = inBitmap ? inBitmap->getBitmap () : nullptr)
 	{
 		WICRect rcLock = { 0, 0, (INT)inBitmap->getSize ().x, (INT)inBitmap->getSize ().y };
 		if (SUCCEEDED (icBitmap->Lock (&rcLock, WICBitmapLockRead | WICBitmapLockWrite, &bLock)))
@@ -323,7 +328,7 @@ void D2DBitmap::PixelAccess::premultiplyAlpha (BYTE* ptr, UINT bytesPerRow, cons
 {
 	for (int32_t y = 0; y < (int32_t)size.y; y++, ptr += bytesPerRow)
 	{
-		uint32_t* pixelPtr = (uint32_t*)ptr;
+		auto* pixelPtr = (uint32_t*)ptr;
 		for (int32_t x = 0; x < (int32_t)size.x; x++, pixelPtr++)
 		{
 			uint8_t* pixel = (uint8_t*)pixelPtr;
@@ -385,7 +390,7 @@ ID2D1Bitmap* D2DBitmapCache::getBitmap (D2DBitmap* bitmap, ID2D1RenderTarget* re
 			return b;
 		}
 	}
-	return 0;
+	return nullptr;
 }
 
 //-----------------------------------------------------------------------------
@@ -428,14 +433,14 @@ void D2DBitmapCache::removeRenderTarget (ID2D1RenderTarget* renderTarget)
 //-----------------------------------------------------------------------------
 ID2D1Bitmap* D2DBitmapCache::createBitmap (D2DBitmap* bitmap, ID2D1RenderTarget* renderTarget)
 {
-	if (bitmap->getSource () == 0)
-		return 0;
-	ID2D1Bitmap* d2d1Bitmap = 0; 
+	if (bitmap->getSource () == nullptr)
+		return nullptr;
+	ID2D1Bitmap* d2d1Bitmap = nullptr; 
 	renderTarget->CreateBitmapFromWicBitmap (bitmap->getSource (), &d2d1Bitmap);
 	return d2d1Bitmap;
 }
 
-static D2DBitmapCache* gD2DBitmapCache = 0;
+static D2DBitmapCache* gD2DBitmapCache = nullptr;
 //-----------------------------------------------------------------------------
 D2DBitmapCache::D2DBitmapCache ()
 {
@@ -448,10 +453,10 @@ D2DBitmapCache::~D2DBitmapCache ()
 #if DEBUG
 	for (BitmapCache::const_iterator it = cache.begin (); it != cache.end (); it++)
 	{
-		vstgui_assert (it->second.size () == 0);
+		vstgui_assert (it->second.empty ());
 	}
 #endif
-	gD2DBitmapCache = 0;
+	gD2DBitmapCache = nullptr;
 }
 
 //-----------------------------------------------------------------------------

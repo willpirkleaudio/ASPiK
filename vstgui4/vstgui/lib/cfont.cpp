@@ -4,6 +4,7 @@
 
 #include "cfont.h"
 #include "cstring.h"
+#include "platform/platformfactory.h"
 #include "platform/iplatformfont.h"
 
 namespace VSTGUI {
@@ -89,6 +90,9 @@ CFontDesc::CFontDesc (const CFontDesc& font)
 	*this = font;
 }
 
+//------------------------------------------------------------------------
+CFontDesc::~CFontDesc () noexcept = default;
+
 //-----------------------------------------------------------------------------
 void CFontDesc::beforeDelete ()
 {
@@ -99,7 +103,7 @@ void CFontDesc::beforeDelete ()
 auto CFontDesc::getPlatformFont () const -> const PlatformFontPtr
 {
 	if (platformFont == nullptr)
-		platformFont = IPlatformFont::create (name, size, style);
+		platformFont = getPlatformFactory ().createFont (name, size, style);
 	return platformFont;
 }
 

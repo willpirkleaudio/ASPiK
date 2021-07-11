@@ -29,10 +29,9 @@ COptionMenu* getItemMenu (int32_t idx, int32_t &idxInMenu, int32_t &offsetIdx, C
 	{
 		idxInMenu = idx - oldIDx;
 		return _menu;
-	}
-	
+	}	
 
-	COptionMenu *menu = 0;
+	COptionMenu *menu = nullptr;
 	CMenuItemIterator it = _menu->getItems ()->begin ();
 	while (it != _menu->getItems ()->end ())
 	{
@@ -52,7 +51,7 @@ void Win32OptionMenu::popup (COptionMenu* optionMenu, const Callback& callback)
 {
 	vstgui_assert (optionMenu && callback, "arguments are required");
 
-	PlatformOptionMenuResult result = {0};
+	PlatformOptionMenuResult result = {};
 	
 	//---Transform local coordinates to global coordinates
 	CRect rect = optionMenu->translateToGlobal (optionMenu->getViewSize ());
@@ -71,8 +70,7 @@ void Win32OptionMenu::popup (COptionMenu* optionMenu, const Callback& callback)
 	ClientToScreen (windowHandle, &p);
 
 	int32_t offsetIndex = 0;
-	HMENU menu = createMenu (optionMenu, offsetIndex);
-	if (menu)
+	if (HMENU menu = createMenu (optionMenu, offsetIndex))
 	{
 		UINT flags = TPM_LEFTALIGN;
 
@@ -80,7 +78,7 @@ void Win32OptionMenu::popup (COptionMenu* optionMenu, const Callback& callback)
 //		if (lastButton & kRButton)
 //			flags |= TPM_RIGHTBUTTON;
 
-		if (TrackPopupMenu (menu, flags, p.x, p.y, 0, windowHandle, 0))
+		if (TrackPopupMenu (menu, flags, p.x, p.y, 0, windowHandle, nullptr))
 		{
 			MSG msg;
 			if (PeekMessage (&msg, windowHandle, WM_COMMAND, WM_COMMAND, PM_REMOVE))
@@ -120,7 +118,7 @@ HMENU Win32OptionMenu::createMenu (COptionMenu* _menu, int32_t& offsetIdx)
 
 	bool multipleCheck = _menu->isMultipleCheckStyle ();
 
-	MENUINFO mi = {0};
+	MENUINFO mi = {};
 	mi.cbSize = sizeof (MENUINFO);
 	mi.dwStyle = MNS_CHECKORBMP;
 	SetMenuInfo (menu, &mi);
@@ -136,11 +134,11 @@ HMENU Win32OptionMenu::createMenu (COptionMenu* _menu, int32_t& offsetIdx)
 		CMenuItem* item = (*it);
 		if (item->isSeparator ())
 		{
-			AppendMenu (menu, MF_SEPARATOR, 0, 0);
+			AppendMenu (menu, MF_SEPARATOR, 0, nullptr);
 		}
 		else
 		{
-			char* titleWithPrefixNumbers = 0;
+			char* titleWithPrefixNumbers = nullptr;
 			if (_menu->getPrefixNumbers ())
 			{
 				titleWithPrefixNumbers = (char*)std::malloc (strlen (item->getTitle ()) + 50);
@@ -170,8 +168,7 @@ HMENU Win32OptionMenu::createMenu (COptionMenu* _menu, int32_t& offsetIdx)
 
 			if (item->getSubmenu ())
 			{
-				HMENU submenu = createMenu (item->getSubmenu (), offsetIdx);
-				if (submenu)
+				if (HMENU submenu = createMenu (item->getSubmenu (), offsetIdx))
 				{
 					if (multipleCheck && item->isChecked())
 					{
@@ -200,17 +197,15 @@ HMENU Win32OptionMenu::createMenu (COptionMenu* _menu, int32_t& offsetIdx)
 					flags |= MF_UNCHECKED;
 
 				AppendMenu (menu, flags, offset + inc, entryText);
-				IPlatformBitmap* platformBitmap = item->getIcon () ? item->getIcon ()->getPlatformBitmap () : 0;
+				IPlatformBitmap* platformBitmap = item->getIcon () ? item->getIcon ()->getPlatformBitmap () : nullptr;
 				if (platformBitmap)
 				{
-					Win32BitmapBase* win32Bitmap = dynamic_cast<Win32BitmapBase*> (platformBitmap);
-					if (win32Bitmap)
+					if (auto* win32Bitmap = dynamic_cast<Win32BitmapBase*> (platformBitmap))
 					{
-						MENUITEMINFO mInfo = {0};
+						MENUITEMINFO mInfo = {};
 						mInfo.cbSize = sizeof (MENUITEMINFO);
 						mInfo.fMask = MIIM_BITMAP;
-						HBITMAP hBmp = win32Bitmap->createHBitmap ();
-						if (hBmp)
+						if (HBITMAP hBmp = win32Bitmap->createHBitmap ())
 						{
 							mInfo.hbmpItem = hBmp;
 							SetMenuItemInfo (menu, offset + inc, TRUE, &mInfo);

@@ -89,7 +89,12 @@ $(document).ready(function(){initNavTree('define_plugin8.html','');});
 <div class="title">Processing the Audio Data </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>In the audio processing phase, we need to pick up the audio inputs, process them through our algorithm, and then write them to the audio outputs. The <em>processAudioFrame</em> function will handle the audio processing by frame. It's sole function argument is a data structure that contains all the information we need to process a buffer of audio. Note that this also includes information from the host about the DAW session including BPM and time-signature information.</p>
+<div class="textblock"><p>In the audio processing phase, we need to pick up the audio inputs, process them through our algorithm, and then write them to the audio outputs. <b>In this part of the programming guide, we will use frame processing exclusively.</b> You may easily extract and transfer this code into your block or buffer processing functions as you like; the reasons for focusing on frames here are:</p><ol type="1">
+<li>frames are easy to think about - just one sample from each channel at a time</li>
+<li>block processing ususally depends on some factor about the plugin's algorithms that may change from one plugin to the next</li>
+<li>buffer (or block) procssing is just a for( ) loop that iterates over frames (samples from each channel) so the code is fundamentally the same.</li>
+</ol>
+<p>The <em>processAudioFrame</em> function will handle the audio processing by frame. It's sole function argument is a data structure that contains all the information we need to process a buffer of audio. Note that this also includes information from the host about the DAW session including BPM and time-signature information. See <a class="el" href="define_plugin7.html">Frame, Buffer and Sub-Block Processing</a> for information you can use to convert this code to block or buffer procssing.</p>
 <ul>
 <li><a class="el" href="audio_proc1.html">Information about the Frame</a></li>
 <li><a class="el" href="audio_proc2.html">Audio Input and Output Samples</a></li>

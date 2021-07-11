@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('class_steinberg_1_1_vst_1_1_a_s_pi_k_1
 <p>The <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html" title="The AntiLogParameter object encapsulates an anti-log parameter. Note that the standard log potentiome...">AntiLogParameter</a> object encapsulates an anti-log parameter. Note that the standard log potentiometer in electronics is actually anti-log!  
  <a href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_anti_log_parameter.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="project__source_2source_2vst__source_2customparameters_8h_source.html">customparameters.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="customparameters_8h_source.html">customparameters.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Steinberg::Vst::ASPiK::AntiLogParameter:</div>
 <div class="dyncontent">
@@ -137,42 +137,9 @@ virtual ParamValue&#160;</td><td class="memItemRight" valign="bottom"><b>getMax<
 <tr class="memitem:a4a7a516da3d5eeb5e5f0aa8ae1f71284"><td class="memItemLeft" align="right" valign="top"><a id="a4a7a516da3d5eeb5e5f0aa8ae1f71284"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setMax</b> (ParamValue value)</td></tr>
 <tr class="separator:a4a7a516da3d5eeb5e5f0aa8ae1f71284"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba888eed54a976adc03263b7617a695f"><td class="memItemLeft" align="right" valign="top"><a id="aba888eed54a976adc03263b7617a695f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>AntiLogParameter</b> (const TChar *title, ParamID tag, const TChar *units=0, ParamValue minPlain=0., ParamValue maxPlain=1., ParamValue defaultValuePlain=0., int32 stepCount=0, int32 flags=ParameterInfo::kCanAutomate, UnitID unitID=kRootUnitId)</td></tr>
-<tr class="separator:aba888eed54a976adc03263b7617a695f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81fe51b8b70240fb28f09488e269c395"><td class="memItemLeft" align="right" valign="top"><a id="a81fe51b8b70240fb28f09488e269c395"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> (ParamValue normValue, String128 string) const</td></tr>
-<tr class="separator:a81fe51b8b70240fb28f09488e269c395"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe8e841185a905f381eb7f48748e9486"><td class="memItemLeft" align="right" valign="top"><a id="afe8e841185a905f381eb7f48748e9486"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>fromString</b> (const TChar *string, ParamValue &amp;normValue) const</td></tr>
-<tr class="separator:afe8e841185a905f381eb7f48748e9486"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3788cc4d7d148228fb2de86128851daa"><td class="memItemLeft" align="right" valign="top"><a id="a3788cc4d7d148228fb2de86128851daa"></a>
-virtual ParamValue&#160;</td><td class="memItemRight" valign="bottom"><b>toPlain</b> (ParamValue _valueNormalized) const</td></tr>
-<tr class="separator:a3788cc4d7d148228fb2de86128851daa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefc4a35e0e71bdd26cad4ecb846d430a"><td class="memItemLeft" align="right" valign="top"><a id="aefc4a35e0e71bdd26cad4ecb846d430a"></a>
-virtual ParamValue&#160;</td><td class="memItemRight" valign="bottom"><b>toNormalized</b> (ParamValue plainValue) const</td></tr>
-<tr class="separator:aefc4a35e0e71bdd26cad4ecb846d430a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc2fde3d48c07a867b72219b175e4e7c"><td class="memItemLeft" align="right" valign="top"><a id="acc2fde3d48c07a867b72219b175e4e7c"></a>
-virtual ParamValue&#160;</td><td class="memItemRight" valign="bottom"><b>getMin</b> () const</td></tr>
-<tr class="separator:acc2fde3d48c07a867b72219b175e4e7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbdd4408b681ffa813770606c14bedc8"><td class="memItemLeft" align="right" valign="top"><a id="afbdd4408b681ffa813770606c14bedc8"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setMin</b> (ParamValue value)</td></tr>
-<tr class="separator:afbdd4408b681ffa813770606c14bedc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad56537e5cfdbba29c46b94bb5b04c397"><td class="memItemLeft" align="right" valign="top"><a id="ad56537e5cfdbba29c46b94bb5b04c397"></a>
-virtual ParamValue&#160;</td><td class="memItemRight" valign="bottom"><b>getMax</b> () const</td></tr>
-<tr class="separator:ad56537e5cfdbba29c46b94bb5b04c397"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a7a516da3d5eeb5e5f0aa8ae1f71284"><td class="memItemLeft" align="right" valign="top"><a id="a4a7a516da3d5eeb5e5f0aa8ae1f71284"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setMax</b> (ParamValue value)</td></tr>
-<tr class="separator:a4a7a516da3d5eeb5e5f0aa8ae1f71284"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:aeb52476248db4b0591c02fa3507f60ff"><td class="memItemLeft" align="right" valign="top"><a id="aeb52476248db4b0591c02fa3507f60ff"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>calcAntiLogParameter</b> (float fNormalizedParam) const</td></tr>
-<tr class="separator:aeb52476248db4b0591c02fa3507f60ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8b6b51193bcce673f2ac26ec7ca0970"><td class="memItemLeft" align="right" valign="top"><a id="ac8b6b51193bcce673f2ac26ec7ca0970"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>calcAntiLogPluginValue</b> (float fPluginValue) const</td></tr>
-<tr class="separator:ac8b6b51193bcce673f2ac26ec7ca0970"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb52476248db4b0591c02fa3507f60ff"><td class="memItemLeft" align="right" valign="top"><a id="aeb52476248db4b0591c02fa3507f60ff"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>calcAntiLogParameter</b> (float fNormalizedParam) const</td></tr>
 <tr class="separator:aeb52476248db4b0591c02fa3507f60ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -196,8 +163,8 @@ ParamValue&#160;</td><td class="memItemRight" valign="bottom"><b>maxPlain</b></t
 <dl class="section version"><dt>Version</dt><dd>Revision : 1.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>Date : 2018 / 09 / 7 </dd></dl>
 </div><hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/vst_source/<a class="el" href="project__source_2source_2vst__source_2customparameters_8h_source.html">customparameters.h</a></li>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/vst_source/customparameters.cpp</li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/vst_source/<a class="el" href="customparameters_8h_source.html">customparameters.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/vst_source/<a class="el" href="customparameters_8cpp.html">customparameters.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

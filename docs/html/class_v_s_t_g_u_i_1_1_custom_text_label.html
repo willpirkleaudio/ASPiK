@@ -88,6 +88,7 @@ $(document).ready(function(){initNavTree('class_v_s_t_g_u_i_1_1_custom_text_labe
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_v_s_t_g_u_i_1_1_custom_text_label-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">VSTGUI::CustomTextLabel Class Reference<div class="ingroups"><a class="el" href="group___custom-_views.html">Custom-Views</a></div></div>  </div>
@@ -98,7 +99,7 @@ $(document).ready(function(){initNavTree('class_v_s_t_g_u_i_1_1_custom_text_labe
 .  
  <a href="class_v_s_t_g_u_i_1_1_custom_text_label.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="project__source_2source_2_custom_controls_2customviews_8h_source.html">customviews.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="customviews_8h_source.html">customviews.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for VSTGUI::CustomTextLabel:</div>
 <div class="dyncontent">
@@ -111,16 +112,17 @@ Inheritance diagram for VSTGUI::CustomTextLabel:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af96e2926bea7e3c7862b5624914a31c3"><td class="memItemLeft" align="right" valign="top"><a id="af96e2926bea7e3c7862b5624914a31c3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CustomTextLabel</b> (const CRect &amp;size, UTF8StringPtr txt=0, CBitmap *background=0, const int32_t style=0)</td></tr>
-<tr class="separator:af96e2926bea7e3c7862b5624914a31c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa07c9cb37a63dd3597478182fb680363"><td class="memItemLeft" align="right" valign="top"><a id="aa07c9cb37a63dd3597478182fb680363"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CustomTextLabel</b> (const CRect &amp;size, CHoriTxtAlign horizTA=CHoriTxtAlign::kCenterText, UTF8StringPtr txt=0, CBitmap *background=0, const int32_t style=0)</td></tr>
+<tr class="separator:aa07c9cb37a63dd3597478182fb680363"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaea98bbe8a6ae731f4928ffbfaa80db1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_custom_text_label.html#aaea98bbe8a6ae731f4928ffbfaa80db1">updateView</a> () override</td></tr>
 <tr class="separator:aaea98bbe8a6ae731f4928ffbfaa80db1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96d6df058c0865316a7c1dbe945cf837"><td class="memItemLeft" align="right" valign="top"><a id="a96d6df058c0865316a7c1dbe945cf837"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (CDrawContext *pContext) override</td></tr>
+<tr class="separator:a96d6df058c0865316a7c1dbe945cf837"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f4577e50afc6fed9d3768343b9b98e0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_custom_text_label.html#a5f4577e50afc6fed9d3768343b9b98e0">sendMessage</a> (void *data) override</td></tr>
 <tr class="separator:a5f4577e50afc6fed9d3768343b9b98e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_i_custom_view"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_i_custom_view')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_i_custom_view.html">ICustomView</a></td></tr>
-<tr class="memitem:a60c73575c3bba7d0491dd35ec7ae757d inherit pub_methods_class_i_custom_view"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_custom_view.html#a60c73575c3bba7d0491dd35ec7ae757d">pushDataValue</a> (double data)</td></tr>
-<tr class="separator:a60c73575c3bba7d0491dd35ec7ae757d inherit pub_methods_class_i_custom_view"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60c73575c3bba7d0491dd35ec7ae757d inherit pub_methods_class_i_custom_view"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_custom_view.html#a60c73575c3bba7d0491dd35ec7ae757d">pushDataValue</a> (double data)</td></tr>
 <tr class="separator:a60c73575c3bba7d0491dd35ec7ae757d inherit pub_methods_class_i_custom_view"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -128,6 +130,12 @@ Public Member Functions</h2></td></tr>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:ab266cf4dfe9be885cee9b4a9692f2ddc"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_custom_text_label.html#ab266cf4dfe9be885cee9b4a9692f2ddc">~CustomTextLabel</a> (void)</td></tr>
 <tr class="separator:ab266cf4dfe9be885cee9b4a9692f2ddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a4e96ef4d03db2923ccb4f29b1fdd6d5c"><td class="memItemLeft" align="right" valign="top"><a id="a4e96ef4d03db2923ccb4f29b1fdd6d5c"></a>
+CHoriTxtAlign&#160;</td><td class="memItemRight" valign="bottom"><b>textAlignment</b> = CHoriTxtAlign::kCenterText</td></tr>
+<tr class="separator:a4e96ef4d03db2923ccb4f29b1fdd6d5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Custom object for dynamic lables that can change their text programmatically.<br />
@@ -222,7 +230,7 @@ Protected Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/RackAFX_v7/ASPIK_SDK/PluginTemplate/project_source/source/CustomControls/<a class="el" href="project__source_2source_2_custom_controls_2customviews_8h_source.html">customviews.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/CustomControls/<a class="el" href="customviews_8h_source.html">customviews.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
