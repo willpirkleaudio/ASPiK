@@ -339,7 +339,7 @@ bool PluginBase::doParameterSmoothing()
 
 		for (uint32_t i = 0; i < numSmoothingPluginParameters; i++)
 		{
-			PluginParameter* piParam = VSTSAAPluginParameters[i];
+			PluginParameter* piParam = smoothingPluginParameters[i];
 			if (piParam && piParam->smoothParameterValue())
 			{
 				// --- save state
