@@ -908,7 +908,7 @@ tresult PLUGIN_API VST3Plugin::process(ProcessData& data)
         for (int32 sample = 0; sample < data.numSamples; sample++)
         {
             // --- output = input
-			for (unsigned int i = 0; i<info.numAuxAudioOutChannels; i++)
+			for (unsigned int i = 0; i<info.numAudioOutChannels; i++)
             {
                 (data.outputs[0].channelBuffers32[i])[sample] = (data.inputs[0].channelBuffers32[i])[sample];
             }
