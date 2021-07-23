@@ -211,14 +211,15 @@ bool PluginBase::processAudioBuffers(ProcessBufferInfo& processBufferInfo)
 		// --- sync internal bound variables
 		preProcessAudioBuffers(processBufferInfo);
 
-		// --- setup blocks and partials (if a partial block arrives, 
-		//     it is processed along with the others, but with the partial 
+		// --- setup blocks and partials (if a partial block arrives,
+		//     it is processed along with the others, but with the partial
 		//     value as block size; no attempt is made to sew together blocks (that is up to you)
-		// 
+		//
 		// --- if processBlockInfo.blockSize == WANT_WHOLE_BUFFER, just send one "partial"
 		//     buffer that is the whole block
 		uint32_t blocksPerBuffer = 0;
 		uint32_t partialBlockSize = processBufferInfo.numFramesToProcess;
+		uint32_t _blockSize = processBlockInfo.blockSize;
 
 		// --- calculate blocks & partial blocks (non-whole buffer)
 		if (processBlockInfo.blockSize != WANT_WHOLE_BUFFER)
@@ -247,7 +248,7 @@ bool PluginBase::processAudioBuffers(ProcessBufferInfo& processBufferInfo)
 		processBlockInfo.timeSigNumerator = processBufferInfo.hostInfo->fTimeSigNumerator;
 		processBlockInfo.absoluteBufferTime_Sec = processBufferInfo.hostInfo->dAbsoluteFrameBufferTime;
 
-		// --- do the block processing by sectioning the incoming buffer, 
+		// --- do the block processing by sectioning the incoming buffer,
 		//     and using startIndex + size for iterations; the block processing
 		//     then operates on a window of samples, then the window is advanced
 		//     by the blocksize
@@ -265,6 +266,9 @@ bool PluginBase::processAudioBuffers(ProcessBufferInfo& processBufferInfo)
 
 			// --- do the block
 			processAudioBlock(processBlockInfo);
+
+			// --- reset
+			processBlockInfo.blockSize = _blockSize;
 		}
 
 		// --- process partial blocks; note downstream objects may need their own buffering method
@@ -279,6 +283,9 @@ bool PluginBase::processAudioBuffers(ProcessBufferInfo& processBufferInfo)
 
 			// --- process the block
 			processAudioBlock(processBlockInfo);
+
+			// --- reset
+			processBlockInfo.blockSize = _blockSize;
 		}
 
 		// --- generally not used
@@ -328,7 +335,7 @@ as it was found to be faster than any other list method for entire-list iteratio
 */
 bool PluginBase::doParameterSmoothing()
 {
-	// --- TRY VST3 first; note that this will be very fast if (a) this isn't a VST Plugin, 
+	// --- TRY VST3 first; note that this will be very fast if (a) this isn't a VST Plugin,
 	//                     or (b) VST3 sample accurate smoothing is not enabled
 	bool smoothed = doVST3SAAUpdates();
 
