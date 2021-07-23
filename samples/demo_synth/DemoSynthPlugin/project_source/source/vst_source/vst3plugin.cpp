@@ -168,7 +168,7 @@ tresult PLUGIN_API VST3Plugin::initialize(FUnknown* context)
         
         // --- sidechain bus is stereo
         if(hasSidechain)
-            addAudioInput(STR16("AuxInput"), SpeakerArr::kStereo, kAux);
+            addAudioInput(STR16("AuxInput"), SpeakerArr::kStereo, kAux, BusInfo::kDefaultActive);
 
 		// --- MIDI event input bus, 16 channels (note we support MIDI for all plugin types)
 		addEventInput(STR16("Event Input"), 16);
@@ -414,46 +414,124 @@ tresult PLUGIN_API VST3Plugin::setBusArrangements(SpeakerArrangement* inputs, in
                                                   SpeakerArrangement* outputs, int32 numOuts)
 {
     // --- FX: we support one input and one output bus
-    if(numIns == 1 && numOuts == 1)
+    if (pluginCore->getPluginType() == kFXPlugin)
     {
-        CString inStr = SpeakerArr::getSpeakerArrangementString(inputs[0], false);
-        CString outStr = SpeakerArr::getSpeakerArrangementString(outputs[0], false);
-        
-        uint32_t inFormat = getChannelFormatForSpkrArrangement(inputs[0]);
-        uint32_t outFormat = getChannelFormatForSpkrArrangement(outputs[0]);
-        
-        // --- does plugin support this format?
-        if(pluginCore->hasSupportedInputChannelFormat(inFormat) &&
-           pluginCore->hasSupportedOutputChannelFormat(outFormat))
+        if (numIns == 1 && numOuts == 1)
+        {
+            CString inStr = SpeakerArr::getSpeakerArrangementString(inputs[0], false);
+            CString outStr = SpeakerArr::getSpeakerArrangementString(outputs[0], false);
+
+            uint32_t inFormat = getChannelFormatForSpkrArrangement(inputs[0]);
+            uint32_t outFormat = getChannelFormatForSpkrArrangement(outputs[0]);
+
+            // --- does plugin support this format?
+            if (pluginCore->hasSupportedInputChannelFormat(inFormat) &&
+                pluginCore->hasSupportedOutputChannelFormat(outFormat))
+            {
+                removeAudioBusses();
+                std::string strInput(inStr);
+                strInput.append(" Input");
+                addAudioInput(USTRING(strInput.c_str()), inputs[0]);
+
+                std::string strOutput(outStr);
+                strOutput.append(" Output");
+                addAudioOutput(USTRING(strOutput.c_str()), outputs[0]);
+
+                return kResultTrue;
+            }
+        }
+        else if (numIns == 2 && numOuts == 1) // FX + sidechain
+        {
+            CString inStr = SpeakerArr::getSpeakerArrangementString(inputs[0], false);
+            CString outStr = SpeakerArr::getSpeakerArrangementString(outputs[0], false);
+
+            uint32_t inFormat = getChannelFormatForSpkrArrangement(inputs[0]);
+            uint32_t outFormat = getChannelFormatForSpkrArrangement(outputs[0]);
+
+            // --- does plugin support this format?
+            if (pluginCore->hasSupportedInputChannelFormat(inFormat) &&
+                pluginCore->hasSupportedOutputChannelFormat(outFormat))
+            {
+                removeAudioBusses();
+                std::string strInput(inStr);
+                strInput.append(" Input");
+                addAudioInput(USTRING(strInput.c_str()), inputs[0]);
+
+                std::string strOutput(outStr);
+                strOutput.append(" Output");
+                addAudioOutput(USTRING(strOutput.c_str()), outputs[0]);
+
+                // --- sidechain bus is stereo
+                if (hasSidechain)
+                    addAudioInput(STR16("AuxInput"), SpeakerArr::kStereo, kAux, BusInfo::kDefaultActive);
+
+                return kResultTrue;
+            }
+        }
+        else // not supported, we'll default to stereo I/O
         {
             removeAudioBusses();
-            std::string strInput(inStr);
-            strInput.append(" Input");
-            addAudioInput(USTRING(strInput.c_str()), inputs[0]);
+            addAudioInput(STR16("Stereo In"), SpeakerArr::kStereo);
+            addAudioOutput(STR16("Stereo Out"), SpeakerArr::kStereo);
 
-            std::string strOutput(outStr);
-            strOutput.append(" Output");
-            addAudioOutput(USTRING(strOutput.c_str()), outputs[0]);
-            
-            return kResultTrue;
+            return kResultFalse;
         }
     }
-    else if(numIns == 0 && numOuts == 1)    // --- SYNTH: we support one output bus, NO input
-     {
-        CString outStr = SpeakerArr::getSpeakerArrangementString(outputs[0], false);
-        uint32_t outFormat = getChannelFormatForSpkrArrangement(outputs[0]);
-         
-         // --- does plugin support this format?
-         if(pluginCore->hasSupportedOutputChannelFormat(outFormat))
-         {
-             removeAudioBusses();
-             std::string strOutput(outStr);
-             strOutput.append(" Output");
-             addAudioOutput(USTRING(strOutput.c_str()), outputs[0]);
-             
-             return kResultTrue;
-         }
-     }
+    else if(pluginCore->getPluginType() == kSynthPlugin)  
+    {
+        if (numIns == 0 && numOuts == 1)    // --- SYNTH: no sidechain
+        {
+            CString outStr = SpeakerArr::getSpeakerArrangementString(outputs[0], false);
+            uint32_t outFormat = getChannelFormatForSpkrArrangement(outputs[0]);
+
+            // --- does plugin support this format?
+            if (pluginCore->hasSupportedOutputChannelFormat(outFormat))
+            {
+                removeAudioBusses();
+                std::string strOutput(outStr);
+                strOutput.append(" Output");
+                addAudioOutput(USTRING(strOutput.c_str()), outputs[0]);
+
+                return kResultTrue;
+            }
+        }
+        else if (numIns == 1 && numOuts == 1)    // --- SYNTH: with sidechain
+        {
+            CString outStr = SpeakerArr::getSpeakerArrangementString(outputs[0], false);
+            uint32_t outFormat = getChannelFormatForSpkrArrangement(outputs[0]);
+
+            // --- does plugin support this format?
+            if (pluginCore->hasSupportedOutputChannelFormat(outFormat))
+            {
+                removeAudioBusses();
+                std::string strOutput(outStr);
+                strOutput.append(" Output");
+                addAudioOutput(USTRING(strOutput.c_str()), outputs[0]);
+
+                // --- sidechain bus is stereo
+                if (hasSidechain)
+                    addAudioInput(STR16("AuxInput"), SpeakerArr::kStereo, kAux, BusInfo::kDefaultActive);
+
+                return kResultTrue;
+            }
+        }
+        else // not supported, we'll default to normal synth
+        {
+            CString outStr = SpeakerArr::getSpeakerArrangementString(outputs[0], false);
+            uint32_t outFormat = getChannelFormatForSpkrArrangement(outputs[0]);
+
+            // --- does plugin support this format?
+            if (pluginCore->hasSupportedOutputChannelFormat(outFormat))
+            {
+                removeAudioBusses();
+                std::string strOutput(outStr);
+                strOutput.append(" Output");
+                addAudioOutput(USTRING(strOutput.c_str()), outputs[0]);
+
+                return kResultTrue;
+            }
+        }
+    }
     else // not supported, we'll default to stereo I/O
     {
         removeAudioBusses ();
@@ -892,6 +970,7 @@ tresult PLUGIN_API VST3Plugin::process(ProcessData& data)
         getBusArrangement(kInput, 0, inputArr);
         info.numAudioInChannels = SpeakerArr::getChannelCount(inputArr);
     }
+
     getBusArrangement(kOutput, 0, outputArr);
     info.numAudioOutChannels = SpeakerArr::getChannelCount(outputArr);
     
@@ -919,22 +998,29 @@ tresult PLUGIN_API VST3Plugin::process(ProcessData& data)
         
         return kResultTrue;
     }
-    
+
     // --- set sidechain info
+    info.numAuxAudioInChannels = 0;
+    info.auxInputs = nullptr;
+
+    // --- check for sidechain
     if(hasSidechain)
     {
+        Bus* auxBus = nullptr;
         BusList* busList = getBusList(kAudio, kInput);
-        Bus* bus = busList ? (Bus*)busList->at(1) : 0;
-        if (bus && bus->isActive())
+        if (busList && busList->size() > 1)
+            auxBus = (Bus*)busList->at(1);
+
+        // --- is the sidechain there and active?
+        if (auxBus && auxBus->isActive())
         {
             info.numAuxAudioInChannels = data.inputs[1].numChannels;
             info.auxInputs = &data.inputs[1].channelBuffers32[0]; //** to sidechain
         }
     }
-    
+
     info.auxOutputs = nullptr; // --- for future use
     info.numAuxAudioOutChannels = 0; // --- for future use
-
     info.numFramesToProcess = data.numSamples;
     
     // --- sidechain channel config

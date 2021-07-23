@@ -7,7 +7,11 @@ www.willpirkle.com
 
 #define ASPiK_VERSION_MAJOR  1
 #define ASPiK_VERSION_MINOR  6
-#define ASPiK_VERSION_BUILD  8
+#define ASPiK_VERSION_BUILD  9
+
+Release Notes 1.6.9:
+* Fixed issue with sidechain inputs in VST3, this affected only the vst3plugin.cpp file; 
+  all others including the plugin kernel were not changed and are fine
 
 Release Notes 1.6.8:
 * Updated to latest VSTGUI 4.10 -- NOTE: Steinberg made numerous changes to this version
