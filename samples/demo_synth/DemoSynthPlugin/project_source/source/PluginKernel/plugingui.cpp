@@ -88,22 +88,12 @@ void ReleaseVSTGUIBundleRef()
 
 #elif WINDOWS
 #pragma warning(disable : 4189)	// --- local variable is initialized but not referenced
-#ifdef RAFXPLUGIN
-void* hInstance; // VSTGUI hInstance
-extern void* moduleHandle;
-#endif
 
 #ifdef AAXPLUGIN
-extern void* hInstance;
 #if WINDOWS_VERSION
 #include <windows.h>
 #include "vstgui/lib/platform/win32/win32frame.h"
 #endif
-#endif
-
-#ifdef VSTPLUGIN
-void* hInstance; // VSTGUI hInstance
-extern void* moduleHandle;
 #endif
 
 namespace VSTGUI
@@ -132,17 +122,16 @@ PluginGUI::PluginGUI(UTF8StringPtr _xmlFile) :
 	IGUIView()
 {
 #if MAC
-	CreateVSTGUIBundleRef();
-    VSTGUI::init((CFBundleRef)gBundleRef);
-#elif WINDOWS
-#ifndef AAXPLUGIN // VST or RAFX Win
-	hInstance = moduleHandle;
-#endif
-	VSTGUI::init((HINSTANCE)hInstance);
-#endif
+   #ifdef AUPLUGIN
+        m_AU = nullptr;
+    #endif
 
-#ifdef AUPLUGIN
-    m_AU = nullptr;
+    #ifndef VSTPLUGIN
+        // --- AU and AAX only
+        CreateVSTGUIBundleRef();
+        if(openCount == 1)
+            VSTGUI::init((CFBundleRef)gBundleRef);
+    #endif
 #endif
 
 	// --- create description from XML file
@@ -188,10 +177,11 @@ PluginGUI::~PluginGUI()
 		timer->forget();
 #if MAC
 	ReleaseVSTGUIBundleRef();
+    if(openCount == 0)
+        // --- 4.10
+        VSTGUI::exit();
 #endif
-    
-    // --- 4.10
-    VSTGUI::exit();
+
 }
 
 /**
@@ -202,7 +192,7 @@ Operation:\n
 - pick up key attribute values from XML file
 - create the frame
 - create and embed the controls
-- initialize controls to match current state of underlying parameters 
+- initialize controls to match current state of underlying parameters
 - start the timer
 
 \param _viewName name for window title
@@ -438,7 +428,7 @@ void PluginGUI::getSize(float& width, float& height)
 	height = (float)rect.getHeight();
 }
 
-/** 
+/**
 \brief scales the GUI; this is the handler for the special scaling GUI control
 
 \param controlValue the scaling value from the secret control
@@ -869,12 +859,12 @@ Operation:\n
 - create the GUI Designer if the boolean flag is set
 - otherwise create the normal GUI
 - note that this is all handled with the description that we cahched in the constructor
-- for the GUI designer, we create a new UIEditController 
+- for the GUI designer, we create a new UIEditController
 - for the normal GUI, we create a new View
 
 \param bShowGUIEditor create the drag-and-drop GUI designer
 
-\return true if GUI is created, false if critical failure 
+\return true if GUI is created, false if critical failure
 */
 bool PluginGUI::createGUI(bool bShowGUIEditor)
 {
@@ -1171,7 +1161,7 @@ int PluginGUI::getControlID_WithMouseCoords(const CPoint& where)
 
 \param where mouse coordinates
 
-\return pointer to control under the mouse 
+\return pointer to control under the mouse
 */
 CControl* PluginGUI::getControl_WithMouseCoords(const CPoint& where)
 {
@@ -1390,7 +1380,7 @@ void PluginGUI::setAUEventFromGUIControl(CControl* control, int tag, float actua
 
 \param control the control issuing the change
 \param tag the control ID
-\param actualValue actual control value 
+\param actualValue actual control value
 \param normalizedValue normalized control value
 */
 void PluginGUI::setVSTParameterFromGUIControl(CControl* control, int tag, float actualValue, float normalizedValue)
@@ -1451,7 +1441,7 @@ void PluginGUI::updateGUIControlRAFX(int tag, float normalizedValue)
 
 
 /**
-\brief incoming VSTGUI4 message handler 
+\brief incoming VSTGUI4 message handler
 
 \param sender pointer to sending object
 \param message message as a string
@@ -1480,7 +1470,7 @@ Operation:\n
 - check control for a built-in feature: GUI scaling or Preset File writing
 - check xy-pad as these are double-parameter objects
 - find the control reciever: update all connected controls (controls with same ID tag)
-- issue the control change message to the shell (threa-safe and API-specific) 
+- issue the control change message to the shell (threa-safe and API-specific)
 
 \param pControl control that issues change notification
 */
@@ -1574,10 +1564,10 @@ void PluginGUI::valueChanged(VSTGUI::CControl* pControl)
                 label->setText(refGuiControl.getControlValueAsString().c_str());
                 return;
             }
-            
+
             // --- continue tests
 			actualValue = stof(strLabel);
-            
+
             // --- is value out of bounds?
             PluginParameter refGuiControl = receiver->getGuiControl();
             actualValue = fmin(actualValue, (float)refGuiControl.getMaxValue());
@@ -1590,7 +1580,7 @@ void PluginGUI::valueChanged(VSTGUI::CControl* pControl)
             refGuiControl = receiver->getGuiControl(); // needs to be done again to get updated value
 			label->setText(refGuiControl.getControlValueAsString().c_str());
             label->invalid();
-            
+
 			// --- get the normalized value, no taper
 			normalizedValue = (float)refGuiControl.getControlValueNormalized();
 		}
@@ -1794,7 +1784,7 @@ void PluginGUI::controlTagDidChange(VSTGUI::CControl* pControl)
 
 
 /**
-\brief add your custom views here; this is where you can create and register the views outside of 
+\brief add your custom views here; this is where you can create and register the views outside of
 the createView( ) method below.
 
 Operation:\n
@@ -1842,9 +1832,9 @@ CView* PluginGUI::createUserCustomView(std::string viewname, const CRect rect, I
 /**
 \brief this is called for every view obeject in the XML file that will be visible to check and see
 	   if you want to supply your own object, that you create with the new operator; that object
-	   takes the place of the stock GUI object, allowing you to customize the view behavior. This 
+	   takes the place of the stock GUI object, allowing you to customize the view behavior. This
 	   is called the "Custom View" paradigm and along with the sub-controller make VSTGUI4 extremely
-	   powerful. 
+	   powerful.
 
 Operation:\n
 - decode the view name string
@@ -1862,7 +1852,7 @@ CView* PluginGUI::createView(const UIAttributes& attributes, const IUIDescriptio
     if (!customViewName) return nullptr;
     const std::string viewname(customViewName->c_str());
     if (viewname.empty()) return nullptr;
-    
+
     // --- USER CUSTOM VIEWS
     //
     if (ENABLE_CUSTOM_VIEWS)
@@ -1878,19 +1868,19 @@ CView* PluginGUI::createView(const UIAttributes& attributes, const IUIDescriptio
             CPoint size;
             parseSize(*sizeString, size);
             parseSize(*originString, origin);
-            
+
             const CRect rect(origin, size);
-            
+
             int32_t tag = -1;
             IControlListener* listener = this;
-            
+
             // --- get tag
             if (tagString)
             {
                 tag = description->getTagForName(tagString->c_str());
                 listener = description->getControlListener(tagString->c_str());
             }
-            
+
             // --- try a user view first
             CView* userCV = createUserCustomView(viewname, rect, listener, tag);
             if (userCV)
@@ -1901,15 +1891,15 @@ CView* PluginGUI::createView(const UIAttributes& attributes, const IUIDescriptio
                     if (guiPluginConnector)
                         guiPluginConnector->registerCustomView(viewname, dynamic_cast<ICustomView*>(userCV));
                 }
-                
+
                 return userCV;
             }
         }
-        
+
         // --- else keep trying other custom views (below)
     }
-    
-    
+
+
     // --- example of custom control
     if (viewname == "CustomKnobView")
     {
@@ -1928,62 +1918,62 @@ CView* PluginGUI::createView(const UIAttributes& attributes, const IUIDescriptio
         if (!bitmapString) return nullptr;
         if (!heightOneImageString) return nullptr;
         if (!subPixmapsString) return nullptr;
-        
+
         // --- create the rect
         CPoint origin;
         CPoint size;
         parseSize(*sizeString, size);
         parseSize(*originString, origin);
-        
+
         const CRect rect(origin, size);
-        
+
         // --- get listener
         IControlListener* listener = description->getControlListener(tagString->c_str());
-        
+
         // --- get tag
         int32_t tag = description->getTagForName(tagString->c_str());
-        
+
         // --- subPixmaps
         int32_t subPixmaps = strtol(subPixmapsString->c_str(), 0, 10);
-        
+
         // --- height of one image
         CCoord heightOfOneImage = strtod(heightOneImageString->c_str(), 0);
-        
+
         // --- bitmap
         std::string BMString = *bitmapString;
         BMString += ".png";
         UTF8StringPtr bmp = BMString.c_str();
         CResourceDescription bmpRes(bmp);
         CBitmap* pBMP = new CBitmap(bmpRes);
-        
+
         // --- offset
         CPoint offset(0.0, 0.0);
         if (offsetString)
             parseSize(*offsetString, offset);
-        
+
         const CPoint offsetPoint(offset);
-        
+
         PluginParameter* piParam = getGuiControlWithTag(tag);
         if (!piParam)
         {
             if (pBMP) pBMP->forget();
             return nullptr;
         }
-        
+
         CustomKnobView* customKnob = new CustomKnobView(rect, listener, tag, subPixmaps, heightOfOneImage, pBMP, offsetPoint, false);
-        
+
         // --- if the view has the ICustomView interface, we register it with the plugin for updates
         if (hasICustomView(customKnob))
         {
             if (guiPluginConnector)
                 guiPluginConnector->registerCustomView(viewname, (ICustomView*)customKnob);
         }
-        
+
         if (pBMP) pBMP->forget();
-        
+
         return customKnob;
     }
-    
+
     // --- BUILT-IN CUSTOM VIEWS
     int nTP = (int)viewname.find("TrackPad_");
     if(nTP >= 0)
@@ -1992,41 +1982,41 @@ CView* PluginGUI::createView(const UIAttributes& attributes, const IUIDescriptio
         const std::string* originString = attributes.getAttributeValue("origin");
         if(!sizeString) return nullptr;
         if(!originString) return nullptr;
-        
+
         // --- rect
         CPoint origin;
         CPoint size;
         parseSize(*sizeString, size);
         parseSize(*originString, origin);
-        
+
         const CRect rect(origin, size);
-        
+
         // --- decoding code
         int x = (int)viewname.find("_X");
         int y = (int)viewname.find("_Y");
         int len = (int)viewname.length();
-        
+
         if(x < 0 || y < 0 || len < 0)
             return nullptr;
-        
+
         if(x < y && y < len)
         {
             std::string strX = viewname.substr(x + 2, y - 2 - x);
             std::string strY = viewname.substr(y + 2, len - 2 - y);
             int32_t _tagX = atoi(strX.c_str());
             int32_t _tagY = atoi(strY.c_str());
-            
+
             CXYPadEx* p = new CXYPadEx(rect);
             if(!p) return nullptr;
-            
+
             // --- save tags
             p->setTagX(_tagX);
             p->setTagY(_tagY);
-            
+
             return p;
         }
     }
-    
+
     if (viewname == "CustomKickButton" ||
         viewname == "CustomKickButtonDU" ||
         viewname == "CustomKickButtonU" ||
@@ -2042,36 +2032,36 @@ CView* PluginGUI::createView(const UIAttributes& attributes, const IUIDescriptio
         if(!bitmapString) return nullptr;
         if(!tagString) return nullptr;
       //  if(!offsetString) return nullptr;
-        
+
         // --- rect
         CPoint origin;
         CPoint size;
         parseSize(*sizeString, size);
         parseSize(*originString, origin);
-        
+
         const CRect rect(origin, size);
-        
+
         // --- tag
         int32_t tag = description->getTagForName(tagString->c_str());
-        
+
         // --- listener "hears" the control
         const char* controlTagName = tagString->c_str();
         IControlListener* listener = description->getControlListener(controlTagName);
-        
+
         // --- bitmap
         std::string BMString = *bitmapString;
         BMString += ".png";
         UTF8StringPtr bmp = BMString.c_str();
         CResourceDescription bmpRes(bmp);
         CBitmap* pBMP = new CBitmap(bmpRes);
-        
+
         // --- offset
         CPoint offset(0.0, 0.0);
         if (offsetString)
             parseSize(*offsetString, offset);
-        
+
         const CPoint offsetPoint(offset);
-      
+
         CKickButtonEx* p = new CKickButtonEx(rect, listener, tag, pBMP, offsetPoint);
         if (p)
         {
@@ -2085,10 +2075,10 @@ CView* PluginGUI::createView(const UIAttributes& attributes, const IUIDescriptio
                 p->setMouseMode(mouseDirUp); // old
         }
         if (pBMP) pBMP->forget();
-        
+
         return p;
     }
-    
+
     if (viewname == "CustomTextButton" ||
         viewname == "CustomTextButtonDU" ||
         viewname == "CustomTextButtonU" ||
@@ -2102,22 +2092,22 @@ CView* PluginGUI::createView(const UIAttributes& attributes, const IUIDescriptio
         if (!originString) return nullptr;
         if (!tagString) return nullptr;
         if (!titleString) return nullptr;
-        
+
         // --- rect
         CPoint origin;
         CPoint size;
         parseSize(*sizeString, size);
         parseSize(*originString, origin);
-        
+
         const CRect rect(origin, size);
-        
+
         // --- tag
         int32_t tag = description->getTagForName(tagString->c_str());
-        
+
         // --- listener "hears" the control
         const char* controlTagName = tagString->c_str();
         IControlListener* listener = description->getControlListener(controlTagName);
-        
+
         TextButtonEx* p = new TextButtonEx(rect, listener, tag, titleString->c_str(), CTextButton::Style::kKickStyle);
         if (p)
         {
@@ -2132,8 +2122,8 @@ CView* PluginGUI::createView(const UIAttributes& attributes, const IUIDescriptio
         }
         return p;
     }
-    
-    
+
+
     // --- special knobs
     if (viewname == "KnobSwitchView" || viewname == "UniversalAPIKnob")
     {
@@ -2151,40 +2141,40 @@ CView* PluginGUI::createView(const UIAttributes& attributes, const IUIDescriptio
         if(!tagString) return nullptr;
         if(!heightOneImageString) return nullptr;
         if(!subPixmapsString) return nullptr;
-        
+
         bool isSwitchControl = viewname == "KnobSwitchView" ? true : false;
         bool isUniversalAPIControl = viewname == "UniversalAPIKnob" ? true : false;
         if (isUniversalAPIControl)
             int eliminatecompilerwarning = 1;
-        
+
         // --- rect
         CPoint origin;
         CPoint size;
         parseSize(*sizeString, size);
         parseSize(*originString, origin);
-        
+
         const CRect rect(origin, size);
-        
+
         // --- listener "hears" the control
         const char* controlTagName = tagString->c_str();
         IControlListener* listener = description->getControlListener(controlTagName);
-        
+
         // --- tag
         int32_t tag = description->getTagForName(tagString->c_str());
-        
+
         // --- subPixmaps
         int32_t subPixmaps = strtol(subPixmapsString->c_str(), 0, 10);
-        
+
         // --- height of one image
         CCoord heightOfOneImage = strtod(heightOneImageString->c_str(), 0);
-        
+
         // --- bitmap
         std::string BMString = *bitmapString;
         BMString += ".png";
         UTF8StringPtr bmp = BMString.c_str();
         CResourceDescription bmpRes(bmp);
         CBitmap* pBMP = new CBitmap(bmpRes);
-        
+
         // --- offset
         // --- offset
         CPoint offset(0.0, 0.0);
@@ -2192,19 +2182,19 @@ CView* PluginGUI::createView(const UIAttributes& attributes, const IUIDescriptio
             parseSize(*offsetString, offset);
 
         const CPoint offsetPoint(offset);
-        
+
         PluginParameter* piParam = getGuiControlWithTag(tag);
         if (!piParam)
         {
             if (pBMP) pBMP->forget();
             return nullptr;
         }
-        
+
         // --- the knobswitch; more well behaved than the VSTGUI4 object IMO
         CAnimKnobEx* p = new CAnimKnobEx(rect, listener, tag, subPixmaps, heightOfOneImage, pBMP, offsetPoint, isSwitchControl);
         if(isSwitchControl)
             p->setSwitchMax((float)piParam->getMaxValue());
-        
+
 #ifdef AAXPLUGIN
         if(isUniversalAPIControl)
             p->setAAXKnob(true);
@@ -2212,7 +2202,7 @@ CView* PluginGUI::createView(const UIAttributes& attributes, const IUIDescriptio
         if (pBMP) pBMP->forget();
         return p;
     }
-    
+
     // --- special sliders
     if (viewname == "UniversalAPISlider")
     {
@@ -2230,49 +2220,49 @@ CView* PluginGUI::createView(const UIAttributes& attributes, const IUIDescriptio
         if(!handleBitmapString) return nullptr;
         if(!tagString) return nullptr;
         if(!styleString) return nullptr;
-        
+
         bool isUniversalAPIControl = viewname == "UniversalAPISlider" ? true : false;
         if(isUniversalAPIControl)
             int eliminatecompilerwarning = 1;
-        
+
         // --- rect
         CPoint origin;
         CPoint size;
         parseSize(*sizeString, size);
         parseSize(*originString, origin);
-        
+
         const CRect rect(origin, size);
-        
+
         // --- listener
         const char* controlTagName = tagString->c_str();
         IControlListener* listener = description->getControlListener(controlTagName);
-        
+
         // --- tag
         int32_t tag = description->getTagForName(tagString->c_str());
-        
+
         // --- bitmap
         std::string BMString = *bitmapString;
         BMString += ".png";
         UTF8StringPtr bmp = BMString.c_str();
         CResourceDescription bmpRes(bmp);
         CBitmap* pBMP_back = new CBitmap(bmpRes);
-        
+
         std::string BMStringH = *handleBitmapString;
         BMStringH += ".png";
         UTF8StringPtr bmpH = BMStringH.c_str();
         CResourceDescription bmpResH(bmpH);
         CBitmap* pBMP_hand = new CBitmap(bmpResH);
-        
+
         // --- offset
         CPoint offset(0.0, 0.0);
         if (offsetString)
             parseSize(*offsetString, offset);
 
         const CPoint offsetPoint(offset);
-        
+
         PluginParameter* piParam = getGuiControlWithTag(tag);
         if (!piParam) return nullptr;
-        
+
         // --- the knobswitch
         if (strcmp(styleString->c_str(), "vertical") == 0)
         {
@@ -2298,14 +2288,14 @@ CView* PluginGUI::createView(const UIAttributes& attributes, const IUIDescriptio
         }
         return nullptr;
     }
-    
+
     // --- meters
     std::string customView(viewname);
     std::string analogMeter("AnalogMeterView");
     std::string invAnalogMeter("InvertedAnalogMeterView");
     int nAnalogMeter = (int)customView.find(analogMeter);
     int nInvertedAnalogMeter = (int)customView.find(invAnalogMeter);
-    
+
     if (nAnalogMeter >= 0)
     {
         const std::string* sizeString = attributes.getAttributeValue("size");
@@ -2320,36 +2310,36 @@ CView* PluginGUI::createView(const UIAttributes& attributes, const IUIDescriptio
         if(!OFFbitmapString) return nullptr;
         if(!numLEDString) return nullptr;
         if(!tagString) return nullptr;
-        
-        
+
+
         CPoint origin;
         CPoint size;
         parseSize(*sizeString, size);
         parseSize(*originString, origin);
-        
+
         const CRect rect(origin, size);
-        
+
         std::string onBMString = *ONbitmapString;
         onBMString += ".png";
         UTF8StringPtr onbmp = onBMString.c_str();
         CResourceDescription bmpRes(onbmp);
         CBitmap* onBMP = new CBitmap(bmpRes);
-        
+
         std::string offBMString = *OFFbitmapString;
         offBMString += ".png";
         UTF8StringPtr offbmp = offBMString.c_str();
         CResourceDescription bmpRes2(offbmp);
         CBitmap* offBMP = new CBitmap(bmpRes2);
-        
+
         int32_t nbLed = strtol(numLEDString->c_str(), 0, 10);
-        
+
         CVuMeterEx* p = nullptr;
-        
+
         if (nInvertedAnalogMeter >= 0)
             p = new CVuMeterEx(rect, onBMP, offBMP, nbLed, true, true); // inverted, analog
         else
             p = new CVuMeterEx(rect, onBMP, offBMP, nbLed, false, true); // inverted, analog
-        
+
         // --- decode our stashed variables
         // decode hieght one image and zero db frame
         int nX = (int)customView.find("_H");
@@ -2357,30 +2347,30 @@ CView* PluginGUI::createView(const UIAttributes& attributes, const IUIDescriptio
         int len = (int)customView.length();
         std::string sH = customView.substr(nX + 2, nY - 2 - nX);
         std::string sZ = customView.substr(nY + 2, len - 2 - nY);
-        
+
         p->setHtOneImage(atof(sH.c_str()));
         p->setImageCount(atof(numLEDString->c_str()));
         p->setZero_dB_Frame(atof(sZ.c_str()));
-        
+
         if (onBMP) onBMP->forget();
         if (offBMP) offBMP->forget();
-        
+
         // --- connect meters/variables
         int32_t tag = description->getTagForName(tagString->c_str());
-        
+
         PluginParameter* piParam = getGuiControlWithTag(tag);
         if (!piParam) return nullptr;
-        
+
         // --- set detector
         float fSampleRate = 1.f / (GUI_METER_UPDATE_INTERVAL_MSEC*0.001f);
         p->initDetector(fSampleRate, (float)piParam->getMeterAttack_ms(),
                         (float)piParam->getMeterRelease_ms(), true,
                         piParam->getDetectorMode(),
                         piParam->getLogMeter());
-        
+
         return p;
     }
-    
+
     if (viewname == "InvertedMeterView" || viewname == "MeterView")
     {
         const std::string* sizeString = attributes.getAttributeValue("size");
@@ -2395,60 +2385,60 @@ CView* PluginGUI::createView(const UIAttributes& attributes, const IUIDescriptio
         if(!OFFbitmapString) return nullptr;
         if(!numLEDString) return nullptr;
         if(!tagString) return nullptr;
-        
+
         if (sizeString && originString && ONbitmapString && OFFbitmapString && numLEDString)
         {
             CPoint origin;
             CPoint size;
             parseSize(*sizeString, size);
             parseSize(*originString, origin);
-            
+
             const CRect rect(origin, size);
-            
+
             std::string onBMString = *ONbitmapString;
             onBMString += ".png";
             UTF8StringPtr onbmp = onBMString.c_str();
             CResourceDescription bmpRes(onbmp);
             CBitmap* onBMP = new CBitmap(bmpRes);
-            
+
             std::string offBMString = *OFFbitmapString;
             offBMString += ".png";
             UTF8StringPtr offbmp = offBMString.c_str();
             CResourceDescription bmpRes2(offbmp);
             CBitmap* offBMP = new CBitmap(bmpRes2);
-            
+
             int32_t nbLed = strtol(numLEDString->c_str(), 0, 10);
-            
+
             bool bInverted = false;
-            
+
             if (viewname == "InvertedMeterView")
                 bInverted = true;
-            
+
             CVuMeterEx* p = new CVuMeterEx(rect, onBMP, offBMP, nbLed, bInverted, false); // inverted, analog
-            
+
             if (onBMP) onBMP->forget();
             if (offBMP) offBMP->forget();
-            
+
             // --- connect meters/variables
             int32_t tag = description->getTagForName(tagString->c_str());
-            
+
             PluginParameter* piParam = getGuiControlWithTag(tag);
             if (!piParam) return nullptr;
-            
+
             // --- set detector
             float fSampleRate = 1.f / (GUI_METER_UPDATE_INTERVAL_MSEC*0.001f);
             p->initDetector(fSampleRate, (float)piParam->getMeterAttack_ms(),
                             (float)piParam->getMeterRelease_ms(), true,
                             piParam->getDetectorMode(),
                             piParam->getLogMeter());
-            
+
             return p;
         }
     }
-    
+
     return nullptr;
 }
-    
+
 
 /**
 \brief for advanced users: you can create and even register sub-controllers here
@@ -2580,13 +2570,13 @@ Operation:\n
 CMouseEventResult PluginGUI::onMouseDown(CFrame* frame, const CPoint& where, const CButtonState& buttons)
 {
     CMouseEventResult result = kMouseEventNotHandled;
-    
+
     // --- added kShift because control + left click behaves as right-click for MacOS
     //     to support the ancient one-mouse paradigm; in ProTools, control + move is for Fine Adjustment
     if (buttons.isRightButton() && buttons & kShift)
     {
         int t=0;
-        
+
 #if VSTGUI_LIVE_EDITING
         COptionMenu* controllerMenu = 0;// (delegate && editingEnabled == false) ? delegate->createContextMenu(where, this) : 0;
         if (showGUIEditor == false)
@@ -2595,45 +2585,45 @@ CMouseEventResult PluginGUI::onMouseDown(CFrame* frame, const CPoint& where, con
                 controllerMenu = new COptionMenu();
             else
                 controllerMenu->addSeparator();
-            
+
 			CMenuItem* item = controllerMenu->addEntry(new CCommandMenuItem({ "Open UIDescription Editor", this, "File", "Open UIDescription Editor" }));
             item->setKey("e", kControl);
         }
-        
+
         if (controllerMenu)
         {
             controllerMenu->setStyle(controllerMenu->isPopupStyle() | controllerMenu->isMultipleCheckStyle());
             controllerMenu->popup(frame, where);
             result = kMouseEventHandled;
         }
-        
+
         if (controllerMenu)
             controllerMenu->forget();
-        
+
         return result;
 #endif
     }
-    
+
     // --- try other overrides
     if (!showGUIEditor)
     {
         int controlID = getControlID_WithMouseCoords(where);
         if (sendAAXMouseDown(controlID, buttons) == kMouseEventHandled)
             return kMouseEventHandled;
-        
+
         CControl* control = getControl_WithMouseCoords(where);
         if (sendAUMouseDown(control, buttons) == kMouseEventHandled)
             return kMouseEventHandled;
     }
     return result;
 }
-    
+
 
 /**
 \brief message handler for mouse move event
 
 Operation:\n
-- for AU and AAX, call their specialized handlers 
+- for AU and AAX, call their specialized handlers
 
 \param frame owning frame
 \param where current location of mouse coordinates
@@ -2657,6 +2647,28 @@ CMouseEventResult PluginGUI::onMouseMoved(CFrame* frame, const CPoint& where, co
 	return result;
 }
 
+
+// --- VSTGUI4 Initialization/De-initialization ------------------------- //
+/**
+\brief VSTGUI4 Library Initializer for AAX/Windows only
+
+Operation:
+- see VSTGUI4 library docs
+- note that this varies between AAX, AU and VST for Mac and Windows
+
+\param hInstance the HINSTANCE of the DLL
+*/
+void PluginGUI::initVSTGUILib(void* hInstance)
+{
+#ifdef WINDOWS
+	VSTGUI::init((HINSTANCE)hInstance);
+#endif
+}
+void PluginGUI::exitVSTGUILib()
+{
+	VSTGUI::exit();
+}
+// --- END VSTGUI4 Initialization/De-initialization --------------------- //
 
 
 }

@@ -471,9 +471,16 @@ public:
 	/** for preset saving helper which writes preset code for you */
 	void writeToPresetFile();
 
-    /** clear the interface prior to shutdown; AU onlyl */
+    /** clear the interface prior to shutdown; AU only */
     void clearGUIPluginConnector(){ guiPluginConnector = nullptr; }
     
+	// --- for AAX-Windows ONLY
+    /** Init VSTGUI Lib (new in VSTGUI4.10) AAX/Windows only */
+	static void initVSTGUILib(void* hInstance);
+	
+	/** Exit VSTGUI Lib (new in VSTGUI4.10) AAX/Windows only */
+	static void exitVSTGUILib();
+
 protected:
 	/** the udpate and repaint function */
 	virtual void idle();
