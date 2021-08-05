@@ -15,8 +15,10 @@
     		- http://www.willpirkle.com
 */
 // -----------------------------------------------------------------------------
-#include "public.sdk/source/main/pluginfactory.h"
 #include "vst3plugin.h"
+#include "vstgui/lib/vstguiinit.h"
+#include "public.sdk/source/main/pluginfactory.h"
+
 /**
 @DEF_CLASS2
 \ingroup VST-Shell
@@ -47,9 +49,15 @@ END_FACTORY
 @brief VST function called after module is loaded
 
 - see VST3 SDK Documentation for more details
-- not used in ASPiK
+- used for initializing the VSTGUI4 library only
 */
-bool InitModule(){
+bool InitModule()
+{
+#if MAC
+    VSTGUI::init (CFBundleGetMainBundle ());
+#else
+    VSTGUI::init((HINSTANCE)moduleHandle);
+#endif
 	return true;
 }
 
@@ -60,9 +68,11 @@ bool InitModule(){
 @brief VST function called before module is un-loaded
 
 - see VST3 SDK Documentation for more details
-- not used in ASPiK
+- used for exiting the VSTGUI4 library only
 */
-bool DeinitModule(){
+bool DeinitModule()
+{
+    VSTGUI::exit();
 	return true;
 }
 

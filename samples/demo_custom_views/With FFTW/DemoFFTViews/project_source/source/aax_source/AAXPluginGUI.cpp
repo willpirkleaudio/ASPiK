@@ -22,14 +22,15 @@
 
 #if _WINDOWS // ------------------------------------------------------------------------
 #include <windows.h>
-
-void* hInstance = nullptr;
-
 extern "C" BOOL WINAPI DllMain(HINSTANCE iInstance, DWORD iSelector, LPVOID iReserved)
 {
 	if(iSelector == DLL_PROCESS_ATTACH)
 	{
-		hInstance = (HINSTANCE)iInstance;
+		VSTGUI::PluginGUI::initVSTGUILib((HINSTANCE)iInstance);
+	}
+	else if (iSelector == DLL_PROCESS_DETACH)
+	{
+		VSTGUI::PluginGUI::exitVSTGUILib();
 	}
 	return true;
 }
