@@ -18,6 +18,7 @@
 #include "vst3plugin.h"
 #include "vstgui/lib/vstguiinit.h"
 #include "public.sdk/source/main/pluginfactory.h"
+extern void* moduleHandle;
 
 /**
 @DEF_CLASS2
@@ -54,7 +55,7 @@ END_FACTORY
 bool InitModule()
 {
 #if MAC
-    VSTGUI::init (CFBundleGetMainBundle ());
+    VSTGUI::init (CFBundleGetMainBundle( ));
 #else
     VSTGUI::init((HINSTANCE)moduleHandle);
 #endif
