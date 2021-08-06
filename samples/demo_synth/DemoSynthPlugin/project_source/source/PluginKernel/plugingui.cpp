@@ -1007,7 +1007,7 @@ void PluginGUI::save(bool saveAs)
 {
 	if (!showGUIEditor) return;
 
-	int32_t flags = 0;
+    int32_t flags = UIDescription::kWriteAsXML;
 #if VSTGUI_LIVE_EDITING
 	UIEditController* editController = dynamic_cast<UIEditController*> (getViewController(frame->getView(0)));
 	if (editController)
@@ -1016,7 +1016,7 @@ void PluginGUI::save(bool saveAs)
 		bool val;
 		if (attributes->getBooleanAttribute(UIEditController::kEncodeBitmapsSettingsKey, val) && val == true)
 		{
-			flags |= UIDescription::kWriteImagesIntoXMLFile;
+			flags |= UIDescription::kWriteImagesIntoUIDescFile;
 		}
 		if (attributes->getBooleanAttribute(UIEditController::kWriteWindowsRCFileSettingsKey, val) && val == true)
 		{

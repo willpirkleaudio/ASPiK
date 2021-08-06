@@ -7,15 +7,16 @@ www.willpirkle.com
 
 #define ASPiK_VERSION_MAJOR  1
 #define ASPiK_VERSION_MINOR  7
-#define ASPiK_VERSION_BUILD  1
+#define ASPiK_VERSION_BUILD  2
 
-Release Notes 1.7.0:
-* Fixed missing global extern in VST3's factory.cpp file 
+Release Notes 1.7.2:
+* Fixed save to XML file issues caused by new VSTGUI4 library
 
-Release Notes 1.7.1:
+Release Notes 1.7.0 & 1.7.1:
 * Fixed bug with VSTGUI4 init/exit library functions; these needed to be replicated
   or moved for the other APIs, AU and AAX; tightened code a bit with less API defines
   required
+* Fixed missing global extern in VST3's factory.cpp file 
 
 Release Notes 1.6.9:
 * Fixed issue with sidechain inputs in VST3, this affected only the vst3plugin.cpp file; 
