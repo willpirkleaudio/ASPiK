@@ -24,7 +24,7 @@ cmake_minimum_required (VERSION 3.4.3)
 #     NOTE: this is not needed when you export individual API projects
 set(UNI_AAX_SDK_FOLDER 		AAX_SDK)
 set(UNI_AU_SDK_FOLDER 		AU_SDK)
-set(UNI_VST3_SDK_FOLDER 	VST_SDK/VST3_SDK)
+set(UNI_VST3_SDK_FOLDER 	VST_SDK/vst3sdk)
 # ---------------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------------

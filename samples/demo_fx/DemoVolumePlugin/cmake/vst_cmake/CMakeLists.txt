@@ -1,242 +1,215 @@
-# ---------------------------------------------------------------------------------
+	# ---------------------------------------------------------------------------------
 #
-# --- CMakeLists.txt
-# --- ASPiK(TM) Plugin Development Framework
-# --- http://www.aspikplugins.com
-# --- http://www.willpirkle.com
-# --- Author: Will Pirkle
-# --- Date: 16 Sept 2018
+# --- VST3 CMakeLists.txt
+# --- Created by RackAFX(TM), see VST3SDK
+# --- www.willpirkle.com
 #
 # ---------------------------------------------------------------------------------
-set(WIN_ROOT "../../win/vst")
-set(MAC_ROOT "../../mac/vst")
-set(SOURCE_ROOT "../../source")
-set(RESOURCE_ROOT "../../resources")
+cmake_minimum_required (VERSION 3.4.3)
 
-# --- local roots
-set(KERNEL_SOURCE_ROOT "${SOURCE_ROOT}/PluginKernel")
-set(OBJECTS_SOURCE_ROOT "${SOURCE_ROOT}/PluginObjects")
-set(VSTGUI_SOURCE_ROOT "${SOURCE_ROOT}/CustomControls")
-set(VST_SOURCE_ROOT "${SOURCE_ROOT}/vst_source")
-set(FFTW_SOURCE_ROOT "${SOURCE_ROOT}/FFTW")
+# --- default project folder location
+set(PROJECT_FOLDER "../../")
+
+message(STATUS "------> Starting VST Project Build:")
+message(STATUS "        VST SDK Location: ${SDK_ROOT}")
+message(STATUS "")
 
 # ---------------------------------------------------------------------------------
 #
-# ---  KERNEL plugin files
+# ---  Basic Setup
 #
 # ---------------------------------------------------------------------------------
-set(kernel_sources
-	$$$KERNEL_SOURCES$$$
-)
+list(APPEND CMAKE_MODULE_PATH "${SDK_ROOT}/cmake/modules")
 
-# ---------------------------------------------------------------------------------
-#
-# ---  Plugin Helper Object files
-#
-# ---------------------------------------------------------------------------------
-set(plugin_object_sources
-	$$$OBJECT_SOURCES$$$
-)
+# --- SMTG_ prefix added with VSTSDK 3.7.1
+include(SMTG_Global)
+include(SMTG_AddVST3Library)
+include(SMTG_Bundle)
+include(SMTG_ExportedSymbols)
+include(SMTG_PrefixHeader)
+include(SMTG_PlatformIOS)
+include(SMTG_PlatformToolset)
+include(SMTG_CoreAudioSupport)
+include(SMTG_AAXSupport)
+include(SMTG_VstGuiSupport)
+include(SMTG_UniversalBinary)
+include(SMTG_AddVST3Options)
 
-# ---------------------------------------------------------------------------------
-#
-# ---  VST3 Core plugin files
-#
-# ---------------------------------------------------------------------------------
-set(vst_core_sources
-	${VST_SOURCE_ROOT}/factory.cpp
-	${VST_SOURCE_ROOT}/customparameters.h
-	${VST_SOURCE_ROOT}/customparameters.cpp
-	${VST_SOURCE_ROOT}/channelformats.h
-	${VST_SOURCE_ROOT}/vst3plugin.h
-	${VST_SOURCE_ROOT}/vst3plugin.cpp
-)
-
-# ---------------------------------------------------------------------------------
-#
-# ---  VST SDK files
-#
-# ---------------------------------------------------------------------------------
-set(vstsdk_sources
-	${SDK_ROOT}/public.sdk/source/vst/vstsinglecomponenteffect.cpp
-	${SDK_ROOT}/public.sdk/source/vst/vstsinglecomponenteffect.h
-)
-
-# ---------------------------------------------------------------------------------
-#
-# ---  CustomControl files
-#
-# ---------------------------------------------------------------------------------
-set(custom_vstgui_sources
-	${VSTGUI_SOURCE_ROOT}/atomicops.h
-	${VSTGUI_SOURCE_ROOT}/customcontrols.h
-	${VSTGUI_SOURCE_ROOT}/readerwriterqueue.h
-	${VSTGUI_SOURCE_ROOT}/customviews.h
-	${VSTGUI_SOURCE_ROOT}/customcontrols.cpp
-	${VSTGUI_SOURCE_ROOT}/customviews.cpp
-)
-
-# ---------------------------------------------------------------------------------
-#
-# ---  VST3 target:
-#
-# ---------------------------------------------------------------------------------
-set(target ${EXP_SUBPROJECT_NAME_VST})
-
-# --- 3.6.13 this is the proper default path; for MacOS it is the VST3 plugin default location, for Win it is empty ""
-smtg_get_default_vst3_path(DEFAULT_VST3_FOLDER)
-set(PLUGIN_TARGET_PATH "${DEFAULT_VST3_FOLDER}" CACHE PATH "Here you can redefine the VST3 plug-ins folder")
-set(SMTG_PLUGIN_TARGET_PATH ${PLUGIN_TARGET_PATH})
-# --- message(STATUS "set_target_properties ---> SMTG_PLUGIN_TARGET_PATH is set to : " ${SMTG_PLUGIN_TARGET_PATH})
-
-# --- note this is placed *before* smtg_add_vst3plugin( ) on purpose!
-if(LINK_FFTW)
-	if(MAC)
-		link_directories(/opt/local/lib)
-	endif()
-endif()
-
-# --- add the plugin source and link to lib, etc... smtg_add_vst3plugin does all the setup
-if(INCLUDE_FX_OBJECTS)
-	smtg_add_vst3plugin(${target} ${kernel_sources} ${plugin_object_sources}  ${vst_core_sources} ${custom_vstgui_sources} ${vstsdk_sources})
-else()
-	smtg_add_vst3plugin(${target} ${kernel_sources} ${vst_core_sources} ${custom_vstgui_sources} ${vstsdk_sources})
-endif()
-
-# --- VST3 SDK 3.7.2 addition
-target_compile_features(${target}
-PUBLIC
-    cxx_std_14
-)
-
-# ---  setup header search paths
-target_include_directories(${target} PUBLIC ${VSTGUI_ROOT}/)
-target_include_directories(${target} PUBLIC ${VSTGUI_ROOT}/vstgui4)
-target_include_directories(${target} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/${SOURCE_ROOT})
-target_include_directories(${target} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/${KERNEL_SOURCE_ROOT})
-target_include_directories(${target} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/${OBJECTS_SOURCE_ROOT})
-target_include_directories(${target} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/${VSTGUI_SOURCE_ROOT})
-target_include_directories(${target} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/${VST_SOURCE_ROOT})
-
-# --- setup link lib
-if(LINK_FFTW)
-
-	if(WIN)
-		add_definitions(-DHAVE_FFTW=1)
-		target_include_directories(${target} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/${FFTW_SOURCE_ROOT})
-		message(STATUS "---> LINK FFTW Found. Copying FFW DLL to the validator.exe folder.")
-
-		set(VST_BIN_DEBUG ${WINBUILD_ROOT}/bin/Debug)
-		set(VST_BIN_RELEASE ${WINBUILD_ROOT}/bin/Release)
-
-		file(MAKE_DIRECTORY ${VST_BIN_DEBUG})
-		file(MAKE_DIRECTORY ${VST_BIN_RELEASE})
-
-		if(EXISTS ${VST_BIN_DEBUG})
-		   configure_file(${FFTW_SOURCE_ROOT}/x64/libfftw3-3.dll ${VST_BIN_DEBUG}/libfftw3-3.dll COPYONLY)
-		endif()
-
-		if(EXISTS ${VST_BIN_RELEASE})
-		   configure_file(${FFTW_SOURCE_ROOT}/x64/libfftw3-3.dll ${VST_BIN_RELEASE}/libfftw3-3.dll COPYONLY)
-		endif()
-
-		if(EXISTS ${VST_BIN_DEBUG}/libfftw3-3.dll)
-			message(STATUS "     + copied FFTW DLL: " ${VST_BIN_DEBUG}/libfftw3-3.dll)
-		else()
-			message(STATUS "--- ERROR: Could not copy FFTW DLL to " ${VST_BIN_DEBUG}/libfftw3-3.dll)
-			message(STATUS "           This will cause validator to fail as the project needs FFTW")
-		endif()
-
-		if(EXISTS ${VST_BIN_RELEASE}/libfftw3-3.dll)
-			message(STATUS "     + copied FFTW DLL: " ${VST_BIN_RELEASE}/libfftw3-3.dll)
-		else()
-			message(STATUS "--- ERROR: Could not copy FFTW DLL to " ${VST_BIN_RELEASE}/libfftw3-3.dll)
-			message(STATUS "           This will cause validator to fail as the project needs FFTW")
-		endif()
-
-		message(STATUS " ")
-
-		# --- add the fftw lib to the dependent lib list
-
-		target_link_libraries(${target} PRIVATE base sdk vstgui_support ${CMAKE_CURRENT_SOURCE_DIR}/${FFTW_SOURCE_ROOT}/x64/libfftw3-3.lib)
-		message(STATUS "---> LINK FFTW Found: + Adding libfftw3-3.lib to the compiler libraries.")
-		message(STATUS "                      + Adding HAVE_FFTW to the pre-processor definitions.")
-
-	else()
-		message(STATUS "---> LINK FFTW Found: + Adding /opt/local/include to the header search path.")
-		message(STATUS "                      + Adding /opt/local/lib to the library search path.")
-
-		target_include_directories(${target} PUBLIC "/opt/local/include")
-
-		message(STATUS "                      + Adding /opt/local/lib/libfftw3.a to the link library list.")
-		target_link_libraries(${target} PRIVATE base sdk vstgui_support libfftw3.a)
-
-		target_compile_definitions(${target} PUBLIC HAVE_FFTW=1)
-		message(STATUS "                      + Adding HAVE_FFTW to the pre-processor definitions.")
-
-	endif()
-
-else()
-	target_link_libraries(${target} PRIVATE base sdk vstgui_support)
-endif()
-
-# --- preprocessor for D2D for windows
-if(WIN)
-	add_definitions(-DVSTGUI_DIRECT2D_SUPPORT=1)
-endif()
-
-# ---------------------------------------------------------------------------------
-#
-# ---  Resources:
-#
-# ---------------------------------------------------------------------------------
-smtg_add_vst3_resource(${target} "${RESOURCE_ROOT}/PluginGUI.uidesc")
-
+# --- Setup for proper location: this is because we are inside of the SDK to be congruent with all of the other APIs
+# setupPlatformToolset()
 if(MAC)
-	smtg_set_bundle(${target} INFOPLIST "${CMAKE_CURRENT_LIST_DIR}/${MAC_ROOT}/Info.plist" PREPROCESS)
+	set(SMTG_MAC TRUE)
+	if(${SMTG_VST3_TARGET_PATH})
+	  file(MAKE_DIRECTORY ${SMTG_VST3_TARGET_PATH})
+	  if(EXISTS ${SMTG_VST3_TARGET_PATH})
+	      message(STATUS "SMTG_VST3_TARGET_PATH is set to : " ${SMTG_VST3_TARGET_PATH})
+	  else()
+	      message(STATUS "SMTG_VST3_TARGET_PATH is not set!")
+	  endif()
+	endif()
+
+else()
+	set(SMTG_WIN TRUE)
+	set(DEF_OPT_LINK OFF) 		 #--- be sure to start visual with admin right when enabling this
+	set(SMTG_CREATE_BUNDLE_FOR_WINDOWS TRUE)
+	set(SMTG_CREATE_VST3_LINK OFF) 	 #--- causes too many problems with admin rights and VS (especially on Parallels where it won't work)
+	set(SMTG_CREATE_PLUGIN_LINK OFF) #--- causes too many problems with admin rights and VS (especially on Parallels where it won't work)
+endif()
+
+# --- default path stuff
+smtg_get_default_vst3_path(DEFAULT_VST3_FOLDER)
+set(SMTG_VST3_TARGET_PATH "${DEFAULT_VST3_FOLDER}")
+
+# --- use by default SMTG_ as prefix for ASSERT,...
+option(SMTG_RENAME_ASSERT "Rename ASSERT to SMTG_ASSERT" ON)
+
+# --- internal variable
+set(VST_SDK TRUE)
+
+# ---------------------------------------------------------------------------------
+#
+# --- Compiler Project
+#
+# ---------------------------------------------------------------------------------
+project(${EXP_SUBPROJECT_NAME_VST})
+
+# --- change from ALL_BUILD as there is only one project
+set_property( DIRECTORY PROPERTY VS_STARTUP_PROJECT ${EXP_SUBPROJECT_NAME_VST})
+
+if (SMTG_RENAME_ASSERT)
+	add_compile_options(-DSMTG_RENAME_ASSERT=1)
+endif()
+
+if (LINUX)
+	# Enable Sample audioHost (based on Jack Audio)
+	option(SMTG_ENABLE_USE_OF_JACK "Enable Use of Jack" ON)
+
+    option(SMTG_ADD_ADDRESS_SANITIZER_CONFIG "Add AddressSanitizer Config (Linux only)" OFF)
+if(SMTG_ADD_ADDRESS_SANITIZER_CONFIG)
+		set(CMAKE_CONFIGURATION_TYPES "${CMAKE_CONFIGURATION_TYPES};ASan")
+		add_compile_options($<$<CONFIG:ASan>:-DDEVELOPMENT=1>)
+		add_compile_options($<$<CONFIG:ASan>:-fsanitize=address>)
+		add_compile_options($<$<CONFIG:ASan>:-DVSTGUI_LIVE_EDITING=1>)
+		add_compile_options($<$<CONFIG:ASan>:-g>)
+		add_compile_options($<$<CONFIG:ASan>:-O0>)
+		set(ASAN_LIBRARY asan)
+		link_libraries($<$<CONFIG:ASan>:${ASAN_LIBRARY}>)
+	endif()
+else()
+	# Disable Sample audioHost (based on Jack Audio)
+	# not yet tested on Windows and Mac
+	option(SMTG_ENABLE_USE_OF_JACK "Enable Use of Jack" OFF)
+endif()
+
+if(UNIX)
+	if(XCODE)
+		set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD "c++14")
+		set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY "libc++")
+	elseif(APPLE)
+		set(CMAKE_POSITION_INDEPENDENT_CODE TRUE)
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -stdlib=libc++")
+		link_libraries(c++)
+	else()
+		set(CMAKE_POSITION_INDEPENDENT_CODE TRUE)
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wno-multichar")
+		link_libraries(stdc++fs pthread dl)
+	endif()
 elseif(WIN)
-	target_sources(${target} PRIVATE ${WIN_ROOT}/PluginGUIMain.rc)
-	target_sources(${target} PRIVATE ${RESOURCE_ROOT}/PluginGUI.uidesc)
+	# add_definitions(-D_UNICODE)
+	add_compile_options(/fp:fast)
+	add_compile_options($<$<CONFIG:Release>:/Oi>)	# Enable Intrinsic Functions (Yes)
+	add_compile_options($<$<CONFIG:Release>:/Ot>)	# Favor Size Or Speed (Favor fast code)
+	add_compile_options($<$<CONFIG:Release>:/GF>)	# Enable String Pooling
+	add_compile_options($<$<CONFIG:Release>:/EHa>)	# Enable C++ Exceptions
+	add_compile_options($<$<CONFIG:Release>:/Oy>)	# Omit Frame Pointers
+	#add_compile_options($<$<CONFIG:Release>:/Ox>)	# Optimization (/O2: Maximise Speed /0x: Full Optimization)
 endif()
 
+# --- VST SDK 3.7.1 addition for vstgui_support target
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEVELOPMENT")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DRELEASE")
 
-# fix missing VSTPluginMain symbol when also building VST 2 version
-set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_EXPORTED_SYMBOLS_FILE "")
+# --- parse sdk subfolders
+include_directories(${ROOT} ${SDK_ROOT})
 
-if (WIN)
-	add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+set(SDK_IDE_LIBS_FOLDER FOLDER "Libraries")
+set(SDK_IDE_HOSTING_EXAMPLES_FOLDER FOLDER Validator)
+#set(SDK_IDE_HOSTING_EXAMPLES_FOLDER FOLDER "HostingExamples")
+
+set(SMTG_ADD_VST3_HOSTING_SAMPLES OFF)
+
+# 3.6.13
+add_subdirectory(${SDK_ROOT}/pluginterfaces pluginterfaces)
+
+add_subdirectory(${SDK_ROOT}/base base)
+add_subdirectory(${SDK_ROOT}/public.sdk public.sdk)
+add_subdirectory(${SDK_ROOT}/public.sdk/samples/vst-hosting public.sdk/samples/vst-hosting)
+
+# --- add RackAFX ported project(s)
+#
+message(STATUS "     -> Adding VST ported project...")
+message(STATUS "        VST Target Name: ${EXP_SUBPROJECT_NAME_VST}")
+message(STATUS "")
+
+# --- add the project
+add_subdirectory(${PROJECT_FOLDER}project_source/${VST_CMAKE_FOLDER} ${PROJECT_FOLDER}project_source/${VST_CMAKE_FOLDER})
+
+#-------------------------------------------------------------------------------
+# VSTGUI Support Library
+#-------------------------------------------------------------------------------
+#option(VSTGUI_STANDALONE "VSTGUI Standalone library" OFF)
+set(VSTGUI_STANDALONE OFF)
+set(VSTGUI_STANDALONE_EXAMPLES OFF)
+set(VSTGUI_DISABLE_UNITTESTS ON)
+
+add_subdirectory(${VSTGUI_ROOT}/vstgui4/vstgui vstgui4/vstgui)
+
+# --- WAS done in AddVST3Library module from Steinberg; as of SDK3.6.14 this seems to be removed
+#     but it's cool because ASPiK had been doing this before 
+target_compile_definitions(${EXP_SUBPROJECT_NAME_VST} PUBLIC $<$<CONFIG:Debug>:VSTGUI_LIVE_EDITING=1>)
+
+# --- set our compiler flag for VST (individual builds)
+# target_compile_definitions(${EXP_SUBPROJECT_NAME_VST} PUBLIC $<$<CONFIG:Debug>:VSTPLUGIN=1>)
+# target_compile_definitions(${EXP_SUBPROJECT_NAME_VST} PUBLIC $<$<CONFIG:Release>:VSTPLUGIN=1>)
+
+# --- set our compiler flag for VST (all builds)
+target_compile_definitions(${EXP_SUBPROJECT_NAME_VST} PUBLIC VSTPLUGIN=1)
+
+# --- for windows/VS only
+add_definitions(-DVSTGUI_DIRECT2D_SUPPORT=1)
+
+set(VST3_VSTGUI_SOURCES
+	${VSTGUI_ROOT}/vstgui4/vstgui/plugin-bindings/vst3groupcontroller.cpp
+	${VSTGUI_ROOT}/vstgui4/vstgui/plugin-bindings/vst3groupcontroller.h
+	${VSTGUI_ROOT}/vstgui4/vstgui/plugin-bindings/vst3padcontroller.cpp
+	${VSTGUI_ROOT}/vstgui4/vstgui/plugin-bindings/vst3padcontroller.h
+	${VSTGUI_ROOT}/vstgui4/vstgui/plugin-bindings/vst3editor.cpp
+	${VSTGUI_ROOT}/vstgui4/vstgui/plugin-bindings/vst3editor.h
+	${SDK_ROOT}/public.sdk/source/vst/vstguieditor.cpp
+)
+add_library(vstgui_support STATIC ${VST3_VSTGUI_SOURCES})
+target_include_directories(vstgui_support PUBLIC ${VSTGUI_ROOT}/vstgui4)
+target_link_libraries(vstgui_support PRIVATE vstgui_uidescription)
+if(MAC)
+	if(XCODE)
+		target_link_libraries(vstgui_support PRIVATE "-framework Cocoa" "-framework OpenGL" "-framework Accelerate" "-framework QuartzCore" "-framework Carbon")
+	else()
+		find_library(COREFOUNDATION_FRAMEWORK CoreFoundation)
+		find_library(COCOA_FRAMEWORK Cocoa)
+		find_library(OPENGL_FRAMEWORK OpenGL)
+		find_library(ACCELERATE_FRAMEWORK Accelerate)
+		find_library(QUARTZCORE_FRAMEWORK QuartzCore)
+		find_library(CARBON_FRAMEWORK Carbon)
+		target_link_libraries(vstgui_support PRIVATE ${COREFOUNDATION_FRAMEWORK} ${COCOA_FRAMEWORK} ${OPENGL_FRAMEWORK} ${ACCELERATE_FRAMEWORK} ${QUARTZCORE_FRAMEWORK} ${CARBON_FRAMEWORK})
+	endif()
 endif()
 
-# for Xcode, add info.plist variables
-if(XCODE)
-	# --- this eliminates a warning that looks suspicious when debugging but is acutally not a problem
-	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "${VST_BUNDLE_ID}")
-
-	# --- info.pList files
-	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_INFOPLIST_FILE "${CMAKE_CURRENT_LIST_DIR}/${MAC_ROOT}/Info.plist")
-	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_INFOPLIST_PREPROCESSOR_DEFINITIONS "EXECUTABLE_NAME=$(EXECUTABLE_NAME) PRODUCT_BUNDLE_IDENTIFIER=${VST_BUNDLE_ID}")
-	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_INFOPLIST_PREPROCESS "YES")
-endif()
-
-# --- add post build rule to copy VST3 icon for bundle appearance of folder
-if(WIN)
-    set(DEFAULT_ICON_PATH ${SDK_ROOT}/vst3_doc/artwork/VST_Logo_Steinberg.ico)
-    set(PROJECT_SOURCE_DIR ${SDK_ROOT})
-    set(MSG_ICON_PATH "Path to the package icon (VST_Logo_Steinberg.ico) for Windows")
-    if(EXISTS ${DEFAULT_ICON_PATH})
-        set(SMTG_PACKAGE_ICON_PATH ${DEFAULT_ICON_PATH})
-    else()
-        set(SMTG_PACKAGE_ICON_PATH "" CACHE FILEPATH ${MSG_ICON_PATH})
-        message(STATUS "SMTG_PACKAGE_ICON_PATH is not set to (as expected) : " ${DEFAULT_ICON_PATH})
-    endif()
-
-    # --- add the post build rule here:
-    smtg_add_folder_icon(${target} ${SMTG_PACKAGE_ICON_PATH})
-endif()
-
-source_group(PluginKernel FILES ${kernel_sources})
-source_group(PluginObjects FILES ${plugin_object_sources})
-source_group(CustomVSTGUI FILES ${custom_vstgui_sources})
-source_group(VST3Core FILES ${vst_core_sources})
-source_group(VST3SDK FILES ${vstsdk_sources})
-
+#-------------------------------------------------------------------------------
+# IDE sorting
+#-------------------------------------------------------------------------------
+set_target_properties(vstgui_support PROPERTIES ${SDK_IDE_LIBS_FOLDER})
+set_target_properties(sdk PROPERTIES ${SDK_IDE_LIBS_FOLDER})
+set_target_properties(base PROPERTIES ${SDK_IDE_LIBS_FOLDER})
+set_target_properties(vstgui PROPERTIES ${SDK_IDE_LIBS_FOLDER})
+set_target_properties(vstgui_uidescription PROPERTIES ${SDK_IDE_LIBS_FOLDER})
+#set_target_properties(vstgui_standalone PROPERTIES ${SDK_IDE_LIBS_FOLDER})
