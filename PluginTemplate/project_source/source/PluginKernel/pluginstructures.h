@@ -752,7 +752,10 @@ WAV files for sample based synths.
 */
 struct PluginInfo
 {
-	PluginInfo() {}
+	PluginInfo()
+	{
+		pathToDLL = "";
+	}
 
 	PluginInfo& operator=(const PluginInfo& data)	// need this override for collections to work
 	{

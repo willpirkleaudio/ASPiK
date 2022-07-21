@@ -2455,7 +2455,7 @@ Operation:\n
 IController* PluginGUI::createSubController(UTF8StringPtr name, const IUIDescription* description)
 {
 	std::string strName(name);
-	int findIt = strName.find("KnobLinkController");
+	int findIt = (int)strName.find("KnobLinkController");
 	if (findIt >= 0)
 	{
 		// --- create the sub-controller
@@ -2647,6 +2647,53 @@ CMouseEventResult PluginGUI::onMouseMoved(CFrame* frame, const CPoint& where, co
 	return result;
 }
 
+
+/**
+\brief helper method to convert a MouseEventButtonState to the (old?) CButtonState
+
+\param state the MouseEventButtonState to convert
+
+\result an equivalent CButtonState object
+*/
+CButtonState PluginGUI::convertButtonState(MouseEventButtonState& state)
+{
+	uint32_t btnState = 0;
+	if (state.is(VSTGUI::MouseButton::Left))
+		btnState |= kLButton;
+	if (state.is(VSTGUI::MouseButton::Middle))
+		btnState |= kMButton;
+	if (state.is(VSTGUI::MouseButton::Right))
+		btnState |= kRButton;
+	if (state.is(VSTGUI::MouseButton::Fourth))
+		btnState |= kButton4;
+	if (state.is(VSTGUI::MouseButton::Fifth))
+		btnState |= kButton5;
+	return CButtonState(btnState);
+}
+
+/**
+\brief message handler for consolidated mouse down and move event\n
+This should be refactored by someone who knows how it /should/ work
+
+Operation:\n
+
+\param event the mouse event
+\param frame the owning frame
+*/
+void PluginGUI::onMouseEvent(MouseEvent& event, CFrame* frame)
+{
+	const CButtonState& btnState = convertButtonState(event.buttonState);
+	if (event.type == VSTGUI::EventType::MouseMove)
+	{
+		CMouseEventResult result = onMouseMoved(frame, event.mousePosition, btnState);
+		event.consumed = (result == CMouseEventResult::kMouseEventHandled);
+	}
+	else if (event.type == VSTGUI::EventType::MouseDown)
+	{
+		CMouseEventResult result = onMouseDown(frame, event.mousePosition, btnState);
+		event.consumed = (result == CMouseEventResult::kMouseEventHandled);
+	}
+}
 
 // --- VSTGUI4 Initialization/De-initialization ------------------------- //
 /**

@@ -706,17 +706,26 @@ public:
 	/** IMouseObserver override not used */
 	void onMouseExited(CView* view, CFrame* frame) override {}
 
-	/** IMouseObserver mouse moved handler */
-	CMouseEventResult onMouseDown(CFrame* frame, const CPoint& where, const CButtonState& buttons) override;
+	/** DEPRECATED IMouseObserver mouse moved handler */
+	CMouseEventResult onMouseDown(CFrame* frame, const CPoint& where, const CButtonState& buttons);
 
-	/** IMouseObserver mouse moved handler */
-	CMouseEventResult onMouseMoved(CFrame* frame, const CPoint& where, const CButtonState& buttons) override;
+	/** DEPRECATED IMouseObserver mouse moved handler */
+	CMouseEventResult onMouseMoved(CFrame* frame, const CPoint& where, const CButtonState& buttons);
+
+	/** Helper method for the change to MouseEventButtonState */
+	CButtonState convertButtonState(MouseEventButtonState& state);
+
+	/** IMouseObserver mouse event handler */
+	void onMouseEvent(MouseEvent& event, CFrame* frame) override;
 
 	/** IKeyboardHook key down handler, not used */
-	int32_t onKeyDown(const VstKeyCode& code, CFrame* frame) override { return -1; }
+	int32_t onKeyDown(const VstKeyCode& code, CFrame* frame) { return -1; }
 
 	/** IKeyboardHook key up handler, not used */
-	int32_t onKeyUp(const VstKeyCode& code, CFrame* frame) override { return -1; }
+	int32_t onKeyUp(const VstKeyCode& code, CFrame* frame) { return -1; }
+
+	/** IKeyboardHook key event handler */
+	void onKeyboardEvent(KeyboardEvent& event, CFrame* frame) override {}
 
 	/** ICommandMenuItemTarget called before the item is shown to validate its state */
 	virtual bool validateCommandMenuItem(CCommandMenuItem* item) override;
