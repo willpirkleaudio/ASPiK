@@ -783,7 +783,7 @@ public:
     {
         if (sampleOffset == 0 && pluginCore)
         {
-            uint32_t count = proxyMIDIEvents.size();
+            uint32_t count = (uint32_t)proxyMIDIEvents.size();
             for (uint32_t i = 0; i < count; i++)
             {
                 pluginCore->processMIDIEvent(proxyMIDIEvents[i]);

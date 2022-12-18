@@ -33,7 +33,7 @@ set(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
 if(MAC)
     # ---  macOS defaults
     if(NOT DEFINED ENV{MACOSX_DEPLOYMENT_TARGET})
-    	set(CMAKE_OSX_DEPLOYMENT_TARGET "10.8" CACHE STRING "macOS deployment target")
+    	set(CMAKE_OSX_DEPLOYMENT_TARGET "10.14" CACHE STRING "macOS deployment target")
     endif()
 
     if(NOT DEFINED ENV{SDKROOT})
@@ -41,11 +41,11 @@ if(MAC)
     endif()
 
     # --- ON for AAX
-    option(BUILD_UNIVERSAL_BINARY "Build universal binary (32 & 64 bit)" ON)
+    option(BUILD_UNIVERSAL_BINARY "Build universal binary (64 bit)" ON)
     if(BUILD_UNIVERSAL_BINARY)
-        set(CMAKE_OSX_ARCHITECTURES "x86_64;i386" CACHE STRING "macOS universal binary")
-	    set(CMAKE_XCODE_ATTRIBUTE_ARCHS "$(ARCHS_STANDARD_32_64_BIT)")
-        set(CMAKE_XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH "$<$<CONFIG:Debug>:YES>$<$<CONFIG:Release>:NO>")
+        set(CMAKE_OSX_ARCHITECTURES "$(ARCHS_STANDARD)" CACHE STRING "macOS universal binary" FORCE)
+	    set(CMAKE_XCODE_ATTRIBUTE_ARCHS "$(STANDARD_ARCHS)")
+        set(CMAKE_XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH "YES")
     endif()
 endif()
 

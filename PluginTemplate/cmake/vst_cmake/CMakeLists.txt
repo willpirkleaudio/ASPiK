@@ -71,7 +71,7 @@ set(VST_SDK TRUE)
 # --- Compiler Project
 #
 # ---------------------------------------------------------------------------------
-project(${EXP_SUBPROJECT_NAME_VST})
+project(${EXP_SUBPROJECT_NAME_VST} VERSION 1.0.0)
 
 # --- change from ALL_BUILD as there is only one project
 set_property( DIRECTORY PROPERTY VS_STARTUP_PROJECT ${EXP_SUBPROJECT_NAME_VST})
@@ -103,15 +103,15 @@ endif()
 
 if(UNIX)
 	if(XCODE)
-		set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD "c++14")
+		set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD "c++17")
 		set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY "libc++")
 	elseif(APPLE)
 		set(CMAKE_POSITION_INDEPENDENT_CODE TRUE)
-		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -stdlib=libc++")
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -stdlib=libc++")
 		link_libraries(c++)
 	else()
 		set(CMAKE_POSITION_INDEPENDENT_CODE TRUE)
-		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wno-multichar")
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Wno-multichar")
 		link_libraries(stdc++fs pthread dl)
 	endif()
 elseif(WIN)
