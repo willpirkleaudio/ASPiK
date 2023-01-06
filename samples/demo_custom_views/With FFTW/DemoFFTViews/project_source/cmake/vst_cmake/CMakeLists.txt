@@ -202,10 +202,10 @@ endif()
 # ---  Resources:
 #
 # ---------------------------------------------------------------------------------
-smtg_add_vst3_resource(${target} "${RESOURCE_ROOT}/PluginGUI.uidesc")
+smtg_target_add_plugin_resources(${target} "${RESOURCE_ROOT}/PluginGUI.uidesc")
 
 if(MAC)
-	smtg_set_bundle(${target} INFOPLIST "${CMAKE_CURRENT_LIST_DIR}/${MAC_ROOT}/Info.plist" PREPROCESS)
+	smtg_target_set_bundle(${target} INFOPLIST "${CMAKE_CURRENT_LIST_DIR}/${MAC_ROOT}/Info.plist" PREPROCESS)
 elseif(WIN)
 	target_sources(${target} PRIVATE ${WIN_ROOT}/PluginGUIMain.rc)
 	target_sources(${target} PRIVATE ${RESOURCE_ROOT}/PluginGUI.uidesc)
@@ -240,7 +240,7 @@ if(WIN)
     endif()
 
     # --- add the post build rule here:
-    smtg_add_folder_icon(${target} ${SMTG_PACKAGE_ICON_PATH})
+    smtg_target_add_folder_icon(${target} ${SMTG_PACKAGE_ICON_PATH})
 endif()
 
 source_group(PluginKernel FILES ${kernel_sources})

@@ -638,7 +638,7 @@ bool PluginCore::initPluginDescriptors()
 }
 
 // --- static functions required for VST3/AU only --------------------------------------------- //
-const char* PluginCore::getPluginBundleName() { return kAUBundleName; }
+const char* PluginCore::getPluginBundleName() { return getPluginDescBundleName(); }
 const char* PluginCore::getPluginName(){ return kPluginName; }
 const char* PluginCore::getShortPluginName(){ return kShortPluginName; }
 const char* PluginCore::getVendorName(){ return kVendorName; }
