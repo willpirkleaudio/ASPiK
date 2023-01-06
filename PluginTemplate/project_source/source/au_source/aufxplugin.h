@@ -16,7 +16,7 @@
 */
 // -----------------------------------------------------------------------------
 #include <AudioToolbox/AudioUnitUtilities.h>
-#include "AUMIDIEffectBase.h"   // For FX + MIDI
+#include "AudioUnitSDK/AUMIDIEffectBase.h"   // For FX + MIDI
 #include "plugingui.h"
 #include "plugincore.h"
 #include <math.h>
@@ -67,24 +67,24 @@ NOTES:
 \version Revision : 1.0
 \date Date : 2018 / 09 / 7
 */
-class AUFXPlugin : public AUMIDIEffectBase
+class AUFXPlugin : public ausdk::AUMIDIEffectBase
 {
 public:
     AUFXPlugin(AudioUnit component);
     ~AUFXPlugin();
 
     /** AU override method */
-    virtual ComponentResult	Version() {return 1000;}
+    virtual OSStatus Version() {return 1000;}
 
     /** AU override method */
-    virtual ComponentResult	Initialize();
+    virtual OSStatus Initialize();
 
     /** AU override method */
     virtual OSStatus GetPropertyInfo(AudioUnitPropertyID	inID,
                                      AudioUnitScope         nScope,
                                      AudioUnitElement       inElement,
                                      UInt32&                outDataSize,
-                                     Boolean&               outWritable );
+                                     bool&               outWritable );
 
     /** AU override method */
     virtual OSStatus GetProperty(AudioUnitPropertyID    inID,
@@ -100,12 +100,12 @@ public:
                                  UInt32 			 inDataSize);
 
     /** AU override method */
-    virtual ComponentResult	GetParameterInfo(AudioUnitScope			inScope,
+    virtual OSStatus	GetParameterInfo(AudioUnitScope			inScope,
                                              AudioUnitParameterID	inParameterID,
                                              AudioUnitParameterInfo	&outParameterInfo );
 
     /** AU override method */
-    virtual ComponentResult	GetPresets(CFArrayRef* outData)	const;
+    virtual OSStatus	GetPresets(CFArrayRef* outData)	const;
 
     /** AU override method */
     virtual OSStatus NewFactoryPresetSet (const AUPreset& inNewFactoryPreset);
@@ -135,7 +135,7 @@ public:
 
 
     /** AU override method */
-    virtual ComponentResult SetParameter(AudioUnitParameterID	 inID,
+    virtual OSStatus SetParameter(AudioUnitParameterID	 inID,
                                          AudioUnitScope 		 inScope,
                                          AudioUnitElement 		 inElement,
                                          AudioUnitParameterValue inValue,
@@ -154,17 +154,17 @@ public:
                                         UInt32					    inFramesToProcess );
 
     /** AU override method */
-    virtual ComponentResult	Reset(AudioUnitScope   inScope,
+    virtual OSStatus	Reset(AudioUnitScope   inScope,
                                   AudioUnitElement inElement);
 
     /** AU override method */
-    virtual ComponentResult	GetParameterValueStrings(AudioUnitScope		  inScope,
+    virtual OSStatus	GetParameterValueStrings(AudioUnitScope		  inScope,
                                                      AudioUnitParameterID inParameterID,
                                                      CFArrayRef*		  outStrings);
 
     // --- need this for when user selects a NON factory-preset (ie they created the preset in the Client)
     /** AU override method */
-    virtual ComponentResult	RestoreState(CFPropertyListRef inData);
+    virtual OSStatus	RestoreState(CFPropertyListRef inData);
     /** AU override method */
     virtual UInt32 SupportedNumChannels(const AUChannelInfo** outInfo);
 

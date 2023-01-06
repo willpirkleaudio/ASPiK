@@ -46,6 +46,8 @@ VST3Plugin::VST3Plugin()
     processContextRequirements.wantsTimeSignature();
     processContextRequirements.wantsContinousTimeSamples();
     processContextRequirements.wantsSystemTime();
+    selectedUnit = Steinberg::Vst::UnitID(0);
+
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -987,7 +989,7 @@ tresult PLUGIN_API VST3Plugin::process(ProcessData& data)
         for (int32 sample = 0; sample < data.numSamples; sample++)
         {
             // --- output = input
-			for (unsigned int i = 0; i<info.numAuxAudioOutChannels; i++)
+			for (unsigned int i = 0; i<info.numAudioOutChannels; i++)
             {
                 (data.outputs[0].channelBuffers32[i])[sample] = (data.inputs[0].channelBuffers32[i])[sample];
             }
@@ -1347,7 +1349,7 @@ tresult PLUGIN_API VST3Plugin::getProgramName(ProgramListID listId, int32 progra
 		{
 			ParamValue normalized = param->toNormalized (programIndex);
 			param->toString (normalized, name);
-            const char* pp = pluginCore->getPresetName(programIndex);
+            pluginCore->getPresetName(programIndex);
 
 			return kResultTrue;
 		}
@@ -1524,6 +1526,7 @@ VSTParamUpdateQueue::VSTParamUpdateQueue(void)
 	y2 = 0.0;
 	slope = 1.0;
 	dirtyBit = false;
+    yIntercept = Steinberg::Vst::ParamValue(0.0);
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1785,7 +1788,7 @@ PluginEditor::PluginEditor(VSTGUI::UTF8StringPtr _xmlFile, PluginCore* _pluginCo
 , pluginHostConnector(_pluginHostConnector)
 , editController(_editController)
 {
-
+	plugFrame = NULL;
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	PluginEditor::~PluginEditor

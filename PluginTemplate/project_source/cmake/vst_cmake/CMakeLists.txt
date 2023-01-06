@@ -202,10 +202,10 @@ endif()
 # ---  Resources:
 #
 # ---------------------------------------------------------------------------------
-smtg_add_vst3_resource(${target} "${RESOURCE_ROOT}/PluginGUI.uidesc")
+smtg_target_add_plugin_resources(${target} "${RESOURCE_ROOT}/PluginGUI.uidesc")
 
 if(MAC)
-	smtg_set_bundle(${target} INFOPLIST "${CMAKE_CURRENT_LIST_DIR}/${MAC_ROOT}/Info.plist" PREPROCESS)
+	smtg_target_set_bundle(${target} INFOPLIST "${CMAKE_CURRENT_LIST_DIR}/${MAC_ROOT}/Info.plist" PREPROCESS)
 elseif(WIN)
 	target_sources(${target} PRIVATE ${WIN_ROOT}/PluginGUIMain.rc)
 	target_sources(${target} PRIVATE ${RESOURCE_ROOT}/PluginGUI.uidesc)
@@ -229,8 +229,8 @@ endif()
 
 # --- add post build rule to copy VST3 icon for bundle appearance of folder
 if(WIN)
-    set(DEFAULT_ICON_PATH ${SDK_ROOT}/vst3_doc/artwork/VST_Logo_Steinberg.ico)
-    set(PROJECT_SOURCE_DIR ${SDK_ROOT})
+	set(DEFAULT_ICON_PATH ${SDK_ROOT}/doc/artwork/VST_Logo_Steinberg.ico)
+	set(PROJECT_SOURCE_DIR ${SDK_ROOT})
     set(MSG_ICON_PATH "Path to the package icon (VST_Logo_Steinberg.ico) for Windows")
     if(EXISTS ${DEFAULT_ICON_PATH})
         set(SMTG_PACKAGE_ICON_PATH ${DEFAULT_ICON_PATH})
@@ -240,7 +240,7 @@ if(WIN)
     endif()
 
     # --- add the post build rule here:
-    smtg_add_folder_icon(${target} ${SMTG_PACKAGE_ICON_PATH})
+    smtg_target_add_folder_icon(${target} ${SMTG_PACKAGE_ICON_PATH})
 endif()
 
 source_group(PluginKernel FILES ${kernel_sources})

@@ -175,7 +175,7 @@ public:
 	*/
 	virtual CMouseEventResult onMouseMoved (CPoint& where, const CButtonState& buttons) override;
 
-    bool checkDefaultValue (CButtonState button) override;
+    bool checkDefaultValue (CButtonState button);
 	virtual void valueChanged() override;
 
 	/**
@@ -258,7 +258,7 @@ public:
 	*/
 	virtual CMouseEventResult onMouseMoved (CPoint& where, const CButtonState& buttons) override;
 
-	bool checkDefaultValue (CButtonState button) override;
+    bool checkDefaultValue (CButtonState button);
 
 	/**
 	\brief set max discrete switching value
@@ -345,7 +345,7 @@ public:
 	*/
 	virtual CMouseEventResult onMouseMoved (CPoint& where, const CButtonState& buttons) override;
 
-	bool checkDefaultValue (CButtonState button) override;
+    bool checkDefaultValue (CButtonState button);
 
 	/**
 	\brief set max discrete switching value
@@ -577,14 +577,15 @@ public:
     // --- for vector joystick operation
 	inline int pointInPolygon(int nvert, float *vertx, float *verty, float testx, float testy)
 	{
-		int i, j, c = 0;
+		bool c = false;
+		int i, j;
 		for (i = 0, j = nvert-1; i < nvert; j = i++)
 		{
 			if ( ((verty[i]>testy) != (verty[j]>testy)) &&
 				(testx < (vertx[j]-vertx[i]) * (testy-verty[i]) / (verty[j]-verty[i]) + vertx[i]) )
 			c = !c;
 		}
-	 return c;
+	 return c?1:0;
 	}
 
     static void calculateXY (float value, float& x, float& y)

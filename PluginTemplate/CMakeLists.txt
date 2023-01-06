@@ -24,7 +24,7 @@ cmake_minimum_required (VERSION 3.4.3)
 #     NOTE: this is not needed when you export individual API projects
 set(UNI_AAX_SDK_FOLDER 		AAX_SDK)
 set(UNI_AU_SDK_FOLDER 		AU_SDK)
-set(UNI_VST3_SDK_FOLDER 	VST_SDK/VST3_SDK)
+set(UNI_VST3_SDK_FOLDER 	VST_SDK/vst3sdk)
 # ---------------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------------
@@ -202,11 +202,11 @@ endif()
 # --- Setup Compiler Project
 #
 # ---------------------------------------------------------------------------------
-project(${EXP_PROJECT_NAME})
+project(${EXP_PROJECT_NAME} VERSION 1.0.0)
 
 if(UNIX)
 	if(XCODE)
-		set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD "c++14") # --- NOTE: VST3 requires c++14!
+		set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD "c++17")
 		set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY "libc++")
 	elseif(APPLE)
 		set(CMAKE_POSITION_INDEPENDENT_CODE TRUE)
@@ -339,6 +339,24 @@ endif()
 
 string(CONCAT VST3_SAMPLE_ACCURATE_GRANULARITY_ASVAR "const uint32_t kVST3SAAGranularity = " ${VST3_SAMPLE_ACCURATE_GRANULARITY})
 string(CONCAT AAX_CAT_ASVAR "const uint32_t kAAXCategory = " ${AAX_CATEGORY})
+
+
+if(PROCESS_FRAMES)
+	set(PROCESS_FRAMES_ASVAR "const bool kProcessFrames = true")
+	set(BLOCK_SIZE_ASVAR "const uint32_t kBlockSize = DEFAULT_AUDIO_BLOCK_SIZE")
+else()
+	set(PROCESS_FRAMES_ASVAR "const bool kProcessFrames = false")
+	set(BLOCK_SIZE_ASVAR "const uint32_t kBlockSize = DEFAULT_AUDIO_BLOCK_SIZE")
+endif()
+
+if(PROCESS_BUFFERS)
+	set(BLOCK_SIZE_ASVAR "const uint32_t kBlockSize = 0")
+endif()
+
+if(PROCESS_BLOCKS)
+	string(CONCAT BLOCK_SIZE_ASVAR "const uint32_t kBlockSize = " ${BLOCK_SIZE})
+endif()
+
 
 # --- the plugindescription.h file - this is edited to contain your string settings for the project!
 set(PI_DESCRIPTION_H_FILE project_source/source/PluginKernel/plugindescription.h)
