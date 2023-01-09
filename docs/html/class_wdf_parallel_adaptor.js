@@ -1,7 +1,5 @@
 var class_wdf_parallel_adaptor =
 [
-    [ "WdfParallelAdaptor", "class_wdf_parallel_adaptor.html#ab18d6ac9a67467de0e615d8e83d75f65", null ],
-    [ "~WdfParallelAdaptor", "class_wdf_parallel_adaptor.html#a7239c64f98c1f3252b2fc6f8605164c6", null ],
     [ "getOutput1", "class_wdf_parallel_adaptor.html#a30089a2fc51ec2fec6d29fe2f8420c57", null ],
     [ "getOutput2", "class_wdf_parallel_adaptor.html#a24c8cd75c57318183721d50b49471267", null ],
     [ "getOutput3", "class_wdf_parallel_adaptor.html#a417e002e095b76067f43a789b4ca4016", null ],

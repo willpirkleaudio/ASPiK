@@ -1,7 +1,6 @@
 var struct_delay_a_p_f_parameters =
 [
-    [ "DelayAPFParameters", "struct_delay_a_p_f_parameters.html#a582409eaddb79314fd702d846faebebb", null ],
-    [ "operator=", "struct_delay_a_p_f_parameters.html#a0568e0702650a7a33ec37ea4b22e28b6", null ],
+    [ "operator=", "struct_delay_a_p_f_parameters.html#a2f61526d35c6ddf3ec825ead327d4beb", null ],
     [ "apf_g", "struct_delay_a_p_f_parameters.html#aa6e9b05aa88e76f94afa8c2e2be75bb7", null ],
     [ "delayTime_mSec", "struct_delay_a_p_f_parameters.html#a6f6a16eb812ae18bc67bb34c2e9a95a8", null ],
     [ "enableLFO", "struct_delay_a_p_f_parameters.html#a770ca3aa5bdb248eb0cd531af21f7343", null ],

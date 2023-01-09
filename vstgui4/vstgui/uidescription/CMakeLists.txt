@@ -100,6 +100,8 @@ set(${target}_sources
     viewcreator/animationsplashscreencreator.h
     viewcreator/animknobcreator.cpp
     viewcreator/animknobcreator.h
+    viewcreator/autoanimationcreator.cpp
+    viewcreator/autoanimationcreator.h
     viewcreator/checkboxcreator.cpp
     viewcreator/checkboxcreator.h
     viewcreator/controlcreator.cpp
@@ -178,7 +180,7 @@ add_library(${target} STATIC ${${target}_sources})
 add_dependencies(${target} vstgui)
 target_link_libraries(${target} PRIVATE vstgui)
 target_compile_definitions(${target} ${VSTGUI_COMPILE_DEFINITIONS})
-vstgui_set_cxx_version(${target} 14)
+vstgui_set_cxx_version(${target} 17)
 vstgui_source_group_by_folder(${target})
 
 ##########################################################################################
@@ -209,7 +211,14 @@ endif()
 find_package(EXPAT)
 if(EXPAT_FOUND)
     target_compile_definitions(${target} ${VSTGUI_COMPILE_DEFINITIONS} "VSTGUI_USE_SYSTEM_EXPAT")
-    target_link_libraries(${target} PRIVATE expat)
+    target_link_libraries(${target} PRIVATE ${EXPAT_LIBRARY})
+	target_include_directories(${target} PRIVATE ${EXPAT_INCLUDE_DIRS})
+    message(STATUS "VSTGUI will use the Expat library at ${EXPAT_LIBRARY}")
+    message(STATUS "VSTGUI will use the Expat header found in ${EXPAT_INCLUDE_DIRS}")
 else()
     message(STATUS "VSTGUI will use the embedded Expat package!")
+endif()
+
+if(CMAKE_HOST_APPLE)
+  target_compile_options(${target} PRIVATE -Wall -Werror)
 endif()

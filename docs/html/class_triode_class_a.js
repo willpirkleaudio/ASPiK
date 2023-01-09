@@ -1,7 +1,5 @@
 var class_triode_class_a =
 [
-    [ "TriodeClassA", "class_triode_class_a.html#abba1bf422a5ee5b08f7cd1d3cd559bbc", null ],
-    [ "~TriodeClassA", "class_triode_class_a.html#ad3155d3b93b0791309acd9d0647fd0e8", null ],
     [ "canProcessAudioFrame", "class_triode_class_a.html#a151f04ed4e9ca293e166df4ddef67b53", null ],
     [ "getParameters", "class_triode_class_a.html#a923c8f2750a7e5b9e8e38b83f4e96219", null ],
     [ "processAudioSample", "class_triode_class_a.html#a85b2a44957f61fd471d821ff3bc9834f", null ],

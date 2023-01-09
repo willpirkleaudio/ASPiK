@@ -198,7 +198,6 @@ void EmbedViewOperation::perform ()
 void EmbedViewOperation::undo ()
 {
 	selection->clear ();
-	CRect parentRect = newContainer->getViewSize ();
 	const_reverse_iterator it = rbegin ();
 	while (it != rend ())
 	{
@@ -1005,6 +1004,59 @@ void NinePartTiledBitmapChangeAction::undo ()
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
+MultiFrameBitmapChangeAction::MultiFrameBitmapChangeAction (
+	UIDescription* description, UTF8StringPtr name, const CMultiFrameBitmapDescription* desc,
+	bool performOrUndo)
+: description (description), name (name), performOrUndo (performOrUndo)
+{
+	if (desc)
+		newDesc = std::make_unique<CMultiFrameBitmapDescription> (*desc);
+	CBitmap* bitmap = description->getBitmap (name);
+	if (bitmap)
+	{
+		if (auto mfb = dynamic_cast<CMultiFrameBitmap*> (bitmap))
+		{
+			oldDesc = std::make_unique<CMultiFrameBitmapDescription> ();
+			oldDesc->frameSize = mfb->getFrameSize ();
+			oldDesc->numFrames = mfb->getNumFrames ();
+			oldDesc->framesPerRow = mfb->getNumFramesPerRow ();
+		}
+	}
+}
+
+//----------------------------------------------------------------------------------------------------
+MultiFrameBitmapChangeAction::~MultiFrameBitmapChangeAction () {}
+
+//----------------------------------------------------------------------------------------------------
+UTF8StringPtr MultiFrameBitmapChangeAction::getName () { return "Change MultiFrameBitmap"; }
+
+//----------------------------------------------------------------------------------------------------
+void MultiFrameBitmapChangeAction::perform ()
+{
+	if (performOrUndo)
+	{
+		CBitmap* bitmap = description->getBitmap (name.data ());
+		if (bitmap)
+			description->changeMultiFrameBitmap (
+				name.data (), bitmap->getResourceDescription ().u.name, newDesc.get ());
+	}
+}
+
+//----------------------------------------------------------------------------------------------------
+void MultiFrameBitmapChangeAction::undo ()
+{
+	if (performOrUndo == false)
+	{
+		CBitmap* bitmap = description->getBitmap (name.data ());
+		if (bitmap)
+			description->changeMultiFrameBitmap (
+				name.data (), bitmap->getResourceDescription ().u.name, oldDesc.get ());
+	}
+}
+
+//----------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------
 BitmapFilterChangeAction::BitmapFilterChangeAction (UIDescription* description, UTF8StringPtr bitmapName, const std::list<SharedPointer<UIAttributes> >& attributes, bool performOrUndo)
 : description (description)
 , bitmapName (bitmapName)
@@ -1257,7 +1309,7 @@ void HierarchyMoveViewOperation::perform ()
 	ViewIterator it (parent);
 	while (*it && *it != view)
 	{
-		it++;
+		++it;
 		currentIndex++;
 	}
 	selection->willChange ();

@@ -6,6 +6,7 @@
 #include "../cdrawcontext.h"
 #include "../cframe.h"
 #include "../cgraphicspath.h"
+#include "../events.h"
 #include <algorithm>
 
 namespace VSTGUI {
@@ -349,65 +350,69 @@ CMouseEventResult CSegmentButton::onMouseDown (CPoint& where, const CButtonState
 				break; // out of for loop
 			}
 			newValue += valueOffset;
+
+			// Last segment can lead to newValue > 1.0
+			newValue = std::min(newValue, 1.f);
 		}
 	}
 	return kMouseDownEventHandledButDontNeedMovedOrUpEvents;
 }
 
 //-----------------------------------------------------------------------------
-int32_t CSegmentButton::onKeyDown (VstKeyCode& keyCode)
+void CSegmentButton::onKeyboardEvent (KeyboardEvent& event)
 {
-	int32_t result = -1;
-	if (selectionMode != SelectionMode::kMultiple && keyCode.modifier == 0 &&
-	    keyCode.character == 0)
+	if (event.type != EventType::KeyDown || event.modifiers.empty () == false ||
+	    event.character != 0)
+		return;
+	if (selectionMode != SelectionMode::kMultiple)
 	{
 		uint32_t newIndex = getSegmentIndex (getValueNormalized ());
 		uint32_t oldIndex = newIndex;
-		switch (keyCode.virt)
+		switch (event.virt)
 		{
-			case VKEY_LEFT:
+			case VirtualKey::Left:
 			{
 				if (style == Style::kHorizontal && newIndex > 0)
 					newIndex--;
 				else if (style == Style::kHorizontalInverse && newIndex < segments.size () - 1)
 					newIndex++;
-				result = 1;
+				event.consumed = true;
 				break;
 			}
-			case VKEY_RIGHT:
+			case VirtualKey::Right:
 			{
 				if (style == Style::kHorizontal && newIndex < segments.size () - 1)
 					newIndex++;
 				else if (style == Style::kHorizontalInverse && newIndex > 0)
 					newIndex--;
-				result = 1;
+				event.consumed = true;
 				break;
 			}
-			case VKEY_UP:
+			case VirtualKey::Up:
 			{
 				if (style == Style::kVertical && newIndex > 0)
 					newIndex--;
 				else if (style == Style::kVerticalInverse && newIndex < segments.size () - 1)
 					newIndex++;
-				result = 1;
+				event.consumed = true;
 				break;
 			}
-			case VKEY_DOWN:
+			case VirtualKey::Down:
 			{
 				if (style == Style::kVertical && newIndex < segments.size () - 1)
 					newIndex++;
 				else if (style == Style::kVerticalInverse && newIndex > 0)
 					newIndex--;
-				result = 1;
+				event.consumed = true;
 				break;
 			}
+			default: return;
 		}
 		if (newIndex != oldIndex)
 		{
 			setSelectedSegment (newIndex);
 		}
 	}
-	return result;
 }
 
 //-----------------------------------------------------------------------------
@@ -435,6 +440,8 @@ void CSegmentButton::drawRect (CDrawContext* pContext, const CRect& dirtyRect)
 		CRect r (getViewSize ());
 		r.inset (lineWidth / 2., lineWidth / 2.);
 		path = owned (pContext->createGraphicsPath ());
+		if (!path)
+			return;
 		path->addRoundRect (r, getRoundRadius ());
 	}
 	pContext->setDrawMode (kAntiAliasing);
@@ -517,7 +524,9 @@ uint32_t CSegmentButton::getSegmentIndex (float value) const
 {
 	if (value < 0.f || value > 1.f)
 		return kPushBack;
-	return static_cast<uint32_t> (static_cast<float> (segments.size () - 1) * value);
+
+	return std::min<uint32_t> (static_cast<uint32_t> (segments.size () - 1),
+							   static_cast<uint32_t> (value * (segments.size ())));
 }
 
 //-----------------------------------------------------------------------------

@@ -1,7 +1,5 @@
 var class_wdf_parallel_terminated_adaptor =
 [
-    [ "WdfParallelTerminatedAdaptor", "class_wdf_parallel_terminated_adaptor.html#aaf998f00dfd43aaec9724a4e0c9911fe", null ],
-    [ "~WdfParallelTerminatedAdaptor", "class_wdf_parallel_terminated_adaptor.html#a2f4f5d13e806a31e99b996910ba08492", null ],
     [ "getOutput1", "class_wdf_parallel_terminated_adaptor.html#a761baf93b057aa3e918109b18b384059", null ],
     [ "getOutput2", "class_wdf_parallel_terminated_adaptor.html#a515e6d4ade1f0f1869338e03c08e3a94", null ],
     [ "getOutput3", "class_wdf_parallel_terminated_adaptor.html#a7921512d5ac811f794f5dd9e2ba7dbb1", null ],

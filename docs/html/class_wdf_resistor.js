@@ -1,8 +1,5 @@
 var class_wdf_resistor =
 [
-    [ "WdfResistor", "class_wdf_resistor.html#a1e60211cabb5cceb2d1f0d5f67848df5", null ],
-    [ "WdfResistor", "class_wdf_resistor.html#a48b24629e56a442af58021da761ac824", null ],
-    [ "~WdfResistor", "class_wdf_resistor.html#a8d36f9a7250555cccac4dab8f755082e", null ],
     [ "getComponentConductance", "class_wdf_resistor.html#a2ce8b782f3331c496e64ee37ab5e8521", null ],
     [ "getComponentResistance", "class_wdf_resistor.html#a025123465bf6cd603c49d82259420fd9", null ],
     [ "getComponentValue", "class_wdf_resistor.html#ae1459887c1f6752ed276c2e8fa61c71b", null ],

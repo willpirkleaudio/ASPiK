@@ -5,6 +5,7 @@
 #pragma once
 
 #include "cairoutils.h"
+#include "cairopath.h"
 
 #include "../../coffscreencontext.h"
 
@@ -58,6 +59,7 @@ public:
 	void beginDraw () override;
 	void endDraw () override;
 
+	CRect getCurrentStateClipRect () const;
 private:
 	void init () override;
 	void setSourceColor (CColor color);
@@ -66,6 +68,8 @@ private:
 
 	SurfaceHandle surface;
 	ContextHandle cr;
+
+	PlatformGraphicsPathFactoryPtr graphicsPathFactory;
 };
 
 //------------------------------------------------------------------------

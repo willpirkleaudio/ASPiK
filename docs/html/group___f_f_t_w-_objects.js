@@ -1,8 +1,6 @@
 var group___f_f_t_w__objects =
 [
     [ "FastFFT", "class_fast_f_f_t.html", [
-      [ "FastFFT", "class_fast_f_f_t.html#a1acabb62d5c6154d8eb763820419aabc", null ],
-      [ "~FastFFT", "class_fast_f_f_t.html#a20d382dcdf5fbba9cf7de88e6f4249b0", null ],
       [ "destroyFFTW", "class_fast_f_f_t.html#aab010d1d670c54d44cdfa4e63ed25e96", null ],
       [ "doFFT", "class_fast_f_f_t.html#ae365754bf56b7df18daabde218416d7e", null ],
       [ "doInverseFFT", "class_fast_f_f_t.html#aaf4cab24b293919c8a9ebf3560824508", null ],
@@ -20,17 +18,15 @@ var group___f_f_t_w__objects =
       [ "windowGainCorrection", "class_fast_f_f_t.html#a662445d8bff248deb8b3586cafbca311", null ]
     ] ],
     [ "PhaseVocoder", "class_phase_vocoder.html", [
-      [ "PhaseVocoder", "class_phase_vocoder.html#a7b39ac59edd287037df9749e52f10159", null ],
-      [ "~PhaseVocoder", "class_phase_vocoder.html#a2d5f8a07a8ef3b574e760d7427a6bdc5", null ],
       [ "addZeroPad", "class_phase_vocoder.html#a38a82504efc7d40e42c68224bbdb70bc", null ],
       [ "advanceAndCheckFFT", "class_phase_vocoder.html#a256c055425daa2524e831bc0b2237128", null ],
       [ "destroyFFTW", "class_phase_vocoder.html#ae481fe1540dfc274fbe8f39d4bc66946", null ],
       [ "doInverseFFT", "class_phase_vocoder.html#ac0ae4d272d534587285f942660b5b821", null ],
       [ "doOverlapAdd", "class_phase_vocoder.html#af8fdc46f1c881578e7a152359fa7877c", null ],
-      [ "getFFTData", "class_phase_vocoder.html#a15a924038a62ff8e8508e6e22834b087", null ],
+      [ "getFFTData", "class_phase_vocoder.html#a6c047ecd041d33b30d0f114c6be0a439", null ],
       [ "getFrameLength", "class_phase_vocoder.html#a22573f4e1cff669b9b7cbf8e6e62e8ea", null ],
       [ "getHopSize", "class_phase_vocoder.html#aff2c8afd621e4093a9a83aa769b9bf78", null ],
-      [ "getIFFTData", "class_phase_vocoder.html#a4cc1eb03017e4b038cb5239d4edb3f9f", null ],
+      [ "getIFFTData", "class_phase_vocoder.html#acbeb667a4b64b610673c14cf0d7063d7", null ],
       [ "getOverlap", "class_phase_vocoder.html#a1eefef43118a180472ceb3d7fabfea8e", null ],
       [ "initialize", "class_phase_vocoder.html#aec4966ecfcc1b818d5ac5b6456a68f98", null ],
       [ "processAudioSample", "class_phase_vocoder.html#af96718aa49169d5eb38df8abd99a5fa1", null ],
@@ -60,8 +56,6 @@ var group___f_f_t_w__objects =
       [ "wrapMaskOut", "class_phase_vocoder.html#ad60cb40a8b5b386f5985c1e1ac82d9f3", null ]
     ] ],
     [ "FastConvolver", "class_fast_convolver.html", [
-      [ "FastConvolver", "class_fast_convolver.html#a12990ce415301aa63ca3e121fb88e106", null ],
-      [ "~FastConvolver", "class_fast_convolver.html#afe12c22ac0a493a278f93df66e03db32", null ],
       [ "getFilterIRLength", "class_fast_convolver.html#a3501ffdff99d6555b3ab26c30bdd3c6b", null ],
       [ "getFrameLength", "class_fast_convolver.html#ac23f50f5736eba61b0033737a55d4d0a", null ],
       [ "initialize", "class_fast_convolver.html#a7c805c30c11364410fc15fdd8bdbfdd8", null ],
@@ -75,8 +69,7 @@ var group___f_f_t_w__objects =
       [ "vocoder", "class_fast_convolver.html#ae59c237a6061fe1ed823c4e8ad697aee", null ]
     ] ],
     [ "BinData", "struct_bin_data.html", [
-      [ "BinData", "struct_bin_data.html#ab811b35ca91fc5d7f776d7aef5aa0b88", null ],
-      [ "operator=", "struct_bin_data.html#a0107430f365bfa0d3b51b7e6342ed509", null ],
+      [ "operator=", "struct_bin_data.html#a42301584a25a45acf816bee6521af75e", null ],
       [ "reset", "struct_bin_data.html#abbfc08b71df242a8d315b05e83b7ed5e", null ],
       [ "isPeak", "struct_bin_data.html#a0d137cde81da40f5519d5424e53815d6", null ],
       [ "localPeakBin", "struct_bin_data.html#a187520efd8c53d64371500234297a485", null ],
@@ -87,15 +80,12 @@ var group___f_f_t_w__objects =
       [ "updatedPhase", "struct_bin_data.html#a2153bd0422d18439b16248e85618c252", null ]
     ] ],
     [ "PSMVocoderParameters", "struct_p_s_m_vocoder_parameters.html", [
-      [ "PSMVocoderParameters", "struct_p_s_m_vocoder_parameters.html#aee91d903db44b21c9f24ad50b6da723d", null ],
-      [ "operator=", "struct_p_s_m_vocoder_parameters.html#a0aa655249ae5bf6131a0168ee71314e6", null ],
+      [ "operator=", "struct_p_s_m_vocoder_parameters.html#a046fc26f67cbaa33ea0c7b19d9200d8f", null ],
       [ "enablePeakPhaseLocking", "struct_p_s_m_vocoder_parameters.html#a752c2367f9919ec8b6b34512afc63d44", null ],
       [ "enablePeakTracking", "struct_p_s_m_vocoder_parameters.html#a1532e55c56a2aa9b54456d65e7d356b2", null ],
       [ "pitchShiftSemitones", "struct_p_s_m_vocoder_parameters.html#a43318760012b69fec7185203ca5a1b18", null ]
     ] ],
     [ "PSMVocoder", "class_p_s_m_vocoder.html", [
-      [ "PSMVocoder", "class_p_s_m_vocoder.html#a769ee39518692bacbf9774d6b5fd547d", null ],
-      [ "~PSMVocoder", "class_p_s_m_vocoder.html#afc1ef3ef6bf895c056e81fca3a9a7dfc", null ],
       [ "canProcessAudioFrame", "class_p_s_m_vocoder.html#a97bbfa5297a23c1fb714c0399cc51672", null ],
       [ "findPeaksAndRegionsOfInfluence", "class_p_s_m_vocoder.html#a334229ade7df7160af10bc224a1c907e", null ],
       [ "findPreviousNearestPeak", "class_p_s_m_vocoder.html#a0b322253520c12f0ab1dfe820a9ef454", null ],
@@ -121,13 +111,10 @@ var group___f_f_t_w__objects =
       [ "windowCorrection", "class_p_s_m_vocoder.html#a4e90d8754a6f937bce0b393a51944fe1", null ]
     ] ],
     [ "InterpolatorOutput", "struct_interpolator_output.html", [
-      [ "InterpolatorOutput", "struct_interpolator_output.html#ad99ac0fe911a0cb0ce37950bdc3ab8c7", null ],
       [ "audioData", "struct_interpolator_output.html#af7ff4e6231570c8af3a7635cc2d280a7", null ],
       [ "count", "struct_interpolator_output.html#a2505abd5a97a97ebdcb45a34915e533f", null ]
     ] ],
     [ "Interpolator", "class_interpolator.html", [
-      [ "Interpolator", "class_interpolator.html#ab8cbb0b13436fc54a4bba03804ae8f8a", null ],
-      [ "~Interpolator", "class_interpolator.html#a6bb406dfe33e06296ccf24f18abcd46c", null ],
       [ "initialize", "class_interpolator.html#a8a58fd93b9efe519294d889ca96747b5", null ],
       [ "interpolateAudio", "class_interpolator.html#a404415fa8fe2400a58d1cfff80d8de72", null ],
       [ "convolver", "class_interpolator.html#ae5b41c19f27e6811a9a1133a4f2ec1cd", null ],
@@ -138,13 +125,10 @@ var group___f_f_t_w__objects =
       [ "sampleRate", "class_interpolator.html#a5eeff6bfb7835f1030a36e4bb692ba28", null ]
     ] ],
     [ "DecimatorInput", "struct_decimator_input.html", [
-      [ "DecimatorInput", "struct_decimator_input.html#a073f3b40f2047c98ce8188c5ae1e3927", null ],
       [ "audioData", "struct_decimator_input.html#a3e042f26d1c3b2324f6971f549801be0", null ],
       [ "count", "struct_decimator_input.html#a8196920b2f52b1a0a54a99339d0d51d9", null ]
     ] ],
     [ "Decimator", "class_decimator.html", [
-      [ "Decimator", "class_decimator.html#a2b57b5df9e911401e62c761c3aecd75a", null ],
-      [ "~Decimator", "class_decimator.html#ac47b2ea2f88da65270785ad27e4b2285", null ],
       [ "decimateAudio", "class_decimator.html#ac5525da97881f53552e20e63d4741117", null ],
       [ "initialize", "class_decimator.html#aa02b92a9a72a5d05184ad9563e610683", null ],
       [ "convolver", "class_decimator.html#a19f692604e4accbd2f4625328abed86e", null ],

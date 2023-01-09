@@ -13,6 +13,8 @@ function(vstgui_add_executable target sources)
     add_executable(${target} WIN32 ${sources})
     if(MSVC_CXX_ARCHITECTURE_ID MATCHES "^(x86|X86)$")
        set_target_properties(${target} PROPERTIES LINK_FLAGS "/INCLUDE:_wWinMain@16")
+    elseif(MSVC_CXX_ARCHITECTURE_ID MATCHES "ARM64EC")
+       set_target_properties(${target} PROPERTIES LINK_FLAGS "/INCLUDE:#wWinMain")
     else()
        set_target_properties(${target} PROPERTIES LINK_FLAGS "/INCLUDE:wWinMain")
     endif()
@@ -32,14 +34,9 @@ function(vstgui_add_executable target sources)
       MACOSX_PACKAGE_LOCATION "."
     )
     add_executable(${target} ${sources} ${PkgInfoResource})
-    set(PLATFORM_LIBRARIES
-      "-framework Cocoa"
-      "-framework OpenGL"
-      "-framework QuartzCore"
-      "-framework Accelerate"
-    )
     set_target_properties(${target} PROPERTIES
       MACOSX_BUNDLE TRUE
+      XCODE_ATTRIBUTE_GENERATE_PKGINFO_FILE NO
       XCODE_ATTRIBUTE_DEBUG_INFORMATION_FORMAT $<$<CONFIG:Debug>:dwarf>$<$<NOT:$<CONFIG:Debug>>:dwarf-with-dsym>
       XCODE_ATTRIBUTE_DEPLOYMENT_POSTPROCESSING $<$<CONFIG:Debug>:NO>$<$<NOT:$<CONFIG:Debug>>:YES>
       OUTPUT_NAME "${target}"
@@ -47,10 +44,11 @@ function(vstgui_add_executable target sources)
   endif(CMAKE_HOST_APPLE)
 
   target_link_libraries(${target}
-    vstgui
-    vstgui_uidescription
-    vstgui_standalone
-    ${PLATFORM_LIBRARIES}
+  	PUBLIC
+		vstgui
+		vstgui_uidescription
+		vstgui_standalone
+		${PLATFORM_LIBRARIES}
   )
   target_compile_definitions(${target} ${VSTGUI_COMPILE_DEFINITIONS})
 
@@ -99,6 +97,16 @@ function(vstgui_add_resources target resources)
 	  endif()
     endforeach(resource ${resources})
   endif()  
+endfunction()
+
+###########################################################################################
+function(vstgui_set_target_bundle_id target identifier)
+  if(CMAKE_HOST_APPLE)
+    set_target_properties(${target} PROPERTIES
+      XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER ${identifier}
+    )
+  endif(CMAKE_HOST_APPLE)
+  target_compile_definitions(${target} PRIVATE VSTGUI_STANDALONE_APP_URI="${identifier}")
 endfunction()
 
 ###########################################################################################

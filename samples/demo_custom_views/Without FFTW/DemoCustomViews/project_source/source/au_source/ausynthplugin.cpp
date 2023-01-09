@@ -20,12 +20,12 @@
 #define	SMTG_MAKE_STRING_PRIVATE_DONT_USE(x)	# x
 #define	SMTG_MAKE_STRING(x)		SMTG_MAKE_STRING_PRIVATE_DONT_USE(x)
 
-#pragma mark ____AUFXPlugin
+#pragma mark ____AUSynthPlugin
 
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //--- Library Entry Point, see .exp file
-AUDIOCOMPONENT_ENTRY(AUMusicDeviceFactory, AUSynthPlugin)
+AUSDK_COMPONENT_ENTRY(ausdk::AUMusicDeviceFactory, AUSynthPlugin);
 
 // --- Factory preset: in case the plugin core does not specifically declare one
 static const int kNumberPresets = 1;
@@ -48,7 +48,7 @@ static AUPreset kPresets[kNumberPresets] = {
 
 */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-AUSynthPlugin::AUSynthPlugin(AudioUnit component) : AUInstrumentBase(component, 0, 1) // No inputs, One output
+AUSynthPlugin::AUSynthPlugin(AudioUnit component) : ausdk::MusicDeviceBase(component, 0, 1) // No inputs, One output
 {
     CreateElements(); // --- create input, output ports, groups and parts
 
@@ -109,8 +109,8 @@ AUSynthPlugin::AUSynthPlugin(AudioUnit component) : AUInstrumentBase(component, 
     if(hasSidechain)
     {
         SetBusCount(kAudioUnitScope_Input, 2);
-        SafeGetElement(kAudioUnitScope_Input, 0)->SetName(CFSTR("Main Input"));
-        SafeGetElement(kAudioUnitScope_Input, 1)->SetName(CFSTR("Sidechain"));
+        Element(kAudioUnitScope_Input, 0).SetName(CFSTR("Main Input"));
+        Element(kAudioUnitScope_Input, 1).SetName(CFSTR("Sidechain"));
      }
 
     // --- final init
@@ -198,7 +198,7 @@ AUSynthPlugin::~AUSynthPlugin()
 
 */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ComponentResult	AUSynthPlugin::Reset(AudioUnitScope 	 inScope,
+OSStatus	AUSynthPlugin::Reset(AudioUnitScope 	 inScope,
                                   AudioUnitElement   inElement)
 {
     // --- reset the base class
@@ -207,13 +207,13 @@ ComponentResult	AUSynthPlugin::Reset(AudioUnitScope 	 inScope,
     if(pluginCore)
     {
         ResetInfo info;
-        info.sampleRate = GetOutput(0)->GetStreamFormat().mSampleRate;
-        info.bitDepth = GetOutput(0)->GetStreamFormat().SampleWordSize() * 8;
-
+        info.sampleRate = Output(0).GetStreamFormat().mSampleRate;
+        info.bitDepth = Output(0).GetStreamFormat().mBitsPerChannel * 8;
+        
         pluginCore->reset(info);
 
         // --- AU Specific
-        latencyInSeconds = pluginCore->getLatencyInSamples() / GetOutput(0)->GetStreamFormat().mSampleRate;
+        latencyInSeconds = pluginCore->getLatencyInSamples() / Output(0).GetStreamFormat().mSampleRate;
     }
 
     return noErr;
@@ -272,21 +272,21 @@ UInt32 AUSynthPlugin::SupportedNumChannels (const AUChannelInfo** outInfo)
  \return the number of AUChannelInfo structures in the array
  */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ComponentResult	AUSynthPlugin::Initialize()
+OSStatus    AUSynthPlugin::Initialize()
 {
     if(pluginCore)
     {
         ResetInfo info;
-        info.sampleRate = GetOutput(0)->GetStreamFormat().mSampleRate;
-        info.bitDepth = GetOutput(0)->GetStreamFormat().SampleWordSize() * 8;
+        info.sampleRate = Output(0).GetStreamFormat().mSampleRate;
+        info.bitDepth = Output(0).GetStreamFormat().mBitsPerChannel * 8;
 
         pluginCore->reset(info);
 
         // --- AU Specific
-        latencyInSeconds = pluginCore->getLatencyInSamples() / GetOutput(0)->GetStreamFormat().mSampleRate;
+        latencyInSeconds = pluginCore->getLatencyInSamples() / Output(0).GetStreamFormat().mSampleRate;
     }
 
-    return AUInstrumentBase::Initialize();
+    return ausdk::MusicDeviceBase::Initialize();
 }
 
 
@@ -306,9 +306,9 @@ ComponentResult	AUSynthPlugin::Initialize()
 
 */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ComponentResult	AUSynthPlugin::RestoreState(CFPropertyListRef inData)
+OSStatus	AUSynthPlugin::RestoreState(CFPropertyListRef inData)
 {
-    ComponentResult result = AUBase::RestoreState(inData);
+    OSStatus result = AUBase::RestoreState(inData);
     return result;
 }
 
@@ -459,7 +459,7 @@ OSStatus AUSynthPlugin::Render(AudioUnitRenderActionFlags &		ioActionFlags,
     ProcessBufferInfo info;
 
     // --- get the number of channels
-    AudioBufferList& bufferList = GetOutput(0)->GetBufferList();
+    AudioBufferList& bufferList = Output(0).GetBufferList();
     size_t numInputChannels = 0;//(size_t) GetInput(0)->GetStreamFormat().mChannelsPerFrame;
     size_t numOutputChannels = bufferList.mNumberBuffers;
     size_t numAuxInputChannels = 0;
@@ -557,7 +557,7 @@ void AUSynthPlugin::updateHostInfo(HostInfo* hostInfo)
         hostInfo->bTransportStateChanged = outTransportStateChanged;
         hostInfo->bIsPlayingAU = outIsPlaying;
         hostInfo->uAbsoluteFrameBufferIndex = outCurrentSampleInTimeLine;
-        hostInfo->dAbsoluteFrameBufferTime = outCurrentSampleInTimeLine/GetOutput(0)->GetStreamFormat().mSampleRate;
+        hostInfo->dAbsoluteFrameBufferTime = outCurrentSampleInTimeLine/Output(0).GetStreamFormat().mSampleRate;
     }
 }
 
@@ -576,7 +576,7 @@ void AUSynthPlugin::updateHostInfo(HostInfo* hostInfo)
  - https://developer.apple.com/documentation/audiounit
 */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ComponentResult AUSynthPlugin::SetParameter(AudioUnitParameterID	   inID,
+OSStatus     AUSynthPlugin::SetParameter(AudioUnitParameterID	   inID,
                                                AudioUnitScope 		   inScope,
                                                AudioUnitElement 	   inElement,
                                                AudioUnitParameterValue inValue,
@@ -599,7 +599,7 @@ ComponentResult AUSynthPlugin::SetParameter(AudioUnitParameterID	   inID,
  - https://developer.apple.com/documentation/audiounit
 */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ComponentResult	AUSynthPlugin::GetParameterInfo(AudioUnitScope		   inScope,
+OSStatus   	AUSynthPlugin::GetParameterInfo(AudioUnitScope		   inScope,
                                                    AudioUnitParameterID    inParameterID,
                                                    AudioUnitParameterInfo& outParameterInfo )
 {
@@ -608,7 +608,7 @@ ComponentResult	AUSynthPlugin::GetParameterInfo(AudioUnitScope		   inScope,
     //     we also give it units.
     //
 
-    ComponentResult result = noErr;
+    OSStatus result = noErr;
     if(!pluginCore) return kAudioUnitErr_InvalidParameter;
 
     outParameterInfo.flags = kAudioUnitParameterFlag_IsWritable + kAudioUnitParameterFlag_IsReadable;
@@ -662,9 +662,9 @@ ComponentResult	AUSynthPlugin::GetParameterInfo(AudioUnitScope		   inScope,
   - https://developer.apple.com/documentation/audiounit
  */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ComponentResult	AUSynthPlugin::GetParameterValueStrings(AudioUnitScope       inScope,
-                                                           AudioUnitParameterID	inParameterID,
-                                                           CFArrayRef *			outStrings)
+OSStatus	AUSynthPlugin::GetParameterValueStrings(AudioUnitScope       inScope,
+                                                    AudioUnitParameterID	inParameterID,
+                                                    CFArrayRef *			outStrings)
 {
     if(!pluginCore) return kAudioUnitErr_InvalidParameter;
 
@@ -704,11 +704,11 @@ ComponentResult	AUSynthPlugin::GetParameterValueStrings(AudioUnitScope       inS
  - https://developer.apple.com/documentation/audiounit
 */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ComponentResult	AUSynthPlugin::GetPropertyInfo(AudioUnitPropertyID inID,
+OSStatus	AUSynthPlugin::GetPropertyInfo(AudioUnitPropertyID inID,
                                                   AudioUnitScope      inScope,
                                                   AudioUnitElement    inElement,
                                                   UInt32&             outDataSize,
-                                                  Boolean&            outWritable)
+                                                  bool&            outWritable)
 {
     if(!pluginCore) return kAudioUnitErr_InvalidParameter;
 
@@ -739,7 +739,7 @@ ComponentResult	AUSynthPlugin::GetPropertyInfo(AudioUnitPropertyID inID,
             }
         }
     }
-    return AUInstrumentBase::GetPropertyInfo(inID, inScope, inElement, outDataSize, outWritable);
+    return ausdk::MusicDeviceBase::GetPropertyInfo(inID, inScope, inElement, outDataSize, outWritable);
 }
 
 
@@ -755,10 +755,10 @@ ComponentResult	AUSynthPlugin::GetPropertyInfo(AudioUnitPropertyID inID,
  - https://developer.apple.com/documentation/audiounit
 */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ComponentResult	AUSynthPlugin::GetProperty(AudioUnitPropertyID       inID,
-                                              AudioUnitScope      inScope,
-                                              AudioUnitElement    inElement,
-                                              void*               outData)
+OSStatus	AUSynthPlugin::GetProperty(AudioUnitPropertyID       inID,
+                                        AudioUnitScope      inScope,
+                                        AudioUnitElement    inElement,
+                                        void*               outData)
 {
     if (inScope == kAudioUnitScope_Global)
     {
@@ -770,14 +770,14 @@ ComponentResult	AUSynthPlugin::GetProperty(AudioUnitPropertyID       inID,
                  // --- Look for a resource in the main bundle by name and type.
                   CFBundleRef bundle = CFBundleGetBundleWithIdentifier(CFStringCreateWithCString(nullptr, pluginCore->getAUBundleID(), kCFStringEncodingASCII));
 
-                 if(bundle == NULL) return fnfErr;
+                 if(bundle == NULL) return kAudio_FileNotFoundError;
 
                  CFURLRef bundleURL = CFBundleCopyResourceURL(bundle,
                                                                CFStringCreateWithCString(nullptr, pluginCore->getAUBundleName(), kCFStringEncodingASCII),
                                                                CFSTR("bundle"),
                                                                NULL);
 
-                 if(bundleURL == NULL) return fnfErr;
+                 if(bundleURL == NULL) return kAudio_FileNotFoundError;
 
                  CFStringRef className = CFStringCreateWithCString(nullptr, pluginCore->getAUCocoaViewFactoryName(), kCFStringEncodingASCII);
 
@@ -790,7 +790,7 @@ ComponentResult	AUSynthPlugin::GetProperty(AudioUnitPropertyID       inID,
              return kAudioUnitErr_InvalidProperty;
          }
     }
-    return AUInstrumentBase::GetProperty(inID, inScope, inElement, outData);
+    return ausdk::MusicDeviceBase::GetProperty(inID, inScope, inElement, outData);
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -825,7 +825,7 @@ OSStatus	AUSynthPlugin::SetProperty(AudioUnitPropertyID inID,
                 {
                     // --- Look for a resource in the main bundle by name and type.
                     CFBundleRef bundle = CFBundleGetBundleWithIdentifier(CFStringCreateWithCString(nullptr, pluginCore->getAUBundleID(), kCFStringEncodingASCII));
-                    if (bundle == nullptr) return fnfErr;
+                    if (bundle == nullptr) return kAudio_FileNotFoundError;
 
                     // --- get .uidesc file
                     CFURLRef bundleURL = CFBundleCopyResourceURL(bundle,CFSTR("PluginGUI"),CFSTR("uidesc"),NULL);
@@ -886,7 +886,7 @@ OSStatus	AUSynthPlugin::SetProperty(AudioUnitPropertyID inID,
 
                     // --- ref count should be exactly 1
                     if(pluginGUI->getNbReference() != 1)
-                        Assert(true, "ASSERT FAILED: pluginGUI->getNbReference() != 1");
+                        assert(true && "ASSERT FAILED: pluginGUI->getNbReference() != 1");
 
                     // --- self-destruct
                     VSTGUI::PluginGUI* oldGUI = pluginGUI;
@@ -916,7 +916,7 @@ OSStatus	AUSynthPlugin::SetProperty(AudioUnitPropertyID inID,
  - https://developer.apple.com/documentation/audiounit
 */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ComponentResult	AUSynthPlugin::GetPresets(CFArrayRef *outData) const
+OSStatus	AUSynthPlugin::GetPresets(CFArrayRef *outData) const
 {
     // --- this is used to determine if presets are supported
     //     which in this unit they are so we implement this method!
@@ -1112,27 +1112,30 @@ OSStatus AUSynthPlugin::HandleControlChange(UInt8  inChannel,
  - https://developer.apple.com/documentation/audiounit
  */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-OSStatus AUSynthPlugin::HandleMidiEvent(UInt8  status,
-                                           UInt8  channel,
-                                           UInt8  data1,
-                                           UInt8  data2,
-                                           UInt32 inStartFrame)
+OSStatus AUSynthPlugin::MIDIEvent(UInt32 inStatus,
+                   UInt32 inData1,
+                   UInt32 inData2,
+                   UInt32 inOffsetSampleFrame)
 {
     if(midiEventQueue)
     {
+        const UInt32 strippedStatus = inStatus & 0xf0U; // NOLINT
+        const UInt32 channel = inStatus & 0x0fU;        // NOLINT
+
         midiEvent event;
-        event.midiMessage = (unsigned int)status;
-        event.midiChannel = (unsigned int)channel;
-        event.midiData1 = (unsigned int)data1;
-        event.midiData2 = (unsigned int)data2;;
-        event.midiSampleOffset = inStartFrame;
+        event.midiMessage = strippedStatus;
+        event.midiChannel = channel;
+        event.midiData1 = (unsigned int)inData1;
+        event.midiData2 = (unsigned int)inData2;;
+        event.midiSampleOffset = inOffsetSampleFrame;
         midiEventQueue->addEvent(event);
     }
 
 
     // --- call base class to do its thing
-    return AUInstrumentBase::HandleMidiEvent(status, channel, data1, data2, inStartFrame);
+    return ausdk::MusicDeviceBase::MIDIEvent(inStatus, inData1, inData2, inOffsetSampleFrame);
 }
+
 
 
 

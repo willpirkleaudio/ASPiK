@@ -1,8 +1,5 @@
 var class_wdf_capacitor =
 [
-    [ "WdfCapacitor", "class_wdf_capacitor.html#aa33f65981f1987f52b41a25a20f1694a", null ],
-    [ "WdfCapacitor", "class_wdf_capacitor.html#acbbed0c2753d206e16a7abc08dcb5923", null ],
-    [ "~WdfCapacitor", "class_wdf_capacitor.html#a3edb4590f95e29225a49bf9cd0ce682a", null ],
     [ "getComponentConductance", "class_wdf_capacitor.html#ad84ecb953065506c3884cd8789730ce5", null ],
     [ "getComponentResistance", "class_wdf_capacitor.html#a07429d6fc473adec19c5061bd5c09c53", null ],
     [ "getComponentValue", "class_wdf_capacitor.html#aa0debe86ec7feed19cdd893bade2aadc", null ],

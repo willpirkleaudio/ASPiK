@@ -1,7 +1,5 @@
 var class_fast_f_f_t =
 [
-    [ "FastFFT", "class_fast_f_f_t.html#a1acabb62d5c6154d8eb763820419aabc", null ],
-    [ "~FastFFT", "class_fast_f_f_t.html#a20d382dcdf5fbba9cf7de88e6f4249b0", null ],
     [ "destroyFFTW", "class_fast_f_f_t.html#aab010d1d670c54d44cdfa4e63ed25e96", null ],
     [ "doFFT", "class_fast_f_f_t.html#ae365754bf56b7df18daabde218416d7e", null ],
     [ "doInverseFFT", "class_fast_f_f_t.html#aaf4cab24b293919c8a9ebf3560824508", null ],

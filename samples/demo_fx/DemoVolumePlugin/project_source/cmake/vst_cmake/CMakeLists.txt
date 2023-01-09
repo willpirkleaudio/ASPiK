@@ -115,11 +115,19 @@ else()
 	smtg_add_vst3plugin(${target} ${kernel_sources} ${vst_core_sources} ${custom_vstgui_sources} ${vstsdk_sources})
 endif()
 
-# --- VST3 SDK 3.7.2 addition
+# COVID2
+smtg_target_configure_version_file(${target})
 target_compile_features(${target}
-PUBLIC
-    cxx_std_14
+    PUBLIC
+        cxx_std_17
 )
+
+# COVID2
+# --- VST3 SDK 3.7.2 addition
+# target_compile_features(${target}
+# PUBLIC
+#     cxx_std_14
+# )
 
 # ---  setup header search paths
 target_include_directories(${target} PUBLIC ${VSTGUI_ROOT}/)
@@ -202,10 +210,11 @@ endif()
 # ---  Resources:
 #
 # ---------------------------------------------------------------------------------
-smtg_add_vst3_resource(${target} "${RESOURCE_ROOT}/PluginGUI.uidesc")
+# COVID2
+smtg_target_add_plugin_resources(${target} RESOURCES "${RESOURCE_ROOT}/PluginGUI.uidesc")
 
 if(MAC)
-	smtg_set_bundle(${target} INFOPLIST "${CMAKE_CURRENT_LIST_DIR}/${MAC_ROOT}/Info.plist" PREPROCESS)
+	smtg_target_set_bundle(${target} INFOPLIST "${CMAKE_CURRENT_LIST_DIR}/${MAC_ROOT}/Info.plist" PREPROCESS)
 elseif(WIN)
 	target_sources(${target} PRIVATE ${WIN_ROOT}/PluginGUIMain.rc)
 	target_sources(${target} PRIVATE ${RESOURCE_ROOT}/PluginGUI.uidesc)
@@ -217,6 +226,14 @@ set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_EXPORTED_SYMBOLS_FILE
 
 if (WIN)
 	add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+	
+	# --- make shortcut links to plugin - this is the default VST3 SDK bahavior
+	#
+	# --- your plugins will be found at the VST3 default location as defined by Steinberg:
+	#
+	# --- C:\Users\<your username>\AppData\Local\Programs\Common\VST3
+	#
+	smtg_target_create_link_to_plugin(${target} ${SMTG_PLUGIN_TARGET_DEFAULT_PATH})
 endif()
 
 # for Xcode, add info.plist variables
@@ -227,21 +244,6 @@ if(XCODE)
 	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_INFOPLIST_PREPROCESS "YES")
 endif()
 
-# --- add post build rule to copy VST3 icon for bundle appearance of folder
-if(WIN)
-    set(DEFAULT_ICON_PATH ${SDK_ROOT}/vst3_doc/artwork/VST_Logo_Steinberg.ico)
-    set(PROJECT_SOURCE_DIR ${SDK_ROOT})
-    set(MSG_ICON_PATH "Path to the package icon (VST_Logo_Steinberg.ico) for Windows")
-    if(EXISTS ${DEFAULT_ICON_PATH})
-        set(SMTG_PACKAGE_ICON_PATH ${DEFAULT_ICON_PATH})
-    else()
-        set(SMTG_PACKAGE_ICON_PATH "" CACHE FILEPATH ${MSG_ICON_PATH})
-        message(STATUS "SMTG_PACKAGE_ICON_PATH is not set to (as expected) : " ${DEFAULT_ICON_PATH})
-    endif()
-
-    # --- add the post build rule here:
-    smtg_add_folder_icon(${target} ${SMTG_PACKAGE_ICON_PATH})
-endif()
 
 source_group(PluginKernel FILES ${kernel_sources})
 source_group(PluginObjects FILES ${plugin_object_sources})

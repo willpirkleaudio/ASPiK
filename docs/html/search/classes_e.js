@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['oscillatorparameters',['OscillatorParameters',['../struct_oscillator_parameters.html',1,'']]]
+  ['oscillatorparameters_0',['OscillatorParameters',['../struct_oscillator_parameters.html',1,'']]]
 ];

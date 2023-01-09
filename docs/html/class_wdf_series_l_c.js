@@ -1,8 +1,5 @@
 var class_wdf_series_l_c =
 [
-    [ "WdfSeriesLC", "class_wdf_series_l_c.html#ada9265ec16897981e67e461764c63453", null ],
-    [ "WdfSeriesLC", "class_wdf_series_l_c.html#aee0ff03423914fa70d9f04238a01223b", null ],
-    [ "~WdfSeriesLC", "class_wdf_series_l_c.html#a0d001924467c815fd10ab814a24290d0", null ],
     [ "getComponentConductance", "class_wdf_series_l_c.html#ac48e0b9e65027be4980cac10afb1cc5d", null ],
     [ "getComponentResistance", "class_wdf_series_l_c.html#a06e1080e0de0a4096d76939004454d4e", null ],
     [ "getComponentValue_C", "class_wdf_series_l_c.html#a7c8b124411a1a94db43377d63a4b25da", null ],

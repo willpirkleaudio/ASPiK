@@ -6,8 +6,16 @@ www.willpirkle.com
 # ------------------------------------------------------------------------------
 
 #define ASPiK_VERSION_MAJOR  1
-#define ASPiK_VERSION_MINOR  7
-#define ASPiK_VERSION_BUILD  2
+#define ASPiK_VERSION_MINOR  9
+#define ASPiK_VERSION_BUILD  0
+
+Release Notes 1.9.0:
+* VSTGUI4: updated to 4.12, required for all new projects
+* VST3: updated to SDK 3.7.7
+        added support for VSTGUI 4.12
+* AU: updated to new SDK 1.1.0 (required)
+* AAX: updated and now supports v2.3.2, v2.4.0 and v2.4.1
+* MacOS: Apple Silicon support (select in Xcode)
 
 Release Notes 1.7.2:
 * Fixed save to XML file issues caused by new VSTGUI4 library

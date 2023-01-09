@@ -1,7 +1,5 @@
 var class_audio_filter =
 [
-    [ "AudioFilter", "class_audio_filter.html#a99a2879672e0480a8d4f89fc5a711dc3", null ],
-    [ "~AudioFilter", "class_audio_filter.html#af6f630c06032d6d537c0f8b33173116a", null ],
     [ "calculateFilterCoeffs", "class_audio_filter.html#a96a1ad0803e8100cc049e7b3475a5141", null ],
     [ "canProcessAudioFrame", "class_audio_filter.html#ae9105c22385b9604ab08e7e051120672", null ],
     [ "getG_value", "class_audio_filter.html#a031c6ef2f03935eae1e30e013659977e", null ],

@@ -1,7 +1,6 @@
 var struct_triode_class_a_parameters =
 [
-    [ "TriodeClassAParameters", "struct_triode_class_a_parameters.html#a25e49b70f1fe1e15cec6398ab38d80ed", null ],
-    [ "operator=", "struct_triode_class_a_parameters.html#a5a24247dec1eab479021f41220c206c5", null ],
+    [ "operator=", "struct_triode_class_a_parameters.html#a1e0da9cb1af542820540faf6190082ab", null ],
     [ "asymmetry", "struct_triode_class_a_parameters.html#abbb7ced0a6f638495908addfcf75d09e", null ],
     [ "enableHPF", "struct_triode_class_a_parameters.html#a08273bc35cd315083054a04a4d1e2740", null ],
     [ "enableLSF", "struct_triode_class_a_parameters.html#a32ba57dc7d2948a8e2db0d695b02feff", null ],

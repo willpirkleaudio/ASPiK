@@ -1,7 +1,5 @@
 var class_l_r_filter_bank =
 [
-    [ "LRFilterBank", "class_l_r_filter_bank.html#ad448c28af2ac7409cdf93d8182cb2968", null ],
-    [ "~LRFilterBank", "class_l_r_filter_bank.html#aa4477b45171e013c8e60204b0c229afb", null ],
     [ "canProcessAudioFrame", "class_l_r_filter_bank.html#acdcc55edcf63b1d30c614af1422e4643", null ],
     [ "getParameters", "class_l_r_filter_bank.html#a6c879a5870f9649befa103d0af39965a", null ],
     [ "processAudioSample", "class_l_r_filter_bank.html#a56ad33c516fe249b54bd5ec3553a14a7", null ],

@@ -1,7 +1,5 @@
 var class_decimator =
 [
-    [ "Decimator", "class_decimator.html#a2b57b5df9e911401e62c761c3aecd75a", null ],
-    [ "~Decimator", "class_decimator.html#ac47b2ea2f88da65270785ad27e4b2285", null ],
     [ "decimateAudio", "class_decimator.html#ac5525da97881f53552e20e63d4741117", null ],
     [ "initialize", "class_decimator.html#aa02b92a9a72a5d05184ad9563e610683", null ],
     [ "convolver", "class_decimator.html#a19f692604e4accbd2f4625328abed86e", null ],

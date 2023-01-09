@@ -6,12 +6,13 @@ Will Pirkle https://aspikplugins.com
 ## System requirements
 Supported OS:
 
-- Microsoft Windows 7-10
+- Microsoft Windows 8-10
 - Apple OSX 10.0-10.16 (Catalina and Big Sur are supported and never had issues)
 
 Supported IDE:
 - Visual Studio 2015/2017/2019 
 - minimum Xcode 12 
+- minimum Visual Studio for VST3 plugins: VS2019
 
 ## Contributing
 

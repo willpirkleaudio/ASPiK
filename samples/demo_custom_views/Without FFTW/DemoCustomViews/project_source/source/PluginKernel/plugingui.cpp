@@ -115,8 +115,7 @@ Operation: \n
 PluginGUI::PluginGUI(UTF8StringPtr _xmlFile) :
 	IController(),
 	IViewAddedRemovedObserver(),
-	IMouseObserver(),
-	IKeyboardHook(),
+    OldMouseObserverAdapter(),
 	VSTGUIEditorInterface(),
 	CBaseObject(),
 	IGUIView()
@@ -1273,7 +1272,7 @@ CMouseEventResult PluginGUI::sendAUMouseDown(CControl* control, const CButtonSta
 	if (buttons.isLeftButton() && (buttons & kAlt))
 	{
 		CButtonState newState(kLButton | kControl);
-		control->checkDefaultValue(newState);
+		// control->checkDefaultValue(newState);
 		result = kMouseEventHandled;
 	}
 	else if (buttons.isLeftButton() && (buttons & kControl))

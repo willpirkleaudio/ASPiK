@@ -1,8 +1,7 @@
 var pluginstructures_8h =
 [
     [ "PresetInfo", "struct_preset_info.html", "struct_preset_info" ],
-    [ "HostMessageInfo", "struct_host_message_info.html", "struct_host_message_info" ],
-    [ "MAX_CHANNEL_COUNT", "pluginstructures_8h.html#a18d2101833dd45244c5b64fb03b0dfae", null ],
+    [ "HostMessageInfo", "struct_host_message_info.html", null ],
     [ "aaxPlugInCategory", "group___constants-_enums.html#gae0f22a439757361d270d7ebd16cca80d", [
       [ "aaxPlugInCategory_None", "pluginstructures_8h.html#gae0f22a439757361d270d7ebd16cca80dae4971a1d64a1202a12d78af58c429007", null ],
       [ "aaxPlugInCategory_EQ", "pluginstructures_8h.html#gae0f22a439757361d270d7ebd16cca80daf0266becf6a02d51340ddb77de4d0b9b", null ],
@@ -98,10 +97,8 @@ var pluginstructures_8h =
       [ "kSynthPlugin", "pluginstructures_8h.html#gadcd0744e537d692747d91584da9eff4aad3c0ca03ea2814d39d1c640514744a17", null ]
     ] ],
     [ "boolToStdString", "group___a_s_pi_k-_g_u_i.html#gab35d7722483843f5939b88632e44ade1", null ],
-    [ "numberToString", "group___a_s_pi_k-_g_u_i.html#ga9f69aa44fbbdbff72aa58c40e4008cc2", null ],
-    [ "numberToString", "group___a_s_pi_k-_g_u_i.html#ga5a922a3ad4cedc8a42c25d7122298591", null ],
-    [ "numberToString", "group___a_s_pi_k-_g_u_i.html#gac2d7e05580a25958f7a31f71b9efb862", null ],
     [ "numberToString", "group___a_s_pi_k-_g_u_i.html#gab8bb304a493b37767a3f1dcfa7e93733", null ],
-    [ "DEFAULT_AUDIO_BLOCK_SIZE", "pluginstructures_8h.html#a20537dce78afeb31c64fb75a2d662977", null ],
-    [ "WANT_WHOLE_BUFFER", "pluginstructures_8h.html#a50abca8c4c305a8df519da99eeae3801", null ]
+    [ "numberToString", "group___a_s_pi_k-_g_u_i.html#gac2d7e05580a25958f7a31f71b9efb862", null ],
+    [ "numberToString", "group___a_s_pi_k-_g_u_i.html#ga5a922a3ad4cedc8a42c25d7122298591", null ],
+    [ "numberToString", "group___a_s_pi_k-_g_u_i.html#ga9f69aa44fbbdbff72aa58c40e4008cc2", null ]
 ];

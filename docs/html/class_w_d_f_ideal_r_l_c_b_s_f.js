@@ -1,7 +1,5 @@
 var class_w_d_f_ideal_r_l_c_b_s_f =
 [
-    [ "WDFIdealRLCBSF", "class_w_d_f_ideal_r_l_c_b_s_f.html#a3501526f993458a2ec9790f17f9bcea3", null ],
-    [ "~WDFIdealRLCBSF", "class_w_d_f_ideal_r_l_c_b_s_f.html#afc8bdda40dbfa8f48e85dccb3b3ab69c", null ],
     [ "canProcessAudioFrame", "class_w_d_f_ideal_r_l_c_b_s_f.html#a0d870e122bbc7be2a26937abda3e50e0", null ],
     [ "createWDF", "class_w_d_f_ideal_r_l_c_b_s_f.html#ad2c023553e86da0d26a84d7e47c4f66b", null ],
     [ "getParameters", "class_w_d_f_ideal_r_l_c_b_s_f.html#aa5fa958d12b4379100997952abe4dc35", null ],

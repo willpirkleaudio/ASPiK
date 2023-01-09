@@ -1,7 +1,5 @@
 var class_w_d_f_const_k_b_p_f6 =
 [
-    [ "WDFConstKBPF6", "class_w_d_f_const_k_b_p_f6.html#aed77f9639a56e0b9e714933ec5f38b54", null ],
-    [ "~WDFConstKBPF6", "class_w_d_f_const_k_b_p_f6.html#a069c70475a22c0fde8366724deaf1488", null ],
     [ "canProcessAudioFrame", "class_w_d_f_const_k_b_p_f6.html#aa3bcea7d36aa735c0e3278172013e92e", null ],
     [ "createWDF", "class_w_d_f_const_k_b_p_f6.html#a76bb0e9c97da0de6cbebeda4f8a3049c", null ],
     [ "processAudioSample", "class_w_d_f_const_k_b_p_f6.html#a499b7aa204ee1b4da121268008072b30", null ],

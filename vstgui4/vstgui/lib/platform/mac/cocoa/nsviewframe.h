@@ -37,6 +37,7 @@ public:
 	~NSViewFrame () noexcept override;
 
 	NSView* getNSView () const override { return nsView; }
+	CALayer* getCALayer () const { return caLayer; }
 	IPlatformFrameCallback* getFrame () const { return frame; }
 	void* makeTouchBar () const;
 	NSViewDraggingSession* getDraggingSession () const { return draggingSession; }
@@ -56,6 +57,7 @@ public:
 	void scaleFactorChanged (double newScaleFactor);
 	void cursorUpdate ();
 	virtual void drawRect (NSRect* rect);
+	void drawLayer (CALayer* layer, CGContextRef ctx);
 	bool onMouseDown (NSEvent* evt);
 	bool onMouseUp (NSEvent* evt);
 	bool onMouseMoved (NSEvent* evt);
@@ -66,6 +68,7 @@ public:
 	bool getSize (CRect& size) const override;
 	bool getCurrentMousePosition (CPoint& mousePosition) const override;
 	bool getCurrentMouseButtons (CButtonState& buttons) const override;
+	bool getCurrentModifiers (Modifiers& modifiers) const override;
 	bool setMouseCursor (CCursorType type) override;
 	bool invalidRect (const CRect& rect) override;
 	bool scrollRect (const CRect& src, const CPoint& distance) override;
@@ -96,10 +99,9 @@ public:
 protected:
 	void addDebugRedrawRect (CRect r, bool isClipBoundingBox = false);
 
-	static void initClass ();
-
-	NSView* nsView;
-	CocoaTooltipWindow* tooltipWindow;
+	NSView* nsView {nullptr};
+	CALayer* caLayer {nullptr};
+	CocoaTooltipWindow* tooltipWindow {nullptr};
 	SharedPointer<IDataPackage> dragDataPackage;
 	SharedPointer<ITouchBarCreator> touchBarCreator;
 	SharedPointer<NSViewDraggingSession> draggingSession;
@@ -112,9 +114,7 @@ protected:
 	bool trackingAreaInitialized;
 	bool inDraw;
 	bool useInvalidRects {false};
-#if DEBUG
-	bool visualizeDirtyRects {false};
-#endif
+
 	CCursorType cursor;
 	CButtonState mouseDownButtonState {};
 	CInvalidRectList invalidRectList;

@@ -4,10 +4,13 @@
 
 #include "ccontrol.h"
 #include "icontrollistener.h"
+#include "../algorithm.h"
+#include "../events.h"
 #include "../cframe.h"
 #include "../cgraphicspath.h"
 #include "../cvstguitimer.h"
 #include "../dispatchlist.h"
+#include "../iviewlistener.h"
 #include <cassert>
 
 #define VSTGUI_CCONTROL_LOG_EDITING 0 //DEBUG
@@ -15,7 +18,7 @@
 namespace VSTGUI {
 
 //------------------------------------------------------------------------
-struct CControl::Impl
+struct CControl::Impl : ViewEventListenerAdapter
 {
 	using SubListenerDispatcher = DispatchList<IControlListener*>;
 
@@ -26,6 +29,28 @@ struct CControl::Impl
 	float vmax {1.f};
 	float wheelInc {0.1f};
 	int32_t editing {0};
+
+	void viewOnEvent (CView* view, Event& event) override
+	{
+		if (event.type != EventType::MouseDown)
+			return;
+		auto control = static_cast<CControl*> (view);
+		auto& mouseDownEvent = castMouseDownEvent (event);
+		if (CControl::CheckDefaultValueEventFunc (control, mouseDownEvent))
+		{
+			auto defValue = control->getDefaultValue ();
+			if (defValue != control->getValue ())
+			{
+				control->beginEdit ();
+				control->setValue (defValue);
+				control->valueChanged ();
+				control->endEdit ();
+				control->setDirty ();
+			}
+			mouseDownEvent.consumed = true;
+			mouseDownEvent.ignoreFollowUpMoveAndUpEvents (true);
+		}
+	}
 };
 
 //------------------------------------------------------------------------
@@ -44,6 +69,7 @@ CControl::CControl (const CRect& size, IControlListener* listener, int32_t tag, 
 	setTransparency (false);
 	setMouseEnabled (true);
 	setBackground (pBackground);
+	registerViewEventListener (impl.get ());
 }
 
 //------------------------------------------------------------------------
@@ -59,10 +85,14 @@ CControl::CControl (const CControl& c)
 	impl->vmin = c.impl->vmin;
 	impl->vmax = c.impl->vmax;
 	impl->wheelInc = c.impl->wheelInc;
+	registerViewEventListener (impl.get ());
 }
 
 //------------------------------------------------------------------------
-CControl::~CControl () noexcept = default;
+CControl::~CControl () noexcept
+{
+	unregisterViewEventListener (impl.get ());
+}
 
 //------------------------------------------------------------------------
 void CControl::registerControlListener (IControlListener* subListener)
@@ -137,10 +167,6 @@ float CControl::getDefaultValue (void) const
 }
 
 //------------------------------------------------------------------------
-int32_t CControl::kZoomModifier = kShift;
-int32_t CControl::kDefaultValueModifier = kControl;
-
-//------------------------------------------------------------------------
 void CControl::setTag (int32_t val)
 {
 	if (listener)
@@ -194,26 +220,18 @@ void CControl::endEdit ()
 }
 
 //------------------------------------------------------------------------
-void CControl::setValue (float val)
-{
-	if (val < getMin ())
-		val = getMin ();
-	else if (val > getMax ())
-		val = getMax ();
-	if (val != value)
-	{
-		value = val;
-	}
-}
+void CControl::setValue (float val) { value = clamp (val, getMin (), getMax ()); }
 
 //------------------------------------------------------------------------
 void CControl::setValueNormalized (float val)
 {
-	if (val > 1.f)
-		val = 1.f;
-	else if (val < 0.f)
-		val = 0.f;
-	setValue (getRange () * val + getMin ());
+	if (getRange () == 0.f)
+	{
+		value = getMin ();
+		return;
+	}
+	val = clampNorm (val);
+	setValue (normalizedToPlain (val, getMin (), getMax ()));
 }
 
 //------------------------------------------------------------------------
@@ -222,7 +240,7 @@ float CControl::getValueNormalized () const
 	auto range = getRange ();
 	if (range == 0.f)
 		return 0.f;
-	return (value - getMin ()) / range;
+	return plainToNormalized<float> (value, getMin (), getMax ());
 }
 
 //------------------------------------------------------------------------
@@ -257,14 +275,9 @@ void CControl::setDirty (bool val)
 }
 
 //------------------------------------------------------------------------
-void CControl::bounceValue ()
-{
-	if (value > getMax ())
-		value = getMax ();
-	else if (value < getMin ())
-		value = getMin ();
-}
+void CControl::bounceValue () { value = clamp (value, getMin (), getMax ()); }
 
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
 //------------------------------------------------------------------------
 CControl::CheckDefaultValueFuncT CControl::CheckDefaultValueFunc = [] (CControl*,
 																	   CButtonState button) {
@@ -272,32 +285,28 @@ CControl::CheckDefaultValueFuncT CControl::CheckDefaultValueFunc = [] (CControl*
 	return button.isDoubleClick ();
 #else
 	return (button.isLeftButton () && button.getModifierState () == kDefaultValueModifier);
-#endif
+#endif // TARGET_OS_IPHONE
 };
 
-//-----------------------------------------------------------------------------
-bool CControl::checkDefaultValue (CButtonState button)
-{
-	if (CheckDefaultValueFunc (this, button))
-	{
-		float defValue = getDefaultValue ();
-		if (defValue != getValue ())
-		{
-			// begin of edit parameter
-			beginEdit ();
-		
-			setValue (defValue);
-			valueChanged ();
+#endif // VSTGUI_ENABLE_DEPRECATED_METHODS
 
-			// end of edit parameter
-			endEdit ();
-			
-			setDirty ();
+//------------------------------------------------------------------------
+CControl::CheckDefaultValueEventFuncT CControl::CheckDefaultValueEventFunc =
+	[] (CControl* c, MouseDownEvent& event) {
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
+		if (event.buttonState.isLeft ())
+		{
+			return CheckDefaultValueFunc (c, buttonStateFromMouseEvent (event));
 		}
-		return true;
-	}
-	return false;
-}
+		return false;
+#else
+#if TARGET_OS_IPHONE
+		return event.buttonState.isLeft () && event.clickCount == 2;
+#else
+		return event.buttonState.isLeft () && event.modifiers.is (ModifierKey::Control);
+#endif // TARGET_OS_IPHONE
+#endif // VSTGUI_ENABLE_DEPRECATED_METHODS
+	};
 
 //------------------------------------------------------------------------
 bool CControl::drawFocusOnTop ()
@@ -322,6 +331,7 @@ bool CControl::getFocusPath (CGraphicsPath& outPath)
 	return true;
 }
 
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
 //-----------------------------------------------------------------------------
 int32_t CControl::mapVstKeyModifier (int32_t vstModifier)
 {
@@ -336,7 +346,9 @@ int32_t CControl::mapVstKeyModifier (int32_t vstModifier)
 		modifiers |= kControl;
 	return modifiers;
 }
+#endif // VSTGUI_ENABLE_DEPRECATED_METHODS
 
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
 //------------------------------------------------------------------------
 //------------------------------------------------------------------------
 //------------------------------------------------------------------------
@@ -349,6 +361,7 @@ void IMultiBitmapControl::autoComputeHeightOfOneImage ()
 		heightOfOneImage = viewSize.getHeight ();
 	}
 }
+#endif
 
 //------------------------------------------------------------------------
 //------------------------------------------------------------------------

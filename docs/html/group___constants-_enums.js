@@ -1,13 +1,6 @@
 var group___constants__enums =
 [
-    [ "attributeValue", "unionattribute_value.html", [
-      [ "b", "unionattribute_value.html#a51daead9c8bb0dedabd41e0c91fb9992", null ],
-      [ "d", "unionattribute_value.html#a37f2ca4d8fe0003b6990d81ca669d9a0", null ],
-      [ "f", "unionattribute_value.html#a8029d3480547330bcd1a969d2a719d62", null ],
-      [ "n", "unionattribute_value.html#a2fbc17b235061f331f841f623f402e03", null ],
-      [ "u", "unionattribute_value.html#aa9d62798127f812e2f308f050a237f3f", null ],
-      [ "vp", "unionattribute_value.html#ab3b2f013f8561584e5d6d3e8580c73aa", null ]
-    ] ],
+    [ "attributeValue", "unionattribute_value.html", null ],
     [ "FLT_EPSILON_MINUS", "group___constants-_enums.html#ga3540ea253a46dc0e1834aa37f79d996f", null ],
     [ "FLT_EPSILON_PLUS", "group___constants-_enums.html#gaa342ed525c2c152c8d0178cd4d6f9bd2", null ],
     [ "FLT_MIN_MINUS", "group___constants-_enums.html#ga29102b3c68a1ab279f9fa1075ff4b3f7", null ],
@@ -50,7 +43,7 @@ var group___constants__enums =
     [ "messageType", "group___constants-_enums.html#gac72716fbfadf4828a017b6fa880fbe59", null ],
     [ "meterCal", "group___constants-_enums.html#ga5b7e8550d6a907a6f6a0784a779a56be", null ],
     [ "modDelaylgorithm", "group___constants-_enums.html#ga2dfcc92d690fd8ac9ddb8fa998c58e16", null ],
-    [ "mouseAction", "group___constants-_enums.html#ga9396bbe00c7545bf92d32fec8bb1bf6f", null ],
+    [ "VSTGUI::mouseAction", "group___constants-_enums.html#ga9396bbe00c7545bf92d32fec8bb1bf6f", null ],
     [ "pluginType", "group___constants-_enums.html#gadcd0744e537d692747d91584da9eff4a", null ],
     [ "rateConversionRatio", "group___constants-_enums.html#gad6cf8cd3ba9c451be50671d8271d32f9", null ],
     [ "reverbDensity", "group___constants-_enums.html#gaba707869dfcca54b3caff336ef46db43", null ],

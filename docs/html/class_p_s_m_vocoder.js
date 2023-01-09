@@ -1,7 +1,5 @@
 var class_p_s_m_vocoder =
 [
-    [ "PSMVocoder", "class_p_s_m_vocoder.html#a769ee39518692bacbf9774d6b5fd547d", null ],
-    [ "~PSMVocoder", "class_p_s_m_vocoder.html#afc1ef3ef6bf895c056e81fca3a9a7dfc", null ],
     [ "canProcessAudioFrame", "class_p_s_m_vocoder.html#a97bbfa5297a23c1fb714c0399cc51672", null ],
     [ "findPeaksAndRegionsOfInfluence", "class_p_s_m_vocoder.html#a334229ade7df7160af10bc224a1c907e", null ],
     [ "findPreviousNearestPeak", "class_p_s_m_vocoder.html#a0b322253520c12f0ab1dfe820a9ef454", null ],

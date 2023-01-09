@@ -8,10 +8,6 @@
 #include "../../lib/vstguidebug.h"
 #include "../../lib/vstguiinit.h"
 
-#if MAC
-#include <CoreFoundation/CoreFoundation.h>
-#endif
-
 #include <chrono>
 #include <cstdarg>
 #include <cstdio>
@@ -52,7 +48,7 @@ static void printf (const char* fmt, ...)
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
-TestCase::TestCase (std::string&& name, TestCaseFunction&& testCase)
+TestSuite::TestSuite (std::string&& name, TestSuiteFunction&& testCase)
 : name (name)
 {
 	tcf = std::move (testCase);
@@ -60,38 +56,45 @@ TestCase::TestCase (std::string&& name, TestCaseFunction&& testCase)
 }
 
 //----------------------------------------------------------------------------------------------------
-TestCase::TestCase (TestCase&& tc) noexcept
+TestSuite::TestSuite (TestSuite&& tc) noexcept
 {
 	*this = std::move (tc);
 }
 
 //----------------------------------------------------------------------------------------------------
-TestCase& TestCase::operator=(TestCase &&tc) noexcept
+TestSuite& TestSuite::operator=(TestSuite &&tc) noexcept
 {
 	name = std::move (tc.name);
 	tests = std::move (tc.tests);
 	tcf = std::move (tc.tcf);
 	setupFunction = std::move (tc.setupFunction);
 	teardownFunction = std::move (tc.teardownFunction);
+	storage = std::move (tc.storage);
 	return *this;
 }
 
 //----------------------------------------------------------------------------------------------------
-void TestCase::registerTest (std::string&& testName, TestFunction&& testFunction)
+void TestSuite::registerTest (std::string&& testName, TestFunction&& testFunction)
 {
 	tests.emplace_back (std::move (testName), std::move (testFunction));
 }
 
 //----------------------------------------------------------------------------------------------------
-void TestCase::setSetupFunction (SetupFunction&& _setupFunction)
+void TestSuite::setSetupFunction (SetupFunction&& _setupFunction)
 {
 	setupFunction = std::move (_setupFunction);
 }
 
 //----------------------------------------------------------------------------------------------------
-void TestCase::setTeardownFunction (TeardownFunction&& _teardownFunction)
+void TestSuite::setTeardownFunction (TeardownFunction&& _teardownFunction)
 {
 	teardownFunction = std::move (_teardownFunction);
+}
+
+//----------------------------------------------------------------------------------------------------
+void TestSuite::setStorage (std::any&& s)
+{
+	storage = std::move (s);
 }
 
 //----------------------------------------------------------------------------------------------------
@@ -104,9 +107,64 @@ UnitTestRegistry& UnitTestRegistry::instance ()
 }
 
 //----------------------------------------------------------------------------------------------------
-void UnitTestRegistry::registerTestCase (TestCase&& testCase)
+void UnitTestRegistry::registerTestSuite (TestSuite&& testCase)
 {
-	testCases.push_back (std::move (testCase));
+	testSuites.push_back (std::move (testCase));
+}
+
+//------------------------------------------------------------------------
+TestSuite* UnitTestRegistry::find (const std::string& name)
+{
+	auto it = std::find_if (testSuites.begin (), testSuites.end (),
+	                        [&name] (auto& tc) { return tc.getName () == name; });
+	if (it == testSuites.end ())
+		return nullptr;
+	return &(*it);
+}
+
+//------------------------------------------------------------------------
+TestRegistrar::TestRegistrar (std::string&& suite, TestSuiteFunction&& testCase)
+{
+	UnitTestRegistry::instance ().registerTestSuite (
+	    TestSuite (std::move (suite), std::move (testCase)));
+}
+
+//------------------------------------------------------------------------
+TestRegistrar::TestRegistrar (std::string&& suite, std::string&& testName, TestFunction&& testFunction)
+{
+	auto& registry = UnitTestRegistry::instance ();
+	if (auto tc = registry.find (suite))
+	{
+		tc->registerTest (std::move (testName), std::move (testFunction));
+	}
+	else
+	{
+		TestSuite ts (std::move (suite), [] (auto) {});
+		ts.registerTest (std::move (testName), std::move (testFunction));
+		registry.registerTestSuite (std::move (ts));
+	}
+}
+
+//----------------------------------------------------------------------------------------------------
+TestRegistrar::TestRegistrar (std::string&& suite, SetupFunction&& sotFunction, bool isSetupFunc)
+{
+	auto& registry = UnitTestRegistry::instance ();
+	if (auto tc = registry.find (suite))
+	{
+		if (isSetupFunc)
+			tc->setSetupFunction (std::move (sotFunction));
+		else
+			tc->setTeardownFunction (std::move (sotFunction));
+	}
+	else
+	{
+		TestSuite ts (std::move (suite), [] (auto) {});
+		if (isSetupFunc)
+			ts.setSetupFunction (std::move (sotFunction));
+		else
+			ts.setTeardownFunction (std::move (sotFunction));
+		registry.registerTestSuite (std::move (ts));
+	}
 }
 
 //----------------------------------------------------------------------------------------------------
@@ -133,169 +191,6 @@ void Context::print (const char* fmt, ...)
 #endif
 }
 
-using namespace std::chrono;
-
-//----------------------------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------------------
-class StdOutContext : public Context
-{
-private:
-	struct Result {
-		int succeded;
-		int failed;
-		
-		Result () : succeded (0), failed (0) {}
-		
-		Result& operator +=(const Result& r) { succeded += r.succeded; failed += r.failed; return *this; }
-	};
-public:
-	StdOutContext () : intend (0) {}
-
-	void printRaw (const char* str) override
-	{
-		testOutput += str;
-		testOutput += "\n";
-	}
-	
-	void printOutput ()
-	{
-		if (testOutput.empty () == false)
-		{
-			printf ("%s", testOutput.c_str ());
-			testOutput = "";
-		}
-	}
-	void printIntend ()
-	{
-		for (int i = 0; i < intend; i++) printf ("\t");
-	}
-
-	Result runTestCase (const TestCase& testCase)
-	{
-		Result result;
-		printf ("%s\n", testCase.getName ().c_str());
-		intend++;
-		for (auto& it : testCase)
-		{
-			try {
-				if (testCase.setup ())
-				{
-					testCase.setup () (this);
-				}
-				if (runTest (it.first, it.second))
-				{
-					result.succeded++;
-				}
-				else
-				{
-					result.failed++;
-				}
-				if (testCase.teardown ())
-				{
-					testCase.teardown () (this);
-				}
-			} catch (const std::exception&)
-			{
-				result.failed++;
-			}
-		}
-		intend--;
-		return result;
-	}
-	
-	bool runTest (const std::string& testName, const TestFunction& f)
-	{
-		time_point<system_clock> start, end;
-		printIntend ();
-		printf ("%s", testName.c_str());
-		intend++;
-		start = system_clock::now ();
-		bool result;
-		try {
-			result = f (this);
-		} catch (const error& exc)
-		{
-			result = false;
-			print ("%s", exc.what () ? exc.what () : "unknown");
-		} catch (const std::exception& exc)
-		{
-			result = false;
-			printf ("Exception: %s", exc.what () ? exc.what () : "unknown");
-		}
-		end = system_clock::now ();
-		intend--;
-		printf (" [%s] -> %lld µs\n", result ? "OK" : "Failed", duration_cast<microseconds> (end-start).count ());
-		printOutput ();
-		return result;
-	}
-	
-	int run ()
-	{
-		Result result;
-		time_point<system_clock> start, end;
-		start = system_clock::now ();
-		for (auto& it : UnitTestRegistry::instance ())
-		{
-			result += runTestCase (std::move (it));
-		}
-		end = system_clock::now ();
-		print ("\nDone running %d tests in %lldms. [%d Failed]\n", result.succeded+result.failed, duration_cast<milliseconds> (end-start).count (), result.failed);
-		printOutput ();
-		return result.failed;
-	}
-private:
-	int intend;
-	std::string testOutput;
-};
-
-static int RunTests ()
-{
-	StdOutContext context;
-	return context.run ();
-}
-
 }} // namespaces
-
-int main ()
-{
-	VSTGUI::setAssertionHandler ([] (const char* file, const char* line, const char* desc) {
-		throw std::logic_error (desc ? desc : "unknown");
-	});
-#if MAC
-	VSTGUI::init (CFBundleGetMainBundle ());
-#elif WINDOWS
-	CoInitialize (nullptr);
-	VSTGUI::init (GetModuleHandle (nullptr));
-#elif LINUX
-	VSTGUI::init (nullptr);
-#endif
-	auto result = VSTGUI::UnitTest::RunTests ();
-	VSTGUI::exit ();
-	return result;
-}
-
-TESTCASE(Example,
-		 
-	static int result;
-
-	SETUP(
-		result = 0;
-	);
-	 
-	TEST(OnePlusOneIsTwo,
-		result = 1+1;
-		EXPECT (result == 2)
-	);
-	 
-	TEST(ThreeMinusOneIsTwo,
-		result = 3-1;
-		if (result != 2)
-		{
-			FAIL ("result is not two")
-		}
-	);
-
-);
 
 #endif

@@ -1,6 +1,5 @@
 var struct_process_frame_info =
 [
-    [ "ProcessFrameInfo", "struct_process_frame_info.html#a133168e63dba16c9c96f81f41dc4d591", null ],
     [ "audioInputFrame", "struct_process_frame_info.html#aae28aeb7378c9e8ccf761eb78450f639", null ],
     [ "audioOutputFrame", "struct_process_frame_info.html#ac2f3460dbe185828412be53276451b72", null ],
     [ "auxAudioInputFrame", "struct_process_frame_info.html#a8797dc475453f5aa84ed5bd09c187de6", null ],

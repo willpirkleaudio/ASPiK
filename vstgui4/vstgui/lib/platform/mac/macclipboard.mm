@@ -9,10 +9,6 @@
 #import <vector>
 #import <string>
 
-#if MAC_CARBON
-#import <Carbon/Carbon.h>
-#endif
-
 #ifndef MAC_OS_X_VERSION_10_14
 #define MAC_OS_X_VERSION_10_14      101400
 #endif
@@ -27,13 +23,13 @@ class Pasteboard : public IDataPackage
 public:
 	Pasteboard (NSPasteboard* pb) : pb (pb) { entries.resize ([pb pasteboardItems].count); }
 
-	uint32_t getCount () const override { return entries.size (); }
+	uint32_t getCount () const override { return static_cast<uint32_t> (entries.size ()); }
 	uint32_t getDataSize (uint32_t index) const override
 	{
 		if (index >= getCount ())
 			return 0;
 		prepareEntryAtIndex (index);
-		return entries[index].data.size ();
+		return static_cast<uint32_t> (entries[index].data.size ());
 	}
 	Type getDataType (uint32_t index) const override
 	{
@@ -49,7 +45,7 @@ public:
 		prepareEntryAtIndex (index);
 		buffer = entries[index].data.data ();
 		type = entries[index].type;
-		return entries[index].data.size ();
+		return static_cast<uint32_t> (entries[index].data.size ());
 	}
 
 private:
@@ -100,7 +96,7 @@ private:
 						int32_t blue = static_cast<int32_t> ([nsColor blueComponent] * 255.);
 						int32_t alpha = static_cast<int32_t> ([nsColor alphaComponent] * 255.);
 						char str[10];
-						sprintf (str, "#%02x%02x%02x%02x", red, green, blue, alpha);
+						snprintf (str, 10, "#%02x%02x%02x%02x", red, green, blue, alpha);
 						result.data.resize (10);
 						memcpy (result.data.data (), str, 10);
 					}
@@ -197,7 +193,7 @@ Pasteboard::Pasteboard (NSPasteboard* pb)
 				int32_t blue = static_cast<int32_t> ([nsColor blueComponent] * 255.);
 				int32_t alpha = static_cast<int32_t> ([nsColor alphaComponent] * 255.);
 				char str[10];
-				sprintf (str, "#%02x%02x%02x%02x", red, green, blue, alpha);
+				snprintf (str, 10, "#%02x%02x%02x%02x", red, green, blue, alpha);
 				strings.emplace_back (str);
 			}
 		}
@@ -287,24 +283,6 @@ SharedPointer<IDataPackage> createDragDataPackage (NSPasteboard* pasteboard)
 {
 	return makeOwned<Pasteboard> (pasteboard);
 }
-
-#if MAC_CARBON
-//-----------------------------------------------------------------------------
-SharedPointer<IDataPackage> createCarbonDragDataPackage (DragRef drag)
-{
-	PasteboardRef pr;
-	if (GetDragPasteboard (drag, &pr) == noErr)
-	{
-		CFStringRef pasteboardName;
-		if (PasteboardCopyName (pr, &pasteboardName) == noErr)
-		{
-			[(NSString*)pasteboardName autorelease];
-			return makeOwned<Pasteboard> ([NSPasteboard pasteboardWithName:(NSString*)pasteboardName]);
-		}
-	}
-	return nullptr;
-}
-#endif
 
 //-----------------------------------------------------------------------------
 void setClipboard (const SharedPointer<IDataPackage>& dataSource)

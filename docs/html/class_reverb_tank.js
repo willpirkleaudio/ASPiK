@@ -1,7 +1,5 @@
 var class_reverb_tank =
 [
-    [ "ReverbTank", "class_reverb_tank.html#a1f9c741d608e8376976122ab8c4f48b4", null ],
-    [ "~ReverbTank", "class_reverb_tank.html#a880e2a27148aa7048416a260268e2673", null ],
     [ "canProcessAudioFrame", "class_reverb_tank.html#a6c77071a3b31e4366bb3edce3a7c8403", null ],
     [ "getParameters", "class_reverb_tank.html#a199cee74ee15d641e1c54b78d7972e4a", null ],
     [ "processAudioFrame", "class_reverb_tank.html#ac71771de9acc5a01d39dae81f79a3a37", null ],

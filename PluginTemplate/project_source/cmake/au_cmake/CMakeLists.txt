@@ -8,7 +8,12 @@
 # --- Date: 16 Sept 2018
 #
 # ---------------------------------------------------------------------------------
-set(SDK_ROOT ${AU_SDK_ROOT})
+
+# set(SDK_ROOT ${AU_SDK_ROOT})
+
+# COVID2
+set(SDK_SRC_ROOT "${AU_SDK_ROOT}/src")
+set(SDK_INCLUDE_ROOT "${AU_SDK_ROOT}/include")
 
 set(MAC_ROOT "../../mac/au")
 set(SOURCE_ROOT "../../source")
@@ -97,90 +102,20 @@ set(cocoa_sources
 #
 # ---------------------------------------------------------------------------------
 set(aubase_sources
-	${SDK_ROOT}/AUPublic/AUBase/AUBase.cpp
-	${SDK_ROOT}/AUPublic/AUBase/AUBase.h
-	${SDK_ROOT}/AUPublic/AUBase/AUDispatch.cpp
-	${SDK_ROOT}/AUPublic/AUBase/AUDispatch.h
-	${SDK_ROOT}/AUPublic/AUBase/AUInputElement.cpp
-	${SDK_ROOT}/AUPublic/AUBase/AUInputElement.h
-	${SDK_ROOT}/AUPublic/AUBase/AUOutputElement.cpp
-	${SDK_ROOT}/AUPublic/AUBase/AUOutputElement.h
-	${SDK_ROOT}/AUPublic/AUBase/AUPlugInDispatch.cpp
-	${SDK_ROOT}/AUPublic/AUBase/AUPlugInDispatch.h
-	${SDK_ROOT}/AUPublic/AUBase/AUScopeElement.cpp
-	${SDK_ROOT}/AUPublic/AUBase/AUScopeElement.h
-	${SDK_ROOT}/AUPublic/AUBase/ComponentBase.cpp
-	${SDK_ROOT}/AUPublic/AUBase/ComponentBase.h
+	${SDK_SRC_ROOT}/AudioUnitSDK/AUBase.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/AUBuffer.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/AUBufferAllocator.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/AUEffectBase.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/AUInputElement.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/AUMIDIBase.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/AUMIDIEffectBase.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/AUOutputElement.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/AUPlugInDispatch.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/AUScopeElement.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/ComponentBase.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/MusicDeviceBase.cpp
 )
 
-set(auinstbase_sources
-	${SDK_ROOT}/AUPublic/AUInstrumentBase/AUInstrumentBase.cpp
-	${SDK_ROOT}/AUPublic/AUInstrumentBase/AUInstrumentBase.h
-	${SDK_ROOT}/AUPublic/AUInstrumentBase/LockFreeFIFO.h
-	${SDK_ROOT}/AUPublic/AUInstrumentBase/MIDIControlHandler.h
-	${SDK_ROOT}/AUPublic/AUInstrumentBase/SynthElement.cpp
-	${SDK_ROOT}/AUPublic/AUInstrumentBase/SynthElement.h
-	${SDK_ROOT}/AUPublic/AUInstrumentBase/SynthEvent.h
-	${SDK_ROOT}/AUPublic/AUInstrumentBase/SynthNote.cpp
-	${SDK_ROOT}/AUPublic/AUInstrumentBase/SynthNote.h
-	${SDK_ROOT}/AUPublic/AUInstrumentBase/SynthNoteList.cpp
-	${SDK_ROOT}/AUPublic/AUInstrumentBase/SynthNoteList.h
-)
-
-set(auotherbase_sources
-	${SDK_ROOT}/AUPublic/OtherBases/AUEffectBase.cpp
-	${SDK_ROOT}/AUPublic/OtherBases/AUEffectBase.h
-	${SDK_ROOT}/AUPublic/OtherBases/AUMIDIBase.cpp
-	${SDK_ROOT}/AUPublic/OtherBases/AUMIDIBase.h
-	${SDK_ROOT}/AUPublic/OtherBases/AUMIDIEffectBase.cpp
-	${SDK_ROOT}/AUPublic/OtherBases/AUMIDIEffectBase.h
-	${SDK_ROOT}/AUPublic/OtherBases/MusicDeviceBase.cpp
-	${SDK_ROOT}/AUPublic/OtherBases/MusicDeviceBase.h
-)
-
-set(auutility_sources
-	${SDK_ROOT}/AUPublic/Utility/AUBaseHelper.cpp
-	${SDK_ROOT}/AUPublic/Utility/AUBaseHelper.h
-	${SDK_ROOT}/AUPublic/Utility/AUBuffer.cpp
-	${SDK_ROOT}/AUPublic/Utility/AUBuffer.h
-	${SDK_ROOT}/AUPublic/Utility/AUMIDIDefs.h
-	${SDK_ROOT}/AUPublic/Utility/AUSilentTimeout.h
-)
-
-set(aupublicutility_sources
-	${SDK_ROOT}/PublicUtility/CAAtomic.h
-	${SDK_ROOT}/PublicUtility/CAAtomicStack.h
-	${SDK_ROOT}/PublicUtility/CAAudioChannelLayout.cpp
-	${SDK_ROOT}/PublicUtility/CAAudioChannelLayout.h
-	${SDK_ROOT}/PublicUtility/CAAutoDisposer.h
-	${SDK_ROOT}/PublicUtility/CABufferList.cpp
-	${SDK_ROOT}/PublicUtility/CABufferList.h
-	${SDK_ROOT}/PublicUtility/CAByteOrder.h
-	${SDK_ROOT}/PublicUtility/CADebugger.cpp
-	${SDK_ROOT}/PublicUtility/CADebugger.h
-	${SDK_ROOT}/PublicUtility/CADebugMacros.cpp
-	${SDK_ROOT}/PublicUtility/CADebugMacros.h
-	${SDK_ROOT}/PublicUtility/CADebugPrintf.cpp
-	${SDK_ROOT}/PublicUtility/CADebugPrintf.h
-	${SDK_ROOT}/PublicUtility/CAException.h
-	${SDK_ROOT}/PublicUtility/CAGuard.cpp
-	${SDK_ROOT}/PublicUtility/CAGuard.h
-	${SDK_ROOT}/PublicUtility/CAHostTimeBase.cpp
-	${SDK_ROOT}/PublicUtility/CAHostTimeBase.h
-	${SDK_ROOT}/PublicUtility/CALogMacros.h
-	${SDK_ROOT}/PublicUtility/CAMath.h
-	${SDK_ROOT}/PublicUtility/CAMutex.cpp
-	${SDK_ROOT}/PublicUtility/CAMutex.h
-	${SDK_ROOT}/PublicUtility/CAReferenceCounted.h
-	${SDK_ROOT}/PublicUtility/CAStreamBasicDescription.cpp
-	${SDK_ROOT}/PublicUtility/CAStreamBasicDescription.h
-	${SDK_ROOT}/PublicUtility/CAThreadSafeList.h
-	${SDK_ROOT}/PublicUtility/CAVectorUnit.cpp
-	${SDK_ROOT}/PublicUtility/CAVectorUnit.h
-	${SDK_ROOT}/PublicUtility/CAVectorUnitTypes.h
-	${SDK_ROOT}/PublicUtility/CAXException.cpp
-	${SDK_ROOT}/PublicUtility/CAXException.h
-)
 
 # ---------------------------------------------------------------------------------
 #
@@ -203,10 +138,6 @@ source_group(CustomVSTGUI FILES ${custom_vstgui_sources})
 source_group(AUCore FILES ${au_core_sources})
 source_group(vstgui4 FILES ${vstgui_sources})
 source_group(AUSDK\\AUBase FILES ${aubase_sources})
-source_group(AUSDK\\AUInstrumentBase FILES ${auinstbase_sources})
-source_group(AUSDK\\OtherBases FILES ${auotherbase_sources})
-source_group(AUSDK\\Utility FILES ${auutility_sources})
-source_group(AUSDK\\PublicUtility FILES ${aupublicutility_sources})
 
 # ---------------------------------------------------------------------------------
 #
@@ -237,7 +168,7 @@ if(XCODE)
 	set_target_properties(${cocoatarget} PROPERTIES BUNDLE TRUE)
 	set_target_properties(${cocoatarget} PROPERTIES CXX_VISIBILITY_PRESET default)
 	set_target_properties(${cocoatarget} PROPERTIES CMAKE_C_VISIBILITY_PRESET default)
-  set_target_properties(${cocoatarget} PROPERTIES XCODE_ATTRIBUTE_GENERATE_PKGINFO_FILE "YES")
+  	set_target_properties(${cocoatarget} PROPERTIES XCODE_ATTRIBUTE_GENERATE_PKGINFO_FILE "YES")
 	set_target_properties(${cocoatarget} PROPERTIES XCODE_ATTRIBUTE_GENERATE_MASTER_OBJECT_FILE "YES")
 	set_target_properties(${cocoatarget} PROPERTIES XCODE_ATTRIBUTE_OTHER_LDFLAGS "-all_load")
 
@@ -337,11 +268,11 @@ endif()
 # ---  setup header search paths
 target_include_directories(${target} PUBLIC ${VSTGUI_ROOT}/)
 target_include_directories(${target} PUBLIC ${VSTGUI_ROOT}/vstgui4)
-target_include_directories(${target} PUBLIC ${SDK_ROOT}/PublicUtility)
-target_include_directories(${target} PUBLIC ${SDK_ROOT}/AUPublic/Utility)
-target_include_directories(${target} PUBLIC ${SDK_ROOT}/AUPublic/AUBase)
-target_include_directories(${target} PUBLIC ${SDK_ROOT}/AUPublic/AUInstrumentBase)
-target_include_directories(${target} PUBLIC ${SDK_ROOT}/AUPublic/OtherBases)
+
+# COVID2
+# target_include_directories(${target} PUBLIC ${SDK_ROOT}/include)
+target_include_directories(${target} PUBLIC ${SDK_INCLUDE_ROOT})
+
 target_include_directories(${target} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/${SOURCE_ROOT})
 target_include_directories(${target} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/${KERNEL_SOURCE_ROOT})
 target_include_directories(${target} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/${OBJECTS_SOURCE_ROOT})

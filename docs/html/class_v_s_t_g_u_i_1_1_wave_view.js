@@ -1,7 +1,6 @@
 var class_v_s_t_g_u_i_1_1_wave_view =
 [
     [ "WaveView", "class_v_s_t_g_u_i_1_1_wave_view.html#a8fa5fcfc43c987ece49844f08d8feeff", null ],
-    [ "~WaveView", "class_v_s_t_g_u_i_1_1_wave_view.html#a22252a740ced67385f49d3bd64022ecd", null ],
     [ "addWaveDataPoint", "class_v_s_t_g_u_i_1_1_wave_view.html#acaf0a095a5be58f82fa9cf84b9fcadb2", null ],
     [ "clearBuffer", "class_v_s_t_g_u_i_1_1_wave_view.html#affac045c38e562efd8c260962ce30adc", null ],
     [ "draw", "class_v_s_t_g_u_i_1_1_wave_view.html#a03e43de56057ddad808fddb785cabae6", null ],

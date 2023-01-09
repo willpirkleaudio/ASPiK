@@ -1,4 +1,4 @@
-// This file is part of VSTGUI. It is subject to the license terms 
+// This file is part of VSTGUI. It is subject to the license terms
 // in the LICENSE file found in the top-level directory of this
 // distribution and at http://github.com/steinbergmedia/vstgui/LICENSE
 
@@ -12,7 +12,8 @@
 // VSTGUI Version
 //-----------------------------------------------------------------------------
 #define VSTGUI_VERSION_MAJOR  4
-#define VSTGUI_VERSION_MINOR  10
+#define VSTGUI_VERSION_MINOR  12
+#define VSTGUI_VERSION_PATCHLEVEL  0
 
 //-----------------------------------------------------------------------------
 // Platform definitions
@@ -43,15 +44,6 @@
 		#ifndef MAC
 			#define MAC 1
 		#endif
-		#if !__LP64__ && !defined (MAC_CARBON)
-			#define MAC_CARBON 1
-			#ifndef TARGET_API_MAC_CARBON
-				#define TARGET_API_MAC_CARBON 1
-			#endif
-			#ifndef __CF_USE_FRAMEWORK_INCLUDES__
-				#define __CF_USE_FRAMEWORK_INCLUDES__ 1
-			#endif
-		#endif
 	#endif
 
 	#ifndef __has_feature
@@ -64,8 +56,6 @@
 		#error need cxx_range_for support from compiler
 	#endif
 	#include <type_traits>
-
-	#define VSTGUI_DEPRECATED_ATTRIBUTE __attribute__((deprecated))
 
 	#if defined (__clang__) && __clang_major__ > 4
 		#if defined (VSTGUI_WARN_EVERYTHING) && VSTGUI_WARN_EVERYTHING == 1
@@ -105,7 +95,10 @@
 		#define WINDOWS 1
 	#endif
 	#if (defined(_M_ARM64) || defined(_M_ARM))
-		#define VSTGUI_OPENGL_SUPPORT 0	
+		#if defined(VSTGUI_OPENGL_SUPPORT)
+			#undef VSTGUI_OPENGL_SUPPORT
+		#endif
+		#define VSTGUI_OPENGL_SUPPORT 0
 	#endif
 	#ifdef _MSC_VER
 		#pragma warning(3 : 4189) // local variable is initialized but not referenced
@@ -118,15 +111,12 @@
 	#endif
 
 	#if defined (__clang__) && __clang__
-		#define VSTGUI_DEPRECATED_ATTRIBUTE __attribute__((deprecated))
 		#if defined (VSTGUI_WARN_EVERYTHING) && VSTGUI_WARN_EVERYTHING == 1
 			#pragma clang diagnostic warning "-Wconversion"
 			#pragma clang diagnostic ignored "-Wreorder"
 		#else
 			#pragma clang diagnostic warning "-Wunreachable-code"
 		#endif
-	#else
-		#define VSTGUI_DEPRECATED_ATTRIBUTE __declspec(deprecated)
 	#endif
 
 	#include <algorithm>
@@ -145,7 +135,7 @@
 	#endif
 
 #else
-	#error unsupported compiler
+#error unsupported system/compiler
 #endif
 
 #include <atomic>
@@ -162,14 +152,12 @@
 	#define VSTGUI_ENABLE_DEPRECATED_METHODS 1
 #endif
 
-#ifndef VSTGUI_DEPRECATED_ATTRIBUTE
-	#define VSTGUI_DEPRECATED_ATTRIBUTE
-#endif
-
 #if VSTGUI_ENABLE_DEPRECATED_METHODS
-	#define VSTGUI_DEPRECATED(x)	VSTGUI_DEPRECATED_ATTRIBUTE	x
+	#define VSTGUI_DEPRECATED(x)			[[deprecated]]	x
+	#define VSTGUI_DEPRECATED_MSG(x, msg)	[[deprecated(msg)]]	x
 #else
 	#define VSTGUI_DEPRECATED(x)
+	#define VSTGUI_DEPRECATED_MSG(x, msg)
 #endif
 
 //----------------------------------------------------
@@ -219,7 +207,7 @@
 
 //----------------------------------------------------
 namespace VSTGUI {
-	
+
 /** coordinate type */
 using CCoord = double;
 /** ID String pointer */
@@ -232,10 +220,11 @@ using UTF8StringBuffer = char*;
 //-----------------------------------------------------------------------------
 // @brief Byte Order
 //-----------------------------------------------------------------------------
-enum ByteOrder {
+enum ByteOrder
+{
 	kBigEndianByteOrder = 0,
 	kLittleEndianByteOrder,
-#if WINDOWS || defined (__LITTLE_ENDIAN__)
+#if WINDOWS || defined(__LITTLE_ENDIAN__) || defined(__LITTLE_ENDIAN)
 	kNativeByteOrder = kLittleEndianByteOrder
 #else
 	kNativeByteOrder = kBigEndianByteOrder
@@ -268,7 +257,7 @@ class ReferenceCounted : virtual public IReference
 public:
 	ReferenceCounted () = default;
 	virtual ~ReferenceCounted () noexcept = default;
-	
+
 	ReferenceCounted (const ReferenceCounted&) {};
 	ReferenceCounted& operator= (const ReferenceCounted&) { return *this; }
 
@@ -280,9 +269,10 @@ public:
 	void remember () override { nbReference++; }
 	/** get refcount */
 	virtual int32_t getNbReference () const { return nbReference; }
-	virtual void beforeDelete () {}
 	//@}
 private:
+	virtual void beforeDelete () {}
+
 	T nbReference {1};
 };
 
@@ -299,14 +289,18 @@ public:
 	CBaseObject () = default;
 	~CBaseObject () noexcept override = default;
 
-	CBaseObject (const CBaseObject& o) {};
-	CBaseObject& operator= (const CBaseObject& obj) { return *this; }
-	
+	CBaseObject (const CBaseObject&) {};
+	CBaseObject& operator= (const CBaseObject&) { return *this; }
+
 	//-----------------------------------------------------------------------------
 	/// @name Message Methods
 	//-----------------------------------------------------------------------------
 	//@{
-	virtual CMessageResult notify (CBaseObject* sender, IdStringPtr message) { return kMessageUnknown; }
+	virtual CMessageResult notify ([[maybe_unused]] CBaseObject* sender,
+								   [[maybe_unused]] IdStringPtr message)
+	{
+		return kMessageUnknown;
+	}
 	//@}
 
 	/// @cond ignore
@@ -350,7 +344,7 @@ public:
 		*this = static_cast<I*> (op.get ());
 		return *this;
 	}
-	
+
 	template<typename T>
 	inline SharedPointer (SharedPointer<T>&& op) noexcept
 	{
@@ -366,7 +360,7 @@ public:
 		op.ptr = nullptr;
 		return *this;
 	}
-	
+
 //------------------------------------------------------------------------
 protected:
 	template<typename T>
@@ -542,6 +536,13 @@ private:
 	T& storage;
 	B bit;
 };
+
+//-----------------------------------------------------------------------------
+#define VSTGUI_NEWER_THAN(major, minor) \
+	(VSTGUI_VERSION > major || (VSTGUI_VERSION_MAJOR == major && VSTGUI_VERSION_MINOR > minor))
+
+#define VSTGUI_NEWER_THAN_4_10 VSTGUI_NEWER_THAN (4, 10)
+#define VSTGUI_NEWER_THAN_4_11 VSTGUI_NEWER_THAN (4, 11)
 
 } // VSTGUI
 

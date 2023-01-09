@@ -1,7 +1,5 @@
 var class_peak_limiter =
 [
-    [ "PeakLimiter", "class_peak_limiter.html#af9563b60058f9726cfbb5fda478e9c56", null ],
-    [ "~PeakLimiter", "class_peak_limiter.html#ae5c0bc05d3f05005e355efd5449f6991", null ],
     [ "canProcessAudioFrame", "class_peak_limiter.html#a905237dc6ec6a89c79943c7309a848ee", null ],
     [ "computeGain", "class_peak_limiter.html#a638b0a5c5eb7aa493516068f170622e4", null ],
     [ "processAudioSample", "class_peak_limiter.html#a9d84b6ec6ec60e2824485a0be588c567", null ],

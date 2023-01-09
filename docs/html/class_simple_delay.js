@@ -1,7 +1,5 @@
 var class_simple_delay =
 [
-    [ "SimpleDelay", "class_simple_delay.html#afc4247a98282219c3cd0250c6f89a9a3", null ],
-    [ "~SimpleDelay", "class_simple_delay.html#ad7207d6cc586bc1ff2d6dc8cad1ad615", null ],
     [ "canProcessAudioFrame", "class_simple_delay.html#a82da6ac637a87098125e253d2fa98d5c", null ],
     [ "createDelayBuffer", "class_simple_delay.html#a2612bf6cf245b70cf037d73aaa322572", null ],
     [ "getParameters", "class_simple_delay.html#a416a0c3c7c735cc9cbbf2db4b470644c", null ],

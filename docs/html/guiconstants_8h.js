@@ -1,7 +1,5 @@
 var guiconstants_8h =
 [
-    [ "_MATH_DEFINES_DEFINED", "guiconstants_8h.html#a9d6a15dea740ba397bf5d6a6049af0b2", null ],
-    [ "_MATH_DEFINES_DEFINED", "guiconstants_8h.html#a9d6a15dea740ba397bf5d6a6049af0b2", null ],
     [ "compareEnumToInt", "group___a_s_pi_k-_g_u_i.html#gaa82d29ed61e701d851f38e8976464133", null ],
     [ "compareIntToEnum", "group___a_s_pi_k-_g_u_i.html#gafff0d380df2f3386c6ef55cdca6fbac6", null ],
     [ "convertIntToEnum", "group___a_s_pi_k-_g_u_i.html#ga2ee0bf5bea5e945860ea1c3019bd8a8b", null ],
@@ -10,39 +8,33 @@ var guiconstants_8h =
     [ "FLT_EPSILON_PLUS", "group___constants-_enums.html#gaa342ed525c2c152c8d0178cd4d6f9bd2", null ],
     [ "FLT_MIN_MINUS", "group___constants-_enums.html#ga29102b3c68a1ab279f9fa1075ff4b3f7", null ],
     [ "FLT_MIN_PLUS", "group___constants-_enums.html#ga5980e2cfa800397e0e9c3afed949639b", null ],
-    [ "tinyGUI", "guiconstants_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a53d9bc454eafc93fda5f6058e01a74b9", null ],
-    [ "verySmallGUI", "guiconstants_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a3a95ea0b518fefb694ea25ebb47bafb5", null ],
-    [ "smallGUI", "guiconstants_8h.html#adf764cbdea00d65edcd07bb9953ad2b7ab77e90fe48d3bed30f242aabae2b3d33", null ],
-    [ "normalGUI", "guiconstants_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a3c3e5df7ffe721800e0016eda95cf869", null ],
-    [ "largeGUI", "guiconstants_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a088549b2abc449367abdb69232c7e619", null ],
-    [ "veryLargeGUI", "guiconstants_8h.html#adf764cbdea00d65edcd07bb9953ad2b7aac11cf9663017e5dd35fb4a6e2de1276", null ],
     [ "boundVariableType", "group___constants-_enums.html#ga5e8b40246bb284dc48bee0f5cafb70a3", [
-      [ "kFloat", "guiconstants_8h.html#ga5e8b40246bb284dc48bee0f5cafb70a3a8425cd882e78bc9251db970b8a1da20e", null ],
-      [ "kDouble", "guiconstants_8h.html#ga5e8b40246bb284dc48bee0f5cafb70a3a7fb3efa35444cd88d5a31dc125ca9c28", null ],
-      [ "kInt", "guiconstants_8h.html#ga5e8b40246bb284dc48bee0f5cafb70a3a355088fbd6ac81f051e0bd6ede5ab8e0", null ],
-      [ "kUInt", "guiconstants_8h.html#ga5e8b40246bb284dc48bee0f5cafb70a3a8fc2d1513716a31f4f0579f65ea2e1da", null ]
+      [ "kFloat", "group___constants-_enums.html#gga5e8b40246bb284dc48bee0f5cafb70a3a8425cd882e78bc9251db970b8a1da20e", null ],
+      [ "kDouble", "group___constants-_enums.html#gga5e8b40246bb284dc48bee0f5cafb70a3a7fb3efa35444cd88d5a31dc125ca9c28", null ],
+      [ "kInt", "group___constants-_enums.html#gga5e8b40246bb284dc48bee0f5cafb70a3a355088fbd6ac81f051e0bd6ede5ab8e0", null ],
+      [ "kUInt", "group___constants-_enums.html#gga5e8b40246bb284dc48bee0f5cafb70a3a8fc2d1513716a31f4f0579f65ea2e1da", null ]
     ] ],
     [ "controlVariableType", "group___constants-_enums.html#ga5662de719b542fc93b850bea1bae81f7", [
-      [ "kFloat", "guiconstants_8h.html#ga5662de719b542fc93b850bea1bae81f7a8425cd882e78bc9251db970b8a1da20e", null ],
-      [ "kDouble", "guiconstants_8h.html#ga5662de719b542fc93b850bea1bae81f7a7fb3efa35444cd88d5a31dc125ca9c28", null ],
-      [ "kInt", "guiconstants_8h.html#ga5662de719b542fc93b850bea1bae81f7a355088fbd6ac81f051e0bd6ede5ab8e0", null ],
-      [ "kTypedEnumStringList", "guiconstants_8h.html#ga5662de719b542fc93b850bea1bae81f7a71790eda42a3fd43e1666d07bd29aacf", null ],
-      [ "kMeter", "guiconstants_8h.html#ga5662de719b542fc93b850bea1bae81f7a2b773b792041aa90cfa9183c5771feab", null ],
-      [ "kNonVariableBoundControl", "guiconstants_8h.html#ga5662de719b542fc93b850bea1bae81f7a65a9d6e1521edec18d62e9560f7287df", null ]
+      [ "kFloat", "group___constants-_enums.html#gga5662de719b542fc93b850bea1bae81f7a8425cd882e78bc9251db970b8a1da20e", null ],
+      [ "kDouble", "group___constants-_enums.html#gga5662de719b542fc93b850bea1bae81f7a7fb3efa35444cd88d5a31dc125ca9c28", null ],
+      [ "kInt", "group___constants-_enums.html#gga5662de719b542fc93b850bea1bae81f7a355088fbd6ac81f051e0bd6ede5ab8e0", null ],
+      [ "kTypedEnumStringList", "group___constants-_enums.html#gga5662de719b542fc93b850bea1bae81f7a71790eda42a3fd43e1666d07bd29aacf", null ],
+      [ "kMeter", "group___constants-_enums.html#gga5662de719b542fc93b850bea1bae81f7a2b773b792041aa90cfa9183c5771feab", null ],
+      [ "kNonVariableBoundControl", "group___constants-_enums.html#gga5662de719b542fc93b850bea1bae81f7a65a9d6e1521edec18d62e9560f7287df", null ]
     ] ],
     [ "meterCal", "group___constants-_enums.html#ga5b7e8550d6a907a6f6a0784a779a56be", [
-      [ "kLinearMeter", "guiconstants_8h.html#ga5b7e8550d6a907a6f6a0784a779a56bea4d800cd769bd66d747aca04c2f431014", null ],
-      [ "kLogMeter", "guiconstants_8h.html#ga5b7e8550d6a907a6f6a0784a779a56beaf4bd7aee398d946a39155275e73cffd5", null ]
+      [ "kLinearMeter", "group___constants-_enums.html#gga5b7e8550d6a907a6f6a0784a779a56bea4d800cd769bd66d747aca04c2f431014", null ],
+      [ "kLogMeter", "group___constants-_enums.html#gga5b7e8550d6a907a6f6a0784a779a56beaf4bd7aee398d946a39155275e73cffd5", null ]
     ] ],
     [ "smoothingMethod", "group___constants-_enums.html#ga4cfbd15c3638e96f0b1b5527f6bb6fa8", [
-      [ "kLinearSmoother", "guiconstants_8h.html#ga4cfbd15c3638e96f0b1b5527f6bb6fa8a87de9242a02f257ba486e7b06599a61a", null ],
-      [ "kLPFSmoother", "guiconstants_8h.html#ga4cfbd15c3638e96f0b1b5527f6bb6fa8a4dac0b42b8df39f004515e48df6cdc69", null ]
+      [ "kLinearSmoother", "group___constants-_enums.html#gga4cfbd15c3638e96f0b1b5527f6bb6fa8a87de9242a02f257ba486e7b06599a61a", null ],
+      [ "kLPFSmoother", "group___constants-_enums.html#gga4cfbd15c3638e96f0b1b5527f6bb6fa8a4dac0b42b8df39f004515e48df6cdc69", null ]
     ] ],
     [ "taper", "group___constants-_enums.html#ga7ebd094a1b90d5b66ad4022a86b19b68", [
-      [ "kLinearTaper", "guiconstants_8h.html#ga7ebd094a1b90d5b66ad4022a86b19b68a26bd20f269fd722a93dbecca046ea802", null ],
-      [ "kLogTaper", "guiconstants_8h.html#ga7ebd094a1b90d5b66ad4022a86b19b68ac4dda7f708dbfaf2763b0d401adaceb7", null ],
-      [ "kAntiLogTaper", "guiconstants_8h.html#ga7ebd094a1b90d5b66ad4022a86b19b68a45d6a9ff404db200dafce60f302ce624", null ],
-      [ "kVoltOctaveTaper", "guiconstants_8h.html#ga7ebd094a1b90d5b66ad4022a86b19b68aaf30c14ff5f4f7292733cf5a0eac53d4", null ]
+      [ "kLinearTaper", "group___constants-_enums.html#gga7ebd094a1b90d5b66ad4022a86b19b68a26bd20f269fd722a93dbecca046ea802", null ],
+      [ "kLogTaper", "group___constants-_enums.html#gga7ebd094a1b90d5b66ad4022a86b19b68ac4dda7f708dbfaf2763b0d401adaceb7", null ],
+      [ "kAntiLogTaper", "group___constants-_enums.html#gga7ebd094a1b90d5b66ad4022a86b19b68a45d6a9ff404db200dafce60f302ce624", null ],
+      [ "kVoltOctaveTaper", "group___constants-_enums.html#gga7ebd094a1b90d5b66ad4022a86b19b68aaf30c14ff5f4f7292733cf5a0eac53d4", null ]
     ] ],
     [ "isBonusParameter", "group___a_s_pi_k-_g_u_i.html#ga9da23c8082c97f7806a0cffe665e4133", null ],
     [ "isReservedTag", "group___a_s_pi_k-_g_u_i.html#ga4794d6725bc6d49245a56e0326648d01", null ],

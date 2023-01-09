@@ -14,6 +14,20 @@ cmake_minimum_required (VERSION 3.4.3)
 # --- BEGIN USER INPUT
 # ---------------------------------------------------------------------------------
 
+# --- TRUE if merging new 1.1.0 SDK with the old 1.0 SDK
+#
+#     To Merge with existing AU_SDK folder for previous users:
+#	  1. download the SDK from https://github.com/apple/AudioUnitSDK
+#	  2. copy the AudioUnitSDK-main/include folder to the AU_SDK folder, keep the name "include"
+#	  3. copy the AudioUnitSDK-main/src folder to the AU_SDK folder, keep the name "src"
+#
+#	  Alternatively, you can download the SDK from https://github.com/apple/AudioUnitSDK
+#	  and install it in parallel with your other SDK folders (VST3 and AAX) keeping the
+#	  folder named "AudioUnitSDK-main" and set this variable to FALSE
+#	  YOU SHOULD ONLY DO THIS IF YOU ARE A SEASONED ASPIK USER
+# ---------------------------------------------------------------------------------
+set(MERGED_AU_SDKS TRUE) 	# <-- set TRUE or FALSE
+
 # ---------------------------------------------------------------------------------
 #
 # --- UNIVERSAL SDK FOLDER NAMES
@@ -23,8 +37,13 @@ cmake_minimum_required (VERSION 3.4.3)
 # --- Here you can set the names of your UNIVERSAL SDK sub-USE_FOLDERS
 #     NOTE: this is not needed when you export individual API projects
 set(UNI_AAX_SDK_FOLDER 		AAX_SDK)
-set(UNI_AU_SDK_FOLDER 		AU_SDK)
-set(UNI_VST3_SDK_FOLDER 	VST_SDK/VST3_SDK)
+set(UNI_VST3_SDK_FOLDER 	VST_SDK/vst3sdk)
+
+if(MERGED_AU_SDKS)
+	set(UNI_AU_SDK_FOLDER 	AU_SDK)
+else()
+	set(UNI_AU_SDK_FOLDER 	AudioUnitSDK-main)
+endif()
 # ---------------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------------

@@ -175,7 +175,7 @@ public:
 	*/
 	virtual CMouseEventResult onMouseMoved (CPoint& where, const CButtonState& buttons) override;
 
-    bool checkDefaultValue (CButtonState button) override;
+    bool checkDefaultValue (CButtonState button);
 	virtual void valueChanged() override;
 
 	/**
@@ -258,7 +258,7 @@ public:
 	*/
 	virtual CMouseEventResult onMouseMoved (CPoint& where, const CButtonState& buttons) override;
 
-	bool checkDefaultValue (CButtonState button) override;
+	bool checkDefaultValue (CButtonState button);
 
 	/**
 	\brief set max discrete switching value
@@ -345,7 +345,7 @@ public:
 	*/
 	virtual CMouseEventResult onMouseMoved (CPoint& where, const CButtonState& buttons) override;
 
-	bool checkDefaultValue (CButtonState button) override;
+	bool checkDefaultValue (CButtonState button);
 
 	/**
 	\brief set max discrete switching value

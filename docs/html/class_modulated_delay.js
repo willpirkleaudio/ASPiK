@@ -1,7 +1,5 @@
 var class_modulated_delay =
 [
-    [ "ModulatedDelay", "class_modulated_delay.html#af1c0c8a38194bb22b1d94d1bb6287c76", null ],
-    [ "~ModulatedDelay", "class_modulated_delay.html#a80b26fb6b57491345c514dc4d387ded4", null ],
     [ "canProcessAudioFrame", "class_modulated_delay.html#a28e2b5d3776977b07eae0f2ca28ad65f", null ],
     [ "getParameters", "class_modulated_delay.html#afe78205c740e51bd142b3613fdc56543", null ],
     [ "processAudioFrame", "class_modulated_delay.html#a8f5bfb39d52895edf5a50950a34b2c14", null ],

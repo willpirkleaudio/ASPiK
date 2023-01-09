@@ -10,58 +10,58 @@
 #define AU_COCOA_VIEWFACTORY_STRING STR(AU_COCOA_VIEWFACTORY_NAME)
 #define AU_COCOA_VIEW_STRING STR(AU_COCOA_VIEW_NAME)
 
-// --- AU Plugin Cocoa View Names (flat namespace)
-#define AU_COCOA_VIEWFACTORY_NAME AUCocoaViewFactory_363A85B567D539FA9B46FF5307B16F80
-#define AU_COCOA_VIEW_NAME AUCocoaView_363A85B567D539FA9B46FF5307B16F80
+// --- AU Plugin Cocoa View Names (flat namespace) 
+#define AU_COCOA_VIEWFACTORY_NAME AUCocoaViewFactory_803DF3590FDE3F2A9E6DEC0FFDBBC3FA
+#define AU_COCOA_VIEW_NAME AUCocoaView_803DF3590FDE3F2A9E6DEC0FFDBBC3FA
 
-// --- BUNDLE IDs (MacOS Only)
-const char* kAAXBundleID = "developer.aax.plugintemplate.bundleID";
-const char* kAUBundleID = "developer.au.plugintemplate.bundleID";
-const char* kVST3BundleID = "developer.vst3.plugintemplate.bundleID";
+// --- BUNDLE IDs (MacOS Only) 
+const char* kAAXBundleID = "developer.aax.testplutin.bundleID";
+const char* kAUBundleID = "developer.au.testplutin.bundleID";
+const char* kVST3BundleID = "developer.vst3.testplutin.bundleID";
 
-// --- Plugin Names
-const char* kPluginName = "Plugin Template";
-const char* kShortPluginName = "Plugin Template";
-const char* kAUBundleName = "Plugin Template";
-const char* kAAXBundleName = "Plugin Template";
-const char* kVSTBundleName = "Plugin Template";
+// --- Plugin Names 
+const char* kPluginName = "TEstPlutin";
+const char* kShortPluginName = "TEstPlutin";
+const char* kAUBundleName = "TEstPlutin_AU";
+const char* kAAXBundleName = "TEstPlutin_AAX";
+const char* kVSTBundleName = "TEstPlutin_VST";
 
-// --- bundle name helper
-inline static const char* getPluginDescBundleName()
-{
-#ifdef AUPLUGIN
-	return kAUBundleName;
-#endif
+// --- bundle name helper 
+inline static const char* getPluginDescBundleName() 
+{ 
+#ifdef AUPLUGIN 
+	return kAUBundleName; 
+#endif 
 
-#ifdef AAXPLUGIN
-	return kAAXBundleName;
-#endif
+#ifdef AAXPLUGIN 
+	return kAAXBundleName; 
+#endif 
 
-#ifdef VSTPLUGIN
-	return kVSTBundleName;
-#endif
+#ifdef VSTPLUGIN 
+	return kVSTBundleName; 
+#endif 
 
-	// --- should never get here
-	return kPluginName;
-}
+	// --- should never get here 
+	return kPluginName; 
+} 
 
-// --- Plugin Type
+// --- Plugin Type 
 const pluginType kPluginType = pluginType::kFXPlugin;
 
-// --- VST3 UUID
-const char* kVSTFUID = "{363a85b5-67d5-39fa-9b46-ff5307b16f80}";
+// --- VST3 UUID 
+const char* kVSTFUID = "{803df359-0fde-3f2a-9e6d-ec0ffdbbc3fa}";
 
-// --- 4-char codes
+// --- 4-char codes 
 const int32_t kFourCharCode = 'PLUG';
 const int32_t kAAXProductID = 'plUg';
 const int32_t kManufacturerID = 'COMP';
 
-// --- Vendor information
+// --- Vendor information 
 const char* kVendorName = "ASPiK User";
 const char* kVendorURL = "www.yourcompany.com";
 const char* kVendorEmail = "help@yourcompany.com";
 
-// --- Plugin Options
+// --- Plugin Options 
 const bool kProcessFrames = true;
 const uint32_t kBlockSize = DEFAULT_AUDIO_BLOCK_SIZE;
 const bool kWantSidechain = false;

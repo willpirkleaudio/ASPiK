@@ -1,7 +1,5 @@
 var class_impulse_convolver =
 [
-    [ "ImpulseConvolver", "class_impulse_convolver.html#a308c3975c94a107ce47378d8b9456bf7", null ],
-    [ "~ImpulseConvolver", "class_impulse_convolver.html#ab3ab22dafc588bdd614ae7169b4b556a", null ],
     [ "canProcessAudioFrame", "class_impulse_convolver.html#aca75bfc42dc4c706fabc41620dd9258f", null ],
     [ "init", "class_impulse_convolver.html#a1305cea210fb228320ce8fb3fb6e4a13", null ],
     [ "processAudioSample", "class_impulse_convolver.html#a26aa0d9edd123bfebc5946019b7ce5ad", null ],
