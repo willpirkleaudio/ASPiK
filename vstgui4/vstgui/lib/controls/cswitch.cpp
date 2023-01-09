@@ -6,6 +6,8 @@
 #include "../cdrawcontext.h"
 #include "../cbitmap.h"
 #include "../cvstguitimer.h"
+#include "../events.h"
+#include "../algorithm.h"
 
 namespace VSTGUI {
 
@@ -20,6 +22,7 @@ CSwitchBase::CSwitchBase (const CRect& size, IControlListener* listener, int32_t
 	setWantsFocus (true);
 }
 
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
 //------------------------------------------------------------------------
 CSwitchBase::CSwitchBase (const CRect& size, IControlListener* listener, int32_t tag,
                           int32_t subPixmaps, CCoord heightOfOneImage, int32_t iMaxPositions,
@@ -31,27 +34,72 @@ CSwitchBase::CSwitchBase (const CRect& size, IControlListener* listener, int32_t
 	setDefaultValue (0.f);
 	setWantsFocus (true);
 }
+#endif
 
 //------------------------------------------------------------------------
 CSwitchBase::CSwitchBase (const CSwitchBase& other) : CControl (other), offset (other.offset)
 {
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
 	setNumSubPixmaps (other.subPixmaps);
 	setHeightOfOneImage (other.heightOfOneImage);
+#endif
 	setWantsFocus (true);
+}
+
+//------------------------------------------------------------------------
+int32_t CSwitchBase::normalizedToIndex (float norm) const
+{
+	if (auto mfb = dynamic_cast<CMultiFrameBitmap*> (getDrawBackground ()))
+	{
+		return normalizedToSteps (norm, mfb->getNumFrames () - 1);
+	}
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
+	if (useLegacyIndexCalculation)
+		return static_cast<int32_t> (norm * (getNumSubPixmaps () - 1) + 0.5f);
+	return normalizedToSteps (norm, getNumSubPixmaps () - 1);
+#else
+	return 0;
+#endif
+}
+
+//------------------------------------------------------------------------
+float CSwitchBase::indexToNormalized (int32_t index) const
+{
+	if (auto mfb = dynamic_cast<CMultiFrameBitmap*> (getDrawBackground ()))
+	{
+		return stepsToNormalized<float> (index, mfb->getNumFrames () - 1);
+	}
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
+	return static_cast<float> (index) / static_cast<float> (getNumSubPixmaps () - 1);
+#else
+	return 0.f;
+#endif
 }
 
 //------------------------------------------------------------------------
 void CSwitchBase::draw (CDrawContext* pContext)
 {
-	if (getDrawBackground ())
+	if (auto bitmap = getDrawBackground ())
 	{
 		float norm = getValueNormalized ();
 		if (inverseBitmap)
 			norm = 1.f - norm;
-		// source position in bitmap
-		CPoint where (0, heightOfOneImage * normalizedToIndex (norm));
 
-		getDrawBackground ()->draw (pContext, getViewSize (), where);
+		if (auto mfb = dynamic_cast<CMultiFrameBitmap*> (bitmap))
+		{
+			auto frameIndex = static_cast<uint16_t> (normalizedToIndex (norm));
+			mfb->drawFrame (pContext, frameIndex, getViewSize ().getTopLeft ());
+		}
+		else
+		{
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
+			// source position in bitmap
+			CPoint where (0, heightOfOneImage * normalizedToIndex (norm));
+			bitmap->draw (pContext, getViewSize (), where);
+#else
+			bitmap->draw (pContext, getViewSize ());
+#endif
+		}
 	}
 	setDirty (false);
 }
@@ -59,11 +107,22 @@ void CSwitchBase::draw (CDrawContext* pContext)
 //------------------------------------------------------------------------
 bool CSwitchBase::sizeToFit ()
 {
-	if (getDrawBackground ())
+	if (auto bitmap = getDrawBackground ())
 	{
 		CRect vs (getViewSize ());
-		vs.setWidth (getDrawBackground ()->getWidth ());
-		vs.setHeight (getHeightOfOneImage ());
+		if (auto mfb = dynamic_cast<CMultiFrameBitmap*> (bitmap))
+		{
+			vs.setSize (mfb->getFrameSize ());
+		}
+		else
+		{
+			vs.setWidth (bitmap->getWidth ());
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
+			vs.setHeight (getHeightOfOneImage ());
+#else
+			vs.setHeight (bitmap->getHeight ());
+#endif
+		}
 		setViewSize (vs);
 		setMouseableArea (vs);
 		return true;
@@ -81,11 +140,6 @@ CMouseEventResult CSwitchBase::onMouseDown (CPoint& where, const CButtonState& b
 
 	beginEdit ();
 
-	if (checkDefaultValue (buttons))
-	{
-		endEdit ();
-		return kMouseDownEventHandledButDontNeedMovedOrUpEvents;
-	}
 	mouseStartValue = getValue ();
 	return onMouseMoved (where, buttons);
 }
@@ -152,6 +206,7 @@ Define a switch with a given number of positions, the current position is define
 of the last click on this object (the object is divided in its height by the number of position).
 Each position has its subbitmap, each subbitmap is stacked in the given handle bitmap.
 By clicking Alt+Left Mouse the default value is used.
+Use a CMultiFrameBitmap for its background bitmap.
 */
 //------------------------------------------------------------------------
 /**
@@ -167,11 +222,14 @@ CVerticalSwitch::CVerticalSwitch (const CRect& size, IControlListener* listener,
                                   CBitmap* background, const CPoint& offset)
 : CSwitchBase (size, listener, tag, background, offset)
 {
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
 	heightOfOneImage = size.getHeight ();
 	setNumSubPixmaps (
 	    background ? static_cast<int32_t> (background->getHeight () / heightOfOneImage) : 0);
+#endif
 }
 
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
 //------------------------------------------------------------------------
 /**
  * CVerticalSwitch constructor.
@@ -191,6 +249,7 @@ CVerticalSwitch::CVerticalSwitch (const CRect& size, IControlListener* listener,
 : CSwitchBase (size, listener, tag, subPixmaps, heightOfOneImage, iMaxPositions, background, offset)
 {
 }
+#endif
 
 //------------------------------------------------------------------------
 CVerticalSwitch::CVerticalSwitch (const CVerticalSwitch& v)
@@ -201,47 +260,62 @@ CVerticalSwitch::CVerticalSwitch (const CVerticalSwitch& v)
 //------------------------------------------------------------------------
 double CVerticalSwitch::calculateCoef () const
 {
+	if (auto mfb = dynamic_cast<CMultiFrameBitmap*> (getDrawBackground ()))
+	{
+		return mfb->getFrameSize ().y / static_cast<double> (mfb->getNumFrames ());
+	}
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
 	return static_cast<double> (heightOfOneImage) / static_cast<double> (getNumSubPixmaps ());
+#else
+	return 1.;
+#endif
 }
 
 //------------------------------------------------------------------------
 float CVerticalSwitch::calcNormFromPoint (const CPoint& where) const
 {
+	if (auto mfb = dynamic_cast<CMultiFrameBitmap*> (getDrawBackground ()))
+	{
+		return static_cast<int32_t> ((where.y - getViewSize ().top) / getCoef ()) /
+			   static_cast<float> (mfb->getNumFrames () - 1);
+	}
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
 	return static_cast<int32_t> ((where.y - getViewSize ().top) / getCoef ()) /
 	       static_cast<float> (getNumSubPixmaps () - 1);
+#else
+	return 0.f;
+#endif
 }
 
 //------------------------------------------------------------------------
-int32_t CVerticalSwitch::onKeyDown (VstKeyCode& keyCode)
+void CVerticalSwitch::onKeyboardEvent (KeyboardEvent& event)
 {
-	if (keyCode.modifier == 0)
+	if (event.type != EventType::KeyDown || event.modifiers.empty () == false)
+		return;
+	float norm = getValueNormalized ();
+	int32_t currentIndex = normalizedToIndex (norm);
+	if (event.virt == VirtualKey::Up && currentIndex > 0)
 	{
-		float norm = getValueNormalized ();
-		int32_t currentIndex = normalizedToIndex (norm);
-		if (keyCode.virt == VKEY_UP && currentIndex > 0)
-		{
-			--currentIndex;
-			norm = indexToNormalized (currentIndex);
-			value = (getMax () - getMin ()) * norm + getMin ();
-			bounceValue ();
-		}
-		if (keyCode.virt == VKEY_DOWN && currentIndex < (getNumSubPixmaps () - 1))
-		{
-			++currentIndex;
-			norm = indexToNormalized (currentIndex);
-			value = (getMax () - getMin ()) * norm + getMin ();
-			bounceValue ();
-		}
-		if (isDirty ())
-		{
-			invalid ();
-			beginEdit ();
-			valueChanged ();
-			endEdit ();
-			return 1;
-		}
+		--currentIndex;
+		norm = indexToNormalized (currentIndex);
+		value = (getMax () - getMin ()) * norm + getMin ();
+		bounceValue ();
 	}
-	return -1;
+	if (event.virt == VirtualKey::Down && norm < 1.f)
+	{
+		++currentIndex;
+		norm = indexToNormalized (currentIndex);
+		value = (getMax () - getMin ()) * norm + getMin ();
+		bounceValue ();
+	}
+	if (isDirty ())
+	{
+		invalid ();
+		beginEdit ();
+		valueChanged ();
+		endEdit ();
+		event.consumed = true;
+	}
 }
 
 //------------------------------------------------------------------------
@@ -249,6 +323,7 @@ int32_t CVerticalSwitch::onKeyDown (VstKeyCode& keyCode)
 //------------------------------------------------------------------------
 /*! @class CHorizontalSwitch
 Same as the CVerticalSwitch but horizontal.
+Use a CMultiFrameBitmap for its background bitmap.
 */
 //------------------------------------------------------------------------
 /**
@@ -264,10 +339,13 @@ CHorizontalSwitch::CHorizontalSwitch (const CRect& size, IControlListener* liste
                                       CBitmap* background, const CPoint& offset)
 : CSwitchBase (size, listener, tag, background, offset)
 {
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
 	heightOfOneImage = size.getWidth ();
 	setNumSubPixmaps (background ? (int32_t) (background->getWidth () / heightOfOneImage) : 0);
+#endif
 }
 
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
 //------------------------------------------------------------------------
 /**
  * CHorizontalSwitch constructor.
@@ -288,6 +366,7 @@ CHorizontalSwitch::CHorizontalSwitch (const CRect& size, IControlListener* liste
 : CSwitchBase (size, listener, tag, subPixmaps, heightOfOneImage, iMaxPositions, background, offset)
 {
 }
+#endif
 
 //------------------------------------------------------------------------
 CHorizontalSwitch::CHorizontalSwitch (const CHorizontalSwitch& v)
@@ -298,47 +377,62 @@ CHorizontalSwitch::CHorizontalSwitch (const CHorizontalSwitch& v)
 //------------------------------------------------------------------------
 double CHorizontalSwitch::calculateCoef () const
 {
+	if (auto mfb = dynamic_cast<CMultiFrameBitmap*> (getDrawBackground ()))
+	{
+		return mfb->getFrameSize ().x / static_cast<double> (mfb->getNumFrames ());
+	}
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
 	return getDrawBackground ()->getWidth () / static_cast<double> (getNumSubPixmaps ());
+#else
+	return 1.;
+#endif
 }
 
 //------------------------------------------------------------------------
 float CHorizontalSwitch::calcNormFromPoint (const CPoint& where) const
 {
+	if (auto mfb = dynamic_cast<CMultiFrameBitmap*> (getDrawBackground ()))
+	{
+		return static_cast<int32_t> ((where.x - getViewSize ().left) / getCoef ()) /
+			   static_cast<float> (mfb->getNumFrames () - 1);
+	}
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
 	return static_cast<int32_t> ((where.x - getViewSize ().left) / getCoef ()) /
 	       static_cast<float> (getNumSubPixmaps () - 1);
+#else
+	return 0.f;
+#endif
 }
 
 //------------------------------------------------------------------------
-int32_t CHorizontalSwitch::onKeyDown (VstKeyCode& keyCode)
+void CHorizontalSwitch::onKeyboardEvent(KeyboardEvent &event)
 {
-	if (keyCode.modifier == 0)
+	if (event.type != EventType::KeyDown || event.modifiers.empty () == false)
+		return;
+	float norm = getValueNormalized ();
+	int32_t currentIndex = normalizedToIndex (norm);
+	if (event.virt == VirtualKey::Left && currentIndex > 0)
 	{
-		float norm = getValueNormalized ();
-		int32_t currentIndex = normalizedToIndex (norm);
-		if (keyCode.virt == VKEY_LEFT && currentIndex > 0)
-		{
-			--currentIndex;
-			norm = indexToNormalized (currentIndex);
-			value = (getMax () - getMin ()) * norm + getMin ();
-			bounceValue ();
-		}
-		if (keyCode.virt == VKEY_RIGHT && currentIndex < (getNumSubPixmaps () - 1))
-		{
-			++currentIndex;
-			norm = indexToNormalized (currentIndex);
-			value = (getMax () - getMin ()) * norm + getMin ();
-			bounceValue ();
-		}
-		if (isDirty ())
-		{
-			invalid ();
-			beginEdit ();
-			valueChanged ();
-			endEdit ();
-			return 1;
-		}
+		--currentIndex;
+		norm = indexToNormalized (currentIndex);
+		value = (getMax () - getMin ()) * norm + getMin ();
+		bounceValue ();
 	}
-	return -1;
+	if (event.virt == VirtualKey::Right && norm < 1.f)
+	{
+		++currentIndex;
+		norm = indexToNormalized (currentIndex);
+		value = (getMax () - getMin ()) * norm + getMin ();
+		bounceValue ();
+	}
+	if (isDirty ())
+	{
+		invalid ();
+		beginEdit ();
+		valueChanged ();
+		endEdit ();
+		event.consumed = true;
+	}
 }
 
 //------------------------------------------------------------------------
@@ -366,14 +460,17 @@ CRockerSwitch::CRockerSwitch (const CRect& size, IControlListener* listener, int
 , style (style)
 , resetValueTimer (nullptr)
 {
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
 	setNumSubPixmaps (3);
 	setHeightOfOneImage (size.getHeight ());
+#endif
 	setWantsFocus (true);
 	setMin (-1.f);
 	setMax (1.f);
 	setValue ((getMax () - getMin ()) / 2.f + getMin ());
 }
 
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
 //------------------------------------------------------------------------
 /**
  * CRockerSwitch constructor.
@@ -399,6 +496,7 @@ CRockerSwitch::CRockerSwitch (const CRect& size, IControlListener* listener, int
 	setMax (1.f);
 	setValue ((getMax () - getMin ()) / 2.f + getMin ());
 }
+#endif
 
 //------------------------------------------------------------------------
 CRockerSwitch::CRockerSwitch (const CRockerSwitch& v)
@@ -407,7 +505,9 @@ CRockerSwitch::CRockerSwitch (const CRockerSwitch& v)
 , style (v.style)
 , resetValueTimer (nullptr)
 {
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
 	setHeightOfOneImage (v.heightOfOneImage);
+#endif
 	setWantsFocus (true);
 }
 
@@ -421,16 +521,29 @@ CRockerSwitch::~CRockerSwitch () noexcept
 //------------------------------------------------------------------------
 void CRockerSwitch::draw (CDrawContext *pContext)
 {
-	CPoint where (offset.x, offset.y);
-
-	if (value == getMax ())
-		where.y += 2 * heightOfOneImage;
-	else if (value == (getMax () - getMin ()) / 2.f + getMin ())
-		where.y += heightOfOneImage;
-
-	if (getDrawBackground ())
+	if (auto bitmap = getDrawBackground ())
 	{
-		getDrawBackground ()->draw (pContext, getViewSize (), where);
+		if (auto mfb = dynamic_cast<CMultiFrameBitmap*> (bitmap))
+		{
+			uint16_t frameIndex = 0;
+			if (value == getMax ())
+				frameIndex = 2;
+			else if (value == (getMax () - getMin ()) / 2.f + getMin ())
+				frameIndex = 1;
+			mfb->drawFrame (pContext, frameIndex, getViewSize ().getTopLeft ());
+		}
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
+		CPoint where (offset.x, offset.y);
+
+		if (value == getMax ())
+			where.y += 2 * heightOfOneImage;
+		else if (value == (getMax () - getMin ()) / 2.f + getMin ())
+			where.y += heightOfOneImage;
+
+		bitmap->draw (pContext, getViewSize (), where);
+#else
+		bitmap->draw (pContext, getViewSize ());
+#endif
 	}
 	setDirty (false);
 }
@@ -515,54 +628,51 @@ CMouseEventResult CRockerSwitch::onMouseMoved (CPoint& where, const CButtonState
 }
 
 //------------------------------------------------------------------------
-int32_t CRockerSwitch::onKeyDown (VstKeyCode& keyCode)
+void CRockerSwitch::onKeyboardEvent (KeyboardEvent& event)
 {
-	if (keyCode.modifier == 0)
+	if (event.modifiers.empty () == false)
+		return;
+	if (event.type == EventType::KeyDown)
 	{
-		if (style & kHorizontal && (keyCode.virt == VKEY_LEFT || keyCode.virt == VKEY_RIGHT))
+		if (style & kHorizontal &&
+		    (event.virt == VirtualKey::Left || event.virt == VirtualKey::Right))
 		{
-			value = keyCode.virt == VKEY_LEFT ? getMin () : getMax ();
+			value = event.virt == VirtualKey::Left ? getMin () : getMax ();
 			invalid ();
 			beginEdit ();
 			valueChanged ();
-			return 1;
+			event.consumed = true;
 		}
-		if (style & kVertical && (keyCode.virt == VKEY_UP || keyCode.virt == VKEY_DOWN))
+		if (style & kVertical && (event.virt == VirtualKey::Up || event.virt == VirtualKey::Down))
 		{
-			value = keyCode.virt == VKEY_UP ? getMin () : getMax ();
+			value = event.virt == VirtualKey::Up ? getMin () : getMax ();
 			invalid ();
 			beginEdit ();
 			valueChanged ();
-			return 1;
+			event.consumed = true;
 		}
 	}
-	return -1;
-}
-
-//------------------------------------------------------------------------
-int32_t CRockerSwitch::onKeyUp (VstKeyCode& keyCode)
-{
-	if (keyCode.modifier == 0)
+	else if (event.type == EventType::KeyUp)
 	{
-		if (keyCode.virt == VKEY_LEFT || keyCode.virt == VKEY_RIGHT)
+		if ((style & kHorizontal &&
+		     (event.virt == VirtualKey::Left || event.virt == VirtualKey::Right)) ||
+		    (style & kVertical && (event.virt == VirtualKey::Up || event.virt == VirtualKey::Down)))
 		{
 			value = (getMax () - getMin ()) / 2.f + getMin ();
 			invalid ();
 			valueChanged ();
 			endEdit ();
-
-			return 1;
+			event.consumed = true;
 		}
 	}
-	return -1;
 }
 
 //------------------------------------------------------------------------
-bool CRockerSwitch::onWheel (const CPoint& where, const CMouseWheelAxis& axis,
-                             const float& distance, const CButtonState& buttons)
+void CRockerSwitch::onMouseWheelEvent (MouseWheelEvent& event)
 {
-	if (!getMouseEnabled ())
-		return false;
+	auto distance = event.deltaY;
+	if (distance == 0.)
+		return;
 
 	if (distance > 0)
 		value = getMin ();
@@ -582,7 +692,7 @@ bool CRockerSwitch::onWheel (const CPoint& where, const CMouseWheelAxis& axis,
 	resetValueTimer->stop ();
 	resetValueTimer->start ();
 
-	return true;
+	event.consumed = true;
 }
 
 //------------------------------------------------------------------------
@@ -610,11 +720,22 @@ CMessageResult CRockerSwitch::notify (CBaseObject* sender, IdStringPtr message)
 //-----------------------------------------------------------------------------------------------
 bool CRockerSwitch::sizeToFit ()
 {
-	if (getDrawBackground ())
+	if (auto bitmap = getDrawBackground ())
 	{
 		CRect vs (getViewSize ());
-		vs.setWidth (getDrawBackground ()->getWidth ());
-		vs.setHeight (getHeightOfOneImage ());
+		if (auto mfb = dynamic_cast<CMultiFrameBitmap*> (bitmap))
+		{
+			vs.setSize (mfb->getFrameSize ());
+		}
+		else
+		{
+			vs.setWidth (bitmap->getWidth ());
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
+			vs.setHeight (getHeightOfOneImage ());
+#else
+			vs.setHeight (bitmap->getHeight ());
+#endif
+		}
 		setViewSize (vs);
 		setMouseableArea (vs);
 		return true;

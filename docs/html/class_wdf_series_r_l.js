@@ -1,8 +1,5 @@
 var class_wdf_series_r_l =
 [
-    [ "WdfSeriesRL", "class_wdf_series_r_l.html#ad947f1480264412f54f0471ca8130ea7", null ],
-    [ "WdfSeriesRL", "class_wdf_series_r_l.html#ac49ff5844429e86d0a269390f4079e0f", null ],
-    [ "~WdfSeriesRL", "class_wdf_series_r_l.html#a0118ac5f07a2701ac21af91286d8d8e4", null ],
     [ "getComponentConductance", "class_wdf_series_r_l.html#af3bb6d840dbb51e4ba2dd56baafff9a0", null ],
     [ "getComponentResistance", "class_wdf_series_r_l.html#a71124d89397a09a565cba4e69c6c3dc6", null ],
     [ "getComponentValue_L", "class_wdf_series_r_l.html#aa70771a43920ac33385297c835355285", null ],
@@ -24,7 +21,6 @@ var class_wdf_series_r_l =
     [ "componentResistance", "class_wdf_series_r_l.html#ae57ed5e59371afc5817f5ae89b5b65bd", null ],
     [ "componentValue_L", "class_wdf_series_r_l.html#aeef3b9dbf834f6af2390214aa9e5e008", null ],
     [ "componentValue_R", "class_wdf_series_r_l.html#aca5047d5cff6c6662d8b379a73ca4637", null ],
-    [ "K", "class_wdf_series_r_l.html#a0947d786a79bfceb62aa8fa3c12086c7", null ],
     [ "RC", "class_wdf_series_r_l.html#a8a3c6c2a896749adf67557e5a5a28a05", null ],
     [ "RL", "class_wdf_series_r_l.html#aa7948a1886f5f566b07f0105138b1938", null ],
     [ "RR", "class_wdf_series_r_l.html#abef6272d6021462a565e826c580795bc", null ],

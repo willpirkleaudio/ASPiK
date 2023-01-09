@@ -1,7 +1,5 @@
 var class_z_v_a_filter =
 [
-    [ "ZVAFilter", "class_z_v_a_filter.html#a2ccc16339ceb33b50940ba35c2a4f4ef", null ],
-    [ "~ZVAFilter", "class_z_v_a_filter.html#a87315a6f4c4854d5349383254a2b0de4", null ],
     [ "calculateFilterCoeffs", "class_z_v_a_filter.html#a6b1758bc0730a4f34de789a74c3735d1", null ],
     [ "canProcessAudioFrame", "class_z_v_a_filter.html#add481d1b191c131e2156fd84b5da7209", null ],
     [ "getBeta", "class_z_v_a_filter.html#a7e4bdc77a0fb2e324203599097ed63f8", null ],

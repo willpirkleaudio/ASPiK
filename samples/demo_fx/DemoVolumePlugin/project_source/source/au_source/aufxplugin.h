@@ -16,7 +16,7 @@
 */
 // -----------------------------------------------------------------------------
 #include <AudioToolbox/AudioUnitUtilities.h>
-#include "AUMIDIEffectBase.h"   // For FX + MIDI
+#include "AudioUnitSDK/AUMIDIEffectBase.h"   // For FX + MIDI
 #include "plugingui.h"
 #include "plugincore.h"
 #include <math.h>
@@ -67,54 +67,54 @@ NOTES:
 \version Revision : 1.0
 \date Date : 2018 / 09 / 7
 */
-class AUFXPlugin : public AUMIDIEffectBase
+class AUFXPlugin : public ausdk::AUMIDIEffectBase
 {
 public:
     AUFXPlugin(AudioUnit component);
     ~AUFXPlugin();
 
     /** AU override method */
-    virtual ComponentResult	Version() {return 1000;}
+    virtual OSStatus Version() {return 1000;}
 
     /** AU override method */
-    virtual ComponentResult	Initialize();
+    virtual OSStatus Initialize() override;
 
     /** AU override method */
     virtual OSStatus GetPropertyInfo(AudioUnitPropertyID	inID,
                                      AudioUnitScope         nScope,
                                      AudioUnitElement       inElement,
                                      UInt32&                outDataSize,
-                                     Boolean&               outWritable );
+                                     bool&               outWritable ) override;
 
     /** AU override method */
     virtual OSStatus GetProperty(AudioUnitPropertyID    inID,
                                  AudioUnitScope 		inScope,
                                  AudioUnitElement       inElement,
-                                 void*                  outData );
+                                 void*                  outData ) override;
 
     /** AU override method */
     virtual OSStatus SetProperty(AudioUnitPropertyID inID,
                                  AudioUnitScope 	 inScope,
                                  AudioUnitElement 	 inElement,
                                  const void*		 inData,
-                                 UInt32 			 inDataSize);
+                                 UInt32 			 inDataSize) override;
 
     /** AU override method */
-    virtual ComponentResult	GetParameterInfo(AudioUnitScope			inScope,
+    virtual OSStatus	GetParameterInfo(AudioUnitScope			inScope,
                                              AudioUnitParameterID	inParameterID,
-                                             AudioUnitParameterInfo	&outParameterInfo );
+                                             AudioUnitParameterInfo	&outParameterInfo ) override;
 
     /** AU override method */
-    virtual ComponentResult	GetPresets(CFArrayRef* outData)	const;
+    virtual OSStatus	GetPresets(CFArrayRef* outData)	const override;
 
     /** AU override method */
-    virtual OSStatus NewFactoryPresetSet (const AUPreset& inNewFactoryPreset);
+    virtual OSStatus NewFactoryPresetSet (const AUPreset& inNewFactoryPreset) override;
 
     /** AU override method reply to host query
 
     \return TRUE if plugin core wants a tail
     */
-    virtual	bool SupportsTail()
+    virtual	bool SupportsTail() override
     {
         if(pluginCore)
             return pluginCore->getTailTimeInMSec() > 0 ? true : false;
@@ -122,7 +122,7 @@ public:
         return false;
     }
 
-    virtual Float64	GetTailTime()
+    virtual Float64	GetTailTime() override
     {
         if(pluginCore)
             return pluginCore->getTailTimeInMSec() / 1000.0;
@@ -131,78 +131,74 @@ public:
     }
 
     /** AU override method */
-    virtual Float64	GetLatency() {return latencyInSeconds;}
+    virtual Float64	GetLatency() override {return latencyInSeconds;}
 
 
     /** AU override method */
-    virtual ComponentResult SetParameter(AudioUnitParameterID	 inID,
+    virtual OSStatus SetParameter(AudioUnitParameterID	 inID,
                                          AudioUnitScope 		 inScope,
                                          AudioUnitElement 		 inElement,
                                          AudioUnitParameterValue inValue,
-                                         UInt32					 inBufferOffsetInFrames);
+                                         UInt32					 inBufferOffsetInFrames) override;
 
     /** AU override method */
     virtual OSStatus Render(AudioUnitRenderActionFlags &		ioActionFlags,
                             const AudioTimeStamp &              inTimeStamp,
-                            UInt32                              inNumberFrames);
+                            UInt32                              inNumberFrames) override;
 
 
     /** AU override method */
     virtual OSStatus ProcessBufferLists(AudioUnitRenderActionFlags& ioActionFlags,
                                         const AudioBufferList&		inBuffer,
                                         AudioBufferList&            outBuffer,
-                                        UInt32					    inFramesToProcess );
+                                        UInt32					    inFramesToProcess ) override;
 
     /** AU override method */
-    virtual ComponentResult	Reset(AudioUnitScope   inScope,
-                                  AudioUnitElement inElement);
+    virtual OSStatus	Reset(AudioUnitScope   inScope,
+                                  AudioUnitElement inElement) override;
 
     /** AU override method */
-    virtual ComponentResult	GetParameterValueStrings(AudioUnitScope		  inScope,
+    virtual OSStatus	GetParameterValueStrings(AudioUnitScope		  inScope,
                                                      AudioUnitParameterID inParameterID,
-                                                     CFArrayRef*		  outStrings);
+                                                     CFArrayRef*		  outStrings) override;
 
     // --- need this for when user selects a NON factory-preset (ie they created the preset in the Client)
     /** AU override method */
-    virtual ComponentResult	RestoreState(CFPropertyListRef inData);
+    virtual OSStatus	RestoreState(CFPropertyListRef inData) override;
     /** AU override method */
-    virtual UInt32 SupportedNumChannels(const AUChannelInfo** outInfo);
+    virtual UInt32 SupportedNumChannels(const AUChannelInfo** outInfo) override;
 
     // --- MIDI Functions
     /** AU override method */
     virtual OSStatus HandleNoteOn(UInt8 	inChannel,
                                   UInt8 	inNoteNumber,
                                   UInt8 	inVelocity,
-                                  UInt32    inStartFrame);
+                                  UInt32    inStartFrame) override;
 
     /** AU override method */
     virtual OSStatus HandleNoteOff(UInt8 	inChannel,
                                    UInt8 	inNoteNumber,
                                    UInt8 	inVelocity,
-                                   UInt32   inStartFrame);
+                                   UInt32   inStartFrame) override;
 
     // --- MIDI Pitchbend (slightly different from all other CCs)
     /** AU override method */
     virtual OSStatus HandlePitchWheel(UInt8  inChannel,
                                       UInt8  inPitch1,
                                       UInt8  inPitch2,
-                                      UInt32 inStartFrame);
+                                      UInt32 inStartFrame) override;
 
     // --- all other MIDI CC messages
     /** AU override method */
     virtual OSStatus HandleControlChange(UInt8  inChannel,
                                          UInt8  inController,
                                          UInt8  inValue,
-                                         UInt32	inStartFrame);
+                                         UInt32	inStartFrame) override;
 
     // --- for ALL other MIDI messages you can get them here
     /** AU override method */
-    virtual OSStatus HandleMidiEvent(UInt8  status,
-                             UInt8  channel,
-                             UInt8  data1,
-                             UInt8  data2,
-                             UInt32 inStartFrame);
-
+    OSStatus MIDIEvent(UInt32 inStatus, UInt32 inData1, UInt32 inData2, UInt32 inOffsetSampleFrame) override;
+    
     /**
      \brief helper function to get a path to the location where THIS library is loaded
 

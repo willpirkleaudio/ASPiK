@@ -8,7 +8,12 @@
 # --- Date: 16 Sept 2018
 #
 # ---------------------------------------------------------------------------------
-set(SDK_ROOT ${AU_SDK_ROOT})
+
+# set(SDK_ROOT ${AU_SDK_ROOT})
+
+# COVID2
+set(SDK_SRC_ROOT "${AU_SDK_ROOT}/src")
+set(SDK_INCLUDE_ROOT "${AU_SDK_ROOT}/include")
 
 set(MAC_ROOT "../../mac/au")
 set(SOURCE_ROOT "../../source")
@@ -97,18 +102,18 @@ set(cocoa_sources
 #
 # ---------------------------------------------------------------------------------
 set(aubase_sources
-	${SDK_ROOT}/src/AudioUnitSDK/AUBase.cpp
-	${SDK_ROOT}/src/AudioUnitSDK/AUBuffer.cpp
-	${SDK_ROOT}/src/AudioUnitSDK/AUBufferAllocator.cpp
-	${SDK_ROOT}/src/AudioUnitSDK/AUEffectBase.cpp
-	${SDK_ROOT}/src/AudioUnitSDK/AUInputElement.cpp
-	${SDK_ROOT}/src/AudioUnitSDK/AUMIDIBase.cpp
-	${SDK_ROOT}/src/AudioUnitSDK/AUMIDIEffectBase.cpp
-	${SDK_ROOT}/src/AudioUnitSDK/AUOutputElement.cpp
-	${SDK_ROOT}/src/AudioUnitSDK/AUPlugInDispatch.cpp
-	${SDK_ROOT}/src/AudioUnitSDK/AUScopeElement.cpp
-	${SDK_ROOT}/src/AudioUnitSDK/ComponentBase.cpp
-	${SDK_ROOT}/src/AudioUnitSDK/MusicDeviceBase.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/AUBase.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/AUBuffer.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/AUBufferAllocator.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/AUEffectBase.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/AUInputElement.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/AUMIDIBase.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/AUMIDIEffectBase.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/AUOutputElement.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/AUPlugInDispatch.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/AUScopeElement.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/ComponentBase.cpp
+	${SDK_SRC_ROOT}/AudioUnitSDK/MusicDeviceBase.cpp
 )
 
 
@@ -263,7 +268,11 @@ endif()
 # ---  setup header search paths
 target_include_directories(${target} PUBLIC ${VSTGUI_ROOT}/)
 target_include_directories(${target} PUBLIC ${VSTGUI_ROOT}/vstgui4)
-target_include_directories(${target} PUBLIC ${SDK_ROOT}/include)
+
+# COVID2
+# target_include_directories(${target} PUBLIC ${SDK_ROOT}/include)
+target_include_directories(${target} PUBLIC ${SDK_INCLUDE_ROOT})
+
 target_include_directories(${target} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/${SOURCE_ROOT})
 target_include_directories(${target} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/${KERNEL_SOURCE_ROOT})
 target_include_directories(${target} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/${OBJECTS_SOURCE_ROOT})

@@ -46,6 +46,8 @@ VST3Plugin::VST3Plugin()
     processContextRequirements.wantsTimeSignature();
     processContextRequirements.wantsContinousTimeSamples();
     processContextRequirements.wantsSystemTime();
+    selectedUnit = Steinberg::Vst::UnitID(0);
+
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -107,17 +109,22 @@ tresult PLUGIN_API VST3Plugin::initialize(FUnknown* context)
 #else // Windows
     std::string strBundleName(pluginCore->getPluginBundleName());
     strBundleName.append(".vst3");
-    char* pathToVST = getMyDLLDirectory(USTRING(strBundleName.c_str()));
-    std::string strPath(pathToVST);
-    strBundleName = "\\" + strBundleName;
-    strBundleName.append("\\Contents\\x86_64-win");
-    std::string::size_type i = strPath.find(strBundleName);
-    if (i != std::string::npos)
-        strPath.erase(i, strBundleName.length());
+    char* pathToVST = getMyDLLDirectory(strBundleName.c_str());
+    if (pathToVST)
+    {
+        std::string strPath(pathToVST);
+        strBundleName = "\\" + strBundleName;
+        strBundleName.append("\\Contents\\x86_64-win");
+        std::string::size_type i = strPath.find(strBundleName);
+        if (i != std::string::npos)
+            strPath.erase(i, strBundleName.length());
 
-    initInfo.pathToDLL = strPath.c_str();
-    delete[] pathToVST;
-  #endif
+        initInfo.pathToDLL = strPath.c_str();
+        delete[] pathToVST;
+    }
+    else
+        initInfo.pathToDLL = "ERROR no path to DLL. See getMyDLLDirectory() in vst3plugin.h!";
+ #endif
 
     // --- send to core
     if (initInfo.pathToDLL)
@@ -1347,7 +1354,7 @@ tresult PLUGIN_API VST3Plugin::getProgramName(ProgramListID listId, int32 progra
 		{
 			ParamValue normalized = param->toNormalized (programIndex);
 			param->toString (normalized, name);
-            const char* pp = pluginCore->getPresetName(programIndex);
+            pluginCore->getPresetName(programIndex);
 
 			return kResultTrue;
 		}
@@ -1524,6 +1531,7 @@ VSTParamUpdateQueue::VSTParamUpdateQueue(void)
 	y2 = 0.0;
 	slope = 1.0;
 	dirtyBit = false;
+    yIntercept = Steinberg::Vst::ParamValue(0.0);
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1785,7 +1793,7 @@ PluginEditor::PluginEditor(VSTGUI::UTF8StringPtr _xmlFile, PluginCore* _pluginCo
 , pluginHostConnector(_pluginHostConnector)
 , editController(_editController)
 {
-
+	plugFrame = NULL;
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	PluginEditor::~PluginEditor

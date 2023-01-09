@@ -1,40 +1,28 @@
 var group___custom__controls =
 [
-    [ "CKickButtonEx", "class_v_s_t_g_u_i_1_1_c_kick_button_ex.html", [
+    [ "VSTGUI::CKickButtonEx", "class_v_s_t_g_u_i_1_1_c_kick_button_ex.html", [
       [ "CKickButtonEx", "class_v_s_t_g_u_i_1_1_c_kick_button_ex.html#a34f745c76fb0a9ff05552cf03a074965", null ],
       [ "onMouseDown", "class_v_s_t_g_u_i_1_1_c_kick_button_ex.html#acb4b43e53bd017d054d0253e0cc9127e", null ],
       [ "onMouseUp", "class_v_s_t_g_u_i_1_1_c_kick_button_ex.html#aa58644b166cbccbe2ee9a12c9c3240c5", null ],
       [ "setMouseMode", "class_v_s_t_g_u_i_1_1_c_kick_button_ex.html#aed0073050eda2a6c9078ba0c244eee75", null ]
     ] ],
-    [ "TextButtonEx", "class_v_s_t_g_u_i_1_1_text_button_ex.html", [
+    [ "VSTGUI::TextButtonEx", "class_v_s_t_g_u_i_1_1_text_button_ex.html", [
       [ "TextButtonEx", "class_v_s_t_g_u_i_1_1_text_button_ex.html#add044199d26f762be2cf92c70848e8e6", null ],
-      [ "draw", "class_v_s_t_g_u_i_1_1_text_button_ex.html#ab5684e3a4e151c44da6a68b17dfab467", null ],
       [ "onMouseDown", "class_v_s_t_g_u_i_1_1_text_button_ex.html#a9da0c1f2e40fd1c079af2807df58ed55", null ],
       [ "onMouseMoved", "class_v_s_t_g_u_i_1_1_text_button_ex.html#a2d27dc75c99a41a93c5198860edb4d34", null ],
       [ "onMouseUp", "class_v_s_t_g_u_i_1_1_text_button_ex.html#a09098ec981ae7b870a98e149c7701aa5", null ],
       [ "setMouseMode", "class_v_s_t_g_u_i_1_1_text_button_ex.html#a179c2486f7e6c8be53993531bbf899ca", null ]
     ] ],
-    [ "CAnimKnobEx", "class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html", [
-      [ "CAnimKnobEx", "class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#a06146543f80561cc8859170cc0931dcc", null ],
-      [ "~CAnimKnobEx", "class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#a659147adcd77f421d7dfe7d39c30dfbe", null ],
-      [ "checkDefaultValue", "class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#a832edf8dc807a95332a797819ac88b17", null ],
-      [ "draw", "class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#af38a882414cc36f62d5fffbab5ddb5ee", null ],
+    [ "VSTGUI::CAnimKnobEx", "class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html", [
       [ "isAAXKnob", "class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#ae0bf2470fc246520b5a3dce63b82469d", null ],
       [ "isSwitchKnob", "class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#a97f155391dc0e5982503280d3d9338fe", null ],
       [ "onMouseDown", "class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#ae2ebb7f6329106c5fbec8c120e2e6c66", null ],
       [ "onMouseMoved", "class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#a79262b7377b8d4f98d31648532b0932d", null ],
       [ "onMouseUp", "class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#a328bf16ec0f9ec25134244a06e709b72", null ],
       [ "setAAXKnob", "class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#add094cbdf48a5c3829c2e4408cbc4a4f", null ],
-      [ "setSwitchMax", "class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#a4ed94250e17a7e7b1ba1c4a6a14247d5", null ],
-      [ "valueChanged", "class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#a10cc3a60a52a3d5673f1aee636fb8ee8", null ],
-      [ "aaxKnob", "class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#ac910ea40993da07a9d624a4064d7a556", null ],
-      [ "maxControlValue", "class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#a2cd3931e5a4b59082b204a877dd5d4af", null ],
-      [ "switchKnob", "class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#aafc319507c8a526906d1f711972cb773", null ]
+      [ "setSwitchMax", "class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#a4ed94250e17a7e7b1ba1c4a6a14247d5", null ]
     ] ],
-    [ "CVerticalSliderEx", "class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html", [
-      [ "CVerticalSliderEx", "class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#a960998098c8976c0cc24b32042dc67b7", null ],
-      [ "~CVerticalSliderEx", "class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#a4d940f62871d5832a529bdd50e0daf17", null ],
-      [ "checkDefaultValue", "class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#af7684d60457e09c3ed6279e6988a9b68", null ],
+    [ "VSTGUI::CVerticalSliderEx", "class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html", [
       [ "isAAXSlider", "class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#abc713a3029573fe20e8da3b460488e3e", null ],
       [ "isSwitchSlider", "class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#ab70ac983d73f6203a2bb8246e6738b79", null ],
       [ "onMouseDown", "class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#ab2bb3b43f6efdac6fcd6a6b0b813e2b4", null ],
@@ -42,15 +30,9 @@ var group___custom__controls =
       [ "onMouseUp", "class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#a5bfa6570d1ed0dd88c2ec9c835122905", null ],
       [ "setAAXSlider", "class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#abef2d40ac89d7cb46fba2c3b0fe3ee1d", null ],
       [ "setSwitchMax", "class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#a226c828d777c0f92694892c9efd12068", null ],
-      [ "setSwitchSlider", "class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#a7dbdd5c0b9d918eaafa7e5db78bdc6db", null ],
-      [ "aaxSlider", "class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#a9b03d7b61a8fb99518348902e5f824a3", null ],
-      [ "maxControlValue", "class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#aef130efbeda7e15bf93b97a7af62626a", null ],
-      [ "switchSlider", "class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#adaa4e37d97210eeb71d7eaf942e59e9d", null ]
+      [ "setSwitchSlider", "class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#a7dbdd5c0b9d918eaafa7e5db78bdc6db", null ]
     ] ],
-    [ "CHorizontalSliderEx", "class_v_s_t_g_u_i_1_1_c_horizontal_slider_ex.html", [
-      [ "CHorizontalSliderEx", "class_v_s_t_g_u_i_1_1_c_horizontal_slider_ex.html#afa27e530c53fc08a931ead69476ea091", null ],
-      [ "~CHorizontalSliderEx", "class_v_s_t_g_u_i_1_1_c_horizontal_slider_ex.html#aa79f36e9252d1a49ff4bea12ec7dda0d", null ],
-      [ "checkDefaultValue", "class_v_s_t_g_u_i_1_1_c_horizontal_slider_ex.html#abddd5d2a5016b8ae8a09b33bc1c85906", null ],
+    [ "VSTGUI::CHorizontalSliderEx", "class_v_s_t_g_u_i_1_1_c_horizontal_slider_ex.html", [
       [ "isAAXSlider", "class_v_s_t_g_u_i_1_1_c_horizontal_slider_ex.html#ad9ec642848fda65b0b894873958ffcb4", null ],
       [ "isSwitchSlider", "class_v_s_t_g_u_i_1_1_c_horizontal_slider_ex.html#aa4bdf6134e57bfe18cda42de831ea9a6", null ],
       [ "onMouseDown", "class_v_s_t_g_u_i_1_1_c_horizontal_slider_ex.html#acfef35188b356e799be5af6ccce81c96", null ],
@@ -58,73 +40,14 @@ var group___custom__controls =
       [ "onMouseUp", "class_v_s_t_g_u_i_1_1_c_horizontal_slider_ex.html#ac6080b06bb6cb07f8c6188d3a5a2d724", null ],
       [ "setAAXSlider", "class_v_s_t_g_u_i_1_1_c_horizontal_slider_ex.html#a1eed011a4a31a5c9aea582480393f5d9", null ],
       [ "setSwitchMax", "class_v_s_t_g_u_i_1_1_c_horizontal_slider_ex.html#a9d4d84aee9a1ba4cbde6ae1e49b40a00", null ],
-      [ "setSwitchSlider", "class_v_s_t_g_u_i_1_1_c_horizontal_slider_ex.html#a8f1cd196e358a8a7f58f7f3cad9c0654", null ],
-      [ "aaxSlider", "class_v_s_t_g_u_i_1_1_c_horizontal_slider_ex.html#a49517aaca05da99846ae77bec00ae972", null ],
-      [ "maxControlValue", "class_v_s_t_g_u_i_1_1_c_horizontal_slider_ex.html#a1a435afb84c77e47e047211992b72e7f", null ],
-      [ "switchSlider", "class_v_s_t_g_u_i_1_1_c_horizontal_slider_ex.html#a7a7b508ba7bceabfac7460b256a17c5e", null ]
+      [ "setSwitchSlider", "class_v_s_t_g_u_i_1_1_c_horizontal_slider_ex.html#a8f1cd196e358a8a7f58f7f3cad9c0654", null ]
     ] ],
-    [ "CMeterDetector", "class_v_s_t_g_u_i_1_1_c_meter_detector.html", [
-      [ "CMeterDetector", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#a44ab8f0eeb4701f0719eacd1a31063c7", null ],
-      [ "~CMeterDetector", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#a6bf9bbeada8ddc5b44af8ff4afb849bf", null ],
-      [ "detect", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#ad746789a74cd6110d5120a4b8cbdbfa8", null ],
-      [ "init", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#a937f15738364434cab7f29b69384f731", null ],
-      [ "prepareForPlay", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#a761430f79307ff6934dcadda0da049e1", null ],
-      [ "resetPeakHold", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#a2cb412279198541e6a7dd92202aac2a0", null ],
-      [ "setAttackTime", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#a6d9250e632cd99f8cb278fe3cb987495", null ],
-      [ "setDetectMode", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#aca68c821136542915d41df2f585149ea", null ],
-      [ "setEnvelope", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#aa5d9b61ed2351df59b7e09d81883ed25", null ],
-      [ "setLogDetect", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#a902a1f0fba7a0ebbca6c4a825457185f", null ],
-      [ "setPeakHold", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#a3f60b51568af6e94709eee66bf3d2c73", null ],
-      [ "setReleaseTime", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#a794b6b0223db057a911ac804f137106c", null ],
-      [ "setSampleRate", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#a08303218ba134e64167938d8b89cc608", null ],
-      [ "setTCModeAnalog", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#a3ce2251671397bfd8c82bceca9b12f9f", null ],
-      [ "analogTC", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#acada45ecd3b43abb5153e37d9920b6cd", null ],
-      [ "attackTime", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#a0ab04922ba2194ba072924b807c425c8", null ],
-      [ "attackTime_mSec", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#a51a6b86c09f63707edb248301cc4b0c4", null ],
-      [ "detectMode", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#a38d4ff246391ac9977c20f9cefdb6a2d", null ],
-      [ "detectorSampleRate", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#ace3833b5b1264e37b974cc8c275d7329", null ],
-      [ "envelope", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#aae6aed43fc73e81fd81bc5784542001f", null ],
-      [ "logDetector", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#afe2768d1c827e3bb310bb83dd7a8e7ae", null ],
-      [ "m_fReleaseTime", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#af5491dfc38e36383b980a4912f900c08", null ],
-      [ "peakEnvelope", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#aab355143d1a982c28cb5fc1df8211e51", null ],
-      [ "peakHold", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#a2091b94727038416b349e745e129e600", null ],
-      [ "releaseTime_mSec", "class_v_s_t_g_u_i_1_1_c_meter_detector.html#afa3aef8289c4dbe1cac4e8fa090a97ce", null ]
-    ] ],
-    [ "CVuMeterEx", "class_v_s_t_g_u_i_1_1_c_vu_meter_ex.html", [
-      [ "CVuMeterEx", "class_v_s_t_g_u_i_1_1_c_vu_meter_ex.html#a0dfa6787958bd3945d18c2eb5f154707", null ],
-      [ "CVuMeterEx", "class_v_s_t_g_u_i_1_1_c_vu_meter_ex.html#a8e77b5404f5e50f8ef728b169728c39b", null ],
-      [ "~CVuMeterEx", "class_v_s_t_g_u_i_1_1_c_vu_meter_ex.html#aa310b84ab9f00e86ba7622e960d21a8d", null ],
-      [ "draw", "class_v_s_t_g_u_i_1_1_c_vu_meter_ex.html#aa7181029d2844020a8005db914f96557", null ],
-      [ "initDetector", "class_v_s_t_g_u_i_1_1_c_vu_meter_ex.html#ab4eb2ada561014d5c6171d91f373fba2", null ],
-      [ "setHtOneImage", "class_v_s_t_g_u_i_1_1_c_vu_meter_ex.html#a21dfbdd49adc38b56e432f4dabb078d3", null ],
-      [ "setImageCount", "class_v_s_t_g_u_i_1_1_c_vu_meter_ex.html#acd1ea55ac4e6458d10f8e03883a5ea0e", null ],
-      [ "setViewSize", "class_v_s_t_g_u_i_1_1_c_vu_meter_ex.html#af28a410aa0e23f2737fd48ddcb9ee794", null ],
-      [ "setZero_dB_Frame", "class_v_s_t_g_u_i_1_1_c_vu_meter_ex.html#aad56e26392890af5ac03c9e1f0afea4a", null ],
-      [ "detector", "class_v_s_t_g_u_i_1_1_c_vu_meter_ex.html#a58cb7187613281c951ecea12ae9c3301", null ],
-      [ "heightOfOneImage", "class_v_s_t_g_u_i_1_1_c_vu_meter_ex.html#a9ef4816f370ee0b8f605c46bfa62b1c8", null ],
-      [ "isAnalogVU", "class_v_s_t_g_u_i_1_1_c_vu_meter_ex.html#a23542766a08c6854f3a47d73a8613e03", null ],
-      [ "isInverted", "class_v_s_t_g_u_i_1_1_c_vu_meter_ex.html#a4501cc4cbc9b888f5e48b860e28480d7", null ],
-      [ "subPixMaps", "class_v_s_t_g_u_i_1_1_c_vu_meter_ex.html#a0db3e97883822605a8b7b3023e27d8f3", null ],
-      [ "zero_dB_Frame", "class_v_s_t_g_u_i_1_1_c_vu_meter_ex.html#a4a05ecc2097fb2d940549bf778d815a3", null ]
-    ] ],
-    [ "CXYPadEx", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html", [
-      [ "CXYPadEx", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#ad089647ff678f0f323b442eacc5aae80", null ],
-      [ "draw", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#a19cf971c50f6106643aa71cce7bd596b", null ],
-      [ "getTagX", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#a351686a9fdee189d844b04f56e2965da", null ],
-      [ "getTagY", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#a1ddeb21ff0d23d04029da7ac9e3c221d", null ],
+    [ "VSTGUI::CMeterDetector", "class_v_s_t_g_u_i_1_1_c_meter_detector.html", null ],
+    [ "VSTGUI::CVuMeterEx", "class_v_s_t_g_u_i_1_1_c_vu_meter_ex.html", null ],
+    [ "VSTGUI::CXYPadEx", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html", [
       [ "onMouseDown", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#ace313433cf0b6699ea6e5a28b9a6602a", null ],
       [ "onMouseMoved", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#ad158c1374b29d2d25f6d9cea5be6ada6", null ],
       [ "onMouseUp", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#a06f251e75c13f9c678a71a89ebe8804d", null ],
-      [ "pointInPolygon", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#ad6a459f7ce5147d19214650a26fb9500", null ],
-      [ "setTagX", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#afd6fe071a055bf4db93d6bd74beefaa0", null ],
-      [ "setTagY", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#a95d296349f44a462e6f8059ee1d1924b", null ],
-      [ "setValue", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#ae0bbab81f05def60121a32f0da877c6e", null ],
-      [ "isJoystickPad", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#a8f844fa30371526193c13dc945a6f18a", null ],
-      [ "lastX", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#a4d21a2b365c41b0a80be87b28150c087", null ],
-      [ "lastY", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#ae035c3fee0faafed4404f543a6deff5e", null ],
-      [ "tagX", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#a0fef56cb7199c14fe97872ccbcc2750f", null ],
-      [ "tagY", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#af43444fcece49a9e6eed9c2268151972", null ],
-      [ "vertX", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#a7fe8b9f96724e2b230c084ccd683d9d3", null ],
-      [ "vertY", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#aecee8141efbca7a1d014709569133dea", null ]
+      [ "setValue", "class_v_s_t_g_u_i_1_1_c_x_y_pad_ex.html#ae0bbab81f05def60121a32f0da877c6e", null ]
     ] ]
 ];

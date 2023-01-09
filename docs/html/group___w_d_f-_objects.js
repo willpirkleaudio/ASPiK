@@ -1,9 +1,6 @@
 var group___w_d_f__objects =
 [
     [ "WdfResistor", "class_wdf_resistor.html", [
-      [ "WdfResistor", "class_wdf_resistor.html#a1e60211cabb5cceb2d1f0d5f67848df5", null ],
-      [ "WdfResistor", "class_wdf_resistor.html#a48b24629e56a442af58021da761ac824", null ],
-      [ "~WdfResistor", "class_wdf_resistor.html#a8d36f9a7250555cccac4dab8f755082e", null ],
       [ "getComponentConductance", "class_wdf_resistor.html#a2ce8b782f3331c496e64ee37ab5e8521", null ],
       [ "getComponentResistance", "class_wdf_resistor.html#a025123465bf6cd603c49d82259420fd9", null ],
       [ "getComponentValue", "class_wdf_resistor.html#ae1459887c1f6752ed276c2e8fa61c71b", null ],
@@ -25,9 +22,6 @@ var group___w_d_f__objects =
       [ "zRegister", "class_wdf_resistor.html#af88a2b4c6bb57b05f1fc4fc29263cf2a", null ]
     ] ],
     [ "WdfCapacitor", "class_wdf_capacitor.html", [
-      [ "WdfCapacitor", "class_wdf_capacitor.html#aa33f65981f1987f52b41a25a20f1694a", null ],
-      [ "WdfCapacitor", "class_wdf_capacitor.html#acbbed0c2753d206e16a7abc08dcb5923", null ],
-      [ "~WdfCapacitor", "class_wdf_capacitor.html#a3edb4590f95e29225a49bf9cd0ce682a", null ],
       [ "getComponentConductance", "class_wdf_capacitor.html#ad84ecb953065506c3884cd8789730ce5", null ],
       [ "getComponentResistance", "class_wdf_capacitor.html#a07429d6fc473adec19c5061bd5c09c53", null ],
       [ "getComponentValue", "class_wdf_capacitor.html#aa0debe86ec7feed19cdd893bade2aadc", null ],
@@ -49,9 +43,6 @@ var group___w_d_f__objects =
       [ "zRegister", "class_wdf_capacitor.html#a79acaa7015ff124d0643558d12a7520a", null ]
     ] ],
     [ "WdfInductor", "class_wdf_inductor.html", [
-      [ "WdfInductor", "class_wdf_inductor.html#a62fd3865748b5bc3d3a327f9f18b1121", null ],
-      [ "WdfInductor", "class_wdf_inductor.html#a8ef6e4d56850671dae4028e8d0ddf42d", null ],
-      [ "~WdfInductor", "class_wdf_inductor.html#a8cdc956d6f77f44692108250a9385671", null ],
       [ "getComponentConductance", "class_wdf_inductor.html#ac9416d7cac4cd54084fadcd427f9b9a8", null ],
       [ "getComponentResistance", "class_wdf_inductor.html#a3f8c7c01e1026865033783315576de23", null ],
       [ "getComponentValue", "class_wdf_inductor.html#a6a028a13c793f2dfdec9e578eb03c234", null ],
@@ -73,9 +64,6 @@ var group___w_d_f__objects =
       [ "zRegister", "class_wdf_inductor.html#affd3ea2e3a13dd94b76eeccac2f8bb0d", null ]
     ] ],
     [ "WdfSeriesLC", "class_wdf_series_l_c.html", [
-      [ "WdfSeriesLC", "class_wdf_series_l_c.html#ada9265ec16897981e67e461764c63453", null ],
-      [ "WdfSeriesLC", "class_wdf_series_l_c.html#aee0ff03423914fa70d9f04238a01223b", null ],
-      [ "~WdfSeriesLC", "class_wdf_series_l_c.html#a0d001924467c815fd10ab814a24290d0", null ],
       [ "getComponentConductance", "class_wdf_series_l_c.html#ac48e0b9e65027be4980cac10afb1cc5d", null ],
       [ "getComponentResistance", "class_wdf_series_l_c.html#a06e1080e0de0a4096d76939004454d4e", null ],
       [ "getComponentValue_C", "class_wdf_series_l_c.html#a7c8b124411a1a94db43377d63a4b25da", null ],
@@ -104,9 +92,6 @@ var group___w_d_f__objects =
       [ "zRegister_L", "class_wdf_series_l_c.html#a965d7c9a3c3a2bc4e6684c573fee0e30", null ]
     ] ],
     [ "WdfParallelLC", "class_wdf_parallel_l_c.html", [
-      [ "WdfParallelLC", "class_wdf_parallel_l_c.html#a2cd4ba93c0339265a21ca6dca50adcd2", null ],
-      [ "WdfParallelLC", "class_wdf_parallel_l_c.html#a8d3c6646d639a142b259ad75a3967966", null ],
-      [ "~WdfParallelLC", "class_wdf_parallel_l_c.html#a0f7b551368f3adb10d85418e8629a44d", null ],
       [ "getComponentConductance", "class_wdf_parallel_l_c.html#ad25c7104cd51bafd499c394341f6f777", null ],
       [ "getComponentResistance", "class_wdf_parallel_l_c.html#ae8dcd77130daf5d39a9d5f2fc02e6ea1", null ],
       [ "getComponentValue_C", "class_wdf_parallel_l_c.html#ae40b7f6246e43facb08c45e2624fe730", null ],
@@ -135,9 +120,6 @@ var group___w_d_f__objects =
       [ "zRegister_L", "class_wdf_parallel_l_c.html#a0c15c55cc1dab4c9195de9626c62a013", null ]
     ] ],
     [ "WdfSeriesRL", "class_wdf_series_r_l.html", [
-      [ "WdfSeriesRL", "class_wdf_series_r_l.html#ad947f1480264412f54f0471ca8130ea7", null ],
-      [ "WdfSeriesRL", "class_wdf_series_r_l.html#ac49ff5844429e86d0a269390f4079e0f", null ],
-      [ "~WdfSeriesRL", "class_wdf_series_r_l.html#a0118ac5f07a2701ac21af91286d8d8e4", null ],
       [ "getComponentConductance", "class_wdf_series_r_l.html#af3bb6d840dbb51e4ba2dd56baafff9a0", null ],
       [ "getComponentResistance", "class_wdf_series_r_l.html#a71124d89397a09a565cba4e69c6c3dc6", null ],
       [ "getComponentValue_L", "class_wdf_series_r_l.html#aa70771a43920ac33385297c835355285", null ],
@@ -159,7 +141,6 @@ var group___w_d_f__objects =
       [ "componentResistance", "class_wdf_series_r_l.html#ae57ed5e59371afc5817f5ae89b5b65bd", null ],
       [ "componentValue_L", "class_wdf_series_r_l.html#aeef3b9dbf834f6af2390214aa9e5e008", null ],
       [ "componentValue_R", "class_wdf_series_r_l.html#aca5047d5cff6c6662d8b379a73ca4637", null ],
-      [ "K", "class_wdf_series_r_l.html#a0947d786a79bfceb62aa8fa3c12086c7", null ],
       [ "RC", "class_wdf_series_r_l.html#a8a3c6c2a896749adf67557e5a5a28a05", null ],
       [ "RL", "class_wdf_series_r_l.html#aa7948a1886f5f566b07f0105138b1938", null ],
       [ "RR", "class_wdf_series_r_l.html#abef6272d6021462a565e826c580795bc", null ],
@@ -168,9 +149,6 @@ var group___w_d_f__objects =
       [ "zRegister_L", "class_wdf_series_r_l.html#ab1ca00923ffd7c0cdcb924e281d3d5dc", null ]
     ] ],
     [ "WdfParallelRL", "class_wdf_parallel_r_l.html", [
-      [ "WdfParallelRL", "class_wdf_parallel_r_l.html#ac8a50d3d837777db9f4eb25fd1b4bf8a", null ],
-      [ "WdfParallelRL", "class_wdf_parallel_r_l.html#af6ac5a702d2a3219a559c02bdfb82f55", null ],
-      [ "~WdfParallelRL", "class_wdf_parallel_r_l.html#af533b5238f6443a409ebe7b6c2e5e348", null ],
       [ "getComponentConductance", "class_wdf_parallel_r_l.html#a462f3c33584446d79893349da97e1c19", null ],
       [ "getComponentResistance", "class_wdf_parallel_r_l.html#adc1c763d4e642cf3d16a8087ae32fb12", null ],
       [ "getComponentValue_L", "class_wdf_parallel_r_l.html#a6104dac756d5ad84c553807c78e446c9", null ],
@@ -201,9 +179,6 @@ var group___w_d_f__objects =
       [ "zRegister_L", "class_wdf_parallel_r_l.html#a6fa499564dfa98cfd4636dffa45b5dcc", null ]
     ] ],
     [ "WdfSeriesRC", "class_wdf_series_r_c.html", [
-      [ "WdfSeriesRC", "class_wdf_series_r_c.html#a2132576814b6fc8e3bab05eb20391e50", null ],
-      [ "WdfSeriesRC", "class_wdf_series_r_c.html#ab11ea9dd643e8349e9e2bd10b1e1bf18", null ],
-      [ "~WdfSeriesRC", "class_wdf_series_r_c.html#aaecca3cdd3957938de912040c5daf4a3", null ],
       [ "getComponentConductance", "class_wdf_series_r_c.html#a78437cb72e9703319bf346533a4f2194", null ],
       [ "getComponentResistance", "class_wdf_series_r_c.html#a8df289d89716537ef5df44b2e0f1e7c1", null ],
       [ "getComponentValue_C", "class_wdf_series_r_c.html#a6188d4b7514586bfd602c7deee7c779b", null ],
@@ -225,7 +200,6 @@ var group___w_d_f__objects =
       [ "componentResistance", "class_wdf_series_r_c.html#a45ade5e5cb11be6fae508b9d7106eecd", null ],
       [ "componentValue_C", "class_wdf_series_r_c.html#aea4d794eb614ae90be12edfd1d69f8e3", null ],
       [ "componentValue_R", "class_wdf_series_r_c.html#aab59bc196be2c83c719eb72e08b1b039", null ],
-      [ "K", "class_wdf_series_r_c.html#a3647b3aeb1629a41c72cd7a654520c0e", null ],
       [ "RC", "class_wdf_series_r_c.html#a1c4e574a65a7fb1157db7bd5c4cf8b74", null ],
       [ "RL", "class_wdf_series_r_c.html#a4af5dcb1b36bb98d622cd0870ba21df4", null ],
       [ "RR", "class_wdf_series_r_c.html#a40888c3cc5738cfd52f30097286985b1", null ],
@@ -234,9 +208,6 @@ var group___w_d_f__objects =
       [ "zRegister_L", "class_wdf_series_r_c.html#a6df5cec411b05ae3582d78ce2d03d76c", null ]
     ] ],
     [ "WdfParallelRC", "class_wdf_parallel_r_c.html", [
-      [ "WdfParallelRC", "class_wdf_parallel_r_c.html#a66f0739ddc120b675278bd7647306110", null ],
-      [ "WdfParallelRC", "class_wdf_parallel_r_c.html#af8d765f06662ed2c5f16cec51af48b5a", null ],
-      [ "~WdfParallelRC", "class_wdf_parallel_r_c.html#a6ef1a7bbdb87d1094000975301e818c4", null ],
       [ "getComponentConductance", "class_wdf_parallel_r_c.html#a14e8421ceea160bd43e06bf607a8b830", null ],
       [ "getComponentResistance", "class_wdf_parallel_r_c.html#a9d944168a924fad65c0fdedff7a756b8", null ],
       [ "getComponentValue_C", "class_wdf_parallel_r_c.html#ad82f8931796a268d14b040024905469d", null ],
@@ -258,7 +229,6 @@ var group___w_d_f__objects =
       [ "componentResistance", "class_wdf_parallel_r_c.html#aa708c61ab691a014a1cc1c59e0b81c61", null ],
       [ "componentValue_C", "class_wdf_parallel_r_c.html#a011d1663fb68f74f5c7e431651c517d6", null ],
       [ "componentValue_R", "class_wdf_parallel_r_c.html#aa7011b5deae88f574112b46c27619344", null ],
-      [ "K", "class_wdf_parallel_r_c.html#a724e1543a3dad366d16946030b53a6c8", null ],
       [ "RC", "class_wdf_parallel_r_c.html#a53947c5401ed13f1fab76da44bd1d32c", null ],
       [ "RL", "class_wdf_parallel_r_c.html#a4718d20a96a76706e183d75450f0534f", null ],
       [ "RR", "class_wdf_parallel_r_c.html#aab0fa835487d5de5506e99cd741bb6ca", null ],
@@ -267,19 +237,15 @@ var group___w_d_f__objects =
       [ "zRegister_L", "class_wdf_parallel_r_c.html#a34ab3f62afc9885619a3ba75083a5b74", null ]
     ] ],
     [ "WdfComponentInfo", "struct_wdf_component_info.html", [
-      [ "WdfComponentInfo", "struct_wdf_component_info.html#aa9817da75eb1f05a54d11da2140bffe3", null ],
-      [ "WdfComponentInfo", "struct_wdf_component_info.html#a9c87f7b6faf7c6328353876ad58555c5", null ],
       [ "C", "struct_wdf_component_info.html#af6f0716ce09cf9053f4caecaccd468d5", null ],
       [ "componentType", "struct_wdf_component_info.html#a5debbed84a3b40cd95c07236f9b1ad00", null ],
       [ "L", "struct_wdf_component_info.html#a9bf59606eb537bbab954e5646d9c6988", null ],
       [ "R", "struct_wdf_component_info.html#a60975f50093b233cf155db14e5f24b5d", null ]
     ] ],
     [ "WdfAdaptorBase", "class_wdf_adaptor_base.html", [
-      [ "WdfAdaptorBase", "class_wdf_adaptor_base.html#ab27ea0fc00f2a1c0c78c716655be3964", null ],
-      [ "~WdfAdaptorBase", "class_wdf_adaptor_base.html#a6bd6dac3065e071a95fe0dfdb5aa0fd8", null ],
-      [ "getPort1_CompAdaptor", "class_wdf_adaptor_base.html#a9abfc629d9d2864cf2746b8064763aa0", null ],
-      [ "getPort2_CompAdaptor", "class_wdf_adaptor_base.html#a29919c13244b78c7192f057c6c4f6bc3", null ],
-      [ "getPort3_CompAdaptor", "class_wdf_adaptor_base.html#a6ef703ab6092942627c385082aa18662", null ],
+      [ "getPort1_CompAdaptor", "class_wdf_adaptor_base.html#a47b9c3607af0c40283231b8bfde68b27", null ],
+      [ "getPort2_CompAdaptor", "class_wdf_adaptor_base.html#add52dd2e385d93628e4b035ae39af774", null ],
+      [ "getPort3_CompAdaptor", "class_wdf_adaptor_base.html#a5b6c4ae7bc4975cd2dc362d39526d829", null ],
       [ "initializeAdaptorChain", "class_wdf_adaptor_base.html#affc91b18b6c60ce671a7d9ad708f9f7a", null ],
       [ "reset", "class_wdf_adaptor_base.html#a2df25af0611de3849ca0efc057296f34", null ],
       [ "setComponent", "class_wdf_adaptor_base.html#a6124f9dd75bb41f34899b5a59678f885", null ],
@@ -311,8 +277,6 @@ var group___w_d_f__objects =
       [ "wdfComponent", "class_wdf_adaptor_base.html#a7d860ce211da4ac39cb530352eb396de", null ]
     ] ],
     [ "WdfSeriesAdaptor", "class_wdf_series_adaptor.html", [
-      [ "WdfSeriesAdaptor", "class_wdf_series_adaptor.html#a3d41ad1c1d901f031cd01bfac9a3ada0", null ],
-      [ "~WdfSeriesAdaptor", "class_wdf_series_adaptor.html#a33e55eecb002209e549644a35dea46a6", null ],
       [ "getOutput1", "class_wdf_series_adaptor.html#a6714c4394c24983114cc50c5851325d3", null ],
       [ "getOutput2", "class_wdf_series_adaptor.html#a6dd05cc3e8634891ef642e91262e24dd", null ],
       [ "getOutput3", "class_wdf_series_adaptor.html#a65d763a9c331b9755a8ea10e6b82a660", null ],
@@ -323,8 +287,6 @@ var group___w_d_f__objects =
       [ "setInput3", "class_wdf_series_adaptor.html#ab95597daaecd848f63bf621f1e78d804", null ]
     ] ],
     [ "WdfSeriesTerminatedAdaptor", "class_wdf_series_terminated_adaptor.html", [
-      [ "WdfSeriesTerminatedAdaptor", "class_wdf_series_terminated_adaptor.html#a18b1bbf60fb1275ed207881815a1bf49", null ],
-      [ "~WdfSeriesTerminatedAdaptor", "class_wdf_series_terminated_adaptor.html#a856f157941eadab4b33434306298b08d", null ],
       [ "getOutput1", "class_wdf_series_terminated_adaptor.html#a210d7a752ba5d53e933b713fb4de3430", null ],
       [ "getOutput2", "class_wdf_series_terminated_adaptor.html#a8fa1fb291f7d6eb30d75080f3c722497", null ],
       [ "getOutput3", "class_wdf_series_terminated_adaptor.html#a0ae56d0764a33349ce8b588aa9927658", null ],
@@ -335,8 +297,6 @@ var group___w_d_f__objects =
       [ "setInput3", "class_wdf_series_terminated_adaptor.html#a6c9535f13036389c7e9996cb2da0781a", null ]
     ] ],
     [ "WdfParallelAdaptor", "class_wdf_parallel_adaptor.html", [
-      [ "WdfParallelAdaptor", "class_wdf_parallel_adaptor.html#ab18d6ac9a67467de0e615d8e83d75f65", null ],
-      [ "~WdfParallelAdaptor", "class_wdf_parallel_adaptor.html#a7239c64f98c1f3252b2fc6f8605164c6", null ],
       [ "getOutput1", "class_wdf_parallel_adaptor.html#a30089a2fc51ec2fec6d29fe2f8420c57", null ],
       [ "getOutput2", "class_wdf_parallel_adaptor.html#a24c8cd75c57318183721d50b49471267", null ],
       [ "getOutput3", "class_wdf_parallel_adaptor.html#a417e002e095b76067f43a789b4ca4016", null ],
@@ -347,8 +307,6 @@ var group___w_d_f__objects =
       [ "setInput3", "class_wdf_parallel_adaptor.html#af788641b853e4f08693ff38068fa01f4", null ]
     ] ],
     [ "WdfParallelTerminatedAdaptor", "class_wdf_parallel_terminated_adaptor.html", [
-      [ "WdfParallelTerminatedAdaptor", "class_wdf_parallel_terminated_adaptor.html#aaf998f00dfd43aaec9724a4e0c9911fe", null ],
-      [ "~WdfParallelTerminatedAdaptor", "class_wdf_parallel_terminated_adaptor.html#a2f4f5d13e806a31e99b996910ba08492", null ],
       [ "getOutput1", "class_wdf_parallel_terminated_adaptor.html#a761baf93b057aa3e918109b18b384059", null ],
       [ "getOutput2", "class_wdf_parallel_terminated_adaptor.html#a515e6d4ade1f0f1869338e03c08e3a94", null ],
       [ "getOutput3", "class_wdf_parallel_terminated_adaptor.html#a7921512d5ac811f794f5dd9e2ba7dbb1", null ],
@@ -359,8 +317,6 @@ var group___w_d_f__objects =
       [ "setInput3", "class_wdf_parallel_terminated_adaptor.html#a2bd9de98c6775f7d32ab358349d45f15", null ]
     ] ],
     [ "WDFButterLPF3", "class_w_d_f_butter_l_p_f3.html", [
-      [ "WDFButterLPF3", "class_w_d_f_butter_l_p_f3.html#ac9acd2b308c82731bc27c001ea05939d", null ],
-      [ "~WDFButterLPF3", "class_w_d_f_butter_l_p_f3.html#a95237f0b8572836215c79e00e631991b", null ],
       [ "canProcessAudioFrame", "class_w_d_f_butter_l_p_f3.html#a03d899c26391fb876f22a40bfe6abfca", null ],
       [ "createWDF", "class_w_d_f_butter_l_p_f3.html#a5407a552390c7e09199250e05f67ab61", null ],
       [ "processAudioSample", "class_w_d_f_butter_l_p_f3.html#a6a0481ef7fb01265760ba1b1adc3d3ea", null ],
@@ -370,17 +326,12 @@ var group___w_d_f__objects =
       [ "seriesTerminatedAdaptor_L2", "class_w_d_f_butter_l_p_f3.html#a6e3a7bae5c5ec608aecd2185622dd3bf", null ]
     ] ],
     [ "WDFTunableButterLPF3", "class_w_d_f_tunable_butter_l_p_f3.html", [
-      [ "WDFTunableButterLPF3", "class_w_d_f_tunable_butter_l_p_f3.html#a1892ab339bf46880df97844249a5a5dc", null ],
-      [ "~WDFTunableButterLPF3", "class_w_d_f_tunable_butter_l_p_f3.html#a27c939ec5e2159d4d8d2208b3cf2cf34", null ],
       [ "canProcessAudioFrame", "class_w_d_f_tunable_butter_l_p_f3.html#a81b84b59bc04e0d60b76a18de5cbd39f", null ],
       [ "createWDF", "class_w_d_f_tunable_butter_l_p_f3.html#ae59731b47dd1a2fc529fc9da3daad225", null ],
       [ "processAudioSample", "class_w_d_f_tunable_butter_l_p_f3.html#ad33326ef6a7645224319277ae6db975c", null ],
       [ "reset", "class_w_d_f_tunable_butter_l_p_f3.html#ad47a2c82c26cb58e5a2bc800e9815109", null ],
       [ "setFilterFc", "class_w_d_f_tunable_butter_l_p_f3.html#a411dfd1d3304cd2f6ea13e232ab2203a", null ],
       [ "setUsePostWarping", "class_w_d_f_tunable_butter_l_p_f3.html#ae3da5e53a916a43bdbff253a99aec0a0", null ],
-      [ "C1_norm", "class_w_d_f_tunable_butter_l_p_f3.html#abc230e237f7f03c6ab3534e48f70cee2", null ],
-      [ "L1_norm", "class_w_d_f_tunable_butter_l_p_f3.html#ab4edfd5d8feab8dd7cdc6d9b0ab4704c", null ],
-      [ "L2_norm", "class_w_d_f_tunable_butter_l_p_f3.html#a32faf304339b1802696118e1dbbff17f", null ],
       [ "parallelAdaptor_C1", "class_w_d_f_tunable_butter_l_p_f3.html#add9b35166b8e46e2904ff43d926524a7", null ],
       [ "sampleRate", "class_w_d_f_tunable_butter_l_p_f3.html#a5fb75e63e26c94ec44d22b49f5947de8", null ],
       [ "seriesAdaptor_L1", "class_w_d_f_tunable_butter_l_p_f3.html#a7767c1b28a2e370fea9cd19135e4808f", null ],
@@ -388,8 +339,6 @@ var group___w_d_f__objects =
       [ "useFrequencyWarping", "class_w_d_f_tunable_butter_l_p_f3.html#a252b4104158208ea3e81434259413cb5", null ]
     ] ],
     [ "WDFBesselBSF3", "class_w_d_f_bessel_b_s_f3.html", [
-      [ "WDFBesselBSF3", "class_w_d_f_bessel_b_s_f3.html#a80d7445819db8c5deb4ed84935af4f4f", null ],
-      [ "~WDFBesselBSF3", "class_w_d_f_bessel_b_s_f3.html#ad9a262a066e490072ded3cd486baa6fa", null ],
       [ "canProcessAudioFrame", "class_w_d_f_bessel_b_s_f3.html#a7268d73104937d946128004458a627ae", null ],
       [ "createWDF", "class_w_d_f_bessel_b_s_f3.html#a86772d834e9fbaf93812623abd995b56", null ],
       [ "processAudioSample", "class_w_d_f_bessel_b_s_f3.html#a4f3a9832e8eeeea5c67f2cedd2f3c82d", null ],
@@ -399,8 +348,6 @@ var group___w_d_f__objects =
       [ "seriesTerminatedAdaptor_L3C3", "class_w_d_f_bessel_b_s_f3.html#a11b00d0d758009d40d5177ce20230911", null ]
     ] ],
     [ "WDFConstKBPF6", "class_w_d_f_const_k_b_p_f6.html", [
-      [ "WDFConstKBPF6", "class_w_d_f_const_k_b_p_f6.html#aed77f9639a56e0b9e714933ec5f38b54", null ],
-      [ "~WDFConstKBPF6", "class_w_d_f_const_k_b_p_f6.html#a069c70475a22c0fde8366724deaf1488", null ],
       [ "canProcessAudioFrame", "class_w_d_f_const_k_b_p_f6.html#aa3bcea7d36aa735c0e3278172013e92e", null ],
       [ "createWDF", "class_w_d_f_const_k_b_p_f6.html#a76bb0e9c97da0de6cbebeda4f8a3049c", null ],
       [ "processAudioSample", "class_w_d_f_const_k_b_p_f6.html#a499b7aa204ee1b4da121268008072b30", null ],
@@ -413,16 +360,13 @@ var group___w_d_f__objects =
       [ "seriesAdaptor_L5C5", "class_w_d_f_const_k_b_p_f6.html#a63470eb263a55355bd7058c9d6d17fe7", null ]
     ] ],
     [ "WDFParameters", "struct_w_d_f_parameters.html", [
-      [ "WDFParameters", "struct_w_d_f_parameters.html#ae71ba4023aba0329b42789fbd264c167", null ],
-      [ "operator=", "struct_w_d_f_parameters.html#a5ed90b4c0b49dd387ad95ca2da4d6f4f", null ],
+      [ "operator=", "struct_w_d_f_parameters.html#a5aa256cb05aead52fecce0021a12ea54", null ],
       [ "boostCut_dB", "struct_w_d_f_parameters.html#a3edbde6db85fc07561b84f429bd771e2", null ],
       [ "fc", "struct_w_d_f_parameters.html#a035d68d83c8a5895e12514dc4aacc945", null ],
       [ "frequencyWarping", "struct_w_d_f_parameters.html#a533cd6995851d8a5fee574cb258f4492", null ],
       [ "Q", "struct_w_d_f_parameters.html#a5aecd7cda02e27b67da9566026875a93", null ]
     ] ],
     [ "WDFIdealRLCLPF", "class_w_d_f_ideal_r_l_c_l_p_f.html", [
-      [ "WDFIdealRLCLPF", "class_w_d_f_ideal_r_l_c_l_p_f.html#aa0b519c62357b122514147b816d3a7ec", null ],
-      [ "~WDFIdealRLCLPF", "class_w_d_f_ideal_r_l_c_l_p_f.html#a3c232eb958245fde7ebb5f794b142f9c", null ],
       [ "canProcessAudioFrame", "class_w_d_f_ideal_r_l_c_l_p_f.html#aea7e278335aa3ac5889dbe0e56372b7c", null ],
       [ "createWDF", "class_w_d_f_ideal_r_l_c_l_p_f.html#ab15cb5fc353ae4827fc6202fabf680ff", null ],
       [ "getParameters", "class_w_d_f_ideal_r_l_c_l_p_f.html#a476f61f00c91282b7c94a7109be2d380", null ],
@@ -430,13 +374,10 @@ var group___w_d_f__objects =
       [ "reset", "class_w_d_f_ideal_r_l_c_l_p_f.html#aedfa8e4f5741dc0aabf2ce9d5510f29e", null ],
       [ "setParameters", "class_w_d_f_ideal_r_l_c_l_p_f.html#a4bb0d96a3fd76ce404a6f255b306e3a5", null ],
       [ "parallelTerminatedAdaptor_C", "class_w_d_f_ideal_r_l_c_l_p_f.html#ad10a0dcc1f2948b2725ec30450d2bed0", null ],
-      [ "sampleRate", "class_w_d_f_ideal_r_l_c_l_p_f.html#a04add1ba6815cbb080e17f69fb92890d", null ],
       [ "seriesAdaptor_RL", "class_w_d_f_ideal_r_l_c_l_p_f.html#a5f30e374297f9fe8dac09d2686e311aa", null ],
       [ "wdfParameters", "class_w_d_f_ideal_r_l_c_l_p_f.html#a1c42353968fea88473d41f43b00d236c", null ]
     ] ],
     [ "WDFIdealRLCHPF", "class_w_d_f_ideal_r_l_c_h_p_f.html", [
-      [ "WDFIdealRLCHPF", "class_w_d_f_ideal_r_l_c_h_p_f.html#ad5cdc1b775e5b9b9c00e9a819c9fadff", null ],
-      [ "~WDFIdealRLCHPF", "class_w_d_f_ideal_r_l_c_h_p_f.html#ab4525fdcd21c9d161c5f56b4ee74711a", null ],
       [ "canProcessAudioFrame", "class_w_d_f_ideal_r_l_c_h_p_f.html#a4245a7b03d35096b9f0d919a39c82a52", null ],
       [ "createWDF", "class_w_d_f_ideal_r_l_c_h_p_f.html#a1bd0c1eccd4fad7a345de04757251691", null ],
       [ "getParameters", "class_w_d_f_ideal_r_l_c_h_p_f.html#a2f297201706fd281889e02ba5dcefbb7", null ],
@@ -449,8 +390,6 @@ var group___w_d_f__objects =
       [ "wdfParameters", "class_w_d_f_ideal_r_l_c_h_p_f.html#a591580bdba8403ad33173c793af10c73", null ]
     ] ],
     [ "WDFIdealRLCBPF", "class_w_d_f_ideal_r_l_c_b_p_f.html", [
-      [ "WDFIdealRLCBPF", "class_w_d_f_ideal_r_l_c_b_p_f.html#a14e125040a7c30e073b3a57e39c6a941", null ],
-      [ "~WDFIdealRLCBPF", "class_w_d_f_ideal_r_l_c_b_p_f.html#a8da2b5f72137b474da310dbe100732a1", null ],
       [ "canProcessAudioFrame", "class_w_d_f_ideal_r_l_c_b_p_f.html#a6667638721c38ecf89c0504da16a2874", null ],
       [ "createWDF", "class_w_d_f_ideal_r_l_c_b_p_f.html#aeb7533b390592f00f0211a53f9ae9084", null ],
       [ "getParameters", "class_w_d_f_ideal_r_l_c_b_p_f.html#a720bb1a01ad3b41fe54b75c021c0eb5d", null ],
@@ -458,13 +397,10 @@ var group___w_d_f__objects =
       [ "reset", "class_w_d_f_ideal_r_l_c_b_p_f.html#a3cb8b80165c308223fdb0386949a5ce3", null ],
       [ "setParameters", "class_w_d_f_ideal_r_l_c_b_p_f.html#a4c25129b4c2ccaafaf9de0d19a05f375", null ],
       [ "parallelTerminatedAdaptor_R", "class_w_d_f_ideal_r_l_c_b_p_f.html#a847d5be2c22b7ce787096f902f987866", null ],
-      [ "sampleRate", "class_w_d_f_ideal_r_l_c_b_p_f.html#a5d9b5bac49b9bc67a07c6ae4c287e2f5", null ],
       [ "seriesAdaptor_LC", "class_w_d_f_ideal_r_l_c_b_p_f.html#a19c2a415308f69b21ce307fc4099a87e", null ],
       [ "wdfParameters", "class_w_d_f_ideal_r_l_c_b_p_f.html#ab8ab8aaaaf884327a161e4acee516a4b", null ]
     ] ],
     [ "WDFIdealRLCBSF", "class_w_d_f_ideal_r_l_c_b_s_f.html", [
-      [ "WDFIdealRLCBSF", "class_w_d_f_ideal_r_l_c_b_s_f.html#a3501526f993458a2ec9790f17f9bcea3", null ],
-      [ "~WDFIdealRLCBSF", "class_w_d_f_ideal_r_l_c_b_s_f.html#afc8bdda40dbfa8f48e85dccb3b3ab69c", null ],
       [ "canProcessAudioFrame", "class_w_d_f_ideal_r_l_c_b_s_f.html#a0d870e122bbc7be2a26937abda3e50e0", null ],
       [ "createWDF", "class_w_d_f_ideal_r_l_c_b_s_f.html#ad2c023553e86da0d26a84d7e47c4f66b", null ],
       [ "getParameters", "class_w_d_f_ideal_r_l_c_b_s_f.html#aa5fa958d12b4379100997952abe4dc35", null ],

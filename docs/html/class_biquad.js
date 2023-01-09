@@ -1,13 +1,11 @@
 var class_biquad =
 [
-    [ "Biquad", "class_biquad.html#a52dca857188efd568cce9e763c1fcb82", null ],
-    [ "~Biquad", "class_biquad.html#aff003d89792b3b5dfd2f5c9fb30ef44b", null ],
     [ "canProcessAudioFrame", "class_biquad.html#af654dfb45cef87c884152dca62a90cb6", null ],
-    [ "getCoefficients", "class_biquad.html#a175b0371eabd774a87bab96ab97648d1", null ],
+    [ "getCoefficients", "class_biquad.html#a43341b554481a121464e5cf5e3dec4f6", null ],
     [ "getG_value", "class_biquad.html#a8609be756e12fc30e2c9449edbdc6fad", null ],
     [ "getParameters", "class_biquad.html#a74a24336b1ddda59630fbe837d330647", null ],
     [ "getS_value", "class_biquad.html#ab6015318cdd97e2bd348e6c567a495d8", null ],
-    [ "getStateArray", "class_biquad.html#a75334564f5233baf225e1b893e61d513", null ],
+    [ "getStateArray", "class_biquad.html#aa9f2c8419119e0e65ec630c4ad342533", null ],
     [ "processAudioSample", "class_biquad.html#abd6950355edb6009c5e7c7fb5c3811c4", null ],
     [ "reset", "class_biquad.html#a4073d5b478d642849b5158801cbdefb4", null ],
     [ "setCoefficients", "class_biquad.html#a1a14bdc7a372e296f248bad08203b9f1", null ],

@@ -1,45 +1,34 @@
 var group___f_x__objects =
 [
     [ "ComplexNumber", "struct_complex_number.html", [
-      [ "ComplexNumber", "struct_complex_number.html#a610e9db9ff0ddb0140e30d235ab64e44", null ],
-      [ "ComplexNumber", "struct_complex_number.html#afc56850f9a11b58ee9ca1f03686397f3", null ],
       [ "imag", "struct_complex_number.html#abf75908d74220ab4af9980bd4322c982", null ],
       [ "real", "struct_complex_number.html#ac37866f7b3342293b0ecb4fea6c0ae2b", null ]
     ] ],
     [ "BrickwallMagData", "struct_brickwall_mag_data.html", [
-      [ "BrickwallMagData", "struct_brickwall_mag_data.html#ac4798690d8e3f26ccd1bf2e45f511f37", null ],
-      [ "dftArrayLen", "struct_brickwall_mag_data.html#a9b265f5db76e7c0a2e41aa97e668ba48", null ],
       [ "f_High", "struct_brickwall_mag_data.html#a6f1f685a6cd4a3bcc58225a997be454f", null ],
       [ "f_Low", "struct_brickwall_mag_data.html#ad27fa4b61058f5b3713c4d19757f12d4", null ],
       [ "fc", "struct_brickwall_mag_data.html#a34b8a355724306218c970dd78552d19f", null ],
-      [ "filterType", "struct_brickwall_mag_data.html#af581b47b474adbe4056f73a608d79a22", null ],
-      [ "magArray", "struct_brickwall_mag_data.html#a05bb8acb1ace81b19f8e8d2d16519ed4", null ],
       [ "mirrorMag", "struct_brickwall_mag_data.html#aa97169ac22f80e1dc0fdaffb6c24c220", null ],
       [ "Q", "struct_brickwall_mag_data.html#a5528d4a4a373d0d416ffd7c33a44b5a8", null ],
-      [ "relaxationBins", "struct_brickwall_mag_data.html#ae5ff131c71e853313cfd3bc5bcbbdac9", null ],
-      [ "sampleRate", "struct_brickwall_mag_data.html#ac23220b52d320b7eb857df7e52a5dd37", null ]
+      [ "relaxationBins", "struct_brickwall_mag_data.html#ae5ff131c71e853313cfd3bc5bcbbdac9", null ]
     ] ],
     [ "TransitionBandData", "struct_transition_band_data.html", [
-      [ "TransitionBandData", "struct_transition_band_data.html#a4dde14c51f27bb670f06f7c4fbfa64e3", null ],
       [ "edgeType", "struct_transition_band_data.html#a1931bffa41d41a8cce9a91dc3c0e862f", null ],
       [ "slopeIncrement", "struct_transition_band_data.html#a870fbcbe5facc672223693d3bcbbf6a4", null ],
       [ "startBin", "struct_transition_band_data.html#a76305574aa9c3dd4815036643f17f6c7", null ],
       [ "stopBin", "struct_transition_band_data.html#adedaa678689adf9acae0729f3794505e", null ]
     ] ],
     [ "BiquadParameters", "struct_biquad_parameters.html", [
-      [ "BiquadParameters", "struct_biquad_parameters.html#ae02cbac1d100ee820d8d108eb37b7017", null ],
-      [ "operator=", "struct_biquad_parameters.html#a3686d32598578662355f91c5a6a72730", null ],
+      [ "operator=", "struct_biquad_parameters.html#a4337fd77b1aa3c41c1873b8a7a244d9c", null ],
       [ "biquadCalcType", "struct_biquad_parameters.html#a6296aef864bd91053406ac1335f25dac", null ]
     ] ],
     [ "Biquad", "class_biquad.html", [
-      [ "Biquad", "class_biquad.html#a52dca857188efd568cce9e763c1fcb82", null ],
-      [ "~Biquad", "class_biquad.html#aff003d89792b3b5dfd2f5c9fb30ef44b", null ],
       [ "canProcessAudioFrame", "class_biquad.html#af654dfb45cef87c884152dca62a90cb6", null ],
-      [ "getCoefficients", "class_biquad.html#a175b0371eabd774a87bab96ab97648d1", null ],
+      [ "getCoefficients", "class_biquad.html#a43341b554481a121464e5cf5e3dec4f6", null ],
       [ "getG_value", "class_biquad.html#a8609be756e12fc30e2c9449edbdc6fad", null ],
       [ "getParameters", "class_biquad.html#a74a24336b1ddda59630fbe837d330647", null ],
       [ "getS_value", "class_biquad.html#ab6015318cdd97e2bd348e6c567a495d8", null ],
-      [ "getStateArray", "class_biquad.html#a75334564f5233baf225e1b893e61d513", null ],
+      [ "getStateArray", "class_biquad.html#aa9f2c8419119e0e65ec630c4ad342533", null ],
       [ "processAudioSample", "class_biquad.html#abd6950355edb6009c5e7c7fb5c3811c4", null ],
       [ "reset", "class_biquad.html#a4073d5b478d642849b5158801cbdefb4", null ],
       [ "setCoefficients", "class_biquad.html#a1a14bdc7a372e296f248bad08203b9f1", null ],
@@ -50,16 +39,13 @@ var group___f_x__objects =
       [ "storageComponent", "class_biquad.html#ad4942a160b76a8a76f209d69b4d5fb0c", null ]
     ] ],
     [ "AudioFilterParameters", "struct_audio_filter_parameters.html", [
-      [ "AudioFilterParameters", "struct_audio_filter_parameters.html#a18ca68476fe7c869e1c8fbf41c44aca0", null ],
-      [ "operator=", "struct_audio_filter_parameters.html#af8485351dd881430feb2149c5bc7c826", null ],
+      [ "operator=", "struct_audio_filter_parameters.html#a3aaa98acb6a8c2319ce7c1ec6e38a51a", null ],
       [ "algorithm", "struct_audio_filter_parameters.html#a8597ed4e374976d98725960dcecd3d60", null ],
       [ "boostCut_dB", "struct_audio_filter_parameters.html#a8d761ca792a81370cf96a6da6d55292a", null ],
       [ "fc", "struct_audio_filter_parameters.html#a6230aea3db6da61558954de34498e922", null ],
       [ "Q", "struct_audio_filter_parameters.html#ad9ea2855e32426f3a47690589bc6ed12", null ]
     ] ],
     [ "AudioFilter", "class_audio_filter.html", [
-      [ "AudioFilter", "class_audio_filter.html#a99a2879672e0480a8d4f89fc5a711dc3", null ],
-      [ "~AudioFilter", "class_audio_filter.html#af6f630c06032d6d537c0f8b33173116a", null ],
       [ "calculateFilterCoeffs", "class_audio_filter.html#a96a1ad0803e8100cc049e7b3475a5141", null ],
       [ "canProcessAudioFrame", "class_audio_filter.html#ae9105c22385b9604ab08e7e051120672", null ],
       [ "getG_value", "class_audio_filter.html#a031c6ef2f03935eae1e30e013659977e", null ],
@@ -75,18 +61,14 @@ var group___f_x__objects =
       [ "sampleRate", "class_audio_filter.html#a4531006fb5d3b9105144a27c3188f8dc", null ]
     ] ],
     [ "FilterBankOutput", "struct_filter_bank_output.html", [
-      [ "FilterBankOutput", "struct_filter_bank_output.html#a5ff92f91f07beabac69e70e42a0b6f0b", null ],
       [ "HFOut", "struct_filter_bank_output.html#a0479e406a92d1929a95cba507b909a8a", null ],
       [ "LFOut", "struct_filter_bank_output.html#a328ca780232b0bc0e519bccf2540506d", null ]
     ] ],
     [ "LRFilterBankParameters", "struct_l_r_filter_bank_parameters.html", [
-      [ "LRFilterBankParameters", "struct_l_r_filter_bank_parameters.html#ab7dd3a483253a1d6119acc69b0268935", null ],
-      [ "operator=", "struct_l_r_filter_bank_parameters.html#a699c6d770dac052ea4676296e003dc04", null ],
+      [ "operator=", "struct_l_r_filter_bank_parameters.html#a78c539cd91795744caf7d6794555b1a1", null ],
       [ "splitFrequency", "struct_l_r_filter_bank_parameters.html#a4e0f7b40b41ac89129f94499737e3623", null ]
     ] ],
     [ "LRFilterBank", "class_l_r_filter_bank.html", [
-      [ "LRFilterBank", "class_l_r_filter_bank.html#ad448c28af2ac7409cdf93d8182cb2968", null ],
-      [ "~LRFilterBank", "class_l_r_filter_bank.html#aa4477b45171e013c8e60204b0c229afb", null ],
       [ "canProcessAudioFrame", "class_l_r_filter_bank.html#acdcc55edcf63b1d30c614af1422e4643", null ],
       [ "getParameters", "class_l_r_filter_bank.html#a6c879a5870f9649befa103d0af39965a", null ],
       [ "processAudioSample", "class_l_r_filter_bank.html#a56ad33c516fe249b54bd5ec3553a14a7", null ],
@@ -98,8 +80,7 @@ var group___f_x__objects =
       [ "parameters", "class_l_r_filter_bank.html#a49a7709ddcce16c7fc7b2cb72bf8c44d", null ]
     ] ],
     [ "AudioDetectorParameters", "struct_audio_detector_parameters.html", [
-      [ "AudioDetectorParameters", "struct_audio_detector_parameters.html#a5afde300dd6236347276bb232fff1d73", null ],
-      [ "operator=", "struct_audio_detector_parameters.html#a27727220adda430d49f492bae7da652d", null ],
+      [ "operator=", "struct_audio_detector_parameters.html#a9adaa4a948300a2f58bf1d7a3b7782eb", null ],
       [ "attackTime_mSec", "struct_audio_detector_parameters.html#a331bb2ef71613683b7f962f3d1182523", null ],
       [ "clampToUnityMax", "struct_audio_detector_parameters.html#a8308c67e649ec1c6b75e8bd3329594ad", null ],
       [ "detect_dB", "struct_audio_detector_parameters.html#a71f4b9c85b4e000dec80589a1882b253", null ],
@@ -107,8 +88,6 @@ var group___f_x__objects =
       [ "releaseTime_mSec", "struct_audio_detector_parameters.html#ace6f4a1b6fb2fafb564b0c34a796ea84", null ]
     ] ],
     [ "AudioDetector", "class_audio_detector.html", [
-      [ "AudioDetector", "class_audio_detector.html#aa7cc4383d8489e2db76596d772a8f666", null ],
-      [ "~AudioDetector", "class_audio_detector.html#a9ecf59d20355f8f6dce26e1169fceae6", null ],
       [ "canProcessAudioFrame", "class_audio_detector.html#aab7289b8602cb58e86e81b1fd4248887", null ],
       [ "getParameters", "class_audio_detector.html#a8eb30db122e269b1715799902f138c05", null ],
       [ "processAudioSample", "class_audio_detector.html#a7a953f02084944497f12fb371d0364c9", null ],
@@ -124,8 +103,7 @@ var group___f_x__objects =
       [ "sampleRate", "class_audio_detector.html#a262d4aa81748ce1e1704fa149abd815b", null ]
     ] ],
     [ "DynamicsProcessorParameters", "struct_dynamics_processor_parameters.html", [
-      [ "DynamicsProcessorParameters", "struct_dynamics_processor_parameters.html#ae524a65d39669e8f558e3de5c4b2a8c2", null ],
-      [ "operator=", "struct_dynamics_processor_parameters.html#a3fe51a195c8ebdc1ff64cbb1121a3b5f", null ],
+      [ "operator=", "struct_dynamics_processor_parameters.html#a1b072b368bdec716be27849241d20422", null ],
       [ "attackTime_mSec", "struct_dynamics_processor_parameters.html#aee4170f0235f489c53c6dcb6466c9e3b", null ],
       [ "calculation", "struct_dynamics_processor_parameters.html#a54596f772f8e1160ad52b5f0d143f789", null ],
       [ "enableSidechain", "struct_dynamics_processor_parameters.html#aaf7517baa81d23e4a8dfee750a609c53", null ],
@@ -140,8 +118,6 @@ var group___f_x__objects =
       [ "threshold_dB", "struct_dynamics_processor_parameters.html#a98377c66a4d1f869bbb31f4ec07c7182", null ]
     ] ],
     [ "DynamicsProcessor", "class_dynamics_processor.html", [
-      [ "DynamicsProcessor", "class_dynamics_processor.html#adaacc71090eccdda1e336b4eff71e922", null ],
-      [ "~DynamicsProcessor", "class_dynamics_processor.html#ac9a141da247999edb5a2330e5646d34d", null ],
       [ "canProcessAudioFrame", "class_dynamics_processor.html#a46e6783e070c29b2e88cd3dee00b84e3", null ],
       [ "computeGain", "class_dynamics_processor.html#a53826f8bfa71000227d3ad97659db329", null ],
       [ "enableAuxInput", "class_dynamics_processor.html#a28ad5b1be97d075f5e8d51de87046c83", null ],
@@ -154,28 +130,22 @@ var group___f_x__objects =
       [ "parameters", "class_dynamics_processor.html#a967cd74bb387a15cc84e97cb3840c19f", null ],
       [ "sidechainInputSample", "class_dynamics_processor.html#a852707f8a91489965930798adb256479", null ]
     ] ],
-    [ "LinearBuffer", "class_linear_buffer.html", [
-      [ "LinearBuffer", "class_linear_buffer.html#a6c649ed908cb28312ded611aee0b49ae", null ],
-      [ "~LinearBuffer", "class_linear_buffer.html#adb8c92810929867c7b47f8eac8e4c1bc", null ],
+    [ "LinearBuffer< T >", "class_linear_buffer.html", [
       [ "createLinearBuffer", "class_linear_buffer.html#a0cc7d423d666cca46f5290304abe47d2", null ],
       [ "flushBuffer", "class_linear_buffer.html#a6829cc4a96758b3f0fb1aeba26d7742a", null ],
       [ "readBuffer", "class_linear_buffer.html#aa02b061d7d5fd6f489b3a0337dcf9dee", null ],
       [ "writeBuffer", "class_linear_buffer.html#a28baafc3d7ea309886e22c8abfcc41a2", null ]
     ] ],
-    [ "CircularBuffer", "class_circular_buffer.html", [
-      [ "CircularBuffer", "class_circular_buffer.html#ace36067ba768a7ee692bc3fe61dca803", null ],
-      [ "~CircularBuffer", "class_circular_buffer.html#a90268eaf2901ea77181ed353d3716c21", null ],
+    [ "CircularBuffer< T >", "class_circular_buffer.html", [
       [ "createCircularBuffer", "class_circular_buffer.html#a8c121afe9d93781f9f6106fa717a4424", null ],
       [ "createCircularBufferPowerOfTwo", "class_circular_buffer.html#a790da6db355e08e7c04253d356062e5f", null ],
       [ "flushBuffer", "class_circular_buffer.html#a5023fa426143c3bd789fad6c5284ecbc", null ],
-      [ "readBuffer", "class_circular_buffer.html#a7134eb7ba2ff697c61faf7765ea40a3e", null ],
       [ "readBuffer", "class_circular_buffer.html#aa2d726b01309dc7542a3098f7ae04e33", null ],
+      [ "readBuffer", "class_circular_buffer.html#a7134eb7ba2ff697c61faf7765ea40a3e", null ],
       [ "setInterpolate", "class_circular_buffer.html#addda8fad0e1051920fb7e86ae56281e5", null ],
       [ "writeBuffer", "class_circular_buffer.html#a765bb1ef5b78d36df9d68a11e6508f06", null ]
     ] ],
     [ "ImpulseConvolver", "class_impulse_convolver.html", [
-      [ "ImpulseConvolver", "class_impulse_convolver.html#a308c3975c94a107ce47378d8b9456bf7", null ],
-      [ "~ImpulseConvolver", "class_impulse_convolver.html#ab3ab22dafc588bdd614ae7169b4b556a", null ],
       [ "canProcessAudioFrame", "class_impulse_convolver.html#aca75bfc42dc4c706fabc41620dd9258f", null ],
       [ "init", "class_impulse_convolver.html#a1305cea210fb228320ce8fb3fb6e4a13", null ],
       [ "processAudioSample", "class_impulse_convolver.html#a26aa0d9edd123bfebc5946019b7ce5ad", null ],
@@ -186,15 +156,12 @@ var group___f_x__objects =
       [ "signalBuffer", "class_impulse_convolver.html#af9231461d86f176c625955800bb87666", null ]
     ] ],
     [ "AnalogFIRFilterParameters", "struct_analog_f_i_r_filter_parameters.html", [
-      [ "AnalogFIRFilterParameters", "struct_analog_f_i_r_filter_parameters.html#a8db0bbe3713b05eea3b1b1d803bcdf10", null ],
-      [ "operator=", "struct_analog_f_i_r_filter_parameters.html#a75a5a8d56ac81ec15692873cf10186b7", null ],
+      [ "operator=", "struct_analog_f_i_r_filter_parameters.html#a35ed3d7dace76a0cace20e38ae9ca4fe", null ],
       [ "fc", "struct_analog_f_i_r_filter_parameters.html#aecc8f0a435e12728402e99ec3d0237b1", null ],
       [ "filterType", "struct_analog_f_i_r_filter_parameters.html#a5c6f547fa9b0aab2b4a6fc50fb247909", null ],
       [ "Q", "struct_analog_f_i_r_filter_parameters.html#ae81e84aec3f0a4c077f5eb619f585db4", null ]
     ] ],
     [ "AnalogFIRFilter", "class_analog_f_i_r_filter.html", [
-      [ "AnalogFIRFilter", "class_analog_f_i_r_filter.html#a3e0de6847173d5f26e9e22284af4780f", null ],
-      [ "~AnalogFIRFilter", "class_analog_f_i_r_filter.html#a1d81b1cbc16a6f31788018d7c001c73b", null ],
       [ "canProcessAudioFrame", "class_analog_f_i_r_filter.html#aa41f7d836914b6b6019cf33d16964be6", null ],
       [ "getParameters", "class_analog_f_i_r_filter.html#a8d0ded31ae423283ef225992484364c1", null ],
       [ "processAudioSample", "class_analog_f_i_r_filter.html#a35f344329edef969fab298a8470eab05", null ],
@@ -202,8 +169,7 @@ var group___f_x__objects =
       [ "setParameters", "class_analog_f_i_r_filter.html#af883b556a281c6357adc96126e9e4b28", null ]
     ] ],
     [ "AudioDelayParameters", "struct_audio_delay_parameters.html", [
-      [ "AudioDelayParameters", "struct_audio_delay_parameters.html#ac80681a02f04a9d7bf2a5582e6b9fedf", null ],
-      [ "operator=", "struct_audio_delay_parameters.html#a468f77e9db6184b7da7f80925cb10bd4", null ],
+      [ "operator=", "struct_audio_delay_parameters.html#a05c27323bd1c2fd613c0795b965d8513", null ],
       [ "algorithm", "struct_audio_delay_parameters.html#ab5194fb2f1dd23181f661e082781281a", null ],
       [ "delayRatio_Pct", "struct_audio_delay_parameters.html#a1df4afd7265ff9b8b4fbfd4a93b7d574", null ],
       [ "dryLevel_dB", "struct_audio_delay_parameters.html#aa45311f3186513143f30febfd4b9d20d", null ],
@@ -214,8 +180,6 @@ var group___f_x__objects =
       [ "wetLevel_dB", "struct_audio_delay_parameters.html#a007b75d9b5b9522b60ab788ed4615912", null ]
     ] ],
     [ "AudioDelay", "class_audio_delay.html", [
-      [ "AudioDelay", "class_audio_delay.html#a75d671994c13b1d156ef5fb719008307", null ],
-      [ "~AudioDelay", "class_audio_delay.html#a91f81f7b379143ff2e73afb29e24f83a", null ],
       [ "canProcessAudioFrame", "class_audio_delay.html#a71cd7a396cf997288c64b35601e184d9", null ],
       [ "createDelayBuffers", "class_audio_delay.html#a3d44c9291ac03574e3864eff2926514f", null ],
       [ "getParameters", "class_audio_delay.html#a7ef497612fb76d3250d5613aea079bf1", null ],
@@ -225,14 +189,11 @@ var group___f_x__objects =
       [ "setParameters", "class_audio_delay.html#a9518cf4684498c62874050ac0d59e298", null ]
     ] ],
     [ "OscillatorParameters", "struct_oscillator_parameters.html", [
-      [ "OscillatorParameters", "struct_oscillator_parameters.html#a259ff2cb6ed213c5349e5a971b80805f", null ],
-      [ "operator=", "struct_oscillator_parameters.html#a757814be0d5ad62cafd831ecf69df9c4", null ],
+      [ "operator=", "struct_oscillator_parameters.html#a71891ebc5e480c4a1e1477d47b193a12", null ],
       [ "frequency_Hz", "struct_oscillator_parameters.html#a76fdd7441954c09635d61d2ef07a0536", null ],
       [ "waveform", "struct_oscillator_parameters.html#ae0835a7645dbf2e143ecc32bab5f6dbb", null ]
     ] ],
     [ "LFO", "class_l_f_o.html", [
-      [ "LFO", "class_l_f_o.html#ad89e6308102d5b8f0790b2c8cc89c4a5", null ],
-      [ "~LFO", "class_l_f_o.html#a8b94f58795b46c9c8176b3165ef8a269", null ],
       [ "advanceAndCheckWrapModulo", "class_l_f_o.html#abc1e363a197c7af7194b0c63a780b2d5", null ],
       [ "advanceModulo", "class_l_f_o.html#ab4a2b5670e6f466a52db021ee3df6de7", null ],
       [ "checkAndWrapModulo", "class_l_f_o.html#a2c5f61dd3e5c55da685b472926d468b0", null ],
@@ -241,18 +202,13 @@ var group___f_x__objects =
       [ "renderAudioOutput", "class_l_f_o.html#a1a2cd5fb091bd75941829cf76f42ff46", null ],
       [ "reset", "class_l_f_o.html#a5ba8cda0b97517daae12514f4e5e8616", null ],
       [ "setParameters", "class_l_f_o.html#a5a78519677bc0baf726f62559f6c7ea3", null ],
-      [ "B", "class_l_f_o.html#ae9713fe0b4d72f9e2cc3f80b9210a746", null ],
-      [ "C", "class_l_f_o.html#a87ae26ebbc748c4abc2674a7a3e656fa", null ],
       [ "lfoParameters", "class_l_f_o.html#a31f8c2220693d6b71c2e9631787d2471", null ],
       [ "modCounter", "class_l_f_o.html#aa9e8e13ddf32a3b1401fe8ffd9523757", null ],
       [ "modCounterQP", "class_l_f_o.html#afad1404fda2e979b89a2be76cbb3ac67", null ],
-      [ "P", "class_l_f_o.html#af357285f56e1d0eaaaade81ca47d7cb0", null ],
       [ "phaseInc", "class_l_f_o.html#a241b500beb0829238789b49626876426", null ],
       [ "sampleRate", "class_l_f_o.html#a3c6012697c42ccddb2468c4330157039", null ]
     ] ],
     [ "DFOscillator", "class_d_f_oscillator.html", [
-      [ "DFOscillator", "class_d_f_oscillator.html#a5d6134ac217df217fb42995a9fa30227", null ],
-      [ "~DFOscillator", "class_d_f_oscillator.html#a8a052c68539c6f392d9cdda35b45ef88", null ],
       [ "getParameters", "class_d_f_oscillator.html#a43aa87bccb1aae2ff3d61541dd6a100b", null ],
       [ "renderAudioOutput", "class_d_f_oscillator.html#aa33bbc2d0dc6d102438bd62e713ce100", null ],
       [ "reset", "class_d_f_oscillator.html#a0d132cb198513247c9c265ab07c4b8ba", null ],
@@ -264,16 +220,13 @@ var group___f_x__objects =
       [ "stateArray", "class_d_f_oscillator.html#a638cc7bb4fc56506ba19e977d6c19475", null ]
     ] ],
     [ "ModulatedDelayParameters", "struct_modulated_delay_parameters.html", [
-      [ "ModulatedDelayParameters", "struct_modulated_delay_parameters.html#a11de59c507d46a0d642b4e6b979dffb0", null ],
-      [ "operator=", "struct_modulated_delay_parameters.html#aaf5231da8fdd274cb3fc2028f09bd88f", null ],
+      [ "operator=", "struct_modulated_delay_parameters.html#aa8e93880315295b16d2fc6a8b9397dcd", null ],
       [ "algorithm", "struct_modulated_delay_parameters.html#a9d7c05cfeb739111c9aaae27b498da50", null ],
       [ "feedback_Pct", "struct_modulated_delay_parameters.html#a19143262c08d8eb01a83c2c21b830117", null ],
       [ "lfoDepth_Pct", "struct_modulated_delay_parameters.html#a95b8699b811fa0a1fc3e0413e28606d5", null ],
       [ "lfoRate_Hz", "struct_modulated_delay_parameters.html#af71ed9ce14ef26916311f184ba3f066b", null ]
     ] ],
     [ "ModulatedDelay", "class_modulated_delay.html", [
-      [ "ModulatedDelay", "class_modulated_delay.html#af1c0c8a38194bb22b1d94d1bb6287c76", null ],
-      [ "~ModulatedDelay", "class_modulated_delay.html#a80b26fb6b57491345c514dc4d387ded4", null ],
       [ "canProcessAudioFrame", "class_modulated_delay.html#a28e2b5d3776977b07eae0f2ca28ad65f", null ],
       [ "getParameters", "class_modulated_delay.html#afe78205c740e51bd142b3613fdc56543", null ],
       [ "processAudioFrame", "class_modulated_delay.html#a8f5bfb39d52895edf5a50950a34b2c14", null ],
@@ -282,16 +235,13 @@ var group___f_x__objects =
       [ "setParameters", "class_modulated_delay.html#ae8a49723daf42c0482ab00fd816e069c", null ]
     ] ],
     [ "PhaseShifterParameters", "struct_phase_shifter_parameters.html", [
-      [ "PhaseShifterParameters", "struct_phase_shifter_parameters.html#a3fda0e59f30feca8faf65d80c70b2e34", null ],
-      [ "operator=", "struct_phase_shifter_parameters.html#a6f0ae632c3993a8a96cf488a485198c2", null ],
+      [ "operator=", "struct_phase_shifter_parameters.html#a5256f70016e50e65895d8928a32d639e", null ],
       [ "intensity_Pct", "struct_phase_shifter_parameters.html#a25fe18569cb53c9ee7c829b46619fcfe", null ],
       [ "lfoDepth_Pct", "struct_phase_shifter_parameters.html#a3cca42e7180713c28b77bd9905ef872d", null ],
       [ "lfoRate_Hz", "struct_phase_shifter_parameters.html#a554b9bce0d34633c7c0d30132958f1f0", null ],
       [ "quadPhaseLFO", "struct_phase_shifter_parameters.html#ad0ac8856272c900709f233d5f7572e2b", null ]
     ] ],
     [ "PhaseShifter", "class_phase_shifter.html", [
-      [ "PhaseShifter", "class_phase_shifter.html#a6108412a2a297f58c96190cd11595758", null ],
-      [ "~PhaseShifter", "class_phase_shifter.html#a418d2e019510a48bc7f91c2c409b5850", null ],
       [ "canProcessAudioFrame", "class_phase_shifter.html#a6c8ee73bcdae0aff28c51ce96f8f026e", null ],
       [ "getParameters", "class_phase_shifter.html#ac6bdf771217695cc0a81a18a270f640e", null ],
       [ "processAudioSample", "class_phase_shifter.html#a64410cc621c3eac5f0d8b9eb9a2b6807", null ],
@@ -302,13 +252,10 @@ var group___f_x__objects =
       [ "parameters", "class_phase_shifter.html#af1bcd00ce18dbe1d470f89e7b8f10809", null ]
     ] ],
     [ "SimpleLPFParameters", "struct_simple_l_p_f_parameters.html", [
-      [ "SimpleLPFParameters", "struct_simple_l_p_f_parameters.html#a04af029afef42828f8bf6550d70bd79c", null ],
-      [ "operator=", "struct_simple_l_p_f_parameters.html#a7df13440f6627e59c6a70168f8c777ba", null ],
+      [ "operator=", "struct_simple_l_p_f_parameters.html#a45efe942fc3824809d529b34cba47a78", null ],
       [ "g", "struct_simple_l_p_f_parameters.html#a704a517174feb82613dc844222447e38", null ]
     ] ],
     [ "SimpleLPF", "class_simple_l_p_f.html", [
-      [ "SimpleLPF", "class_simple_l_p_f.html#af1a9450fd64dd853858af30af22cbbd6", null ],
-      [ "~SimpleLPF", "class_simple_l_p_f.html#a5a122be661cdb4da4d77400f0abaff83", null ],
       [ "canProcessAudioFrame", "class_simple_l_p_f.html#a8f4243a8f4128505d8387932ece419c7", null ],
       [ "getParameters", "class_simple_l_p_f.html#a6021bcdc5692fa5a5cb60933ffdd7e0f", null ],
       [ "processAudioSample", "class_simple_l_p_f.html#a4049b08126ddbb12e38829fab22ed500", null ],
@@ -316,15 +263,12 @@ var group___f_x__objects =
       [ "setParameters", "class_simple_l_p_f.html#a7a669a306684c2c1703b929e2c9e6034", null ]
     ] ],
     [ "SimpleDelayParameters", "struct_simple_delay_parameters.html", [
-      [ "SimpleDelayParameters", "struct_simple_delay_parameters.html#a04d486056ec1dad993d65b2bba180dbe", null ],
-      [ "operator=", "struct_simple_delay_parameters.html#aeba09db3582f3fa4ac9194448d991b2c", null ],
+      [ "operator=", "struct_simple_delay_parameters.html#aed09ee12d2383db97708aca042c81d58", null ],
       [ "delay_Samples", "struct_simple_delay_parameters.html#a188ecb01f390015ac9edfb95fa3c24bb", null ],
       [ "delayTime_mSec", "struct_simple_delay_parameters.html#ad33a431ea87f9f95035e412501631dc4", null ],
       [ "interpolate", "struct_simple_delay_parameters.html#aa49b1706c091a2a078f3b9a602331cc1", null ]
     ] ],
     [ "SimpleDelay", "class_simple_delay.html", [
-      [ "SimpleDelay", "class_simple_delay.html#afc4247a98282219c3cd0250c6f89a9a3", null ],
-      [ "~SimpleDelay", "class_simple_delay.html#ad7207d6cc586bc1ff2d6dc8cad1ad615", null ],
       [ "canProcessAudioFrame", "class_simple_delay.html#a82da6ac637a87098125e253d2fa98d5c", null ],
       [ "createDelayBuffer", "class_simple_delay.html#a2612bf6cf245b70cf037d73aaa322572", null ],
       [ "getParameters", "class_simple_delay.html#a416a0c3c7c735cc9cbbf2db4b470644c", null ],
@@ -337,8 +281,7 @@ var group___f_x__objects =
       [ "writeDelay", "class_simple_delay.html#ad4ea3945686427a80c5b718579923e78", null ]
     ] ],
     [ "CombFilterParameters", "struct_comb_filter_parameters.html", [
-      [ "CombFilterParameters", "struct_comb_filter_parameters.html#a0714921914394db6782ea8ed50ce2214", null ],
-      [ "operator=", "struct_comb_filter_parameters.html#a5aef481bd7b53b1bc3d6748f135332a2", null ],
+      [ "operator=", "struct_comb_filter_parameters.html#a28c82c43b97bad5ff753a53634df81cc", null ],
       [ "delayTime_mSec", "struct_comb_filter_parameters.html#acd7cf2ad24e0b645d7b3335dd5911cb5", null ],
       [ "enableLPF", "struct_comb_filter_parameters.html#aca44721dab976acf62957f093d44022d", null ],
       [ "interpolate", "struct_comb_filter_parameters.html#acafa69af100f96fea90f49b75109fc7e", null ],
@@ -346,8 +289,6 @@ var group___f_x__objects =
       [ "RT60Time_mSec", "struct_comb_filter_parameters.html#a4c808a492f67c7a4e2dc9515392fe66b", null ]
     ] ],
     [ "CombFilter", "class_comb_filter.html", [
-      [ "CombFilter", "class_comb_filter.html#ad5594eb306bd13777737f60b4d6ae83a", null ],
-      [ "~CombFilter", "class_comb_filter.html#ae64f3f4b0ac92f5c4087e25c0f8e2513", null ],
       [ "canProcessAudioFrame", "class_comb_filter.html#a5bf5f0dbf907f84c668e68cbcfefc3dd", null ],
       [ "createDelayBuffer", "class_comb_filter.html#af8350ce4c7c426d22b7891031fa7888c", null ],
       [ "getParameters", "class_comb_filter.html#addfc759af451b46ad34c73e2c1e96524", null ],
@@ -356,8 +297,7 @@ var group___f_x__objects =
       [ "setParameters", "class_comb_filter.html#af6b1c1f987d616a9bec9b9ab9271a41b", null ]
     ] ],
     [ "DelayAPFParameters", "struct_delay_a_p_f_parameters.html", [
-      [ "DelayAPFParameters", "struct_delay_a_p_f_parameters.html#a582409eaddb79314fd702d846faebebb", null ],
-      [ "operator=", "struct_delay_a_p_f_parameters.html#a0568e0702650a7a33ec37ea4b22e28b6", null ],
+      [ "operator=", "struct_delay_a_p_f_parameters.html#a2f61526d35c6ddf3ec825ead327d4beb", null ],
       [ "apf_g", "struct_delay_a_p_f_parameters.html#aa6e9b05aa88e76f94afa8c2e2be75bb7", null ],
       [ "delayTime_mSec", "struct_delay_a_p_f_parameters.html#a6f6a16eb812ae18bc67bb34c2e9a95a8", null ],
       [ "enableLFO", "struct_delay_a_p_f_parameters.html#a770ca3aa5bdb248eb0cd531af21f7343", null ],
@@ -369,8 +309,6 @@ var group___f_x__objects =
       [ "lpf_g", "struct_delay_a_p_f_parameters.html#affe3185f118a8bd7a1e81633593ec428", null ]
     ] ],
     [ "DelayAPF", "class_delay_a_p_f.html", [
-      [ "DelayAPF", "class_delay_a_p_f.html#a79ffdcf39f25ff36d44b118f2b762dd7", null ],
-      [ "~DelayAPF", "class_delay_a_p_f.html#a8261d5bc803b19e34f11c626bbe7f61a", null ],
       [ "canProcessAudioFrame", "class_delay_a_p_f.html#adedc7056b9c9ae959950b189cc322a13", null ],
       [ "createDelayBuffer", "class_delay_a_p_f.html#a84de366a54dc1395e2f6e45c0aad48ac", null ],
       [ "getParameters", "class_delay_a_p_f.html#a267b85bb69551ebd0efe759943b36060", null ],
@@ -385,8 +323,7 @@ var group___f_x__objects =
       [ "sampleRate", "class_delay_a_p_f.html#a809b62ca92d1ef6da53271b742692d2c", null ]
     ] ],
     [ "NestedDelayAPFParameters", "struct_nested_delay_a_p_f_parameters.html", [
-      [ "NestedDelayAPFParameters", "struct_nested_delay_a_p_f_parameters.html#a0d4ae0c51c774ad20da5928521dcd855", null ],
-      [ "operator=", "struct_nested_delay_a_p_f_parameters.html#a3661e9a7885891639634979a586a9d02", null ],
+      [ "operator=", "struct_nested_delay_a_p_f_parameters.html#ae1a3dd3b0551edf50695d160e953bd2f", null ],
       [ "enableLFO", "struct_nested_delay_a_p_f_parameters.html#af7ccd6c5e21cb0192f41586b0342d6c8", null ],
       [ "innerAPF_g", "struct_nested_delay_a_p_f_parameters.html#aba7f1e03ec3ceee092f6a2ee1460d2b3", null ],
       [ "innerAPFdelayTime_mSec", "struct_nested_delay_a_p_f_parameters.html#a009512f6348bbf6467f4db8ead4dc197", null ],
@@ -397,8 +334,6 @@ var group___f_x__objects =
       [ "outerAPFdelayTime_mSec", "struct_nested_delay_a_p_f_parameters.html#a887c1fc0edfb4a97769a12236a5b3d80", null ]
     ] ],
     [ "NestedDelayAPF", "class_nested_delay_a_p_f.html", [
-      [ "NestedDelayAPF", "class_nested_delay_a_p_f.html#a589e0dbbd7ba7286751f7051bd921777", null ],
-      [ "~NestedDelayAPF", "class_nested_delay_a_p_f.html#acea84d2b20bf897e5d5ba93e9bebaca8", null ],
       [ "createDelayBuffers", "class_nested_delay_a_p_f.html#ac88965f42c7a162540d789194d8d7b0e", null ],
       [ "getParameters", "class_nested_delay_a_p_f.html#a00c9f1b27f32a639be10216eb231c829", null ],
       [ "processAudioSample", "class_nested_delay_a_p_f.html#a3fb106604e9cb82c966d590aefedded6", null ],
@@ -406,16 +341,13 @@ var group___f_x__objects =
       [ "setParameters", "class_nested_delay_a_p_f.html#a03b2f0a82c8a208441836af1428ed8db", null ]
     ] ],
     [ "TwoBandShelvingFilterParameters", "struct_two_band_shelving_filter_parameters.html", [
-      [ "TwoBandShelvingFilterParameters", "struct_two_band_shelving_filter_parameters.html#ac0f57931c81fcb5d5a012d8d53821b1b", null ],
-      [ "operator=", "struct_two_band_shelving_filter_parameters.html#ac015f117c0ba01e65ecbdc884960e794", null ],
+      [ "operator=", "struct_two_band_shelving_filter_parameters.html#a66ae194afb1a3df844bfdf790e11633f", null ],
       [ "highShelf_fc", "struct_two_band_shelving_filter_parameters.html#a4e595251f9a70bbfc39cb92f3337a83a", null ],
       [ "highShelfBoostCut_dB", "struct_two_band_shelving_filter_parameters.html#ae38e2387ebd2264001363263120fc978", null ],
       [ "lowShelf_fc", "struct_two_band_shelving_filter_parameters.html#a08867598c9824cad2e163dc3bf73e925", null ],
       [ "lowShelfBoostCut_dB", "struct_two_band_shelving_filter_parameters.html#ae5d1f83351b2fea020507cfa71e45c99", null ]
     ] ],
     [ "TwoBandShelvingFilter", "class_two_band_shelving_filter.html", [
-      [ "TwoBandShelvingFilter", "class_two_band_shelving_filter.html#a865e54230629cb6b35ca119ab56f1070", null ],
-      [ "~TwoBandShelvingFilter", "class_two_band_shelving_filter.html#afb4a97efc7cb2ae131c5ac3d56e047ad", null ],
       [ "canProcessAudioFrame", "class_two_band_shelving_filter.html#a55c3e19536c7ca3f4bb8a2e7d492b418", null ],
       [ "getParameters", "class_two_band_shelving_filter.html#ad227ce861804fb2504d7b9c7fe96df48", null ],
       [ "processAudioSample", "class_two_band_shelving_filter.html#a93f46e0f3e5606f5df6ca9d6f8c48b4d", null ],
@@ -423,8 +355,7 @@ var group___f_x__objects =
       [ "setParameters", "class_two_band_shelving_filter.html#a1f76b679a12cc0a401d47524d3a7b654", null ]
     ] ],
     [ "ReverbTankParameters", "struct_reverb_tank_parameters.html", [
-      [ "ReverbTankParameters", "struct_reverb_tank_parameters.html#a3d1afaed1de52f6125b33cd335140cd0", null ],
-      [ "operator=", "struct_reverb_tank_parameters.html#a71de959f5a2ea9abf3f0b337a4912640", null ],
+      [ "operator=", "struct_reverb_tank_parameters.html#ae028432d28bf4fd38a9a3eff43744290", null ],
       [ "apfDelayMax_mSec", "struct_reverb_tank_parameters.html#a2dba1c786a308919c7f5be0242d35000", null ],
       [ "apfDelayWeight_Pct", "struct_reverb_tank_parameters.html#a6b5175e30e84771a75007220a9ad1814", null ],
       [ "density", "struct_reverb_tank_parameters.html#a649bbc5cc8c0c68c65f38b3f597dda81", null ],
@@ -441,8 +372,6 @@ var group___f_x__objects =
       [ "wetLevel_dB", "struct_reverb_tank_parameters.html#a1448fc9e00e598b58b0054b7fcdc532c", null ]
     ] ],
     [ "ReverbTank", "class_reverb_tank.html", [
-      [ "ReverbTank", "class_reverb_tank.html#a1f9c741d608e8376976122ab8c4f48b4", null ],
-      [ "~ReverbTank", "class_reverb_tank.html#a880e2a27148aa7048416a260268e2673", null ],
       [ "canProcessAudioFrame", "class_reverb_tank.html#a6c77071a3b31e4366bb3edce3a7c8403", null ],
       [ "getParameters", "class_reverb_tank.html#a199cee74ee15d641e1c54b78d7972e4a", null ],
       [ "processAudioFrame", "class_reverb_tank.html#ac71771de9acc5a01d39dae81f79a3a37", null ],
@@ -451,8 +380,6 @@ var group___f_x__objects =
       [ "setParameters", "class_reverb_tank.html#a669d724c7ad7b635060cd23a5296f912", null ]
     ] ],
     [ "PeakLimiter", "class_peak_limiter.html", [
-      [ "PeakLimiter", "class_peak_limiter.html#af9563b60058f9726cfbb5fda478e9c56", null ],
-      [ "~PeakLimiter", "class_peak_limiter.html#ae5c0bc05d3f05005e355efd5449f6991", null ],
       [ "canProcessAudioFrame", "class_peak_limiter.html#a905237dc6ec6a89c79943c7309a848ee", null ],
       [ "computeGain", "class_peak_limiter.html#a638b0a5c5eb7aa493516068f170622e4", null ],
       [ "processAudioSample", "class_peak_limiter.html#a9d84b6ec6ec60e2824485a0be588c567", null ],
@@ -464,8 +391,7 @@ var group___f_x__objects =
       [ "threshold_dB", "class_peak_limiter.html#adc81c5cbfe598c1dd159927212f90f04", null ]
     ] ],
     [ "ZVAFilterParameters", "struct_z_v_a_filter_parameters.html", [
-      [ "ZVAFilterParameters", "struct_z_v_a_filter_parameters.html#a351c0220ecfb87d1efff3ef1a2add2a8", null ],
-      [ "operator=", "struct_z_v_a_filter_parameters.html#a223f064ea2722b46220862042da83a45", null ],
+      [ "operator=", "struct_z_v_a_filter_parameters.html#a09d2492fc6605198b337414c520e1f6d", null ],
       [ "enableGainComp", "struct_z_v_a_filter_parameters.html#a7400b3813cbfcd7ea7869601be447a9f", null ],
       [ "enableNLP", "struct_z_v_a_filter_parameters.html#a1d68146a52447a5510f025bccf45d804", null ],
       [ "fc", "struct_z_v_a_filter_parameters.html#a9dee7f291e6be252cd10f40f3ed8ac5a", null ],
@@ -476,8 +402,6 @@ var group___f_x__objects =
       [ "selfOscillate", "struct_z_v_a_filter_parameters.html#a4a204c756de0bc5cd506c5cbfc517c8a", null ]
     ] ],
     [ "ZVAFilter", "class_z_v_a_filter.html", [
-      [ "ZVAFilter", "class_z_v_a_filter.html#a2ccc16339ceb33b50940ba35c2a4f4ef", null ],
-      [ "~ZVAFilter", "class_z_v_a_filter.html#a87315a6f4c4854d5349383254a2b0de4", null ],
       [ "calculateFilterCoeffs", "class_z_v_a_filter.html#a6b1758bc0730a4f34de789a74c3735d1", null ],
       [ "canProcessAudioFrame", "class_z_v_a_filter.html#add481d1b191c131e2156fd84b5da7209", null ],
       [ "getBeta", "class_z_v_a_filter.html#a7e4bdc77a0fb2e324203599097ed63f8", null ],
@@ -496,8 +420,7 @@ var group___f_x__objects =
       [ "zvaFilterParameters", "class_z_v_a_filter.html#a20612b088c7b2af9700c5a7d65d36178", null ]
     ] ],
     [ "EnvelopeFollowerParameters", "struct_envelope_follower_parameters.html", [
-      [ "EnvelopeFollowerParameters", "struct_envelope_follower_parameters.html#a8c58297a24c45d73a4daf91b05a5c08e", null ],
-      [ "operator=", "struct_envelope_follower_parameters.html#a19a70d28eb84c9c19fe1b088bb95c30d", null ],
+      [ "operator=", "struct_envelope_follower_parameters.html#ae3a9ec62a63f82bc35474941fd52c4da", null ],
       [ "attackTime_mSec", "struct_envelope_follower_parameters.html#aaaf6bb854d6295c82239499d8c7851a9", null ],
       [ "fc", "struct_envelope_follower_parameters.html#a6e7b80820d649ce67d114c398b7884ed", null ],
       [ "Q", "struct_envelope_follower_parameters.html#acd2aa95a101fdb7fb19de0706c388567", null ],
@@ -506,8 +429,6 @@ var group___f_x__objects =
       [ "threshold_dB", "struct_envelope_follower_parameters.html#acda057890c0cc4fba99f9d4a74d19ff7", null ]
     ] ],
     [ "EnvelopeFollower", "class_envelope_follower.html", [
-      [ "EnvelopeFollower", "class_envelope_follower.html#ac7d00043d0ab85fd6e2c7dd828ac5459", null ],
-      [ "~EnvelopeFollower", "class_envelope_follower.html#a9af86e476cf046847f8022c6949d328b", null ],
       [ "canProcessAudioFrame", "class_envelope_follower.html#a730ac19f00b385e5ecd9502c3426dd08", null ],
       [ "getParameters", "class_envelope_follower.html#a646adda72e89492263c8f5f3ad0ebcce", null ],
       [ "processAudioSample", "class_envelope_follower.html#a5168449aeebfec6251c47a78211c865d", null ],
@@ -518,8 +439,7 @@ var group___f_x__objects =
       [ "parameters", "class_envelope_follower.html#a09d47996f97430312d108897d393267a", null ]
     ] ],
     [ "TriodeClassAParameters", "struct_triode_class_a_parameters.html", [
-      [ "TriodeClassAParameters", "struct_triode_class_a_parameters.html#a25e49b70f1fe1e15cec6398ab38d80ed", null ],
-      [ "operator=", "struct_triode_class_a_parameters.html#a5a24247dec1eab479021f41220c206c5", null ],
+      [ "operator=", "struct_triode_class_a_parameters.html#a1e0da9cb1af542820540faf6190082ab", null ],
       [ "asymmetry", "struct_triode_class_a_parameters.html#abbb7ced0a6f638495908addfcf75d09e", null ],
       [ "enableHPF", "struct_triode_class_a_parameters.html#a08273bc35cd315083054a04a4d1e2740", null ],
       [ "enableLSF", "struct_triode_class_a_parameters.html#a32ba57dc7d2948a8e2db0d695b02feff", null ],
@@ -532,8 +452,6 @@ var group___f_x__objects =
       [ "waveshaper", "struct_triode_class_a_parameters.html#ae74a8af27c043d70d92ffc38e71879f3", null ]
     ] ],
     [ "TriodeClassA", "class_triode_class_a.html", [
-      [ "TriodeClassA", "class_triode_class_a.html#abba1bf422a5ee5b08f7cd1d3cd559bbc", null ],
-      [ "~TriodeClassA", "class_triode_class_a.html#ad3155d3b93b0791309acd9d0647fd0e8", null ],
       [ "canProcessAudioFrame", "class_triode_class_a.html#a151f04ed4e9ca293e166df4ddef67b53", null ],
       [ "getParameters", "class_triode_class_a.html#a923c8f2750a7e5b9e8e38b83f4e96219", null ],
       [ "processAudioSample", "class_triode_class_a.html#a85b2a44957f61fd471d821ff3bc9834f", null ],
@@ -544,8 +462,7 @@ var group___f_x__objects =
       [ "parameters", "class_triode_class_a.html#a45dc7f042d5f268eb53a9eae1557ed31", null ]
     ] ],
     [ "ClassATubePreParameters", "struct_class_a_tube_pre_parameters.html", [
-      [ "ClassATubePreParameters", "struct_class_a_tube_pre_parameters.html#acc8f05612190c0467ac4cde75f6ffc67", null ],
-      [ "operator=", "struct_class_a_tube_pre_parameters.html#a02bd72e5ff4eeec2939925e9215b847f", null ],
+      [ "operator=", "struct_class_a_tube_pre_parameters.html#a8105567ec1bf9b10dc941e9c16f57c1d", null ],
       [ "asymmetry", "struct_class_a_tube_pre_parameters.html#a3f0f644644a13c3ced24cbf5c404f0d1", null ],
       [ "highShelf_fc", "struct_class_a_tube_pre_parameters.html#af81c3710c02fd72258f241e7cc0fb8fc", null ],
       [ "highShelfBoostCut_dB", "struct_class_a_tube_pre_parameters.html#a6cd8d9f4918daf2e2b078b42a2c1aaae", null ],
@@ -556,8 +473,6 @@ var group___f_x__objects =
       [ "saturation", "struct_class_a_tube_pre_parameters.html#aa5af64478b46e667c2c48d8f100ec3e8", null ]
     ] ],
     [ "ClassATubePre", "class_class_a_tube_pre.html", [
-      [ "ClassATubePre", "class_class_a_tube_pre.html#a45b7060c0a25d79e1d7e94d7df39b5b0", null ],
-      [ "~ClassATubePre", "class_class_a_tube_pre.html#a8eef199185f5b23590c5467245139ea9", null ],
       [ "canProcessAudioFrame", "class_class_a_tube_pre.html#ab13a06c394650e815df5e53f48f6c7a8", null ],
       [ "getParameters", "class_class_a_tube_pre.html#a8c94e02bcd91a6d4aaf1a5952300fffd", null ],
       [ "processAudioSample", "class_class_a_tube_pre.html#a6e6e74c8f935606c9e63ed262bd1dddb", null ],
@@ -570,13 +485,10 @@ var group___f_x__objects =
       [ "triodes", "class_class_a_tube_pre.html#ab88fb18f4a145d39a622c0ea48c17c70", null ]
     ] ],
     [ "BitCrusherParameters", "struct_bit_crusher_parameters.html", [
-      [ "BitCrusherParameters", "struct_bit_crusher_parameters.html#aa7175acf463a150a462586c8410adb49", null ],
-      [ "operator=", "struct_bit_crusher_parameters.html#a0b83de2a008ac51adc146109120d95a0", null ],
+      [ "operator=", "struct_bit_crusher_parameters.html#a253be304e410f74e2070aad8b91bf0f1", null ],
       [ "quantizedBitDepth", "struct_bit_crusher_parameters.html#a5e84e2cddc71bd8e9f054f8c4958f952", null ]
     ] ],
     [ "BitCrusher", "class_bit_crusher.html", [
-      [ "BitCrusher", "class_bit_crusher.html#a713cada4e8eb6fe2e4fddaf85ff4bb7a", null ],
-      [ "~BitCrusher", "class_bit_crusher.html#a2601a64dac9c2525581de67820fdc391", null ],
       [ "canProcessAudioFrame", "class_bit_crusher.html#a2cc8bba5720693c3666add6a9b3ccd04", null ],
       [ "getParameters", "class_bit_crusher.html#a3f3a0f1c30ea5c09e58d458e5b44e15e", null ],
       [ "processAudioSample", "class_bit_crusher.html#ab4ba10ddcfa411ed4e11588aef73e229", null ],

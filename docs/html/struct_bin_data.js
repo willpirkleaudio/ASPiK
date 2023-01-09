@@ -1,7 +1,6 @@
 var struct_bin_data =
 [
-    [ "BinData", "struct_bin_data.html#ab811b35ca91fc5d7f776d7aef5aa0b88", null ],
-    [ "operator=", "struct_bin_data.html#a0107430f365bfa0d3b51b7e6342ed509", null ],
+    [ "operator=", "struct_bin_data.html#a42301584a25a45acf816bee6521af75e", null ],
     [ "reset", "struct_bin_data.html#abbfc08b71df242a8d315b05e83b7ed5e", null ],
     [ "isPeak", "struct_bin_data.html#a0d137cde81da40f5519d5424e53815d6", null ],
     [ "localPeakBin", "struct_bin_data.html#a187520efd8c53d64371500234297a485", null ],

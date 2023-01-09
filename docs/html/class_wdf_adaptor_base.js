@@ -1,10 +1,8 @@
 var class_wdf_adaptor_base =
 [
-    [ "WdfAdaptorBase", "class_wdf_adaptor_base.html#ab27ea0fc00f2a1c0c78c716655be3964", null ],
-    [ "~WdfAdaptorBase", "class_wdf_adaptor_base.html#a6bd6dac3065e071a95fe0dfdb5aa0fd8", null ],
-    [ "getPort1_CompAdaptor", "class_wdf_adaptor_base.html#a9abfc629d9d2864cf2746b8064763aa0", null ],
-    [ "getPort2_CompAdaptor", "class_wdf_adaptor_base.html#a29919c13244b78c7192f057c6c4f6bc3", null ],
-    [ "getPort3_CompAdaptor", "class_wdf_adaptor_base.html#a6ef703ab6092942627c385082aa18662", null ],
+    [ "getPort1_CompAdaptor", "class_wdf_adaptor_base.html#a47b9c3607af0c40283231b8bfde68b27", null ],
+    [ "getPort2_CompAdaptor", "class_wdf_adaptor_base.html#add52dd2e385d93628e4b035ae39af774", null ],
+    [ "getPort3_CompAdaptor", "class_wdf_adaptor_base.html#a5b6c4ae7bc4975cd2dc362d39526d829", null ],
     [ "initializeAdaptorChain", "class_wdf_adaptor_base.html#affc91b18b6c60ce671a7d9ad708f9f7a", null ],
     [ "reset", "class_wdf_adaptor_base.html#a2df25af0611de3849ca0efc057296f34", null ],
     [ "setComponent", "class_wdf_adaptor_base.html#a6124f9dd75bb41f34899b5a59678f885", null ],

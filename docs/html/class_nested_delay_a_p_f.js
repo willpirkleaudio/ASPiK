@@ -1,7 +1,5 @@
 var class_nested_delay_a_p_f =
 [
-    [ "NestedDelayAPF", "class_nested_delay_a_p_f.html#a589e0dbbd7ba7286751f7051bd921777", null ],
-    [ "~NestedDelayAPF", "class_nested_delay_a_p_f.html#acea84d2b20bf897e5d5ba93e9bebaca8", null ],
     [ "createDelayBuffers", "class_nested_delay_a_p_f.html#ac88965f42c7a162540d789194d8d7b0e", null ],
     [ "getParameters", "class_nested_delay_a_p_f.html#a00c9f1b27f32a639be10216eb231c829", null ],
     [ "processAudioSample", "class_nested_delay_a_p_f.html#a3fb106604e9cb82c966d590aefedded6", null ],

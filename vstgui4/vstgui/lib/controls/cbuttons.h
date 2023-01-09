@@ -40,7 +40,7 @@ public:
 	CMouseEventResult onMouseMoved (CPoint& where, const CButtonState& buttons) override;
 	CMouseEventResult onMouseUp (CPoint& where, const CButtonState& buttons) override;
 	CMouseEventResult onMouseCancel () override;
-	int32_t onKeyDown (VstKeyCode& keyCode) override;
+	void onKeyboardEvent (KeyboardEvent& event) override;
 	bool sizeToFit () override;
 
 	CLASS_METHODS(COnOffButton, CControl)
@@ -104,7 +104,7 @@ public:
 	CMouseEventResult onMouseMoved (CPoint& where, const CButtonState& buttons) override;
 	CMouseEventResult onMouseUp (CPoint& where, const CButtonState& buttons) override;
 	CMouseEventResult onMouseCancel () override;
-	int32_t onKeyDown (VstKeyCode& keyCode) override;
+	void onKeyboardEvent (KeyboardEvent& event) override;
 	bool sizeToFit () override;
 	void setBackground (CBitmap *background) override;
 	bool getFocusPath (CGraphicsPath& outPath) override;
@@ -131,13 +131,17 @@ private:
 //-----------------------------------------------------------------------------
 // CKickButton Declaration
 //!
-/// @ingroup controls
+/// @ingroup controls uses_multi_frame_bitmaps
 //-----------------------------------------------------------------------------
-class CKickButton : public CControl, public IMultiBitmapControl
+class CKickButton : public CControl
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
+,
+					public IMultiBitmapControl
+#endif
 {
 public:
-	CKickButton (const CRect& size, IControlListener* listener, int32_t tag, CBitmap* background, const CPoint& offset = CPoint (0, 0));
-	CKickButton (const CRect& size, IControlListener* listener, int32_t tag, CCoord heightOfOneImage, CBitmap* background, const CPoint& offset = CPoint (0, 0));
+	CKickButton (const CRect& size, IControlListener* listener, int32_t tag, CBitmap* background,
+				 const CPoint& offset = CPoint (0, 0));
 	CKickButton (const CKickButton& kickButton);
 
 	void draw (CDrawContext*) override;
@@ -146,12 +150,16 @@ public:
 	CMouseEventResult onMouseUp (CPoint& where, const CButtonState& buttons) override;
 	CMouseEventResult onMouseMoved (CPoint& where, const CButtonState& buttons) override;
 	CMouseEventResult onMouseCancel () override;
-	int32_t onKeyDown (VstKeyCode& keyCode) override;
-	int32_t onKeyUp (VstKeyCode& keyCode) override;
+	void onKeyboardEvent (KeyboardEvent& event) override;
 
 	bool sizeToFit () override;
 
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
 	void setNumSubPixmaps (int32_t numSubPixmaps) override { IMultiBitmapControl::setNumSubPixmaps (numSubPixmaps); invalid (); }
+	CKickButton (const CRect& size, IControlListener* listener, int32_t tag,
+				 CCoord heightOfOneImage, CBitmap* background,
+				 const CPoint& offset = CPoint (0, 0));
+#endif
 
 	CLASS_METHODS(CKickButton, CControl)
 protected:
@@ -238,8 +246,7 @@ public:
 	CMouseEventResult onMouseUp (CPoint& where, const CButtonState& buttons) override;
 	CMouseEventResult onMouseMoved (CPoint& where, const CButtonState& buttons) override;
 	CMouseEventResult onMouseCancel () override;
-	int32_t onKeyDown (VstKeyCode& keyCode) override;
-	int32_t onKeyUp (VstKeyCode& keyCode) override;
+	void onKeyboardEvent (KeyboardEvent& event) override;
 	
 	CLASS_METHODS(CTextButton, CControl)
 protected:

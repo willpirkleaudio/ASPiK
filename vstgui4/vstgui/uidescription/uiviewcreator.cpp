@@ -350,6 +350,7 @@ public:
 
 #include "viewcreator/animationsplashscreencreator.h"
 #include "viewcreator/animknobcreator.h"
+#include "viewcreator/autoanimationcreator.h"
 #include "viewcreator/checkboxcreator.h"
 #include "viewcreator/controlcreator.h"
 #include "viewcreator/gradientviewcreator.h"
@@ -434,7 +435,7 @@ bool colorToString (const CColor& color, std::string& string, const IUIDescripti
 		uint8_t blue = color.blue;
 		uint8_t alpha = color.alpha;
 		char strBuffer[10];
-		sprintf (strBuffer, "#%02x%02x%02x%02x", red, green, blue, alpha);
+		snprintf (strBuffer, 10, "#%02x%02x%02x%02x", red, green, blue, alpha);
 		string = strBuffer;
 	}
 	return true;
@@ -528,6 +529,7 @@ bool getStandardAttributeListValues (const std::string& attributeName, std::list
 //------------------------------------------------------------------------
 AnimationSplashScreenCreator __gAnimationSplashScreenCreator;
 AnimKnobCreator __gAnimKnobCreator;
+AutoAnimationCreator __gAutoAnimationCreator;
 CheckBoxCreator __gCheckBoxCreator;
 ControlCreator __gControlCreator;
 GradientViewCreator __gGradientViewCreator;

@@ -1,6 +1,5 @@
 var struct_process_buffer_info =
 [
-    [ "ProcessBufferInfo", "struct_process_buffer_info.html#a7e2dd95a0f0764aea5b3c957e07487a1", null ],
     [ "auxChannelIOConfig", "struct_process_buffer_info.html#ad308e673fa949196eb43abb58f0d3cba", null ],
     [ "auxInputs", "struct_process_buffer_info.html#a03013538976c3d0ea252e154b962720b", null ],
     [ "auxOutputs", "struct_process_buffer_info.html#a963698dbd8c42f30b4939f4f211429af", null ],

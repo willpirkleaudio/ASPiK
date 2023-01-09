@@ -4,25 +4,27 @@
 ![Windows build](https://github.com/steinbergmedia/vstgui/workflows/Windows%20build/badge.svg?branch=develop)
 ![Linux build](https://github.com/steinbergmedia/vstgui/workflows/Linux%20build/badge.svg?branch=develop)
 
-VSTGUI is a user interface toolkit mainly for audio plug-ins (VST, AAX, AudioUnit, etc...) and it is designed for working well with VST3 plug-ins and its wrappers like AU, AAX,...
+**VSTGUI** is a user interface toolkit mainly for audio plug-ins (VST, AAX, AudioUnit, etc...) and it is designed for working well with **VST 3** plug-ins and its wrappers like **AU**, **AAX**, ...
 
 ## History
 
 - First developed inhouse of Steinberg Media Technologies (around 1998) for their first VST plug-ins.
 - Later added as binary libraries to the official VST SDK.
-- Since May 2003 VSTGUI is open source.
+- VSTGUI is open source since May 2003.
 
 ## System requirements
+
 Supported OS:
 
-- Microsoft Windows 7-10
-- Apple macOS 10.9-11.0
-- Apple iOS 8-14
+- Microsoft Windows 10/11
+- Apple macOS 10.12-12
+- Apple iOS 9-15
 - Linux (Preview)
 
 Supported IDE:
-- Visual Studio 2015/2017/2019
-- minimum Xcode 7.3
+
+- Visual Studio 2017/2019/2022
+- minimum Xcode 10.1
 - Qt Creator
 - Visual Studio Code
 

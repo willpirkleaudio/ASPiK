@@ -1,7 +1,5 @@
 var class_audio_detector =
 [
-    [ "AudioDetector", "class_audio_detector.html#aa7cc4383d8489e2db76596d772a8f666", null ],
-    [ "~AudioDetector", "class_audio_detector.html#a9ecf59d20355f8f6dce26e1169fceae6", null ],
     [ "canProcessAudioFrame", "class_audio_detector.html#aab7289b8602cb58e86e81b1fd4248887", null ],
     [ "getParameters", "class_audio_detector.html#a8eb30db122e269b1715799902f138c05", null ],
     [ "processAudioSample", "class_audio_detector.html#a7a953f02084944497f12fb371d0364c9", null ],

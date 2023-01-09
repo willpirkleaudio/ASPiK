@@ -1,7 +1,5 @@
 var class_phase_shifter =
 [
-    [ "PhaseShifter", "class_phase_shifter.html#a6108412a2a297f58c96190cd11595758", null ],
-    [ "~PhaseShifter", "class_phase_shifter.html#a418d2e019510a48bc7f91c2c409b5850", null ],
     [ "canProcessAudioFrame", "class_phase_shifter.html#a6c8ee73bcdae0aff28c51ce96f8f026e", null ],
     [ "getParameters", "class_phase_shifter.html#ac6bdf771217695cc0a81a18a270f640e", null ],
     [ "processAudioSample", "class_phase_shifter.html#a64410cc621c3eac5f0d8b9eb9a2b6807", null ],

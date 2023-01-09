@@ -15,7 +15,6 @@ var struct_host_info =
     [ "dCurrentMeasureDownBeat", "struct_host_info.html#aab10a993700516bfa0a38e6c082c5c8f", null ],
     [ "dCycleEndBeat", "struct_host_info.html#ac1ecfa12b9eca267eafb1ab150fb88be", null ],
     [ "dCycleStartBeat", "struct_host_info.html#a8de499ad87737394eb47361d9bc587e8", null ],
-    [ "enableVSTSampleAccurateAutomation", "struct_host_info.html#ab2d2245064a20ace013b413cf6efce1c", null ],
     [ "fTimeSigNumerator", "struct_host_info.html#a6d6e37c5836205c6f20ef0a44f2e9f87", null ],
     [ "nDeltaSampleOffsetToNextBeat", "struct_host_info.html#a79e89b1a5a7ef1f1b1f0e4fa91021b39", null ],
     [ "nLoopEndTick", "struct_host_info.html#a0b2c904ea52fea86bf8bf0eed444948a", null ],

@@ -1,7 +1,5 @@
 var class_fast_convolver =
 [
-    [ "FastConvolver", "class_fast_convolver.html#a12990ce415301aa63ca3e121fb88e106", null ],
-    [ "~FastConvolver", "class_fast_convolver.html#afe12c22ac0a493a278f93df66e03db32", null ],
     [ "getFilterIRLength", "class_fast_convolver.html#a3501ffdff99d6555b3ab26c30bdd3c6b", null ],
     [ "getFrameLength", "class_fast_convolver.html#ac23f50f5736eba61b0033737a55d4d0a", null ],
     [ "initialize", "class_fast_convolver.html#a7c805c30c11364410fc15fdd8bdbfdd8", null ],

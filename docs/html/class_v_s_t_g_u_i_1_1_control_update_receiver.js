@@ -6,7 +6,7 @@ var class_v_s_t_g_u_i_1_1_control_update_receiver =
     [ "controlAndContainerVisible", "class_v_s_t_g_u_i_1_1_control_update_receiver.html#afc19eff97a6eeead03ffeb9f1ae452c7", null ],
     [ "controlInRxGroupIsEditing", "class_v_s_t_g_u_i_1_1_control_update_receiver.html#a2db92287dfac0ff84365718d59f54cdd", null ],
     [ "getActualValueWithNormalizedValue", "class_v_s_t_g_u_i_1_1_control_update_receiver.html#ac8069dc7ac99d4f7318770b83acbd2ae", null ],
-    [ "getControl_WithMouseCoords", "class_v_s_t_g_u_i_1_1_control_update_receiver.html#a919ae068fbc20cddacd98a5c1e9c201e", null ],
+    [ "getControl_WithMouseCoords", "class_v_s_t_g_u_i_1_1_control_update_receiver.html#a49706b75612482dc9cbc647ab47a9831", null ],
     [ "getControlID", "class_v_s_t_g_u_i_1_1_control_update_receiver.html#a9ab13ccc51150869f23c72dfbbc660d9", null ],
     [ "getControlID_WithMouseCoords", "class_v_s_t_g_u_i_1_1_control_update_receiver.html#a6e373b930571eee11119b93c1fb32eee", null ],
     [ "getGuiControl", "class_v_s_t_g_u_i_1_1_control_update_receiver.html#a7fc3ce7ba91d0bf574d2aed44090cf5e", null ],

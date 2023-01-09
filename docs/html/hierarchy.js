@@ -25,11 +25,11 @@ var hierarchy =
     [ "AudioDetectorParameters", "struct_audio_detector_parameters.html", null ],
     [ "AudioFilterParameters", "struct_audio_filter_parameters.html", null ],
     [ "AudioProcDescriptor", "struct_audio_proc_descriptor.html", null ],
-    [ "AUInstrumentBase", null, [
-      [ "AUSynthPlugin", "class_a_u_synth_plugin.html", null ]
-    ] ],
-    [ "AUMIDIEffectBase", null, [
+    [ "ausdk::AUMIDIEffectBase", null, [
       [ "AUFXPlugin", "class_a_u_f_x_plugin.html", null ]
+    ] ],
+    [ "ausdk::MusicDeviceBase", null, [
+      [ "AUSynthPlugin", "class_a_u_synth_plugin.html", null ]
     ] ],
     [ "AuxParameterAttribute", "struct_aux_parameter_attribute.html", null ],
     [ "BinData", "struct_bin_data.html", null ],
@@ -121,9 +121,9 @@ var hierarchy =
       [ "ImpulseConvolver", "class_impulse_convolver.html", null ],
       [ "LRFilterBank", "class_l_r_filter_bank.html", null ],
       [ "ModulatedDelay", "class_modulated_delay.html", null ],
+      [ "PSMVocoder", "class_p_s_m_vocoder.html", null ],
       [ "PeakLimiter", "class_peak_limiter.html", null ],
       [ "PhaseShifter", "class_phase_shifter.html", null ],
-      [ "PSMVocoder", "class_p_s_m_vocoder.html", null ],
       [ "ReverbTank", "class_reverb_tank.html", null ],
       [ "SimpleDelay", "class_simple_delay.html", null ],
       [ "SimpleLPF", "class_simple_l_p_f.html", null ],
@@ -165,8 +165,6 @@ var hierarchy =
     ] ],
     [ "ICustomView", "class_i_custom_view.html", [
       [ "CustomViewController", "class_custom_view_controller.html", null ],
-      [ "CustomViewController", "class_custom_view_controller.html", null ],
-      [ "CustomViewController", "class_custom_view_controller.html", null ],
       [ "Steinberg::Vst::ASPiK::CustomViewController", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html", null ],
       [ "VSTGUI::CustomKnobView", "class_v_s_t_g_u_i_1_1_custom_knob_view.html", null ],
       [ "VSTGUI::CustomOptionMenu", "class_v_s_t_g_u_i_1_1_custom_option_menu.html", null ],
@@ -174,8 +172,6 @@ var hierarchy =
       [ "VSTGUI::WaveView", "class_v_s_t_g_u_i_1_1_wave_view.html", null ]
     ] ],
     [ "IGUIPluginConnector", "class_i_g_u_i_plugin_connector.html", [
-      [ "GUIPluginConnector", "class_g_u_i_plugin_connector.html", null ],
-      [ "GUIPluginConnector", "class_g_u_i_plugin_connector.html", null ],
       [ "GUIPluginConnector", "class_g_u_i_plugin_connector.html", null ],
       [ "Steinberg::Vst::ASPiK::GUIPluginConnector", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_g_u_i_plugin_connector.html", null ]
     ] ],
@@ -187,20 +183,13 @@ var hierarchy =
       [ "AUGUIWindowFrame", "class_a_u_g_u_i_window_frame.html", null ],
       [ "Steinberg::Vst::ASPiK::PluginEditor", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_plugin_editor.html", null ]
     ] ],
-    [ "IKeyboardHook", null, [
-      [ "VSTGUI::PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html", null ]
-    ] ],
     [ "IMidiEventQueue", "class_i_midi_event_queue.html", [
       [ "AAXMIDIEventQueue", "class_a_a_x_m_i_d_i_event_queue.html", null ],
-      [ "AUMIDIEventQueue", "class_a_u_m_i_d_i_event_queue.html", null ],
       [ "AUMIDIEventQueue", "class_a_u_m_i_d_i_event_queue.html", null ],
       [ "Steinberg::Vst::ASPiK::VSTMIDIEventQueue", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_m_i_d_i_event_queue.html", null ]
     ] ],
     [ "IMidiMapping", null, [
       [ "Steinberg::Vst::ASPiK::VST3Plugin", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html", null ]
-    ] ],
-    [ "IMouseObserver", null, [
-      [ "VSTGUI::PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html", null ]
     ] ],
     [ "Interpolator", "class_interpolator.html", null ],
     [ "InterpolatorOutput", "struct_interpolator_output.html", null ],
@@ -208,8 +197,6 @@ var hierarchy =
       [ "Steinberg::Vst::ASPiK::VSTParamUpdateQueue", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html", null ]
     ] ],
     [ "IPluginHostConnector", "class_i_plugin_host_connector.html", [
-      [ "PluginHostConnector", "class_plugin_host_connector.html", null ],
-      [ "PluginHostConnector", "class_plugin_host_connector.html", null ],
       [ "PluginHostConnector", "class_plugin_host_connector.html", null ],
       [ "Steinberg::Vst::ASPiK::PluginHostConnector", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_plugin_host_connector.html", null ]
     ] ],
@@ -233,6 +220,9 @@ var hierarchy =
     ] ],
     [ "NSView", null, [
       [ "AudioUnitNSView", "interface_audio_unit_n_s_view.html", null ]
+    ] ],
+    [ "OldMouseObserverAdapter", null, [
+      [ "VSTGUI::PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html", null ]
     ] ],
     [ "OscillatorParameters", "struct_oscillator_parameters.html", null ],
     [ "Parameter", null, [
@@ -261,6 +251,7 @@ var hierarchy =
     [ "ProcessFrameInfo", "struct_process_frame_info.html", null ],
     [ "PSMVocoderParameters", "struct_p_s_m_vocoder_parameters.html", null ],
     [ "moodycamel::ReaderWriterQueue< double, DATA_QUEUE_LEN >", "classmoodycamel_1_1_reader_writer_queue.html", null ],
+    [ "moodycamel::ReaderWriterQueue< T, 512 >", "classmoodycamel_1_1_reader_writer_queue.html", null ],
     [ "moodycamel::ReaderWriterQueue< VSTGUI::CustomViewMessage, 32 >", "classmoodycamel_1_1_reader_writer_queue.html", null ],
     [ "ResetInfo", "struct_reset_info.html", null ],
     [ "ReverbTankParameters", "struct_reverb_tank_parameters.html", null ],
@@ -284,7 +275,7 @@ var hierarchy =
     ] ],
     [ "WdfComponentInfo", "struct_wdf_component_info.html", null ],
     [ "WDFParameters", "struct_w_d_f_parameters.html", null ],
-    [ "moodycamel::weak_atomic< Block *>", "classmoodycamel_1_1weak__atomic.html", null ],
+    [ "moodycamel::weak_atomic< Block * >", "classmoodycamel_1_1weak__atomic.html", null ],
     [ "moodycamel::weak_atomic< size_t >", "classmoodycamel_1_1weak__atomic.html", null ],
     [ "moodycamel::weak_atomic< ssize_t >", "classmoodycamel_1_1weak__atomic.html", null ],
     [ "ZVAFilterParameters", "struct_z_v_a_filter_parameters.html", null ]

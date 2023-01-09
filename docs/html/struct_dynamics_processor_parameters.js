@@ -1,7 +1,6 @@
 var struct_dynamics_processor_parameters =
 [
-    [ "DynamicsProcessorParameters", "struct_dynamics_processor_parameters.html#ae524a65d39669e8f558e3de5c4b2a8c2", null ],
-    [ "operator=", "struct_dynamics_processor_parameters.html#a3fe51a195c8ebdc1ff64cbb1121a3b5f", null ],
+    [ "operator=", "struct_dynamics_processor_parameters.html#a1b072b368bdec716be27849241d20422", null ],
     [ "attackTime_mSec", "struct_dynamics_processor_parameters.html#aee4170f0235f489c53c6dcb6466c9e3b", null ],
     [ "calculation", "struct_dynamics_processor_parameters.html#a54596f772f8e1160ad52b5f0d143f789", null ],
     [ "enableSidechain", "struct_dynamics_processor_parameters.html#aaf7517baa81d23e4a8dfee750a609c53", null ],

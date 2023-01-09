@@ -35,8 +35,13 @@ include(SMTG_VstGuiSupport)
 include(SMTG_UniversalBinary)
 include(SMTG_AddVST3Options)
 
+
 # --- Setup for proper location: this is because we are inside of the SDK to be congruent with all of the other APIs
 # setupPlatformToolset()
+
+# --- COVID2 don't need a compatibility file
+set(SMTG_CREATE_MODULE_INFO FALSE)
+
 if(MAC)
 	set(SMTG_MAC TRUE)
 	if(${SMTG_VST3_TARGET_PATH})
@@ -125,7 +130,7 @@ elseif(WIN)
 	#add_compile_options($<$<CONFIG:Release>:/Ox>)	# Optimization (/O2: Maximise Speed /0x: Full Optimization)
 endif()
 
-# --- VST SDK 3.7.1 addition for vstgui_support target
+# --- VST SDK 3.7.1 addition for vstgui_support target: note these are needed even though it appears to be repeated - do not remove
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEVELOPMENT")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DRELEASE")
 
@@ -177,6 +182,8 @@ target_compile_definitions(${EXP_SUBPROJECT_NAME_VST} PUBLIC VSTPLUGIN=1)
 
 # --- for windows/VS only
 add_definitions(-DVSTGUI_DIRECT2D_SUPPORT=1)
+
+# too late here
 
 set(VST3_VSTGUI_SOURCES
 	${VSTGUI_ROOT}/vstgui4/vstgui/plugin-bindings/vst3groupcontroller.cpp

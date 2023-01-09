@@ -1,7 +1,5 @@
 var class_w_d_f_bessel_b_s_f3 =
 [
-    [ "WDFBesselBSF3", "class_w_d_f_bessel_b_s_f3.html#a80d7445819db8c5deb4ed84935af4f4f", null ],
-    [ "~WDFBesselBSF3", "class_w_d_f_bessel_b_s_f3.html#ad9a262a066e490072ded3cd486baa6fa", null ],
     [ "canProcessAudioFrame", "class_w_d_f_bessel_b_s_f3.html#a7268d73104937d946128004458a627ae", null ],
     [ "createWDF", "class_w_d_f_bessel_b_s_f3.html#a86772d834e9fbaf93812623abd995b56", null ],
     [ "processAudioSample", "class_w_d_f_bessel_b_s_f3.html#a4f3a9832e8eeeea5c67f2cedd2f3c82d", null ],

@@ -48,7 +48,7 @@ public:
 		{
 			while (glyphRect.right < getViewSize ().right && i < 126)
 			{
-				sprintf (string, "%c", i++);
+				snprintf (string, 2, "%c", i++);
 				text += string;
 				glyphRect.setWidth (context->getStringWidth (text.c_str ()));
 			}
@@ -293,9 +293,9 @@ bool CFontChooser::attached (CView* parent)
 }
 
 //-----------------------------------------------------------------------------
-int32_t CFontChooser::onKeyDown (VstKeyCode& keyCode)
+void CFontChooser::onKeyboardEvent (KeyboardEvent& event)
 {
-	return fontBrowser->onKeyDown (keyCode);
+	fontBrowser->onKeyboardEvent (event);
 }
 
 } // VSTGUI

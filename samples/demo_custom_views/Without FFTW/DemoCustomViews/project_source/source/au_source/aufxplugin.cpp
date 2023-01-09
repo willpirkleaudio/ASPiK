@@ -25,7 +25,7 @@
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	Standard DSP AudioUnit implementation
-AUDIOCOMPONENT_ENTRY(AUMIDIEffectFactory, AUFXPlugin)
+AUSDK_COMPONENT_ENTRY(ausdk::AUMIDIEffectFactory, AUFXPlugin);
 
 // --- Factory preset: in case the plugin core does not specifically declare one
 static const int kNumberPresets = 1;
@@ -48,7 +48,7 @@ static AUPreset kPresets[kNumberPresets] = {
 
 */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-AUFXPlugin::AUFXPlugin(AudioUnit component) : AUMIDIEffectBase(component, false) // false = do not use Process(), use ProcessBufferList() instead
+AUFXPlugin::AUFXPlugin(AudioUnit component) : ausdk::AUMIDIEffectBase(component, false) // false = do not use Process(), use ProcessBufferList() instead
 {
     CreateElements(); // --- create input, output ports, groups and parts
 
@@ -109,8 +109,8 @@ AUFXPlugin::AUFXPlugin(AudioUnit component) : AUMIDIEffectBase(component, false)
     if(hasSidechain)
     {
         SetBusCount(kAudioUnitScope_Input, 2);
-        SafeGetElement(kAudioUnitScope_Input, 0)->SetName(CFSTR("Main Input"));
-        SafeGetElement(kAudioUnitScope_Input, 1)->SetName(CFSTR("Sidechain"));
+        Element(kAudioUnitScope_Input, 0).SetName(CFSTR("Main Input"));
+        Element(kAudioUnitScope_Input, 1).SetName(CFSTR("Sidechain"));
      }
 
     // --- final init
@@ -198,7 +198,7 @@ AUFXPlugin::~AUFXPlugin()
 
 */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ComponentResult	AUFXPlugin::Reset(AudioUnitScope 	 inScope,
+OSStatus	AUFXPlugin::Reset(AudioUnitScope 	 inScope,
                                   AudioUnitElement   inElement)
 {
     // --- reset the base class
@@ -207,13 +207,13 @@ ComponentResult	AUFXPlugin::Reset(AudioUnitScope 	 inScope,
     if(pluginCore)
     {
         ResetInfo info;
-        info.sampleRate = GetOutput(0)->GetStreamFormat().mSampleRate;
-        info.bitDepth = GetOutput(0)->GetStreamFormat().SampleWordSize() * 8;
+        info.sampleRate = Output(0).GetStreamFormat().mSampleRate;
+        info.bitDepth = Output(0).GetStreamFormat().mBitsPerChannel * 8;
 
         pluginCore->reset(info);
 
         // --- AU Specific
-        latencyInSeconds = pluginCore->getLatencyInSamples() / GetOutput(0)->GetStreamFormat().mSampleRate;
+        latencyInSeconds = pluginCore->getLatencyInSamples() / Output(0).GetStreamFormat().mSampleRate;
     }
 
     return noErr;
@@ -272,21 +272,21 @@ UInt32 AUFXPlugin::SupportedNumChannels (const AUChannelInfo** outInfo)
  \return the number of AUChannelInfo structures in the array
  */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ComponentResult	AUFXPlugin::Initialize()
+OSStatus	AUFXPlugin::Initialize()
 {
     if(pluginCore)
     {
         ResetInfo info;
-        info.sampleRate = GetOutput(0)->GetStreamFormat().mSampleRate;
-        info.bitDepth = GetOutput(0)->GetStreamFormat().SampleWordSize() * 8;
+        info.sampleRate = Output(0).GetStreamFormat().mSampleRate;
+        info.bitDepth = Output(0).GetStreamFormat().mBitsPerChannel * 8;
 
         pluginCore->reset(info);
 
         // --- AU Specific
-        latencyInSeconds = pluginCore->getLatencyInSamples() / GetOutput(0)->GetStreamFormat().mSampleRate;
+        latencyInSeconds = pluginCore->getLatencyInSamples() / Output(0).GetStreamFormat().mSampleRate;
     }
 
-    return AUMIDIEffectBase::Initialize();
+    return ausdk::AUMIDIEffectBase::Initialize();
 }
 
 
@@ -306,9 +306,9 @@ ComponentResult	AUFXPlugin::Initialize()
 
 */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ComponentResult	AUFXPlugin::RestoreState(CFPropertyListRef inData)
+OSStatus	AUFXPlugin::RestoreState(CFPropertyListRef inData)
 {
-    ComponentResult result = AUBase::RestoreState(inData);
+    OSStatus result = AUBase::RestoreState(inData);
     return result;
 }
 
@@ -457,12 +457,12 @@ OSStatus AUFXPlugin::Render(AudioUnitRenderActionFlags &		ioActionFlags,
         sidechainBufferList = nullptr;
         sidechainChannelCount = 0;
 
-        return  AUMIDIEffectBase::Render(ioActionFlags, inTimeStamp, inNumberFrames);
+        return  ausdk::AUMIDIEffectBase::Render(ioActionFlags, inTimeStamp, inNumberFrames);
     }
 
     if(bSCAvailable)
     {
-        AUInputElement* SCInput = GetInput(1);
+        ausdk::AUInputElement* SCInput = &Input(1);
         if(SCInput != NULL)
         {
             OSStatus status = SCInput->PullInput(ioActionFlags, inTimeStamp, 1, inNumberFrames);
@@ -486,7 +486,7 @@ OSStatus AUFXPlugin::Render(AudioUnitRenderActionFlags &		ioActionFlags,
         sidechainBufferList = nullptr;
     }
 
-    return  AUMIDIEffectBase::Render(ioActionFlags, inTimeStamp, inNumberFrames);
+    return  ausdk::AUMIDIEffectBase::Render(ioActionFlags, inTimeStamp, inNumberFrames);
 
 }
 
@@ -519,8 +519,8 @@ OSStatus AUFXPlugin::ProcessBufferLists(AudioUnitRenderActionFlags& ioActionFlag
 
     // --- audio processing
     ProcessBufferInfo info;
-    size_t numInputChannels = (size_t) GetInput(0)->GetStreamFormat().mChannelsPerFrame;
-    size_t numOutputChannels = (size_t) GetOutput(0)->GetStreamFormat().mChannelsPerFrame;
+    size_t numInputChannels = (size_t) Input(0).GetStreamFormat().mChannelsPerFrame;
+    size_t numOutputChannels = (size_t) Output(0).GetStreamFormat().mChannelsPerFrame;
     size_t numAuxInputChannels = sidechainChannelCount;
 
     for(int i=0; i<numInputChannels; i++)
@@ -542,8 +542,8 @@ OSStatus AUFXPlugin::ProcessBufferLists(AudioUnitRenderActionFlags& ioActionFlag
     info.auxOutputs = nullptr; // --- for future use
 
     // --- may not even need this...
-    info.numAudioInChannels = (size_t) GetInput(0)->GetStreamFormat().mChannelsPerFrame;
-    info.numAudioOutChannels = (size_t) GetOutput(0)->GetStreamFormat().mChannelsPerFrame;
+    info.numAudioInChannels = (size_t) Input(0).GetStreamFormat().mChannelsPerFrame;
+    info.numAudioOutChannels = (size_t) Output(0).GetStreamFormat().mChannelsPerFrame;
     info.numAuxAudioInChannels = sidechainChannelCount;
     info.numAuxAudioOutChannels = 0; // --- for future use
 
@@ -625,7 +625,7 @@ void AUFXPlugin::updateHostInfo(HostInfo* hostInfo)
         hostInfo->bTransportStateChanged = outTransportStateChanged;
         hostInfo->bIsPlayingAU = outIsPlaying;
         hostInfo->uAbsoluteFrameBufferIndex = outCurrentSampleInTimeLine;
-        hostInfo->dAbsoluteFrameBufferTime = outCurrentSampleInTimeLine/GetOutput(0)->GetStreamFormat().mSampleRate;
+        hostInfo->dAbsoluteFrameBufferTime = outCurrentSampleInTimeLine/Output(0).GetStreamFormat().mSampleRate;
     }
 }
 
@@ -644,7 +644,7 @@ void AUFXPlugin::updateHostInfo(HostInfo* hostInfo)
  - https://developer.apple.com/documentation/audiounit
 */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ComponentResult AUFXPlugin::SetParameter(AudioUnitParameterID	   inID,
+OSStatus AUFXPlugin::SetParameter(AudioUnitParameterID	   inID,
                                                AudioUnitScope 		   inScope,
                                                AudioUnitElement 	   inElement,
                                                AudioUnitParameterValue inValue,
@@ -667,7 +667,7 @@ ComponentResult AUFXPlugin::SetParameter(AudioUnitParameterID	   inID,
  - https://developer.apple.com/documentation/audiounit
 */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ComponentResult	AUFXPlugin::GetParameterInfo(AudioUnitScope		   inScope,
+OSStatus	AUFXPlugin::GetParameterInfo(AudioUnitScope		   inScope,
                                                    AudioUnitParameterID    inParameterID,
                                                    AudioUnitParameterInfo& outParameterInfo )
 {
@@ -676,7 +676,7 @@ ComponentResult	AUFXPlugin::GetParameterInfo(AudioUnitScope		   inScope,
     //     we also give it units.
     //
 
-    ComponentResult result = noErr;
+    OSStatus result = noErr;
     if(!pluginCore) return kAudioUnitErr_InvalidParameter;
 
     outParameterInfo.flags = kAudioUnitParameterFlag_IsWritable + kAudioUnitParameterFlag_IsReadable;
@@ -730,7 +730,7 @@ ComponentResult	AUFXPlugin::GetParameterInfo(AudioUnitScope		   inScope,
   - https://developer.apple.com/documentation/audiounit
  */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ComponentResult	AUFXPlugin::GetParameterValueStrings(AudioUnitScope       inScope,
+OSStatus	AUFXPlugin::GetParameterValueStrings(AudioUnitScope       inScope,
                                                            AudioUnitParameterID	inParameterID,
                                                            CFArrayRef *			outStrings)
 {
@@ -772,11 +772,11 @@ ComponentResult	AUFXPlugin::GetParameterValueStrings(AudioUnitScope       inScop
  - https://developer.apple.com/documentation/audiounit
 */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ComponentResult	AUFXPlugin::GetPropertyInfo(AudioUnitPropertyID inID,
+OSStatus	AUFXPlugin::GetPropertyInfo(AudioUnitPropertyID inID,
                                                   AudioUnitScope      inScope,
                                                   AudioUnitElement    inElement,
                                                   UInt32&             outDataSize,
-                                                  Boolean&            outWritable)
+                                                  bool&            outWritable)
 {
     if(!pluginCore) return kAudioUnitErr_InvalidParameter;
 
@@ -807,7 +807,7 @@ ComponentResult	AUFXPlugin::GetPropertyInfo(AudioUnitPropertyID inID,
             }
         }
     }
-    return AUMIDIEffectBase::GetPropertyInfo(inID, inScope, inElement, outDataSize, outWritable);
+    return ausdk::AUMIDIEffectBase::GetPropertyInfo(inID, inScope, inElement, outDataSize, outWritable);
 }
 
 
@@ -823,7 +823,7 @@ ComponentResult	AUFXPlugin::GetPropertyInfo(AudioUnitPropertyID inID,
  - https://developer.apple.com/documentation/audiounit
 */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ComponentResult	AUFXPlugin::GetProperty(AudioUnitPropertyID       inID,
+OSStatus	AUFXPlugin::GetProperty(AudioUnitPropertyID       inID,
                                               AudioUnitScope      inScope,
                                               AudioUnitElement    inElement,
                                               void*               outData)
@@ -838,14 +838,14 @@ ComponentResult	AUFXPlugin::GetProperty(AudioUnitPropertyID       inID,
                 // --- Look for a resource in the main bundle by name and type.
                  CFBundleRef bundle = CFBundleGetBundleWithIdentifier(CFStringCreateWithCString(nullptr, pluginCore->getAUBundleID(), kCFStringEncodingASCII));
 
-                if(bundle == NULL) return fnfErr;
+                if(bundle == NULL) return kAudio_FileNotFoundError;
                 
                 CFURLRef bundleURL = CFBundleCopyResourceURL(bundle,
                                                               CFStringCreateWithCString(nullptr, pluginCore->getAUBundleName(), kCFStringEncodingASCII),
                                                               CFSTR("bundle"),
                                                               NULL);
 
-                if(bundleURL == NULL) return fnfErr;
+                if(bundleURL == NULL) return kAudio_FileNotFoundError;
 
                 CFStringRef className = CFStringCreateWithCString(nullptr, pluginCore->getAUCocoaViewFactoryName(), kCFStringEncodingASCII);
 
@@ -858,7 +858,7 @@ ComponentResult	AUFXPlugin::GetProperty(AudioUnitPropertyID       inID,
             return kAudioUnitErr_InvalidProperty;
         }
     }
-    return AUMIDIEffectBase::GetProperty(inID, inScope, inElement, outData);
+    return ausdk::AUMIDIEffectBase::GetProperty(inID, inScope, inElement, outData);
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -893,7 +893,7 @@ OSStatus	AUFXPlugin::SetProperty(AudioUnitPropertyID inID,
                 {
                     // --- Look for a resource in the main bundle by name and type.
                     CFBundleRef bundle = CFBundleGetBundleWithIdentifier(CFStringCreateWithCString(nullptr, pluginCore->getAUBundleID(), kCFStringEncodingASCII));
-                    if (bundle == nullptr) return fnfErr;
+                    if (bundle == nullptr) return kAudio_FileNotFoundError;
 
                     // --- get .uidesc file
                     CFURLRef bundleURL = CFBundleCopyResourceURL(bundle,CFSTR("PluginGUI"),CFSTR("uidesc"),NULL);
@@ -954,7 +954,7 @@ OSStatus	AUFXPlugin::SetProperty(AudioUnitPropertyID inID,
 
                     // --- ref count should be exactly 1
                     if(pluginGUI->getNbReference() != 1)
-                        Assert(true, "ASSERT FAILED: pluginGUI->getNbReference() != 1");
+                        assert(true && "ASSERT FAILED: pluginGUI->getNbReference() != 1");
 
                     // --- self-destruct
                     VSTGUI::PluginGUI* oldGUI = pluginGUI;
@@ -984,7 +984,7 @@ OSStatus	AUFXPlugin::SetProperty(AudioUnitPropertyID inID,
  - https://developer.apple.com/documentation/audiounit
 */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ComponentResult	AUFXPlugin::GetPresets(CFArrayRef *outData) const
+OSStatus	AUFXPlugin::GetPresets(CFArrayRef *outData) const
 {
     // --- this is used to determine if presets are supported
     //     which in this unit they are so we implement this method!
@@ -1169,7 +1169,7 @@ OSStatus AUFXPlugin::HandleControlChange(UInt8  inChannel,
 
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//	AUFXPlugin::HandleMidiEvent
+//	AUFXPlugin::MIDIEvent
 //
 /**
  \brief specialized MIDI handler to add events to the plugin's queue
@@ -1180,26 +1180,28 @@ OSStatus AUFXPlugin::HandleControlChange(UInt8  inChannel,
  - https://developer.apple.com/documentation/audiounit
  */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-OSStatus AUFXPlugin::HandleMidiEvent(UInt8  status,
-                                           UInt8  channel,
-                                           UInt8  data1,
-                                           UInt8  data2,
-                                           UInt32 inStartFrame)
+OSStatus AUFXPlugin::MIDIEvent(UInt32 inStatus,
+                   UInt32 inData1,
+                   UInt32 inData2,
+                   UInt32 inOffsetSampleFrame)
 {
     if(midiEventQueue)
     {
+        const UInt32 strippedStatus = inStatus & 0xf0U; // NOLINT
+        const UInt32 channel = inStatus & 0x0fU;        // NOLINT
+
         midiEvent event;
-        event.midiMessage = (unsigned int)status;
-        event.midiChannel = (unsigned int)channel;
-        event.midiData1 = (unsigned int)data1;
-        event.midiData2 = (unsigned int)data2;;
-        event.midiSampleOffset = inStartFrame;
+        event.midiMessage = strippedStatus;
+        event.midiChannel = channel;
+        event.midiData1 = (unsigned int)inData1;
+        event.midiData2 = (unsigned int)inData2;;
+        event.midiSampleOffset = inOffsetSampleFrame;
         midiEventQueue->addEvent(event);
     }
 
 
     // --- call base class to do its thing
-    return AUMIDIEffectBase::HandleMidiEvent(status, channel, data1, data2, inStartFrame);
+    return ausdk::AUMIDIEffectBase::MIDIEvent(inStatus, inData1, inData2, inOffsetSampleFrame);
 }
 
 

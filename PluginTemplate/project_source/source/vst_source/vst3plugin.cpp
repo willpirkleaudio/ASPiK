@@ -109,17 +109,22 @@ tresult PLUGIN_API VST3Plugin::initialize(FUnknown* context)
 #else // Windows
     std::string strBundleName(pluginCore->getPluginBundleName());
     strBundleName.append(".vst3");
-    char* pathToVST = getMyDLLDirectory(USTRING(strBundleName.c_str()));
-    std::string strPath(pathToVST);
-    strBundleName = "\\" + strBundleName;
-    strBundleName.append("\\Contents\\x86_64-win");
-    std::string::size_type i = strPath.find(strBundleName);
-    if (i != std::string::npos)
-        strPath.erase(i, strBundleName.length());
+    char* pathToVST = getMyDLLDirectory(strBundleName.c_str());
+    if (pathToVST)
+    {
+        std::string strPath(pathToVST);
+        strBundleName = "\\" + strBundleName;
+        strBundleName.append("\\Contents\\x86_64-win");
+        std::string::size_type i = strPath.find(strBundleName);
+        if (i != std::string::npos)
+            strPath.erase(i, strBundleName.length());
 
-    initInfo.pathToDLL = strPath.c_str();
-    delete[] pathToVST;
-  #endif
+        initInfo.pathToDLL = strPath.c_str();
+        delete[] pathToVST;
+    }
+    else
+        initInfo.pathToDLL = "ERROR no path to DLL. See getMyDLLDirectory() in vst3plugin.h!";
+ #endif
 
     // --- send to core
     if (initInfo.pathToDLL)

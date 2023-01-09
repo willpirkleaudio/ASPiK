@@ -1,7 +1,5 @@
 var class_envelope_follower =
 [
-    [ "EnvelopeFollower", "class_envelope_follower.html#ac7d00043d0ab85fd6e2c7dd828ac5459", null ],
-    [ "~EnvelopeFollower", "class_envelope_follower.html#a9af86e476cf046847f8022c6949d328b", null ],
     [ "canProcessAudioFrame", "class_envelope_follower.html#a730ac19f00b385e5ecd9502c3426dd08", null ],
     [ "getParameters", "class_envelope_follower.html#a646adda72e89492263c8f5f3ad0ebcce", null ],
     [ "processAudioSample", "class_envelope_follower.html#a5168449aeebfec6251c47a78211c865d", null ],

@@ -1,16 +1,14 @@
 var class_phase_vocoder =
 [
-    [ "PhaseVocoder", "class_phase_vocoder.html#a7b39ac59edd287037df9749e52f10159", null ],
-    [ "~PhaseVocoder", "class_phase_vocoder.html#a2d5f8a07a8ef3b574e760d7427a6bdc5", null ],
     [ "addZeroPad", "class_phase_vocoder.html#a38a82504efc7d40e42c68224bbdb70bc", null ],
     [ "advanceAndCheckFFT", "class_phase_vocoder.html#a256c055425daa2524e831bc0b2237128", null ],
     [ "destroyFFTW", "class_phase_vocoder.html#ae481fe1540dfc274fbe8f39d4bc66946", null ],
     [ "doInverseFFT", "class_phase_vocoder.html#ac0ae4d272d534587285f942660b5b821", null ],
     [ "doOverlapAdd", "class_phase_vocoder.html#af8fdc46f1c881578e7a152359fa7877c", null ],
-    [ "getFFTData", "class_phase_vocoder.html#a15a924038a62ff8e8508e6e22834b087", null ],
+    [ "getFFTData", "class_phase_vocoder.html#a6c047ecd041d33b30d0f114c6be0a439", null ],
     [ "getFrameLength", "class_phase_vocoder.html#a22573f4e1cff669b9b7cbf8e6e62e8ea", null ],
     [ "getHopSize", "class_phase_vocoder.html#aff2c8afd621e4093a9a83aa769b9bf78", null ],
-    [ "getIFFTData", "class_phase_vocoder.html#a4cc1eb03017e4b038cb5239d4edb3f9f", null ],
+    [ "getIFFTData", "class_phase_vocoder.html#acbeb667a4b64b610673c14cf0d7063d7", null ],
     [ "getOverlap", "class_phase_vocoder.html#a1eefef43118a180472ceb3d7fabfea8e", null ],
     [ "initialize", "class_phase_vocoder.html#aec4966ecfcc1b818d5ac5b6456a68f98", null ],
     [ "processAudioSample", "class_phase_vocoder.html#af96718aa49169d5eb38df8abd99a5fa1", null ],

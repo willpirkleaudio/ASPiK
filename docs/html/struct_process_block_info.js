@@ -1,9 +1,5 @@
 var struct_process_block_info =
 [
-    [ "ProcessBlockInfo", "struct_process_block_info.html#aca21364bd9d0c02270ce267348006412", null ],
-    [ "clearMidiEvents", "struct_process_block_info.html#aad2f06452887cc3c80d26276a0e440c1", null ],
-    [ "getMidiEvent", "struct_process_block_info.html#a6c0895e55cbee18bc44292d31077aa76", null ],
-    [ "getMidiEventCount", "struct_process_block_info.html#a4d213590dd5d7676f133897120fabea8", null ],
     [ "pushMidiEvent", "struct_process_block_info.html#af4c3704216cce276783d9c40c504bc13", null ],
     [ "absoluteBufferTime_Sec", "struct_process_block_info.html#a92f3a1ed87f88c1f6fbc435a33c88f55", null ],
     [ "auxInputs", "struct_process_block_info.html#a5a30bb5ef99104f7e18d1bef65622250", null ],

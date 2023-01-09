@@ -1,7 +1,6 @@
 var struct_z_v_a_filter_parameters =
 [
-    [ "ZVAFilterParameters", "struct_z_v_a_filter_parameters.html#a351c0220ecfb87d1efff3ef1a2add2a8", null ],
-    [ "operator=", "struct_z_v_a_filter_parameters.html#a223f064ea2722b46220862042da83a45", null ],
+    [ "operator=", "struct_z_v_a_filter_parameters.html#a09d2492fc6605198b337414c520e1f6d", null ],
     [ "enableGainComp", "struct_z_v_a_filter_parameters.html#a7400b3813cbfcd7ea7869601be447a9f", null ],
     [ "enableNLP", "struct_z_v_a_filter_parameters.html#a1d68146a52447a5510f025bccf45d804", null ],
     [ "fc", "struct_z_v_a_filter_parameters.html#a9dee7f291e6be252cd10f40f3ed8ac5a", null ],

@@ -14,6 +14,26 @@ cmake_minimum_required (VERSION 3.4.3)
 # --- BEGIN USER INPUT
 # ---------------------------------------------------------------------------------
 
+# --- AU SDK Update: the AU SDK was updated in mid 2022 to v1.1.0
+#                    You can install the new SDK separately, or merge only the source
+#					 files into your existing AU_SDK folder
+# --- TRUE if merging new 1.1.0 SDK with the old 1.0 SDK
+#
+#     To Merge with existing AU_SDK folder for previous users:
+#	  1. download the SDK from https://github.com/apple/AudioUnitSDK
+#	  2. copy the AudioUnitSDK-main/include folder to the AU_SDK folder, keep the name "include"
+#	  3. copy the AudioUnitSDK-main/src folder to the AU_SDK folder, keep the name "src"
+#
+# --- IMPORTANT: create a new myprojects folder (remember the exact name is not important)
+#                for your new AU SDK v1.10 projects. 
+#
+#	  Alternatively, you can download the SDK from https://github.com/apple/AudioUnitSDK
+#	  and install it in parallel with your other SDK folders (VST3 and AAX) keeping the
+#	  folder named "AudioUnitSDK-main" and set this variable to FALSE
+#	  YOU SHOULD ONLY DO THIS IF YOU ARE A SEASONED ASPIK USER
+# ---------------------------------------------------------------------------------
+set(MERGED_AU_SDKS TRUE) 	# <-- set TRUE or FALSE
+
 # ---------------------------------------------------------------------------------
 #
 # --- UNIVERSAL SDK FOLDER NAMES
@@ -23,8 +43,13 @@ cmake_minimum_required (VERSION 3.4.3)
 # --- Here you can set the names of your UNIVERSAL SDK sub-USE_FOLDERS
 #     NOTE: this is not needed when you export individual API projects
 set(UNI_AAX_SDK_FOLDER 		AAX_SDK)
-set(UNI_AU_SDK_FOLDER 		AU_SDK)
 set(UNI_VST3_SDK_FOLDER 	VST_SDK/vst3sdk)
+
+if(MERGED_AU_SDKS)
+	set(UNI_AU_SDK_FOLDER 	AU_SDK)
+else()
+	set(UNI_AU_SDK_FOLDER 	AudioUnitSDK-main)
+endif()
 # ---------------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------------
@@ -203,30 +228,6 @@ endif()
 #
 # ---------------------------------------------------------------------------------
 project(${EXP_PROJECT_NAME} VERSION 1.0.0)
-
-if(UNIX)
-	if(XCODE)
-		set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD "c++17")
-		set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY "libc++")
-	elseif(APPLE)
-		set(CMAKE_POSITION_INDEPENDENT_CODE TRUE)
-		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -stdlib=libc++")
-		link_libraries(c++)
-	else()
-		set(CMAKE_POSITION_INDEPENDENT_CODE TRUE)
-		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wno-multichar")
-		link_libraries(stdc++fs pthread dl)
-	endif()
-elseif(WIN)
-	# add_definitions(-D_UNICODE)
-	add_compile_options(/fp:fast)
-	add_compile_options($<$<CONFIG:Release>:/Oi>)	# Enable Intrinsic Functions (Yes)
-	add_compile_options($<$<CONFIG:Release>:/Ot>)	# Favor Size Or Speed (Favor fast code)
-	add_compile_options($<$<CONFIG:Release>:/GF>)	# Enable String Pooling
-	add_compile_options($<$<CONFIG:Release>:/EHa>)	# Enable C++ Exceptions
-	add_compile_options($<$<CONFIG:Release>:/Oy>)	# Omit Frame Pointers
-	#add_compile_options($<$<CONFIG:Release>:/Ox>)	# Optimization (/O2: Maximise Speed /0x: Full Optimization)
-endif()
 
 
 # --- add various API projects

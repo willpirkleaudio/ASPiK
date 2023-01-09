@@ -1,7 +1,5 @@
 var class_delay_a_p_f =
 [
-    [ "DelayAPF", "class_delay_a_p_f.html#a79ffdcf39f25ff36d44b118f2b762dd7", null ],
-    [ "~DelayAPF", "class_delay_a_p_f.html#a8261d5bc803b19e34f11c626bbe7f61a", null ],
     [ "canProcessAudioFrame", "class_delay_a_p_f.html#adedc7056b9c9ae959950b189cc322a13", null ],
     [ "createDelayBuffer", "class_delay_a_p_f.html#a84de366a54dc1395e2f6e45c0aad48ac", null ],
     [ "getParameters", "class_delay_a_p_f.html#a267b85bb69551ebd0efe759943b36060", null ],

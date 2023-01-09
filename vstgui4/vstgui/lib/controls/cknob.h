@@ -35,8 +35,8 @@ public:
 	//@}
 
 	// overrides
-	bool onWheel (const CPoint& where, const CMouseWheelAxis& axis, const float& distance, const CButtonState& buttons) override;
-	int32_t onKeyDown (VstKeyCode& keyCode) override;
+	void onMouseWheelEvent (MouseWheelEvent& event) override;
+	void onKeyboardEvent (KeyboardEvent& event) override;
 	void setViewSize (const CRect &rect, bool invalid = true) override;
 	bool sizeToFit () override;
 	void setMin (float val) override;
@@ -151,14 +151,29 @@ protected:
 //-----------------------------------------------------------------------------
 // CAnimKnob Declaration
 //! @brief a bitmap knob control
-/// @ingroup controls
+/// @ingroup controls uses_multi_frame_bitmaps
 //-----------------------------------------------------------------------------
-class CAnimKnob : public CKnobBase, public IMultiBitmapControl
+class CAnimKnob : public CKnobBase
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
+,
+				  public IMultiBitmapControl
+#endif
 {
 public:
-	CAnimKnob (const CRect& size, IControlListener* listener, int32_t tag, CBitmap* background, const CPoint& offset = CPoint (0, 0));
-	CAnimKnob (const CRect& size, IControlListener* listener, int32_t tag, int32_t subPixmaps, CCoord heightOfOneImage, CBitmap* background, const CPoint& offset = CPoint (0, 0));
+	CAnimKnob (const CRect& size, IControlListener* listener, int32_t tag, CBitmap* background,
+			   const CPoint& offset = CPoint (0, 0));
 	CAnimKnob (const CAnimKnob& knob);
+
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
+	CAnimKnob (const CRect& size, IControlListener* listener, int32_t tag, int32_t subPixmaps,
+			   CCoord heightOfOneImage, CBitmap* background, const CPoint& offset = CPoint (0, 0));
+	void setHeightOfOneImage (const CCoord& height) override;
+	void setNumSubPixmaps (int32_t numSubPixmaps) override
+	{
+		IMultiBitmapControl::setNumSubPixmaps (numSubPixmaps);
+		invalid ();
+	}
+#endif
 
 	//-----------------------------------------------------------------------------
 	/// @name CAnimKnob Methods
@@ -171,9 +186,7 @@ public:
 	// overrides
 	void draw (CDrawContext* pContext) override;
 	bool sizeToFit () override;
-	void setHeightOfOneImage (const CCoord& height) override;
-	void setBackground (CBitmap *background) override;
-	void setNumSubPixmaps (int32_t numSubPixmaps) override { IMultiBitmapControl::setNumSubPixmaps (numSubPixmaps); invalid (); }
+	void setBackground (CBitmap* background) override;
 
 	CLASS_METHODS(CAnimKnob, CKnobBase)
 protected:

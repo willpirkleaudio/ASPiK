@@ -1,7 +1,6 @@
 var struct_nested_delay_a_p_f_parameters =
 [
-    [ "NestedDelayAPFParameters", "struct_nested_delay_a_p_f_parameters.html#a0d4ae0c51c774ad20da5928521dcd855", null ],
-    [ "operator=", "struct_nested_delay_a_p_f_parameters.html#a3661e9a7885891639634979a586a9d02", null ],
+    [ "operator=", "struct_nested_delay_a_p_f_parameters.html#ae1a3dd3b0551edf50695d160e953bd2f", null ],
     [ "enableLFO", "struct_nested_delay_a_p_f_parameters.html#af7ccd6c5e21cb0192f41586b0342d6c8", null ],
     [ "innerAPF_g", "struct_nested_delay_a_p_f_parameters.html#aba7f1e03ec3ceee092f6a2ee1460d2b3", null ],
     [ "innerAPFdelayTime_mSec", "struct_nested_delay_a_p_f_parameters.html#a009512f6348bbf6467f4db8ead4dc197", null ],

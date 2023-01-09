@@ -18,11 +18,14 @@ set(${target}_sources
 	"${VSTGUI_TEST_BASE}lib/controls/ckickbutton_test.cpp"
 	"${VSTGUI_TEST_BASE}lib/controls/clistcontrol_test.cpp"
 	"${VSTGUI_TEST_BASE}lib/controls/conoffbutton_test.cpp"
+	"${VSTGUI_TEST_BASE}lib/controls/coptionmenu_test.cpp"
 	"${VSTGUI_TEST_BASE}lib/controls/csegmentbutton_test.cpp"
 	"${VSTGUI_TEST_BASE}lib/controls/ctextbutton_test.cpp"
 	"${VSTGUI_TEST_BASE}lib/controls/cxypad_test.cpp"
+	"${VSTGUI_TEST_BASE}lib/algorithm_test.cpp"
 	"${VSTGUI_TEST_BASE}lib/cbitmap_test.cpp"
 	"${VSTGUI_TEST_BASE}lib/cbuttonstate_test.cpp"
+	"${VSTGUI_TEST_BASE}lib/cclipboard_test.cpp"
 	"${VSTGUI_TEST_BASE}lib/ccolor_test.cpp"
 	"${VSTGUI_TEST_BASE}lib/cframe_test.cpp"
 	"${VSTGUI_TEST_BASE}lib/cinvalidrectlist_test.cpp"
@@ -32,6 +35,8 @@ set(${target}_sources
 	"${VSTGUI_TEST_BASE}lib/csplitview_test.cpp"
 	"${VSTGUI_TEST_BASE}lib/cview_test.cpp"
 	"${VSTGUI_TEST_BASE}lib/cviewcontainer_test.cpp"
+	"${VSTGUI_TEST_BASE}lib/event_test.cpp"
+	"${VSTGUI_TEST_BASE}lib/eventhelpers.h"
 	"${VSTGUI_TEST_BASE}lib/idependency_test.cpp"
 	"${VSTGUI_TEST_BASE}lib/pixelbufferconverter_test.cpp"
 	"${VSTGUI_TEST_BASE}lib/platform_helper.h"
@@ -76,12 +81,13 @@ set(${target}_sources
 	"${VSTGUI_TEST_BASE}uidescription/cstream_test.cpp"
 	"${VSTGUI_TEST_BASE}uidescription/delegationcontroller_test.cpp"
 	"${VSTGUI_TEST_BASE}uidescription/uiattributes_test.cpp"
-	"${VSTGUI_TEST_BASE}uidescription/uidescription_test.cpp"
+	"${VSTGUI_TEST_BASE}uidescription/uidescription_json_test.cpp"
+	"${VSTGUI_TEST_BASE}uidescription/uidescription_test_helper.h"
+	"${VSTGUI_TEST_BASE}uidescription/uidescription_xml_test.cpp"
 	"${VSTGUI_TEST_BASE}uidescription/uidescriptionadapter.h"
 	"${VSTGUI_TEST_BASE}uidescription/uiviewfactory_test.cpp"
 	"${VSTGUI_TEST_BASE}uidescription/uiviewswitchcontainer_test.cpp"
 	"${VSTGUI_TEST_BASE}uidescription/xmlparser_test.cpp"
-	"${VSTGUI_TEST_BASE}../../vstgui_uidescription.cpp"
 )
 
 ##########################################################################################
@@ -89,7 +95,6 @@ if(CMAKE_HOST_APPLE)
 	set(${target}_sources
 		${${target}_sources}
 		"${VSTGUI_TEST_BASE}lib/platform_helper_mac.mm"
-		"${VSTGUI_TEST_BASE}../../vstgui_mac.mm"
 	)
 
 	set(${target}_PLATFORM_LIBS
@@ -125,45 +130,93 @@ if(UNIX AND NOT CMAKE_HOST_APPLE)
 endif()
 
 ##########################################################################################
-#include_directories(../)
-add_executable(${target} ${${target}_sources})
-target_link_libraries(${target}
-	${${target}_PLATFORM_LIBS}
-)
 
-vstgui_set_cxx_version(${target} 14)
-target_compile_definitions(${target} ${VSTGUI_COMPILE_DEFINITIONS} ENABLE_UNIT_TESTS=1 VSTGUI_LIVE_EDITING=1)
-vstgui_source_group_by_folder(${target})
+if(XCODE)
+	option(VSTGUI_USE_XCODE_XCTEST "Use integrated Xcode testing" ON)
+endif(XCODE)
 
-add_custom_command(TARGET ${target} POST_BUILD COMMAND "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/unittests")
+if(VSTGUI_USE_XCODE_XCTEST)
+	include(FindXCTest REQUIRED)
 
-##########################################################################################
-if(UNIX AND NOT CMAKE_HOST_APPLE)
-	target_include_directories(${target} PRIVATE ${X11_INCLUDE_DIR})
-    target_include_directories(${target} PRIVATE ${GTK3_INCLUDE_DIRS})
-    target_include_directories(${target} PRIVATE ${GTKMM3_INCLUDE_DIRS})
-	target_include_directories(${target} PRIVATE ${FREETYPE_INCLUDE_DIRS})
-endif()
+	set(${target}_sources
+		"${${target}_sources}"
+		"${VSTGUI_TEST_BASE}xcodetestintegration.mm"
+	)
+
+	xctest_add_bundle(${target} vstgui ${${target}_sources})
+	vstgui_set_cxx_version(${target} 17)
+	target_compile_definitions(${target} ${VSTGUI_COMPILE_DEFINITIONS} ENABLE_UNIT_TESTS=1 VSTGUI_LIVE_EDITING=1)
+	target_link_libraries(${target} PRIVATE
+		${${target}_PLATFORM_LIBS}
+		vstgui
+		vstgui_uidescription
+	)
+
+	vstgui_source_group_by_folder(${target})
+
+else()
+	if(CMAKE_HOST_APPLE)
+		set(${target}_sources
+			${${target}_sources}
+			"${VSTGUI_TEST_BASE}../../vstgui_mac.mm"
+		)
+	endif()
+	
+	set(${target}_sources
+		${${target}_sources}
+		"${VSTGUI_TEST_BASE}../../vstgui_uidescription.cpp"
+		"${VSTGUI_TEST_BASE}unittestmain.cpp"
+	)
+
+	add_executable(${target} ${${target}_sources})
+	target_link_libraries(${target} PRIVATE
+		${${target}_PLATFORM_LIBS}
+	)
+
+	vstgui_set_cxx_version(${target} 17)
+	target_compile_definitions(${target} ${VSTGUI_COMPILE_DEFINITIONS} ENABLE_UNIT_TESTS=1 VSTGUI_LIVE_EDITING=1)
+	vstgui_source_group_by_folder(${target})
+
+	add_custom_command(TARGET ${target} POST_BUILD COMMAND "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/unittests")
+
+	##########################################################################################
+	if(UNIX AND NOT CMAKE_HOST_APPLE)
+		target_include_directories(${target} PRIVATE ${X11_INCLUDE_DIR})
+		target_include_directories(${target} PRIVATE ${GTK3_INCLUDE_DIRS})
+		target_include_directories(${target} PRIVATE ${GTKMM3_INCLUDE_DIRS})
+		target_include_directories(${target} PRIVATE ${FREETYPE_INCLUDE_DIRS})
+	endif()
+
+endif(VSTGUI_USE_XCODE_XCTEST)
 
 if(CMAKE_HOST_APPLE)
-  option(VSTGUI_ENABLE_CODECOVERAGE "Generate Code Coverage Data" OFF)
-  if(VSTGUI_ENABLE_CODECOVERAGE)
-    add_executable(codecoverage ${${target}_sources})
-
-    set(target codecoverage)
-
-    target_link_libraries(${target}
-  		"-framework Cocoa"
-  		"-framework OpenGL"
-  		"-framework QuartzCore"
-  		"-framework Accelerate"
-      "--coverage"
-    )
-
-    vstgui_set_cxx_version(${target} 14)
-    target_compile_definitions(${target} ${VSTGUI_COMPILE_DEFINITIONS} ENABLE_UNIT_TESTS=1 VSTGUI_LIVE_EDITING=1 VSTGUI_ENABLE_DEPRECATED_METHODS=0)
-    vstgui_source_group_by_folder(${target})
-    target_compile_options(${target} PUBLIC "--coverage")
-    add_custom_command(TARGET ${target} POST_BUILD COMMAND "/usr/bin/ruby" "${CMAKE_CURRENT_SOURCE_DIR}/lcov/generate.rb" "${PROJECT_SOURCE_DIR}" "${CMAKE_CURRENT_BINARY_DIR}/vstgui.build/Debug/codecoverage.build/Objects-normal/x86_64" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${target}" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/coverage_output" VERBATIM)
-  endif()
+	if(CMAKE_OSX_DEPLOYMENT_TARGET VERSION_GREATER_EQUAL 11.0)
+		target_compile_definitions(${target} "VSTGUI_USE_OBJC_UTTYPE")
+		target_link_libraries(${target} PRIVATE
+			"-framework UniformTypeIdentifiers"
+		)
+	endif()
 endif()
+
+#if(CMAKE_HOST_APPLE)
+#  option(VSTGUI_ENABLE_CODECOVERAGE "Generate Code Coverage Data" OFF)
+#  if(VSTGUI_ENABLE_CODECOVERAGE)
+#    add_executable(codecoverage ${${target}_sources})
+#
+#    set(target codecoverage)
+#
+#    target_link_libraries(${target}
+#  		"-framework Cocoa"
+#  		"-framework OpenGL"
+#  		"-framework QuartzCore"
+#  		"-framework Accelerate"
+#      "--coverage"
+#    )
+#
+#    vstgui_set_cxx_version(${target} 14)
+#    target_compile_definitions(${target} ${VSTGUI_COMPILE_DEFINITIONS} ENABLE_UNIT_TESTS=1 VSTGUI_LIVE_EDITING=1 VSTGUI_ENABLE_DEPRECATED_METHODS=0)
+#    vstgui_source_group_by_folder(${target})
+#    target_compile_options(${target} PUBLIC "--coverage")
+#    add_custom_command(TARGET ${target} POST_BUILD COMMAND "/usr/bin/ruby" "${CMAKE_CURRENT_SOURCE_DIR}/lcov/generate.rb" "${PROJECT_SOURCE_DIR}" "${CMAKE_CURRENT_BINARY_DIR}/vstgui.build/Debug/codecoverage.build/Objects-normal/x86_64" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${target}" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/coverage_output" VERBATIM)
+#  endif()
+#endif()

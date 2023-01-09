@@ -1,7 +1,5 @@
 var class_wdf_series_adaptor =
 [
-    [ "WdfSeriesAdaptor", "class_wdf_series_adaptor.html#a3d41ad1c1d901f031cd01bfac9a3ada0", null ],
-    [ "~WdfSeriesAdaptor", "class_wdf_series_adaptor.html#a33e55eecb002209e549644a35dea46a6", null ],
     [ "getOutput1", "class_wdf_series_adaptor.html#a6714c4394c24983114cc50c5851325d3", null ],
     [ "getOutput2", "class_wdf_series_adaptor.html#a6dd05cc3e8634891ef642e91262e24dd", null ],
     [ "getOutput3", "class_wdf_series_adaptor.html#a65d763a9c331b9755a8ea10e6b82a660", null ],

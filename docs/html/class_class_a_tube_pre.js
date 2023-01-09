@@ -1,7 +1,5 @@
 var class_class_a_tube_pre =
 [
-    [ "ClassATubePre", "class_class_a_tube_pre.html#a45b7060c0a25d79e1d7e94d7df39b5b0", null ],
-    [ "~ClassATubePre", "class_class_a_tube_pre.html#a8eef199185f5b23590c5467245139ea9", null ],
     [ "canProcessAudioFrame", "class_class_a_tube_pre.html#ab13a06c394650e815df5e53f48f6c7a8", null ],
     [ "getParameters", "class_class_a_tube_pre.html#a8c94e02bcd91a6d4aaf1a5952300fffd", null ],
     [ "processAudioSample", "class_class_a_tube_pre.html#a6e6e74c8f935606c9e63ed262bd1dddb", null ],

@@ -1,19 +1,18 @@
 var group___a_s_pi_k__g_u_i =
 [
-    [ "ParamSmoother", "class_param_smoother.html", [
-      [ "ParamSmoother", "class_param_smoother.html#a499f2f0384075d10398550fe11f0df2d", null ],
+    [ "ParamSmoother< T >", "class_param_smoother.html", [
       [ "initParamSmoother", "class_param_smoother.html#ad796714c7a8ff6b593a6509d22b93f64", null ],
       [ "setSampleRate", "class_param_smoother.html#aacebc34d3029ef2073126029178f7ad9", null ],
       [ "smoothParameter", "class_param_smoother.html#a9c7bce12b8e707f461900ccd1402fe29", null ]
     ] ],
-    [ "ControlUpdateReceiver", "class_v_s_t_g_u_i_1_1_control_update_receiver.html", [
+    [ "VSTGUI::ControlUpdateReceiver", "class_v_s_t_g_u_i_1_1_control_update_receiver.html", [
       [ "ControlUpdateReceiver", "class_v_s_t_g_u_i_1_1_control_update_receiver.html#a30d02964617ef745d0b23a5260e19cf7", null ],
       [ "~ControlUpdateReceiver", "class_v_s_t_g_u_i_1_1_control_update_receiver.html#a5ed38dc68b9e7e071a54dd640b181af3", null ],
       [ "addControl", "class_v_s_t_g_u_i_1_1_control_update_receiver.html#acee40e6b686db0d72ce152ecda640408", null ],
       [ "controlAndContainerVisible", "class_v_s_t_g_u_i_1_1_control_update_receiver.html#afc19eff97a6eeead03ffeb9f1ae452c7", null ],
       [ "controlInRxGroupIsEditing", "class_v_s_t_g_u_i_1_1_control_update_receiver.html#a2db92287dfac0ff84365718d59f54cdd", null ],
       [ "getActualValueWithNormalizedValue", "class_v_s_t_g_u_i_1_1_control_update_receiver.html#ac8069dc7ac99d4f7318770b83acbd2ae", null ],
-      [ "getControl_WithMouseCoords", "class_v_s_t_g_u_i_1_1_control_update_receiver.html#a919ae068fbc20cddacd98a5c1e9c201e", null ],
+      [ "getControl_WithMouseCoords", "class_v_s_t_g_u_i_1_1_control_update_receiver.html#a49706b75612482dc9cbc647ab47a9831", null ],
       [ "getControlID", "class_v_s_t_g_u_i_1_1_control_update_receiver.html#a9ab13ccc51150869f23c72dfbbc660d9", null ],
       [ "getControlID_WithMouseCoords", "class_v_s_t_g_u_i_1_1_control_update_receiver.html#a6e373b930571eee11119b93c1fb32eee", null ],
       [ "getGuiControl", "class_v_s_t_g_u_i_1_1_control_update_receiver.html#a7fc3ce7ba91d0bf574d2aed44090cf5e", null ],
@@ -29,7 +28,7 @@ var group___a_s_pi_k__g_u_i =
       [ "isControlListener", "class_v_s_t_g_u_i_1_1_control_update_receiver.html#aa1e42f5e08101e15ffd372996a46b5b7", null ],
       [ "refGuiControl", "class_v_s_t_g_u_i_1_1_control_update_receiver.html#a789e8ecd9d02da70bbe9692a98061982", null ]
     ] ],
-    [ "PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html", [
+    [ "VSTGUI::PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html", [
       [ "PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#acd84495954277774f241406cd3566fa0", null ],
       [ "~PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a51a04dd91ea6fdf603f426bec7add616", null ],
       [ "checkAddWriteableControl", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a630ac606174d58071d1749949bf526d2", null ],
@@ -52,7 +51,7 @@ var group___a_s_pi_k__g_u_i =
       [ "getControl_WithMouseCoords", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a90302ff7a3c62c7dffeba0e879fc0fa8", null ],
       [ "getControlID_WithMouseCoords", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a4cd8a31ef968a30e7b9da2bbe0a44e35", null ],
       [ "getControlUpdateReceiver", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#aae5eab638a4372cfd57e2aba71e0c95c", null ],
-      [ "getGuiControlWithTag", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a34ef622539d71bd24447d1a9df8cdc91", null ],
+      [ "getGuiControlWithTag", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#aa8ef21d1500d879cd0f274a890043a34", null ],
       [ "getGUIDesignerSize", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a8b8375df62090b89d1e2dde2db1eaad4", null ],
       [ "getKnobMode", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a8bb1037ad10feb4f7c713037089f42fa", null ],
       [ "getSize", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a60eec5093f04b358a4bc53fe75927bc3", null ],
@@ -62,15 +61,13 @@ var group___a_s_pi_k__g_u_i =
       [ "idle", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a44d683de31fcf32a57e35a96f4d1d7a1", null ],
       [ "notify", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#afdc36448b6041e3d3210a94f5690387c", null ],
       [ "onCommandMenuItemSelected", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#aeb9e6942f1607fa5971a4fbfe93285d8", null ],
-      [ "onKeyDown", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#abce75c68390cd20d2e2908f873e0d841", null ],
-      [ "onKeyUp", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a551249db7679d9fd5cc03046ef8911cf", null ],
       [ "onMouseDown", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a7360925f978f3e702edaa556c645aa8b", null ],
       [ "onMouseEntered", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#af44575c1f8f6a6fb1fadbf0e07840446", null ],
       [ "onMouseExited", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a2202e737e3b3b59618b9f5d0c48800d7", null ],
       [ "onMouseMoved", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a1f078f71071ef943d973552577d61a48", null ],
       [ "onViewAdded", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#ac59c9bcec16a8138d01c24b1064cc00e", null ],
       [ "onViewRemoved", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a7a4d38923573d3c728007b283ebbc58d", null ],
-      [ "open", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a6518084df0956699de2645df10b1fc1e", null ],
+      [ "open", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a78200477713c1abaebcea74504c616ac", null ],
       [ "preCreateGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a41cc600bd365ae2c19ce83bd975696f7", null ],
       [ "save", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a53b3eebfb72131a4079eb24e2f5b068b", null ],
       [ "scaleGUISize", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#aca72b0e240f87d4e8934840358db479a", null ],
@@ -130,11 +127,11 @@ var group___a_s_pi_k__g_u_i =
       [ "getAtomicControlValueFloat", "class_plugin_parameter.html#a0856e90398739703e417ac290f815c77", null ],
       [ "getAuxAttribute", "class_plugin_parameter.html#a8bad4ff60cde2d4ce1c999873bc06ece", null ],
       [ "getBoundVariableType", "class_plugin_parameter.html#a5e5ba88abe69fb26893c1aae709c030a", null ],
-      [ "getCommaSeparatedStringList", "class_plugin_parameter.html#afeaba76e301cebd4ecc2802bfe878853", null ],
+      [ "getCommaSeparatedStringList", "class_plugin_parameter.html#a204de01f79470808d1d855ad9196fb77", null ],
       [ "getControlID", "class_plugin_parameter.html#a34e536754ecbb416f1fbcb7c865a876a", null ],
-      [ "getControlName", "class_plugin_parameter.html#ad34dc888a93ac45c46fe717605b73375", null ],
+      [ "getControlName", "class_plugin_parameter.html#a7b1fe8707c5b2820728b06713f64c7e4", null ],
       [ "getControlTaper", "class_plugin_parameter.html#a8860c3d091a02e9ba86329eacbcf0fb0", null ],
-      [ "getControlUnits", "class_plugin_parameter.html#abc4a96b7baa7dd326c0abfe3ccc8ef86", null ],
+      [ "getControlUnits", "class_plugin_parameter.html#a34d75e906938ba1053b8b22c04c0dcc1", null ],
       [ "getControlValue", "class_plugin_parameter.html#a2335ff60d6c669311a8ec991d88dcb5b", null ],
       [ "getControlValueAsString", "class_plugin_parameter.html#af8348c344980cbd6c8e9040533d688d8", null ],
       [ "getControlValueFromNormalizedValue", "class_plugin_parameter.html#a45f5c46bdf4ebca6e5d3268a1502acd9", null ],
@@ -167,7 +164,7 @@ var group___a_s_pi_k__g_u_i =
       [ "getNormalizedVoltOctaveControlValue", "class_plugin_parameter.html#a26f80c673af8f228c62f166c0cc104c7", null ],
       [ "getNormalizedVoltOctaveDefaultValue", "class_plugin_parameter.html#a9fadc60f1719cd22da65405298fbd7fd", null ],
       [ "getParameterSmoothing", "class_plugin_parameter.html#a2c65005bc08a6dae8ad4a70410ed4c4c", null ],
-      [ "getParameterUpdateQueue", "class_plugin_parameter.html#ae0d00e27dfcb3fb34eb264e53b335be1", null ],
+      [ "getParameterUpdateQueue", "class_plugin_parameter.html#a49e3ac3789ab2a371cf865868e8c80c8", null ],
       [ "getSmoothedTargetValue", "class_plugin_parameter.html#a944f873c4482ca852978dda7f116b807", null ],
       [ "getSmoothingMethod", "class_plugin_parameter.html#ad0cc2acda7cd2938ad488b8495af01a9", null ],
       [ "getSmoothingTimeMsec", "class_plugin_parameter.html#a65db515bd0f363e28b6c6c198ae0b852", null ],
@@ -189,7 +186,7 @@ var group___a_s_pi_k__g_u_i =
       [ "logNormToNorm", "class_plugin_parameter.html#adf372791b618698ae44e17fbabe49d7c", null ],
       [ "normToAntiLogNorm", "class_plugin_parameter.html#ad4af50369ac38f1cb3dc7ca1c7a12d9f", null ],
       [ "normToLogNorm", "class_plugin_parameter.html#a4f53a9c5f6d01ccea73965083a79aa9e", null ],
-      [ "operator=", "class_plugin_parameter.html#a3f736d24860fd30891e08024bb54a691", null ],
+      [ "operator=", "class_plugin_parameter.html#a57d6ff3018e2829667549e1a7acdd566", null ],
       [ "setAtomicControlValueDouble", "class_plugin_parameter.html#a0423313fd90bbc2f4f799dea3e8409ae", null ],
       [ "setAtomicControlValueFloat", "class_plugin_parameter.html#a85a1fd23bbb3f2395191a5f2f5ebce4b", null ],
       [ "setAuxAttribute", "class_plugin_parameter.html#a6d583e138ed80b150c7e8eaa123902f7", null ],
@@ -262,8 +259,8 @@ var group___a_s_pi_k__g_u_i =
     [ "boolToStdString", "group___a_s_pi_k-_g_u_i.html#gab35d7722483843f5939b88632e44ade1", null ],
     [ "isBonusParameter", "group___a_s_pi_k-_g_u_i.html#ga9da23c8082c97f7806a0cffe665e4133", null ],
     [ "isReservedTag", "group___a_s_pi_k-_g_u_i.html#ga4794d6725bc6d49245a56e0326648d01", null ],
-    [ "numberToString", "group___a_s_pi_k-_g_u_i.html#ga9f69aa44fbbdbff72aa58c40e4008cc2", null ],
-    [ "numberToString", "group___a_s_pi_k-_g_u_i.html#ga5a922a3ad4cedc8a42c25d7122298591", null ],
+    [ "numberToString", "group___a_s_pi_k-_g_u_i.html#gab8bb304a493b37767a3f1dcfa7e93733", null ],
     [ "numberToString", "group___a_s_pi_k-_g_u_i.html#gac2d7e05580a25958f7a31f71b9efb862", null ],
-    [ "numberToString", "group___a_s_pi_k-_g_u_i.html#gab8bb304a493b37767a3f1dcfa7e93733", null ]
+    [ "numberToString", "group___a_s_pi_k-_g_u_i.html#ga5a922a3ad4cedc8a42c25d7122298591", null ],
+    [ "numberToString", "group___a_s_pi_k-_g_u_i.html#ga9f69aa44fbbdbff72aa58c40e4008cc2", null ]
 ];

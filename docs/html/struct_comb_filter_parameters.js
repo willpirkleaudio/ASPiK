@@ -1,7 +1,6 @@
 var struct_comb_filter_parameters =
 [
-    [ "CombFilterParameters", "struct_comb_filter_parameters.html#a0714921914394db6782ea8ed50ce2214", null ],
-    [ "operator=", "struct_comb_filter_parameters.html#a5aef481bd7b53b1bc3d6748f135332a2", null ],
+    [ "operator=", "struct_comb_filter_parameters.html#a28c82c43b97bad5ff753a53634df81cc", null ],
     [ "delayTime_mSec", "struct_comb_filter_parameters.html#acd7cf2ad24e0b645d7b3335dd5911cb5", null ],
     [ "enableLPF", "struct_comb_filter_parameters.html#aca44721dab976acf62957f093d44022d", null ],
     [ "interpolate", "struct_comb_filter_parameters.html#acafa69af100f96fea90f49b75109fc7e", null ],

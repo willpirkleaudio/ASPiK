@@ -1,8 +1,5 @@
 var class_wdf_parallel_r_c =
 [
-    [ "WdfParallelRC", "class_wdf_parallel_r_c.html#a66f0739ddc120b675278bd7647306110", null ],
-    [ "WdfParallelRC", "class_wdf_parallel_r_c.html#af8d765f06662ed2c5f16cec51af48b5a", null ],
-    [ "~WdfParallelRC", "class_wdf_parallel_r_c.html#a6ef1a7bbdb87d1094000975301e818c4", null ],
     [ "getComponentConductance", "class_wdf_parallel_r_c.html#a14e8421ceea160bd43e06bf607a8b830", null ],
     [ "getComponentResistance", "class_wdf_parallel_r_c.html#a9d944168a924fad65c0fdedff7a756b8", null ],
     [ "getComponentValue_C", "class_wdf_parallel_r_c.html#ad82f8931796a268d14b040024905469d", null ],
@@ -24,7 +21,6 @@ var class_wdf_parallel_r_c =
     [ "componentResistance", "class_wdf_parallel_r_c.html#aa708c61ab691a014a1cc1c59e0b81c61", null ],
     [ "componentValue_C", "class_wdf_parallel_r_c.html#a011d1663fb68f74f5c7e431651c517d6", null ],
     [ "componentValue_R", "class_wdf_parallel_r_c.html#aa7011b5deae88f574112b46c27619344", null ],
-    [ "K", "class_wdf_parallel_r_c.html#a724e1543a3dad366d16946030b53a6c8", null ],
     [ "RC", "class_wdf_parallel_r_c.html#a53947c5401ed13f1fab76da44bd1d32c", null ],
     [ "RL", "class_wdf_parallel_r_c.html#a4718d20a96a76706e183d75450f0534f", null ],
     [ "RR", "class_wdf_parallel_r_c.html#aab0fa835487d5de5506e99cd741bb6ca", null ],

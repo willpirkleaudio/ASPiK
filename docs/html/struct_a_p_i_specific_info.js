@@ -1,7 +1,5 @@
 var struct_a_p_i_specific_info =
 [
-    [ "APISpecificInfo", "struct_a_p_i_specific_info.html#a832d740d29dca7ac953a66d67f559b2d", null ],
-    [ "operator=", "struct_a_p_i_specific_info.html#aff5092f3ade8095d7e970e5efdd3ebd4", null ],
     [ "aaxBundleID", "struct_a_p_i_specific_info.html#a582491bd9aced7fc63f4a21e7f37e832", null ],
     [ "aaxEffectID", "struct_a_p_i_specific_info.html#a47bb1f8da3b746a762a663bd5bc1ab23", null ],
     [ "aaxManufacturerID", "struct_a_p_i_specific_info.html#a01df6a89dc39aff104490a9de214e947", null ],

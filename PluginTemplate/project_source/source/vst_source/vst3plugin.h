@@ -217,12 +217,22 @@ protected:
 
 #if defined _WINDOWS || defined _WINDLL
 #ifdef ENABLE_WINDOWS_H
+    wchar_t* convertCharArrayToLPCWSTR(const char* charArray)
+    {
+        wchar_t* wString = new wchar_t[4096];
+        MultiByteToWideChar(CP_ACP, 0, charArray, -1, wString, 4096);
+        return wString;
+    }
+
     // --- getMyDLLDirectory()
     //     returns the directory where the .component resides
-	char* getMyDLLDirectory(UString cPluginName)
+	char* getMyDLLDirectory(const char* cPluginName)
 	{
-		HMODULE hmodule = GetModuleHandle(cPluginName);
+        wchar_t* piName = convertCharArrayToLPCWSTR(cPluginName);
+        if (!piName) return nullptr;
 
+		HMODULE hmodule = GetModuleHandle(piName);
+        delete[] piName;
 		TCHAR dir[MAX_PATH];
 		memset(&dir[0], 0, MAX_PATH*sizeof(TCHAR));
 		dir[MAX_PATH-1] = '\0';
@@ -232,20 +242,14 @@ protected:
 		else
 			return nullptr;
 
-		// convert to UString
-		UString DLLPath(&dir[0], MAX_PATH);
-
-		char* pFullPath = new char[MAX_PATH];
+        char fullPath[MAX_PATH];
+        size_t nNumCharConverted;
+        wcstombs_s(&nNumCharConverted, fullPath, MAX_PATH, dir, MAX_PATH);
 		char* pDLLRoot = new char[MAX_PATH];
-
-		DLLPath.toAscii(pFullPath, MAX_PATH);
-
-		size_t nLenDir = strlen(pFullPath);
-		size_t nLenDLL = wcslen(cPluginName) + 1;	// +1 is for trailing backslash
-		memcpy(pDLLRoot, pFullPath, nLenDir-nLenDLL);
+		size_t nLenDir = strlen(fullPath);
+		size_t nLenDLL = strlen(cPluginName);	// +1 is for trailing backslash
+		memcpy(pDLLRoot, fullPath, nLenDir-nLenDLL);
 		pDLLRoot[nLenDir-nLenDLL] = '\0';
-
-		delete [] pFullPath;
 
 		// caller must delete this after use
 		return pDLLRoot;

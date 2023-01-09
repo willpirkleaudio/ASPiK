@@ -8,6 +8,7 @@
 #include "vstgui/lib/cframe.h"
 #include "vstgui/lib/cscrollview.h"
 #include "vstgui/lib/dragging.h"
+#include "vstgui/lib/coffscreencontext.h"
 #include "vstgui/standalone/include/ialertbox.h"
 #include "vstgui/standalone/include/iapplication.h"
 #include "vstgui/standalone/include/iasync.h"
@@ -104,6 +105,29 @@ void ImageFramesView::setSelectionColor (CColor color)
 	inactiveSelectionColor.toHSL (h, s, l);
 	s = 0.;
 	inactiveSelectionColor.fromHSL (h, s, l);
+	invalid ();
+}
+
+//------------------------------------------------------------------------
+void ImageFramesView::setTextColor (CColor color)
+{
+	textColor = color;
+	selectedTextColor = textColor;
+	struct HSL
+	{
+		double h, s, l;
+	};
+	HSL asc, tc;
+	activeSelectionColor.toHSL (asc.h, asc.s, asc.l);
+	textColor.toHSL (tc.h, tc.s, tc.l);
+	if (std::abs (asc.l - tc.l) < 0.5)
+	{
+		tc.l = asc.l - 0.5;
+		if (tc.l < 0)
+			tc.l = 1. - tc.l;
+		selectedTextColor.fromHSL (tc.h, tc.s, tc.l);
+	}
+	invalid ();
 }
 
 //------------------------------------------------------------------------
@@ -120,7 +144,7 @@ void ImageFramesView::drawRect (CDrawContext* context, const CRect& _updateRect)
 	context->setFillColor (getFrame ()->getFocusView () == this ? activeSelectionColor :
 	                                                              inactiveSelectionColor);
 
-	context->setFontColor (kBlackCColor);
+	context->setFontColor (textColor);
 	context->setFont (font);
 	context->setDrawMode (kAntiAliasing);
 
@@ -151,6 +175,7 @@ void ImageFramesView::drawRect (CDrawContext* context, const CRect& _updateRect)
 			if (updateRect.rectOverlap (tr))
 			{
 				auto name = getDisplayFilename (image.path);
+				context->setFontColor (image.selected ? selectedTextColor : textColor);
 				context->drawString (name.data (), tr);
 			}
 		}
@@ -439,7 +464,6 @@ CMouseEventResult ImageFramesView::onMouseDown (CPoint& where, const CButtonStat
 	assert (imageList);
 	if (buttons.isLeftButton ())
 	{
-		mouseDownPos = where;
 		bool exclusive = buttons.getModifierState () != kControl;
 		bool shift = buttons.getModifierState () == kShift;
 		auto index = posToIndex (where);
@@ -462,6 +486,9 @@ CMouseEventResult ImageFramesView::onMouseDown (CPoint& where, const CButtonStat
 				invalidRect (indexToRect (index));
 			}
 		}
+		if (auto frame = getFrame ())
+			frame->setFocusView (this);
+		dragStartMouseObserver.init (where);
 		return kMouseEventHandled;
 	}
 	return kMouseEventNotHandled;
@@ -472,7 +499,7 @@ CMouseEventResult ImageFramesView::onMouseMoved (CPoint& where, const CButtonSta
 {
 	if (buttons.isLeftButton ())
 	{
-		if (std::abs ((where.x - mouseDownPos.x) * (where.y - mouseDownPos.y)) > 5)
+		if (dragStartMouseObserver.shouldStartDrag (where))
 		{
 			std::vector<size_t> indices;
 			indices.emplace_back (DragPackageID);
@@ -488,6 +515,23 @@ CMouseEventResult ImageFramesView::onMouseMoved (CPoint& where, const CButtonSta
 				                 static_cast<uint32_t> (indices.size () * sizeof (size_t)),
 				                 IDataPackage::kBinary);
 				DragDescription dragDesc (dropSource);
+				auto imageSize = imageList->front ().bitmap->getSize ();
+				imageSize.y *= indices.size () - 1;
+				dragDesc.bitmap = renderBitmapOffscreen (
+					imageSize, getFrame ()->getScaleFactor (), [&] (CDrawContext& context) {
+						CRect r;
+						r.setSize (imageList->front ().bitmap->getSize ());
+						for (auto index : indices)
+						{
+							if (index == DragPackageID)
+								continue;
+							if (auto image = imageList->at (index).bitmap)
+							{
+								image->draw (&context, r);
+							}
+							r.offset (0, r.getHeight ());
+						}
+					});
 				doDrag (dragDesc);
 			}
 		}
@@ -505,7 +549,7 @@ bool ImageFramesView::onDrop (DragEventData eventData)
 	std::vector<size_t> indices;
 	if (getIndicesFromDataPackage (eventData.drag, &indices))
 	{
-		auto doCopy = (eventData.modifiers.getModifierState () & kAlt) != 0;
+		auto doCopy = eventData.modifiers.has (ModifierKey::Alt);
 		reorderImages (dropPosition, doCopy, indices);
 	}
 	else
@@ -556,29 +600,30 @@ DragOperation ImageFramesView::onDragMove (DragEventData eventData)
 			dropIndicatorPos = newIndex;
 			invalid ();
 		}
-		auto doCopy = dragHasImages ? true : (eventData.modifiers.getModifierState () & kAlt);
+		auto doCopy = dragHasImages ? true : eventData.modifiers.has (ModifierKey::Alt);
 		return doCopy ? DragOperation::Copy : DragOperation::Move;
 	}
 	return DragOperation::None;
 }
 
 //------------------------------------------------------------------------
-int32_t ImageFramesView::onKeyDown (VstKeyCode& keyCode)
+void ImageFramesView::onKeyboardEvent (KeyboardEvent& event)
 {
-	if (keyCode.virt == 0 || !imageList || imageList->empty ())
-		return -1;
-	switch (keyCode.virt)
+	if (event.type != EventType::KeyDown || event.virt == VirtualKey::None || !imageList || imageList->empty ())
+		return;
+	switch (event.virt)
 	{
-		case VKEY_UP:
+		case VirtualKey::Up:
 		{
 			auto index = firstSelectedIndex ();
 			if (index <= 0)
 				index = static_cast<int32_t> (imageList->size ());
 			--index;
 			selectExclusive (static_cast<size_t> (index));
-			return 1;
+			event.consumed = true;
+			break;
 		}
-		case VKEY_DOWN:
+		case VirtualKey::Down:
 		{
 			auto index = lastSelectedIndex ();
 			if (index == static_cast<int32_t> (imageList->size ()) - 1)
@@ -586,10 +631,11 @@ int32_t ImageFramesView::onKeyDown (VstKeyCode& keyCode)
 			else
 				++index;
 			selectExclusive (static_cast<size_t> (index));
-			return 1;
+			event.consumed = true;
+			break;
 		}
+		default: break;
 	}
-	return -1;
 }
 
 //------------------------------------------------------------------------

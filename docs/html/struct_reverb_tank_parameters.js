@@ -1,7 +1,6 @@
 var struct_reverb_tank_parameters =
 [
-    [ "ReverbTankParameters", "struct_reverb_tank_parameters.html#a3d1afaed1de52f6125b33cd335140cd0", null ],
-    [ "operator=", "struct_reverb_tank_parameters.html#a71de959f5a2ea9abf3f0b337a4912640", null ],
+    [ "operator=", "struct_reverb_tank_parameters.html#ae028432d28bf4fd38a9a3eff43744290", null ],
     [ "apfDelayMax_mSec", "struct_reverb_tank_parameters.html#a2dba1c786a308919c7f5be0242d35000", null ],
     [ "apfDelayWeight_Pct", "struct_reverb_tank_parameters.html#a6b5175e30e84771a75007220a9ad1814", null ],
     [ "density", "struct_reverb_tank_parameters.html#a649bbc5cc8c0c68c65f38b3f597dda81", null ],

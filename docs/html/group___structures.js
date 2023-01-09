@@ -1,31 +1,17 @@
 var group___structures =
 [
-    [ "AnalogMagData", "struct_analog_mag_data.html", [
-      [ "AnalogMagData", "struct_analog_mag_data.html#ace5a373712561eef84c130c8140163ff", null ],
-      [ "dftArrayLen", "struct_analog_mag_data.html#a831276052ce41019b55533d99535fabf", null ],
-      [ "fc", "struct_analog_mag_data.html#a1e9fd9dccd9f1024ecdc5ed35af3e22b", null ],
-      [ "filterType", "struct_analog_mag_data.html#a4b0c63c2ee54f21c583eac36516ec1e0", null ],
-      [ "magArray", "struct_analog_mag_data.html#a7f0fb2e80576579cc2a5fcee5cfce8d4", null ],
-      [ "mirrorMag", "struct_analog_mag_data.html#a843f8d69f60fa82c7cbf656e3fe1df81", null ],
-      [ "Q", "struct_analog_mag_data.html#a74e23d5140c3a2453c42b294ed29f4ec", null ],
-      [ "sampleRate", "struct_analog_mag_data.html#a2ad52c26dd7a4030148c9ca83d28e55c", null ]
-    ] ],
+    [ "AnalogMagData", "struct_analog_mag_data.html", null ],
     [ "SignalGenData", "struct_signal_gen_data.html", [
-      [ "SignalGenData", "struct_signal_gen_data.html#aaa14cd8f1721ea2278b1317dd9a9255c", null ],
       [ "invertedOutput", "struct_signal_gen_data.html#ac3ef1a1b1f39fa07093824438a1a4a20", null ],
       [ "normalOutput", "struct_signal_gen_data.html#a8e9a9f6c0466799515fbab6b3279404a", null ],
       [ "quadPhaseOutput_neg", "struct_signal_gen_data.html#a48ae45953ce3c60a26b6d52ea2c52f8e", null ],
       [ "quadPhaseOutput_pos", "struct_signal_gen_data.html#af1b5f95524149874613e7dbeefa98673", null ]
     ] ],
     [ "ResetInfo", "struct_reset_info.html", [
-      [ "ResetInfo", "struct_reset_info.html#af4232448728889878f9a1902ac807280", null ],
-      [ "ResetInfo", "struct_reset_info.html#a7949d0eaf59a70e8ca93bcf2cbdc9fbf", null ],
       [ "bitDepth", "struct_reset_info.html#a5903757c8ece4cd1ccba6f558b7d0405", null ],
       [ "sampleRate", "struct_reset_info.html#a7e649aef6c17a4d03fdfccd6cc9575b1", null ]
     ] ],
     [ "APISpecificInfo", "struct_a_p_i_specific_info.html", [
-      [ "APISpecificInfo", "struct_a_p_i_specific_info.html#a832d740d29dca7ac953a66d67f559b2d", null ],
-      [ "operator=", "struct_a_p_i_specific_info.html#aff5092f3ade8095d7e970e5efdd3ebd4", null ],
       [ "aaxBundleID", "struct_a_p_i_specific_info.html#a582491bd9aced7fc63f4a21e7f37e832", null ],
       [ "aaxEffectID", "struct_a_p_i_specific_info.html#a47bb1f8da3b746a762a663bd5bc1ab23", null ],
       [ "aaxManufacturerID", "struct_a_p_i_specific_info.html#a01df6a89dc39aff104490a9de214e947", null ],
@@ -39,51 +25,28 @@ var group___structures =
       [ "vst3FUID", "struct_a_p_i_specific_info.html#adf6646f49a5b42f12cbf7d91e6cb290e", null ],
       [ "vst3SampleAccurateGranularity", "struct_a_p_i_specific_info.html#a849aa9b6eae51b3bca8973e27ea17208", null ]
     ] ],
-    [ "VectorJoystickData", "struct_vector_joystick_data.html", [
-      [ "VectorJoystickData", "struct_vector_joystick_data.html#af9defd0a9cf648348ddec86ccfb27d04", null ],
-      [ "VectorJoystickData", "struct_vector_joystick_data.html#a72fcb316877c4014857122f4d5d6a68d", null ],
-      [ "operator=", "struct_vector_joystick_data.html#ae923466ae11b0d3cb7a7d53147eff4ce", null ],
-      [ "vectorA", "struct_vector_joystick_data.html#acba44b1ad98b75b32a3a31edc75ce0b1", null ],
-      [ "vectorACMix", "struct_vector_joystick_data.html#a4c8f8e520f49850b5bd4c936449067dd", null ],
-      [ "vectorB", "struct_vector_joystick_data.html#a2b80cc26893eaca969674563a2c159bf", null ],
-      [ "vectorBDMix", "struct_vector_joystick_data.html#a3a56a05912e34003b718260be9021fe3", null ],
-      [ "vectorC", "struct_vector_joystick_data.html#ab03362bb96c8ab56ec2fa9221cfa547b", null ],
-      [ "vectorD", "struct_vector_joystick_data.html#a65d8cb90424c92aaecb3d54b3919c4a9", null ]
-    ] ],
+    [ "VectorJoystickData", "struct_vector_joystick_data.html", null ],
     [ "GUIParameter", "struct_g_u_i_parameter.html", [
-      [ "GUIParameter", "struct_g_u_i_parameter.html#ac8ef4e65cc1f310b8cad28700926f3f1", null ],
-      [ "operator=", "struct_g_u_i_parameter.html#a021d91611917c592e943d2aa012a0a73", null ],
       [ "actualValue", "struct_g_u_i_parameter.html#a54d6dcf9ffc06a099e1a35c82d3cea04", null ],
       [ "controlID", "struct_g_u_i_parameter.html#ad7bf0b980e5948c8d4c54bf95acf3197", null ],
       [ "customData", "struct_g_u_i_parameter.html#ab4721668679a39bbfb1be9304b2d3d6b", null ],
       [ "useCustomData", "struct_g_u_i_parameter.html#a98bd24e1e3910f9409f66fdfa95948e6", null ]
     ] ],
     [ "PresetParameter", "struct_preset_parameter.html", [
-      [ "PresetParameter", "struct_preset_parameter.html#a9a19e8bc702cdfbd50ff2c0fbc5684e5", null ],
-      [ "PresetParameter", "struct_preset_parameter.html#a2ac6fe7384f9f2ab9302d2bc8fe19569", null ],
-      [ "operator=", "struct_preset_parameter.html#aba8d8cbcd09427b28bbf0aae29f0b86e", null ],
       [ "actualValue", "struct_preset_parameter.html#a67a5e6b2137867f35b789019b1983247", null ],
       [ "controlID", "struct_preset_parameter.html#a41c0bd10fbfb6f0a05d25faba82f9a69", null ]
     ] ],
     [ "GUIUpdateData", "struct_g_u_i_update_data.html", [
-      [ "operator=", "struct_g_u_i_update_data.html#a2b3559179e3cfa412ce6ad2134cabf2c", null ],
       [ "customData", "struct_g_u_i_update_data.html#a4fcf5f0341e8174828c41ca1df53f4f0", null ],
       [ "guiParameters", "struct_g_u_i_update_data.html#aadb8ea3fc69eb2db8a49c4f7baf18227", null ],
       [ "guiUpdateCode", "struct_g_u_i_update_data.html#ab65209d8d0f8d8b7580a3ebda25febb6", null ],
       [ "useCustomData", "struct_g_u_i_update_data.html#a1fca5111f4691ac3a7fc5386d4d95366", null ]
     ] ],
     [ "ChannelIOConfig", "struct_channel_i_o_config.html", [
-      [ "ChannelIOConfig", "struct_channel_i_o_config.html#a89e305373a24ca7252321c44559b56be", null ],
-      [ "ChannelIOConfig", "struct_channel_i_o_config.html#aa11ac9211780ed1d44e8050b9d62bd76", null ],
-      [ "operator=", "struct_channel_i_o_config.html#a7f50d174374ed5d5498324845ac28531", null ],
       [ "inputChannelFormat", "struct_channel_i_o_config.html#a1da2d9e19fabb5544a5024b3bdcc180b", null ],
       [ "outputChannelFormat", "struct_channel_i_o_config.html#a2fdfbb6d25369723319e1b894467ed27", null ]
     ] ],
     [ "midiEvent", "structmidi_event.html", [
-      [ "midiEvent", "structmidi_event.html#a3be21ff0c04ed7c56a3e6f43836c01f2", null ],
-      [ "midiEvent", "structmidi_event.html#aa2235401e6ed78978dd3ce21108e7c30", null ],
-      [ "midiEvent", "structmidi_event.html#a5e104b3475dfef9ffa0d062fb443203e", null ],
-      [ "operator=", "structmidi_event.html#abe81367f893cbe2cf923e9b1a4deb86f", null ],
       [ "audioTimeStamp", "structmidi_event.html#abe36705b3ba1d77528958336a9abe559", null ],
       [ "auxDoubleData1", "structmidi_event.html#ae5bedf6ff5c5924a8a5967bfea1f9d6e", null ],
       [ "auxDoubleData2", "structmidi_event.html#a14ef148a6b4b65d6502487d7a5bf28a5", null ],
@@ -101,9 +64,6 @@ var group___structures =
       [ "midiSampleOffset", "structmidi_event.html#ae90361b2d3743386203b34fc0edaf1dc", null ]
     ] ],
     [ "MessageInfo", "struct_message_info.html", [
-      [ "MessageInfo", "struct_message_info.html#ab041bcb8166f672a300a0ef0290ac6e7", null ],
-      [ "MessageInfo", "struct_message_info.html#a412edd86599d733104ed1d20f1b1b652", null ],
-      [ "operator=", "struct_message_info.html#a453fc031ae1efca982704fe1102887ad", null ],
       [ "inMessageData", "struct_message_info.html#a7a5400b80ef813190902ad1b96a20f72", null ],
       [ "inMessageString", "struct_message_info.html#ab0600e93ca0b692670c301a269d64c56", null ],
       [ "message", "struct_message_info.html#a7c1c6e0a9d8d1bfdc9447e384473cf0f", null ],
@@ -111,14 +71,10 @@ var group___structures =
       [ "outMessageString", "struct_message_info.html#afcebdd29faa8206b43eccf3cb3952802", null ]
     ] ],
     [ "PluginInfo", "struct_plugin_info.html", [
-      [ "PluginInfo", "struct_plugin_info.html#ac346411374b0c2948ad3fe957d61d74e", null ],
-      [ "operator=", "struct_plugin_info.html#a854f69d70aa79edd959ba2d13797c019", null ],
+      [ "operator=", "struct_plugin_info.html#a9bbf885c550fcd19e3bfd811ddb161cf", null ],
       [ "pathToDLL", "struct_plugin_info.html#af7b3465ce918fe67f78d2a363c9b86bc", null ]
     ] ],
     [ "CreateGUIInfo", "struct_create_g_u_i_info.html", [
-      [ "CreateGUIInfo", "struct_create_g_u_i_info.html#a00a4b1dbec630b9c02541b956708f370", null ],
-      [ "CreateGUIInfo", "struct_create_g_u_i_info.html#ab15828100599edcd470e97101d30bc31", null ],
-      [ "operator=", "struct_create_g_u_i_info.html#a3fe826cb25d3681eabe24e835be4535f", null ],
       [ "guiPluginConnector", "struct_create_g_u_i_info.html#a843444480eff85f1010ba87eefb889d7", null ],
       [ "guiWindowFrame", "struct_create_g_u_i_info.html#acafce4a80e6d9e1381562adae234f090", null ],
       [ "height", "struct_create_g_u_i_info.html#aeba4a45374a8698a1309b86a9c493ef0", null ],
@@ -126,9 +82,6 @@ var group___structures =
       [ "window", "struct_create_g_u_i_info.html#abab980b6c1b50afb2628102a5e44c921", null ]
     ] ],
     [ "ParameterUpdateInfo", "struct_parameter_update_info.html", [
-      [ "ParameterUpdateInfo", "struct_parameter_update_info.html#a4f1ea818881a1d725158b6fb13d11ff0", null ],
-      [ "ParameterUpdateInfo", "struct_parameter_update_info.html#a5f4d8268de7df127927b1d066b667442", null ],
-      [ "operator=", "struct_parameter_update_info.html#a3d7acff0a522fd1d9daec032a3761439", null ],
       [ "applyTaper", "struct_parameter_update_info.html#ac84271d0aea968878dcd42aca7c4ee88", null ],
       [ "boundVariableUpdate", "struct_parameter_update_info.html#ada4619ce387f3cbc0cf2befb62734861", null ],
       [ "bufferProcUpdate", "struct_parameter_update_info.html#a8d63e39da7ab2d3ab1f5169d018392f6", null ],
@@ -137,22 +90,6 @@ var group___structures =
       [ "loadingPreset", "struct_parameter_update_info.html#af23312a603cd27c0bbbc014059c86d51", null ]
     ] ],
     [ "AuxParameterAttribute", "struct_aux_parameter_attribute.html", [
-      [ "AuxParameterAttribute", "struct_aux_parameter_attribute.html#a6f52813503443e5076bcc01419c85b4e", null ],
-      [ "AuxParameterAttribute", "struct_aux_parameter_attribute.html#ad133f8d21f97bd61bad687a3e4731593", null ],
-      [ "getBoolAttribute", "struct_aux_parameter_attribute.html#ae18a107649b2dfc2edc5f0ceedd594e7", null ],
-      [ "getDoubleAttribute", "struct_aux_parameter_attribute.html#a8f4bc1205b533984dc32fe94903d5da1", null ],
-      [ "getFloatAttribute", "struct_aux_parameter_attribute.html#a0a93f96d2d454b22417409424180dee5", null ],
-      [ "getIntAttribute", "struct_aux_parameter_attribute.html#a8836fc946ab7feca8d5775ca7ffdb1c9", null ],
-      [ "getUintAttribute", "struct_aux_parameter_attribute.html#a55373971cb9aab9a622a245b9a238168", null ],
-      [ "getVoidPtrAttribute", "struct_aux_parameter_attribute.html#af407bd8a70eca2c90ce7c54d330c45f6", null ],
-      [ "operator=", "struct_aux_parameter_attribute.html#a25897fa99b4d8ac599af4503b9896081", null ],
-      [ "reset", "struct_aux_parameter_attribute.html#a0e769d20ef88dda853ce9f722d44d488", null ],
-      [ "setBoolAttribute", "struct_aux_parameter_attribute.html#ab8e0ccd9093f4ad0f4d0e108614d0336", null ],
-      [ "setDoubleAttribute", "struct_aux_parameter_attribute.html#aaa576fb43f7b37bd05138ca5b4bfd5d9", null ],
-      [ "setFloatAttribute", "struct_aux_parameter_attribute.html#ac982d61faac84634aad5ed74196ba4d8", null ],
-      [ "setIntAttribute", "struct_aux_parameter_attribute.html#aeb7feeb4bced0a75e0a774ac5ba58f76", null ],
-      [ "setUintAttribute", "struct_aux_parameter_attribute.html#a34178193c2e06d7295d3424d4822d5c0", null ],
-      [ "setVoidPtrAttribute", "struct_aux_parameter_attribute.html#aa65435abc6a43003928715be4629c766", null ],
       [ "attributeID", "struct_aux_parameter_attribute.html#aea343a529bc6e09c8d9932ef5cec2580", null ],
       [ "value", "struct_aux_parameter_attribute.html#ac0aaaec35008169a8559835ce960f96c", null ]
     ] ],
@@ -172,7 +109,6 @@ var group___structures =
       [ "dCurrentMeasureDownBeat", "struct_host_info.html#aab10a993700516bfa0a38e6c082c5c8f", null ],
       [ "dCycleEndBeat", "struct_host_info.html#ac1ecfa12b9eca267eafb1ab150fb88be", null ],
       [ "dCycleStartBeat", "struct_host_info.html#a8de499ad87737394eb47361d9bc587e8", null ],
-      [ "enableVSTSampleAccurateAutomation", "struct_host_info.html#ab2d2245064a20ace013b413cf6efce1c", null ],
       [ "fTimeSigNumerator", "struct_host_info.html#a6d6e37c5836205c6f20ef0a44f2e9f87", null ],
       [ "nDeltaSampleOffsetToNextBeat", "struct_host_info.html#a79e89b1a5a7ef1f1b1f0e4fa91021b39", null ],
       [ "nLoopEndTick", "struct_host_info.html#a0b2c904ea52fea86bf8bf0eed444948a", null ],
@@ -186,10 +122,6 @@ var group___structures =
       [ "uTimeSigDenomintor", "struct_host_info.html#a601be2db6d210ea47739fd2902e4fdd1", null ]
     ] ],
     [ "ProcessBlockInfo", "struct_process_block_info.html", [
-      [ "ProcessBlockInfo", "struct_process_block_info.html#aca21364bd9d0c02270ce267348006412", null ],
-      [ "clearMidiEvents", "struct_process_block_info.html#aad2f06452887cc3c80d26276a0e440c1", null ],
-      [ "getMidiEvent", "struct_process_block_info.html#a6c0895e55cbee18bc44292d31077aa76", null ],
-      [ "getMidiEventCount", "struct_process_block_info.html#a4d213590dd5d7676f133897120fabea8", null ],
       [ "pushMidiEvent", "struct_process_block_info.html#af4c3704216cce276783d9c40c504bc13", null ],
       [ "absoluteBufferTime_Sec", "struct_process_block_info.html#a92f3a1ed87f88c1f6fbc435a33c88f55", null ],
       [ "auxInputs", "struct_process_block_info.html#a5a30bb5ef99104f7e18d1bef65622250", null ],
@@ -210,7 +142,6 @@ var group___structures =
       [ "timeSigNumerator", "struct_process_block_info.html#af5cc04c285383f941cae344638a1d04d", null ]
     ] ],
     [ "ProcessBufferInfo", "struct_process_buffer_info.html", [
-      [ "ProcessBufferInfo", "struct_process_buffer_info.html#a7e2dd95a0f0764aea5b3c957e07487a1", null ],
       [ "auxChannelIOConfig", "struct_process_buffer_info.html#ad308e673fa949196eb43abb58f0d3cba", null ],
       [ "auxInputs", "struct_process_buffer_info.html#a03013538976c3d0ea252e154b962720b", null ],
       [ "auxOutputs", "struct_process_buffer_info.html#a963698dbd8c42f30b4939f4f211429af", null ],
@@ -230,7 +161,6 @@ var group___structures =
       [ "outputs", "struct_process_buffer_info.html#afa906063c766e3d6e6f6db1f8b36491b", null ]
     ] ],
     [ "ProcessFrameInfo", "struct_process_frame_info.html", [
-      [ "ProcessFrameInfo", "struct_process_frame_info.html#a133168e63dba16c9c96f81f41dc4d591", null ],
       [ "audioInputFrame", "struct_process_frame_info.html#aae28aeb7378c9e8ccf761eb78450f639", null ],
       [ "audioOutputFrame", "struct_process_frame_info.html#ac2f3460dbe185828412be53276451b72", null ],
       [ "auxAudioInputFrame", "struct_process_frame_info.html#a8797dc475453f5aa84ed5bd09c187de6", null ],
@@ -250,14 +180,10 @@ var group___structures =
       [ "numControlSignalOutputs", "struct_process_frame_info.html#a805b4a317b15f24e8f135206bbbcbdbd", null ]
     ] ],
     [ "AudioProcDescriptor", "struct_audio_proc_descriptor.html", [
-      [ "AudioProcDescriptor", "struct_audio_proc_descriptor.html#abeca2a025e0e7f1ca6dcac7ced8e16dc", null ],
-      [ "AudioProcDescriptor", "struct_audio_proc_descriptor.html#a2004073ca175f25446cd0c937f2d07a9", null ],
-      [ "operator=", "struct_audio_proc_descriptor.html#ad5e9f1e68ce4eb20a2946d5dc02ac394", null ],
       [ "bitDepth", "struct_audio_proc_descriptor.html#adb5e41a493cb37a2a289602662896dca", null ],
       [ "sampleRate", "struct_audio_proc_descriptor.html#aabeec12d277ef4ee7158f7d34057297f", null ]
     ] ],
     [ "PluginDescriptor", "struct_plugin_descriptor.html", [
-      [ "PluginDescriptor", "struct_plugin_descriptor.html#a7af716f3d482251560e858b3319cbec5", null ],
       [ "getChannelCountForChannelIOConfig", "struct_plugin_descriptor.html#abe98bb7682583e5a61a072e39b9a7c31", null ],
       [ "getDefaultChannelIOConfigForChannelCount", "struct_plugin_descriptor.html#aa6bd169d64e4c01bf45e58e6a1f61c6e", null ],
       [ "hasCustomGUI", "struct_plugin_descriptor.html#a74bbdbee3288fbad938c6916ecec3120", null ],
@@ -270,15 +196,11 @@ var group___structures =
       [ "pluginTypeCode", "struct_plugin_descriptor.html#a6fd50ad440cf773c5e3d9d4cd380304f", null ],
       [ "processFrames", "struct_plugin_descriptor.html#a6665c6a59705638c38a12c40d451ce43", null ],
       [ "shortPluginName", "struct_plugin_descriptor.html#a87b83baf99771126fdeaeb9b2c1a3f6b", null ],
-      [ "supportedAuxIOCombinations", "struct_plugin_descriptor.html#a3c99de177eb56e56adb5ca2fbd43b587", null ],
-      [ "supportedIOCombinations", "struct_plugin_descriptor.html#a552304a3df27c20fbf8abaf2e79dca59", null ],
       [ "tailTimeInMSec", "struct_plugin_descriptor.html#aa380f41def0a54e6beb5b98a125bfddf", null ],
       [ "vendorName", "struct_plugin_descriptor.html#ac4df0e7370018fce062967c64f491e87", null ],
       [ "wantsMIDI", "struct_plugin_descriptor.html#ad45faf070e754821e85bd0293444c27d", null ]
     ] ],
     [ "JSControl", "struct_j_s_control.html", [
-      [ "JSControl", "struct_j_s_control.html#a9e8a244a14879b2d70ed07a9ea10bf28", null ],
-      [ "operator=", "struct_j_s_control.html#ab43c4ad767c9239e24d11d80256b2684", null ],
       [ "enableParamSmoothing", "struct_j_s_control.html#ace42a91b022af7215db7341e5342472a", null ],
       [ "joystickValue", "struct_j_s_control.html#aacfd8b357e75abcbb0e0eb9de41e36cc", null ],
       [ "korgVectorJoystickOrientation", "struct_j_s_control.html#a071be7dae3fe9cedcb38760ac5be088a", null ],

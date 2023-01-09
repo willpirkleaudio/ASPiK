@@ -1,7 +1,5 @@
 var class_interpolator =
 [
-    [ "Interpolator", "class_interpolator.html#ab8cbb0b13436fc54a4bba03804ae8f8a", null ],
-    [ "~Interpolator", "class_interpolator.html#a6bb406dfe33e06296ccf24f18abcd46c", null ],
     [ "initialize", "class_interpolator.html#a8a58fd93b9efe519294d889ca96747b5", null ],
     [ "interpolateAudio", "class_interpolator.html#a404415fa8fe2400a58d1cfff80d8de72", null ],
     [ "convolver", "class_interpolator.html#ae5b41c19f27e6811a9a1133a4f2ec1cd", null ],

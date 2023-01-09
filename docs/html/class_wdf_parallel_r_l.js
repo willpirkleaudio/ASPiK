@@ -1,8 +1,5 @@
 var class_wdf_parallel_r_l =
 [
-    [ "WdfParallelRL", "class_wdf_parallel_r_l.html#ac8a50d3d837777db9f4eb25fd1b4bf8a", null ],
-    [ "WdfParallelRL", "class_wdf_parallel_r_l.html#af6ac5a702d2a3219a559c02bdfb82f55", null ],
-    [ "~WdfParallelRL", "class_wdf_parallel_r_l.html#af533b5238f6443a409ebe7b6c2e5e348", null ],
     [ "getComponentConductance", "class_wdf_parallel_r_l.html#a462f3c33584446d79893349da97e1c19", null ],
     [ "getComponentResistance", "class_wdf_parallel_r_l.html#adc1c763d4e642cf3d16a8087ae32fb12", null ],
     [ "getComponentValue_L", "class_wdf_parallel_r_l.html#a6104dac756d5ad84c553807c78e446c9", null ],

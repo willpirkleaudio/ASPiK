@@ -7,6 +7,7 @@
 #include "../cbitmap.h"
 #include "../cframe.h"
 #include "../cgraphicspath.h"
+#include "../events.h"
 #include "../platform/iplatformfont.h"
 #include <cmath>
 
@@ -103,18 +104,19 @@ CMouseEventResult COnOffButton::onMouseCancel ()
 }
 
 //------------------------------------------------------------------------
-int32_t COnOffButton::onKeyDown (VstKeyCode& keyCode)
+void COnOffButton::onKeyboardEvent (KeyboardEvent& event)
 {
-	if (keyCode.virt == VKEY_RETURN && keyCode.modifier == 0)
+	if (event.type != EventType::KeyDown)
+		return;
+	if (event.virt == VirtualKey::Return && event.modifiers.empty ())
 	{
 		value = (value == getMax ()) ? getMin () : getMax ();
 		invalid ();
 		beginEdit ();
 		valueChanged ();
 		endEdit ();
-		return 1;
+		event.consumed = true;
 	}
-	return -1;
 }
 
 //------------------------------------------------------------------------
@@ -139,6 +141,7 @@ bool COnOffButton::sizeToFit ()
 Define a button with 2 states using 2 subbitmaps.
 One click on it, then the second subbitmap is displayed.
 When the mouse button is relaxed, the first subbitmap is framed.
+Use a CMultiFrameBitmap for its background bitmap.
 */
 //------------------------------------------------------------------------
 /**
@@ -154,10 +157,16 @@ CKickButton::CKickButton (const CRect& size, IControlListener* listener, int32_t
 : CControl (size, listener, tag, background)
 , offset (offset)
 {
-	heightOfOneImage = size.getHeight ();
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
+	if (dynamic_cast<CMultiFrameBitmap*> (background) == nullptr)
+	{
+		heightOfOneImage = size.getHeight ();
+	}
+#endif
 	setWantsFocus (true);
 }
 
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
 //------------------------------------------------------------------------
 /**
  * CKickButton constructor.
@@ -176,29 +185,44 @@ CKickButton::CKickButton (const CRect& size, IControlListener* listener, int32_t
 	setHeightOfOneImage (heightOfOneImage);
 	setWantsFocus (true);
 }
+#endif
 
 //------------------------------------------------------------------------
 CKickButton::CKickButton (const CKickButton& v)
 : CControl (v)
 , offset (v.offset)
 {
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
 	setHeightOfOneImage (v.heightOfOneImage);
+#endif
 	setWantsFocus (true);
 }
 
 //------------------------------------------------------------------------
 void CKickButton::draw (CDrawContext *pContext)
 {
-	CPoint where (offset.x, offset.y);
-
 	bounceValue ();
 
-	if (value == getMax ())
-		where.y += heightOfOneImage;
-
-	if (getDrawBackground ())
+	if (auto bitmap = getDrawBackground ())
 	{
-		getDrawBackground ()->draw (pContext, getViewSize (), where);
+		if (auto mfb = dynamic_cast<CMultiFrameBitmap*> (bitmap))
+		{
+			auto index = getValue () == getMax () ? 1 : 0;
+			mfb->drawFrame (pContext, index, getViewSize ().getTopLeft () + offset);
+		}
+		else
+		{
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
+			CPoint where (offset.x, offset.y);
+
+			if (value == getMax ())
+				where.y += heightOfOneImage;
+
+			bitmap->draw (pContext, getViewSize (), where);
+#else
+			bitmap->draw (pContext, getViewSize (), offset);
+#endif
+		}
 	}
 	setDirty (false);
 }
@@ -263,44 +287,51 @@ CMouseEventResult CKickButton::onMouseMoved (CPoint& where, const CButtonState& 
 }
 
 //------------------------------------------------------------------------
-int32_t CKickButton::onKeyDown (VstKeyCode& keyCode)
+void CKickButton::onKeyboardEvent (KeyboardEvent& event)
 {
-	if (keyCode.modifier == 0 && keyCode.virt == VKEY_RETURN)
+	if (event.modifiers.empty () && event.virt == VirtualKey::Return)
 	{
-		if (value != getMax ())
+		if (event.type == EventType::KeyDown)
 		{
-			beginEdit ();
-			value = getMax ();
+			if (value != getMax ())
+			{
+				beginEdit ();
+				value = getMax ();
+				invalid ();
+				valueChanged ();
+			}
+			event.consumed = true;
+		}
+		else if (event.type == EventType::KeyUp && isEditing ())
+		{
+			value = getMin ();
 			invalid ();
 			valueChanged ();
+			endEdit ();
+			event.consumed = true;
 		}
-		return 1;
 	}
-	return -1;
-}
-
-//------------------------------------------------------------------------
-int32_t CKickButton::onKeyUp (VstKeyCode& keyCode)
-{
-	if (keyCode.modifier == 0 && keyCode.virt == VKEY_RETURN)
-	{
-		value = getMin ();
-		invalid ();
-		valueChanged ();
-		endEdit ();
-		return 1;
-	}
-	return -1;
 }
 
 //------------------------------------------------------------------------
 bool CKickButton::sizeToFit ()
 {
-	if (getDrawBackground ())
+	if (auto bitmap = getDrawBackground ())
 	{
 		CRect vs (getViewSize ());
-		vs.setHeight (heightOfOneImage);
-		vs.setWidth (getDrawBackground ()->getWidth ());
+		if (auto mfb = dynamic_cast<CMultiFrameBitmap*> (bitmap))
+		{
+			vs.setSize (mfb->getFrameSize ());
+		}
+		else
+		{
+#if VSTGUI_ENABLE_DEPRECATED_METHODS
+			vs.setHeight (heightOfOneImage);
+#else
+			vs.setHeight (bitmap->getHeight ());
+#endif
+			vs.setWidth (bitmap->getWidth ());
+		}
 		setViewSize (vs, true);
 		setMouseableArea (vs);
 		return true;
@@ -670,18 +701,18 @@ CMouseEventResult CCheckBox::onMouseUp (CPoint& where, const CButtonState& butto
 }
 
 //------------------------------------------------------------------------
-int32_t CCheckBox::onKeyDown (VstKeyCode& keyCode)
+void CCheckBox::onKeyboardEvent (KeyboardEvent& event)
 {
-	if (keyCode.virt == VKEY_RETURN && keyCode.modifier == 0)
+	if (event.type == EventType::KeyDown && event.virt == VirtualKey::Return &&
+	    event.modifiers.empty ())
 	{
 		value = (value < getMax ()) ? getMax () : getMin ();
 		invalid ();
 		beginEdit ();
 		valueChanged ();
 		endEdit ();
-		return 1;
+		event.consumed = true;
 	}
-	return -1;
 }
 
 //------------------------------------------------------------------------
@@ -1029,9 +1060,11 @@ CMouseEventResult CTextButton::onMouseMoved (CPoint& where, const CButtonState& 
 }
 
 //------------------------------------------------------------------------
-int32_t CTextButton::onKeyDown (VstKeyCode& keyCode)
+void CTextButton::onKeyboardEvent (KeyboardEvent& event)
 {
-	if (keyCode.modifier == 0 && keyCode.virt == VKEY_RETURN)
+	if (event.type != EventType::KeyDown)
+		return;
+	if (event.modifiers.empty () && event.virt == VirtualKey::Return)
 	{
 		if (style == kKickStyle)
 		{
@@ -1058,15 +1091,8 @@ int32_t CTextButton::onKeyDown (VstKeyCode& keyCode)
 			valueChanged ();
 			endEdit ();
 		}
-		return 1;
+		event.consumed = true;
 	}
-	return -1;
-}
-
-//------------------------------------------------------------------------
-int32_t CTextButton::onKeyUp (VstKeyCode& keyCode)
-{
-	return -1;
 }
 
 } // VSTGUI

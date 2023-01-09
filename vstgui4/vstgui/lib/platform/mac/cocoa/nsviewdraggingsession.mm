@@ -9,6 +9,7 @@
 #import "../cgbitmap.h"
 #import "../macclipboard.h"
 #import "cocoahelpers.h"
+#import "objcclassbuilder.h"
 
 //------------------------------------------------------------------------
 @interface NSObject (VSTGUI_BinaryDataType_Private)
@@ -28,15 +29,10 @@ typedef NSString *NSPasteboardReadingOptionKey;
 namespace VSTGUI {
 
 //------------------------------------------------------------------------
-struct BinaryDataType
+struct BinaryDataType : RuntimeObjCClass<BinaryDataType>
 {
-	static Class& getClass ()
-	{
-		static BinaryDataType instance;
-		return instance.cl;
-	}
+	static constexpr const auto dataVarName = "_data";
 
-private:
 	static NSString* getCocoaPasteboardTypeString ()
 	{
 		return [NSString stringWithCString:VSTGUI::MacClipboard::getPasteboardBinaryType ()
@@ -45,14 +41,26 @@ private:
 
 	static id Init (id self, SEL, const void* buffer, size_t bufferSize)
 	{
-		__OBJC_SUPER (self)
-		self = SuperInit (SUPER, @selector (init));
+		auto obj = makeInstance (self);
+		self = obj.callSuper<id (id, SEL), id> (@selector (init));
 		if (self)
 		{
-			auto data = [[[NSData alloc] initWithBytes:buffer length:bufferSize] autorelease];
-			OBJC_SET_VALUE (self, _data, data);
+			auto data = [[NSData alloc] initWithBytes:buffer length:bufferSize];
+			if (auto var = obj.getVariable<NSData*> (dataVarName))
+				var->set (data);
 		}
 		return self;
+	}
+
+	static void Dealloc (id self, SEL _cmd)
+	{
+		auto obj = makeInstance (self);
+		if (auto var = obj.getVariable<NSData*> (dataVarName); var.has_value () && var->get ())
+		{
+			[var->get () release];
+			var->set (nullptr);
+		}
+		obj.callSuper<void (id, SEL)> (_cmd);
 	}
 
 	static NSArray<NSPasteboardType>* WritableTypesForPasteboard (id, SEL, NSPasteboard*)
@@ -62,38 +70,23 @@ private:
 
 	static id PasteboardPropertyListForType (id self, SEL, NSPasteboardType)
 	{
-		return OBJC_GET_VALUE (self, _data);
+		auto obj = makeInstance (self);
+		if (auto var = obj.getVariable<NSData*> (dataVarName); var.has_value () && var->get ())
+			return var->get ();
+		return nullptr;
 	}
 
-	Class cl {nullptr};
-
-	BinaryDataType () { initClass (); }
-
-	~BinaryDataType ()
+	static Class CreateClass ()
 	{
-		if (cl)
-			objc_disposeClassPair (cl);
-	}
-
-	void initClass ()
-	{
-		auto className =
-		    [[[NSMutableString alloc] initWithString:@"VSTGUI_BinaryDataType"] autorelease];
-		cl = generateUniqueClass (className, [NSObject class]);
-		VSTGUI_CHECK_YES (class_addProtocol (cl, objc_getProtocol ("NSPasteboardWriting")))
-		char funcSig[100];
-		sprintf (funcSig, "@@:@:%s:%s", @encode (const void*), @encode (size_t));
-		VSTGUI_CHECK_YES (
-		    class_addMethod (cl, @selector (initWithData:andSize:), IMP (Init), funcSig))
-		sprintf (funcSig, "%s@:@:%s", @encode (NSArray<NSPasteboardType>*),
-		         @encode (NSPasteboard*));
-		VSTGUI_CHECK_YES (class_addMethod (cl, @selector (writableTypesForPasteboard:),
-		                                   IMP (WritableTypesForPasteboard), funcSig))
-		sprintf (funcSig, "%s@:@:%s", @encode (id), @encode (NSPasteboardType));
-		VSTGUI_CHECK_YES (class_addMethod (cl, @selector (pasteboardPropertyListForType:),
-		                                   IMP (PasteboardPropertyListForType), funcSig))
-		VSTGUI_CHECK_YES (class_addIvar (cl, "_data", sizeof (NSData*),
-		                                 (uint8_t)log2 (sizeof (NSData*)), @encode (NSData*)))
+		return ObjCClassBuilder ()
+			.init ("VSTGUI_BinaryDataType", [NSObject class])
+			.addProtocol ("NSPasteboardWriting")
+			.addMethod (@selector (initWithData:andSize:), Init)
+			.addMethod (@selector (dealloc), Dealloc)
+			.addMethod (@selector (writableTypesForPasteboard:), WritableTypesForPasteboard)
+			.addMethod (@selector (pasteboardPropertyListForType:), PasteboardPropertyListForType)
+			.addIvar<NSData*> (dataVarName)
+			.finalize ();
 	}
 };
 
@@ -152,8 +145,8 @@ SharedPointer<NSViewDraggingSession> NSViewDraggingSession::create (
 			}
 			case IDataPackage::kBinary:
 			{
-				if (id data = [[[BinaryDataType::getClass () alloc] initWithData:buffer
-				                                                         andSize:size] autorelease])
+				if (id data = [[BinaryDataType::alloc () initWithData:buffer
+															  andSize:size] autorelease])
 					item = [[[NSDraggingItem alloc] initWithPasteboardWriter:data] autorelease];
 				break;
 			}
@@ -259,19 +252,7 @@ void NSViewDraggingSession::dragEnded (CPoint pos, DragOperation result)
 //-----------------------------------------------------------------------------
 NSImage* NSViewDraggingSession::nsImageForDragOperation (CBitmap* bitmap)
 {
-	if (!bitmap)
-		return nil;
-	auto platformBitmap = bitmap->getPlatformBitmap ();
-	if (!platformBitmap)
-		return nil;
-	auto cgBitmap = platformBitmap.cast<CGBitmap> ();
-	if (!cgBitmap)
-		return nil;
-	auto cgImage = cgBitmap->getCGImage ();
-	if (!cgImage)
-		return nil;
-	auto scaleFactor = platformBitmap->getScaleFactor ();
-	return [imageFromCGImageRef (cgImage, scaleFactor) autorelease];
+	return bitmapToNSImage (bitmap);
 }
 
 //------------------------------------------------------------------------

@@ -1,7 +1,6 @@
 var struct_audio_delay_parameters =
 [
-    [ "AudioDelayParameters", "struct_audio_delay_parameters.html#ac80681a02f04a9d7bf2a5582e6b9fedf", null ],
-    [ "operator=", "struct_audio_delay_parameters.html#a468f77e9db6184b7da7f80925cb10bd4", null ],
+    [ "operator=", "struct_audio_delay_parameters.html#a05c27323bd1c2fd613c0795b965d8513", null ],
     [ "algorithm", "struct_audio_delay_parameters.html#ab5194fb2f1dd23181f661e082781281a", null ],
     [ "delayRatio_Pct", "struct_audio_delay_parameters.html#a1df4afd7265ff9b8b4fbfd4a93b7d574", null ],
     [ "dryLevel_dB", "struct_audio_delay_parameters.html#aa45311f3186513143f30febfd4b9d20d", null ],

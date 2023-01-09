@@ -24,6 +24,7 @@ public:
 	void setDocContext (const DocumentContextPtr& dc);
 	void setImageList (ImageList* list);
 	void setSelectionColor (CColor color);
+	void setTextColor (CColor color);
 
 	void takeFocus () override;
 	void looseFocus () override;
@@ -53,13 +54,15 @@ private:
 	DragOperation onDragMove (DragEventData eventData) override;
 	void onDragLeave (DragEventData eventData) override;
 	bool onDrop (DragEventData eventData) override;
-	int32_t onKeyDown (VstKeyCode& keyCode) override;
+	void onKeyboardEvent (KeyboardEvent& event) override;
 
 	CColor activeSelectionColor;
 	CColor inactiveSelectionColor;
+	CColor textColor {kBlackCColor};
+	CColor selectedTextColor {kBlackCColor};
 	CCoord titleHeight {8};
 	CCoord rowHeight {0};
-	CPoint mouseDownPos;
+	DragStartMouseObserver dragStartMouseObserver;
 	SharedPointer<CFontDesc> font;
 	DocumentContextPtr docContext;
 	ImageList* imageList {nullptr};

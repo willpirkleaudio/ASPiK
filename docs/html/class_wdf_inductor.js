@@ -1,8 +1,5 @@
 var class_wdf_inductor =
 [
-    [ "WdfInductor", "class_wdf_inductor.html#a62fd3865748b5bc3d3a327f9f18b1121", null ],
-    [ "WdfInductor", "class_wdf_inductor.html#a8ef6e4d56850671dae4028e8d0ddf42d", null ],
-    [ "~WdfInductor", "class_wdf_inductor.html#a8cdc956d6f77f44692108250a9385671", null ],
     [ "getComponentConductance", "class_wdf_inductor.html#ac9416d7cac4cd54084fadcd427f9b9a8", null ],
     [ "getComponentResistance", "class_wdf_inductor.html#a3f8c7c01e1026865033783315576de23", null ],
     [ "getComponentValue", "class_wdf_inductor.html#a6a028a13c793f2dfdec9e578eb03c234", null ],

@@ -4,7 +4,6 @@
 
 #pragma once
 
-#include "../lib/idependency.h"
 #include "iuidescription.h"
 #include "uidescriptionfwd.h"
 #include <list>
@@ -38,6 +37,7 @@ public:
 
 	virtual bool parse ();
 
+	using AttributeSaveFilterFunc = bool (*) (CView* view, const std::string& name);
 	enum SaveFlags {
 		kWriteWindowsResourceFile	= 1 << WriteWindowsResourceFileBit,
 		kWriteImagesIntoUIDescFile	= 1 << WriteImagesIntoUIDescFileBit,
@@ -48,7 +48,8 @@ public:
 		kDoNotVerifyImageXMLData [[deprecated("use kDoNotVerifyImageData")]] = kDoNotVerifyImageData,
 	};
 
-	virtual bool save (UTF8StringPtr filename, int32_t flags = kWriteWindowsResourceFile);
+	virtual bool save (UTF8StringPtr filename, int32_t flags = kWriteWindowsResourceFile,
+					   AttributeSaveFilterFunc func = nullptr);
 	virtual bool saveWindowsRCFile (UTF8StringPtr filename);
 
 	bool storeViews (const std::list<CView*>& views, OutputStream& stream, UIAttributes* customData = nullptr) const;
@@ -100,6 +101,8 @@ public:
 	void changeFont (UTF8StringPtr name, CFontRef newFont);
 	void changeGradient (UTF8StringPtr name, CGradient* newGradient);
 	void changeBitmap (UTF8StringPtr name, UTF8StringPtr newName, const CRect* nineparttiledOffset = nullptr);
+	void changeMultiFrameBitmap (UTF8StringPtr name, UTF8StringPtr newName,
+								 const CMultiFrameBitmapDescription* = nullptr);
 
 	void changeBitmapFilters (UTF8StringPtr bitmapName, const std::list<SharedPointer<UIAttributes> >& filters);
 	void collectBitmapFilters (UTF8StringPtr bitmapName, std::list<SharedPointer<UIAttributes> >& filters) const;
@@ -153,7 +156,7 @@ public:
 protected:
 	void addDefaultNodes ();
 
-	bool saveToStream (OutputStream& stream, int32_t flags);
+	bool saveToStream (OutputStream& stream, int32_t flags, AttributeSaveFilterFunc func);
 
 	bool parsed () const;
 	void setContentProvider (IContentProvider* provider);

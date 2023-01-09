@@ -78,7 +78,7 @@ PNGBitmapBuffer CGBitmap::createMemoryPNGRepresentation (const PlatformBitmapPtr
 			CFMutableDataRef data = CFDataCreateMutable (nullptr, 0);
 			if (data)
 			{
-				CGImageDestinationRef dest = CGImageDestinationCreateWithData (data, kUTTypePNG, 1, nullptr);
+				CGImageDestinationRef dest = CGImageDestinationCreateWithData (data, CFSTR ("public.png"), 1, nullptr);
 				if (dest)
 				{
 					auto scaleFactor = bitmap->getScaleFactor ();
@@ -158,7 +158,7 @@ bool CGBitmap::load (const CResourceDescription& desc)
 		// else it just uses the name
 		char filename [PATH_MAX];
 		if (desc.type == CResourceDescription::kIntegerType)
-			sprintf (filename, "bmp%05d", (int32_t)desc.u.id);
+			snprintf (filename, PATH_MAX, "bmp%05d", (int32_t)desc.u.id);
 		else
 			std::strcpy (filename, desc.u.name);
 		CFStringRef cfStr = CFStringCreateWithCString (nullptr, filename, kCFStringEncodingUTF8);

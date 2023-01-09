@@ -48,7 +48,7 @@ static AUPreset kPresets[kNumberPresets] = {
 
 */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-AUFXPlugin::AUFXPlugin(AudioUnit component) : AUMIDIEffectBase(component, false) // false = do not use Process(), use ProcessBufferList() instead
+AUFXPlugin::AUFXPlugin(AudioUnit component) : ausdk::AUMIDIEffectBase(component, false) // false = do not use Process(), use ProcessBufferList() instead
 {
     CreateElements(); // --- create input, output ports, groups and parts
 
@@ -286,7 +286,7 @@ OSStatus	AUFXPlugin::Initialize()
         latencyInSeconds = pluginCore->getLatencyInSamples() / Output(0).GetStreamFormat().mSampleRate;
     }
 
-    return AUMIDIEffectBase::Initialize();
+    return ausdk::AUMIDIEffectBase::Initialize();
 }
 
 
@@ -457,7 +457,7 @@ OSStatus AUFXPlugin::Render(AudioUnitRenderActionFlags &		ioActionFlags,
         sidechainBufferList = nullptr;
         sidechainChannelCount = 0;
 
-        return  AUMIDIEffectBase::Render(ioActionFlags, inTimeStamp, inNumberFrames);
+        return  ausdk::AUMIDIEffectBase::Render(ioActionFlags, inTimeStamp, inNumberFrames);
     }
 
     if(bSCAvailable)
@@ -486,7 +486,7 @@ OSStatus AUFXPlugin::Render(AudioUnitRenderActionFlags &		ioActionFlags,
         sidechainBufferList = nullptr;
     }
 
-    return  AUMIDIEffectBase::Render(ioActionFlags, inTimeStamp, inNumberFrames);
+    return  ausdk::AUMIDIEffectBase::Render(ioActionFlags, inTimeStamp, inNumberFrames);
 
 }
 
@@ -807,7 +807,7 @@ OSStatus	AUFXPlugin::GetPropertyInfo(AudioUnitPropertyID inID,
             }
         }
     }
-    return AUMIDIEffectBase::GetPropertyInfo(inID, inScope, inElement, outDataSize, outWritable);
+    return ausdk::AUMIDIEffectBase::GetPropertyInfo(inID, inScope, inElement, outDataSize, outWritable);
 }
 
 
@@ -858,7 +858,7 @@ OSStatus	AUFXPlugin::GetProperty(AudioUnitPropertyID       inID,
             return kAudioUnitErr_InvalidProperty;
         }
     }
-    return AUMIDIEffectBase::GetProperty(inID, inScope, inElement, outData);
+    return ausdk::AUMIDIEffectBase::GetProperty(inID, inScope, inElement, outData);
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1169,7 +1169,7 @@ OSStatus AUFXPlugin::HandleControlChange(UInt8  inChannel,
 
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//	AUFXPlugin::HandleMidiEvent
+//	AUFXPlugin::MIDIEvent
 //
 /**
  \brief specialized MIDI handler to add events to the plugin's queue
@@ -1180,26 +1180,28 @@ OSStatus AUFXPlugin::HandleControlChange(UInt8  inChannel,
  - https://developer.apple.com/documentation/audiounit
  */
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-OSStatus AUFXPlugin::HandleMidiEvent(UInt8  status,
-                                           UInt8  channel,
-                                           UInt8  data1,
-                                           UInt8  data2,
-                                           UInt32 inStartFrame)
+OSStatus AUFXPlugin::MIDIEvent(UInt32 inStatus,
+                   UInt32 inData1,
+                   UInt32 inData2,
+                   UInt32 inOffsetSampleFrame)
 {
     if(midiEventQueue)
     {
+        const UInt32 strippedStatus = inStatus & 0xf0U; // NOLINT
+        const UInt32 channel = inStatus & 0x0fU;        // NOLINT
+
         midiEvent event;
-        event.midiMessage = (unsigned int)status;
-        event.midiChannel = (unsigned int)channel;
-        event.midiData1 = (unsigned int)data1;
-        event.midiData2 = (unsigned int)data2;;
-        event.midiSampleOffset = inStartFrame;
+        event.midiMessage = strippedStatus;
+        event.midiChannel = channel;
+        event.midiData1 = (unsigned int)inData1;
+        event.midiData2 = (unsigned int)inData2;;
+        event.midiSampleOffset = inOffsetSampleFrame;
         midiEventQueue->addEvent(event);
     }
 
 
     // --- call base class to do its thing
-    return AUMIDIEffectBase::HandleMidiEvent(status, channel, data1, data2, inStartFrame);
+    return ausdk::AUMIDIEffectBase::MIDIEvent(inStatus, inData1, inData2, inOffsetSampleFrame);
 }
 
 
