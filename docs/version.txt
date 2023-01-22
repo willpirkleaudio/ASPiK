@@ -7,7 +7,11 @@ www.willpirkle.com
 
 #define ASPiK_VERSION_MAJOR  1
 #define ASPiK_VERSION_MINOR  9
-#define ASPiK_VERSION_BUILD  0
+#define ASPiK_VERSION_BUILD  1
+
+Release Notes 1.9.1:
+* VSTGUI4: fixed bug with presets and embedded tab-control GUI elements
+		   see: https://forums.steinberg.net/t/dynamic-view-switching/591779/17
 
 Release Notes 1.9.0:
 * VSTGUI4: updated to 4.12, required for all new projects
