@@ -302,7 +302,10 @@ public:
                         xyPad->setValue(xyPad->calculateValue(x, y));
                 }
                 else if(!guiCtrl->isEditing())
-					guiCtrl->setValueNormalized((float)refGuiControl.getControlValueNormalized());
+                {
+                    guiCtrl->setValueNormalized((float)refGuiControl.getControlValueNormalized());
+                    guiCtrl->valueChanged();
+                }
 
                 guiCtrl->invalid();
             }
