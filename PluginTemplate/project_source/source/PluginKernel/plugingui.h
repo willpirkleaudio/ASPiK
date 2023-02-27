@@ -437,6 +437,7 @@ mechanisms
 class PluginGUI : public IController,
 				  public IViewAddedRemovedObserver,
 				  public OldMouseObserverAdapter /*IMouseObserver*/,
+                  public IKeyboardHook,
 				  public VSTGUIEditorInterface,
 				  public CBaseObject,
 				  public ICommandMenuItemTarget,
@@ -713,6 +714,9 @@ public:
 
 	/** IMouseObserver mouse moved handler */
 	CMouseEventResult onMouseMoved(CFrame* frame, const CPoint& where, const CButtonState& buttons) override;
+
+    ///** IKeyboardHook key up handler  */
+    virtual void onKeyboardEvent(KeyboardEvent& event, CFrame* frame) override { return; }
 
 	/** ICommandMenuItemTarget called before the item is shown to validate its state */
 	virtual bool validateCommandMenuItem(CCommandMenuItem* item) override;

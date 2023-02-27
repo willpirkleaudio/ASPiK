@@ -116,6 +116,7 @@ PluginGUI::PluginGUI(UTF8StringPtr _xmlFile) :
 	IController(),
 	IViewAddedRemovedObserver(),
     OldMouseObserverAdapter(),
+    IKeyboardHook(),
 	VSTGUIEditorInterface(),
 	CBaseObject(),
 	IGUIView()

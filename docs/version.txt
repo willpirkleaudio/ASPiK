@@ -7,7 +7,12 @@ www.willpirkle.com
 
 #define ASPiK_VERSION_MAJOR  1
 #define ASPiK_VERSION_MINOR  9
-#define ASPiK_VERSION_BUILD  1
+#define ASPiK_VERSION_BUILD  2
+
+Release Notes 1.9.2:
+* VSTGUI4: fixed bug with edit control crash; this was due to a change in the 
+           abstract functions in IKeyboardHook (why they obsoleted the original
+           functions is unknown)
 
 Release Notes 1.9.1:
 * VSTGUI4: fixed bug with presets and embedded tab-control GUI elements
