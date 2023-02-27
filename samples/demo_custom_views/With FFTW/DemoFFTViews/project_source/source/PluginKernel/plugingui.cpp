@@ -116,6 +116,7 @@ PluginGUI::PluginGUI(UTF8StringPtr _xmlFile) :
 	IController(),
 	IViewAddedRemovedObserver(),
     OldMouseObserverAdapter(),
+    IKeyboardHook(),
 	VSTGUIEditorInterface(),
 	CBaseObject(),
 	IGUIView()
@@ -1475,6 +1476,11 @@ Operation:\n
 */
 void PluginGUI::valueChanged(VSTGUI::CControl* pControl)
 {
+    // --- VSTGUI4 fix for catch-22 infinite loop possibility
+    //     see -> https://forums.steinberg.net/t/dynamic-view-switching/591779/15
+    if (!pControl->isEditing ())
+        return;
+
 	// --- handle changes not bound to plugin variables (tab controls, joystick)
 	if (guiPluginConnector && guiPluginConnector->checkNonBoundValueChange(pControl->getTag(), pControl->getValueNormalized()))
 		return;
