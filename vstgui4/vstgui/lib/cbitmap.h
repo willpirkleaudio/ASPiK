@@ -107,9 +107,7 @@ public:
 
 	/** set the multi frame description
 	 *
-	 *	@param frameSize size of one frame
-	 *	@param frameCount number of total frames
-	 *	@param framesPerRow number of frames per row
+	 *	@param desc the multi frame description
 	 *	@return true if bitmap is big enough for the description
 	 */
 	bool setMultiFrameDesc (CMultiFrameBitmapDescription desc);
@@ -125,9 +123,131 @@ public:
 	CRect calcFrameRect (uint32_t frameIndex) const;
 	/** draw one frame at the position in the context */
 	void drawFrame (CDrawContext* context, uint16_t frameIndex, CPoint pos);
+	/** return the frame to display for a normalized value
+	 *
+	 *	defaults to:
+	 *	 normalizedToSteps<float, uint16_t> (value, getNumFrames () - 1);
+	 *
+	 *	subclasses can adopt this to other value mappings
+	 *
+	 *	@ingroup new_in_4_12_1
+	 */
+	virtual uint16_t normalizedValueToFrameIndex (float value) const;
+	/** return the normalized value from the frame index
+	 *
+	 *	defaults to:
+	 *	 stepsToNormalized<float, uint16_t> (frameIndex, getNumFrames () - 1);
+	 *
+	 *	subclasses can adopt this to other value mappings
+	 *
+	 *	@ingroup new_in_4_12_1
+	 */
+	virtual float frameIndexToNormalizedValue (uint16_t frameIndex) const;
 
 private:
 	CMultiFrameBitmapDescription description;
+};
+
+//------------------------------------------------------------------------
+/** an injection class for views that draw frames of a CMultiFrameBitmap
+ *
+ *	a view/control can inherit from this class to support drawing only frames in a range of the
+ *	multi-frame bitmap.
+ *
+ *	@ingroup new_in_4_12_2
+ */
+template<typename T>
+class MultiFrameBitmapView
+{
+	using This = T;
+
+public:
+	/** set the range of the CMultiBitmapFrame this view will use for drawing
+	 *
+	 *	@param startIndex the first frame to draw
+	 *	@param endIndex the last frame to draw
+	 */
+	void setMultiFrameBitmapRange (int32_t startIndex, int32_t endIndex)
+	{
+		if (endIndex >= 0 && startIndex > endIndex)
+			std::swap (startIndex, endIndex);
+		frameStartIndex = startIndex;
+		frameEndIndex = endIndex;
+		static_cast<This*> (this)->invalid ();
+	}
+
+	/** get the range of the CMulitBitmapFrame this view will use for drawing
+	 *
+	 *	@return a std::pair with the start and end index
+	 */
+	std::pair<int32_t, int32_t> getMultiFrameBitmapRange () const
+	{
+		return {frameStartIndex, frameEndIndex};
+	}
+
+	/** get the number of frames this view will use for drawing
+	 *
+	 *	@param mfb the bitmap
+	 *	@return the number of frames
+	 */
+	uint16_t getMultiFrameBitmapRangeLength (const CMultiFrameBitmap& mfb) const
+	{
+		auto endIndex = frameEndIndex >= 0 ? frameEndIndex : mfb.getNumFrames ();
+		return endIndex - frameStartIndex;
+	}
+
+	/** get the inverse index
+	 *
+	 *	@param mfb the bitmap
+	 *	@param index the index
+	 *	@return the inverse index
+	 */
+	uint16_t getInverseIndex (const CMultiFrameBitmap& mfb, uint16_t index) const
+	{
+		auto endIndex = frameEndIndex >= 0 ? frameEndIndex : mfb.getNumFrames () - 1;
+		if (index >= frameStartIndex && index <= endIndex)
+		{
+			return endIndex - (index - frameStartIndex);
+		}
+		return index;
+	}
+
+	/** get the frame index for a normalized value
+	 *
+	 *	@param mfb the bitmap
+	 *	@param normValue the normalized value
+	 *	@return the index of the frame for the value
+	 */
+	uint16_t getMultiFrameBitmapIndex (const CMultiFrameBitmap& mfb, float normValue) const
+	{
+		if (frameStartIndex == 0 && frameEndIndex < 0)
+			return mfb.normalizedValueToFrameIndex (normValue);
+
+		auto startNorm = mfb.frameIndexToNormalizedValue (frameStartIndex);
+		auto endNorm = mfb.frameIndexToNormalizedValue (
+			frameEndIndex >= 0 ? frameEndIndex : mfb.getNumFrames () - 1);
+		normValue = normValue * (endNorm - startNorm) + startNorm;
+		return mfb.normalizedValueToFrameIndex (normValue);
+	}
+
+	/** get the normalized value for a frame index
+	 *
+	 *	@param mfb the bitmap
+	 *	@param index the frame index
+	 *	@return the normalized value
+	 */
+	float getNormValueFromMultiFrameBitmapIndex (const CMultiFrameBitmap& mfb, uint16_t index) const
+	{
+		auto startNorm = mfb.frameIndexToNormalizedValue (frameStartIndex);
+		auto endNorm = mfb.frameIndexToNormalizedValue (
+			frameEndIndex >= 0 ? frameEndIndex : mfb.getNumFrames () - 1);
+		auto indexNorm = mfb.frameIndexToNormalizedValue (index);
+		return (indexNorm - startNorm) / (endNorm - startNorm);
+	}
+
+private:
+	int32_t frameStartIndex {0};
+	int32_t frameEndIndex {-1};
 };
 
 //-----------------------------------------------------------------------------
@@ -215,15 +335,15 @@ template<typename T1, typename T2,
 			 std::is_same<IPlatformBitmapPixelAccess::PixelFormat, T2>::value>::type* = nullptr>
 inline T1 convert (T2 format)
 {
-	using PixelFormat = IPlatformBitmapPixelAccess::PixelFormat;
+	using PlPixelFormat = IPlatformBitmapPixelAccess::PixelFormat;
 	using Format = PixelBuffer::Format;
-	static_assert (std::is_same<Format, T1>::value || std::is_same<PixelFormat, T1>::value,
+	static_assert (std::is_same<Format, T1>::value || std::is_same<PlPixelFormat, T1>::value,
 				   "Unexpected Format");
 	static_assert (!std::is_same<T1, T2>::value, "Unexpected Format");
-	static_assert (static_cast<int32_t> (Format::ARGB) == PixelFormat::kARGB, "Format Mismatch");
-	static_assert (static_cast<int32_t> (Format::ABGR) == PixelFormat::kABGR, "Format Mismatch");
-	static_assert (static_cast<int32_t> (Format::RGBA) == PixelFormat::kRGBA, "Format Mismatch");
-	static_assert (static_cast<int32_t> (Format::BGRA) == PixelFormat::kBGRA, "Format Mismatch");
+	static_assert (static_cast<int32_t> (Format::ARGB) == PlPixelFormat::kARGB, "Format Mismatch");
+	static_assert (static_cast<int32_t> (Format::ABGR) == PlPixelFormat::kABGR, "Format Mismatch");
+	static_assert (static_cast<int32_t> (Format::RGBA) == PlPixelFormat::kRGBA, "Format Mismatch");
+	static_assert (static_cast<int32_t> (Format::BGRA) == PlPixelFormat::kBGRA, "Format Mismatch");
 	return static_cast<T1> (format);
 }
 

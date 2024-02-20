@@ -96,6 +96,7 @@ struct Modifiers
 	Modifiers () = default;
 	Modifiers (const Modifiers&) = default;
 	explicit Modifiers (ModifierKey modifier) : data (cast (modifier)) {}
+	Modifiers& operator= (const Modifiers&) = default;
 
 	/** test if no modifier key is set */
 	[[nodiscard]] bool empty () const { return data == 0; }
@@ -202,6 +203,7 @@ struct MouseEventButtonState
 	MouseEventButtonState () = default;
 	MouseEventButtonState (const MouseEventButtonState&) = default;
 	MouseEventButtonState (MouseButton pos) { set (pos); }
+	MouseEventButtonState& operator= (const MouseEventButtonState&) = default;
 
 	[[nodiscard]] bool operator== (const MouseEventButtonState& other) const
 	{
@@ -518,11 +520,11 @@ struct KeyboardEvent : ModifierEvent
 
 //------------------------------------------------------------------------
 /** event as mouse position event or nullpointer if not a mouse position event
- *	@ingroup newVSTGUIEditor::onKeyDown_in_4_11
+ *	@ingroup new_in_4_11
  */
 template<typename EventT, typename OutputT = MousePositionEvent,
-         typename MousePositionEventT = typename std::conditional<
-             std::is_const_v<EventT>, typename std::add_const_t<OutputT>, OutputT>::type>
+		 typename MousePositionEventT = typename std::conditional<
+			 std::is_const_v<EventT>, typename std::add_const_t<OutputT>, OutputT>::type>
 inline MousePositionEventT* asMousePositionEvent (EventT& event)
 {
 	switch (event.type)

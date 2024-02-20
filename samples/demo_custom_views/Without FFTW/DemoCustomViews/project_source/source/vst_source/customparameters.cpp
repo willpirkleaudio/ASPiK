@@ -16,6 +16,7 @@
 */
 // -----------------------------------------------------------------------------
 #include "customparameters.h"
+#include "base/source/fstring.h"// 3.7.8
 
 namespace Steinberg {
 namespace Vst {
@@ -38,7 +39,7 @@ PeakParameter::PeakParameter (int32 flags, int32 id, const TChar* title)
 //------------------------------------------------------------------------
 void PeakParameter::toString (ParamValue normValue, String128 string) const
 {
-    String str;
+    Steinberg::String str;// 3.7.8
     if (normValue > 0.0001)
     {
         str.printf ("%.3f", (float)normValue);
@@ -48,7 +49,7 @@ void PeakParameter::toString (ParamValue normValue, String128 string) const
         str.assign ("-");
         str.append (kInfiniteSymbol);
     }
-    str.toWideString (kCP_Utf8);
+    str.toWideString (Steinberg::kCP_Utf8);
     str.copyTo16 (string, 0, 128);
 }
 

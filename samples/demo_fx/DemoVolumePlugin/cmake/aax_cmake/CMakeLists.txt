@@ -8,7 +8,7 @@
 # --- Date: 16 Sept 2018
 #
 # ---------------------------------------------------------------------------------
-cmake_minimum_required (VERSION 3.4.3)
+cmake_minimum_required (VERSION 3.6)
 
 # --- default project folder location
 set(PROJECT_FOLDER "../../")
@@ -41,10 +41,9 @@ if(MAC)
     endif()
 
     # --- ON for AAX
-    option(BUILD_UNIVERSAL_BINARY "Build universal binary (32 & 64 bit)" ON)
+    option(BUILD_UNIVERSAL_BINARY "Build universal binary (x86_64 arm64)" ON)
     if(BUILD_UNIVERSAL_BINARY)
-        set(CMAKE_OSX_ARCHITECTURES "x86_64;i386" CACHE STRING "macOS universal binary")
-	    set(CMAKE_XCODE_ATTRIBUTE_ARCHS "$(ARCHS_STANDARD_32_64_BIT)")
+ 		set (CMAKE_OSX_ARCHITECTURES "$(ARCHS_STANDARD)" CACHE STRING "Architectures" FORCE)
         set(CMAKE_XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH "$<$<CONFIG:Debug>:YES>$<$<CONFIG:Release>:NO>")
     endif()
 endif()
@@ -84,6 +83,7 @@ if(UNIX)
 		# COVID2 set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD "c++17")
 		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -stdlib=libc++")
 		set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY "libc++")
+        set(CMAKE_XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH "$<$<CONFIG:Debug>:YES>$<$<CONFIG:Release>:NO>")
 	elseif(APPLE)
 		set(CMAKE_POSITION_INDEPENDENT_CODE TRUE)
 		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -stdlib=libc++")

@@ -1,6 +1,8 @@
 var struct_plugin_descriptor =
 [
     [ "getChannelCountForChannelIOConfig", "struct_plugin_descriptor.html#abe98bb7682583e5a61a072e39b9a7c31", null ],
+    [ "getChannelCountForChannelIOConfig", "struct_plugin_descriptor.html#abe98bb7682583e5a61a072e39b9a7c31", null ],
+    [ "getDefaultChannelIOConfigForChannelCount", "struct_plugin_descriptor.html#aa6bd169d64e4c01bf45e58e6a1f61c6e", null ],
     [ "getDefaultChannelIOConfigForChannelCount", "struct_plugin_descriptor.html#aa6bd169d64e4c01bf45e58e6a1f61c6e", null ],
     [ "hasCustomGUI", "struct_plugin_descriptor.html#a74bbdbee3288fbad938c6916ecec3120", null ],
     [ "hasSidechain", "struct_plugin_descriptor.html#adf61c75c5ac59e18f26c6b613c8335c5", null ],

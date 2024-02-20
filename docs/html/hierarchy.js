@@ -183,6 +183,9 @@ var hierarchy =
       [ "AUGUIWindowFrame", "class_a_u_g_u_i_window_frame.html", null ],
       [ "Steinberg::Vst::ASPiK::PluginEditor", "class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_plugin_editor.html", null ]
     ] ],
+    [ "IKeyboardHook", null, [
+      [ "VSTGUI::PluginGUI", "class_v_s_t_g_u_i_1_1_plugin_g_u_i.html", null ]
+    ] ],
     [ "IMidiEventQueue", "class_i_midi_event_queue.html", [
       [ "AAXMIDIEventQueue", "class_a_a_x_m_i_d_i_event_queue.html", null ],
       [ "AUMIDIEventQueue", "class_a_u_m_i_d_i_event_queue.html", null ],

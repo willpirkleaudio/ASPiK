@@ -41,7 +41,7 @@ var NAVTREE =
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
+        [ "All", "globals.html", "globals_dup" ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
@@ -55,18 +55,23 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_8__aufxplugin_8h_source.html",
-"class_audio_detector.html#a8eb30db122e269b1715799902f138c05",
-"class_g_u_i_plugin_connector.html#a69b7ca071ab6b411bb92226aa8040e0b",
-"class_phase_vocoder.html#a82c3d9264cea1fa022e5ef6ff0978c02",
-"class_plugin_parameter.html#a4f53a9c5f6d01ccea73965083a79aa9e",
-"class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_plugin_editor.html#a85b400cc1dfb74681ac0a51d7e7d00e0",
-"class_v_s_t_g_u_i_1_1_text_button_ex.html#a9da0c1f2e40fd1c079af2807df58ed55",
-"class_wdf_parallel_r_l.html#a9396915d026ba16bf42630649a8e1efc",
-"functions_func_h.html",
-"guiconstants_8h.html#af991073dd66939407aa3c5ba99d6e578",
-"struct_dynamics_processor_parameters.html#aaf7517baa81d23e4a8dfee750a609c53",
-"struct_v_s_t_g_u_i_1_1_r_a_f_x2_custom_view_message.html"
+"_plugin_template_01_o_l_d_2project__source_2source_2_custom_controls_2atomicops_8h_source.html",
+"_plugin_template_01_o_l_d_2project__source_2source_2aax__source_2_a_a_x_plugin_parameters_8h.html#ac6dbe599f734958e4b90a1863369b3e6",
+"_plugin_template_2project__source_2source_2_plugin_kernel_2pluginstructures_8h.html#gaf3f00f6865d922cacebbc4c8a8bbd5e6a1fcc571ef65b3fd7beb15c4a15d70253",
+"class_a_u_m_i_d_i_event_queue.html#a7a18c48d8035b7451724328c57c8ee40",
+"class_custom_view_controller.html#a74318c70a672a0ca8fdd8d64037ee257",
+"class_g_u_i_plugin_connector.html#a79eff7182f1a3f265924d7989f640f3d",
+"class_p_s_m_vocoder.html#add3603b4436b038453f4d23cd8912c74",
+"class_plugin_base.html#af6ae3c7e8ee2aea06f9cb6ee446ff26f",
+"class_plugin_parameter.html#a57d6ff3018e2829667549e1a7acdd566",
+"class_plugin_parameter.html#ada5fef95586ebcd26b2080b7fa80b43c",
+"class_v_s_t_g_u_i_1_1_c_anim_knob_ex.html#a41a69b0da1843fed31c328c87f4989f9",
+"class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#aae4ee56c7e197963727e9d5b62406766",
+"class_wdf_parallel_l_c.html#ac1c3c691ea0f8a2de6f7dc595e9b4722",
+"define_plugin2.html",
+"group___constants-_enums.html#gaa342ed525c2c152c8d0178cd4d6f9bd2",
+"struct_envelope_follower_parameters.html#aaaf6bb854d6295c82239499d8c7851a9",
+"struct_w_d_f_parameters.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

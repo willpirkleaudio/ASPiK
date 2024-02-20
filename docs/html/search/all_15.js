@@ -1,19 +1,19 @@
 var searchData=
 [
   ['vafilteralgorithm_0',['vaFilterAlgorithm',['../group___constants-_enums.html#gaa5c1591d0c2e1f1f2fba4a3be94dddd3',1,'fxobjects.h']]],
-  ['validatecommandmenuitem_1',['validateCommandMenuItem',['../class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#ae8312e13cc96f5924901ba842439220c',1,'VSTGUI::PluginGUI']]],
+  ['validatecommandmenuitem_1',['validateCommandMenuItem',['../class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#ae8312e13cc96f5924901ba842439220c',1,'VSTGUI::PluginGUI::validateCommandMenuItem(CCommandMenuItem *item) override'],['../class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a48e52ed83fc5e668e3f675436ed1fdf8',1,'VSTGUI::PluginGUI::validateCommandMenuItem(CCommandMenuItem *item) override']]],
   ['value_2',['value',['../struct_aux_parameter_attribute.html#ac0aaaec35008169a8559835ce960f96c',1,'AuxParameterAttribute']]],
-  ['valuechanged_3',['valueChanged',['../class_v_s_t_g_u_i_1_1_knob_link_controller.html#ab209cb2d73a83f516ef1ecb3f5a741da',1,'VSTGUI::KnobLinkController::valueChanged()'],['../class_v_s_t_g_u_i_1_1_custom_option_menu.html#a6c5d4a51d130acfb8f839aed47ac6e41',1,'VSTGUI::CustomOptionMenu::valueChanged()'],['../class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#aae4ee56c7e197963727e9d5b62406766',1,'VSTGUI::PluginGUI::valueChanged()']]],
-  ['vector_5fjoystick_4',['VECTOR_JOYSTICK',['../guiconstants_8h.html#a9e7f091adb90ffdaeb64d68995d2af23',1,'guiconstants.h']]],
+  ['valuechanged_3',['valueChanged',['../class_v_s_t_g_u_i_1_1_custom_option_menu.html#a6c5d4a51d130acfb8f839aed47ac6e41',1,'VSTGUI::CustomOptionMenu::valueChanged()'],['../class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#aae4ee56c7e197963727e9d5b62406766',1,'VSTGUI::PluginGUI::valueChanged()'],['../class_v_s_t_g_u_i_1_1_knob_link_controller.html#ab209cb2d73a83f516ef1ecb3f5a741da',1,'VSTGUI::KnobLinkController::valueChanged()'],['../class_v_s_t_g_u_i_1_1_custom_option_menu.html#a6c5d4a51d130acfb8f839aed47ac6e41',1,'VSTGUI::CustomOptionMenu::valueChanged()'],['../class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#ae2772688cdf6de86432145b30551b624',1,'VSTGUI::PluginGUI::valueChanged()'],['../class_v_s_t_g_u_i_1_1_knob_link_controller.html#ab209cb2d73a83f516ef1ecb3f5a741da',1,'VSTGUI::KnobLinkController::valueChanged()']]],
+  ['vector_5fjoystick_4',['VECTOR_JOYSTICK',['../_plugin_template_01_o_l_d_2project__source_2source_2_plugin_kernel_2guiconstants_8h.html#a9e7f091adb90ffdaeb64d68995d2af23',1,'VECTOR_JOYSTICK():&#160;guiconstants.h'],['../_plugin_template_2project__source_2source_2_plugin_kernel_2guiconstants_8h.html#a9e7f091adb90ffdaeb64d68995d2af23',1,'VECTOR_JOYSTICK():&#160;guiconstants.h']]],
   ['vectorjoystickdata_5',['VectorJoystickData',['../struct_vector_joystick_data.html',1,'']]],
   ['vendorname_6',['vendorName',['../struct_plugin_descriptor.html#ac4df0e7370018fce062967c64f491e87',1,'PluginDescriptor']]],
-  ['verifyview_7',['verifyView',['../class_v_s_t_g_u_i_1_1_knob_link_controller.html#a37f59f4e7bca36204dd11a7856020823',1,'VSTGUI::KnobLinkController']]],
-  ['version_8',['Version',['../class_a_u_synth_plugin.html#ad1f805c967acdbf577d1a63130e62110',1,'AUSynthPlugin::Version()'],['../class_a_u_f_x_plugin.html#acdbe73a283e813ffc0be53580450b407',1,'AUFXPlugin::Version()']]],
+  ['verifyview_7',['verifyView',['../class_v_s_t_g_u_i_1_1_knob_link_controller.html#a37f59f4e7bca36204dd11a7856020823',1,'VSTGUI::KnobLinkController::verifyView(CView *view, const UIAttributes &amp;attributes, const IUIDescription *description) override'],['../class_v_s_t_g_u_i_1_1_knob_link_controller.html#a37f59f4e7bca36204dd11a7856020823',1,'VSTGUI::KnobLinkController::verifyView(CView *view, const UIAttributes &amp;attributes, const IUIDescription *description) override']]],
+  ['version_8',['Version',['../class_a_u_synth_plugin.html#ad1f805c967acdbf577d1a63130e62110',1,'AUSynthPlugin::Version()'],['../class_a_u_f_x_plugin.html#acdbe73a283e813ffc0be53580450b407',1,'AUFXPlugin::Version()'],['../class_a_u_synth_plugin.html#ad1f805c967acdbf577d1a63130e62110',1,'AUSynthPlugin::Version()'],['../class_a_u_f_x_plugin.html#acdbe73a283e813ffc0be53580450b407',1,'AUFXPlugin::Version()']]],
   ['viewname_9',['viewName',['../class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a5639ad12bec84f988207092861b15da2',1,'VSTGUI::PluginGUI']]],
-  ['vocoder_10',['vocoder',['../class_p_s_m_vocoder.html#a9bcca51cac47eb7fdc66985e81cdec8f',1,'PSMVocoder::vocoder()'],['../class_fast_convolver.html#ae59c237a6061fe1ed823c4e8ad697aee',1,'FastConvolver::vocoder()']]],
+  ['vocoder_10',['vocoder',['../class_fast_convolver.html#ae59c237a6061fe1ed823c4e8ad697aee',1,'FastConvolver::vocoder()'],['../class_p_s_m_vocoder.html#a9bcca51cac47eb7fdc66985e81cdec8f',1,'PSMVocoder::vocoder()']]],
   ['voltoctaveparameter_11',['VoltOctaveParameter',['../class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_volt_octave_parameter.html',1,'Steinberg::Vst::ASPiK']]],
   ['voltoctavetaperdelegate_12',['VoltOctaveTaperDelegate',['../class_volt_octave_taper_delegate.html',1,'']]],
-  ['voltoctavetaperdelegate_2eh_13',['VoltOctaveTaperDelegate.h',['../_volt_octave_taper_delegate_8h.html',1,'']]],
+  ['voltoctavetaperdelegate_2eh_13',['VoltOctaveTaperDelegate.h',['../_plugin_template_2project__source_2source_2aax__source_2_volt_octave_taper_delegate_8h.html',1,'(Global Namespace)'],['../_plugin_template_01_o_l_d_2project__source_2source_2aax__source_2_volt_octave_taper_delegate_8h.html',1,'(Global Namespace)']]],
   ['vst_20dev_20notes_14',['VST Dev Notes',['../vst_plugins.html',1,'index']]],
   ['vst_2dshell_15',['VST-Shell',['../group___v_s_t-_shell.html',1,'']]],
   ['vst3bundleid_16',['vst3BundleID',['../struct_a_p_i_specific_info.html#a9ae3953921c4cc9affb93386f8745ede',1,'APISpecificInfo']]],
@@ -26,5 +26,5 @@ var searchData=
   ['vstgui4_20objects_23',['VSTGUI4 Objects',['../define_g_u_i4.html',1,'guiDesign']]],
   ['vstmidieventqueue_24',['VSTMIDIEventQueue',['../class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_m_i_d_i_event_queue.html',1,'Steinberg::Vst::ASPiK']]],
   ['vstparamupdatequeue_25',['VSTParamUpdateQueue',['../class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html',1,'Steinberg::Vst::ASPiK::VSTParamUpdateQueue'],['../class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html#a1bbe1df6c67d65ae00fc5394d5084f5b',1,'Steinberg::Vst::ASPiK::VSTParamUpdateQueue::VSTParamUpdateQueue()']]],
-  ['vstsaapluginparameters_26',['VSTSAAPluginParameters',['../class_plugin_base.html#a2b70e52e2d1d7b2c979bb569a198a35d',1,'PluginBase']]]
+  ['vstsaapluginparameters_26',['VSTSAAPluginParameters',['../class_plugin_base.html#a34e5a3dc3cf2990c41eb0289e2297cfd',1,'PluginBase']]]
 ];

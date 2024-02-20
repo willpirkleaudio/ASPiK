@@ -355,6 +355,9 @@ endif()
 source_group(Resources FILES ${resource_sources})
 
 if(XCODE)
+	# for universal binary builds
+	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_ARCHS "\$(ARCHS_STANDARD)")
+	
 	# --- this eliminates a warning that looks suspicious when debugging but is acutally not a problem
 	set_target_properties(${target} PROPERTIES XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "${AAX_BUNDLE_ID}")
 

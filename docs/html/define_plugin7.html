@@ -178,7 +178,7 @@ $(document).ready(function(){initNavTree('define_plugin7.html',''); initResizabl
 <div class="line">      <span class="keywordflow">for</span> (uint32_t channel = 0; channel &lt; blockInfo.<a class="code hl_variable" href="struct_process_block_info.html#a424d9a21ebeef2165af8f4006f7140dd">numAudioOutChannels</a>; channel++)</div>
 <div class="line">      {</div>
 <div class="line">         <span class="comment">// --- silence (or, your synthesized block of samples)</span></div>
-<div class="line">         blockInfo.<a class="code hl_variable" href="struct_process_block_info.html#a3be96679452dc79a230276aa61d0e702">outputs</a>[channel][sample] = 0.0;</div>
+<div class="line">         blockInfo.<a class="code hl_variable" href="struct_process_block_info.html#a3fab69f03c194f7165a3fadbf64767b8">outputs</a>[channel][sample] = 0.0;</div>
 <div class="line">      }</div>
 <div class="line">   }</div>
 <div class="line">   <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -198,7 +198,7 @@ $(document).ready(function(){initNavTree('define_plugin7.html',''); initResizabl
 <div class="line">      <span class="keywordflow">for</span> (uint32_t channel = 0; channel &lt; blockInfo.<a class="code hl_variable" href="struct_process_block_info.html#a424d9a21ebeef2165af8f4006f7140dd">numAudioOutChannels</a>; channel++)</div>
 <div class="line">      {</div>
 <div class="line">         <span class="comment">// --- pass through code, or your processed FX version</span></div>
-<div class="line">         blockInfo.<a class="code hl_variable" href="struct_process_block_info.html#a3be96679452dc79a230276aa61d0e702">outputs</a>[channel][sample] = blockInfo.<a class="code hl_variable" href="struct_process_block_info.html#a24833f51b0d750f1a76d70bdfe5baaa2">inputs</a>[channel][sample];</div>
+<div class="line">         blockInfo.<a class="code hl_variable" href="struct_process_block_info.html#a3fab69f03c194f7165a3fadbf64767b8">outputs</a>[channel][sample] = blockInfo.<a class="code hl_variable" href="struct_process_block_info.html#a2e1a7f25e1cb418ccb1f111706cba3c6">inputs</a>[channel][sample];</div>
 <div class="line">      }</div>
 <div class="line">   }</div>
 <div class="line">   <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -206,13 +206,13 @@ $(document).ready(function(){initNavTree('define_plugin7.html',''); initResizabl
 <div class="line"><span class="comment">//</span></div>
 <div class="line"><span class="comment">//</span></div>
 <div class="ttc" id="astruct_process_block_info_html_a1b5024b61e65f51c2ae02b6a3471b38e"><div class="ttname"><a href="struct_process_block_info.html#a1b5024b61e65f51c2ae02b6a3471b38e">ProcessBlockInfo::blockSize</a></div><div class="ttdeci">uint32_t blockSize</div><div class="ttdoc">size of this block</div><div class="ttdef"><b>Definition:</b> pluginstructures.h:1077</div></div>
-<div class="ttc" id="astruct_process_block_info_html_a24833f51b0d750f1a76d70bdfe5baaa2"><div class="ttname"><a href="struct_process_block_info.html#a24833f51b0d750f1a76d70bdfe5baaa2">ProcessBlockInfo::inputs</a></div><div class="ttdeci">float ** inputs</div><div class="ttdoc">audio input buffers</div><div class="ttdef"><b>Definition:</b> pluginstructures.h:1066</div></div>
-<div class="ttc" id="astruct_process_block_info_html_a3be96679452dc79a230276aa61d0e702"><div class="ttname"><a href="struct_process_block_info.html#a3be96679452dc79a230276aa61d0e702">ProcessBlockInfo::outputs</a></div><div class="ttdeci">float ** outputs</div><div class="ttdoc">audio output buffers</div><div class="ttdef"><b>Definition:</b> pluginstructures.h:1067</div></div>
+<div class="ttc" id="astruct_process_block_info_html_a2e1a7f25e1cb418ccb1f111706cba3c6"><div class="ttname"><a href="struct_process_block_info.html#a2e1a7f25e1cb418ccb1f111706cba3c6">ProcessBlockInfo::inputs</a></div><div class="ttdeci">float ** inputs</div><div class="ttdoc">audio input buffers</div><div class="ttdef"><b>Definition:</b> pluginstructures.h:1066</div></div>
+<div class="ttc" id="astruct_process_block_info_html_a3fab69f03c194f7165a3fadbf64767b8"><div class="ttname"><a href="struct_process_block_info.html#a3fab69f03c194f7165a3fadbf64767b8">ProcessBlockInfo::outputs</a></div><div class="ttdeci">float ** outputs</div><div class="ttdoc">audio output buffers</div><div class="ttdef"><b>Definition:</b> pluginstructures.h:1067</div></div>
 <div class="ttc" id="astruct_process_block_info_html_a424d9a21ebeef2165af8f4006f7140dd"><div class="ttname"><a href="struct_process_block_info.html#a424d9a21ebeef2165af8f4006f7140dd">ProcessBlockInfo::numAudioOutChannels</a></div><div class="ttdeci">uint32_t numAudioOutChannels</div><div class="ttdoc">audio input channel count</div><div class="ttdef"><b>Definition:</b> pluginstructures.h:1072</div></div>
 <div class="ttc" id="astruct_process_block_info_html_aeb00318122b03f3187fdc3e097372e21"><div class="ttname"><a href="struct_process_block_info.html#aeb00318122b03f3187fdc3e097372e21">ProcessBlockInfo::blockStartIndex</a></div><div class="ttdeci">uint32_t blockStartIndex</div><div class="ttdoc">start</div><div class="ttdef"><b>Definition:</b> pluginstructures.h:1078</div></div>
 <div class="ttc" id="astructmidi_event_html"><div class="ttname"><a href="structmidi_event.html">midiEvent</a></div><div class="ttdoc">Information about a MIDI event.</div><div class="ttdef"><b>Definition:</b> pluginstructures.h:562</div></div>
 </div><!-- fragment --><h2>Changing the Processing Paradigm </h2>
-<p>If you change your mind later or you want to experiment with the different processing types, you do NOT need to re-run CMake or use the ASPiKreator to make another project; instead you may edit the <b><a class="el" href="plugindescription_8h_source.html">plugindescription.h</a></b> file directly (this may only be done after the the project has been created with CMake). You will find the boolean and uint32_t variables that define the processing. You set them as follows: <br  />
+<p>If you change your mind later or you want to experiment with the different processing types, you do NOT need to re-run CMake or use the ASPiKreator to make another project; instead you may edit the <b>plugindescription.h</b> file directly (this may only be done after the the project has been created with CMake). You will find the boolean and uint32_t variables that define the processing. You set them as follows: <br  />
 </p>
 <p><b>Frame Processing</b><br  />
 </p><ul>

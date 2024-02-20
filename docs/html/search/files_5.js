@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['pluginbase_2ecpp_0',['pluginbase.cpp',['../pluginbase_8cpp.html',1,'']]],
-  ['pluginbase_2eh_1',['pluginbase.h',['../pluginbase_8h.html',1,'']]],
-  ['plugincore_2ecpp_2',['plugincore.cpp',['../plugincore_8cpp.html',1,'']]],
-  ['plugincore_2eh_3',['plugincore.h',['../plugincore_8h.html',1,'']]],
-  ['plugingui_2eh_4',['plugingui.h',['../plugingui_8h.html',1,'']]],
-  ['pluginparameter_2ecpp_5',['pluginparameter.cpp',['../pluginparameter_8cpp.html',1,'']]],
-  ['pluginparameter_2eh_6',['pluginparameter.h',['../pluginparameter_8h.html',1,'']]],
-  ['pluginstructures_2eh_7',['pluginstructures.h',['../pluginstructures_8h.html',1,'']]]
+  ['pluginbase_2ecpp_0',['pluginbase.cpp',['../_plugin_template_01_o_l_d_2project__source_2source_2_plugin_kernel_2pluginbase_8cpp.html',1,'(Global Namespace)'],['../_plugin_template_2project__source_2source_2_plugin_kernel_2pluginbase_8cpp.html',1,'(Global Namespace)']]],
+  ['pluginbase_2eh_1',['pluginbase.h',['../_plugin_template_01_o_l_d_2project__source_2source_2_plugin_kernel_2pluginbase_8h.html',1,'(Global Namespace)'],['../_plugin_template_2project__source_2source_2_plugin_kernel_2pluginbase_8h.html',1,'(Global Namespace)']]],
+  ['plugincore_2ecpp_2',['plugincore.cpp',['../_plugin_template_01_o_l_d_2project__source_2source_2_plugin_kernel_2plugincore_8cpp.html',1,'(Global Namespace)'],['../_plugin_template_2project__source_2source_2_plugin_kernel_2plugincore_8cpp.html',1,'(Global Namespace)']]],
+  ['plugincore_2eh_3',['plugincore.h',['../_plugin_template_01_o_l_d_2project__source_2source_2_plugin_kernel_2plugincore_8h.html',1,'(Global Namespace)'],['../_plugin_template_2project__source_2source_2_plugin_kernel_2plugincore_8h.html',1,'(Global Namespace)']]],
+  ['plugingui_2eh_4',['plugingui.h',['../_plugin_template_01_o_l_d_2project__source_2source_2_plugin_kernel_2plugingui_8h.html',1,'(Global Namespace)'],['../_plugin_template_2project__source_2source_2_plugin_kernel_2plugingui_8h.html',1,'(Global Namespace)']]],
+  ['pluginparameter_2ecpp_5',['pluginparameter.cpp',['../_plugin_template_01_o_l_d_2project__source_2source_2_plugin_kernel_2pluginparameter_8cpp.html',1,'(Global Namespace)'],['../_plugin_template_2project__source_2source_2_plugin_kernel_2pluginparameter_8cpp.html',1,'(Global Namespace)']]],
+  ['pluginparameter_2eh_6',['pluginparameter.h',['../_plugin_template_01_o_l_d_2project__source_2source_2_plugin_kernel_2pluginparameter_8h.html',1,'(Global Namespace)'],['../_plugin_template_2project__source_2source_2_plugin_kernel_2pluginparameter_8h.html',1,'(Global Namespace)']]],
+  ['pluginstructures_2eh_7',['pluginstructures.h',['../_plugin_template_01_o_l_d_2project__source_2source_2_plugin_kernel_2pluginstructures_8h.html',1,'(Global Namespace)'],['../_plugin_template_2project__source_2source_2_plugin_kernel_2pluginstructures_8h.html',1,'(Global Namespace)']]]
 ];

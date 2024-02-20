@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('cs2.html',''); initResizable(); });
  • We know that there will be one and only one CTextButton for the link control, so we can just declare a single pointer for it <br  />
  • We are going to also cache a pointer to the parent object that creates the sub-controller, which is the PluginGUI - it is also a IController subclassed object! We'll handle the stuff we need to make our knobs link together, and then we'll forward our unused calls back to the parent IController for further processing. You can approach this design from several vantage points, and this strategy will allow us to only minimally affect the GUI operation, with all other chores handled on the parent object. <br  />
  <br  />
- The sub-controller is defined in the <a class="el" href="customviews_8h.html" title="interface file for example ASPiK custom view and custom sub-controller objects, includes waveform vie...">customviews.h</a> file near the bottom so be sure to follow along in that code:</p>
+ The sub-controller is defined in the customviews.h file near the bottom so be sure to follow along in that code:</p>
 <div class="fragment"><div class="line"><span class="keyword">class </span>KnobLinkController : <span class="keyword">public</span> IController</div>
 <div class="line">{</div>
 <div class="line">   <span class="comment">// snipped code</span></div>

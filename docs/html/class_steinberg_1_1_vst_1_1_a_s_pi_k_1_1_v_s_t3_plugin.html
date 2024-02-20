@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('class_steinberg_1_1_vst_1_1_a_s_pi_k_1
 <p>The <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html" title="The VST3Plugin object is the ASPiK plugin shell for the VST3 API.">VST3Plugin</a> object is the ASPiK plugin shell for the VST3 API.  
  <a href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="vst3plugin_8h_source.html">vst3plugin.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2vst__source_2vst3plugin_8h_source.html">vst3plugin.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Steinberg::Vst::ASPiK::VST3Plugin:</div>
 <div class="dyncontent">
@@ -190,6 +190,58 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>unipolarDoubleToMIDI1
 <tr class="memitem:a9168a6417f34fccde889d90a81170890"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a9168a6417f34fccde889d90a81170890">updateHostInfo</a> (ProcessData &amp;data, <a class="el" href="struct_host_info.html">HostInfo</a> *hostInfo)</td></tr>
 <tr class="memdesc:a9168a6417f34fccde889d90a81170890"><td class="mdescLeft">&#160;</td><td class="mdescRight">update the incoming host data for the plugin core  <br /></td></tr>
 <tr class="separator:a9168a6417f34fccde889d90a81170890"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2221a6c87dbfb18cf504c7cf89179daa"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a2221a6c87dbfb18cf504c7cf89179daa">initialize</a> (FUnknown *context) override</td></tr>
+<tr class="separator:a2221a6c87dbfb18cf504c7cf89179daa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3ee25b04dee6f91b24e90fc6de0e92c"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#ab3ee25b04dee6f91b24e90fc6de0e92c">setBusArrangements</a> (SpeakerArrangement *inputs, int32 numIns, SpeakerArrangement *outputs, int32 numOuts) override</td></tr>
+<tr class="separator:ab3ee25b04dee6f91b24e90fc6de0e92c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2f8e1d0d43b52138d4dacab55fd710d"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#aa2f8e1d0d43b52138d4dacab55fd710d">canProcessSampleSize</a> (int32 symbolicSampleSize) override</td></tr>
+<tr class="separator:aa2f8e1d0d43b52138d4dacab55fd710d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0636c200d453e501988ae39b2870e972"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a0636c200d453e501988ae39b2870e972">setupProcessing</a> (ProcessSetup &amp;newSetup) override</td></tr>
+<tr class="separator:a0636c200d453e501988ae39b2870e972"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8370c86860e43de8b3df6f210b996040"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a8370c86860e43de8b3df6f210b996040">setActive</a> (TBool state) override</td></tr>
+<tr class="separator:a8370c86860e43de8b3df6f210b996040"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1da681ea80eb6b2455ff86c7fd799be4"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a1da681ea80eb6b2455ff86c7fd799be4">setState</a> (IBStream *fileStream) override</td></tr>
+<tr class="separator:a1da681ea80eb6b2455ff86c7fd799be4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8440cc7cad092381639a86aefb75e3cd"><td class="memItemLeft" align="right" valign="top"><a id="a8440cc7cad092381639a86aefb75e3cd" name="a8440cc7cad092381639a86aefb75e3cd"></a>
+tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><b>getState</b> (IBStream *fileStream) override</td></tr>
+<tr class="separator:a8440cc7cad092381639a86aefb75e3cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae310ff1e0f12c65e31053c71fe81e85b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#ae310ff1e0f12c65e31053c71fe81e85b">doControlUpdate</a> (ProcessData &amp;data)</td></tr>
+<tr class="separator:ae310ff1e0f12c65e31053c71fe81e85b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92837850fb7a75ff3b0eb3bf1a8f711e"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a92837850fb7a75ff3b0eb3bf1a8f711e">process</a> (ProcessData &amp;data) override</td></tr>
+<tr class="separator:a92837850fb7a75ff3b0eb3bf1a8f711e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7552daeb3291cdcd8f771677104fab03"><td class="memItemLeft" align="right" valign="top">virtual tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a7552daeb3291cdcd8f771677104fab03">getMidiControllerAssignment</a> (int32 busIndex, int16 channel, CtrlNumber midiControllerNumber, ParamID &amp;id) override</td></tr>
+<tr class="separator:a7552daeb3291cdcd8f771677104fab03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad25945d1686e3d268bf4d1863fd8c3d8"><td class="memItemLeft" align="right" valign="top"><a id="ad25945d1686e3d268bf4d1863fd8c3d8" name="ad25945d1686e3d268bf4d1863fd8c3d8"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>issueMIDICCProxyMessage</b> (ParamID proxyParamID, ParamValue proxyParamValue)</td></tr>
+<tr class="separator:ad25945d1686e3d268bf4d1863fd8c3d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fd94d4ae09eeda241d4aa7f5efa160d"><td class="memItemLeft" align="right" valign="top"><a id="a0fd94d4ae09eeda241d4aa7f5efa160d" name="a0fd94d4ae09eeda241d4aa7f5efa160d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>unipolarDoubleToMIDI14_bit</b> (double unipolarValue, uint32_t &amp;midiDataLSB, uint32_t &amp;midiDataMSB)</td></tr>
+<tr class="separator:a0fd94d4ae09eeda241d4aa7f5efa160d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fae420876c4e4795f6f8012b994359b"><td class="memItemLeft" align="right" valign="top">IPlugView *PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a6fae420876c4e4795f6f8012b994359b">createView</a> (const char *_name) override</td></tr>
+<tr class="separator:a6fae420876c4e4795f6f8012b994359b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abeebd32d7be80516734414c1291d0651"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#abeebd32d7be80516734414c1291d0651">terminate</a> () override</td></tr>
+<tr class="separator:abeebd32d7be80516734414c1291d0651"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20f2d0e33620d4c37afe09ce07c2abbc"><td class="memItemLeft" align="right" valign="top">virtual tresult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a20f2d0e33620d4c37afe09ce07c2abbc">receiveText</a> (const char8 *text) override</td></tr>
+<tr class="separator:a20f2d0e33620d4c37afe09ce07c2abbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24714418be17408c4230289b11d271b3"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a24714418be17408c4230289b11d271b3">setParamNormalizedFromFile</a> (ParamID tag, ParamValue value)</td></tr>
+<tr class="separator:a24714418be17408c4230289b11d271b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cc99b66d67fcabe6e530ed1ee226aed"><td class="memItemLeft" align="right" valign="top">tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a2cc99b66d67fcabe6e530ed1ee226aed">setComponentState</a> (IBStream *fileStream) override</td></tr>
+<tr class="separator:a2cc99b66d67fcabe6e530ed1ee226aed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeacf4ceee0f0190e6d6f27f6c0b7e190"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#aeacf4ceee0f0190e6d6f27f6c0b7e190">updateMeters</a> (ProcessData &amp;data, bool forceOff=false)</td></tr>
+<tr class="separator:aeacf4ceee0f0190e6d6f27f6c0b7e190"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ff0b9d70e356531ef80bbf901801569"><td class="memItemLeft" align="right" valign="top"><a id="a3ff0b9d70e356531ef80bbf901801569" name="a3ff0b9d70e356531ef80bbf901801569"></a>
+tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><b>setParamNormalized</b> (ParamID tag, ParamValue value) override</td></tr>
+<tr class="separator:a3ff0b9d70e356531ef80bbf901801569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc5f62f24b5529a5740b8245b9a70e9d"><td class="memItemLeft" align="right" valign="top">virtual tresult PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#adc5f62f24b5529a5740b8245b9a70e9d">getProgramName</a> (ProgramListID listId, int32 programIndex, String128 name) override</td></tr>
+<tr class="separator:adc5f62f24b5529a5740b8245b9a70e9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a610819c99db1cc710c993be384cebd25"><td class="memItemLeft" align="right" valign="top">virtual void PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a610819c99db1cc710c993be384cebd25">update</a> (FUnknown *changedUnknown, int32 message) override</td></tr>
+<tr class="separator:a610819c99db1cc710c993be384cebd25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75d7ec90c09d4deccc3ac44e7cd4568c"><td class="memItemLeft" align="right" valign="top">virtual uint32 PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a75d7ec90c09d4deccc3ac44e7cd4568c">getLatencySamples</a> () override</td></tr>
+<tr class="separator:a75d7ec90c09d4deccc3ac44e7cd4568c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bd4ef69183c22ec59227734b622d921"><td class="memItemLeft" align="right" valign="top">virtual uint32 PLUGIN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a9bd4ef69183c22ec59227734b622d921">getTailSamples</a> () override</td></tr>
+<tr class="separator:a9bd4ef69183c22ec59227734b622d921"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9168a6417f34fccde889d90a81170890"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a9168a6417f34fccde889d90a81170890">updateHostInfo</a> (ProcessData &amp;data, <a class="el" href="struct_host_info.html">HostInfo</a> *hostInfo)</td></tr>
+<tr class="separator:a9168a6417f34fccde889d90a81170890"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -213,6 +265,32 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a971543f5385026413468c85cd43845d2"><td class="memItemLeft" align="right" valign="top">static CString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a971543f5385026413468c85cd43845d2">getPluginType</a> ()</td></tr>
 <tr class="memdesc:a971543f5385026413468c85cd43845d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">static function for VST3 clsss factory  <br /></td></tr>
 <tr class="separator:a971543f5385026413468c85cd43845d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10c9f71f4882cb8f7064589643632ebd"><td class="memItemLeft" align="right" valign="top">static FUnknown *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a10c9f71f4882cb8f7064589643632ebd">createInstance</a> (void *context)</td></tr>
+<tr class="separator:a10c9f71f4882cb8f7064589643632ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74df19bd4fab2242655700e483eb2e00"><td class="memItemLeft" align="right" valign="top"><a id="a74df19bd4fab2242655700e483eb2e00" name="a74df19bd4fab2242655700e483eb2e00"></a>
+static FUID *&#160;</td><td class="memItemRight" valign="bottom"><b>getFUID</b> ()</td></tr>
+<tr class="memdesc:a74df19bd4fab2242655700e483eb2e00"><td class="mdescLeft">&#160;</td><td class="mdescRight">static function for VST3 clsss factory <br /></td></tr>
+<tr class="separator:a74df19bd4fab2242655700e483eb2e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0da5c55bec255cecf6abac37b05772a"><td class="memItemLeft" align="right" valign="top"><a id="ae0da5c55bec255cecf6abac37b05772a" name="ae0da5c55bec255cecf6abac37b05772a"></a>
+static const char *&#160;</td><td class="memItemRight" valign="bottom"><b>getPluginName</b> ()</td></tr>
+<tr class="memdesc:ae0da5c55bec255cecf6abac37b05772a"><td class="mdescLeft">&#160;</td><td class="mdescRight">static function for VST3 clsss factory <br /></td></tr>
+<tr class="separator:ae0da5c55bec255cecf6abac37b05772a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af08f3569e57d03762fb74fe5ab485a5e"><td class="memItemLeft" align="right" valign="top"><a id="af08f3569e57d03762fb74fe5ab485a5e" name="af08f3569e57d03762fb74fe5ab485a5e"></a>
+static const char *&#160;</td><td class="memItemRight" valign="bottom"><b>getVendorName</b> ()</td></tr>
+<tr class="memdesc:af08f3569e57d03762fb74fe5ab485a5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">static function for VST3 clsss factory <br /></td></tr>
+<tr class="separator:af08f3569e57d03762fb74fe5ab485a5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7d229eca8fe3189cf8d4d270b32ee57"><td class="memItemLeft" align="right" valign="top"><a id="aa7d229eca8fe3189cf8d4d270b32ee57" name="aa7d229eca8fe3189cf8d4d270b32ee57"></a>
+static const char *&#160;</td><td class="memItemRight" valign="bottom"><b>getVendorURL</b> ()</td></tr>
+<tr class="memdesc:aa7d229eca8fe3189cf8d4d270b32ee57"><td class="mdescLeft">&#160;</td><td class="mdescRight">static function for VST3 clsss factory <br /></td></tr>
+<tr class="separator:aa7d229eca8fe3189cf8d4d270b32ee57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0897f0862509e6d22cd0e02eb4cb4aa"><td class="memItemLeft" align="right" valign="top"><a id="ad0897f0862509e6d22cd0e02eb4cb4aa" name="ad0897f0862509e6d22cd0e02eb4cb4aa"></a>
+static const char *&#160;</td><td class="memItemRight" valign="bottom"><b>getVendorEmail</b> ()</td></tr>
+<tr class="memdesc:ad0897f0862509e6d22cd0e02eb4cb4aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">static function for VST3 clsss factory <br /></td></tr>
+<tr class="separator:ad0897f0862509e6d22cd0e02eb4cb4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01401b0a80cbf64b256f9d851cc16d64"><td class="memItemLeft" align="right" valign="top"><a id="a01401b0a80cbf64b256f9d851cc16d64" name="a01401b0a80cbf64b256f9d851cc16d64"></a>
+static CString&#160;</td><td class="memItemRight" valign="bottom"><b>getPluginType</b> ()</td></tr>
+<tr class="memdesc:a01401b0a80cbf64b256f9d851cc16d64"><td class="mdescLeft">&#160;</td><td class="mdescRight">static function for VST3 clsss factory <br /></td></tr>
+<tr class="separator:a01401b0a80cbf64b256f9d851cc16d64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -232,13 +310,22 @@ typedef std::map&lt; ProgramListID, ProgramListVector::size_type &gt;&#160;</td>
 <tr class="memitem:a5bf290b75fc28d891c6bd23a686051dd"><td class="memItemLeft" align="right" valign="top"><a id="a5bf290b75fc28d891c6bd23a686051dd" name="a5bf290b75fc28d891c6bd23a686051dd"></a>
 typedef std::vector&lt; IPtr&lt; Unit &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>UnitVector</b></td></tr>
 <tr class="separator:a5bf290b75fc28d891c6bd23a686051dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0b15c713e477c33d349164bfa834ed9"><td class="memItemLeft" align="right" valign="top"><a id="aa0b15c713e477c33d349164bfa834ed9" name="aa0b15c713e477c33d349164bfa834ed9"></a>
+typedef std::vector&lt; IPtr&lt; ProgramList &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ProgramListVector</b></td></tr>
+<tr class="separator:aa0b15c713e477c33d349164bfa834ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb3e267cd60561fa4b8f66a445e02639"><td class="memItemLeft" align="right" valign="top"><a id="acb3e267cd60561fa4b8f66a445e02639" name="acb3e267cd60561fa4b8f66a445e02639"></a>
+typedef std::map&lt; ProgramListID, ProgramListVector::size_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ProgramIndexMap</b></td></tr>
+<tr class="separator:acb3e267cd60561fa4b8f66a445e02639"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bf290b75fc28d891c6bd23a686051dd"><td class="memItemLeft" align="right" valign="top"><a id="a5bf290b75fc28d891c6bd23a686051dd" name="a5bf290b75fc28d891c6bd23a686051dd"></a>
+typedef std::vector&lt; IPtr&lt; Unit &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>UnitVector</b></td></tr>
+<tr class="separator:a5bf290b75fc28d891c6bd23a686051dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a672b31e3616e3888c337b403617e0520"><td class="memItemLeft" align="right" valign="top"><a id="a672b31e3616e3888c337b403617e0520" name="a672b31e3616e3888c337b403617e0520"></a>
+<tr class="memitem:a1c5be67f920af46fd8415efa646b98cd"><td class="memItemLeft" align="right" valign="top"><a id="a1c5be67f920af46fd8415efa646b98cd" name="a1c5be67f920af46fd8415efa646b98cd"></a>
 <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_param_update_queue.html">VSTParamUpdateQueue</a> **&#160;</td><td class="memItemRight" valign="bottom"><b>m_pParamUpdateQueueArray</b> = nullptr</td></tr>
-<tr class="memdesc:a672b31e3616e3888c337b403617e0520"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample accurate parameter automation <br /></td></tr>
-<tr class="separator:a672b31e3616e3888c337b403617e0520"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a1c5be67f920af46fd8415efa646b98cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample accurate parameter automation <br /></td></tr>
+<tr class="separator:a1c5be67f920af46fd8415efa646b98cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9678c7f781ba716688242653d4875b2"><td class="memItemLeft" align="right" valign="top"><a id="ae9678c7f781ba716688242653d4875b2" name="ae9678c7f781ba716688242653d4875b2"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>sampleAccuracy</b> = 1</td></tr>
 <tr class="memdesc:ae9678c7f781ba716688242653d4875b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample accurate parameter automation <br /></td></tr>
@@ -285,6 +372,10 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <p>object constructor: because of class factory, do NOT use this for init; use <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a2221a6c87dbfb18cf504c7cf89179daa" title="object initializer">initialize()</a> instead </p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
 
@@ -308,6 +399,10 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <p>object destructor: because of class factory, do NOT use this for destruction; use <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#abeebd32d7be80516734414c1291d0651" title="object destroyer">terminate()</a> instead </p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
 
@@ -315,7 +410,7 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa2f8e1d0d43b52138d4dacab55fd710d" name="aa2f8e1d0d43b52138d4dacab55fd710d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2f8e1d0d43b52138d4dacab55fd710d">&#9670;&#160;</a></span>canProcessSampleSize()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2f8e1d0d43b52138d4dacab55fd710d">&#9670;&#160;</a></span>canProcessSampleSize() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -342,13 +437,71 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <p>Define our word-length capabilities (currently 32 bit only)</p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
 
 </div>
 </div>
+<a id="aa2f8e1d0d43b52138d4dacab55fd710d" name="aa2f8e1d0d43b52138d4dacab55fd710d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2f8e1d0d43b52138d4dacab55fd710d">&#9670;&#160;</a></span>canProcessSampleSize() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::canProcessSampleSize </td>
+          <td>(</td>
+          <td class="paramtype">int32&#160;</td>
+          <td class="paramname"><em>symbolicSampleSize</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Define our word-length capabilities (currently 32 bit only) </p>
+
+</div>
+</div>
 <a id="a10c9f71f4882cb8f7064589643632ebd" name="a10c9f71f4882cb8f7064589643632ebd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10c9f71f4882cb8f7064589643632ebd">&#9670;&#160;</a></span>createInstance()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a10c9f71f4882cb8f7064589643632ebd">&#9670;&#160;</a></span>createInstance() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static FUnknown * Steinberg::Vst::ASPiK::VST3Plugin::createInstance </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>context</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>our COM creation method </p>
+
+</div>
+</div>
+<a id="a10c9f71f4882cb8f7064589643632ebd" name="a10c9f71f4882cb8f7064589643632ebd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10c9f71f4882cb8f7064589643632ebd">&#9670;&#160;</a></span>createInstance() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -375,7 +528,7 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 </div>
 </div>
 <a id="a6fae420876c4e4795f6f8012b994359b" name="a6fae420876c4e4795f6f8012b994359b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6fae420876c4e4795f6f8012b994359b">&#9670;&#160;</a></span>createView()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fae420876c4e4795f6f8012b994359b">&#9670;&#160;</a></span>createView() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -402,13 +555,44 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <p>IPlugView: create our custom GUI</p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
 
 </div>
 </div>
+<a id="a6fae420876c4e4795f6f8012b994359b" name="a6fae420876c4e4795f6f8012b994359b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fae420876c4e4795f6f8012b994359b">&#9670;&#160;</a></span>createView() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IPlugView *PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::createView </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>IPlugView: create our custom GUI </p>
+
+</div>
+</div>
 <a id="ae310ff1e0f12c65e31053c71fe81e85b" name="ae310ff1e0f12c65e31053c71fe81e85b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae310ff1e0f12c65e31053c71fe81e85b">&#9670;&#160;</a></span>doControlUpdate()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae310ff1e0f12c65e31053c71fe81e85b">&#9670;&#160;</a></span>doControlUpdate() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -428,8 +612,32 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <dl class="section return"><dt>Returns</dt><dd>true if a control was changed</dd></dl>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<dl class="section return"><dt>Returns</dt><dd>true if a control was changed</dd></dl>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
+
+</div>
+</div>
+<a id="ae310ff1e0f12c65e31053c71fe81e85b" name="ae310ff1e0f12c65e31053c71fe81e85b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae310ff1e0f12c65e31053c71fe81e85b">&#9670;&#160;</a></span>doControlUpdate() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Steinberg::Vst::ASPiK::VST3Plugin::doControlUpdate </td>
+          <td>(</td>
+          <td class="paramtype">ProcessData &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>functions to reduce size of <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a92837850fb7a75ff3b0eb3bf1a8f711e" title="the VST3 audio processing function">process()</a> </p>
 
 </div>
 </div>
@@ -465,13 +673,48 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <p>static function for class facgtory access to plugin core's corresponding static function</p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>static function for class facgtory access to plugin core's corresponding static function</p>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
 
 </div>
 </div>
 <a id="a75d7ec90c09d4deccc3ac44e7cd4568c" name="a75d7ec90c09d4deccc3ac44e7cd4568c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75d7ec90c09d4deccc3ac44e7cd4568c">&#9670;&#160;</a></span>getLatencySamples()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a75d7ec90c09d4deccc3ac44e7cd4568c">&#9670;&#160;</a></span>getLatencySamples() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual uint32 PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::getLatencySamples </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>base class override </p>
+
+</div>
+</div>
+<a id="a75d7ec90c09d4deccc3ac44e7cd4568c" name="a75d7ec90c09d4deccc3ac44e7cd4568c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75d7ec90c09d4deccc3ac44e7cd4568c">&#9670;&#160;</a></span>getLatencySamples() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -497,7 +740,7 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 </div>
 </div>
 <a id="a9ebddcfe240956d127cd5904ef617509" name="a9ebddcfe240956d127cd5904ef617509"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ebddcfe240956d127cd5904ef617509">&#9670;&#160;</a></span>getMidiControllerAssignment()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ebddcfe240956d127cd5904ef617509">&#9670;&#160;</a></span>getMidiControllerAssignment() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -546,8 +789,61 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <p>IMidiMapping</p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
+
+</div>
+</div>
+<a id="a7552daeb3291cdcd8f771677104fab03" name="a7552daeb3291cdcd8f771677104fab03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7552daeb3291cdcd8f771677104fab03">&#9670;&#160;</a></span>getMidiControllerAssignment() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::getMidiControllerAssignment </td>
+          <td>(</td>
+          <td class="paramtype">int32&#160;</td>
+          <td class="paramname"><em>busIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CtrlNumber&#160;</td>
+          <td class="paramname"><em>midiControllerNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ParamID &amp;&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>IMidiMapping </p>
 
 </div>
 </div>
@@ -576,6 +872,10 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 
 <p>static function for VST3 clsss factory </p>
 <p>static function for class facgtory access to plugin core's corresponding static function</p>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
@@ -610,13 +910,17 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <p>static function for class facgtory access to plugin core's corresponding static function</p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
 
 </div>
 </div>
 <a id="a375ac180973f51cf42fe9841c82b7c87" name="a375ac180973f51cf42fe9841c82b7c87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a375ac180973f51cf42fe9841c82b7c87">&#9670;&#160;</a></span>getProgramName()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a375ac180973f51cf42fe9841c82b7c87">&#9670;&#160;</a></span>getProgramName() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -659,8 +963,55 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <p>IUnitInfo</p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
+
+</div>
+</div>
+<a id="adc5f62f24b5529a5740b8245b9a70e9d" name="adc5f62f24b5529a5740b8245b9a70e9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc5f62f24b5529a5740b8245b9a70e9d">&#9670;&#160;</a></span>getProgramName() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::getProgramName </td>
+          <td>(</td>
+          <td class="paramtype">ProgramListID&#160;</td>
+          <td class="paramname"><em>listId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32&#160;</td>
+          <td class="paramname"><em>programIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String128&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>IUnitInfo </p>
 
 </div>
 </div>
@@ -692,13 +1043,18 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <p>NOTES:</p><ul>
 <li>The datatypes/read order must EXACTLY match the <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a8440cc7cad092381639a86aefb75e3cd" title="This is the WRITE part of the serialization process. We get the stream interface and use it to write ...">getState()</a> version or crashes may happen or variables not initialized properly.</li>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>The datatypes/read order must EXACTLY match the <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a8440cc7cad092381639a86aefb75e3cd" title="This is the WRITE part of the serialization process. We get the stream interface and use it to write ...">getState()</a> version or crashes may happen or variables not initialized properly.</li>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
 
 </div>
 </div>
 <a id="a7fc93a7131edad44713ce769c1a86650" name="a7fc93a7131edad44713ce769c1a86650"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fc93a7131edad44713ce769c1a86650">&#9670;&#160;</a></span>getTailSamples()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fc93a7131edad44713ce769c1a86650">&#9670;&#160;</a></span>getTailSamples() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -724,8 +1080,38 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <p>base class override for tailtime</p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
+
+</div>
+</div>
+<a id="a9bd4ef69183c22ec59227734b622d921" name="a9bd4ef69183c22ec59227734b622d921"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bd4ef69183c22ec59227734b622d921">&#9670;&#160;</a></span>getTailSamples() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual uint32 PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::getTailSamples </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>base class override for tailtime </p>
 
 </div>
 </div>
@@ -754,6 +1140,10 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 
 <p>static function for VST3 clsss factory </p>
 <p>static function for class facgtory access to plugin core's corresponding static function</p>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
@@ -788,6 +1178,10 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <p>static function for class facgtory access to plugin core's corresponding static function</p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
 
@@ -820,13 +1214,17 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <p>static function for class facgtory access to plugin core's corresponding static function</p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
 
 </div>
 </div>
 <a id="a2221a6c87dbfb18cf504c7cf89179daa" name="a2221a6c87dbfb18cf504c7cf89179daa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2221a6c87dbfb18cf504c7cf89179daa">&#9670;&#160;</a></span>initialize()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2221a6c87dbfb18cf504c7cf89179daa">&#9670;&#160;</a></span>initialize() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -857,8 +1255,43 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <li>Add a MIDI event inputs (16: one for each channel)</li>
 <li>Add GUI parameters (EditController part)</li>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>Call the base class</li>
+<li>Add a Stereo Audio Output</li>
+<li>Add a MIDI event inputs (16: one for each channel)</li>
+<li>Add GUI parameters (EditController part)</li>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
+
+</div>
+</div>
+<a id="a2221a6c87dbfb18cf504c7cf89179daa" name="a2221a6c87dbfb18cf504c7cf89179daa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2221a6c87dbfb18cf504c7cf89179daa">&#9670;&#160;</a></span>initialize() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::initialize </td>
+          <td>(</td>
+          <td class="paramtype">FUnknown *&#160;</td>
+          <td class="paramname"><em>context</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>One time init to define our I/O and vsteditcontroller parameters </p>
 
 </div>
 </div>
@@ -892,13 +1325,18 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <dl class="section return"><dt>Returns</dt><dd>true if a control was changed</dd></dl>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<dl class="section return"><dt>Returns</dt><dd>true if a control was changed</dd></dl>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
 
 </div>
 </div>
 <a id="a92837850fb7a75ff3b0eb3bf1a8f711e" name="a92837850fb7a75ff3b0eb3bf1a8f711e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92837850fb7a75ff3b0eb3bf1a8f711e">&#9670;&#160;</a></span>process()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a92837850fb7a75ff3b0eb3bf1a8f711e">&#9670;&#160;</a></span>process() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -931,13 +1369,50 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 </dl>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>process information from the host</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
 
 </div>
 </div>
+<a id="a92837850fb7a75ff3b0eb3bf1a8f711e" name="a92837850fb7a75ff3b0eb3bf1a8f711e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92837850fb7a75ff3b0eb3bf1a8f711e">&#9670;&#160;</a></span>process() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::process </td>
+          <td>(</td>
+          <td class="paramtype">ProcessData &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The all important process method where the audio is rendered/effected </p>
+
+</div>
+</div>
 <a id="af4900dbc47d93d3b815a648590ae9efc" name="af4900dbc47d93d3b815a648590ae9efc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4900dbc47d93d3b815a648590ae9efc">&#9670;&#160;</a></span>receiveText()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af4900dbc47d93d3b815a648590ae9efc">&#9670;&#160;</a></span>receiveText() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -964,13 +1439,44 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <p>for GUI_TIMER_PING and recreate view operations</p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
 
 </div>
 </div>
+<a id="a20f2d0e33620d4c37afe09ce07c2abbc" name="a20f2d0e33620d4c37afe09ce07c2abbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20f2d0e33620d4c37afe09ce07c2abbc">&#9670;&#160;</a></span>receiveText() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual tresult Steinberg::Vst::ASPiK::VST3Plugin::receiveText </td>
+          <td>(</td>
+          <td class="paramtype">const char8 *&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>for GUI_TIMER_PING and recreate view operations </p>
+
+</div>
+</div>
 <a id="a8370c86860e43de8b3df6f210b996040" name="a8370c86860e43de8b3df6f210b996040"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8370c86860e43de8b3df6f210b996040">&#9670;&#160;</a></span>setActive()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8370c86860e43de8b3df6f210b996040">&#9670;&#160;</a></span>setActive() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -997,13 +1503,44 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <p>Turn on/off</p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
 
 </div>
 </div>
+<a id="a8370c86860e43de8b3df6f210b996040" name="a8370c86860e43de8b3df6f210b996040"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8370c86860e43de8b3df6f210b996040">&#9670;&#160;</a></span>setActive() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::setActive </td>
+          <td>(</td>
+          <td class="paramtype">TBool&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Turn on/off </p>
+
+</div>
+</div>
 <a id="ab3ee25b04dee6f91b24e90fc6de0e92c" name="ab3ee25b04dee6f91b24e90fc6de0e92c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3ee25b04dee6f91b24e90fc6de0e92c">&#9670;&#160;</a></span>setBusArrangements()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3ee25b04dee6f91b24e90fc6de0e92c">&#9670;&#160;</a></span>setBusArrangements() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1058,6 +1595,20 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
     <tr><td class="paramname">numIns</td><td>= number of input busses </td></tr>
     <tr><td class="paramname">numOuts</td><td>= number of output busses </td></tr>
     <tr><td class="paramname">inputs[x]</td><td>--&gt; requested input channel format for that bus </td></tr>
+    <tr><td class="paramname">outputs[x]</td><td>--&gt; requested output channel format for that bus</td></tr>
+  </table>
+  </dd>
+</dl>
+</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>The host will query upwards until it finds the target, for example if the audio file is 5.1, the host queries mono, stereo, LCR, LCR + LFE, BFormat, etc . . . then 5.1, giving us the chance to process as many inputs as possible. If we support 5.1, it will stop there (target). Note that some DAWs might reject the target if the audio adapter does not support it.</li>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numIns</td><td>= number of input busses </td></tr>
+    <tr><td class="paramname">numOuts</td><td>= number of output busses </td></tr>
+    <tr><td class="paramname">inputs[x]</td><td>--&gt; requested input channel format for that bus </td></tr>
     <tr><td class="paramname">outputs[x]</td><td>--&gt; requested output channel format for that bus </td></tr>
   </table>
   </dd>
@@ -1067,8 +1618,57 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 
 </div>
 </div>
+<a id="ab3ee25b04dee6f91b24e90fc6de0e92c" name="ab3ee25b04dee6f91b24e90fc6de0e92c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3ee25b04dee6f91b24e90fc6de0e92c">&#9670;&#160;</a></span>setBusArrangements() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::setBusArrangements </td>
+          <td>(</td>
+          <td class="paramtype">SpeakerArrangement *&#160;</td>
+          <td class="paramname"><em>inputs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32&#160;</td>
+          <td class="paramname"><em>numIns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SpeakerArrangement *&#160;</td>
+          <td class="paramname"><em>outputs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32&#160;</td>
+          <td class="paramname"><em>numOuts</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Define the audio I/O we support </p>
+
+</div>
+</div>
 <a id="a2cc99b66d67fcabe6e530ed1ee226aed" name="a2cc99b66d67fcabe6e530ed1ee226aed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2cc99b66d67fcabe6e530ed1ee226aed">&#9670;&#160;</a></span>setComponentState()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cc99b66d67fcabe6e530ed1ee226aed">&#9670;&#160;</a></span>setComponentState() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1095,8 +1695,39 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <p>serialize-read from file to setup the GUI parameters</p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
+
+</div>
+</div>
+<a id="a2cc99b66d67fcabe6e530ed1ee226aed" name="a2cc99b66d67fcabe6e530ed1ee226aed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cc99b66d67fcabe6e530ed1ee226aed">&#9670;&#160;</a></span>setComponentState() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::setComponentState </td>
+          <td>(</td>
+          <td class="paramtype">IBStream *&#160;</td>
+          <td class="paramname"><em>fileStream</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>serialize-read from file to setup the GUI parameters </p>
 
 </div>
 </div>
@@ -1137,13 +1768,17 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <p>This is overridden for selecting a preset, this is also called when automating parameters. </p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
 
 </div>
 </div>
 <a id="a24714418be17408c4230289b11d271b3" name="a24714418be17408c4230289b11d271b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24714418be17408c4230289b11d271b3">&#9670;&#160;</a></span>setParamNormalizedFromFile()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a24714418be17408c4230289b11d271b3">&#9670;&#160;</a></span>setParamNormalizedFromFile() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1172,13 +1807,46 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <p>helper function for serialization</p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
 
 </div>
 </div>
+<a id="a24714418be17408c4230289b11d271b3" name="a24714418be17408c4230289b11d271b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24714418be17408c4230289b11d271b3">&#9670;&#160;</a></span>setParamNormalizedFromFile() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::setParamNormalizedFromFile </td>
+          <td>(</td>
+          <td class="paramtype">ParamID&#160;</td>
+          <td class="paramname"><em>tag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ParamValue&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>helper function for serialization </p>
+
+</div>
+</div>
 <a id="a1da681ea80eb6b2455ff86c7fd799be4" name="a1da681ea80eb6b2455ff86c7fd799be4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1da681ea80eb6b2455ff86c7fd799be4">&#9670;&#160;</a></span>setState()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1da681ea80eb6b2455ff86c7fd799be4">&#9670;&#160;</a></span>setState() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1206,13 +1874,45 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <p>NOTES:</p><ul>
 <li>The datatypes/read order must EXACTLY match the <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a8440cc7cad092381639a86aefb75e3cd" title="This is the WRITE part of the serialization process. We get the stream interface and use it to write ...">getState()</a> version or crashes may happen or variables not initialized properly.</li>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>The datatypes/read order must EXACTLY match the <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a8440cc7cad092381639a86aefb75e3cd" title="This is the WRITE part of the serialization process. We get the stream interface and use it to write ...">getState()</a> version or crashes may happen or variables not initialized properly.</li>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
 
 </div>
 </div>
+<a id="a1da681ea80eb6b2455ff86c7fd799be4" name="a1da681ea80eb6b2455ff86c7fd799be4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1da681ea80eb6b2455ff86c7fd799be4">&#9670;&#160;</a></span>setState() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::setState </td>
+          <td>(</td>
+          <td class="paramtype">IBStream *&#160;</td>
+          <td class="paramname"><em>fileStream</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Serialization: Save and load presets from a file stream </p>
+
+</div>
+</div>
 <a id="a0636c200d453e501988ae39b2870e972" name="a0636c200d453e501988ae39b2870e972"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0636c200d453e501988ae39b2870e972">&#9670;&#160;</a></span>setupProcessing()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0636c200d453e501988ae39b2870e972">&#9670;&#160;</a></span>setupProcessing() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1239,13 +1939,44 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <p>you can access info about the processing via ProcessSetup; see ivstaudioprocessor.h</p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
 
 </div>
 </div>
+<a id="a0636c200d453e501988ae39b2870e972" name="a0636c200d453e501988ae39b2870e972"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0636c200d453e501988ae39b2870e972">&#9670;&#160;</a></span>setupProcessing() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::setupProcessing </td>
+          <td>(</td>
+          <td class="paramtype">ProcessSetup &amp;&#160;</td>
+          <td class="paramname"><em>newSetup</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>you can access info about the processing via ProcessSetup; see ivstaudioprocessor.h </p>
+
+</div>
+</div>
 <a id="abeebd32d7be80516734414c1291d0651" name="abeebd32d7be80516734414c1291d0651"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abeebd32d7be80516734414c1291d0651">&#9670;&#160;</a></span>terminate()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abeebd32d7be80516734414c1291d0651">&#9670;&#160;</a></span>terminate() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1271,13 +2002,43 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <p>the end. this destroys the core</p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
 
 </div>
 </div>
+<a id="abeebd32d7be80516734414c1291d0651" name="abeebd32d7be80516734414c1291d0651"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abeebd32d7be80516734414c1291d0651">&#9670;&#160;</a></span>terminate() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tresult PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::terminate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>the end. this destroys the core </p>
+
+</div>
+</div>
 <a id="a2deab827ed104eaae3098be4a4feff78" name="a2deab827ed104eaae3098be4a4feff78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2deab827ed104eaae3098be4a4feff78">&#9670;&#160;</a></span>update()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2deab827ed104eaae3098be4a4feff78">&#9670;&#160;</a></span>update() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1314,13 +2075,54 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
 <p>from IDependent---------------&mdash;</p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+<li>see VST3 SDK Documentation for more information on this function and its parameters</li>
+</ul>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
 <li>see VST3 SDK Documentation for more information on this function and its parameters </li>
 </ul>
 
 </div>
 </div>
+<a id="a610819c99db1cc710c993be384cebd25" name="a610819c99db1cc710c993be384cebd25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a610819c99db1cc710c993be384cebd25">&#9670;&#160;</a></span>update() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void PLUGIN_API Steinberg::Vst::ASPiK::VST3Plugin::update </td>
+          <td>(</td>
+          <td class="paramtype">FUnknown *&#160;</td>
+          <td class="paramname"><em>changedUnknown</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>from IDependent---------------&mdash; </p>
+
+</div>
+</div>
 <a id="a9168a6417f34fccde889d90a81170890" name="a9168a6417f34fccde889d90a81170890"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9168a6417f34fccde889d90a81170890">&#9670;&#160;</a></span>updateHostInfo()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9168a6417f34fccde889d90a81170890">&#9670;&#160;</a></span>updateHostInfo() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1355,13 +2157,52 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
   </dd>
 </dl>
 <p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>process information from the host </td></tr>
+    <tr><td class="paramname">hostInfo</td><td><a class="el" href="struct_host_info.html" title="Information from the host that is updated on each buffer process cycle; includes BPM,...">HostInfo</a> struct to fill out as the return</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide </li>
 </ul>
 
 </div>
 </div>
+<a id="a9168a6417f34fccde889d90a81170890" name="a9168a6417f34fccde889d90a81170890"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9168a6417f34fccde889d90a81170890">&#9670;&#160;</a></span>updateHostInfo() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Steinberg::Vst::ASPiK::VST3Plugin::updateHostInfo </td>
+          <td>(</td>
+          <td class="paramtype">ProcessData &amp;&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_host_info.html">HostInfo</a> *&#160;</td>
+          <td class="paramname"><em>hostInfo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>update host info for this process loop </p>
+
+</div>
+</div>
 <a id="aeacf4ceee0f0190e6d6f27f6c0b7e190" name="aeacf4ceee0f0190e6d6f27f6c0b7e190"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeacf4ceee0f0190e6d6f27f6c0b7e190">&#9670;&#160;</a></span>updateMeters()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aeacf4ceee0f0190e6d6f27f6c0b7e190">&#9670;&#160;</a></span>updateMeters() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1396,13 +2237,54 @@ UnitID&#160;</td><td class="memItemRight" valign="bottom"><b>selectedUnit</b></t
   </dd>
 </dl>
 <p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>process information from the host </td></tr>
+    <tr><td class="paramname">forceOff</td><td>turn off meters regawrdless of audio input values</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and a VST3 Programming Guide </li>
 </ul>
 
 </div>
 </div>
+<a id="aeacf4ceee0f0190e6d6f27f6c0b7e190" name="aeacf4ceee0f0190e6d6f27f6c0b7e190"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeacf4ceee0f0190e6d6f27f6c0b7e190">&#9670;&#160;</a></span>updateMeters() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Steinberg::Vst::ASPiK::VST3Plugin::updateMeters </td>
+          <td>(</td>
+          <td class="paramtype">ProcessData &amp;&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>forceOff</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>for meters </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/vst_source/<a class="el" href="vst3plugin_8h_source.html">vst3plugin.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate OLD/project_source/source/vst_source/<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2vst__source_2vst3plugin_8h_source.html">vst3plugin.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/vst_source/<a class="el" href="_plugin_template_2project__source_2source_2vst__source_2vst3plugin_8h_source.html">vst3plugin.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate OLD/project_source/source/vst_source/vst3plugin.cpp</li>
 <li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/vst_source/vst3plugin.cpp</li>
 </ul>
 </div><!-- contents -->

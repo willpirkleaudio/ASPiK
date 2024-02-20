@@ -140,9 +140,15 @@ Macros</h2></td></tr>
 <tr class="memitem:ga38d74fc5f1b026749c9b225353b4eb24"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_a_x-_shell.html#ga38d74fc5f1b026749c9b225353b4eb24">kSynchronizedParameterQueueSize</a>&#160;&#160;&#160;64</td></tr>
 <tr class="memdesc:ga38d74fc5f1b026749c9b225353b4eb24"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the maximum size of the plugin-core's parameter list; make sure to adjust itg if your core needs more than 64 slots; part of the monolithic parameters AAX programming paradigm; this is very well documented in the AAX SDK documentation.  <br /></td></tr>
 <tr class="separator:ga38d74fc5f1b026749c9b225353b4eb24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga38d74fc5f1b026749c9b225353b4eb24"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_a_x-_shell.html#ga38d74fc5f1b026749c9b225353b4eb24">kSynchronizedParameterQueueSize</a>&#160;&#160;&#160;64</td></tr>
+<tr class="memdesc:ga38d74fc5f1b026749c9b225353b4eb24"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the maximum size of the plugin-core's parameter list; make sure to adjust itg if your core needs more than 64 slots; part of the monolithic parameters AAX programming paradigm; this is very well documented in the AAX SDK documentation.  <br /></td></tr>
+<tr class="separator:ga38d74fc5f1b026749c9b225353b4eb24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:ga8557da388a89f809ab1077352647c7b8"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; AAX_CParamID const, const AAX_IParameterValue * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_a_x-_shell.html#ga8557da388a89f809ab1077352647c7b8">TParamValPair</a></td></tr>
+<tr class="memdesc:ga8557da388a89f809ab1077352647c7b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines a parameter-value pair for the monolithic parameters AAX programming paradigm; this is very well documented in the AAX SDK documentation.  <br /></td></tr>
+<tr class="separator:ga8557da388a89f809ab1077352647c7b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8557da388a89f809ab1077352647c7b8"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; AAX_CParamID const, const AAX_IParameterValue * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_a_x-_shell.html#ga8557da388a89f809ab1077352647c7b8">TParamValPair</a></td></tr>
 <tr class="memdesc:ga8557da388a89f809ab1077352647c7b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines a parameter-value pair for the monolithic parameters AAX programming paradigm; this is very well documented in the AAX SDK documentation.  <br /></td></tr>
 <tr class="separator:ga8557da388a89f809ab1077352647c7b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -167,23 +173,43 @@ Variables</h2></td></tr>
 <tr class="memitem:ga3ac13b5652be9d98b2d912b74ad42651"><td class="memItemLeft" align="right" valign="top">const AAX_CTypeID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_a_x-_shell.html#ga3ac13b5652be9d98b2d912b74ad42651">kPluginCore_PlugInID_Native_Mono</a> = 'PCMR'</td></tr>
 <tr class="memdesc:ga3ac13b5652be9d98b2d912b74ad42651"><td class="mdescLeft">&#160;</td><td class="mdescRight">AAX_CTypeID constants for channel enumerations.  <br /></td></tr>
 <tr class="separator:ga3ac13b5652be9d98b2d912b74ad42651"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3ac13b5652be9d98b2d912b74ad42651"><td class="memItemLeft" align="right" valign="top">const AAX_CTypeID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_a_x-_shell.html#ga3ac13b5652be9d98b2d912b74ad42651">kPluginCore_PlugInID_Native_Mono</a> = 'PCMR'</td></tr>
+<tr class="memdesc:ga3ac13b5652be9d98b2d912b74ad42651"><td class="mdescLeft">&#160;</td><td class="mdescRight">AAX_CTypeID constants for channel enumerations.  <br /></td></tr>
+<tr class="separator:ga3ac13b5652be9d98b2d912b74ad42651"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>The AAX plugin shell consists of the following files:</p><ul>
 <li>channelformats.h (not used)</li>
-<li><a class="el" href="_anti_log_taper_delegate_8h.html" title="interface and implementation of an anti-log taper object for AAX plugins">antilogtaperdelegate.h</a></li>
-<li><a class="el" href="_log_taper_delegate_8h.html" title="interface and implementation of a log taper object for AAX plugins">logtaperdelegate.h</a></li>
-<li><a class="el" href="_volt_octave_taper_delegate_8h.html" title="interface and implementation of a volt/octave taper object for AAX plugins">voltoctavetaperdelegate.h</a></li>
-<li><a class="el" href="_a_a_x_plugin_describe_8h.html" title="static description file for the monolithic plugin paradigm; this code is based heavily on the monolit...">AAXPluginDescribe.h</a></li>
-<li><a class="el" href="_a_a_x_plugin_describe_8cpp.html" title="static description file for the monolithic plugin paradigm; note that these functions are not part of...">AAXPluginDescribe.cpp</a></li>
-<li><a class="el" href="_a_a_x_plugin_g_u_i_8h.html" title="interface file for the AAXPluginGUI object which creates and destroys the ASPiK GUI object as well as...">AAXPluginGUI.h</a></li>
-<li><a class="el" href="_a_a_x_plugin_g_u_i_8cpp.html" title="implmentation file for the AAXPluginGUI object which creates and destroys the ASPiK GUI object as wel...">AAXPluginGUI.cpp</a></li>
-<li><a class="el" href="_a_a_x_plugin_parameters_8h.html" title="interface file for the AAXPluginParameters object; this code is based heavily off of the monolithic p...">AAXPluginParameters.h</a></li>
-<li><a class="el" href="_a_a_x_plugin_parameters_8cpp.html" title="implementation file for the AAXPluginParameters object; this code is based heavily off of the monolit...">AAXPluginParameters.cpp</a> </li>
+<li>antilogtaperdelegate.h</li>
+<li>logtaperdelegate.h</li>
+<li>voltoctavetaperdelegate.h</li>
+<li>AAXPluginDescribe.h</li>
+<li>AAXPluginDescribe.cpp</li>
+<li>AAXPluginGUI.h</li>
+<li>AAXPluginGUI.cpp</li>
+<li>AAXPluginParameters.h</li>
+<li>AAXPluginParameters.cpp </li>
 </ul>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ga38d74fc5f1b026749c9b225353b4eb24" name="ga38d74fc5f1b026749c9b225353b4eb24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga38d74fc5f1b026749c9b225353b4eb24">&#9670;&#160;</a></span>kSynchronizedParameterQueueSize</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga38d74fc5f1b026749c9b225353b4eb24">&#9670;&#160;</a></span>kSynchronizedParameterQueueSize <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kSynchronizedParameterQueueSize&#160;&#160;&#160;64</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This is the maximum size of the plugin-core's parameter list; make sure to adjust itg if your core needs more than 64 slots; part of the monolithic parameters AAX programming paradigm; this is very well documented in the AAX SDK documentation. </p>
+<p>@kSynchronizedParameterQueueSize </p>
+
+</div>
+</div>
+<a id="ga38d74fc5f1b026749c9b225353b4eb24" name="ga38d74fc5f1b026749c9b225353b4eb24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga38d74fc5f1b026749c9b225353b4eb24">&#9670;&#160;</a></span>kSynchronizedParameterQueueSize <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -201,7 +227,24 @@ Variables</h2></td></tr>
 </div>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="ga8557da388a89f809ab1077352647c7b8" name="ga8557da388a89f809ab1077352647c7b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8557da388a89f809ab1077352647c7b8">&#9670;&#160;</a></span>TParamValPair</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8557da388a89f809ab1077352647c7b8">&#9670;&#160;</a></span>TParamValPair <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::pair&lt;AAX_CParamID const, const AAX_IParameterValue*&gt; <a class="el" href="group___a_a_x-_shell.html#ga8557da388a89f809ab1077352647c7b8">TParamValPair</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Defines a parameter-value pair for the monolithic parameters AAX programming paradigm; this is very well documented in the AAX SDK documentation. </p>
+<p>@TParamValPair </p>
+
+</div>
+</div>
+<a id="ga8557da388a89f809ab1077352647c7b8" name="ga8557da388a89f809ab1077352647c7b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8557da388a89f809ab1077352647c7b8">&#9670;&#160;</a></span>TParamValPair <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -257,6 +300,12 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>one of two parts of the static AAX Parameters declaration; this is detailed in the book source below. </p>
+<p>@DescribeAlgComponent</p>
+<p>one of two parts of the static AAX Parameters declaration; this is detailed in the book source below.</p>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and an AAX Programming Guide</li>
+<li>see AAX SDK for more information on this function and its parameters</li>
+</ul>
 <p>@DescribeAlgComponent</p>
 <p>one of two parts of the static AAX Parameters declaration; this is detailed in the book source below.</p>
 <p>NOTES:</p><ul>
@@ -330,6 +379,12 @@ Variables</h2></td></tr>
 <p>setup channel I/O algorithms and other core-specific stuff</p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and an AAX Programming Guide</li>
+<li>see AAX SDK for more information on this function and its parameters</li>
+</ul>
+<p>@GetASPiKPlugInDescription</p>
+<p>setup channel I/O algorithms and other core-specific stuff</p>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and an AAX Programming Guide</li>
 <li>see AAX SDK for more information on this function and its parameters </li>
 </ul>
 
@@ -356,6 +411,12 @@ Variables</h2></td></tr>
 <p>one of two parts of the static AAX Parameters declaration; this is detailed in the book source below.</p>
 <p>NOTES:</p><ul>
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and an AAX Programming Guide</li>
+<li>see AAX SDK for more information on this function and its parameters</li>
+</ul>
+<p>@GetASPiKPlugInDescription</p>
+<p>one of two parts of the static AAX Parameters declaration; this is detailed in the book source below.</p>
+<p>NOTES:</p><ul>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and an AAX Programming Guide</li>
 <li>see AAX SDK for more information on this function and its parameters </li>
 </ul>
 
@@ -363,7 +424,31 @@ Variables</h2></td></tr>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="ga3ac13b5652be9d98b2d912b74ad42651" name="ga3ac13b5652be9d98b2d912b74ad42651"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3ac13b5652be9d98b2d912b74ad42651">&#9670;&#160;</a></span>kPluginCore_PlugInID_Native_Mono</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3ac13b5652be9d98b2d912b74ad42651">&#9670;&#160;</a></span>kPluginCore_PlugInID_Native_Mono <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const AAX_CTypeID kPluginCore_PlugInID_Native_Mono = 'PCMR'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>AAX_CTypeID constants for channel enumerations. </p>
+<p>@AAX_CTypeID constants</p>
+<p>NOTES:</p><ul>
+<li>currently support one mixed I/O combo: mono-in, stereo-out</li>
+<li>if you need to add some strange I/O combo, make your own ID and add here</li>
+<li>these channel fomrats are all selected as the closest matching/overlapping of the same variables and values for AU and VST; you can add AAX specific IDs here too</li>
+<li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and an AAX Programming Guide</li>
+<li>see AAX SDK for more information on this function and its parameters AAX_CTypeID channel I/O constant </li>
+</ul>
+
+</div>
+</div>
+<a id="ga3ac13b5652be9d98b2d912b74ad42651" name="ga3ac13b5652be9d98b2d912b74ad42651"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3ac13b5652be9d98b2d912b74ad42651">&#9670;&#160;</a></span>kPluginCore_PlugInID_Native_Mono <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

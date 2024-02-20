@@ -16,6 +16,7 @@ class MacFactory final : public IPlatformFactory
 {
 public:
 	MacFactory (CFBundleRef bundle);
+	~MacFactory () noexcept override;
 
 	CFBundleRef getBundle () const noexcept;
 
@@ -115,14 +116,6 @@ public:
 	 */
 	DataPackagePtr getClipboard () const noexcept final;
 
-	/** create an offscreen draw device
-	 *	@param size the size of the bitmap where the offscreen renders to
-	 *	@param scaleFactor the scale factor for drawing
-	 *	@return an offscreen context object or nullptr on failure
-	 */
-	COffscreenContextPtr createOffscreenContext (const CPoint& size,
-												 double scaleFactor = 1.) const noexcept final;
-
 	/** Create a platform gradient object
 	 *	@return platform gradient object or nullptr on failure
 	 */
@@ -135,6 +128,12 @@ public:
 	 */
 	PlatformFileSelectorPtr createFileSelector (PlatformFileSelectorStyle style,
 												IPlatformFrame* frame) const noexcept final;
+
+	/** Get the graphics device factory
+	 *
+	 *	@return platform graphics device factory
+	 */
+	const IPlatformGraphicsDeviceFactory& getGraphicsDeviceFactory () const noexcept final;
 
 	const LinuxFactory* asLinuxFactory () const noexcept final;
 	const MacFactory* asMacFactory () const noexcept final;
