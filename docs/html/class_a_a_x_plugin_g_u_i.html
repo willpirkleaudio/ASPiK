@@ -101,7 +101,7 @@ $(document).ready(function(){initNavTree('class_a_a_x_plugin_g_u_i.html',''); in
 <p>The <a class="el" href="class_a_a_x_plugin_g_u_i.html" title="The AAXPluginGUI is the GUI object for AAX. It creates and destroys the ASPiK GUI....">AAXPluginGUI</a> is the GUI object for AAX. It creates and destroys the ASPiK GUI. It also synchronizes GUI and parameters as described in detail in the book source below.  
  <a href="class_a_a_x_plugin_g_u_i.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_a_a_x_plugin_g_u_i_8h_source.html">AAXPluginGUI.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2aax__source_2_a_a_x_plugin_g_u_i_8h_source.html">AAXPluginGUI.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for AAXPluginGUI:</div>
 <div class="dyncontent">
@@ -145,7 +145,44 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6e37f0ca8ad9ed2ce072e1e4d93337fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a272deb150e56e1c9cf66fe41affc3e13"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_x_plugin_g_u_i.html#a272deb150e56e1c9cf66fe41affc3e13">getWindowFrameSize</a> (double &amp;left, double &amp;top, double &amp;right, double &amp;bottom)</td></tr>
 <tr class="separator:a272deb150e56e1c9cf66fe41affc3e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83c76a25a06d98a0be2d388efc46d69d"><td class="memItemLeft" align="right" valign="top"><a id="a83c76a25a06d98a0be2d388efc46d69d" name="a83c76a25a06d98a0be2d388efc46d69d"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>CreateViewContainer</b> ()</td></tr>
+<tr class="memdesc:a83c76a25a06d98a0be2d388efc46d69d"><td class="mdescLeft">&#160;</td><td class="mdescRight">AAX_CEffectGUI override. <br /></td></tr>
+<tr class="separator:a83c76a25a06d98a0be2d388efc46d69d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a961b3bf9370d1c5c0388f9f19f38624e"><td class="memItemLeft" align="right" valign="top"><a id="a961b3bf9370d1c5c0388f9f19f38624e" name="a961b3bf9370d1c5c0388f9f19f38624e"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>DeleteViewContainer</b> ()</td></tr>
+<tr class="memdesc:a961b3bf9370d1c5c0388f9f19f38624e"><td class="mdescLeft">&#160;</td><td class="mdescRight">AAX_CEffectGUI override. <br /></td></tr>
+<tr class="separator:a961b3bf9370d1c5c0388f9f19f38624e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2525457bd259a92801a3f4e99d151f72"><td class="memItemLeft" align="right" valign="top"><a id="a2525457bd259a92801a3f4e99d151f72" name="a2525457bd259a92801a3f4e99d151f72"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>CreateViewContents</b> ()</td></tr>
+<tr class="memdesc:a2525457bd259a92801a3f4e99d151f72"><td class="mdescLeft">&#160;</td><td class="mdescRight">AAX_CEffectGUI override. <br /></td></tr>
+<tr class="separator:a2525457bd259a92801a3f4e99d151f72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bf418178d84f2ff8056fd2e588cfd31"><td class="memItemLeft" align="right" valign="top"><a id="a0bf418178d84f2ff8056fd2e588cfd31" name="a0bf418178d84f2ff8056fd2e588cfd31"></a>
+virtual AAX_Result&#160;</td><td class="memItemRight" valign="bottom"><b>ParameterUpdated</b> (const char *iParameterID)</td></tr>
+<tr class="memdesc:a0bf418178d84f2ff8056fd2e588cfd31"><td class="mdescLeft">&#160;</td><td class="mdescRight">AAX_CEffectGUI override. <br /></td></tr>
+<tr class="separator:a0bf418178d84f2ff8056fd2e588cfd31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf3c9b15327f152f5dc3ca3db1169b37"><td class="memItemLeft" align="right" valign="top"><a id="acf3c9b15327f152f5dc3ca3db1169b37" name="acf3c9b15327f152f5dc3ca3db1169b37"></a>
+virtual AAX_Result&#160;</td><td class="memItemRight" valign="bottom"><b>Draw</b> (AAX_Rect *iDrawRect)</td></tr>
+<tr class="memdesc:acf3c9b15327f152f5dc3ca3db1169b37"><td class="mdescLeft">&#160;</td><td class="mdescRight">AAX_CEffectGUI override. <br /></td></tr>
+<tr class="separator:acf3c9b15327f152f5dc3ca3db1169b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eda516fb33b96e3dfdc14844c1ed688"><td class="memItemLeft" align="right" valign="top"><a id="a8eda516fb33b96e3dfdc14844c1ed688" name="a8eda516fb33b96e3dfdc14844c1ed688"></a>
+virtual AAX_Result&#160;</td><td class="memItemRight" valign="bottom"><b>TimerWakeup</b> (void)</td></tr>
+<tr class="memdesc:a8eda516fb33b96e3dfdc14844c1ed688"><td class="mdescLeft">&#160;</td><td class="mdescRight">AAX_CEffectGUI override. <br /></td></tr>
+<tr class="separator:a8eda516fb33b96e3dfdc14844c1ed688"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6fff89eae04be23f12b0e4444af8c54"><td class="memItemLeft" align="right" valign="top">virtual AAX_Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_x_plugin_g_u_i.html#ac6fff89eae04be23f12b0e4444af8c54">GetViewSize</a> (AAX_Point *oEffectViewSize) const</td></tr>
+<tr class="memdesc:ac6fff89eae04be23f12b0e4444af8c54"><td class="mdescLeft">&#160;</td><td class="mdescRight">for sizing the GUI  <br /></td></tr>
+<tr class="separator:ac6fff89eae04be23f12b0e4444af8c54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e37f0ca8ad9ed2ce072e1e4d93337fd"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_x_plugin_g_u_i.html#a6e37f0ca8ad9ed2ce072e1e4d93337fd">setWindowFrameSize</a> (double left=0, double top=0, double right=0, double bottom=0)</td></tr>
+<tr class="separator:a6e37f0ca8ad9ed2ce072e1e4d93337fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a272deb150e56e1c9cf66fe41affc3e13"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_x_plugin_g_u_i.html#a272deb150e56e1c9cf66fe41affc3e13">getWindowFrameSize</a> (double &amp;left, double &amp;top, double &amp;right, double &amp;bottom)</td></tr>
+<tr class="separator:a272deb150e56e1c9cf66fe41affc3e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_i_g_u_i_window_frame"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_i_g_u_i_window_frame')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_i_g_u_i_window_frame.html">IGUIWindowFrame</a></td></tr>
+<tr class="memitem:a40edaf68265a612bef9117cf27b9a2ec inherit pub_methods_class_i_g_u_i_window_frame"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_window_frame.html#a40edaf68265a612bef9117cf27b9a2ec">setWindowFrameSize</a> (double left=0, double top=0, double right=0, double bottom=0)=0</td></tr>
+<tr class="separator:a40edaf68265a612bef9117cf27b9a2ec inherit pub_methods_class_i_g_u_i_window_frame"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa29b7a0267314fd7cd890031874b1637 inherit pub_methods_class_i_g_u_i_window_frame"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_window_frame.html#aa29b7a0267314fd7cd890031874b1637">getWindowFrameSize</a> (double &amp;left, double &amp;top, double &amp;right, double &amp;bottom)=0</td></tr>
+<tr class="separator:aa29b7a0267314fd7cd890031874b1637 inherit pub_methods_class_i_g_u_i_window_frame"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac477f5d2ba7118f1143459091e98c234 inherit pub_methods_class_i_g_u_i_window_frame"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_window_frame.html#ac477f5d2ba7118f1143459091e98c234">enableGUIDesigner</a> (bool enable)</td></tr>
+<tr class="separator:ac477f5d2ba7118f1143459091e98c234 inherit pub_methods_class_i_g_u_i_window_frame"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40edaf68265a612bef9117cf27b9a2ec inherit pub_methods_class_i_g_u_i_window_frame"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_window_frame.html#a40edaf68265a612bef9117cf27b9a2ec">setWindowFrameSize</a> (double left=0, double top=0, double right=0, double bottom=0)=0</td></tr>
 <tr class="separator:a40edaf68265a612bef9117cf27b9a2ec inherit pub_methods_class_i_g_u_i_window_frame"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa29b7a0267314fd7cd890031874b1637 inherit pub_methods_class_i_g_u_i_window_frame"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_window_frame.html#aa29b7a0267314fd7cd890031874b1637">getWindowFrameSize</a> (double &amp;left, double &amp;top, double &amp;right, double &amp;bottom)=0</td></tr>
@@ -158,6 +195,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a457e87c9f94438baebf9cb605b4e0271"><td class="memItemLeft" align="right" valign="top">static AAX_IEffectGUI *AAX_CALLBACK&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_x_plugin_g_u_i.html#a457e87c9f94438baebf9cb605b4e0271">Create</a> (void)</td></tr>
 <tr class="memdesc:a457e87c9f94438baebf9cb605b4e0271"><td class="mdescLeft">&#160;</td><td class="mdescRight">creation mechanism for this object  <br /></td></tr>
 <tr class="separator:a457e87c9f94438baebf9cb605b4e0271"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7762bf42868a8b7a257913fce5401f3"><td class="memItemLeft" align="right" valign="top">static AAX_IEffectGUI *AAX_CALLBACK&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_x_plugin_g_u_i.html#ae7762bf42868a8b7a257913fce5401f3">Create</a> (void)</td></tr>
+<tr class="separator:ae7762bf42868a8b7a257913fce5401f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -173,10 +212,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>guiHeight</b> = 100</t
 <a class="el" href="structplugin_custom_data.html">pluginCustomData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>customData</b></td></tr>
 <tr class="memdesc:acb99611c2341475fe13d15692b843558"><td class="mdescLeft">&#160;</td><td class="mdescRight">custom data struct used for moving information from parameters during early construction phase <br /></td></tr>
 <tr class="separator:acb99611c2341475fe13d15692b843558"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19924d8ba806c15f7e4f5eecba7c96f2"><td class="memItemLeft" align="right" valign="top"><a id="a19924d8ba806c15f7e4f5eecba7c96f2" name="a19924d8ba806c15f7e4f5eecba7c96f2"></a>
+<tr class="memitem:a5f077541525927894713c04aa04f2c06"><td class="memItemLeft" align="right" valign="top"><a id="a5f077541525927894713c04aa04f2c06" name="a5f077541525927894713c04aa04f2c06"></a>
 <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html">VSTGUI::PluginGUI</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pluginGUI</b></td></tr>
-<tr class="memdesc:a19924d8ba806c15f7e4f5eecba7c96f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">the ASPiK GUI - NOTE that this is maintained only for constructing and destroying the GUI <br /></td></tr>
-<tr class="separator:a19924d8ba806c15f7e4f5eecba7c96f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a5f077541525927894713c04aa04f2c06"><td class="mdescLeft">&#160;</td><td class="mdescRight">the ASPiK GUI - NOTE that this is maintained only for constructing and destroying the GUI <br /></td></tr>
+<tr class="separator:a5f077541525927894713c04aa04f2c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb0cb2ce0b9c7ef96ea55f54567945f1"><td class="memItemLeft" align="right" valign="top"><a id="afb0cb2ce0b9c7ef96ea55f54567945f1" name="afb0cb2ce0b9c7ef96ea55f54567945f1"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>pureCustomGUI</b> = false</td></tr>
 <tr class="memdesc:afb0cb2ce0b9c7ef96ea55f54567945f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">not used <br /></td></tr>
@@ -243,7 +282,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>pureCustomGUI</b> = f
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a457e87c9f94438baebf9cb605b4e0271" name="a457e87c9f94438baebf9cb605b4e0271"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a457e87c9f94438baebf9cb605b4e0271">&#9670;&#160;</a></span>Create()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a457e87c9f94438baebf9cb605b4e0271">&#9670;&#160;</a></span>Create() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -272,6 +311,33 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>pureCustomGUI</b> = f
 <li>see Designing Audio Effects in C++ 2nd Ed. by Will Pirkle for more information and an AAX Programming Guide</li>
 <li>see AAX SDK for more information on this function and its parameters </li>
 </ul>
+
+</div>
+</div>
+<a id="ae7762bf42868a8b7a257913fce5401f3" name="ae7762bf42868a8b7a257913fce5401f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7762bf42868a8b7a257913fce5401f3">&#9670;&#160;</a></span>Create() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static AAX_IEffectGUI *AAX_CALLBACK AAXPluginGUI::Create </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>creation mechanism </p>
 
 </div>
 </div>
@@ -400,7 +466,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>pureCustomGUI</b> = f
 </div>
 </div>
 <a id="a25255c4d912bf491c58c6b850fa89a39" name="a25255c4d912bf491c58c6b850fa89a39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25255c4d912bf491c58c6b850fa89a39">&#9670;&#160;</a></span>GetViewSize()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a25255c4d912bf491c58c6b850fa89a39">&#9670;&#160;</a></span>GetViewSize() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -433,8 +499,88 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>pureCustomGUI</b> = f
 
 </div>
 </div>
+<a id="ac6fff89eae04be23f12b0e4444af8c54" name="ac6fff89eae04be23f12b0e4444af8c54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6fff89eae04be23f12b0e4444af8c54">&#9670;&#160;</a></span>GetViewSize() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual AAX_Result AAXPluginGUI::GetViewSize </td>
+          <td>(</td>
+          <td class="paramtype">AAX_Point *&#160;</td>
+          <td class="paramname"><em>oEffectViewSize</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>for sizing the GUI </p>
+<p>for sizing the GUI </p>
+
+</div>
+</div>
 <a id="a272deb150e56e1c9cf66fe41affc3e13" name="a272deb150e56e1c9cf66fe41affc3e13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a272deb150e56e1c9cf66fe41affc3e13">&#9670;&#160;</a></span>getWindowFrameSize()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a272deb150e56e1c9cf66fe41affc3e13">&#9670;&#160;</a></span>getWindowFrameSize() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool AAXPluginGUI::getWindowFrameSize </td>
+          <td>(</td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname"><em>top</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname"><em>right</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname"><em>bottom</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>for sizing the GUI </p>
+
+<p>Implements <a class="el" href="class_i_g_u_i_window_frame.html#aa29b7a0267314fd7cd890031874b1637">IGUIWindowFrame</a>.</p>
+
+</div>
+</div>
+<a id="a272deb150e56e1c9cf66fe41affc3e13" name="a272deb150e56e1c9cf66fe41affc3e13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a272deb150e56e1c9cf66fe41affc3e13">&#9670;&#160;</a></span>getWindowFrameSize() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -520,7 +666,58 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>pureCustomGUI</b> = f
 </div>
 </div>
 <a id="a6e37f0ca8ad9ed2ce072e1e4d93337fd" name="a6e37f0ca8ad9ed2ce072e1e4d93337fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e37f0ca8ad9ed2ce072e1e4d93337fd">&#9670;&#160;</a></span>setWindowFrameSize()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e37f0ca8ad9ed2ce072e1e4d93337fd">&#9670;&#160;</a></span>setWindowFrameSize() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool AAXPluginGUI::setWindowFrameSize </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>left</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>top</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>right</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>bottom</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><a class="el" href="class_i_g_u_i_window_frame.html" title="Custom interface to allow resizing of GUI window; this is mainly used for the GUI designer.">IGUIWindowFrame</a> - this allows us to set the view size for the GUI designer (only) </p>
+
+<p>Implements <a class="el" href="class_i_g_u_i_window_frame.html#a40edaf68265a612bef9117cf27b9a2ec">IGUIWindowFrame</a>.</p>
+
+</div>
+</div>
+<a id="a6e37f0ca8ad9ed2ce072e1e4d93337fd" name="a6e37f0ca8ad9ed2ce072e1e4d93337fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e37f0ca8ad9ed2ce072e1e4d93337fd">&#9670;&#160;</a></span>setWindowFrameSize() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -600,8 +797,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>pureCustomGUI</b> = f
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/aax_source/<a class="el" href="_a_a_x_plugin_g_u_i_8h_source.html">AAXPluginGUI.h</a></li>
-<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/aax_source/<a class="el" href="_a_a_x_plugin_g_u_i_8cpp.html">AAXPluginGUI.cpp</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate OLD/project_source/source/aax_source/<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2aax__source_2_a_a_x_plugin_g_u_i_8h_source.html">AAXPluginGUI.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/aax_source/<a class="el" href="_plugin_template_2project__source_2source_2aax__source_2_a_a_x_plugin_g_u_i_8h_source.html">AAXPluginGUI.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate OLD/project_source/source/aax_source/<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2aax__source_2_a_a_x_plugin_g_u_i_8cpp.html">AAXPluginGUI.cpp</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/aax_source/<a class="el" href="_plugin_template_2project__source_2source_2aax__source_2_a_a_x_plugin_g_u_i_8cpp.html">AAXPluginGUI.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -101,7 +101,7 @@ $(document).ready(function(){initNavTree('class_v_s_t_g_u_i_1_1_c_vertical_slide
 It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" title="The PluginGUI object that maintains the entire GUI operation and has #defines to use with AAX,...">PluginGUI</a> object for creating custom views.  
  <a href="class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="customcontrols_8h_source.html">customcontrols.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2_custom_controls_2customcontrols_8h_source.html">customcontrols.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for VSTGUI::CVerticalSliderEx:</div>
 <div class="dyncontent">
@@ -123,6 +123,36 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a575fda2d6e03b7cf5f02caddff96d52f"><td class="memItemLeft" align="right" valign="top">virtual CMouseEventResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#a575fda2d6e03b7cf5f02caddff96d52f">onMouseMoved</a> (CPoint &amp;where, const CButtonState &amp;buttons) override</td></tr>
 <tr class="memdesc:a575fda2d6e03b7cf5f02caddff96d52f"><td class="mdescLeft">&#160;</td><td class="mdescRight">handle mouse moved event  <br /></td></tr>
 <tr class="separator:a575fda2d6e03b7cf5f02caddff96d52f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ba848086d718b4d0ac83ac38d7157e1"><td class="memItemLeft" align="right" valign="top"><a id="a0ba848086d718b4d0ac83ac38d7157e1" name="a0ba848086d718b4d0ac83ac38d7157e1"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>checkDefaultValue</b> (CButtonState button)</td></tr>
+<tr class="separator:a0ba848086d718b4d0ac83ac38d7157e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a226c828d777c0f92694892c9efd12068"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#a226c828d777c0f92694892c9efd12068">setSwitchMax</a> (float f)</td></tr>
+<tr class="memdesc:a226c828d777c0f92694892c9efd12068"><td class="mdescLeft">&#160;</td><td class="mdescRight">set max discrete switching value  <br /></td></tr>
+<tr class="separator:a226c828d777c0f92694892c9efd12068"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab70ac983d73f6203a2bb8246e6738b79"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#ab70ac983d73f6203a2bb8246e6738b79">isSwitchSlider</a> ()</td></tr>
+<tr class="memdesc:ab70ac983d73f6203a2bb8246e6738b79"><td class="mdescLeft">&#160;</td><td class="mdescRight">query if control is in "switch" mode  <br /></td></tr>
+<tr class="separator:ab70ac983d73f6203a2bb8246e6738b79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dbdd5c0b9d918eaafa7e5db78bdc6db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#a7dbdd5c0b9d918eaafa7e5db78bdc6db">setSwitchSlider</a> (bool b)</td></tr>
+<tr class="memdesc:a7dbdd5c0b9d918eaafa7e5db78bdc6db"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the control into "switch" mode  <br /></td></tr>
+<tr class="separator:a7dbdd5c0b9d918eaafa7e5db78bdc6db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abef2d40ac89d7cb46fba2c3b0fe3ee1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#abef2d40ac89d7cb46fba2c3b0fe3ee1d">setAAXSlider</a> (bool b)</td></tr>
+<tr class="memdesc:abef2d40ac89d7cb46fba2c3b0fe3ee1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the AAX flag for this control  <br /></td></tr>
+<tr class="separator:abef2d40ac89d7cb46fba2c3b0fe3ee1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc713a3029573fe20e8da3b460488e3e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#abc713a3029573fe20e8da3b460488e3e">isAAXSlider</a> ()</td></tr>
+<tr class="memdesc:abc713a3029573fe20e8da3b460488e3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">query if control wants Pro Tools keyboard modifiers  <br /></td></tr>
+<tr class="separator:abc713a3029573fe20e8da3b460488e3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a960998098c8976c0cc24b32042dc67b7"><td class="memItemLeft" align="right" valign="top"><a id="a960998098c8976c0cc24b32042dc67b7" name="a960998098c8976c0cc24b32042dc67b7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CVerticalSliderEx</b> (const CRect &amp;size, IControlListener *listener, int32_t tag, int32_t iMinPos, int32_t iMaxPos, CBitmap *handle, CBitmap *background, const CPoint &amp;offset=CPoint(0, 0), const int32_t style=kBottom)</td></tr>
+<tr class="separator:a960998098c8976c0cc24b32042dc67b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bfa6570d1ed0dd88c2ec9c835122905"><td class="memItemLeft" align="right" valign="top">CMouseEventResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#a5bfa6570d1ed0dd88c2ec9c835122905">onMouseUp</a> (CPoint &amp;where, const CButtonState &amp;buttons) override</td></tr>
+<tr class="memdesc:a5bfa6570d1ed0dd88c2ec9c835122905"><td class="mdescLeft">&#160;</td><td class="mdescRight">handle mouse up event  <br /></td></tr>
+<tr class="separator:a5bfa6570d1ed0dd88c2ec9c835122905"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2bb3b43f6efdac6fcd6a6b0b813e2b4"><td class="memItemLeft" align="right" valign="top">CMouseEventResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#ab2bb3b43f6efdac6fcd6a6b0b813e2b4">onMouseDown</a> (CPoint &amp;where, const CButtonState &amp;buttons) override</td></tr>
+<tr class="memdesc:ab2bb3b43f6efdac6fcd6a6b0b813e2b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">handle mouse down event  <br /></td></tr>
+<tr class="separator:ab2bb3b43f6efdac6fcd6a6b0b813e2b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae09e8460f77362066a7c047588b36825"><td class="memItemLeft" align="right" valign="top">virtual CMouseEventResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_s_t_g_u_i_1_1_c_vertical_slider_ex.html#ae09e8460f77362066a7c047588b36825">onMouseMoved</a> (CPoint &amp;where, const CButtonState &amp;buttons) override</td></tr>
+<tr class="memdesc:ae09e8460f77362066a7c047588b36825"><td class="mdescLeft">&#160;</td><td class="mdescRight">handle mouse moved event  <br /></td></tr>
+<tr class="separator:ae09e8460f77362066a7c047588b36825"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ba848086d718b4d0ac83ac38d7157e1"><td class="memItemLeft" align="right" valign="top"><a id="a0ba848086d718b4d0ac83ac38d7157e1" name="a0ba848086d718b4d0ac83ac38d7157e1"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>checkDefaultValue</b> (CButtonState button)</td></tr>
 <tr class="separator:a0ba848086d718b4d0ac83ac38d7157e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,7 +193,35 @@ It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" t
 <dl class="section date"><dt>Date</dt><dd>Date : 2018 / 09 / 7 </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="abc713a3029573fe20e8da3b460488e3e" name="abc713a3029573fe20e8da3b460488e3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc713a3029573fe20e8da3b460488e3e">&#9670;&#160;</a></span>isAAXSlider()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abc713a3029573fe20e8da3b460488e3e">&#9670;&#160;</a></span>isAAXSlider() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool VSTGUI::CVerticalSliderEx::isAAXSlider </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>query if control wants Pro Tools keyboard modifiers </p>
+<dl class="section return"><dt>Returns</dt><dd>true if in "switch" mode </dd></dl>
+
+</div>
+</div>
+<a id="abc713a3029573fe20e8da3b460488e3e" name="abc713a3029573fe20e8da3b460488e3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc713a3029573fe20e8da3b460488e3e">&#9670;&#160;</a></span>isAAXSlider() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -191,7 +249,35 @@ It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" t
 </div>
 </div>
 <a id="ab70ac983d73f6203a2bb8246e6738b79" name="ab70ac983d73f6203a2bb8246e6738b79"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab70ac983d73f6203a2bb8246e6738b79">&#9670;&#160;</a></span>isSwitchSlider()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab70ac983d73f6203a2bb8246e6738b79">&#9670;&#160;</a></span>isSwitchSlider() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool VSTGUI::CVerticalSliderEx::isSwitchSlider </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>query if control is in "switch" mode </p>
+<dl class="section return"><dt>Returns</dt><dd>true if in "switch" mode </dd></dl>
+
+</div>
+</div>
+<a id="ab70ac983d73f6203a2bb8246e6738b79" name="ab70ac983d73f6203a2bb8246e6738b79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab70ac983d73f6203a2bb8246e6738b79">&#9670;&#160;</a></span>isSwitchSlider() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -219,7 +305,52 @@ It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" t
 </div>
 </div>
 <a id="ab2bb3b43f6efdac6fcd6a6b0b813e2b4" name="ab2bb3b43f6efdac6fcd6a6b0b813e2b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2bb3b43f6efdac6fcd6a6b0b813e2b4">&#9670;&#160;</a></span>onMouseDown()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2bb3b43f6efdac6fcd6a6b0b813e2b4">&#9670;&#160;</a></span>onMouseDown() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CMouseEventResult VSTGUI::CVerticalSliderEx::onMouseDown </td>
+          <td>(</td>
+          <td class="paramtype">CPoint &amp;&#160;</td>
+          <td class="paramname"><em>where</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const CButtonState &amp;&#160;</td>
+          <td class="paramname"><em>buttons</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>handle mouse down event </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">where</td><td>- coordinates of mouse event </td></tr>
+    <tr><td class="paramname">buttons</td><td>- button state during mouse event </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab2bb3b43f6efdac6fcd6a6b0b813e2b4" name="ab2bb3b43f6efdac6fcd6a6b0b813e2b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2bb3b43f6efdac6fcd6a6b0b813e2b4">&#9670;&#160;</a></span>onMouseDown() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -264,7 +395,7 @@ It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" t
 </div>
 </div>
 <a id="a575fda2d6e03b7cf5f02caddff96d52f" name="a575fda2d6e03b7cf5f02caddff96d52f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a575fda2d6e03b7cf5f02caddff96d52f">&#9670;&#160;</a></span>onMouseMoved()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a575fda2d6e03b7cf5f02caddff96d52f">&#9670;&#160;</a></span>onMouseMoved() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -308,8 +439,98 @@ It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" t
 
 </div>
 </div>
+<a id="ae09e8460f77362066a7c047588b36825" name="ae09e8460f77362066a7c047588b36825"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae09e8460f77362066a7c047588b36825">&#9670;&#160;</a></span>onMouseMoved() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual CMouseEventResult VSTGUI::CVerticalSliderEx::onMouseMoved </td>
+          <td>(</td>
+          <td class="paramtype">CPoint &amp;&#160;</td>
+          <td class="paramname"><em>where</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const CButtonState &amp;&#160;</td>
+          <td class="paramname"><em>buttons</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>handle mouse moved event </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">where</td><td>- coordinates of mouse event </td></tr>
+    <tr><td class="paramname">buttons</td><td>- button state during mouse event </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a5bfa6570d1ed0dd88c2ec9c835122905" name="a5bfa6570d1ed0dd88c2ec9c835122905"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5bfa6570d1ed0dd88c2ec9c835122905">&#9670;&#160;</a></span>onMouseUp()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bfa6570d1ed0dd88c2ec9c835122905">&#9670;&#160;</a></span>onMouseUp() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CMouseEventResult VSTGUI::CVerticalSliderEx::onMouseUp </td>
+          <td>(</td>
+          <td class="paramtype">CPoint &amp;&#160;</td>
+          <td class="paramname"><em>where</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const CButtonState &amp;&#160;</td>
+          <td class="paramname"><em>buttons</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>handle mouse up event </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">where</td><td>- coordinates of mouse event </td></tr>
+    <tr><td class="paramname">buttons</td><td>- button state during mouse event </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5bfa6570d1ed0dd88c2ec9c835122905" name="a5bfa6570d1ed0dd88c2ec9c835122905"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bfa6570d1ed0dd88c2ec9c835122905">&#9670;&#160;</a></span>onMouseUp() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -354,7 +575,41 @@ It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" t
 </div>
 </div>
 <a id="abef2d40ac89d7cb46fba2c3b0fe3ee1d" name="abef2d40ac89d7cb46fba2c3b0fe3ee1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abef2d40ac89d7cb46fba2c3b0fe3ee1d">&#9670;&#160;</a></span>setAAXSlider()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abef2d40ac89d7cb46fba2c3b0fe3ee1d">&#9670;&#160;</a></span>setAAXSlider() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VSTGUI::CVerticalSliderEx::setAAXSlider </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>sets the AAX flag for this control </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td>flag to enable AAX mode </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abef2d40ac89d7cb46fba2c3b0fe3ee1d" name="abef2d40ac89d7cb46fba2c3b0fe3ee1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abef2d40ac89d7cb46fba2c3b0fe3ee1d">&#9670;&#160;</a></span>setAAXSlider() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -388,7 +643,41 @@ It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" t
 </div>
 </div>
 <a id="a226c828d777c0f92694892c9efd12068" name="a226c828d777c0f92694892c9efd12068"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a226c828d777c0f92694892c9efd12068">&#9670;&#160;</a></span>setSwitchMax()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a226c828d777c0f92694892c9efd12068">&#9670;&#160;</a></span>setSwitchMax() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VSTGUI::CVerticalSliderEx::setSwitchMax </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>set max discrete switching value </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>- the max value as a float </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a226c828d777c0f92694892c9efd12068" name="a226c828d777c0f92694892c9efd12068"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a226c828d777c0f92694892c9efd12068">&#9670;&#160;</a></span>setSwitchMax() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -422,7 +711,41 @@ It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" t
 </div>
 </div>
 <a id="a7dbdd5c0b9d918eaafa7e5db78bdc6db" name="a7dbdd5c0b9d918eaafa7e5db78bdc6db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7dbdd5c0b9d918eaafa7e5db78bdc6db">&#9670;&#160;</a></span>setSwitchSlider()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dbdd5c0b9d918eaafa7e5db78bdc6db">&#9670;&#160;</a></span>setSwitchSlider() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VSTGUI::CVerticalSliderEx::setSwitchSlider </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>sets the control into "switch" mode </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td>flag to enable switch mode </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7dbdd5c0b9d918eaafa7e5db78bdc6db" name="a7dbdd5c0b9d918eaafa7e5db78bdc6db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dbdd5c0b9d918eaafa7e5db78bdc6db">&#9670;&#160;</a></span>setSwitchSlider() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -456,8 +779,10 @@ It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" t
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/CustomControls/<a class="el" href="customcontrols_8h_source.html">customcontrols.h</a></li>
-<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/CustomControls/<a class="el" href="customcontrols_8cpp.html">customcontrols.cpp</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate OLD/project_source/source/CustomControls/<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2_custom_controls_2customcontrols_8h_source.html">customcontrols.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/CustomControls/<a class="el" href="_plugin_template_2project__source_2source_2_custom_controls_2customcontrols_8h_source.html">customcontrols.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate OLD/project_source/source/CustomControls/<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2_custom_controls_2customcontrols_8cpp.html">customcontrols.cpp</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/CustomControls/<a class="el" href="_plugin_template_2project__source_2source_2_custom_controls_2customcontrols_8cpp.html">customcontrols.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

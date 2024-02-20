@@ -29,7 +29,7 @@ var group___structures =
     [ "GUIParameter", "struct_g_u_i_parameter.html", [
       [ "actualValue", "struct_g_u_i_parameter.html#a54d6dcf9ffc06a099e1a35c82d3cea04", null ],
       [ "controlID", "struct_g_u_i_parameter.html#ad7bf0b980e5948c8d4c54bf95acf3197", null ],
-      [ "customData", "struct_g_u_i_parameter.html#ab4721668679a39bbfb1be9304b2d3d6b", null ],
+      [ "customData", "struct_g_u_i_parameter.html#a5d6475778715d787bbce87f54db19604", null ],
       [ "useCustomData", "struct_g_u_i_parameter.html#a98bd24e1e3910f9409f66fdfa95948e6", null ]
     ] ],
     [ "PresetParameter", "struct_preset_parameter.html", [
@@ -37,8 +37,8 @@ var group___structures =
       [ "controlID", "struct_preset_parameter.html#a41c0bd10fbfb6f0a05d25faba82f9a69", null ]
     ] ],
     [ "GUIUpdateData", "struct_g_u_i_update_data.html", [
-      [ "customData", "struct_g_u_i_update_data.html#a4fcf5f0341e8174828c41ca1df53f4f0", null ],
-      [ "guiParameters", "struct_g_u_i_update_data.html#aadb8ea3fc69eb2db8a49c4f7baf18227", null ],
+      [ "customData", "struct_g_u_i_update_data.html#a9c0b7e09c1f96d58e167d0ee44e4394d", null ],
+      [ "guiParameters", "struct_g_u_i_update_data.html#af290fe243b30391d9a653fd1897dd4a9", null ],
       [ "guiUpdateCode", "struct_g_u_i_update_data.html#ab65209d8d0f8d8b7580a3ebda25febb6", null ],
       [ "useCustomData", "struct_g_u_i_update_data.html#a1fca5111f4691ac3a7fc5386d4d95366", null ]
     ] ],
@@ -64,22 +64,23 @@ var group___structures =
       [ "midiSampleOffset", "structmidi_event.html#ae90361b2d3743386203b34fc0edaf1dc", null ]
     ] ],
     [ "MessageInfo", "struct_message_info.html", [
-      [ "inMessageData", "struct_message_info.html#a7a5400b80ef813190902ad1b96a20f72", null ],
+      [ "inMessageData", "struct_message_info.html#a16f5cdb5d9edf186bc8edef091d090e3", null ],
       [ "inMessageString", "struct_message_info.html#ab0600e93ca0b692670c301a269d64c56", null ],
       [ "message", "struct_message_info.html#a7c1c6e0a9d8d1bfdc9447e384473cf0f", null ],
-      [ "outMessageData", "struct_message_info.html#ab8b9329ae8cd1e139762c990103e92c3", null ],
+      [ "outMessageData", "struct_message_info.html#a47ea97c49776fcbe6723bca9ea70eeb6", null ],
       [ "outMessageString", "struct_message_info.html#afcebdd29faa8206b43eccf3cb3952802", null ]
     ] ],
     [ "PluginInfo", "struct_plugin_info.html", [
       [ "operator=", "struct_plugin_info.html#a9bbf885c550fcd19e3bfd811ddb161cf", null ],
-      [ "pathToDLL", "struct_plugin_info.html#af7b3465ce918fe67f78d2a363c9b86bc", null ]
+      [ "operator=", "struct_plugin_info.html#a9bbf885c550fcd19e3bfd811ddb161cf", null ],
+      [ "pathToDLL", "struct_plugin_info.html#a88e0d719d1b3af18d180f3e3bf8a368c", null ]
     ] ],
     [ "CreateGUIInfo", "struct_create_g_u_i_info.html", [
-      [ "guiPluginConnector", "struct_create_g_u_i_info.html#a843444480eff85f1010ba87eefb889d7", null ],
-      [ "guiWindowFrame", "struct_create_g_u_i_info.html#acafce4a80e6d9e1381562adae234f090", null ],
+      [ "guiPluginConnector", "struct_create_g_u_i_info.html#aaac27bae9758ecf970bac73643ffc0f3", null ],
+      [ "guiWindowFrame", "struct_create_g_u_i_info.html#ae6e5719bd95a71beaee2659450fa49e9", null ],
       [ "height", "struct_create_g_u_i_info.html#aeba4a45374a8698a1309b86a9c493ef0", null ],
       [ "width", "struct_create_g_u_i_info.html#a0fa20e48fc37c0aa1f76dc63d82e55c7", null ],
-      [ "window", "struct_create_g_u_i_info.html#abab980b6c1b50afb2628102a5e44c921", null ]
+      [ "window", "struct_create_g_u_i_info.html#a62d2499ec22c2254ae6b3c91eafe0771", null ]
     ] ],
     [ "ParameterUpdateInfo", "struct_parameter_update_info.html", [
       [ "applyTaper", "struct_parameter_update_info.html#ac84271d0aea968878dcd42aca7c4ee88", null ],
@@ -123,34 +124,35 @@ var group___structures =
     ] ],
     [ "ProcessBlockInfo", "struct_process_block_info.html", [
       [ "pushMidiEvent", "struct_process_block_info.html#af4c3704216cce276783d9c40c504bc13", null ],
+      [ "pushMidiEvent", "struct_process_block_info.html#af4c3704216cce276783d9c40c504bc13", null ],
       [ "absoluteBufferTime_Sec", "struct_process_block_info.html#a92f3a1ed87f88c1f6fbc435a33c88f55", null ],
-      [ "auxInputs", "struct_process_block_info.html#a5a30bb5ef99104f7e18d1bef65622250", null ],
-      [ "auxOutputs", "struct_process_block_info.html#a380fade762a171a34daa525149c62018", null ],
+      [ "auxInputs", "struct_process_block_info.html#ab33d2f412edfc8a22cec864b220ed222", null ],
+      [ "auxOutputs", "struct_process_block_info.html#a3416c84f6f1f514ee0b5e8e743a5c6d6", null ],
       [ "blockEndIndex", "struct_process_block_info.html#afd9bffb105baabc65d3cb8f2c5e64c89", null ],
       [ "blockSize", "struct_process_block_info.html#a1b5024b61e65f51c2ae02b6a3471b38e", null ],
       [ "blockStartIndex", "struct_process_block_info.html#aeb00318122b03f3187fdc3e097372e21", null ],
       [ "BPM", "struct_process_block_info.html#a076a33b59fb9e490229fd76949b244ea", null ],
       [ "currentBlock", "struct_process_block_info.html#a83e80ec63b733c2dd001a040c38cc95f", null ],
-      [ "inputs", "struct_process_block_info.html#a24833f51b0d750f1a76d70bdfe5baaa2", null ],
-      [ "midiEventList", "struct_process_block_info.html#ad8563abdea15b1a51498ff0eff3df77c", null ],
+      [ "inputs", "struct_process_block_info.html#a2e1a7f25e1cb418ccb1f111706cba3c6", null ],
+      [ "midiEventList", "struct_process_block_info.html#a08d70194c29c09a743842de7dd96c395", null ],
       [ "numAudioInChannels", "struct_process_block_info.html#ae1bd5e678e97a38a09d55eb2d6055766", null ],
       [ "numAudioOutChannels", "struct_process_block_info.html#a424d9a21ebeef2165af8f4006f7140dd", null ],
       [ "numAuxAudioInChannels", "struct_process_block_info.html#a078d12da0e6558fbb7f5dcd14fbb4b0d", null ],
       [ "numAuxAudioOutChannels", "struct_process_block_info.html#a094f61a4d2cee23b951de2244afa0521", null ],
-      [ "outputs", "struct_process_block_info.html#a3be96679452dc79a230276aa61d0e702", null ],
+      [ "outputs", "struct_process_block_info.html#a3fab69f03c194f7165a3fadbf64767b8", null ],
       [ "timeSigDenomintor", "struct_process_block_info.html#ae4d5b482f8f63f6919fdde942daae513", null ],
       [ "timeSigNumerator", "struct_process_block_info.html#af5cc04c285383f941cae344638a1d04d", null ]
     ] ],
     [ "ProcessBufferInfo", "struct_process_buffer_info.html", [
       [ "auxChannelIOConfig", "struct_process_buffer_info.html#ad308e673fa949196eb43abb58f0d3cba", null ],
-      [ "auxInputs", "struct_process_buffer_info.html#a03013538976c3d0ea252e154b962720b", null ],
-      [ "auxOutputs", "struct_process_buffer_info.html#a963698dbd8c42f30b4939f4f211429af", null ],
+      [ "auxInputs", "struct_process_buffer_info.html#a82476f9194ebd0786f3881bb7b6fbac5", null ],
+      [ "auxOutputs", "struct_process_buffer_info.html#aed9994e270071851f3e2e493d883dcd2", null ],
       [ "channelIOConfig", "struct_process_buffer_info.html#a39ed2bf93f061d0db910b51b06e2ee84", null ],
-      [ "controlSignalInputs", "struct_process_buffer_info.html#a8ce7202325b7b76ece23f30c3aac630e", null ],
-      [ "controlSignalOutputs", "struct_process_buffer_info.html#acbfe9baacbe3dc00571f8514f4808b08", null ],
-      [ "hostInfo", "struct_process_buffer_info.html#a63ca4595a470da7280afa2f12e9da84e", null ],
-      [ "inputs", "struct_process_buffer_info.html#ac5d0dbc0a1c1c9439b470eca8563eb05", null ],
-      [ "midiEventQueue", "struct_process_buffer_info.html#aef9cd18d49609fb4c6138c39a1a41b41", null ],
+      [ "controlSignalInputs", "struct_process_buffer_info.html#a812e98428da29b675b27fe75f58ab0cb", null ],
+      [ "controlSignalOutputs", "struct_process_buffer_info.html#ae8923f452f9ee9cf5f5e691abcccf01b", null ],
+      [ "hostInfo", "struct_process_buffer_info.html#acee54e5431e86bc88c614b61ad5c14f7", null ],
+      [ "inputs", "struct_process_buffer_info.html#a84e61ee1e4c2f63bafc10d2aea32dbb9", null ],
+      [ "midiEventQueue", "struct_process_buffer_info.html#a83bd7de23a65e020cc3b6aa07b008679", null ],
       [ "numAudioInChannels", "struct_process_buffer_info.html#ad76c78b8c7a258a9600fa6b598e85193", null ],
       [ "numAudioOutChannels", "struct_process_buffer_info.html#a05a1b6a0b01e0311c8deb22b4408a2e8", null ],
       [ "numAuxAudioInChannels", "struct_process_buffer_info.html#a3d1f5a60fe464e2c2754f59bde260b22", null ],
@@ -158,20 +160,20 @@ var group___structures =
       [ "numControlSignalInputs", "struct_process_buffer_info.html#ac668652cbd85504224de4356adc3fdef", null ],
       [ "numControlSignalOutputs", "struct_process_buffer_info.html#aeb78586f3c1cac78acbfd328f5261d7d", null ],
       [ "numFramesToProcess", "struct_process_buffer_info.html#acc3f06c16f0288c6cbb00c96dc7b1704", null ],
-      [ "outputs", "struct_process_buffer_info.html#afa906063c766e3d6e6f6db1f8b36491b", null ]
+      [ "outputs", "struct_process_buffer_info.html#a1180224e6344a2043f4a64849f1a0bdb", null ]
     ] ],
     [ "ProcessFrameInfo", "struct_process_frame_info.html", [
-      [ "audioInputFrame", "struct_process_frame_info.html#aae28aeb7378c9e8ccf761eb78450f639", null ],
-      [ "audioOutputFrame", "struct_process_frame_info.html#ac2f3460dbe185828412be53276451b72", null ],
-      [ "auxAudioInputFrame", "struct_process_frame_info.html#a8797dc475453f5aa84ed5bd09c187de6", null ],
-      [ "auxAudioOutputFrame", "struct_process_frame_info.html#aad142e1ae00dc93954f84612c97f7672", null ],
+      [ "audioInputFrame", "struct_process_frame_info.html#a736f1126549ad3b02143acef09ea0a75", null ],
+      [ "audioOutputFrame", "struct_process_frame_info.html#add687ca4b8292cb56ace769fe8b3bc81", null ],
+      [ "auxAudioInputFrame", "struct_process_frame_info.html#a9c6095fefb88c443f19499dc5e15655f", null ],
+      [ "auxAudioOutputFrame", "struct_process_frame_info.html#a2917fa21d3a236400b68994db615fa45", null ],
       [ "auxChannelIOConfig", "struct_process_frame_info.html#a763b47564368f610ab444b63e11a8638", null ],
       [ "channelIOConfig", "struct_process_frame_info.html#a6826568d1c6702a7d5f7ded05d5d874d", null ],
-      [ "controlSignalInputs", "struct_process_frame_info.html#a4aa496615cb5eb454b385c3372d25110", null ],
-      [ "controlSignalOutputs", "struct_process_frame_info.html#a6aa1b82b59d6dd103499c4b8ff44dfb9", null ],
+      [ "controlSignalInputs", "struct_process_frame_info.html#a1e8db1fd57e9477449e59a2986c52ed1", null ],
+      [ "controlSignalOutputs", "struct_process_frame_info.html#aa4f2413e2ac0cd504192d57a3851d38e", null ],
       [ "currentFrame", "struct_process_frame_info.html#ac1bd78d5fbc47f8907e8cd865e475133", null ],
-      [ "hostInfo", "struct_process_frame_info.html#afe2b0e5ef8d3439a30b1265e2aa61981", null ],
-      [ "midiEventQueue", "struct_process_frame_info.html#a2a15adb10881fe1b8d726d945fdadae7", null ],
+      [ "hostInfo", "struct_process_frame_info.html#a34bf83744501af07a9ce4a2cedd52760", null ],
+      [ "midiEventQueue", "struct_process_frame_info.html#aa529a2ac5bc884dac066292ed510b4af", null ],
       [ "numAudioInChannels", "struct_process_frame_info.html#a97abf46e9dd7d5a3d89a9e725ae0385f", null ],
       [ "numAudioOutChannels", "struct_process_frame_info.html#a01fe9fa027d656c7e3ecd85b25cec8fb", null ],
       [ "numAuxAudioInChannels", "struct_process_frame_info.html#a9908865c214d614a354d4ba3f19a2ef7", null ],
@@ -185,6 +187,8 @@ var group___structures =
     ] ],
     [ "PluginDescriptor", "struct_plugin_descriptor.html", [
       [ "getChannelCountForChannelIOConfig", "struct_plugin_descriptor.html#abe98bb7682583e5a61a072e39b9a7c31", null ],
+      [ "getChannelCountForChannelIOConfig", "struct_plugin_descriptor.html#abe98bb7682583e5a61a072e39b9a7c31", null ],
+      [ "getDefaultChannelIOConfigForChannelCount", "struct_plugin_descriptor.html#aa6bd169d64e4c01bf45e58e6a1f61c6e", null ],
       [ "getDefaultChannelIOConfigForChannelCount", "struct_plugin_descriptor.html#aa6bd169d64e4c01bf45e58e6a1f61c6e", null ],
       [ "hasCustomGUI", "struct_plugin_descriptor.html#a74bbdbee3288fbad938c6916ecec3120", null ],
       [ "hasSidechain", "struct_plugin_descriptor.html#adf61c75c5ac59e18f26c6b613c8335c5", null ],

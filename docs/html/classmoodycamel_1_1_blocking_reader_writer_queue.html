@@ -134,9 +134,46 @@ AE_FORCEINLINE bool&#160;</td><td class="memItemRight" valign="bottom"><b>pop</b
 <tr class="memitem:a25c6ab86ca4ad90dda99dba12124596b"><td class="memItemLeft" align="right" valign="top"><a id="a25c6ab86ca4ad90dda99dba12124596b" name="a25c6ab86ca4ad90dda99dba12124596b"></a>
 AE_FORCEINLINE size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size_approx</b> () const</td></tr>
 <tr class="separator:a25c6ab86ca4ad90dda99dba12124596b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49e5773a7f9ba3d65c0752f5b6f38400"><td class="memItemLeft" align="right" valign="top"><a id="a49e5773a7f9ba3d65c0752f5b6f38400" name="a49e5773a7f9ba3d65c0752f5b6f38400"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>BlockingReaderWriterQueue</b> (size_t maxSize=15)</td></tr>
+<tr class="separator:a49e5773a7f9ba3d65c0752f5b6f38400"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a469b5c5a91b39ad691159e85320cb273"><td class="memItemLeft" align="right" valign="top"><a id="a469b5c5a91b39ad691159e85320cb273" name="a469b5c5a91b39ad691159e85320cb273"></a>
+AE_FORCEINLINE bool&#160;</td><td class="memItemRight" valign="bottom"><b>try_enqueue</b> (T const &amp;element)</td></tr>
+<tr class="separator:a469b5c5a91b39ad691159e85320cb273"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a165fb014296caa9db8286e025f5ea71b"><td class="memItemLeft" align="right" valign="top"><a id="a165fb014296caa9db8286e025f5ea71b" name="a165fb014296caa9db8286e025f5ea71b"></a>
+AE_FORCEINLINE bool&#160;</td><td class="memItemRight" valign="bottom"><b>try_enqueue</b> (T &amp;&amp;element)</td></tr>
+<tr class="separator:a165fb014296caa9db8286e025f5ea71b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a165896a93eb9f9f76a3d33bdbb39c1dd"><td class="memItemLeft" align="right" valign="top"><a id="a165896a93eb9f9f76a3d33bdbb39c1dd" name="a165896a93eb9f9f76a3d33bdbb39c1dd"></a>
+AE_FORCEINLINE bool&#160;</td><td class="memItemRight" valign="bottom"><b>enqueue</b> (T const &amp;element)</td></tr>
+<tr class="separator:a165896a93eb9f9f76a3d33bdbb39c1dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac906aaea83d4bcbecaf3fb46753d5380"><td class="memItemLeft" align="right" valign="top"><a id="ac906aaea83d4bcbecaf3fb46753d5380" name="ac906aaea83d4bcbecaf3fb46753d5380"></a>
+AE_FORCEINLINE bool&#160;</td><td class="memItemRight" valign="bottom"><b>enqueue</b> (T &amp;&amp;element)</td></tr>
+<tr class="separator:ac906aaea83d4bcbecaf3fb46753d5380"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a991df0aff00ce8a7c341e9fdd577f9f8"><td class="memTemplParams" colspan="2"><a id="a991df0aff00ce8a7c341e9fdd577f9f8" name="a991df0aff00ce8a7c341e9fdd577f9f8"></a>
+template&lt;typename U &gt; </td></tr>
+<tr class="memitem:a991df0aff00ce8a7c341e9fdd577f9f8"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>try_dequeue</b> (U &amp;result)</td></tr>
+<tr class="separator:a991df0aff00ce8a7c341e9fdd577f9f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4616457ce44d363d52b068001c31ae36"><td class="memTemplParams" colspan="2"><a id="a4616457ce44d363d52b068001c31ae36" name="a4616457ce44d363d52b068001c31ae36"></a>
+template&lt;typename U &gt; </td></tr>
+<tr class="memitem:a4616457ce44d363d52b068001c31ae36"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>wait_dequeue</b> (U &amp;result)</td></tr>
+<tr class="separator:a4616457ce44d363d52b068001c31ae36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d8e2851b594285ea6b6a7a342249ead"><td class="memTemplParams" colspan="2"><a id="a9d8e2851b594285ea6b6a7a342249ead" name="a9d8e2851b594285ea6b6a7a342249ead"></a>
+template&lt;typename U &gt; </td></tr>
+<tr class="memitem:a9d8e2851b594285ea6b6a7a342249ead"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>wait_dequeue_timed</b> (U &amp;result, std::int64_t timeout_usecs)</td></tr>
+<tr class="separator:a9d8e2851b594285ea6b6a7a342249ead"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a035891deaa91e54413faec0d14dd6faa"><td class="memItemLeft" align="right" valign="top"><a id="a035891deaa91e54413faec0d14dd6faa" name="a035891deaa91e54413faec0d14dd6faa"></a>
+AE_FORCEINLINE T *&#160;</td><td class="memItemRight" valign="bottom"><b>peek</b> ()</td></tr>
+<tr class="separator:a035891deaa91e54413faec0d14dd6faa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29d109d74bcbbefce705b5c8894f9855"><td class="memItemLeft" align="right" valign="top"><a id="a29d109d74bcbbefce705b5c8894f9855" name="a29d109d74bcbbefce705b5c8894f9855"></a>
+AE_FORCEINLINE bool&#160;</td><td class="memItemRight" valign="bottom"><b>pop</b> ()</td></tr>
+<tr class="separator:a29d109d74bcbbefce705b5c8894f9855"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25c6ab86ca4ad90dda99dba12124596b"><td class="memItemLeft" align="right" valign="top"><a id="a25c6ab86ca4ad90dda99dba12124596b" name="a25c6ab86ca4ad90dda99dba12124596b"></a>
+AE_FORCEINLINE size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size_approx</b> () const</td></tr>
+<tr class="separator:a25c6ab86ca4ad90dda99dba12124596b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/CustomControls/<a class="el" href="readerwriterqueue_8h_source.html">readerwriterqueue.h</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate OLD/project_source/source/CustomControls/<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2_custom_controls_2readerwriterqueue_8h_source.html">readerwriterqueue.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/CustomControls/<a class="el" href="_plugin_template_2project__source_2source_2_custom_controls_2readerwriterqueue_8h_source.html">readerwriterqueue.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -5,6 +5,5 @@ var dir_21758bb7fe474386c218e45c87f87071 =
     [ "CustomControls", "dir_b9f3b0715848f955f266e81bbc6e369c.html", "dir_b9f3b0715848f955f266e81bbc6e369c" ],
     [ "FFTW", "dir_e4aeb654ae3098fa51705e148ba0e8ba.html", "dir_e4aeb654ae3098fa51705e148ba0e8ba" ],
     [ "PluginKernel", "dir_4df31239fcfbd62b97a232ec2098d296.html", "dir_4df31239fcfbd62b97a232ec2098d296" ],
-    [ "PluginObjects", "dir_91c182b8fdc6ac24ff012fda31301b27.html", "dir_91c182b8fdc6ac24ff012fda31301b27" ],
     [ "vst_source", "dir_40d5393edd05a8b50415650d8aaf5846.html", "dir_40d5393edd05a8b50415650d8aaf5846" ]
 ];

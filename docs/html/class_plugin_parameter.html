@@ -101,7 +101,7 @@ $(document).ready(function(){initNavTree('class_plugin_parameter.html',''); init
 <p>The <a class="el" href="class_plugin_parameter.html" title="The PluginParameter object stores all of the data needed for any type of plugin parameter....">PluginParameter</a> object stores all of the data needed for any type of plugin parameter. It is a large object, but it is not complex as it really just stores LOTS of information about plugin parameters.  
  <a href="class_plugin_parameter.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="pluginparameter_8h_source.html">pluginparameter.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2_plugin_kernel_2pluginparameter_8h_source.html">pluginparameter.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -427,9 +427,382 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setStringList</b> (st
 <tr class="separator:a49e3ac3789ab2a371cf865868e8c80c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57d6ff3018e2829667549e1a7acdd566"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_plugin_parameter.html">PluginParameter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a57d6ff3018e2829667549e1a7acdd566">operator=</a> (const <a class="el" href="class_plugin_parameter.html">PluginParameter</a> &amp;aPluginParameter)</td></tr>
 <tr class="separator:a57d6ff3018e2829667549e1a7acdd566"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0032818ce49c77f11f2cdc02ab72b39"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#ac0032818ce49c77f11f2cdc02ab72b39">PluginParameter</a> (int _controlID, const char *_controlName, const char *_controlUnits, <a class="el" href="group___constants-_enums.html#ga5662de719b542fc93b850bea1bae81f7">controlVariableType</a> _controlType, double _minValue, double _maxValue, double _defaultValue, <a class="el" href="group___constants-_enums.html#ga7ebd094a1b90d5b66ad4022a86b19b68">taper</a> _controlTaper=taper::kLinearTaper, uint32_t _displayPrecision=2)</td></tr>
+<tr class="separator:ac0032818ce49c77f11f2cdc02ab72b39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac73ae5de116c72ade5f052623d122dd9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#ac73ae5de116c72ade5f052623d122dd9">PluginParameter</a> (int _controlID, const char *_controlName, std::vector&lt; std::string &gt; _stringList, std::string _defaultString)</td></tr>
+<tr class="separator:ac73ae5de116c72ade5f052623d122dd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad62706d3fdd2f5264feac27a7cf2b4d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#ad62706d3fdd2f5264feac27a7cf2b4d9">PluginParameter</a> (int _controlID, const char *_controlName, const char *_commaSeparatedList, std::string _defaultString)</td></tr>
+<tr class="separator:ad62706d3fdd2f5264feac27a7cf2b4d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e73ee9e99070d03a5dad930ca08b664"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a4e73ee9e99070d03a5dad930ca08b664">PluginParameter</a> (int _controlID, const char *_controlName, double _meterAttack_ms, double _meterRelease_ms, uint32_t _detectorMode, <a class="el" href="group___constants-_enums.html#ga5b7e8550d6a907a6f6a0784a779a56be">meterCal</a> _meterCal=meterCal::kLinearMeter)</td></tr>
+<tr class="separator:a4e73ee9e99070d03a5dad930ca08b664"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77900390db061243eec28f3f3aea2693"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a77900390db061243eec28f3f3aea2693">PluginParameter</a> (int _controlID, const char *_controlName=&quot;&quot;, <a class="el" href="group___constants-_enums.html#ga5662de719b542fc93b850bea1bae81f7">controlVariableType</a> _controlType=controlVariableType::kNonVariableBoundControl)</td></tr>
+<tr class="separator:a77900390db061243eec28f3f3aea2693"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e849c65cc708167fac04166ee3cf8c5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a8e849c65cc708167fac04166ee3cf8c5">PluginParameter</a> ()</td></tr>
+<tr class="separator:a8e849c65cc708167fac04166ee3cf8c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27d0b8722cb1891e15665fd4c164ec13"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a27d0b8722cb1891e15665fd4c164ec13">PluginParameter</a> (const <a class="el" href="class_plugin_parameter.html">PluginParameter</a> &amp;initGuiControl)</td></tr>
+<tr class="separator:a27d0b8722cb1891e15665fd4c164ec13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71ad18c5787acce6dbcc34157cdb5a00"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a71ad18c5787acce6dbcc34157cdb5a00">~PluginParameter</a> ()</td></tr>
+<tr class="separator:a71ad18c5787acce6dbcc34157cdb5a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34e536754ecbb416f1fbcb7c865a876a"><td class="memItemLeft" align="right" valign="top"><a id="a34e536754ecbb416f1fbcb7c865a876a" name="a34e536754ecbb416f1fbcb7c865a876a"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getControlID</b> ()</td></tr>
+<tr class="memdesc:a34e536754ecbb416f1fbcb7c865a876a"><td class="mdescLeft">&#160;</td><td class="mdescRight">get ID value <br /></td></tr>
+<tr class="separator:a34e536754ecbb416f1fbcb7c865a876a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9c53cbc889efcb471e8f8eef2b3d4b8"><td class="memItemLeft" align="right" valign="top"><a id="aa9c53cbc889efcb471e8f8eef2b3d4b8" name="aa9c53cbc889efcb471e8f8eef2b3d4b8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setControlID</b> (uint32_t cid)</td></tr>
+<tr class="memdesc:aa9c53cbc889efcb471e8f8eef2b3d4b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">set ID value <br /></td></tr>
+<tr class="separator:aa9c53cbc889efcb471e8f8eef2b3d4b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b1fe8707c5b2820728b06713f64c7e4"><td class="memItemLeft" align="right" valign="top"><a id="a7b1fe8707c5b2820728b06713f64c7e4" name="a7b1fe8707c5b2820728b06713f64c7e4"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>getControlName</b> ()</td></tr>
+<tr class="memdesc:a7b1fe8707c5b2820728b06713f64c7e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">get name as const char* <br /></td></tr>
+<tr class="separator:a7b1fe8707c5b2820728b06713f64c7e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a233d1016460cd8ea70565e2d6b1f893a"><td class="memItemLeft" align="right" valign="top"><a id="a233d1016460cd8ea70565e2d6b1f893a" name="a233d1016460cd8ea70565e2d6b1f893a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setControlName</b> (const char *name)</td></tr>
+<tr class="memdesc:a233d1016460cd8ea70565e2d6b1f893a"><td class="mdescLeft">&#160;</td><td class="mdescRight">set name as const char* <br /></td></tr>
+<tr class="separator:a233d1016460cd8ea70565e2d6b1f893a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34d75e906938ba1053b8b22c04c0dcc1"><td class="memItemLeft" align="right" valign="top"><a id="a34d75e906938ba1053b8b22c04c0dcc1" name="a34d75e906938ba1053b8b22c04c0dcc1"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>getControlUnits</b> ()</td></tr>
+<tr class="memdesc:a34d75e906938ba1053b8b22c04c0dcc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">get units as const char* <br /></td></tr>
+<tr class="separator:a34d75e906938ba1053b8b22c04c0dcc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa63e004b3ca64252e4c8bb41834c8c3d"><td class="memItemLeft" align="right" valign="top"><a id="aa63e004b3ca64252e4c8bb41834c8c3d" name="aa63e004b3ca64252e4c8bb41834c8c3d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setControlUnits</b> (const char *units)</td></tr>
+<tr class="memdesc:aa63e004b3ca64252e4c8bb41834c8c3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">set units as const char* <br /></td></tr>
+<tr class="separator:aa63e004b3ca64252e4c8bb41834c8c3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1787ff67ad2068186b85fd6cd697c896"><td class="memItemLeft" align="right" valign="top"><a id="a1787ff67ad2068186b85fd6cd697c896" name="a1787ff67ad2068186b85fd6cd697c896"></a>
+<a class="el" href="group___constants-_enums.html#ga5662de719b542fc93b850bea1bae81f7">controlVariableType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getControlVariableType</b> ()</td></tr>
+<tr class="memdesc:a1787ff67ad2068186b85fd6cd697c896"><td class="mdescLeft">&#160;</td><td class="mdescRight">get variable type associated with parameter <br /></td></tr>
+<tr class="separator:a1787ff67ad2068186b85fd6cd697c896"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af319521f1b7bca41851c9a9c0027fab9"><td class="memItemLeft" align="right" valign="top"><a id="af319521f1b7bca41851c9a9c0027fab9" name="af319521f1b7bca41851c9a9c0027fab9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setControlVariableType</b> (<a class="el" href="group___constants-_enums.html#ga5662de719b542fc93b850bea1bae81f7">controlVariableType</a> ctrlVarType)</td></tr>
+<tr class="memdesc:af319521f1b7bca41851c9a9c0027fab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">set variable type associated with parameter <br /></td></tr>
+<tr class="separator:af319521f1b7bca41851c9a9c0027fab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46d0813598f499a923cfbe894863209b"><td class="memItemLeft" align="right" valign="top"><a id="a46d0813598f499a923cfbe894863209b" name="a46d0813598f499a923cfbe894863209b"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getMinValue</b> ()</td></tr>
+<tr class="memdesc:a46d0813598f499a923cfbe894863209b"><td class="mdescLeft">&#160;</td><td class="mdescRight">get minimum value <br /></td></tr>
+<tr class="separator:a46d0813598f499a923cfbe894863209b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a9757c236d445f60e4c52417c79bbdc"><td class="memItemLeft" align="right" valign="top"><a id="a5a9757c236d445f60e4c52417c79bbdc" name="a5a9757c236d445f60e4c52417c79bbdc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setMinValue</b> (double value)</td></tr>
+<tr class="memdesc:a5a9757c236d445f60e4c52417c79bbdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">set minimum value <br /></td></tr>
+<tr class="separator:a5a9757c236d445f60e4c52417c79bbdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb847b56bb0ab497bc0306dff434cf57"><td class="memItemLeft" align="right" valign="top"><a id="acb847b56bb0ab497bc0306dff434cf57" name="acb847b56bb0ab497bc0306dff434cf57"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getMaxValue</b> ()</td></tr>
+<tr class="memdesc:acb847b56bb0ab497bc0306dff434cf57"><td class="mdescLeft">&#160;</td><td class="mdescRight">get maximum value <br /></td></tr>
+<tr class="separator:acb847b56bb0ab497bc0306dff434cf57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf7f0d6f58256139e7a71bc6f59178fb"><td class="memItemLeft" align="right" valign="top"><a id="adf7f0d6f58256139e7a71bc6f59178fb" name="adf7f0d6f58256139e7a71bc6f59178fb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaxValue</b> (double value)</td></tr>
+<tr class="memdesc:adf7f0d6f58256139e7a71bc6f59178fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">set maximum value <br /></td></tr>
+<tr class="separator:adf7f0d6f58256139e7a71bc6f59178fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5c62dc26a24d2390ad92bb216b43250"><td class="memItemLeft" align="right" valign="top"><a id="ae5c62dc26a24d2390ad92bb216b43250" name="ae5c62dc26a24d2390ad92bb216b43250"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getDefaultValue</b> ()</td></tr>
+<tr class="memdesc:ae5c62dc26a24d2390ad92bb216b43250"><td class="mdescLeft">&#160;</td><td class="mdescRight">get default value <br /></td></tr>
+<tr class="separator:ae5c62dc26a24d2390ad92bb216b43250"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade0df06acc9e5ee8321d55b777981052"><td class="memItemLeft" align="right" valign="top"><a id="ade0df06acc9e5ee8321d55b777981052" name="ade0df06acc9e5ee8321d55b777981052"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setDefaultValue</b> (double value)</td></tr>
+<tr class="memdesc:ade0df06acc9e5ee8321d55b777981052"><td class="mdescLeft">&#160;</td><td class="mdescRight">set default value <br /></td></tr>
+<tr class="separator:ade0df06acc9e5ee8321d55b777981052"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab672a848520183f510ed890308f65c04"><td class="memItemLeft" align="right" valign="top"><a id="ab672a848520183f510ed890308f65c04" name="ab672a848520183f510ed890308f65c04"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>getIsDiscreteSwitch</b> ()</td></tr>
+<tr class="memdesc:ab672a848520183f510ed890308f65c04"><td class="mdescLeft">&#160;</td><td class="mdescRight">set is switch (not used) <br /></td></tr>
+<tr class="separator:ab672a848520183f510ed890308f65c04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2911367d32d0f7e91dd34c5eff8d5c02"><td class="memItemLeft" align="right" valign="top"><a id="a2911367d32d0f7e91dd34c5eff8d5c02" name="a2911367d32d0f7e91dd34c5eff8d5c02"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setIsDiscreteSwitch</b> (bool _isDiscreteSwitch)</td></tr>
+<tr class="memdesc:a2911367d32d0f7e91dd34c5eff8d5c02"><td class="mdescLeft">&#160;</td><td class="mdescRight">get is switch (not used) <br /></td></tr>
+<tr class="separator:a2911367d32d0f7e91dd34c5eff8d5c02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8860c3d091a02e9ba86329eacbcf0fb0"><td class="memItemLeft" align="right" valign="top"><a id="a8860c3d091a02e9ba86329eacbcf0fb0" name="a8860c3d091a02e9ba86329eacbcf0fb0"></a>
+<a class="el" href="group___constants-_enums.html#ga7ebd094a1b90d5b66ad4022a86b19b68">taper</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getControlTaper</b> ()</td></tr>
+<tr class="memdesc:a8860c3d091a02e9ba86329eacbcf0fb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">get taper <br /></td></tr>
+<tr class="separator:a8860c3d091a02e9ba86329eacbcf0fb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d8c98a0555d544f04668f292f21d236"><td class="memItemLeft" align="right" valign="top"><a id="a4d8c98a0555d544f04668f292f21d236" name="a4d8c98a0555d544f04668f292f21d236"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setControlTaper</b> (<a class="el" href="group___constants-_enums.html#ga7ebd094a1b90d5b66ad4022a86b19b68">taper</a> ctrlTaper)</td></tr>
+<tr class="memdesc:a4d8c98a0555d544f04668f292f21d236"><td class="mdescLeft">&#160;</td><td class="mdescRight">set taper <br /></td></tr>
+<tr class="separator:a4d8c98a0555d544f04668f292f21d236"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5586f93167feaf8af54ba9303ea51b79"><td class="memItemLeft" align="right" valign="top"><a id="a5586f93167feaf8af54ba9303ea51b79" name="a5586f93167feaf8af54ba9303ea51b79"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isLinearTaper</b> ()</td></tr>
+<tr class="memdesc:a5586f93167feaf8af54ba9303ea51b79"><td class="mdescLeft">&#160;</td><td class="mdescRight">query: linear taper <br /></td></tr>
+<tr class="separator:a5586f93167feaf8af54ba9303ea51b79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a1fe2afe20f5992ddb0e34b9ef938b5"><td class="memItemLeft" align="right" valign="top"><a id="a3a1fe2afe20f5992ddb0e34b9ef938b5" name="a3a1fe2afe20f5992ddb0e34b9ef938b5"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isLogTaper</b> ()</td></tr>
+<tr class="memdesc:a3a1fe2afe20f5992ddb0e34b9ef938b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">query: log taper <br /></td></tr>
+<tr class="separator:a3a1fe2afe20f5992ddb0e34b9ef938b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac121b698fcd9a9c30d0adb8c09fcf6be"><td class="memItemLeft" align="right" valign="top"><a id="ac121b698fcd9a9c30d0adb8c09fcf6be" name="ac121b698fcd9a9c30d0adb8c09fcf6be"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isAntiLogTaper</b> ()</td></tr>
+<tr class="memdesc:ac121b698fcd9a9c30d0adb8c09fcf6be"><td class="mdescLeft">&#160;</td><td class="mdescRight">query: antilog taper <br /></td></tr>
+<tr class="separator:ac121b698fcd9a9c30d0adb8c09fcf6be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbf64737d94f75cc217a45d98ff6ed6e"><td class="memItemLeft" align="right" valign="top"><a id="abbf64737d94f75cc217a45d98ff6ed6e" name="abbf64737d94f75cc217a45d98ff6ed6e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isVoltOctaveTaper</b> ()</td></tr>
+<tr class="memdesc:abbf64737d94f75cc217a45d98ff6ed6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">query: volt/octave taper <br /></td></tr>
+<tr class="separator:abbf64737d94f75cc217a45d98ff6ed6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c977d067dbb66b6d296c76f9425749e"><td class="memItemLeft" align="right" valign="top"><a id="a4c977d067dbb66b6d296c76f9425749e" name="a4c977d067dbb66b6d296c76f9425749e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isMeterParam</b> ()</td></tr>
+<tr class="memdesc:a4c977d067dbb66b6d296c76f9425749e"><td class="mdescLeft">&#160;</td><td class="mdescRight">query: meter param? <br /></td></tr>
+<tr class="separator:a4c977d067dbb66b6d296c76f9425749e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49345eb4c6082b3823d490f79b5a250b"><td class="memItemLeft" align="right" valign="top"><a id="a49345eb4c6082b3823d490f79b5a250b" name="a49345eb4c6082b3823d490f79b5a250b"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isStringListParam</b> ()</td></tr>
+<tr class="memdesc:a49345eb4c6082b3823d490f79b5a250b"><td class="mdescLeft">&#160;</td><td class="mdescRight">query: string list para,? <br /></td></tr>
+<tr class="separator:a49345eb4c6082b3823d490f79b5a250b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19df3ca64e73b1afab5b6f5ac331f0a0"><td class="memItemLeft" align="right" valign="top"><a id="a19df3ca64e73b1afab5b6f5ac331f0a0" name="a19df3ca64e73b1afab5b6f5ac331f0a0"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isFloatParam</b> ()</td></tr>
+<tr class="memdesc:a19df3ca64e73b1afab5b6f5ac331f0a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">query: float param? <br /></td></tr>
+<tr class="separator:a19df3ca64e73b1afab5b6f5ac331f0a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9c83985a7df3de899078c497285af83"><td class="memItemLeft" align="right" valign="top"><a id="aa9c83985a7df3de899078c497285af83" name="aa9c83985a7df3de899078c497285af83"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isDoubleParam</b> ()</td></tr>
+<tr class="memdesc:aa9c83985a7df3de899078c497285af83"><td class="mdescLeft">&#160;</td><td class="mdescRight">query: double param? <br /></td></tr>
+<tr class="separator:aa9c83985a7df3de899078c497285af83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c3c86d7ac0218ad8d15e4b744b7636a"><td class="memItemLeft" align="right" valign="top"><a id="a5c3c86d7ac0218ad8d15e4b744b7636a" name="a5c3c86d7ac0218ad8d15e4b744b7636a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isIntParam</b> ()</td></tr>
+<tr class="memdesc:a5c3c86d7ac0218ad8d15e4b744b7636a"><td class="mdescLeft">&#160;</td><td class="mdescRight">query: int param? <br /></td></tr>
+<tr class="separator:a5c3c86d7ac0218ad8d15e4b744b7636a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37696e05b3d169605416e55a8a10b606"><td class="memItemLeft" align="right" valign="top"><a id="a37696e05b3d169605416e55a8a10b606" name="a37696e05b3d169605416e55a8a10b606"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isNonVariableBoundParam</b> ()</td></tr>
+<tr class="memdesc:a37696e05b3d169605416e55a8a10b606"><td class="mdescLeft">&#160;</td><td class="mdescRight">query: non-bound param? <br /></td></tr>
+<tr class="separator:a37696e05b3d169605416e55a8a10b606"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bd5391dcfeaa83aa87f24d818ee9938"><td class="memItemLeft" align="right" valign="top"><a id="a5bd5391dcfeaa83aa87f24d818ee9938" name="a5bd5391dcfeaa83aa87f24d818ee9938"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getDisplayPrecision</b> ()</td></tr>
+<tr class="memdesc:a5bd5391dcfeaa83aa87f24d818ee9938"><td class="mdescLeft">&#160;</td><td class="mdescRight">get sig digits <br /></td></tr>
+<tr class="separator:a5bd5391dcfeaa83aa87f24d818ee9938"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6e5bff67e08e47139470fd0e967556a"><td class="memItemLeft" align="right" valign="top"><a id="ac6e5bff67e08e47139470fd0e967556a" name="ac6e5bff67e08e47139470fd0e967556a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setDisplayPrecision</b> (uint32_t precision)</td></tr>
+<tr class="memdesc:ac6e5bff67e08e47139470fd0e967556a"><td class="mdescLeft">&#160;</td><td class="mdescRight">set sig digits <br /></td></tr>
+<tr class="separator:ac6e5bff67e08e47139470fd0e967556a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46029948a1263ca6540b3580c1e73391"><td class="memItemLeft" align="right" valign="top"><a id="a46029948a1263ca6540b3580c1e73391" name="a46029948a1263ca6540b3580c1e73391"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getMeterAttack_ms</b> ()</td></tr>
+<tr class="memdesc:a46029948a1263ca6540b3580c1e73391"><td class="mdescLeft">&#160;</td><td class="mdescRight">get meter attack time (ballistics) <br /></td></tr>
+<tr class="separator:a46029948a1263ca6540b3580c1e73391"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9a6839a81ed89358412ad7b1c10f81b"><td class="memItemLeft" align="right" valign="top"><a id="ac9a6839a81ed89358412ad7b1c10f81b" name="ac9a6839a81ed89358412ad7b1c10f81b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setMeterAttack_ms</b> (double value)</td></tr>
+<tr class="memdesc:ac9a6839a81ed89358412ad7b1c10f81b"><td class="mdescLeft">&#160;</td><td class="mdescRight">set meter attack time (ballistics) <br /></td></tr>
+<tr class="separator:ac9a6839a81ed89358412ad7b1c10f81b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abefb7a65821f85dfba5e0a60f1738120"><td class="memItemLeft" align="right" valign="top"><a id="abefb7a65821f85dfba5e0a60f1738120" name="abefb7a65821f85dfba5e0a60f1738120"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getMeterRelease_ms</b> ()</td></tr>
+<tr class="memdesc:abefb7a65821f85dfba5e0a60f1738120"><td class="mdescLeft">&#160;</td><td class="mdescRight">get meter release time (ballistics) <br /></td></tr>
+<tr class="separator:abefb7a65821f85dfba5e0a60f1738120"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad422b41d51c64e2dd9e48cbc4345a45e"><td class="memItemLeft" align="right" valign="top"><a id="ad422b41d51c64e2dd9e48cbc4345a45e" name="ad422b41d51c64e2dd9e48cbc4345a45e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setMeterRelease_ms</b> (double value)</td></tr>
+<tr class="memdesc:ad422b41d51c64e2dd9e48cbc4345a45e"><td class="mdescLeft">&#160;</td><td class="mdescRight">set meter release time (ballistics) <br /></td></tr>
+<tr class="separator:ad422b41d51c64e2dd9e48cbc4345a45e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbadc6fe7cc346a021a4d675c2ea4177"><td class="memItemLeft" align="right" valign="top"><a id="abbadc6fe7cc346a021a4d675c2ea4177" name="abbadc6fe7cc346a021a4d675c2ea4177"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getDetectorMode</b> ()</td></tr>
+<tr class="memdesc:abbadc6fe7cc346a021a4d675c2ea4177"><td class="mdescLeft">&#160;</td><td class="mdescRight">get meter detect mode <br /></td></tr>
+<tr class="separator:abbadc6fe7cc346a021a4d675c2ea4177"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adda7e624abe05ed29afc0ea8dcb48643"><td class="memItemLeft" align="right" valign="top"><a id="adda7e624abe05ed29afc0ea8dcb48643" name="adda7e624abe05ed29afc0ea8dcb48643"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setMeterDetectorMode</b> (uint32_t value)</td></tr>
+<tr class="memdesc:adda7e624abe05ed29afc0ea8dcb48643"><td class="mdescLeft">&#160;</td><td class="mdescRight">set meter detect mode <br /></td></tr>
+<tr class="separator:adda7e624abe05ed29afc0ea8dcb48643"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac07e014c0352a33b66b2d28bfc47ce76"><td class="memItemLeft" align="right" valign="top"><a id="ac07e014c0352a33b66b2d28bfc47ce76" name="ac07e014c0352a33b66b2d28bfc47ce76"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>getLogMeter</b> ()</td></tr>
+<tr class="memdesc:ac07e014c0352a33b66b2d28bfc47ce76"><td class="mdescLeft">&#160;</td><td class="mdescRight">query log meter flag <br /></td></tr>
+<tr class="separator:ac07e014c0352a33b66b2d28bfc47ce76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3108893ea2a8e60a68ad0c214d52ad5"><td class="memItemLeft" align="right" valign="top"><a id="ac3108893ea2a8e60a68ad0c214d52ad5" name="ac3108893ea2a8e60a68ad0c214d52ad5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setLogMeter</b> (bool value)</td></tr>
+<tr class="memdesc:ac3108893ea2a8e60a68ad0c214d52ad5"><td class="mdescLeft">&#160;</td><td class="mdescRight">set log meter flag <br /></td></tr>
+<tr class="separator:ac3108893ea2a8e60a68ad0c214d52ad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d73cf4d17ba39bfd9080b46e9ed2f83"><td class="memItemLeft" align="right" valign="top"><a id="a0d73cf4d17ba39bfd9080b46e9ed2f83" name="a0d73cf4d17ba39bfd9080b46e9ed2f83"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>getInvertedMeter</b> ()</td></tr>
+<tr class="memdesc:a0d73cf4d17ba39bfd9080b46e9ed2f83"><td class="mdescLeft">&#160;</td><td class="mdescRight">query inverted meter flag <br /></td></tr>
+<tr class="separator:a0d73cf4d17ba39bfd9080b46e9ed2f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1b5d29011ed6e6f48f35deead10b57c"><td class="memItemLeft" align="right" valign="top"><a id="af1b5d29011ed6e6f48f35deead10b57c" name="af1b5d29011ed6e6f48f35deead10b57c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setInvertedMeter</b> (bool value)</td></tr>
+<tr class="memdesc:af1b5d29011ed6e6f48f35deead10b57c"><td class="mdescLeft">&#160;</td><td class="mdescRight">set inverted meter flag <br /></td></tr>
+<tr class="separator:af1b5d29011ed6e6f48f35deead10b57c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8d13ef7825b2b2d2c060edeef081e74"><td class="memItemLeft" align="right" valign="top"><a id="ae8d13ef7825b2b2d2c060edeef081e74" name="ae8d13ef7825b2b2d2c060edeef081e74"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isProtoolsGRMeter</b> ()</td></tr>
+<tr class="memdesc:ae8d13ef7825b2b2d2c060edeef081e74"><td class="mdescLeft">&#160;</td><td class="mdescRight">query pro tools GR meter flag <br /></td></tr>
+<tr class="separator:ae8d13ef7825b2b2d2c060edeef081e74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b558903d59dcee7fab45ac51cb342e3"><td class="memItemLeft" align="right" valign="top"><a id="a7b558903d59dcee7fab45ac51cb342e3" name="a7b558903d59dcee7fab45ac51cb342e3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setIsProtoolsGRMeter</b> (bool value)</td></tr>
+<tr class="memdesc:a7b558903d59dcee7fab45ac51cb342e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">set inverted meter flag <br /></td></tr>
+<tr class="separator:a7b558903d59dcee7fab45ac51cb342e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c65005bc08a6dae8ad4a70410ed4c4c"><td class="memItemLeft" align="right" valign="top"><a id="a2c65005bc08a6dae8ad4a70410ed4c4c" name="a2c65005bc08a6dae8ad4a70410ed4c4c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>getParameterSmoothing</b> ()</td></tr>
+<tr class="memdesc:a2c65005bc08a6dae8ad4a70410ed4c4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">query parameter smoothing flag <br /></td></tr>
+<tr class="separator:a2c65005bc08a6dae8ad4a70410ed4c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93dad92b04068eaa9c496f6c3dd87285"><td class="memItemLeft" align="right" valign="top"><a id="a93dad92b04068eaa9c496f6c3dd87285" name="a93dad92b04068eaa9c496f6c3dd87285"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setParameterSmoothing</b> (bool value)</td></tr>
+<tr class="memdesc:a93dad92b04068eaa9c496f6c3dd87285"><td class="mdescLeft">&#160;</td><td class="mdescRight">set inverted meter flag <br /></td></tr>
+<tr class="separator:a93dad92b04068eaa9c496f6c3dd87285"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65db515bd0f363e28b6c6c198ae0b852"><td class="memItemLeft" align="right" valign="top"><a id="a65db515bd0f363e28b6c6c198ae0b852" name="a65db515bd0f363e28b6c6c198ae0b852"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getSmoothingTimeMsec</b> ()</td></tr>
+<tr class="memdesc:a65db515bd0f363e28b6c6c198ae0b852"><td class="mdescLeft">&#160;</td><td class="mdescRight">query smoothing time <br /></td></tr>
+<tr class="separator:a65db515bd0f363e28b6c6c198ae0b852"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab66eb7de5587d1725d2e74c925e919d6"><td class="memItemLeft" align="right" valign="top"><a id="ab66eb7de5587d1725d2e74c925e919d6" name="ab66eb7de5587d1725d2e74c925e919d6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setSmoothingTimeMsec</b> (double value)</td></tr>
+<tr class="memdesc:ab66eb7de5587d1725d2e74c925e919d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">set inverted meter flag <br /></td></tr>
+<tr class="separator:ab66eb7de5587d1725d2e74c925e919d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0cc2acda7cd2938ad488b8495af01a9"><td class="memItemLeft" align="right" valign="top"><a id="ad0cc2acda7cd2938ad488b8495af01a9" name="ad0cc2acda7cd2938ad488b8495af01a9"></a>
+<a class="el" href="group___constants-_enums.html#ga4cfbd15c3638e96f0b1b5527f6bb6fa8">smoothingMethod</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getSmoothingMethod</b> ()</td></tr>
+<tr class="memdesc:ad0cc2acda7cd2938ad488b8495af01a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">query smoothing method <br /></td></tr>
+<tr class="separator:ad0cc2acda7cd2938ad488b8495af01a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52378da473db7a44e1be8926dff87753"><td class="memItemLeft" align="right" valign="top"><a id="a52378da473db7a44e1be8926dff87753" name="a52378da473db7a44e1be8926dff87753"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setSmoothingMethod</b> (<a class="el" href="group___constants-_enums.html#ga4cfbd15c3638e96f0b1b5527f6bb6fa8">smoothingMethod</a> <a class="el" href="group___constants-_enums.html#ga4cfbd15c3638e96f0b1b5527f6bb6fa8">smoothingMethod</a>)</td></tr>
+<tr class="memdesc:a52378da473db7a44e1be8926dff87753"><td class="mdescLeft">&#160;</td><td class="mdescRight">set smoothing method <br /></td></tr>
+<tr class="separator:a52378da473db7a44e1be8926dff87753"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab765480569cc38ab27e966bcc8c0cdf2"><td class="memItemLeft" align="right" valign="top"><a id="ab765480569cc38ab27e966bcc8c0cdf2" name="ab765480569cc38ab27e966bcc8c0cdf2"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>getIsWritable</b> ()</td></tr>
+<tr class="memdesc:ab765480569cc38ab27e966bcc8c0cdf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">query writable control (meter) <br /></td></tr>
+<tr class="separator:ab765480569cc38ab27e966bcc8c0cdf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86420085c82577a3c62a4c6018c2e392"><td class="memItemLeft" align="right" valign="top"><a id="a86420085c82577a3c62a4c6018c2e392" name="a86420085c82577a3c62a4c6018c2e392"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setIsWritable</b> (bool value)</td></tr>
+<tr class="memdesc:a86420085c82577a3c62a4c6018c2e392"><td class="mdescLeft">&#160;</td><td class="mdescRight">set writable control (meter) <br /></td></tr>
+<tr class="separator:a86420085c82577a3c62a4c6018c2e392"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a177596b98f1fc3bd9829ff0ffd7219f6"><td class="memItemLeft" align="right" valign="top"><a id="a177596b98f1fc3bd9829ff0ffd7219f6" name="a177596b98f1fc3bd9829ff0ffd7219f6"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>getEnableVSTSampleAccurateAutomation</b> ()</td></tr>
+<tr class="memdesc:a177596b98f1fc3bd9829ff0ffd7219f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">query VST3 sample accurate automation <br /></td></tr>
+<tr class="separator:a177596b98f1fc3bd9829ff0ffd7219f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90e03fb9242deef193e4bb8d3151fe2c"><td class="memItemLeft" align="right" valign="top"><a id="a90e03fb9242deef193e4bb8d3151fe2c" name="a90e03fb9242deef193e4bb8d3151fe2c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setEnableVSTSampleAccurateAutomation</b> (bool value)</td></tr>
+<tr class="memdesc:a90e03fb9242deef193e4bb8d3151fe2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">set VST3 sample accurate automation <br /></td></tr>
+<tr class="separator:a90e03fb9242deef193e4bb8d3151fe2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bad4ff60cde2d4ce1c999873bc06ece"><td class="memItemLeft" align="right" valign="top"><a id="a8bad4ff60cde2d4ce1c999873bc06ece" name="a8bad4ff60cde2d4ce1c999873bc06ece"></a>
+<a class="el" href="struct_aux_parameter_attribute.html">AuxParameterAttribute</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getAuxAttribute</b> (uint32_t attributeID)</td></tr>
+<tr class="memdesc:a8bad4ff60cde2d4ce1c999873bc06ece"><td class="mdescLeft">&#160;</td><td class="mdescRight">get aux data <br /></td></tr>
+<tr class="separator:a8bad4ff60cde2d4ce1c999873bc06ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d583e138ed80b150c7e8eaa123902f7"><td class="memItemLeft" align="right" valign="top"><a id="a6d583e138ed80b150c7e8eaa123902f7" name="a6d583e138ed80b150c7e8eaa123902f7"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>setAuxAttribute</b> (uint32_t attributeID, const <a class="el" href="struct_aux_parameter_attribute.html">AuxParameterAttribute</a> &amp;auxParameterAtribute)</td></tr>
+<tr class="memdesc:a6d583e138ed80b150c7e8eaa123902f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">set aux data <br /></td></tr>
+<tr class="separator:a6d583e138ed80b150c7e8eaa123902f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2335ff60d6c669311a8ec991d88dcb5b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a2335ff60d6c669311a8ec991d88dcb5b">getControlValue</a> ()</td></tr>
+<tr class="memdesc:a2335ff60d6c669311a8ec991d88dcb5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">the main function to access the underlying atomic double value  <br /></td></tr>
+<tr class="separator:a2335ff60d6c669311a8ec991d88dcb5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47f240d2ee5968dd5b49fbaf446d7ad6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a47f240d2ee5968dd5b49fbaf446d7ad6">setControlValue</a> (double actualParamValue, bool ignoreSmoothing=false)</td></tr>
+<tr class="memdesc:a47f240d2ee5968dd5b49fbaf446d7ad6"><td class="mdescLeft">&#160;</td><td class="mdescRight">the main function to set the underlying atomic double value  <br /></td></tr>
+<tr class="separator:a47f240d2ee5968dd5b49fbaf446d7ad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5d3921c6faeb75be2e03017ecd18110"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#ac5d3921c6faeb75be2e03017ecd18110">setControlValueNormalized</a> (double normalizedValue, bool applyTaper=true, bool ignoreParameterSmoothing=false)</td></tr>
+<tr class="memdesc:ac5d3921c6faeb75be2e03017ecd18110"><td class="mdescLeft">&#160;</td><td class="mdescRight">the main function to set the underlying atomic double value using a normalized value; this is the operation in VST3 and RAFX2  <br /></td></tr>
+<tr class="separator:ac5d3921c6faeb75be2e03017ecd18110"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8348c344980cbd6c8e9040533d688d8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#af8348c344980cbd6c8e9040533d688d8">getControlValueAsString</a> ()</td></tr>
+<tr class="memdesc:af8348c344980cbd6c8e9040533d688d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">the main function to access the underlying atomic double value as a string  <br /></td></tr>
+<tr class="separator:af8348c344980cbd6c8e9040533d688d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9599bcc7bc8c86508d7a1afbefa71304"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a9599bcc7bc8c86508d7a1afbefa71304">getStringCount</a> ()</td></tr>
+<tr class="memdesc:a9599bcc7bc8c86508d7a1afbefa71304"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the number of individual strings in a string-list control  <br /></td></tr>
+<tr class="separator:a9599bcc7bc8c86508d7a1afbefa71304"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a204de01f79470808d1d855ad9196fb77"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a204de01f79470808d1d855ad9196fb77">getCommaSeparatedStringList</a> ()</td></tr>
+<tr class="memdesc:a204de01f79470808d1d855ad9196fb77"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the strings in a string-list control as a comma separated list  <br /></td></tr>
+<tr class="separator:a204de01f79470808d1d855ad9196fb77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7320d09e6b440fef163e970f7680ae4"><td class="memItemLeft" align="right" valign="top"><a id="ab7320d09e6b440fef163e970f7680ae4" name="ab7320d09e6b440fef163e970f7680ae4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setCommaSeparatedStringList</b> ()</td></tr>
+<tr class="memdesc:ab7320d09e6b440fef163e970f7680ae4"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert the string-list into a comma-separated list (during construction) <br /></td></tr>
+<tr class="separator:ab7320d09e6b440fef163e970f7680ae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a1d95f814bee46a9673d7ed153505a1"><td class="memItemLeft" align="right" valign="top"><a id="a2a1d95f814bee46a9673d7ed153505a1" name="a2a1d95f814bee46a9673d7ed153505a1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setStringList</b> (std::vector&lt; std::string &gt; _stringList)</td></tr>
+<tr class="memdesc:a2a1d95f814bee46a9673d7ed153505a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the string-list using a vector of strings <br /></td></tr>
+<tr class="separator:a2a1d95f814bee46a9673d7ed153505a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af22fa4acfb4c3196e641b5f323b8baa1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#af22fa4acfb4c3196e641b5f323b8baa1">getStringByIndex</a> (uint32_t index)</td></tr>
+<tr class="separator:af22fa4acfb4c3196e641b5f323b8baa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e2dcabdf48fde0fbf04cf8bb4f3a938"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a8e2dcabdf48fde0fbf04cf8bb4f3a938">getDefaultValueNormalized</a> ()</td></tr>
+<tr class="memdesc:a8e2dcabdf48fde0fbf04cf8bb4f3a938"><td class="mdescLeft">&#160;</td><td class="mdescRight">get default value as normalied value  <br /></td></tr>
+<tr class="separator:a8e2dcabdf48fde0fbf04cf8bb4f3a938"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a649b4842ff17b007219ab877b0b8eeb1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a649b4842ff17b007219ab877b0b8eeb1">getControlValueNormalized</a> (bool applyTaper=true)</td></tr>
+<tr class="memdesc:a649b4842ff17b007219ab877b0b8eeb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">get control value as normalied value  <br /></td></tr>
+<tr class="separator:a649b4842ff17b007219ab877b0b8eeb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29283875ab6fcc38f0b1f673a9e26daf"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a29283875ab6fcc38f0b1f673a9e26daf">getControlValueWithNormalizedValue</a> (double normalizedValue, bool applyTaper=true)</td></tr>
+<tr class="memdesc:a29283875ab6fcc38f0b1f673a9e26daf"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the new control value <em>as if</em> it were set with a normalized value  <br /></td></tr>
+<tr class="separator:a29283875ab6fcc38f0b1f673a9e26daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc63151d1185c3b0e81c03bf62b2b39b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#adc63151d1185c3b0e81c03bf62b2b39b">getNormalizedControlValueWithActualValue</a> (double actualValue)</td></tr>
+<tr class="memdesc:adc63151d1185c3b0e81c03bf62b2b39b"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the new normalized control value <em>as if</em> it were set with an actual value  <br /></td></tr>
+<tr class="separator:adc63151d1185c3b0e81c03bf62b2b39b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3abada0d6044782d3fd81e991e90679c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a3abada0d6044782d3fd81e991e90679c">getGUIMin</a> ()</td></tr>
+<tr class="separator:a3abada0d6044782d3fd81e991e90679c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd46bd9ffb54c324f05ffa3dd4b24807"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#abd46bd9ffb54c324f05ffa3dd4b24807">getGUIMax</a> ()</td></tr>
+<tr class="separator:abd46bd9ffb54c324f05ffa3dd4b24807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65613790601895f6346967c6a4626a82"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a65613790601895f6346967c6a4626a82">findStringIndex</a> (std::string searchString)</td></tr>
+<tr class="memdesc:a65613790601895f6346967c6a4626a82"><td class="mdescLeft">&#160;</td><td class="mdescRight">find a string in the list of a string-list parameter  <br /></td></tr>
+<tr class="separator:a65613790601895f6346967c6a4626a82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f53a9c5f6d01ccea73965083a79aa9e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a4f53a9c5f6d01ccea73965083a79aa9e">normToLogNorm</a> (double normalizedValue)</td></tr>
+<tr class="separator:a4f53a9c5f6d01ccea73965083a79aa9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf372791b618698ae44e17fbabe49d7c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#adf372791b618698ae44e17fbabe49d7c">logNormToNorm</a> (double logNormalizedValue)</td></tr>
+<tr class="separator:adf372791b618698ae44e17fbabe49d7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4af50369ac38f1cb3dc7ca1c7a12d9f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#ad4af50369ac38f1cb3dc7ca1c7a12d9f">normToAntiLogNorm</a> (double normalizedValue)</td></tr>
+<tr class="separator:ad4af50369ac38f1cb3dc7ca1c7a12d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada5fef95586ebcd26b2080b7fa80b43c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#ada5fef95586ebcd26b2080b7fa80b43c">antiLogNormToNorm</a> (double aLogNormalizedValue)</td></tr>
+<tr class="separator:ada5fef95586ebcd26b2080b7fa80b43c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa809a905da686dc747bbca745dd6cc3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#aaa809a905da686dc747bbca745dd6cc3">initParamSmoother</a> (double sampleRate)</td></tr>
+<tr class="memdesc:aaa809a905da686dc747bbca745dd6cc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialize or reset the parameter smoother object  <br /></td></tr>
+<tr class="separator:aaa809a905da686dc747bbca745dd6cc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97c3c3947153d92ad63721c3474820cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a97c3c3947153d92ad63721c3474820cf">updateSampleRate</a> (double sampleRate)</td></tr>
+<tr class="memdesc:a97c3c3947153d92ad63721c3474820cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">change any sample-rate dependent members  <br /></td></tr>
+<tr class="separator:a97c3c3947153d92ad63721c3474820cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a534a2e5e2e91528eb24c52aa9b916594"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a534a2e5e2e91528eb24c52aa9b916594">smoothParameterValue</a> ()</td></tr>
+<tr class="memdesc:a534a2e5e2e91528eb24c52aa9b916594"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform smoothing operation on data  <br /></td></tr>
+<tr class="separator:a534a2e5e2e91528eb24c52aa9b916594"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80f1c77ac23d9eb83ef636e0a42d4950"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a80f1c77ac23d9eb83ef636e0a42d4950">setBoundVariable</a> (void *boundVariable, <a class="el" href="group___constants-_enums.html#ga5e8b40246bb284dc48bee0f5cafb70a3">boundVariableType</a> dataType)</td></tr>
+<tr class="memdesc:a80f1c77ac23d9eb83ef636e0a42d4950"><td class="mdescLeft">&#160;</td><td class="mdescRight">save the variable for binding operation  <br /></td></tr>
+<tr class="separator:a80f1c77ac23d9eb83ef636e0a42d4950"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e5ba88abe69fb26893c1aae709c030a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___constants-_enums.html#ga5e8b40246bb284dc48bee0f5cafb70a3">boundVariableType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a5e5ba88abe69fb26893c1aae709c030a">getBoundVariableType</a> ()</td></tr>
+<tr class="memdesc:a5e5ba88abe69fb26893c1aae709c030a"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the datatype of the bound variable  <br /></td></tr>
+<tr class="separator:a5e5ba88abe69fb26893c1aae709c030a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a908e0216a4f25ec3a127eacde8d46408"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a908e0216a4f25ec3a127eacde8d46408">updateInBoundVariable</a> ()</td></tr>
+<tr class="memdesc:a908e0216a4f25ec3a127eacde8d46408"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform the variable binding update (change the value)  <br /></td></tr>
+<tr class="separator:a908e0216a4f25ec3a127eacde8d46408"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a598607f74023cca91ce5faf2f297b622"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a598607f74023cca91ce5faf2f297b622">updateOutBoundVariable</a> ()</td></tr>
+<tr class="memdesc:a598607f74023cca91ce5faf2f297b622"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform the variable binding update on meter data  <br /></td></tr>
+<tr class="separator:a598607f74023cca91ce5faf2f297b622"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6ad57cb3eeaeea764540e76bc3334a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#aa6ad57cb3eeaeea764540e76bc3334a4">setParameterUpdateQueue</a> (<a class="el" href="class_i_parameter_update_queue.html">IParameterUpdateQueue</a> *_parameterUpdateQueue)</td></tr>
+<tr class="memdesc:aa6ad57cb3eeaeea764540e76bc3334a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores the update queue for VST3 sample accuate automation; note this is only used during actual DAW runs with automation engaged  <br /></td></tr>
+<tr class="separator:aa6ad57cb3eeaeea764540e76bc3334a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49e3ac3789ab2a371cf865868e8c80c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_i_parameter_update_queue.html">IParameterUpdateQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a49e3ac3789ab2a371cf865868e8c80c8">getParameterUpdateQueue</a> ()</td></tr>
+<tr class="memdesc:a49e3ac3789ab2a371cf865868e8c80c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">retrieves the update queue for VST3 sample accuate automation; note this is only used during actual DAW runs with automation engaged  <br /></td></tr>
+<tr class="separator:a49e3ac3789ab2a371cf865868e8c80c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57d6ff3018e2829667549e1a7acdd566"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_plugin_parameter.html">PluginParameter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a57d6ff3018e2829667549e1a7acdd566">operator=</a> (const <a class="el" href="class_plugin_parameter.html">PluginParameter</a> &amp;aPluginParameter)</td></tr>
+<tr class="separator:a57d6ff3018e2829667549e1a7acdd566"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
+<tr class="memitem:a0856e90398739703e417ac290f815c77"><td class="memItemLeft" align="right" valign="top"><a id="a0856e90398739703e417ac290f815c77" name="a0856e90398739703e417ac290f815c77"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>getAtomicControlValueFloat</b> () const</td></tr>
+<tr class="memdesc:a0856e90398739703e417ac290f815c77"><td class="mdescLeft">&#160;</td><td class="mdescRight">set atomic variable with float <br /></td></tr>
+<tr class="separator:a0856e90398739703e417ac290f815c77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85a1fd23bbb3f2395191a5f2f5ebce4b"><td class="memItemLeft" align="right" valign="top"><a id="a85a1fd23bbb3f2395191a5f2f5ebce4b" name="a85a1fd23bbb3f2395191a5f2f5ebce4b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setAtomicControlValueFloat</b> (float value)</td></tr>
+<tr class="memdesc:a85a1fd23bbb3f2395191a5f2f5ebce4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">get atomic variable as float <br /></td></tr>
+<tr class="separator:a85a1fd23bbb3f2395191a5f2f5ebce4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41651192464dc770401ef6362a3ab0c1"><td class="memItemLeft" align="right" valign="top"><a id="a41651192464dc770401ef6362a3ab0c1" name="a41651192464dc770401ef6362a3ab0c1"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getAtomicControlValueDouble</b> () const</td></tr>
+<tr class="memdesc:a41651192464dc770401ef6362a3ab0c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">set atomic variable with double <br /></td></tr>
+<tr class="separator:a41651192464dc770401ef6362a3ab0c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0423313fd90bbc2f4f799dea3e8409ae"><td class="memItemLeft" align="right" valign="top"><a id="a0423313fd90bbc2f4f799dea3e8409ae" name="a0423313fd90bbc2f4f799dea3e8409ae"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setAtomicControlValueDouble</b> (double value)</td></tr>
+<tr class="memdesc:a0423313fd90bbc2f4f799dea3e8409ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">get atomic variable as double <br /></td></tr>
+<tr class="separator:a0423313fd90bbc2f4f799dea3e8409ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9340ab489b1af8508d93a4e917651d85"><td class="memItemLeft" align="right" valign="top"><a id="a9340ab489b1af8508d93a4e917651d85" name="a9340ab489b1af8508d93a4e917651d85"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setSmoothedTargetValue</b> (double value)</td></tr>
+<tr class="memdesc:a9340ab489b1af8508d93a4e917651d85"><td class="mdescLeft">&#160;</td><td class="mdescRight">set atomic TARGET smoothing variable with double <br /></td></tr>
+<tr class="separator:a9340ab489b1af8508d93a4e917651d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a944f873c4482ca852978dda7f116b807"><td class="memItemLeft" align="right" valign="top"><a id="a944f873c4482ca852978dda7f116b807" name="a944f873c4482ca852978dda7f116b807"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getSmoothedTargetValue</b> () const</td></tr>
+<tr class="memdesc:a944f873c4482ca852978dda7f116b807"><td class="mdescLeft">&#160;</td><td class="mdescRight">set atomic TARGET smoothing variable with double <br /></td></tr>
+<tr class="separator:a944f873c4482ca852978dda7f116b807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f50dc1a2aa0f2ce64603ddd96f97815"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a8f50dc1a2aa0f2ce64603ddd96f97815">getVoltOctaveControlValueFromNormValue</a> (double normalizedValue)</td></tr>
+<tr class="memdesc:a8f50dc1a2aa0f2ce64603ddd96f97815"><td class="mdescLeft">&#160;</td><td class="mdescRight">get volt/octave control value from a normalized value  <br /></td></tr>
+<tr class="separator:a8f50dc1a2aa0f2ce64603ddd96f97815"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47726a8a8871fe138a68d0b68122073a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a47726a8a8871fe138a68d0b68122073a">getNormalizedLogControlValue</a> ()</td></tr>
+<tr class="memdesc:a47726a8a8871fe138a68d0b68122073a"><td class="mdescLeft">&#160;</td><td class="mdescRight">get get log control value in normalized form  <br /></td></tr>
+<tr class="separator:a47726a8a8871fe138a68d0b68122073a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5417227ef80a7e39a774353bb432394c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a5417227ef80a7e39a774353bb432394c">getNormalizedAntiLogControlValue</a> ()</td></tr>
+<tr class="memdesc:a5417227ef80a7e39a774353bb432394c"><td class="mdescLeft">&#160;</td><td class="mdescRight">get get anti-log control value in normalized form  <br /></td></tr>
+<tr class="separator:a5417227ef80a7e39a774353bb432394c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26f80c673af8f228c62f166c0cc104c7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a26f80c673af8f228c62f166c0cc104c7">getNormalizedVoltOctaveControlValue</a> ()</td></tr>
+<tr class="memdesc:a26f80c673af8f228c62f166c0cc104c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">get get volt/octave control value in normalized form  <br /></td></tr>
+<tr class="separator:a26f80c673af8f228c62f166c0cc104c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38514197b052f270dcfb0e5c358aec63"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a38514197b052f270dcfb0e5c358aec63">getNormalizedControlValueWithActual</a> (double actualValue)</td></tr>
+<tr class="memdesc:a38514197b052f270dcfb0e5c358aec63"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert actual control value into normalized value (helper)  <br /></td></tr>
+<tr class="separator:a38514197b052f270dcfb0e5c358aec63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e082ecdce0f446ecae314ffe044a0e5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a0e082ecdce0f446ecae314ffe044a0e5">getNormalizedControlValue</a> ()</td></tr>
+<tr class="memdesc:a0e082ecdce0f446ecae314ffe044a0e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">get control value as normalized value (helper)  <br /></td></tr>
+<tr class="separator:a0e082ecdce0f446ecae314ffe044a0e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45f5c46bdf4ebca6e5d3268a1502acd9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a45f5c46bdf4ebca6e5d3268a1502acd9">getControlValueFromNormalizedValue</a> (double normalizedValue)</td></tr>
+<tr class="memdesc:a45f5c46bdf4ebca6e5d3268a1502acd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">get control value with a normalized value (helper)  <br /></td></tr>
+<tr class="separator:a45f5c46bdf4ebca6e5d3268a1502acd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33306861c8301228ac5ab2b3f48f80d8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a33306861c8301228ac5ab2b3f48f80d8">getNormalizedDefaultValue</a> ()</td></tr>
+<tr class="memdesc:a33306861c8301228ac5ab2b3f48f80d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">get default value as a normalized value (helper)  <br /></td></tr>
+<tr class="separator:a33306861c8301228ac5ab2b3f48f80d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7772f851fbc9ec0e069b711017f522f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#aa7772f851fbc9ec0e069b711017f522f">getNormalizedLogDefaultValue</a> ()</td></tr>
+<tr class="memdesc:aa7772f851fbc9ec0e069b711017f522f"><td class="mdescLeft">&#160;</td><td class="mdescRight">get log default value in normalized form  <br /></td></tr>
+<tr class="separator:aa7772f851fbc9ec0e069b711017f522f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a179552ed717746faa1c05d5cbcd3fb84"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a179552ed717746faa1c05d5cbcd3fb84">getNormalizedAntiLogDefaultValue</a> ()</td></tr>
+<tr class="memdesc:a179552ed717746faa1c05d5cbcd3fb84"><td class="mdescLeft">&#160;</td><td class="mdescRight">get anti-log default value in normalized form  <br /></td></tr>
+<tr class="separator:a179552ed717746faa1c05d5cbcd3fb84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fadc60f1719cd22da65405298fbd7fd"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plugin_parameter.html#a9fadc60f1719cd22da65405298fbd7fd">getNormalizedVoltOctaveDefaultValue</a> ()</td></tr>
+<tr class="memdesc:a9fadc60f1719cd22da65405298fbd7fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">get volt/octave default value in normalized form  <br /></td></tr>
+<tr class="separator:a9fadc60f1719cd22da65405298fbd7fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0856e90398739703e417ac290f815c77"><td class="memItemLeft" align="right" valign="top"><a id="a0856e90398739703e417ac290f815c77" name="a0856e90398739703e417ac290f815c77"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>getAtomicControlValueFloat</b> () const</td></tr>
 <tr class="memdesc:a0856e90398739703e417ac290f815c77"><td class="mdescLeft">&#160;</td><td class="mdescRight">set atomic variable with float <br /></td></tr>
@@ -518,14 +891,14 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>maxValue</b> = 1.0<
 double&#160;</td><td class="memItemRight" valign="bottom"><b>defaultValue</b> = 0.0</td></tr>
 <tr class="memdesc:aff5cc6b7d1b5c2a30ec828e1152eba3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">the default value for the parameter <br /></td></tr>
 <tr class="separator:aff5cc6b7d1b5c2a30ec828e1152eba3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a640b8915daaf6f299aada270ce58129e"><td class="memItemLeft" align="right" valign="top"><a id="a640b8915daaf6f299aada270ce58129e" name="a640b8915daaf6f299aada270ce58129e"></a>
+<tr class="memitem:a139f831b2da05a7ad0959a2265c7cf40"><td class="memItemLeft" align="right" valign="top"><a id="a139f831b2da05a7ad0959a2265c7cf40" name="a139f831b2da05a7ad0959a2265c7cf40"></a>
 std::atomic&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>controlValueAtomic</b></td></tr>
-<tr class="memdesc:a640b8915daaf6f299aada270ce58129e"><td class="mdescLeft">&#160;</td><td class="mdescRight">the underlying atomic variable <br /></td></tr>
-<tr class="separator:a640b8915daaf6f299aada270ce58129e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa19b58b54a0f3481230df634108045a3"><td class="memItemLeft" align="right" valign="top"><a id="aa19b58b54a0f3481230df634108045a3" name="aa19b58b54a0f3481230df634108045a3"></a>
+<tr class="memdesc:a139f831b2da05a7ad0959a2265c7cf40"><td class="mdescLeft">&#160;</td><td class="mdescRight">the underlying atomic variable <br /></td></tr>
+<tr class="separator:a139f831b2da05a7ad0959a2265c7cf40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ff38e48dc3154df2de14ecae7239ff5"><td class="memItemLeft" align="right" valign="top"><a id="a1ff38e48dc3154df2de14ecae7239ff5" name="a1ff38e48dc3154df2de14ecae7239ff5"></a>
 std::atomic&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>smoothedTargetValueAtomic</b></td></tr>
-<tr class="memdesc:aa19b58b54a0f3481230df634108045a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">the underlying atomic variable TARGET for smoothing <br /></td></tr>
-<tr class="separator:aa19b58b54a0f3481230df634108045a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a1ff38e48dc3154df2de14ecae7239ff5"><td class="mdescLeft">&#160;</td><td class="mdescRight">the underlying atomic variable TARGET for smoothing <br /></td></tr>
+<tr class="separator:a1ff38e48dc3154df2de14ecae7239ff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96ad869836b5c9b1ac02d25be2643eeb"><td class="memItemLeft" align="right" valign="top"><a id="a96ad869836b5c9b1ac02d25be2643eeb" name="a96ad869836b5c9b1ac02d25be2643eeb"></a>
 <a class="el" href="group___constants-_enums.html#ga7ebd094a1b90d5b66ad4022a86b19b68">taper</a>&#160;</td><td class="memItemRight" valign="bottom"><b>controlTaper</b> = taper::kLinearTaper</td></tr>
 <tr class="memdesc:a96ad869836b5c9b1ac02d25be2643eeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">the taper <br /></td></tr>
@@ -534,10 +907,10 @@ std::atomic&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>displayPrecision</b> = 2</td></tr>
 <tr class="memdesc:a31f2d08dc00a14ad5dc1ca4567a4e50c"><td class="mdescLeft">&#160;</td><td class="mdescRight">sig digits for display <br /></td></tr>
 <tr class="separator:a31f2d08dc00a14ad5dc1ca4567a4e50c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0795fd7ebf3bf138a5bccd982c567d01"><td class="memItemLeft" align="right" valign="top"><a id="a0795fd7ebf3bf138a5bccd982c567d01" name="a0795fd7ebf3bf138a5bccd982c567d01"></a>
+<tr class="memitem:afa590325371aa94673d37665ca205200"><td class="memItemLeft" align="right" valign="top"><a id="afa590325371aa94673d37665ca205200" name="afa590325371aa94673d37665ca205200"></a>
 std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>stringList</b></td></tr>
-<tr class="memdesc:a0795fd7ebf3bf138a5bccd982c567d01"><td class="mdescLeft">&#160;</td><td class="mdescRight">string list <br /></td></tr>
-<tr class="separator:a0795fd7ebf3bf138a5bccd982c567d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:afa590325371aa94673d37665ca205200"><td class="mdescLeft">&#160;</td><td class="mdescRight">string list <br /></td></tr>
+<tr class="separator:afa590325371aa94673d37665ca205200"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abeccb8bdd1a76b13d99ff65c475fd31d"><td class="memItemLeft" align="right" valign="top"><a id="abeccb8bdd1a76b13d99ff65c475fd31d" name="abeccb8bdd1a76b13d99ff65c475fd31d"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>commaSeparatedStringList</b></td></tr>
 <tr class="memdesc:abeccb8bdd1a76b13d99ff65c475fd31d"><td class="mdescLeft">&#160;</td><td class="mdescRight">string list a somma separated string <br /></td></tr>
@@ -590,18 +963,18 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>useParameterSmoothing
 double&#160;</td><td class="memItemRight" valign="bottom"><b>smoothingTimeMsec</b> = 100.0</td></tr>
 <tr class="memdesc:a74baf7ebb59bfeb0734c40abc55108ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">param smoothing time <br /></td></tr>
 <tr class="separator:a74baf7ebb59bfeb0734c40abc55108ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5dd08b9d5ef4be2c35c0895393308eb5"><td class="memItemLeft" align="right" valign="top"><a id="a5dd08b9d5ef4be2c35c0895393308eb5" name="a5dd08b9d5ef4be2c35c0895393308eb5"></a>
+<tr class="memitem:a6fdfae83bf8a223f905f2b59f2a6d270"><td class="memItemLeft" align="right" valign="top"><a id="a6fdfae83bf8a223f905f2b59f2a6d270" name="a6fdfae83bf8a223f905f2b59f2a6d270"></a>
 <a class="el" href="class_param_smoother.html">ParamSmoother</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>paramSmoother</b></td></tr>
-<tr class="memdesc:a5dd08b9d5ef4be2c35c0895393308eb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">param smoothing object <br /></td></tr>
-<tr class="separator:a5dd08b9d5ef4be2c35c0895393308eb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a6fdfae83bf8a223f905f2b59f2a6d270"><td class="mdescLeft">&#160;</td><td class="mdescRight">param smoothing object <br /></td></tr>
+<tr class="separator:a6fdfae83bf8a223f905f2b59f2a6d270"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2140d15af9b8c403785ad844cd04a0b0"><td class="memItemLeft" align="right" valign="top"><a id="a2140d15af9b8c403785ad844cd04a0b0" name="a2140d15af9b8c403785ad844cd04a0b0"></a>
 <a class="el" href="group___constants-_enums.html#ga5e8b40246bb284dc48bee0f5cafb70a3">boundVariableType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>boundVariableDataType</b> = boundVariableType::kFloat</td></tr>
 <tr class="memdesc:a2140d15af9b8c403785ad844cd04a0b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">bound data type <br /></td></tr>
 <tr class="separator:a2140d15af9b8c403785ad844cd04a0b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8845c141498464301f34ac631250fd3c"><td class="memItemLeft" align="right" valign="top"><a id="a8845c141498464301f34ac631250fd3c" name="a8845c141498464301f34ac631250fd3c"></a>
+<tr class="memitem:a22894cb0de5307d7b601a07908f391cb"><td class="memItemLeft" align="right" valign="top"><a id="a22894cb0de5307d7b601a07908f391cb" name="a22894cb0de5307d7b601a07908f391cb"></a>
 <a class="el" href="class_i_parameter_update_queue.html">IParameterUpdateQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parameterUpdateQueue</b> = nullptr</td></tr>
-<tr class="memdesc:a8845c141498464301f34ac631250fd3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">interface for VST3 sample accurate updates <br /></td></tr>
-<tr class="separator:a8845c141498464301f34ac631250fd3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a22894cb0de5307d7b601a07908f391cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">interface for VST3 sample accurate updates <br /></td></tr>
+<tr class="separator:a22894cb0de5307d7b601a07908f391cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4324dba09b1c56f519c4f9f655d86162"><td class="memItemLeft" align="right" valign="top"><a id="a4324dba09b1c56f519c4f9f655d86162" name="a4324dba09b1c56f519c4f9f655d86162"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccurateAutomation</b> = true</td></tr>
 <tr class="memdesc:a4324dba09b1c56f519c4f9f655d86162"><td class="mdescLeft">&#160;</td><td class="mdescRight">VST3 sample accurate flag. <br /></td></tr>
@@ -623,7 +996,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 <dl class="section date"><dt>Date</dt><dd>Date : 2018 / 09 / 7 </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac0032818ce49c77f11f2cdc02ab72b39" name="ac0032818ce49c77f11f2cdc02ab72b39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0032818ce49c77f11f2cdc02ab72b39">&#9670;&#160;</a></span>PluginParameter() <span class="overload">[1/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0032818ce49c77f11f2cdc02ab72b39">&#9670;&#160;</a></span>PluginParameter() <span class="overload">[1/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -710,7 +1083,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="ac73ae5de116c72ade5f052623d122dd9" name="ac73ae5de116c72ade5f052623d122dd9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac73ae5de116c72ade5f052623d122dd9">&#9670;&#160;</a></span>PluginParameter() <span class="overload">[2/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac73ae5de116c72ade5f052623d122dd9">&#9670;&#160;</a></span>PluginParameter() <span class="overload">[2/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -762,7 +1135,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="ad62706d3fdd2f5264feac27a7cf2b4d9" name="ad62706d3fdd2f5264feac27a7cf2b4d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad62706d3fdd2f5264feac27a7cf2b4d9">&#9670;&#160;</a></span>PluginParameter() <span class="overload">[3/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad62706d3fdd2f5264feac27a7cf2b4d9">&#9670;&#160;</a></span>PluginParameter() <span class="overload">[3/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -814,7 +1187,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a4e73ee9e99070d03a5dad930ca08b664" name="a4e73ee9e99070d03a5dad930ca08b664"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e73ee9e99070d03a5dad930ca08b664">&#9670;&#160;</a></span>PluginParameter() <span class="overload">[4/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e73ee9e99070d03a5dad930ca08b664">&#9670;&#160;</a></span>PluginParameter() <span class="overload">[4/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -880,7 +1253,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a77900390db061243eec28f3f3aea2693" name="a77900390db061243eec28f3f3aea2693"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77900390db061243eec28f3f3aea2693">&#9670;&#160;</a></span>PluginParameter() <span class="overload">[5/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a77900390db061243eec28f3f3aea2693">&#9670;&#160;</a></span>PluginParameter() <span class="overload">[5/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -925,7 +1298,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a8e849c65cc708167fac04166ee3cf8c5" name="a8e849c65cc708167fac04166ee3cf8c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e849c65cc708167fac04166ee3cf8c5">&#9670;&#160;</a></span>PluginParameter() <span class="overload">[6/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e849c65cc708167fac04166ee3cf8c5">&#9670;&#160;</a></span>PluginParameter() <span class="overload">[6/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -945,7 +1318,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a27d0b8722cb1891e15665fd4c164ec13" name="a27d0b8722cb1891e15665fd4c164ec13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27d0b8722cb1891e15665fd4c164ec13">&#9670;&#160;</a></span>PluginParameter() <span class="overload">[7/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a27d0b8722cb1891e15665fd4c164ec13">&#9670;&#160;</a></span>PluginParameter() <span class="overload">[7/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -966,7 +1339,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a414d7f726af03a285ef390c5a56134f3" name="a414d7f726af03a285ef390c5a56134f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a414d7f726af03a285ef390c5a56134f3">&#9670;&#160;</a></span>~PluginParameter()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a414d7f726af03a285ef390c5a56134f3">&#9670;&#160;</a></span>~PluginParameter() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -993,9 +1366,340 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 
 </div>
 </div>
+<a id="ac0032818ce49c77f11f2cdc02ab72b39" name="ac0032818ce49c77f11f2cdc02ab72b39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0032818ce49c77f11f2cdc02ab72b39">&#9670;&#160;</a></span>PluginParameter() <span class="overload">[8/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PluginParameter::PluginParameter </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_controlID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>_controlName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>_controlUnits</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___constants-_enums.html#ga5662de719b542fc93b850bea1bae81f7">controlVariableType</a>&#160;</td>
+          <td class="paramname"><em>_controlType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>_minValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>_maxValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>_defaultValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___constants-_enums.html#ga7ebd094a1b90d5b66ad4022a86b19b68">taper</a>&#160;</td>
+          <td class="paramname"><em>_controlTaper</em> = <code>taper::kLinearTaper</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>_displayPrecision</em> = <code>2</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>constructor for continuous controls </p>
+
+</div>
+</div>
+<a id="ac73ae5de116c72ade5f052623d122dd9" name="ac73ae5de116c72ade5f052623d122dd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac73ae5de116c72ade5f052623d122dd9">&#9670;&#160;</a></span>PluginParameter() <span class="overload">[9/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PluginParameter::PluginParameter </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_controlID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>_controlName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::string &gt;&#160;</td>
+          <td class="paramname"><em>_stringList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>_defaultString</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>constructor 1 for string-list controls </p>
+
+</div>
+</div>
+<a id="ad62706d3fdd2f5264feac27a7cf2b4d9" name="ad62706d3fdd2f5264feac27a7cf2b4d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad62706d3fdd2f5264feac27a7cf2b4d9">&#9670;&#160;</a></span>PluginParameter() <span class="overload">[10/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PluginParameter::PluginParameter </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_controlID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>_controlName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>_commaSeparatedList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>_defaultString</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>constructor 2 for string-list controls </p>
+
+</div>
+</div>
+<a id="a4e73ee9e99070d03a5dad930ca08b664" name="a4e73ee9e99070d03a5dad930ca08b664"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e73ee9e99070d03a5dad930ca08b664">&#9670;&#160;</a></span>PluginParameter() <span class="overload">[11/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PluginParameter::PluginParameter </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_controlID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>_controlName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>_meterAttack_ms</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>_meterRelease_ms</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>_detectorMode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___constants-_enums.html#ga5b7e8550d6a907a6f6a0784a779a56be">meterCal</a>&#160;</td>
+          <td class="paramname"><em>_meterCal</em> = <code>meterCal::kLinearMeter</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>constructor for meter controls </p>
+
+</div>
+</div>
+<a id="a77900390db061243eec28f3f3aea2693" name="a77900390db061243eec28f3f3aea2693"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77900390db061243eec28f3f3aea2693">&#9670;&#160;</a></span>PluginParameter() <span class="overload">[12/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PluginParameter::PluginParameter </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_controlID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>_controlName</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___constants-_enums.html#ga5662de719b542fc93b850bea1bae81f7">controlVariableType</a>&#160;</td>
+          <td class="paramname"><em>_controlType</em> = <code>controlVariableType::kNonVariableBoundControl</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>constructor for NonVariableBoundControl </p>
+
+</div>
+</div>
+<a id="a8e849c65cc708167fac04166ee3cf8c5" name="a8e849c65cc708167fac04166ee3cf8c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e849c65cc708167fac04166ee3cf8c5">&#9670;&#160;</a></span>PluginParameter() <span class="overload">[13/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PluginParameter::PluginParameter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>empty constructor </p>
+
+</div>
+</div>
+<a id="a27d0b8722cb1891e15665fd4c164ec13" name="a27d0b8722cb1891e15665fd4c164ec13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27d0b8722cb1891e15665fd4c164ec13">&#9670;&#160;</a></span>PluginParameter() <span class="overload">[14/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PluginParameter::PluginParameter </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_plugin_parameter.html">PluginParameter</a> &amp;&#160;</td>
+          <td class="paramname"><em>initGuiControl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>copy constructor </p>
+
+</div>
+</div>
+<a id="a71ad18c5787acce6dbcc34157cdb5a00" name="a71ad18c5787acce6dbcc34157cdb5a00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71ad18c5787acce6dbcc34157cdb5a00">&#9670;&#160;</a></span>~PluginParameter() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual PluginParameter::~PluginParameter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>D-TOR </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ada5fef95586ebcd26b2080b7fa80b43c" name="ada5fef95586ebcd26b2080b7fa80b43c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada5fef95586ebcd26b2080b7fa80b43c">&#9670;&#160;</a></span>antiLogNormToNorm()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ada5fef95586ebcd26b2080b7fa80b43c">&#9670;&#160;</a></span>antiLogNormToNorm() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::antiLogNormToNorm </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>aLogNormalizedValue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>AntiLog-normalized to normalized version </p>
+
+</div>
+</div>
+<a id="ada5fef95586ebcd26b2080b7fa80b43c" name="ada5fef95586ebcd26b2080b7fa80b43c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada5fef95586ebcd26b2080b7fa80b43c">&#9670;&#160;</a></span>antiLogNormToNorm() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1022,7 +1726,36 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a65613790601895f6346967c6a4626a82" name="a65613790601895f6346967c6a4626a82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65613790601895f6346967c6a4626a82">&#9670;&#160;</a></span>findStringIndex()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a65613790601895f6346967c6a4626a82">&#9670;&#160;</a></span>findStringIndex() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PluginParameter::findStringIndex </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>searchString</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>find a string in the list of a string-list parameter </p>
+<dl class="section return"><dt>Returns</dt><dd>index of string in list </dd></dl>
+
+</div>
+</div>
+<a id="a65613790601895f6346967c6a4626a82" name="a65613790601895f6346967c6a4626a82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65613790601895f6346967c6a4626a82">&#9670;&#160;</a></span>findStringIndex() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1079,7 +1812,35 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a5e5ba88abe69fb26893c1aae709c030a" name="a5e5ba88abe69fb26893c1aae709c030a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e5ba88abe69fb26893c1aae709c030a">&#9670;&#160;</a></span>getBoundVariableType()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e5ba88abe69fb26893c1aae709c030a">&#9670;&#160;</a></span>getBoundVariableType() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___constants-_enums.html#ga5e8b40246bb284dc48bee0f5cafb70a3">boundVariableType</a> PluginParameter::getBoundVariableType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get the datatype of the bound variable </p>
+<dl class="section return"><dt>Returns</dt><dd>boundVariableType </dd></dl>
+
+</div>
+</div>
+<a id="a5e5ba88abe69fb26893c1aae709c030a" name="a5e5ba88abe69fb26893c1aae709c030a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e5ba88abe69fb26893c1aae709c030a">&#9670;&#160;</a></span>getBoundVariableType() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1107,7 +1868,35 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a204de01f79470808d1d855ad9196fb77" name="a204de01f79470808d1d855ad9196fb77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a204de01f79470808d1d855ad9196fb77">&#9670;&#160;</a></span>getCommaSeparatedStringList()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a204de01f79470808d1d855ad9196fb77">&#9670;&#160;</a></span>getCommaSeparatedStringList() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * PluginParameter::getCommaSeparatedStringList </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get the strings in a string-list control as a comma separated list </p>
+<dl class="section return"><dt>Returns</dt><dd>comma separated list as a const char* </dd></dl>
+
+</div>
+</div>
+<a id="a204de01f79470808d1d855ad9196fb77" name="a204de01f79470808d1d855ad9196fb77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a204de01f79470808d1d855ad9196fb77">&#9670;&#160;</a></span>getCommaSeparatedStringList() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1135,7 +1924,35 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a2335ff60d6c669311a8ec991d88dcb5b" name="a2335ff60d6c669311a8ec991d88dcb5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2335ff60d6c669311a8ec991d88dcb5b">&#9670;&#160;</a></span>getControlValue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2335ff60d6c669311a8ec991d88dcb5b">&#9670;&#160;</a></span>getControlValue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::getControlValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the main function to access the underlying atomic double value </p>
+<dl class="section return"><dt>Returns</dt><dd>the value as a regular double </dd></dl>
+
+</div>
+</div>
+<a id="a2335ff60d6c669311a8ec991d88dcb5b" name="a2335ff60d6c669311a8ec991d88dcb5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2335ff60d6c669311a8ec991d88dcb5b">&#9670;&#160;</a></span>getControlValue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1163,7 +1980,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="af8348c344980cbd6c8e9040533d688d8" name="af8348c344980cbd6c8e9040533d688d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8348c344980cbd6c8e9040533d688d8">&#9670;&#160;</a></span>getControlValueAsString()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af8348c344980cbd6c8e9040533d688d8">&#9670;&#160;</a></span>getControlValueAsString() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1184,8 +2001,63 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 
 </div>
 </div>
+<a id="af8348c344980cbd6c8e9040533d688d8" name="af8348c344980cbd6c8e9040533d688d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8348c344980cbd6c8e9040533d688d8">&#9670;&#160;</a></span>getControlValueAsString() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string PluginParameter::getControlValueAsString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>the main function to access the underlying atomic double value as a string </p>
+<dl class="section return"><dt>Returns</dt><dd>the value as a std::string </dd></dl>
+
+</div>
+</div>
 <a id="a45f5c46bdf4ebca6e5d3268a1502acd9" name="a45f5c46bdf4ebca6e5d3268a1502acd9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45f5c46bdf4ebca6e5d3268a1502acd9">&#9670;&#160;</a></span>getControlValueFromNormalizedValue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a45f5c46bdf4ebca6e5d3268a1502acd9">&#9670;&#160;</a></span>getControlValueFromNormalizedValue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::getControlValueFromNormalizedValue </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>normalizedValue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get control value with a normalized value (helper) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">normalizedValue</td><td>the normalized value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>actual version </dd></dl>
+
+</div>
+</div>
+<a id="a45f5c46bdf4ebca6e5d3268a1502acd9" name="a45f5c46bdf4ebca6e5d3268a1502acd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45f5c46bdf4ebca6e5d3268a1502acd9">&#9670;&#160;</a></span>getControlValueFromNormalizedValue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1220,7 +2092,36 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a649b4842ff17b007219ab877b0b8eeb1" name="a649b4842ff17b007219ab877b0b8eeb1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a649b4842ff17b007219ab877b0b8eeb1">&#9670;&#160;</a></span>getControlValueNormalized()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a649b4842ff17b007219ab877b0b8eeb1">&#9670;&#160;</a></span>getControlValueNormalized() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::getControlValueNormalized </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>applyTaper</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get control value as normalied value </p>
+<dl class="section return"><dt>Returns</dt><dd>control value in normalized form </dd></dl>
+
+</div>
+</div>
+<a id="a649b4842ff17b007219ab877b0b8eeb1" name="a649b4842ff17b007219ab877b0b8eeb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a649b4842ff17b007219ab877b0b8eeb1">&#9670;&#160;</a></span>getControlValueNormalized() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1249,7 +2150,46 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a29283875ab6fcc38f0b1f673a9e26daf" name="a29283875ab6fcc38f0b1f673a9e26daf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29283875ab6fcc38f0b1f673a9e26daf">&#9670;&#160;</a></span>getControlValueWithNormalizedValue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a29283875ab6fcc38f0b1f673a9e26daf">&#9670;&#160;</a></span>getControlValueWithNormalizedValue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::getControlValueWithNormalizedValue </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>normalizedValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>applyTaper</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get the new control value <em>as if</em> it were set with a normalized value </p>
+<dl class="section return"><dt>Returns</dt><dd>control value <em>as if</em> it were set with a normalized value </dd></dl>
+
+</div>
+</div>
+<a id="a29283875ab6fcc38f0b1f673a9e26daf" name="a29283875ab6fcc38f0b1f673a9e26daf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29283875ab6fcc38f0b1f673a9e26daf">&#9670;&#160;</a></span>getControlValueWithNormalizedValue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1288,7 +2228,35 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a8e2dcabdf48fde0fbf04cf8bb4f3a938" name="a8e2dcabdf48fde0fbf04cf8bb4f3a938"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e2dcabdf48fde0fbf04cf8bb4f3a938">&#9670;&#160;</a></span>getDefaultValueNormalized()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e2dcabdf48fde0fbf04cf8bb4f3a938">&#9670;&#160;</a></span>getDefaultValueNormalized() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::getDefaultValueNormalized </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get default value as normalied value </p>
+<dl class="section return"><dt>Returns</dt><dd>default value in normalized form </dd></dl>
+
+</div>
+</div>
+<a id="a8e2dcabdf48fde0fbf04cf8bb4f3a938" name="a8e2dcabdf48fde0fbf04cf8bb4f3a938"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e2dcabdf48fde0fbf04cf8bb4f3a938">&#9670;&#160;</a></span>getDefaultValueNormalized() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1316,7 +2284,33 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="abd46bd9ffb54c324f05ffa3dd4b24807" name="abd46bd9ffb54c324f05ffa3dd4b24807"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd46bd9ffb54c324f05ffa3dd4b24807">&#9670;&#160;</a></span>getGUIMax()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abd46bd9ffb54c324f05ffa3dd4b24807">&#9670;&#160;</a></span>getGUIMax() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::getGUIMax </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get the maximum GUI value for string-list params </p>
+
+</div>
+</div>
+<a id="abd46bd9ffb54c324f05ffa3dd4b24807" name="abd46bd9ffb54c324f05ffa3dd4b24807"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd46bd9ffb54c324f05ffa3dd4b24807">&#9670;&#160;</a></span>getGUIMax() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1342,7 +2336,33 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a3abada0d6044782d3fd81e991e90679c" name="a3abada0d6044782d3fd81e991e90679c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3abada0d6044782d3fd81e991e90679c">&#9670;&#160;</a></span>getGUIMin()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3abada0d6044782d3fd81e991e90679c">&#9670;&#160;</a></span>getGUIMin() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::getGUIMin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get the minimum GUI value - this is ALWAYS 0.0 for VSTGUI4 </p>
+
+</div>
+</div>
+<a id="a3abada0d6044782d3fd81e991e90679c" name="a3abada0d6044782d3fd81e991e90679c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3abada0d6044782d3fd81e991e90679c">&#9670;&#160;</a></span>getGUIMin() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1368,7 +2388,35 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a5417227ef80a7e39a774353bb432394c" name="a5417227ef80a7e39a774353bb432394c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5417227ef80a7e39a774353bb432394c">&#9670;&#160;</a></span>getNormalizedAntiLogControlValue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5417227ef80a7e39a774353bb432394c">&#9670;&#160;</a></span>getNormalizedAntiLogControlValue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::getNormalizedAntiLogControlValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get get anti-log control value in normalized form </p>
+<dl class="section return"><dt>Returns</dt><dd>anti-log control value in normalized form </dd></dl>
+
+</div>
+</div>
+<a id="a5417227ef80a7e39a774353bb432394c" name="a5417227ef80a7e39a774353bb432394c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5417227ef80a7e39a774353bb432394c">&#9670;&#160;</a></span>getNormalizedAntiLogControlValue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1396,7 +2444,35 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a179552ed717746faa1c05d5cbcd3fb84" name="a179552ed717746faa1c05d5cbcd3fb84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a179552ed717746faa1c05d5cbcd3fb84">&#9670;&#160;</a></span>getNormalizedAntiLogDefaultValue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a179552ed717746faa1c05d5cbcd3fb84">&#9670;&#160;</a></span>getNormalizedAntiLogDefaultValue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::getNormalizedAntiLogDefaultValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get anti-log default value in normalized form </p>
+<dl class="section return"><dt>Returns</dt><dd>normalized version </dd></dl>
+
+</div>
+</div>
+<a id="a179552ed717746faa1c05d5cbcd3fb84" name="a179552ed717746faa1c05d5cbcd3fb84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a179552ed717746faa1c05d5cbcd3fb84">&#9670;&#160;</a></span>getNormalizedAntiLogDefaultValue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1424,7 +2500,35 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a0e082ecdce0f446ecae314ffe044a0e5" name="a0e082ecdce0f446ecae314ffe044a0e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e082ecdce0f446ecae314ffe044a0e5">&#9670;&#160;</a></span>getNormalizedControlValue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e082ecdce0f446ecae314ffe044a0e5">&#9670;&#160;</a></span>getNormalizedControlValue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::getNormalizedControlValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get control value as normalized value (helper) </p>
+<dl class="section return"><dt>Returns</dt><dd>normalized version </dd></dl>
+
+</div>
+</div>
+<a id="a0e082ecdce0f446ecae314ffe044a0e5" name="a0e082ecdce0f446ecae314ffe044a0e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e082ecdce0f446ecae314ffe044a0e5">&#9670;&#160;</a></span>getNormalizedControlValue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1452,7 +2556,42 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a38514197b052f270dcfb0e5c358aec63" name="a38514197b052f270dcfb0e5c358aec63"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38514197b052f270dcfb0e5c358aec63">&#9670;&#160;</a></span>getNormalizedControlValueWithActual()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a38514197b052f270dcfb0e5c358aec63">&#9670;&#160;</a></span>getNormalizedControlValueWithActual() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::getNormalizedControlValueWithActual </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>actualValue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>convert actual control value into normalized value (helper) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">actualValue</td><td>the actual value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>normalized version </dd></dl>
+
+</div>
+</div>
+<a id="a38514197b052f270dcfb0e5c358aec63" name="a38514197b052f270dcfb0e5c358aec63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38514197b052f270dcfb0e5c358aec63">&#9670;&#160;</a></span>getNormalizedControlValueWithActual() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1487,7 +2626,36 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="adc63151d1185c3b0e81c03bf62b2b39b" name="adc63151d1185c3b0e81c03bf62b2b39b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc63151d1185c3b0e81c03bf62b2b39b">&#9670;&#160;</a></span>getNormalizedControlValueWithActualValue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adc63151d1185c3b0e81c03bf62b2b39b">&#9670;&#160;</a></span>getNormalizedControlValueWithActualValue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::getNormalizedControlValueWithActualValue </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>actualValue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get the new normalized control value <em>as if</em> it were set with an actual value </p>
+<dl class="section return"><dt>Returns</dt><dd>control value <em>as if</em> it were set with a normalized value </dd></dl>
+
+</div>
+</div>
+<a id="adc63151d1185c3b0e81c03bf62b2b39b" name="adc63151d1185c3b0e81c03bf62b2b39b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc63151d1185c3b0e81c03bf62b2b39b">&#9670;&#160;</a></span>getNormalizedControlValueWithActualValue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1516,7 +2684,35 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a33306861c8301228ac5ab2b3f48f80d8" name="a33306861c8301228ac5ab2b3f48f80d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33306861c8301228ac5ab2b3f48f80d8">&#9670;&#160;</a></span>getNormalizedDefaultValue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a33306861c8301228ac5ab2b3f48f80d8">&#9670;&#160;</a></span>getNormalizedDefaultValue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::getNormalizedDefaultValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get default value as a normalized value (helper) </p>
+<dl class="section return"><dt>Returns</dt><dd>normalized version </dd></dl>
+
+</div>
+</div>
+<a id="a33306861c8301228ac5ab2b3f48f80d8" name="a33306861c8301228ac5ab2b3f48f80d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33306861c8301228ac5ab2b3f48f80d8">&#9670;&#160;</a></span>getNormalizedDefaultValue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1544,7 +2740,35 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a47726a8a8871fe138a68d0b68122073a" name="a47726a8a8871fe138a68d0b68122073a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47726a8a8871fe138a68d0b68122073a">&#9670;&#160;</a></span>getNormalizedLogControlValue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a47726a8a8871fe138a68d0b68122073a">&#9670;&#160;</a></span>getNormalizedLogControlValue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::getNormalizedLogControlValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get get log control value in normalized form </p>
+<dl class="section return"><dt>Returns</dt><dd>log control value in normalized form </dd></dl>
+
+</div>
+</div>
+<a id="a47726a8a8871fe138a68d0b68122073a" name="a47726a8a8871fe138a68d0b68122073a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47726a8a8871fe138a68d0b68122073a">&#9670;&#160;</a></span>getNormalizedLogControlValue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1572,7 +2796,35 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="aa7772f851fbc9ec0e069b711017f522f" name="aa7772f851fbc9ec0e069b711017f522f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa7772f851fbc9ec0e069b711017f522f">&#9670;&#160;</a></span>getNormalizedLogDefaultValue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7772f851fbc9ec0e069b711017f522f">&#9670;&#160;</a></span>getNormalizedLogDefaultValue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::getNormalizedLogDefaultValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get log default value in normalized form </p>
+<dl class="section return"><dt>Returns</dt><dd>normalized version </dd></dl>
+
+</div>
+</div>
+<a id="aa7772f851fbc9ec0e069b711017f522f" name="aa7772f851fbc9ec0e069b711017f522f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7772f851fbc9ec0e069b711017f522f">&#9670;&#160;</a></span>getNormalizedLogDefaultValue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1600,7 +2852,35 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a26f80c673af8f228c62f166c0cc104c7" name="a26f80c673af8f228c62f166c0cc104c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26f80c673af8f228c62f166c0cc104c7">&#9670;&#160;</a></span>getNormalizedVoltOctaveControlValue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a26f80c673af8f228c62f166c0cc104c7">&#9670;&#160;</a></span>getNormalizedVoltOctaveControlValue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::getNormalizedVoltOctaveControlValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get get volt/octave control value in normalized form </p>
+<dl class="section return"><dt>Returns</dt><dd>volt/octave control value in normalized form </dd></dl>
+
+</div>
+</div>
+<a id="a26f80c673af8f228c62f166c0cc104c7" name="a26f80c673af8f228c62f166c0cc104c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26f80c673af8f228c62f166c0cc104c7">&#9670;&#160;</a></span>getNormalizedVoltOctaveControlValue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1628,7 +2908,35 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a9fadc60f1719cd22da65405298fbd7fd" name="a9fadc60f1719cd22da65405298fbd7fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9fadc60f1719cd22da65405298fbd7fd">&#9670;&#160;</a></span>getNormalizedVoltOctaveDefaultValue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fadc60f1719cd22da65405298fbd7fd">&#9670;&#160;</a></span>getNormalizedVoltOctaveDefaultValue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::getNormalizedVoltOctaveDefaultValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get volt/octave default value in normalized form </p>
+<dl class="section return"><dt>Returns</dt><dd>normalized version </dd></dl>
+
+</div>
+</div>
+<a id="a9fadc60f1719cd22da65405298fbd7fd" name="a9fadc60f1719cd22da65405298fbd7fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fadc60f1719cd22da65405298fbd7fd">&#9670;&#160;</a></span>getNormalizedVoltOctaveDefaultValue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1656,7 +2964,35 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a49e3ac3789ab2a371cf865868e8c80c8" name="a49e3ac3789ab2a371cf865868e8c80c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49e3ac3789ab2a371cf865868e8c80c8">&#9670;&#160;</a></span>getParameterUpdateQueue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a49e3ac3789ab2a371cf865868e8c80c8">&#9670;&#160;</a></span>getParameterUpdateQueue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_i_parameter_update_queue.html">IParameterUpdateQueue</a> * PluginParameter::getParameterUpdateQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>retrieves the update queue for VST3 sample accuate automation; note this is only used during actual DAW runs with automation engaged </p>
+<dl class="section return"><dt>Returns</dt><dd>IParameterUpdateQueue* </dd></dl>
+
+</div>
+</div>
+<a id="a49e3ac3789ab2a371cf865868e8c80c8" name="a49e3ac3789ab2a371cf865868e8c80c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49e3ac3789ab2a371cf865868e8c80c8">&#9670;&#160;</a></span>getParameterUpdateQueue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1684,7 +3020,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="af22fa4acfb4c3196e641b5f323b8baa1" name="af22fa4acfb4c3196e641b5f323b8baa1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af22fa4acfb4c3196e641b5f323b8baa1">&#9670;&#160;</a></span>getStringByIndex()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af22fa4acfb4c3196e641b5f323b8baa1">&#9670;&#160;</a></span>getStringByIndex() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1711,8 +3047,55 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 
 </div>
 </div>
+<a id="af22fa4acfb4c3196e641b5f323b8baa1" name="af22fa4acfb4c3196e641b5f323b8baa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af22fa4acfb4c3196e641b5f323b8baa1">&#9670;&#160;</a></span>getStringByIndex() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string PluginParameter::getStringByIndex </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>get a string-list string using the index </p>
+
+</div>
+</div>
 <a id="a9599bcc7bc8c86508d7a1afbefa71304" name="a9599bcc7bc8c86508d7a1afbefa71304"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9599bcc7bc8c86508d7a1afbefa71304">&#9670;&#160;</a></span>getStringCount()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9599bcc7bc8c86508d7a1afbefa71304">&#9670;&#160;</a></span>getStringCount() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t PluginParameter::getStringCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get the number of individual strings in a string-list control </p>
+<dl class="section return"><dt>Returns</dt><dd>number of strings </dd></dl>
+
+</div>
+</div>
+<a id="a9599bcc7bc8c86508d7a1afbefa71304" name="a9599bcc7bc8c86508d7a1afbefa71304"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9599bcc7bc8c86508d7a1afbefa71304">&#9670;&#160;</a></span>getStringCount() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1740,7 +3123,42 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a8f50dc1a2aa0f2ce64603ddd96f97815" name="a8f50dc1a2aa0f2ce64603ddd96f97815"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f50dc1a2aa0f2ce64603ddd96f97815">&#9670;&#160;</a></span>getVoltOctaveControlValueFromNormValue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f50dc1a2aa0f2ce64603ddd96f97815">&#9670;&#160;</a></span>getVoltOctaveControlValueFromNormValue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::getVoltOctaveControlValueFromNormValue </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>normalizedValue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get volt/octave control value from a normalized value </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">normalizedValue</td><td>the normalized version </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>volt/octave version </dd></dl>
+
+</div>
+</div>
+<a id="a8f50dc1a2aa0f2ce64603ddd96f97815" name="a8f50dc1a2aa0f2ce64603ddd96f97815"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f50dc1a2aa0f2ce64603ddd96f97815">&#9670;&#160;</a></span>getVoltOctaveControlValueFromNormValue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1775,7 +3193,41 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="aaa809a905da686dc747bbca745dd6cc3" name="aaa809a905da686dc747bbca745dd6cc3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa809a905da686dc747bbca745dd6cc3">&#9670;&#160;</a></span>initParamSmoother()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa809a905da686dc747bbca745dd6cc3">&#9670;&#160;</a></span>initParamSmoother() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PluginParameter::initParamSmoother </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>sampleRate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>initialize or reset the parameter smoother object </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sampleRate</td><td>fs (needed for coefficient calc) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aaa809a905da686dc747bbca745dd6cc3" name="aaa809a905da686dc747bbca745dd6cc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa809a905da686dc747bbca745dd6cc3">&#9670;&#160;</a></span>initParamSmoother() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1809,7 +3261,34 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="adf372791b618698ae44e17fbabe49d7c" name="adf372791b618698ae44e17fbabe49d7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf372791b618698ae44e17fbabe49d7c">&#9670;&#160;</a></span>logNormToNorm()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adf372791b618698ae44e17fbabe49d7c">&#9670;&#160;</a></span>logNormToNorm() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::logNormToNorm </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>logNormalizedValue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Log-normalized to normalized version (reverse-convex transform) </p>
+
+</div>
+</div>
+<a id="adf372791b618698ae44e17fbabe49d7c" name="adf372791b618698ae44e17fbabe49d7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf372791b618698ae44e17fbabe49d7c">&#9670;&#160;</a></span>logNormToNorm() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1836,7 +3315,34 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="ad4af50369ac38f1cb3dc7ca1c7a12d9f" name="ad4af50369ac38f1cb3dc7ca1c7a12d9f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4af50369ac38f1cb3dc7ca1c7a12d9f">&#9670;&#160;</a></span>normToAntiLogNorm()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4af50369ac38f1cb3dc7ca1c7a12d9f">&#9670;&#160;</a></span>normToAntiLogNorm() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::normToAntiLogNorm </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>normalizedValue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>normalized to AntiLog-normalized version </p>
+
+</div>
+</div>
+<a id="ad4af50369ac38f1cb3dc7ca1c7a12d9f" name="ad4af50369ac38f1cb3dc7ca1c7a12d9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4af50369ac38f1cb3dc7ca1c7a12d9f">&#9670;&#160;</a></span>normToAntiLogNorm() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1863,7 +3369,34 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a4f53a9c5f6d01ccea73965083a79aa9e" name="a4f53a9c5f6d01ccea73965083a79aa9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f53a9c5f6d01ccea73965083a79aa9e">&#9670;&#160;</a></span>normToLogNorm()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f53a9c5f6d01ccea73965083a79aa9e">&#9670;&#160;</a></span>normToLogNorm() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::normToLogNorm </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>normalizedValue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>normalized to Log-normalized version (convex transform) </p>
+
+</div>
+</div>
+<a id="a4f53a9c5f6d01ccea73965083a79aa9e" name="a4f53a9c5f6d01ccea73965083a79aa9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f53a9c5f6d01ccea73965083a79aa9e">&#9670;&#160;</a></span>normToLogNorm() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1890,7 +3423,34 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a57d6ff3018e2829667549e1a7acdd566" name="a57d6ff3018e2829667549e1a7acdd566"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57d6ff3018e2829667549e1a7acdd566">&#9670;&#160;</a></span>operator=()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a57d6ff3018e2829667549e1a7acdd566">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_plugin_parameter.html">PluginParameter</a> &amp; PluginParameter::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_plugin_parameter.html">PluginParameter</a> &amp;&#160;</td>
+          <td class="paramname"><em>aPluginParameter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>overloaded = operator (standard C++ fare) </p>
+
+</div>
+</div>
+<a id="a57d6ff3018e2829667549e1a7acdd566" name="a57d6ff3018e2829667549e1a7acdd566"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57d6ff3018e2829667549e1a7acdd566">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1956,7 +3516,52 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a80f1c77ac23d9eb83ef636e0a42d4950" name="a80f1c77ac23d9eb83ef636e0a42d4950"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80f1c77ac23d9eb83ef636e0a42d4950">&#9670;&#160;</a></span>setBoundVariable()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a80f1c77ac23d9eb83ef636e0a42d4950">&#9670;&#160;</a></span>setBoundVariable() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PluginParameter::setBoundVariable </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>boundVariable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___constants-_enums.html#ga5e8b40246bb284dc48bee0f5cafb70a3">boundVariableType</a>&#160;</td>
+          <td class="paramname"><em>dataType</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>save the variable for binding operation </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">boundVariable</td><td>naked pointer to bound variable </td></tr>
+    <tr><td class="paramname">dataType</td><td>data type for casting </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a80f1c77ac23d9eb83ef636e0a42d4950" name="a80f1c77ac23d9eb83ef636e0a42d4950"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80f1c77ac23d9eb83ef636e0a42d4950">&#9670;&#160;</a></span>setBoundVariable() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2021,7 +3626,52 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a47f240d2ee5968dd5b49fbaf446d7ad6" name="a47f240d2ee5968dd5b49fbaf446d7ad6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47f240d2ee5968dd5b49fbaf446d7ad6">&#9670;&#160;</a></span>setControlValue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a47f240d2ee5968dd5b49fbaf446d7ad6">&#9670;&#160;</a></span>setControlValue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PluginParameter::setControlValue </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>actualParamValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>ignoreSmoothing</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the main function to set the underlying atomic double value </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">actualParamValue</td><td>parameter value as a regular double </td></tr>
+    <tr><td class="paramname">ignoreSmoothing</td><td>flag to ignore smoothing operation and write directly to atomic double </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a47f240d2ee5968dd5b49fbaf446d7ad6" name="a47f240d2ee5968dd5b49fbaf446d7ad6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47f240d2ee5968dd5b49fbaf446d7ad6">&#9670;&#160;</a></span>setControlValue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2066,7 +3716,59 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="ac5d3921c6faeb75be2e03017ecd18110" name="ac5d3921c6faeb75be2e03017ecd18110"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5d3921c6faeb75be2e03017ecd18110">&#9670;&#160;</a></span>setControlValueNormalized()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5d3921c6faeb75be2e03017ecd18110">&#9670;&#160;</a></span>setControlValueNormalized() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PluginParameter::setControlValueNormalized </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>normalizedValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>applyTaper</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>ignoreParameterSmoothing</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the main function to set the underlying atomic double value using a normalized value; this is the operation in VST3 and RAFX2 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">normalizedValue</td><td>parameter value as a regular double </td></tr>
+    <tr><td class="paramname">applyTaper</td><td>add the control taper during the operation </td></tr>
+    <tr><td class="paramname">ignoreParameterSmoothing</td><td>flag to ignore smoothing operation and write directly to atomic double </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac5d3921c6faeb75be2e03017ecd18110" name="ac5d3921c6faeb75be2e03017ecd18110"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5d3921c6faeb75be2e03017ecd18110">&#9670;&#160;</a></span>setControlValueNormalized() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2118,7 +3820,41 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="aa6ad57cb3eeaeea764540e76bc3334a4" name="aa6ad57cb3eeaeea764540e76bc3334a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6ad57cb3eeaeea764540e76bc3334a4">&#9670;&#160;</a></span>setParameterUpdateQueue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6ad57cb3eeaeea764540e76bc3334a4">&#9670;&#160;</a></span>setParameterUpdateQueue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PluginParameter::setParameterUpdateQueue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_parameter_update_queue.html">IParameterUpdateQueue</a> *&#160;</td>
+          <td class="paramname"><em>_parameterUpdateQueue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>stores the update queue for VST3 sample accuate automation; note this is only used during actual DAW runs with automation engaged </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_parameterUpdateQueue</td><td>the update queue to store </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa6ad57cb3eeaeea764540e76bc3334a4" name="aa6ad57cb3eeaeea764540e76bc3334a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6ad57cb3eeaeea764540e76bc3334a4">&#9670;&#160;</a></span>setParameterUpdateQueue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2152,7 +3888,35 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a534a2e5e2e91528eb24c52aa9b916594" name="a534a2e5e2e91528eb24c52aa9b916594"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a534a2e5e2e91528eb24c52aa9b916594">&#9670;&#160;</a></span>smoothParameterValue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a534a2e5e2e91528eb24c52aa9b916594">&#9670;&#160;</a></span>smoothParameterValue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PluginParameter::smoothParameterValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>perform smoothing operation on data </p>
+<dl class="section return"><dt>Returns</dt><dd>true if data was actually smoothed, false otherwise (data that has reached its terminal value will not be smoothed any further) </dd></dl>
+
+</div>
+</div>
+<a id="a534a2e5e2e91528eb24c52aa9b916594" name="a534a2e5e2e91528eb24c52aa9b916594"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a534a2e5e2e91528eb24c52aa9b916594">&#9670;&#160;</a></span>smoothParameterValue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2180,7 +3944,35 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a908e0216a4f25ec3a127eacde8d46408" name="a908e0216a4f25ec3a127eacde8d46408"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a908e0216a4f25ec3a127eacde8d46408">&#9670;&#160;</a></span>updateInBoundVariable()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a908e0216a4f25ec3a127eacde8d46408">&#9670;&#160;</a></span>updateInBoundVariable() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PluginParameter::updateInBoundVariable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>perform the variable binding update (change the value) </p>
+<dl class="section return"><dt>Returns</dt><dd>boundVariableType </dd></dl>
+
+</div>
+</div>
+<a id="a908e0216a4f25ec3a127eacde8d46408" name="a908e0216a4f25ec3a127eacde8d46408"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a908e0216a4f25ec3a127eacde8d46408">&#9670;&#160;</a></span>updateInBoundVariable() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2208,7 +4000,35 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a598607f74023cca91ce5faf2f297b622" name="a598607f74023cca91ce5faf2f297b622"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a598607f74023cca91ce5faf2f297b622">&#9670;&#160;</a></span>updateOutBoundVariable()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a598607f74023cca91ce5faf2f297b622">&#9670;&#160;</a></span>updateOutBoundVariable() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PluginParameter::updateOutBoundVariable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>perform the variable binding update on meter data </p>
+<dl class="section return"><dt>Returns</dt><dd>true if variable was udpated, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a598607f74023cca91ce5faf2f297b622" name="a598607f74023cca91ce5faf2f297b622"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a598607f74023cca91ce5faf2f297b622">&#9670;&#160;</a></span>updateOutBoundVariable() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2236,7 +4056,41 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <a id="a97c3c3947153d92ad63721c3474820cf" name="a97c3c3947153d92ad63721c3474820cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97c3c3947153d92ad63721c3474820cf">&#9670;&#160;</a></span>updateSampleRate()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a97c3c3947153d92ad63721c3474820cf">&#9670;&#160;</a></span>updateSampleRate() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PluginParameter::updateSampleRate </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>sampleRate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>change any sample-rate dependent members </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sampleRate</td><td>fs (needed for coefficient calc) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a97c3c3947153d92ad63721c3474820cf" name="a97c3c3947153d92ad63721c3474820cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97c3c3947153d92ad63721c3474820cf">&#9670;&#160;</a></span>updateSampleRate() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2270,8 +4124,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enableVSTSampleAccura
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/PluginKernel/<a class="el" href="pluginparameter_8h_source.html">pluginparameter.h</a></li>
-<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/PluginKernel/<a class="el" href="pluginparameter_8cpp.html">pluginparameter.cpp</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate OLD/project_source/source/PluginKernel/<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2_plugin_kernel_2pluginparameter_8h_source.html">pluginparameter.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/PluginKernel/<a class="el" href="_plugin_template_2project__source_2source_2_plugin_kernel_2pluginparameter_8h_source.html">pluginparameter.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate OLD/project_source/source/PluginKernel/<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2_plugin_kernel_2pluginparameter_8cpp.html">pluginparameter.cpp</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/PluginKernel/<a class="el" href="_plugin_template_2project__source_2source_2_plugin_kernel_2pluginparameter_8cpp.html">pluginparameter.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

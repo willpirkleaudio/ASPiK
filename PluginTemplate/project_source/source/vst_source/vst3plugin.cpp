@@ -7,6 +7,7 @@
 #include "pluginterfaces/vst/ivstparameterchanges.h"
 #include "pluginterfaces/vst/ivstmidicontrollers.h"
 #include "base/source/fstreamer.h"
+#include "base/source/fstring.h" // 3.7.8
 
 // --- plugin specific
 #include "customparameters.h"
@@ -223,6 +224,7 @@ tresult PLUGIN_API VST3Plugin::initialize(FUnknown* context)
                         std::string stringParam = piParam->getStringByIndex(j);
                         enumStringParam->appendString(USTRING(stringParam.c_str()));
                     }
+                    enumStringParam->setNormalized(piParam->getDefaultValueNormalized());
                     parameters.addParameter(enumStringParam);
 
                 }
@@ -336,7 +338,7 @@ tresult PLUGIN_API VST3Plugin::initialize(FUnknown* context)
             parameters.addParameter(presetParam);
 
             // --- note the ID here (PRESET_NAME) can not be the same as the kPresetParam
-            ProgramList* prgList = new ProgramList(String("Factory Presets"), PRESET_NAME , kRootUnitId);
+            ProgramList* prgList = new ProgramList(Steinberg::String("Factory Presets"), PRESET_NAME , kRootUnitId);
 
             for (unsigned int i = 0; i < pluginCore->getPresetCount(); i++)
             {

@@ -29,7 +29,7 @@ namespace VSTGUI {
 \param offset - (x,y) offset point
 */
 CKickButtonEx::CKickButtonEx(const VSTGUI::CRect& size, IControlListener* listener, int32_t tag, CBitmap* background, const CPoint& offset)
-: CKickButton(size, listener, tag, background, offset)
+: CKickButton(size, listener, tag, background)
 {
 	mouseBehavior = mouseDirUpAndDown;
 }

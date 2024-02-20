@@ -100,7 +100,7 @@ $(document).ready(function(){initNavTree('class_steinberg_1_1_vst_1_1_a_s_pi_k_1
 <p>The <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_m_i_d_i_event_queue.html" title="The VSTMIDIEventQueue interface queues incoming MIDI messages and blasts them out during the buffer p...">VSTMIDIEventQueue</a> interface queues incoming MIDI messages and blasts them out during the buffer processing phase.  
  <a href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_m_i_d_i_event_queue.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="vst3plugin_8h_source.html">vst3plugin.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2vst__source_2vst3plugin_8h_source.html">vst3plugin.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Steinberg::Vst::ASPiK::VSTMIDIEventQueue:</div>
 <div class="dyncontent">
@@ -128,7 +128,26 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addMIDIProxyEvent</b>
 <tr class="separator:a41813f2464b9885857c3a617dde5dd84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00030082fb679cd442ff3dba76f1f837"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_m_i_d_i_event_queue.html#a00030082fb679cd442ff3dba76f1f837">fireMidiEvents</a> (unsigned int sampleOffset)</td></tr>
 <tr class="separator:a00030082fb679cd442ff3dba76f1f837"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1354c921e3f81823ecf0bf4b94e2f419"><td class="memItemLeft" align="right" valign="top"><a id="a1354c921e3f81823ecf0bf4b94e2f419" name="a1354c921e3f81823ecf0bf4b94e2f419"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>VSTMIDIEventQueue</b> (<a class="el" href="class_plugin_core.html">PluginCore</a> *_pluginCore)</td></tr>
+<tr class="separator:a1354c921e3f81823ecf0bf4b94e2f419"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57dec391d00f3efacec09804efd8c983"><td class="memItemLeft" align="right" valign="top"><a id="a57dec391d00f3efacec09804efd8c983" name="a57dec391d00f3efacec09804efd8c983"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>clearMIDIProxyEvents</b> ()</td></tr>
+<tr class="separator:a57dec391d00f3efacec09804efd8c983"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab73e2a60eb222ffb9b56e2680bb26cee"><td class="memItemLeft" align="right" valign="top"><a id="ab73e2a60eb222ffb9b56e2680bb26cee" name="ab73e2a60eb222ffb9b56e2680bb26cee"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addMIDIProxyEvent</b> (<a class="el" href="structmidi_event.html">midiEvent</a> &amp;event)</td></tr>
+<tr class="separator:ab73e2a60eb222ffb9b56e2680bb26cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22fa7e4d62747001bf42e3dd072333f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_m_i_d_i_event_queue.html#a22fa7e4d62747001bf42e3dd072333f9">setEventList</a> (IEventList *_inputEvents)</td></tr>
+<tr class="separator:a22fa7e4d62747001bf42e3dd072333f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41813f2464b9885857c3a617dde5dd84"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_m_i_d_i_event_queue.html#a41813f2464b9885857c3a617dde5dd84">getEventCount</a> ()</td></tr>
+<tr class="separator:a41813f2464b9885857c3a617dde5dd84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00030082fb679cd442ff3dba76f1f837"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_m_i_d_i_event_queue.html#a00030082fb679cd442ff3dba76f1f837">fireMidiEvents</a> (unsigned int sampleOffset)</td></tr>
+<tr class="separator:a00030082fb679cd442ff3dba76f1f837"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_i_midi_event_queue"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_i_midi_event_queue')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_i_midi_event_queue.html">IMidiEventQueue</a></td></tr>
+<tr class="memitem:ab9393c939d37a4d9c46dda2ca2d15587 inherit pub_methods_class_i_midi_event_queue"><td class="memItemLeft" align="right" valign="top">virtual uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_midi_event_queue.html#ab9393c939d37a4d9c46dda2ca2d15587">getEventCount</a> ()=0</td></tr>
+<tr class="separator:ab9393c939d37a4d9c46dda2ca2d15587 inherit pub_methods_class_i_midi_event_queue"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5db5cc1a2d9ff162484540718f6e7b84 inherit pub_methods_class_i_midi_event_queue"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_midi_event_queue.html#a5db5cc1a2d9ff162484540718f6e7b84">fireMidiEvents</a> (uint32_t uSampleOffset)=0</td></tr>
+<tr class="separator:a5db5cc1a2d9ff162484540718f6e7b84 inherit pub_methods_class_i_midi_event_queue"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9393c939d37a4d9c46dda2ca2d15587 inherit pub_methods_class_i_midi_event_queue"><td class="memItemLeft" align="right" valign="top">virtual uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_midi_event_queue.html#ab9393c939d37a4d9c46dda2ca2d15587">getEventCount</a> ()=0</td></tr>
 <tr class="separator:ab9393c939d37a4d9c46dda2ca2d15587 inherit pub_methods_class_i_midi_event_queue"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5db5cc1a2d9ff162484540718f6e7b84 inherit pub_methods_class_i_midi_event_queue"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_midi_event_queue.html#a5db5cc1a2d9ff162484540718f6e7b84">fireMidiEvents</a> (uint32_t uSampleOffset)=0</td></tr>
@@ -136,21 +155,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addMIDIProxyEvent</b>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a1abd771e2aa955eade762dec07e16193"><td class="memItemLeft" align="right" valign="top"><a id="a1abd771e2aa955eade762dec07e16193" name="a1abd771e2aa955eade762dec07e16193"></a>
+<tr class="memitem:a587846eeb71f368cd72a55052e0c7edf"><td class="memItemLeft" align="right" valign="top"><a id="a587846eeb71f368cd72a55052e0c7edf" name="a587846eeb71f368cd72a55052e0c7edf"></a>
 <a class="el" href="class_plugin_core.html">PluginCore</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pluginCore</b> = nullptr</td></tr>
-<tr class="memdesc:a1abd771e2aa955eade762dec07e16193"><td class="mdescLeft">&#160;</td><td class="mdescRight">the core object <br /></td></tr>
-<tr class="separator:a1abd771e2aa955eade762dec07e16193"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa3ace41431bb6a93e7e091c287fb6ad"><td class="memItemLeft" align="right" valign="top"><a id="aaa3ace41431bb6a93e7e091c287fb6ad" name="aaa3ace41431bb6a93e7e091c287fb6ad"></a>
+<tr class="memdesc:a587846eeb71f368cd72a55052e0c7edf"><td class="mdescLeft">&#160;</td><td class="mdescRight">the core object <br /></td></tr>
+<tr class="separator:a587846eeb71f368cd72a55052e0c7edf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d8cf9360e9b56c6d2fddc06257c4f5f"><td class="memItemLeft" align="right" valign="top"><a id="a7d8cf9360e9b56c6d2fddc06257c4f5f" name="a7d8cf9360e9b56c6d2fddc06257c4f5f"></a>
 IEventList *&#160;</td><td class="memItemRight" valign="bottom"><b>inputEvents</b> = nullptr</td></tr>
-<tr class="memdesc:aaa3ace41431bb6a93e7e091c287fb6ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">the current event list for this buffer cycle <br /></td></tr>
-<tr class="separator:aaa3ace41431bb6a93e7e091c287fb6ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a7d8cf9360e9b56c6d2fddc06257c4f5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">the current event list for this buffer cycle <br /></td></tr>
+<tr class="separator:a7d8cf9360e9b56c6d2fddc06257c4f5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bfa2c7d68be0597f369464b0b695691"><td class="memItemLeft" align="right" valign="top"><a id="a5bfa2c7d68be0597f369464b0b695691" name="a5bfa2c7d68be0597f369464b0b695691"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>currentEventIndex</b> = 0</td></tr>
 <tr class="memdesc:a5bfa2c7d68be0597f369464b0b695691"><td class="mdescLeft">&#160;</td><td class="mdescRight">index of current event <br /></td></tr>
 <tr class="separator:a5bfa2c7d68be0597f369464b0b695691"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8dea9dc529ece6bc89bed4907cc5ed0c"><td class="memItemLeft" align="right" valign="top"><a id="a8dea9dc529ece6bc89bed4907cc5ed0c" name="a8dea9dc529ece6bc89bed4907cc5ed0c"></a>
+<tr class="memitem:a6707372a0fa5d51d4c0a50a3944d9e13"><td class="memItemLeft" align="right" valign="top"><a id="a6707372a0fa5d51d4c0a50a3944d9e13" name="a6707372a0fa5d51d4c0a50a3944d9e13"></a>
 std::vector&lt; <a class="el" href="structmidi_event.html">midiEvent</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>proxyMIDIEvents</b></td></tr>
-<tr class="separator:a8dea9dc529ece6bc89bed4907cc5ed0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a6707372a0fa5d51d4c0a50a3944d9e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t_m_i_d_i_event_queue.html" title="The VSTMIDIEventQueue interface queues incoming MIDI messages and blasts them out during the buffer p...">VSTMIDIEventQueue</a> interface queues incoming MIDI messages and blasts them out during the buffer processing phase. </p>
@@ -164,7 +183,34 @@ std::vector&lt; <a class="el" href="structmidi_event.html">midiEvent</a> &gt;&#1
 <dl class="section date"><dt>Date</dt><dd>Date : 2018 / 09 / 7 </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a00030082fb679cd442ff3dba76f1f837" name="a00030082fb679cd442ff3dba76f1f837"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00030082fb679cd442ff3dba76f1f837">&#9670;&#160;</a></span>fireMidiEvents()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a00030082fb679cd442ff3dba76f1f837">&#9670;&#160;</a></span>fireMidiEvents() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Steinberg::Vst::ASPiK::VSTMIDIEventQueue::fireMidiEvents </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>sampleOffset</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>send MIDI event at this sample offset to core </p>
+
+</div>
+</div>
+<a id="a00030082fb679cd442ff3dba76f1f837" name="a00030082fb679cd442ff3dba76f1f837"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00030082fb679cd442ff3dba76f1f837">&#9670;&#160;</a></span>fireMidiEvents() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -191,7 +237,35 @@ std::vector&lt; <a class="el" href="structmidi_event.html">midiEvent</a> &gt;&#1
 </div>
 </div>
 <a id="a41813f2464b9885857c3a617dde5dd84" name="a41813f2464b9885857c3a617dde5dd84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41813f2464b9885857c3a617dde5dd84">&#9670;&#160;</a></span>getEventCount()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a41813f2464b9885857c3a617dde5dd84">&#9670;&#160;</a></span>getEventCount() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual unsigned int Steinberg::Vst::ASPiK::VSTMIDIEventQueue::getEventCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get count of messages in current list </p>
+
+<p>Implements <a class="el" href="class_i_midi_event_queue.html#ab9393c939d37a4d9c46dda2ca2d15587">IMidiEventQueue</a>.</p>
+
+</div>
+</div>
+<a id="a41813f2464b9885857c3a617dde5dd84" name="a41813f2464b9885857c3a617dde5dd84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41813f2464b9885857c3a617dde5dd84">&#9670;&#160;</a></span>getEventCount() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -219,7 +293,7 @@ std::vector&lt; <a class="el" href="structmidi_event.html">midiEvent</a> &gt;&#1
 </div>
 </div>
 <a id="a22fa7e4d62747001bf42e3dd072333f9" name="a22fa7e4d62747001bf42e3dd072333f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22fa7e4d62747001bf42e3dd072333f9">&#9670;&#160;</a></span>setEventList()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a22fa7e4d62747001bf42e3dd072333f9">&#9670;&#160;</a></span>setEventList() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -245,8 +319,36 @@ std::vector&lt; <a class="el" href="structmidi_event.html">midiEvent</a> &gt;&#1
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/vst_source/<a class="el" href="vst3plugin_8h_source.html">vst3plugin.h</a></li>
+<a id="a22fa7e4d62747001bf42e3dd072333f9" name="a22fa7e4d62747001bf42e3dd072333f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22fa7e4d62747001bf42e3dd072333f9">&#9670;&#160;</a></span>setEventList() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Steinberg::Vst::ASPiK::VSTMIDIEventQueue::setEventList </td>
+          <td>(</td>
+          <td class="paramtype">IEventList *&#160;</td>
+          <td class="paramname"><em>_inputEvents</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>set a new list from VST host </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate OLD/project_source/source/vst_source/<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2vst__source_2vst3plugin_8h_source.html">vst3plugin.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/vst_source/<a class="el" href="_plugin_template_2project__source_2source_2vst__source_2vst3plugin_8h_source.html">vst3plugin.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

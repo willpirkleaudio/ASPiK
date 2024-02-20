@@ -231,13 +231,15 @@ public:
 	void dumpHierarchy () override;
 	#endif
 
-	CLASS_METHODS(CFrame, CViewContainer)
+	CLASS_METHODS_NOCOPY(CFrame, CViewContainer)
 
 	//-------------------------------------------
 protected:
 	struct CollectInvalidRects;
 	
+	CFrame (const CFrame&) = delete;
 	~CFrame () noexcept override = default;
+
 	void beforeDelete () override;
 
 	void checkMouseViews (const MouseEvent& event);
@@ -256,7 +258,8 @@ protected:
 	void dispatchNewScaleFactor (double newScaleFactor);
 
 	// platform frame
-	bool platformDrawRect (CDrawContext* context, const CRect& rect) override;
+	void platformDrawRects (const PlatformGraphicsDeviceContextPtr& context, double scaleFactor,
+							const std::vector<CRect>& rects) override;
 	void platformOnEvent (Event& event) override;
 	DragOperation platformOnDragEnter (DragEventData data) override;
 	DragOperation platformOnDragMove (DragEventData data) override;

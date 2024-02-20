@@ -7,7 +7,7 @@ var searchData=
   ['wdfparameters_4',['wdfParameters',['../class_w_d_f_ideal_r_l_c_l_p_f.html#a1c42353968fea88473d41f43b00d236c',1,'WDFIdealRLCLPF::wdfParameters()'],['../class_w_d_f_ideal_r_l_c_h_p_f.html#a591580bdba8403ad33173c793af10c73',1,'WDFIdealRLCHPF::wdfParameters()'],['../class_w_d_f_ideal_r_l_c_b_p_f.html#ab8ab8aaaaf884327a161e4acee516a4b',1,'WDFIdealRLCBPF::wdfParameters()'],['../class_w_d_f_ideal_r_l_c_b_s_f.html#a352d7fb2e0294abf6a1e6db9b71c5ebf',1,'WDFIdealRLCBSF::wdfParameters()']]],
   ['wetlevel_5fdb_5',['wetLevel_dB',['../struct_audio_delay_parameters.html#a007b75d9b5b9522b60ab788ed4615912',1,'AudioDelayParameters::wetLevel_dB()'],['../struct_reverb_tank_parameters.html#a1448fc9e00e598b58b0054b7fcdc532c',1,'ReverbTankParameters::wetLevel_dB()']]],
   ['width_6',['width',['../struct_create_g_u_i_info.html#a0fa20e48fc37c0aa1f76dc63d82e55c7',1,'CreateGUIInfo']]],
-  ['window_7',['window',['../class_fast_f_f_t.html#a4f4c7562820a8f1d711f6039705da191',1,'FastFFT::window()'],['../class_phase_vocoder.html#abf1c79c7d4251d687cf8717a4d85484e',1,'PhaseVocoder::window()'],['../struct_create_g_u_i_info.html#abab980b6c1b50afb2628102a5e44c921',1,'CreateGUIInfo::window()']]],
+  ['window_7',['window',['../class_fast_f_f_t.html#a4f4c7562820a8f1d711f6039705da191',1,'FastFFT::window()'],['../class_phase_vocoder.html#abf1c79c7d4251d687cf8717a4d85484e',1,'PhaseVocoder::window()'],['../struct_create_g_u_i_info.html#a62d2499ec22c2254ae6b3c91eafe0771',1,'CreateGUIInfo::window()']]],
   ['windowbuff_8',['windowBuff',['../class_p_s_m_vocoder.html#a927e439a7785a6196c2d31ebc083cb50',1,'PSMVocoder']]],
   ['windowbuffer_9',['windowBuffer',['../class_fast_f_f_t.html#a5dd86db5d849c71baf670071551729f9',1,'FastFFT::windowBuffer()'],['../class_phase_vocoder.html#a841003936c8477b8bad4c2e4fee24c8d',1,'PhaseVocoder::windowBuffer()']]],
   ['windowcorrection_10',['windowCorrection',['../class_p_s_m_vocoder.html#a4e90d8754a6f937bce0b393a51944fe1',1,'PSMVocoder']]],
@@ -15,7 +15,7 @@ var searchData=
   ['windowhopcorrection_12',['windowHopCorrection',['../class_phase_vocoder.html#a0e3b746475148c045448fe17e7bbc621',1,'PhaseVocoder']]],
   ['wrapmask_13',['wrapMask',['../class_phase_vocoder.html#ac49c19cf7dc60dc671e9a62e58f2fc80',1,'PhaseVocoder']]],
   ['wrapmaskout_14',['wrapMaskOut',['../class_phase_vocoder.html#ad60cb40a8b5b386f5985c1e1ac82d9f3',1,'PhaseVocoder']]],
-  ['write_5fpreset_5ffile_15',['WRITE_PRESET_FILE',['../guiconstants_8h.html#a7044cfcc24c3fe3c74551f17752b6312',1,'guiconstants.h']]],
+  ['write_5fpreset_5ffile_15',['WRITE_PRESET_FILE',['../_plugin_template_01_o_l_d_2project__source_2source_2_plugin_kernel_2guiconstants_8h.html#a7044cfcc24c3fe3c74551f17752b6312',1,'WRITE_PRESET_FILE():&#160;guiconstants.h'],['../_plugin_template_2project__source_2source_2_plugin_kernel_2guiconstants_8h.html#a7044cfcc24c3fe3c74551f17752b6312',1,'WRITE_PRESET_FILE():&#160;guiconstants.h']]],
   ['writeindex_16',['writeIndex',['../class_v_s_t_g_u_i_1_1_wave_view.html#a27687765d418fdd2524b8b6c6fb3e00e',1,'VSTGUI::WaveView']]],
   ['writingqueuea_17',['writingQueueA',['../class_a_u_m_i_d_i_event_queue.html#ae41aabfbebc9fa63c7025fca958e487c',1,'AUMIDIEventQueue']]]
 ];

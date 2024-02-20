@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('class_i_custom_view.html',''); initRes
 <p>Custom View interface to allow plugin core to create safe communication channels with GUI custom view objects. MANY uses!  
  <a href="class_i_custom_view.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="pluginstructures_8h_source.html">pluginstructures.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2_plugin_kernel_2pluginstructures_8h_source.html">pluginstructures.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ICustomView:</div>
 <div class="dyncontent">
@@ -123,6 +123,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a60c73575c3bba7d0491dd35ec7ae757d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae254a94e1d754ece5ba4678583b1ddd1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_custom_view.html#ae254a94e1d754ece5ba4678583b1ddd1">sendMessage</a> (void *data)</td></tr>
 <tr class="separator:ae254a94e1d754ece5ba4678583b1ddd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09b3386cc82f837cf6f04945590cb848"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_custom_view.html#a09b3386cc82f837cf6f04945590cb848">updateView</a> ()=0</td></tr>
+<tr class="separator:a09b3386cc82f837cf6f04945590cb848"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60c73575c3bba7d0491dd35ec7ae757d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_custom_view.html#a60c73575c3bba7d0491dd35ec7ae757d">pushDataValue</a> (double data)</td></tr>
+<tr class="separator:a60c73575c3bba7d0491dd35ec7ae757d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae254a94e1d754ece5ba4678583b1ddd1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_custom_view.html#ae254a94e1d754ece5ba4678583b1ddd1">sendMessage</a> (void *data)</td></tr>
+<tr class="separator:ae254a94e1d754ece5ba4678583b1ddd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Custom View interface to allow plugin core to create safe communication channels with GUI custom view objects. MANY uses! </p>
@@ -132,7 +138,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>Date : 2018 / 09 / 7 </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a60c73575c3bba7d0491dd35ec7ae757d" name="a60c73575c3bba7d0491dd35ec7ae757d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60c73575c3bba7d0491dd35ec7ae757d">&#9670;&#160;</a></span>pushDataValue()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a60c73575c3bba7d0491dd35ec7ae757d">&#9670;&#160;</a></span>pushDataValue() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -160,12 +166,45 @@ If you need to move giant amounts of data, you might want to alter this interfac
 and add a mechanism to copy a pointer to a lock-free buffer or some other<br  />
 thread-safe mechanism that you design </p>
 
-<p>Reimplemented in <a class="el" href="class_custom_view_controller.html#a00ad52df5cda64c57f9b998d7f034c33">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a00ad52df5cda64c57f9b998d7f034c33">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a00ad52df5cda64c57f9b998d7f034c33">CustomViewController</a>, <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#acac88d276aec0c0c0b6ac99daa81628c">Steinberg::Vst::ASPiK::CustomViewController</a>, and <a class="el" href="class_v_s_t_g_u_i_1_1_wave_view.html#a34e81471108f5476f920f6076621f440">VSTGUI::WaveView</a>.</p>
+<p>Reimplemented in <a class="el" href="class_custom_view_controller.html#a00ad52df5cda64c57f9b998d7f034c33">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a00ad52df5cda64c57f9b998d7f034c33">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a00ad52df5cda64c57f9b998d7f034c33">CustomViewController</a>, <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#acac88d276aec0c0c0b6ac99daa81628c">Steinberg::Vst::ASPiK::CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a00ad52df5cda64c57f9b998d7f034c33">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a00ad52df5cda64c57f9b998d7f034c33">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a00ad52df5cda64c57f9b998d7f034c33">CustomViewController</a>, <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#acac88d276aec0c0c0b6ac99daa81628c">Steinberg::Vst::ASPiK::CustomViewController</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_wave_view.html#a34e81471108f5476f920f6076621f440">VSTGUI::WaveView</a>, and <a class="el" href="class_v_s_t_g_u_i_1_1_wave_view.html#aa7313b21fdeb79a719c84153e611baf8">VSTGUI::WaveView</a>.</p>
+
+</div>
+</div>
+<a id="a60c73575c3bba7d0491dd35ec7ae757d" name="a60c73575c3bba7d0491dd35ec7ae757d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60c73575c3bba7d0491dd35ec7ae757d">&#9670;&#160;</a></span>pushDataValue() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ICustomView::pushDataValue </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>push a new data value into the view; call this repeatedly to push multiple values<br  />
+The derived class should implement a lock-free ring buffer to store the data.<br  />
+If you need to move giant amounts of data, you might want to alter this interface<br  />
+and add a mechanism to copy a pointer to a lock-free buffer or some other<br  />
+thread-safe mechanism that you design </p>
+
+<p>Reimplemented in <a class="el" href="class_custom_view_controller.html#a00ad52df5cda64c57f9b998d7f034c33">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a00ad52df5cda64c57f9b998d7f034c33">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a00ad52df5cda64c57f9b998d7f034c33">CustomViewController</a>, <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#acac88d276aec0c0c0b6ac99daa81628c">Steinberg::Vst::ASPiK::CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a00ad52df5cda64c57f9b998d7f034c33">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a00ad52df5cda64c57f9b998d7f034c33">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a00ad52df5cda64c57f9b998d7f034c33">CustomViewController</a>, <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#acac88d276aec0c0c0b6ac99daa81628c">Steinberg::Vst::ASPiK::CustomViewController</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_wave_view.html#a34e81471108f5476f920f6076621f440">VSTGUI::WaveView</a>, and <a class="el" href="class_v_s_t_g_u_i_1_1_wave_view.html#aa7313b21fdeb79a719c84153e611baf8">VSTGUI::WaveView</a>.</p>
 
 </div>
 </div>
 <a id="ae254a94e1d754ece5ba4678583b1ddd1" name="ae254a94e1d754ece5ba4678583b1ddd1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae254a94e1d754ece5ba4678583b1ddd1">&#9670;&#160;</a></span>sendMessage()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae254a94e1d754ece5ba4678583b1ddd1">&#9670;&#160;</a></span>sendMessage() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -195,12 +234,47 @@ Note that since the argument is variable and the programmer sets it<br  />
 you can send information back to the plugin via this call as well<br  />
 !!! &mdash; BE CAREFUL and don't do anything unsafe with this messaging system &mdash; !!! </p>
 
-<p>Reimplemented in <a class="el" href="class_custom_view_controller.html#a74318c70a672a0ca8fdd8d64037ee257">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a74318c70a672a0ca8fdd8d64037ee257">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a74318c70a672a0ca8fdd8d64037ee257">CustomViewController</a>, <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#ab84062147af16ad0080fe36ca0f79b0b">Steinberg::Vst::ASPiK::CustomViewController</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_knob_view.html#a9c4a974c8a4ae1301c8e2b3f0fd252bd">VSTGUI::CustomKnobView</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_text_label.html#a5f4577e50afc6fed9d3768343b9b98e0">VSTGUI::CustomTextLabel</a>, and <a class="el" href="class_v_s_t_g_u_i_1_1_custom_option_menu.html#ad6fbfe3eed5b7e2755a67b5248798191">VSTGUI::CustomOptionMenu</a>.</p>
+<p>Reimplemented in <a class="el" href="class_custom_view_controller.html#a74318c70a672a0ca8fdd8d64037ee257">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a74318c70a672a0ca8fdd8d64037ee257">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a74318c70a672a0ca8fdd8d64037ee257">CustomViewController</a>, <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#ab84062147af16ad0080fe36ca0f79b0b">Steinberg::Vst::ASPiK::CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a74318c70a672a0ca8fdd8d64037ee257">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a74318c70a672a0ca8fdd8d64037ee257">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a74318c70a672a0ca8fdd8d64037ee257">CustomViewController</a>, <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#ab84062147af16ad0080fe36ca0f79b0b">Steinberg::Vst::ASPiK::CustomViewController</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_knob_view.html#a9c4a974c8a4ae1301c8e2b3f0fd252bd">VSTGUI::CustomKnobView</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_text_label.html#a5f4577e50afc6fed9d3768343b9b98e0">VSTGUI::CustomTextLabel</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_option_menu.html#ad6fbfe3eed5b7e2755a67b5248798191">VSTGUI::CustomOptionMenu</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_knob_view.html#a73438f5f4f166be3c873f4eda78338d1">VSTGUI::CustomKnobView</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_text_label.html#a5f4577e50afc6fed9d3768343b9b98e0">VSTGUI::CustomTextLabel</a>, and <a class="el" href="class_v_s_t_g_u_i_1_1_custom_option_menu.html#ad6fbfe3eed5b7e2755a67b5248798191">VSTGUI::CustomOptionMenu</a>.</p>
+
+</div>
+</div>
+<a id="ae254a94e1d754ece5ba4678583b1ddd1" name="ae254a94e1d754ece5ba4678583b1ddd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae254a94e1d754ece5ba4678583b1ddd1">&#9670;&#160;</a></span>sendMessage() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ICustomView::sendMessage </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>send a message into the view The derived class should implement a lock-free ring buffer to store the message.<br  />
+and handle all messaging in a thread-safe manner<br  />
+argument: void* data<br  />
+The argument is any struct, object, or variable pointer cloaked as a void*<br  />
+Note that since the argument is variable and the programmer sets it<br  />
+you can send information back to the plugin via this call as well<br  />
+!!! &mdash; BE CAREFUL and don't do anything unsafe with this messaging system &mdash; !!! </p>
+
+<p>Reimplemented in <a class="el" href="class_custom_view_controller.html#a74318c70a672a0ca8fdd8d64037ee257">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a74318c70a672a0ca8fdd8d64037ee257">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a74318c70a672a0ca8fdd8d64037ee257">CustomViewController</a>, <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#ab84062147af16ad0080fe36ca0f79b0b">Steinberg::Vst::ASPiK::CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a74318c70a672a0ca8fdd8d64037ee257">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a74318c70a672a0ca8fdd8d64037ee257">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a74318c70a672a0ca8fdd8d64037ee257">CustomViewController</a>, <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#ab84062147af16ad0080fe36ca0f79b0b">Steinberg::Vst::ASPiK::CustomViewController</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_knob_view.html#a9c4a974c8a4ae1301c8e2b3f0fd252bd">VSTGUI::CustomKnobView</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_text_label.html#a5f4577e50afc6fed9d3768343b9b98e0">VSTGUI::CustomTextLabel</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_option_menu.html#ad6fbfe3eed5b7e2755a67b5248798191">VSTGUI::CustomOptionMenu</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_knob_view.html#a73438f5f4f166be3c873f4eda78338d1">VSTGUI::CustomKnobView</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_text_label.html#a5f4577e50afc6fed9d3768343b9b98e0">VSTGUI::CustomTextLabel</a>, and <a class="el" href="class_v_s_t_g_u_i_1_1_custom_option_menu.html#ad6fbfe3eed5b7e2755a67b5248798191">VSTGUI::CustomOptionMenu</a>.</p>
 
 </div>
 </div>
 <a id="a09b3386cc82f837cf6f04945590cb848" name="a09b3386cc82f837cf6f04945590cb848"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09b3386cc82f837cf6f04945590cb848">&#9670;&#160;</a></span>updateView()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a09b3386cc82f837cf6f04945590cb848">&#9670;&#160;</a></span>updateView() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -223,12 +297,41 @@ you can send information back to the plugin via this call as well<br  />
 </div><div class="memdoc">
 <p>function to tell the view to redraw after pushing data to it, or manipulating it </p>
 
-<p>Implemented in <a class="el" href="class_custom_view_controller.html#a91776207634fbece48c85235a5060af3">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a91776207634fbece48c85235a5060af3">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a91776207634fbece48c85235a5060af3">CustomViewController</a>, <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#a1440455ce421ba65cf9fae3ca7f12f09">Steinberg::Vst::ASPiK::CustomViewController</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_wave_view.html#a46b640707d8d3945299783d19938e139">VSTGUI::WaveView</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_knob_view.html#a5562a1fb21252214c222de29e78acd29">VSTGUI::CustomKnobView</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_text_label.html#aaea98bbe8a6ae731f4928ffbfaa80db1">VSTGUI::CustomTextLabel</a>, and <a class="el" href="class_v_s_t_g_u_i_1_1_custom_option_menu.html#a2ea9a1498122a797c67933f7aed4b144">VSTGUI::CustomOptionMenu</a>.</p>
+<p>Implemented in <a class="el" href="class_custom_view_controller.html#a91776207634fbece48c85235a5060af3">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a91776207634fbece48c85235a5060af3">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a91776207634fbece48c85235a5060af3">CustomViewController</a>, <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#a1440455ce421ba65cf9fae3ca7f12f09">Steinberg::Vst::ASPiK::CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a91776207634fbece48c85235a5060af3">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a91776207634fbece48c85235a5060af3">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a91776207634fbece48c85235a5060af3">CustomViewController</a>, <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#a1440455ce421ba65cf9fae3ca7f12f09">Steinberg::Vst::ASPiK::CustomViewController</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_wave_view.html#a46b640707d8d3945299783d19938e139">VSTGUI::WaveView</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_knob_view.html#a5562a1fb21252214c222de29e78acd29">VSTGUI::CustomKnobView</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_text_label.html#aaea98bbe8a6ae731f4928ffbfaa80db1">VSTGUI::CustomTextLabel</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_option_menu.html#a2ea9a1498122a797c67933f7aed4b144">VSTGUI::CustomOptionMenu</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_wave_view.html#abf4319e0ed84ae0ab1ea87d827bcc2ea">VSTGUI::WaveView</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_knob_view.html#aebb495c1dc802a301ac980f4a4664a71">VSTGUI::CustomKnobView</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_text_label.html#aaea98bbe8a6ae731f4928ffbfaa80db1">VSTGUI::CustomTextLabel</a>, and <a class="el" href="class_v_s_t_g_u_i_1_1_custom_option_menu.html#a2ea9a1498122a797c67933f7aed4b144">VSTGUI::CustomOptionMenu</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/PluginKernel/<a class="el" href="pluginstructures_8h_source.html">pluginstructures.h</a></li>
+<a id="a09b3386cc82f837cf6f04945590cb848" name="a09b3386cc82f837cf6f04945590cb848"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09b3386cc82f837cf6f04945590cb848">&#9670;&#160;</a></span>updateView() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ICustomView::updateView </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>function to tell the view to redraw after pushing data to it, or manipulating it </p>
+
+<p>Implemented in <a class="el" href="class_custom_view_controller.html#a91776207634fbece48c85235a5060af3">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a91776207634fbece48c85235a5060af3">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a91776207634fbece48c85235a5060af3">CustomViewController</a>, <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#a1440455ce421ba65cf9fae3ca7f12f09">Steinberg::Vst::ASPiK::CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a91776207634fbece48c85235a5060af3">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a91776207634fbece48c85235a5060af3">CustomViewController</a>, <a class="el" href="class_custom_view_controller.html#a91776207634fbece48c85235a5060af3">CustomViewController</a>, <a class="el" href="class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_custom_view_controller.html#a1440455ce421ba65cf9fae3ca7f12f09">Steinberg::Vst::ASPiK::CustomViewController</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_wave_view.html#a46b640707d8d3945299783d19938e139">VSTGUI::WaveView</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_knob_view.html#a5562a1fb21252214c222de29e78acd29">VSTGUI::CustomKnobView</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_text_label.html#aaea98bbe8a6ae731f4928ffbfaa80db1">VSTGUI::CustomTextLabel</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_option_menu.html#a2ea9a1498122a797c67933f7aed4b144">VSTGUI::CustomOptionMenu</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_wave_view.html#abf4319e0ed84ae0ab1ea87d827bcc2ea">VSTGUI::WaveView</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_knob_view.html#aebb495c1dc802a301ac980f4a4664a71">VSTGUI::CustomKnobView</a>, <a class="el" href="class_v_s_t_g_u_i_1_1_custom_text_label.html#aaea98bbe8a6ae731f4928ffbfaa80db1">VSTGUI::CustomTextLabel</a>, and <a class="el" href="class_v_s_t_g_u_i_1_1_custom_option_menu.html#a2ea9a1498122a797c67933f7aed4b144">VSTGUI::CustomOptionMenu</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate OLD/project_source/source/PluginKernel/<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2_plugin_kernel_2pluginstructures_8h_source.html">pluginstructures.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/PluginKernel/<a class="el" href="_plugin_template_2project__source_2source_2_plugin_kernel_2pluginstructures_8h_source.html">pluginstructures.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

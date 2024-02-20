@@ -5,7 +5,7 @@
 # --- www.willpirkle.com
 #
 # ---------------------------------------------------------------------------------
-cmake_minimum_required (VERSION 3.4.3)
+cmake_minimum_required (VERSION 3.6)
 
 # --- default project folder location
 set(PROJECT_FOLDER "../../")
@@ -199,6 +199,10 @@ target_include_directories(vstgui_support PUBLIC ${VSTGUI_ROOT}/vstgui4)
 target_link_libraries(vstgui_support PRIVATE vstgui_uidescription)
 if(MAC)
 	if(XCODE)
+		# --- universal binary for the VSTGUI modules
+		smtg_target_setup_universal_binary (vstgui_support)
+		smtg_target_setup_universal_binary (vstgui_uidescription)
+		smtg_target_setup_universal_binary (vstgui)
 		target_link_libraries(vstgui_support PRIVATE "-framework Cocoa" "-framework OpenGL" "-framework Accelerate" "-framework QuartzCore" "-framework Carbon")
 	else()
 		find_library(COREFOUNDATION_FRAMEWORK CoreFoundation)

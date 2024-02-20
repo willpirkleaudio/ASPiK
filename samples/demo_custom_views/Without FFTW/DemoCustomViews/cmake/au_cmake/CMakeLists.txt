@@ -8,7 +8,7 @@
 # --- Date: 16 Sept 2018
 #
 # ---------------------------------------------------------------------------------
-cmake_minimum_required (VERSION 3.4.3)
+cmake_minimum_required (VERSION 3.6)
 
 # --- default project folder location
 set(PROJECT_FOLDER "../../")

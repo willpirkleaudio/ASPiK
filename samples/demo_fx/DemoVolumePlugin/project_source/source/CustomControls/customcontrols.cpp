@@ -29,7 +29,7 @@ namespace VSTGUI {
 \param offset - (x,y) offset point
 */
 CKickButtonEx::CKickButtonEx(const VSTGUI::CRect& size, IControlListener* listener, int32_t tag, CBitmap* background, const CPoint& offset)
-: CKickButton(size, listener, tag, background, offset)
+: CKickButton(size, listener, tag, background)
 {
 	mouseBehavior = mouseDirUpAndDown;
 }
@@ -210,6 +210,11 @@ CAnimKnobEx::CAnimKnobEx (const CRect& size, IControlListener* listener, int32_t
 {
 	maxControlValue = 1.0;
     aaxKnob = false;
+	coef = 1.0;
+	fEntryState = 0.0;
+	modeLinear = true;
+	range = 1.0;
+	startValue = 0.0;
 }
 CAnimKnobEx::~CAnimKnobEx(void)
 {
@@ -397,6 +402,9 @@ CVerticalSliderEx::CVerticalSliderEx(const CRect &rect, IControlListener* listen
 	switchSlider = false;
     aaxSlider = false;
 	maxControlValue = 1.0;
+	delta = CCoord(0.1);
+	oldVal = 0.0;
+	startVal = 0.0;
 }
 
 CVerticalSliderEx::~CVerticalSliderEx()
@@ -468,6 +476,9 @@ CHorizontalSliderEx::CHorizontalSliderEx (const CRect &rect, IControlListener* l
 	switchSlider = false;
     aaxSlider = false;
 	maxControlValue = 1.0;
+	delta = CCoord(0.1);
+	oldVal = 0.0;
+	startVal = 0.0;
 }
 CHorizontalSliderEx::~CHorizontalSliderEx()
 {

@@ -102,7 +102,7 @@ $(document).ready(function(){initNavTree('class_g_u_i_plugin_connector.html','')
 <p>The <a class="el" href="class_g_u_i_plugin_connector.html" title="The GUIPluginConnector interface creates a safe message mechanism for the GUI to issue requests to th...">GUIPluginConnector</a> interface creates a safe message mechanism for the GUI to issue requests to the plugin shell. The following messages are processed via functions:  
  <a href="class_g_u_i_plugin_connector.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_a_a_x_plugin_parameters_8h_source.html">AAXPluginParameters.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2aax__source_2_a_a_x_plugin_parameters_8h_source.html">AAXPluginParameters.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for GUIPluginConnector:</div>
 <div class="dyncontent">
@@ -115,6 +115,88 @@ Inheritance diagram for GUIPluginConnector:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a2dd13e7310738d120b29c768c24f8720"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a2dd13e7310738d120b29c768c24f8720">GUIPluginConnector</a> (<a class="el" href="class_a_a_x_plugin_parameters.html">AAXPluginParameters</a> *_aaxParameters, <a class="el" href="class_plugin_core.html">PluginCore</a> *_pluginCore)</td></tr>
+<tr class="separator:a2dd13e7310738d120b29c768c24f8720"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a831728f236268aa6d7ee57941573dce8"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a831728f236268aa6d7ee57941573dce8">~GUIPluginConnector</a> ()</td></tr>
+<tr class="separator:a831728f236268aa6d7ee57941573dce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b9f2ca1e644b15a8992d2879aed9e52"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a6b9f2ca1e644b15a8992d2879aed9e52">parameterChanged</a> (int32_t controlID, double actualValue, double)</td></tr>
+<tr class="separator:a6b9f2ca1e644b15a8992d2879aed9e52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c66054ef61baa7b8d224610e252b2cd"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a5c66054ef61baa7b8d224610e252b2cd">getNormalizedPluginParameter</a> (int32_t controlID)</td></tr>
+<tr class="separator:a5c66054ef61baa7b8d224610e252b2cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa42770c42e9b14b9883993546e7864d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#aaa42770c42e9b14b9883993546e7864d">setNormalizedPluginParameter</a> (int32_t controlID, double value)</td></tr>
+<tr class="separator:aaa42770c42e9b14b9883993546e7864d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1613005dc2e99d86ff8b221993d72201"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a1613005dc2e99d86ff8b221993d72201">beginParameterChangeGesture</a> (int controlTag)</td></tr>
+<tr class="separator:a1613005dc2e99d86ff8b221993d72201"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8e1497579512c83bae9dda6fd049a25"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#af8e1497579512c83bae9dda6fd049a25">endParameterChangeGesture</a> (int controlTag)</td></tr>
+<tr class="separator:af8e1497579512c83bae9dda6fd049a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a340e9f2c63657e34ef5f4462b78904"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a2a340e9f2c63657e34ef5f4462b78904">registerSubcontroller</a> (std::string subcontrollerName, <a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)</td></tr>
+<tr class="separator:a2a340e9f2c63657e34ef5f4462b78904"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a680760ce808b262751f99dc56fbab5d1"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a680760ce808b262751f99dc56fbab5d1">deRregisterSubcontroller</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)</td></tr>
+<tr class="separator:a680760ce808b262751f99dc56fbab5d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb489fb3b46a2d568e09450b6e11789d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#afb489fb3b46a2d568e09450b6e11789d">registerCustomView</a> (std::string customViewName, <a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)</td></tr>
+<tr class="separator:afb489fb3b46a2d568e09450b6e11789d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f0761477fcf549ea81ca1d193aa9c5d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a0f0761477fcf549ea81ca1d193aa9c5d">deRegisterCustomView</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)</td></tr>
+<tr class="separator:a0f0761477fcf549ea81ca1d193aa9c5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad42b4a7b367a50b062bd442d1b9ed122"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#ad42b4a7b367a50b062bd442d1b9ed122">guiDidOpen</a> ()</td></tr>
+<tr class="separator:ad42b4a7b367a50b062bd442d1b9ed122"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69b7ca071ab6b411bb92226aa8040e0b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a69b7ca071ab6b411bb92226aa8040e0b">guiWillClose</a> ()</td></tr>
+<tr class="separator:a69b7ca071ab6b411bb92226aa8040e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78c997359b7e08f741ee2a40ecfbd276"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a78c997359b7e08f741ee2a40ecfbd276">guiTimerPing</a> ()</td></tr>
+<tr class="separator:a78c997359b7e08f741ee2a40ecfbd276"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23b1cc8f58d3a80047ea12ac9e9232d5"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a23b1cc8f58d3a80047ea12ac9e9232d5">checkNonBoundValueChange</a> (int tag, float normalizedValue)</td></tr>
+<tr class="separator:a23b1cc8f58d3a80047ea12ac9e9232d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f76ca4bc7724afa03105f8d4582b159"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a0f76ca4bc7724afa03105f8d4582b159">GUIPluginConnector</a> (<a class="el" href="class_a_u_f_x_plugin.html">AUFXPlugin</a> *_auInstance, <a class="el" href="class_plugin_core.html">PluginCore</a> *_pluginCore)</td></tr>
+<tr class="separator:a0f76ca4bc7724afa03105f8d4582b159"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a831728f236268aa6d7ee57941573dce8"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a831728f236268aa6d7ee57941573dce8">~GUIPluginConnector</a> ()</td></tr>
+<tr class="separator:a831728f236268aa6d7ee57941573dce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b9f2ca1e644b15a8992d2879aed9e52"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a6b9f2ca1e644b15a8992d2879aed9e52">parameterChanged</a> (int32_t controlID, double actualValue, double)</td></tr>
+<tr class="separator:a6b9f2ca1e644b15a8992d2879aed9e52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4002c3643fcd41698f0971142c7adccc"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a4002c3643fcd41698f0971142c7adccc">getActualPluginParameter</a> (int32_t controlID)</td></tr>
+<tr class="separator:a4002c3643fcd41698f0971142c7adccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c66054ef61baa7b8d224610e252b2cd"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a5c66054ef61baa7b8d224610e252b2cd">getNormalizedPluginParameter</a> (int32_t controlID)</td></tr>
+<tr class="separator:a5c66054ef61baa7b8d224610e252b2cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a340e9f2c63657e34ef5f4462b78904"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a2a340e9f2c63657e34ef5f4462b78904">registerSubcontroller</a> (std::string subcontrollerName, <a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)</td></tr>
+<tr class="separator:a2a340e9f2c63657e34ef5f4462b78904"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a680760ce808b262751f99dc56fbab5d1"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a680760ce808b262751f99dc56fbab5d1">deRregisterSubcontroller</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)</td></tr>
+<tr class="separator:a680760ce808b262751f99dc56fbab5d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb489fb3b46a2d568e09450b6e11789d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#afb489fb3b46a2d568e09450b6e11789d">registerCustomView</a> (std::string customViewName, <a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)</td></tr>
+<tr class="separator:afb489fb3b46a2d568e09450b6e11789d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f0761477fcf549ea81ca1d193aa9c5d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a0f0761477fcf549ea81ca1d193aa9c5d">deRegisterCustomView</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)</td></tr>
+<tr class="separator:a0f0761477fcf549ea81ca1d193aa9c5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad42b4a7b367a50b062bd442d1b9ed122"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#ad42b4a7b367a50b062bd442d1b9ed122">guiDidOpen</a> ()</td></tr>
+<tr class="separator:ad42b4a7b367a50b062bd442d1b9ed122"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69b7ca071ab6b411bb92226aa8040e0b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a69b7ca071ab6b411bb92226aa8040e0b">guiWillClose</a> ()</td></tr>
+<tr class="separator:a69b7ca071ab6b411bb92226aa8040e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78c997359b7e08f741ee2a40ecfbd276"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a78c997359b7e08f741ee2a40ecfbd276">guiTimerPing</a> ()</td></tr>
+<tr class="separator:a78c997359b7e08f741ee2a40ecfbd276"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23b1cc8f58d3a80047ea12ac9e9232d5"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a23b1cc8f58d3a80047ea12ac9e9232d5">checkNonBoundValueChange</a> (int tag, float normalizedValue)</td></tr>
+<tr class="separator:a23b1cc8f58d3a80047ea12ac9e9232d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e6b53dc91781748729c37806b29e2f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a9e6b53dc91781748729c37806b29e2f1">GUIPluginConnector</a> (<a class="el" href="class_a_u_synth_plugin.html">AUSynthPlugin</a> *_auInstance, <a class="el" href="class_plugin_core.html">PluginCore</a> *_pluginCore)</td></tr>
+<tr class="separator:a9e6b53dc91781748729c37806b29e2f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a831728f236268aa6d7ee57941573dce8"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a831728f236268aa6d7ee57941573dce8">~GUIPluginConnector</a> ()</td></tr>
+<tr class="separator:a831728f236268aa6d7ee57941573dce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b9f2ca1e644b15a8992d2879aed9e52"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a6b9f2ca1e644b15a8992d2879aed9e52">parameterChanged</a> (int32_t controlID, double actualValue, double)</td></tr>
+<tr class="separator:a6b9f2ca1e644b15a8992d2879aed9e52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4002c3643fcd41698f0971142c7adccc"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a4002c3643fcd41698f0971142c7adccc">getActualPluginParameter</a> (int32_t controlID)</td></tr>
+<tr class="separator:a4002c3643fcd41698f0971142c7adccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c66054ef61baa7b8d224610e252b2cd"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a5c66054ef61baa7b8d224610e252b2cd">getNormalizedPluginParameter</a> (int32_t controlID)</td></tr>
+<tr class="separator:a5c66054ef61baa7b8d224610e252b2cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a340e9f2c63657e34ef5f4462b78904"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a2a340e9f2c63657e34ef5f4462b78904">registerSubcontroller</a> (std::string subcontrollerName, <a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)</td></tr>
+<tr class="separator:a2a340e9f2c63657e34ef5f4462b78904"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a680760ce808b262751f99dc56fbab5d1"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a680760ce808b262751f99dc56fbab5d1">deRregisterSubcontroller</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)</td></tr>
+<tr class="separator:a680760ce808b262751f99dc56fbab5d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb489fb3b46a2d568e09450b6e11789d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#afb489fb3b46a2d568e09450b6e11789d">registerCustomView</a> (std::string customViewName, <a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)</td></tr>
+<tr class="separator:afb489fb3b46a2d568e09450b6e11789d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f0761477fcf549ea81ca1d193aa9c5d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a0f0761477fcf549ea81ca1d193aa9c5d">deRegisterCustomView</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)</td></tr>
+<tr class="separator:a0f0761477fcf549ea81ca1d193aa9c5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad42b4a7b367a50b062bd442d1b9ed122"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#ad42b4a7b367a50b062bd442d1b9ed122">guiDidOpen</a> ()</td></tr>
+<tr class="separator:ad42b4a7b367a50b062bd442d1b9ed122"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69b7ca071ab6b411bb92226aa8040e0b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a69b7ca071ab6b411bb92226aa8040e0b">guiWillClose</a> ()</td></tr>
+<tr class="separator:a69b7ca071ab6b411bb92226aa8040e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78c997359b7e08f741ee2a40ecfbd276"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a78c997359b7e08f741ee2a40ecfbd276">guiTimerPing</a> ()</td></tr>
+<tr class="separator:a78c997359b7e08f741ee2a40ecfbd276"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23b1cc8f58d3a80047ea12ac9e9232d5"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a23b1cc8f58d3a80047ea12ac9e9232d5">checkNonBoundValueChange</a> (int tag, float normalizedValue)</td></tr>
+<tr class="separator:a23b1cc8f58d3a80047ea12ac9e9232d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2dd13e7310738d120b29c768c24f8720"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a2dd13e7310738d120b29c768c24f8720">GUIPluginConnector</a> (<a class="el" href="class_a_a_x_plugin_parameters.html">AAXPluginParameters</a> *_aaxParameters, <a class="el" href="class_plugin_core.html">PluginCore</a> *_pluginCore)</td></tr>
 <tr class="separator:a2dd13e7310738d120b29c768c24f8720"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a831728f236268aa6d7ee57941573dce8"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a831728f236268aa6d7ee57941573dce8">~GUIPluginConnector</a> ()</td></tr>
@@ -234,9 +316,57 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a13279e0a85ab3c8dc55f8acced1268d0 inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b199a47c46edab18d248f3978ba527a inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_plugin_connector.html#a4b199a47c46edab18d248f3978ba527a">endParameterChangeGesture</a> (int controlTag)</td></tr>
 <tr class="separator:a4b199a47c46edab18d248f3978ba527a inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20bfe6b2b28ffd9ba09e308f243e362e inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_plugin_connector.html#a20bfe6b2b28ffd9ba09e308f243e362e">registerCustomView</a> (std::string customViewName, <a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)=0</td></tr>
+<tr class="separator:a20bfe6b2b28ffd9ba09e308f243e362e inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a113f100ea61052989f3510402e531f0d inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_plugin_connector.html#a113f100ea61052989f3510402e531f0d">deRegisterCustomView</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)=0</td></tr>
+<tr class="separator:a113f100ea61052989f3510402e531f0d inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa123fe6a527a00520b836d8bca0cacdb inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_plugin_connector.html#aa123fe6a527a00520b836d8bca0cacdb">guiDidOpen</a> ()=0</td></tr>
+<tr class="separator:aa123fe6a527a00520b836d8bca0cacdb inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac92f1c38ff51843967a38c01265636b0 inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_plugin_connector.html#ac92f1c38ff51843967a38c01265636b0">guiWillClose</a> ()=0</td></tr>
+<tr class="separator:ac92f1c38ff51843967a38c01265636b0 inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27fb7cab425623bcf0598ca2c51a4806 inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_plugin_connector.html#a27fb7cab425623bcf0598ca2c51a4806">guiTimerPing</a> ()=0</td></tr>
+<tr class="separator:a27fb7cab425623bcf0598ca2c51a4806 inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad36a83641eac5395d1c181b38bfc2901 inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_plugin_connector.html#ad36a83641eac5395d1c181b38bfc2901">registerSubcontroller</a> (std::string subcontrollerName, <a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)</td></tr>
+<tr class="separator:ad36a83641eac5395d1c181b38bfc2901 inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2517f48c84d0800e259f9b57d09b745 inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_plugin_connector.html#ab2517f48c84d0800e259f9b57d09b745">deRregisterSubcontroller</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)</td></tr>
+<tr class="separator:ab2517f48c84d0800e259f9b57d09b745 inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7cb96ec45a38191d62b095abe7e5597 inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memItemLeft" align="right" valign="top">virtual uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_plugin_connector.html#ae7cb96ec45a38191d62b095abe7e5597">getNonBoundVariableCount</a> ()</td></tr>
+<tr class="separator:ae7cb96ec45a38191d62b095abe7e5597 inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb674cf4d5afcc9c717e91a79033081b inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memItemLeft" align="right" valign="top">virtual uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_plugin_connector.html#acb674cf4d5afcc9c717e91a79033081b">getNextNonBoundVariableTag</a> (int startTag)</td></tr>
+<tr class="separator:acb674cf4d5afcc9c717e91a79033081b inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab53f9cf2328a66e72ee4a68cba6a5bb6 inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_plugin_connector.html#ab53f9cf2328a66e72ee4a68cba6a5bb6">checkNonBoundValueChange</a> (int tag, float normalizedValue)</td></tr>
+<tr class="separator:ab53f9cf2328a66e72ee4a68cba6a5bb6 inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe01a880413893d4357ebeca6d81c0c5 inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_plugin_connector.html#afe01a880413893d4357ebeca6d81c0c5">checkSendUpdateGUI</a> (int tag, float actualValue, bool loadingPreset, void *data1=0, void *data2=0)</td></tr>
+<tr class="separator:afe01a880413893d4357ebeca6d81c0c5 inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51452dc8dbac5ac4571b577034024aee inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_plugin_connector.html#a51452dc8dbac5ac4571b577034024aee">parameterChanged</a> (int32_t controlID, double actualValue, double normalizedValue)</td></tr>
+<tr class="separator:a51452dc8dbac5ac4571b577034024aee inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36bac1f77306dad4ec2d4c1c4af1f2ec inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_plugin_connector.html#a36bac1f77306dad4ec2d4c1c4af1f2ec">getNormalizedPluginParameter</a> (int32_t controlID)</td></tr>
+<tr class="separator:a36bac1f77306dad4ec2d4c1c4af1f2ec inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c6201f3c7772730f7b865064b188f7f inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_plugin_connector.html#a3c6201f3c7772730f7b865064b188f7f">setNormalizedPluginParameter</a> (int32_t controlID, double value)</td></tr>
+<tr class="separator:a3c6201f3c7772730f7b865064b188f7f inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d980458aec6ec1fb4140164187ffb67 inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_plugin_connector.html#a7d980458aec6ec1fb4140164187ffb67">getActualPluginParameter</a> (int32_t controlID)</td></tr>
+<tr class="separator:a7d980458aec6ec1fb4140164187ffb67 inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5af6b5f9ccb8f0868286208acbd993b2 inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_plugin_connector.html#a5af6b5f9ccb8f0868286208acbd993b2">setActualPluginParameter</a> (int32_t controlID, double value)</td></tr>
+<tr class="separator:a5af6b5f9ccb8f0868286208acbd993b2 inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13279e0a85ab3c8dc55f8acced1268d0 inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_plugin_connector.html#a13279e0a85ab3c8dc55f8acced1268d0">beginParameterChangeGesture</a> (int controlTag)</td></tr>
+<tr class="separator:a13279e0a85ab3c8dc55f8acced1268d0 inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b199a47c46edab18d248f3978ba527a inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_g_u_i_plugin_connector.html#a4b199a47c46edab18d248f3978ba527a">endParameterChangeGesture</a> (int controlTag)</td></tr>
+<tr class="separator:a4b199a47c46edab18d248f3978ba527a inherit pub_methods_class_i_g_u_i_plugin_connector"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-types" name="pro-types"></a>
 Protected Types</h2></td></tr>
+<tr class="memitem:a1529e18bc3b1c5755eb2fd03f48c63b9"><td class="memItemLeft" align="right" valign="top"><a id="a1529e18bc3b1c5755eb2fd03f48c63b9" name="a1529e18bc3b1c5755eb2fd03f48c63b9"></a>
+typedef std::map&lt; std::string, <a class="el" href="class_custom_view_controller.html">CustomViewController</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>customViewControllerMap</b></td></tr>
+<tr class="memdesc:a1529e18bc3b1c5755eb2fd03f48c63b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">map of custom view controllers <br /></td></tr>
+<tr class="separator:a1529e18bc3b1c5755eb2fd03f48c63b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1529e18bc3b1c5755eb2fd03f48c63b9"><td class="memItemLeft" align="right" valign="top"><a id="a1529e18bc3b1c5755eb2fd03f48c63b9" name="a1529e18bc3b1c5755eb2fd03f48c63b9"></a>
+typedef std::map&lt; std::string, <a class="el" href="class_custom_view_controller.html">CustomViewController</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>customViewControllerMap</b></td></tr>
+<tr class="memdesc:a1529e18bc3b1c5755eb2fd03f48c63b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">map of custom view controllers <br /></td></tr>
+<tr class="separator:a1529e18bc3b1c5755eb2fd03f48c63b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1529e18bc3b1c5755eb2fd03f48c63b9"><td class="memItemLeft" align="right" valign="top"><a id="a1529e18bc3b1c5755eb2fd03f48c63b9" name="a1529e18bc3b1c5755eb2fd03f48c63b9"></a>
+typedef std::map&lt; std::string, <a class="el" href="class_custom_view_controller.html">CustomViewController</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>customViewControllerMap</b></td></tr>
+<tr class="memdesc:a1529e18bc3b1c5755eb2fd03f48c63b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">map of custom view controllers <br /></td></tr>
+<tr class="separator:a1529e18bc3b1c5755eb2fd03f48c63b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1529e18bc3b1c5755eb2fd03f48c63b9"><td class="memItemLeft" align="right" valign="top"><a id="a1529e18bc3b1c5755eb2fd03f48c63b9" name="a1529e18bc3b1c5755eb2fd03f48c63b9"></a>
 typedef std::map&lt; std::string, <a class="el" href="class_custom_view_controller.html">CustomViewController</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>customViewControllerMap</b></td></tr>
 <tr class="memdesc:a1529e18bc3b1c5755eb2fd03f48c63b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">map of custom view controllers <br /></td></tr>
@@ -264,6 +394,18 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a79eff7182f1a3f265924d7989f640f3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab449f6a03c57d0e8c2d81496305fe707"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_custom_view_controller.html">CustomViewController</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#ab449f6a03c57d0e8c2d81496305fe707">getCustomSubController</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)</td></tr>
 <tr class="separator:ab449f6a03c57d0e8c2d81496305fe707"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79eff7182f1a3f265924d7989f640f3d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_custom_view_controller.html">CustomViewController</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a79eff7182f1a3f265924d7989f640f3d">getCustomViewController</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)</td></tr>
+<tr class="separator:a79eff7182f1a3f265924d7989f640f3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab449f6a03c57d0e8c2d81496305fe707"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_custom_view_controller.html">CustomViewController</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#ab449f6a03c57d0e8c2d81496305fe707">getCustomSubController</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)</td></tr>
+<tr class="separator:ab449f6a03c57d0e8c2d81496305fe707"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79eff7182f1a3f265924d7989f640f3d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_custom_view_controller.html">CustomViewController</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a79eff7182f1a3f265924d7989f640f3d">getCustomViewController</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)</td></tr>
+<tr class="separator:a79eff7182f1a3f265924d7989f640f3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab449f6a03c57d0e8c2d81496305fe707"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_custom_view_controller.html">CustomViewController</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#ab449f6a03c57d0e8c2d81496305fe707">getCustomSubController</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)</td></tr>
+<tr class="separator:ab449f6a03c57d0e8c2d81496305fe707"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79eff7182f1a3f265924d7989f640f3d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_custom_view_controller.html">CustomViewController</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#a79eff7182f1a3f265924d7989f640f3d">getCustomViewController</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)</td></tr>
+<tr class="separator:a79eff7182f1a3f265924d7989f640f3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab449f6a03c57d0e8c2d81496305fe707"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_custom_view_controller.html">CustomViewController</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_u_i_plugin_connector.html#ab449f6a03c57d0e8c2d81496305fe707">getCustomSubController</a> (<a class="el" href="class_i_custom_view.html">ICustomView</a> *customViewConnector)</td></tr>
+<tr class="separator:ab449f6a03c57d0e8c2d81496305fe707"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -271,10 +413,10 @@ Protected Attributes</h2></td></tr>
 <a class="el" href="class_plugin_core.html">PluginCore</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pluginCore</b> = nullptr</td></tr>
 <tr class="memdesc:ada7551f04f234c73ffeb2311c0cc507f"><td class="mdescLeft">&#160;</td><td class="mdescRight">the core object <br /></td></tr>
 <tr class="separator:ada7551f04f234c73ffeb2311c0cc507f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bef1041ddec2500f536f214cab2cd24"><td class="memItemLeft" align="right" valign="top"><a id="a1bef1041ddec2500f536f214cab2cd24" name="a1bef1041ddec2500f536f214cab2cd24"></a>
+<tr class="memitem:a5520d908a8ff0b4a5a688ffa774bbf68"><td class="memItemLeft" align="right" valign="top"><a id="a5520d908a8ff0b4a5a688ffa774bbf68" name="a5520d908a8ff0b4a5a688ffa774bbf68"></a>
 <a class="el" href="class_a_a_x_plugin_parameters.html">AAXPluginParameters</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>aaxParameters</b> = nullptr</td></tr>
-<tr class="memdesc:a1bef1041ddec2500f536f214cab2cd24"><td class="mdescLeft">&#160;</td><td class="mdescRight">the parent object <br /></td></tr>
-<tr class="separator:a1bef1041ddec2500f536f214cab2cd24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a5520d908a8ff0b4a5a688ffa774bbf68"><td class="mdescLeft">&#160;</td><td class="mdescRight">the parent object <br /></td></tr>
+<tr class="separator:a5520d908a8ff0b4a5a688ffa774bbf68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44d74bf8296ad2fe968350376673fe8e"><td class="memItemLeft" align="right" valign="top"><a id="a44d74bf8296ad2fe968350376673fe8e" name="a44d74bf8296ad2fe968350376673fe8e"></a>
 <a class="el" href="class_g_u_i_plugin_connector.html#a1529e18bc3b1c5755eb2fd03f48c63b9">customViewControllerMap</a>&#160;</td><td class="memItemRight" valign="bottom"><b>customViewMap</b></td></tr>
 <tr class="separator:a44d74bf8296ad2fe968350376673fe8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -282,10 +424,10 @@ Protected Attributes</h2></td></tr>
 <a class="el" href="class_g_u_i_plugin_connector.html#a1529e18bc3b1c5755eb2fd03f48c63b9">customViewControllerMap</a>&#160;</td><td class="memItemRight" valign="bottom"><b>customSubControllerMap</b></td></tr>
 <tr class="memdesc:aaebed19a9295ae38aef162ff05d25d85"><td class="mdescLeft">&#160;</td><td class="mdescRight">map of custom sub-controllers <br /></td></tr>
 <tr class="separator:aaebed19a9295ae38aef162ff05d25d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a689b98182bf448fdb60d1098aef586dd"><td class="memItemLeft" align="right" valign="top"><a id="a689b98182bf448fdb60d1098aef586dd" name="a689b98182bf448fdb60d1098aef586dd"></a>
+<tr class="memitem:ab1c7d984ca4a1110a2e40b0db4e46df1"><td class="memItemLeft" align="right" valign="top"><a id="ab1c7d984ca4a1110a2e40b0db4e46df1" name="ab1c7d984ca4a1110a2e40b0db4e46df1"></a>
 <a class="el" href="class_a_u_f_x_plugin.html">AUFXPlugin</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>auInstance</b> = nullptr</td></tr>
-<tr class="memdesc:a689b98182bf448fdb60d1098aef586dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">the AU plugin (NOTE this is not base-class) <br /></td></tr>
-<tr class="separator:a689b98182bf448fdb60d1098aef586dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:ab1c7d984ca4a1110a2e40b0db4e46df1"><td class="mdescLeft">&#160;</td><td class="mdescRight">the AU plugin (NOTE this is not base-class) <br /></td></tr>
+<tr class="separator:ab1c7d984ca4a1110a2e40b0db4e46df1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1472dae3cfd28cd16bcd85c31db14737"><td class="memItemLeft" align="right" valign="top"><a id="a1472dae3cfd28cd16bcd85c31db14737" name="a1472dae3cfd28cd16bcd85c31db14737"></a>
 <a class="el" href="class_a_u_synth_plugin.html">AUSynthPlugin</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>auInstance</b> = nullptr</td></tr>
 <tr class="memdesc:a1472dae3cfd28cd16bcd85c31db14737"><td class="mdescLeft">&#160;</td><td class="mdescRight">the AU plugin (NOTE this is not base-class) <br /></td></tr>
@@ -331,7 +473,7 @@ Protected Attributes</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>Date : 2018 / 09 / 7 </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2dd13e7310738d120b29c768c24f8720" name="a2dd13e7310738d120b29c768c24f8720"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2dd13e7310738d120b29c768c24f8720">&#9670;&#160;</a></span>GUIPluginConnector() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dd13e7310738d120b29c768c24f8720">&#9670;&#160;</a></span>GUIPluginConnector() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -368,7 +510,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a831728f236268aa6d7ee57941573dce8" name="a831728f236268aa6d7ee57941573dce8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a831728f236268aa6d7ee57941573dce8">&#9670;&#160;</a></span>~GUIPluginConnector() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a831728f236268aa6d7ee57941573dce8">&#9670;&#160;</a></span>~GUIPluginConnector() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -394,7 +536,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a0f76ca4bc7724afa03105f8d4582b159" name="a0f76ca4bc7724afa03105f8d4582b159"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f76ca4bc7724afa03105f8d4582b159">&#9670;&#160;</a></span>GUIPluginConnector() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f76ca4bc7724afa03105f8d4582b159">&#9670;&#160;</a></span>GUIPluginConnector() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -431,7 +573,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a831728f236268aa6d7ee57941573dce8" name="a831728f236268aa6d7ee57941573dce8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a831728f236268aa6d7ee57941573dce8">&#9670;&#160;</a></span>~GUIPluginConnector() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a831728f236268aa6d7ee57941573dce8">&#9670;&#160;</a></span>~GUIPluginConnector() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -457,7 +599,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a9e6b53dc91781748729c37806b29e2f1" name="a9e6b53dc91781748729c37806b29e2f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e6b53dc91781748729c37806b29e2f1">&#9670;&#160;</a></span>GUIPluginConnector() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e6b53dc91781748729c37806b29e2f1">&#9670;&#160;</a></span>GUIPluginConnector() <span class="overload">[3/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -494,7 +636,196 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a831728f236268aa6d7ee57941573dce8" name="a831728f236268aa6d7ee57941573dce8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a831728f236268aa6d7ee57941573dce8">&#9670;&#160;</a></span>~GUIPluginConnector() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a831728f236268aa6d7ee57941573dce8">&#9670;&#160;</a></span>~GUIPluginConnector() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual GUIPluginConnector::~GUIPluginConnector </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>destroy subcontroller and custom view container objects </p>
+
+</div>
+</div>
+<a id="a2dd13e7310738d120b29c768c24f8720" name="a2dd13e7310738d120b29c768c24f8720"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dd13e7310738d120b29c768c24f8720">&#9670;&#160;</a></span>GUIPluginConnector() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GUIPluginConnector::GUIPluginConnector </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_a_a_x_plugin_parameters.html">AAXPluginParameters</a> *&#160;</td>
+          <td class="paramname"><em>_aaxParameters</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_plugin_core.html">PluginCore</a> *&#160;</td>
+          <td class="paramname"><em>_pluginCore</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>construct with two pointers </p>
+
+</div>
+</div>
+<a id="a831728f236268aa6d7ee57941573dce8" name="a831728f236268aa6d7ee57941573dce8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a831728f236268aa6d7ee57941573dce8">&#9670;&#160;</a></span>~GUIPluginConnector() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual GUIPluginConnector::~GUIPluginConnector </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>destroy subcontroller and custom view container objects </p>
+
+</div>
+</div>
+<a id="a0f76ca4bc7724afa03105f8d4582b159" name="a0f76ca4bc7724afa03105f8d4582b159"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f76ca4bc7724afa03105f8d4582b159">&#9670;&#160;</a></span>GUIPluginConnector() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GUIPluginConnector::GUIPluginConnector </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_a_u_f_x_plugin.html">AUFXPlugin</a> *&#160;</td>
+          <td class="paramname"><em>_auInstance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_plugin_core.html">PluginCore</a> *&#160;</td>
+          <td class="paramname"><em>_pluginCore</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>construct with two pointers </p>
+
+</div>
+</div>
+<a id="a831728f236268aa6d7ee57941573dce8" name="a831728f236268aa6d7ee57941573dce8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a831728f236268aa6d7ee57941573dce8">&#9670;&#160;</a></span>~GUIPluginConnector() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual GUIPluginConnector::~GUIPluginConnector </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>destroy subcontroller and custom view container objects </p>
+
+</div>
+</div>
+<a id="a9e6b53dc91781748729c37806b29e2f1" name="a9e6b53dc91781748729c37806b29e2f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e6b53dc91781748729c37806b29e2f1">&#9670;&#160;</a></span>GUIPluginConnector() <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GUIPluginConnector::GUIPluginConnector </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_a_u_synth_plugin.html">AUSynthPlugin</a> *&#160;</td>
+          <td class="paramname"><em>_auInstance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_plugin_core.html">PluginCore</a> *&#160;</td>
+          <td class="paramname"><em>_pluginCore</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>construct with two pointers </p>
+
+</div>
+</div>
+<a id="a831728f236268aa6d7ee57941573dce8" name="a831728f236268aa6d7ee57941573dce8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a831728f236268aa6d7ee57941573dce8">&#9670;&#160;</a></span>~GUIPluginConnector() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -521,7 +852,36 @@ Protected Attributes</h2></td></tr>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1613005dc2e99d86ff8b221993d72201" name="a1613005dc2e99d86ff8b221993d72201"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1613005dc2e99d86ff8b221993d72201">&#9670;&#160;</a></span>beginParameterChangeGesture()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1613005dc2e99d86ff8b221993d72201">&#9670;&#160;</a></span>beginParameterChangeGesture() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void GUIPluginConnector::beginParameterChangeGesture </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>controlTag</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>set start automation handler (touch) </p>
+
+<p>Reimplemented from <a class="el" href="class_i_g_u_i_plugin_connector.html#a13279e0a85ab3c8dc55f8acced1268d0">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a1613005dc2e99d86ff8b221993d72201" name="a1613005dc2e99d86ff8b221993d72201"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1613005dc2e99d86ff8b221993d72201">&#9670;&#160;</a></span>beginParameterChangeGesture() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -550,7 +910,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a23b1cc8f58d3a80047ea12ac9e9232d5" name="a23b1cc8f58d3a80047ea12ac9e9232d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23b1cc8f58d3a80047ea12ac9e9232d5">&#9670;&#160;</a></span>checkNonBoundValueChange() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a23b1cc8f58d3a80047ea12ac9e9232d5">&#9670;&#160;</a></span>checkNonBoundValueChange() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -589,7 +949,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a23b1cc8f58d3a80047ea12ac9e9232d5" name="a23b1cc8f58d3a80047ea12ac9e9232d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23b1cc8f58d3a80047ea12ac9e9232d5">&#9670;&#160;</a></span>checkNonBoundValueChange() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a23b1cc8f58d3a80047ea12ac9e9232d5">&#9670;&#160;</a></span>checkNonBoundValueChange() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -628,7 +988,124 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a23b1cc8f58d3a80047ea12ac9e9232d5" name="a23b1cc8f58d3a80047ea12ac9e9232d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23b1cc8f58d3a80047ea12ac9e9232d5">&#9670;&#160;</a></span>checkNonBoundValueChange() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a23b1cc8f58d3a80047ea12ac9e9232d5">&#9670;&#160;</a></span>checkNonBoundValueChange() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::checkNonBoundValueChange </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>normalizedValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>send message to core: a non-bound variable has changed (NOT implemented or needed, but may be added for your own customization) </p>
+
+<p>Reimplemented from <a class="el" href="class_i_g_u_i_plugin_connector.html#ab53f9cf2328a66e72ee4a68cba6a5bb6">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a23b1cc8f58d3a80047ea12ac9e9232d5" name="a23b1cc8f58d3a80047ea12ac9e9232d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23b1cc8f58d3a80047ea12ac9e9232d5">&#9670;&#160;</a></span>checkNonBoundValueChange() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::checkNonBoundValueChange </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>normalizedValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>send message to core: a non-bound variable has changed (NOT implemented or needed, but may be added for your own customization) </p>
+
+<p>Reimplemented from <a class="el" href="class_i_g_u_i_plugin_connector.html#ab53f9cf2328a66e72ee4a68cba6a5bb6">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a23b1cc8f58d3a80047ea12ac9e9232d5" name="a23b1cc8f58d3a80047ea12ac9e9232d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23b1cc8f58d3a80047ea12ac9e9232d5">&#9670;&#160;</a></span>checkNonBoundValueChange() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::checkNonBoundValueChange </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>normalizedValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>send message to core: a non-bound variable has changed (NOT implemented or needed, but may be added for your own customization) </p>
+
+<p>Reimplemented from <a class="el" href="class_i_g_u_i_plugin_connector.html#ab53f9cf2328a66e72ee4a68cba6a5bb6">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a23b1cc8f58d3a80047ea12ac9e9232d5" name="a23b1cc8f58d3a80047ea12ac9e9232d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23b1cc8f58d3a80047ea12ac9e9232d5">&#9670;&#160;</a></span>checkNonBoundValueChange() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -667,7 +1144,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a0f0761477fcf549ea81ca1d193aa9c5d" name="a0f0761477fcf549ea81ca1d193aa9c5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f0761477fcf549ea81ca1d193aa9c5d">&#9670;&#160;</a></span>deRegisterCustomView() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f0761477fcf549ea81ca1d193aa9c5d">&#9670;&#160;</a></span>deRegisterCustomView() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -696,7 +1173,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a0f0761477fcf549ea81ca1d193aa9c5d" name="a0f0761477fcf549ea81ca1d193aa9c5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f0761477fcf549ea81ca1d193aa9c5d">&#9670;&#160;</a></span>deRegisterCustomView() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f0761477fcf549ea81ca1d193aa9c5d">&#9670;&#160;</a></span>deRegisterCustomView() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -725,7 +1202,94 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a0f0761477fcf549ea81ca1d193aa9c5d" name="a0f0761477fcf549ea81ca1d193aa9c5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f0761477fcf549ea81ca1d193aa9c5d">&#9670;&#160;</a></span>deRegisterCustomView() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f0761477fcf549ea81ca1d193aa9c5d">&#9670;&#160;</a></span>deRegisterCustomView() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::deRegisterCustomView </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>customViewConnector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>remove custom view's <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> and send message to core </p>
+
+<p>Implements <a class="el" href="class_i_g_u_i_plugin_connector.html#a113f100ea61052989f3510402e531f0d">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a0f0761477fcf549ea81ca1d193aa9c5d" name="a0f0761477fcf549ea81ca1d193aa9c5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f0761477fcf549ea81ca1d193aa9c5d">&#9670;&#160;</a></span>deRegisterCustomView() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::deRegisterCustomView </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>customViewConnector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>remove custom view's <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> and send message to core </p>
+
+<p>Implements <a class="el" href="class_i_g_u_i_plugin_connector.html#a113f100ea61052989f3510402e531f0d">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a0f0761477fcf549ea81ca1d193aa9c5d" name="a0f0761477fcf549ea81ca1d193aa9c5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f0761477fcf549ea81ca1d193aa9c5d">&#9670;&#160;</a></span>deRegisterCustomView() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::deRegisterCustomView </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>customViewConnector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>remove custom view's <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> and send message to core </p>
+
+<p>Implements <a class="el" href="class_i_g_u_i_plugin_connector.html#a113f100ea61052989f3510402e531f0d">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a0f0761477fcf549ea81ca1d193aa9c5d" name="a0f0761477fcf549ea81ca1d193aa9c5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f0761477fcf549ea81ca1d193aa9c5d">&#9670;&#160;</a></span>deRegisterCustomView() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -754,7 +1318,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a680760ce808b262751f99dc56fbab5d1" name="a680760ce808b262751f99dc56fbab5d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a680760ce808b262751f99dc56fbab5d1">&#9670;&#160;</a></span>deRregisterSubcontroller() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a680760ce808b262751f99dc56fbab5d1">&#9670;&#160;</a></span>deRregisterSubcontroller() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -783,7 +1347,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a680760ce808b262751f99dc56fbab5d1" name="a680760ce808b262751f99dc56fbab5d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a680760ce808b262751f99dc56fbab5d1">&#9670;&#160;</a></span>deRregisterSubcontroller() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a680760ce808b262751f99dc56fbab5d1">&#9670;&#160;</a></span>deRregisterSubcontroller() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -812,7 +1376,94 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a680760ce808b262751f99dc56fbab5d1" name="a680760ce808b262751f99dc56fbab5d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a680760ce808b262751f99dc56fbab5d1">&#9670;&#160;</a></span>deRregisterSubcontroller() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a680760ce808b262751f99dc56fbab5d1">&#9670;&#160;</a></span>deRregisterSubcontroller() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::deRregisterSubcontroller </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>customViewConnector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>remove sub-controller's <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> and send message to core </p>
+
+<p>Reimplemented from <a class="el" href="class_i_g_u_i_plugin_connector.html#ab2517f48c84d0800e259f9b57d09b745">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a680760ce808b262751f99dc56fbab5d1" name="a680760ce808b262751f99dc56fbab5d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a680760ce808b262751f99dc56fbab5d1">&#9670;&#160;</a></span>deRregisterSubcontroller() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::deRregisterSubcontroller </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>customViewConnector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>remove sub-controller's <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> and send message to core </p>
+
+<p>Reimplemented from <a class="el" href="class_i_g_u_i_plugin_connector.html#ab2517f48c84d0800e259f9b57d09b745">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a680760ce808b262751f99dc56fbab5d1" name="a680760ce808b262751f99dc56fbab5d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a680760ce808b262751f99dc56fbab5d1">&#9670;&#160;</a></span>deRregisterSubcontroller() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::deRregisterSubcontroller </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>customViewConnector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>remove sub-controller's <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> and send message to core </p>
+
+<p>Reimplemented from <a class="el" href="class_i_g_u_i_plugin_connector.html#ab2517f48c84d0800e259f9b57d09b745">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a680760ce808b262751f99dc56fbab5d1" name="a680760ce808b262751f99dc56fbab5d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a680760ce808b262751f99dc56fbab5d1">&#9670;&#160;</a></span>deRregisterSubcontroller() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -841,7 +1492,36 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="af8e1497579512c83bae9dda6fd049a25" name="af8e1497579512c83bae9dda6fd049a25"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8e1497579512c83bae9dda6fd049a25">&#9670;&#160;</a></span>endParameterChangeGesture()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af8e1497579512c83bae9dda6fd049a25">&#9670;&#160;</a></span>endParameterChangeGesture() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void GUIPluginConnector::endParameterChangeGesture </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>controlTag</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>set stop automation handler (release) </p>
+
+<p>Reimplemented from <a class="el" href="class_i_g_u_i_plugin_connector.html#a4b199a47c46edab18d248f3978ba527a">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="af8e1497579512c83bae9dda6fd049a25" name="af8e1497579512c83bae9dda6fd049a25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8e1497579512c83bae9dda6fd049a25">&#9670;&#160;</a></span>endParameterChangeGesture() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -870,7 +1550,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a4002c3643fcd41698f0971142c7adccc" name="a4002c3643fcd41698f0971142c7adccc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4002c3643fcd41698f0971142c7adccc">&#9670;&#160;</a></span>getActualPluginParameter() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4002c3643fcd41698f0971142c7adccc">&#9670;&#160;</a></span>getActualPluginParameter() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -899,7 +1579,65 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a4002c3643fcd41698f0971142c7adccc" name="a4002c3643fcd41698f0971142c7adccc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4002c3643fcd41698f0971142c7adccc">&#9670;&#160;</a></span>getActualPluginParameter() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4002c3643fcd41698f0971142c7adccc">&#9670;&#160;</a></span>getActualPluginParameter() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double GUIPluginConnector::getActualPluginParameter </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>controlID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get AU parameter in actual form </p>
+
+<p>Reimplemented from <a class="el" href="class_i_g_u_i_plugin_connector.html#a7d980458aec6ec1fb4140164187ffb67">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a4002c3643fcd41698f0971142c7adccc" name="a4002c3643fcd41698f0971142c7adccc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4002c3643fcd41698f0971142c7adccc">&#9670;&#160;</a></span>getActualPluginParameter() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double GUIPluginConnector::getActualPluginParameter </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>controlID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get AU parameter in actual form </p>
+
+<p>Reimplemented from <a class="el" href="class_i_g_u_i_plugin_connector.html#a7d980458aec6ec1fb4140164187ffb67">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a4002c3643fcd41698f0971142c7adccc" name="a4002c3643fcd41698f0971142c7adccc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4002c3643fcd41698f0971142c7adccc">&#9670;&#160;</a></span>getActualPluginParameter() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -928,7 +1666,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="ab449f6a03c57d0e8c2d81496305fe707" name="ab449f6a03c57d0e8c2d81496305fe707"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab449f6a03c57d0e8c2d81496305fe707">&#9670;&#160;</a></span>getCustomSubController() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab449f6a03c57d0e8c2d81496305fe707">&#9670;&#160;</a></span>getCustomSubController() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -955,7 +1693,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="ab449f6a03c57d0e8c2d81496305fe707" name="ab449f6a03c57d0e8c2d81496305fe707"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab449f6a03c57d0e8c2d81496305fe707">&#9670;&#160;</a></span>getCustomSubController() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab449f6a03c57d0e8c2d81496305fe707">&#9670;&#160;</a></span>getCustomSubController() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -982,7 +1720,88 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="ab449f6a03c57d0e8c2d81496305fe707" name="ab449f6a03c57d0e8c2d81496305fe707"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab449f6a03c57d0e8c2d81496305fe707">&#9670;&#160;</a></span>getCustomSubController() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab449f6a03c57d0e8c2d81496305fe707">&#9670;&#160;</a></span>getCustomSubController() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_custom_view_controller.html">CustomViewController</a> * GUIPluginConnector::getCustomSubController </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>customViewConnector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get a sub-controller controller object (internal use only) </p>
+
+</div>
+</div>
+<a id="ab449f6a03c57d0e8c2d81496305fe707" name="ab449f6a03c57d0e8c2d81496305fe707"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab449f6a03c57d0e8c2d81496305fe707">&#9670;&#160;</a></span>getCustomSubController() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_custom_view_controller.html">CustomViewController</a> * GUIPluginConnector::getCustomSubController </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>customViewConnector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get a sub-controller controller object (internal use only) </p>
+
+</div>
+</div>
+<a id="ab449f6a03c57d0e8c2d81496305fe707" name="ab449f6a03c57d0e8c2d81496305fe707"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab449f6a03c57d0e8c2d81496305fe707">&#9670;&#160;</a></span>getCustomSubController() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_custom_view_controller.html">CustomViewController</a> * GUIPluginConnector::getCustomSubController </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>customViewConnector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get a sub-controller controller object (internal use only) </p>
+
+</div>
+</div>
+<a id="ab449f6a03c57d0e8c2d81496305fe707" name="ab449f6a03c57d0e8c2d81496305fe707"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab449f6a03c57d0e8c2d81496305fe707">&#9670;&#160;</a></span>getCustomSubController() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1009,7 +1828,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a79eff7182f1a3f265924d7989f640f3d" name="a79eff7182f1a3f265924d7989f640f3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79eff7182f1a3f265924d7989f640f3d">&#9670;&#160;</a></span>getCustomViewController() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a79eff7182f1a3f265924d7989f640f3d">&#9670;&#160;</a></span>getCustomViewController() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1036,7 +1855,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a79eff7182f1a3f265924d7989f640f3d" name="a79eff7182f1a3f265924d7989f640f3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79eff7182f1a3f265924d7989f640f3d">&#9670;&#160;</a></span>getCustomViewController() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a79eff7182f1a3f265924d7989f640f3d">&#9670;&#160;</a></span>getCustomViewController() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1063,7 +1882,88 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a79eff7182f1a3f265924d7989f640f3d" name="a79eff7182f1a3f265924d7989f640f3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79eff7182f1a3f265924d7989f640f3d">&#9670;&#160;</a></span>getCustomViewController() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a79eff7182f1a3f265924d7989f640f3d">&#9670;&#160;</a></span>getCustomViewController() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_custom_view_controller.html">CustomViewController</a> * GUIPluginConnector::getCustomViewController </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>customViewConnector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get a custom view controller object (internal use only) </p>
+
+</div>
+</div>
+<a id="a79eff7182f1a3f265924d7989f640f3d" name="a79eff7182f1a3f265924d7989f640f3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79eff7182f1a3f265924d7989f640f3d">&#9670;&#160;</a></span>getCustomViewController() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_custom_view_controller.html">CustomViewController</a> * GUIPluginConnector::getCustomViewController </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>customViewConnector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get a custom view controller object (internal use only) </p>
+
+</div>
+</div>
+<a id="a79eff7182f1a3f265924d7989f640f3d" name="a79eff7182f1a3f265924d7989f640f3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79eff7182f1a3f265924d7989f640f3d">&#9670;&#160;</a></span>getCustomViewController() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_custom_view_controller.html">CustomViewController</a> * GUIPluginConnector::getCustomViewController </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>customViewConnector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get a custom view controller object (internal use only) </p>
+
+</div>
+</div>
+<a id="a79eff7182f1a3f265924d7989f640f3d" name="a79eff7182f1a3f265924d7989f640f3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79eff7182f1a3f265924d7989f640f3d">&#9670;&#160;</a></span>getCustomViewController() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1090,7 +1990,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a5c66054ef61baa7b8d224610e252b2cd" name="a5c66054ef61baa7b8d224610e252b2cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c66054ef61baa7b8d224610e252b2cd">&#9670;&#160;</a></span>getNormalizedPluginParameter() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c66054ef61baa7b8d224610e252b2cd">&#9670;&#160;</a></span>getNormalizedPluginParameter() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1119,7 +2019,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a5c66054ef61baa7b8d224610e252b2cd" name="a5c66054ef61baa7b8d224610e252b2cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c66054ef61baa7b8d224610e252b2cd">&#9670;&#160;</a></span>getNormalizedPluginParameter() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c66054ef61baa7b8d224610e252b2cd">&#9670;&#160;</a></span>getNormalizedPluginParameter() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1148,7 +2048,94 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a5c66054ef61baa7b8d224610e252b2cd" name="a5c66054ef61baa7b8d224610e252b2cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c66054ef61baa7b8d224610e252b2cd">&#9670;&#160;</a></span>getNormalizedPluginParameter() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c66054ef61baa7b8d224610e252b2cd">&#9670;&#160;</a></span>getNormalizedPluginParameter() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double GUIPluginConnector::getNormalizedPluginParameter </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>controlID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get AU parameter in normalized form </p>
+
+<p>Reimplemented from <a class="el" href="class_i_g_u_i_plugin_connector.html#a36bac1f77306dad4ec2d4c1c4af1f2ec">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a5c66054ef61baa7b8d224610e252b2cd" name="a5c66054ef61baa7b8d224610e252b2cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c66054ef61baa7b8d224610e252b2cd">&#9670;&#160;</a></span>getNormalizedPluginParameter() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double GUIPluginConnector::getNormalizedPluginParameter </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>controlID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get AAX parameter in normalized form </p>
+
+<p>Reimplemented from <a class="el" href="class_i_g_u_i_plugin_connector.html#a36bac1f77306dad4ec2d4c1c4af1f2ec">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a5c66054ef61baa7b8d224610e252b2cd" name="a5c66054ef61baa7b8d224610e252b2cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c66054ef61baa7b8d224610e252b2cd">&#9670;&#160;</a></span>getNormalizedPluginParameter() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double GUIPluginConnector::getNormalizedPluginParameter </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>controlID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get AU parameter in normalized form </p>
+
+<p>Reimplemented from <a class="el" href="class_i_g_u_i_plugin_connector.html#a36bac1f77306dad4ec2d4c1c4af1f2ec">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a5c66054ef61baa7b8d224610e252b2cd" name="a5c66054ef61baa7b8d224610e252b2cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c66054ef61baa7b8d224610e252b2cd">&#9670;&#160;</a></span>getNormalizedPluginParameter() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1177,7 +2164,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="ad42b4a7b367a50b062bd442d1b9ed122" name="ad42b4a7b367a50b062bd442d1b9ed122"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad42b4a7b367a50b062bd442d1b9ed122">&#9670;&#160;</a></span>guiDidOpen() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad42b4a7b367a50b062bd442d1b9ed122">&#9670;&#160;</a></span>guiDidOpen() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1205,7 +2192,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="ad42b4a7b367a50b062bd442d1b9ed122" name="ad42b4a7b367a50b062bd442d1b9ed122"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad42b4a7b367a50b062bd442d1b9ed122">&#9670;&#160;</a></span>guiDidOpen() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad42b4a7b367a50b062bd442d1b9ed122">&#9670;&#160;</a></span>guiDidOpen() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1233,7 +2220,91 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="ad42b4a7b367a50b062bd442d1b9ed122" name="ad42b4a7b367a50b062bd442d1b9ed122"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad42b4a7b367a50b062bd442d1b9ed122">&#9670;&#160;</a></span>guiDidOpen() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad42b4a7b367a50b062bd442d1b9ed122">&#9670;&#160;</a></span>guiDidOpen() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::guiDidOpen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>send message to core: GUI has been opened and all VISIBLE controls are active </p>
+
+<p>Implements <a class="el" href="class_i_g_u_i_plugin_connector.html#aa123fe6a527a00520b836d8bca0cacdb">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="ad42b4a7b367a50b062bd442d1b9ed122" name="ad42b4a7b367a50b062bd442d1b9ed122"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad42b4a7b367a50b062bd442d1b9ed122">&#9670;&#160;</a></span>guiDidOpen() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::guiDidOpen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>send message to core: GUI has been opened and all VISIBLE controls are active </p>
+
+<p>Implements <a class="el" href="class_i_g_u_i_plugin_connector.html#aa123fe6a527a00520b836d8bca0cacdb">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="ad42b4a7b367a50b062bd442d1b9ed122" name="ad42b4a7b367a50b062bd442d1b9ed122"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad42b4a7b367a50b062bd442d1b9ed122">&#9670;&#160;</a></span>guiDidOpen() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::guiDidOpen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>send message to core: GUI has been opened and all VISIBLE controls are active </p>
+
+<p>Implements <a class="el" href="class_i_g_u_i_plugin_connector.html#aa123fe6a527a00520b836d8bca0cacdb">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="ad42b4a7b367a50b062bd442d1b9ed122" name="ad42b4a7b367a50b062bd442d1b9ed122"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad42b4a7b367a50b062bd442d1b9ed122">&#9670;&#160;</a></span>guiDidOpen() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1261,7 +2332,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a78c997359b7e08f741ee2a40ecfbd276" name="a78c997359b7e08f741ee2a40ecfbd276"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78c997359b7e08f741ee2a40ecfbd276">&#9670;&#160;</a></span>guiTimerPing() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a78c997359b7e08f741ee2a40ecfbd276">&#9670;&#160;</a></span>guiTimerPing() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1289,7 +2360,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a78c997359b7e08f741ee2a40ecfbd276" name="a78c997359b7e08f741ee2a40ecfbd276"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78c997359b7e08f741ee2a40ecfbd276">&#9670;&#160;</a></span>guiTimerPing() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a78c997359b7e08f741ee2a40ecfbd276">&#9670;&#160;</a></span>guiTimerPing() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1317,7 +2388,91 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a78c997359b7e08f741ee2a40ecfbd276" name="a78c997359b7e08f741ee2a40ecfbd276"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78c997359b7e08f741ee2a40ecfbd276">&#9670;&#160;</a></span>guiTimerPing() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a78c997359b7e08f741ee2a40ecfbd276">&#9670;&#160;</a></span>guiTimerPing() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::guiTimerPing </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>send message to core: repaint timer </p>
+
+<p>Implements <a class="el" href="class_i_g_u_i_plugin_connector.html#a27fb7cab425623bcf0598ca2c51a4806">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a78c997359b7e08f741ee2a40ecfbd276" name="a78c997359b7e08f741ee2a40ecfbd276"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78c997359b7e08f741ee2a40ecfbd276">&#9670;&#160;</a></span>guiTimerPing() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::guiTimerPing </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>send message to core: repaint timer </p>
+
+<p>Implements <a class="el" href="class_i_g_u_i_plugin_connector.html#a27fb7cab425623bcf0598ca2c51a4806">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a78c997359b7e08f741ee2a40ecfbd276" name="a78c997359b7e08f741ee2a40ecfbd276"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78c997359b7e08f741ee2a40ecfbd276">&#9670;&#160;</a></span>guiTimerPing() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::guiTimerPing </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>send message to core: repaint timer </p>
+
+<p>Implements <a class="el" href="class_i_g_u_i_plugin_connector.html#a27fb7cab425623bcf0598ca2c51a4806">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a78c997359b7e08f741ee2a40ecfbd276" name="a78c997359b7e08f741ee2a40ecfbd276"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78c997359b7e08f741ee2a40ecfbd276">&#9670;&#160;</a></span>guiTimerPing() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1345,7 +2500,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a69b7ca071ab6b411bb92226aa8040e0b" name="a69b7ca071ab6b411bb92226aa8040e0b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69b7ca071ab6b411bb92226aa8040e0b">&#9670;&#160;</a></span>guiWillClose() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a69b7ca071ab6b411bb92226aa8040e0b">&#9670;&#160;</a></span>guiWillClose() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1373,7 +2528,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a69b7ca071ab6b411bb92226aa8040e0b" name="a69b7ca071ab6b411bb92226aa8040e0b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69b7ca071ab6b411bb92226aa8040e0b">&#9670;&#160;</a></span>guiWillClose() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a69b7ca071ab6b411bb92226aa8040e0b">&#9670;&#160;</a></span>guiWillClose() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1401,7 +2556,91 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a69b7ca071ab6b411bb92226aa8040e0b" name="a69b7ca071ab6b411bb92226aa8040e0b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69b7ca071ab6b411bb92226aa8040e0b">&#9670;&#160;</a></span>guiWillClose() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a69b7ca071ab6b411bb92226aa8040e0b">&#9670;&#160;</a></span>guiWillClose() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::guiWillClose </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>send message to core: GUI will close; all controls active but will vanish </p>
+
+<p>Implements <a class="el" href="class_i_g_u_i_plugin_connector.html#ac92f1c38ff51843967a38c01265636b0">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a69b7ca071ab6b411bb92226aa8040e0b" name="a69b7ca071ab6b411bb92226aa8040e0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69b7ca071ab6b411bb92226aa8040e0b">&#9670;&#160;</a></span>guiWillClose() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::guiWillClose </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>send message to core: GUI will close; all controls active but will vanish </p>
+
+<p>Implements <a class="el" href="class_i_g_u_i_plugin_connector.html#ac92f1c38ff51843967a38c01265636b0">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a69b7ca071ab6b411bb92226aa8040e0b" name="a69b7ca071ab6b411bb92226aa8040e0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69b7ca071ab6b411bb92226aa8040e0b">&#9670;&#160;</a></span>guiWillClose() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::guiWillClose </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>send message to core: GUI will close; all controls active but will vanish </p>
+
+<p>Implements <a class="el" href="class_i_g_u_i_plugin_connector.html#ac92f1c38ff51843967a38c01265636b0">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a69b7ca071ab6b411bb92226aa8040e0b" name="a69b7ca071ab6b411bb92226aa8040e0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69b7ca071ab6b411bb92226aa8040e0b">&#9670;&#160;</a></span>guiWillClose() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1429,7 +2668,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a6b9f2ca1e644b15a8992d2879aed9e52" name="a6b9f2ca1e644b15a8992d2879aed9e52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b9f2ca1e644b15a8992d2879aed9e52">&#9670;&#160;</a></span>parameterChanged() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b9f2ca1e644b15a8992d2879aed9e52">&#9670;&#160;</a></span>parameterChanged() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1474,7 +2713,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a6b9f2ca1e644b15a8992d2879aed9e52" name="a6b9f2ca1e644b15a8992d2879aed9e52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b9f2ca1e644b15a8992d2879aed9e52">&#9670;&#160;</a></span>parameterChanged() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b9f2ca1e644b15a8992d2879aed9e52">&#9670;&#160;</a></span>parameterChanged() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1519,7 +2758,142 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a6b9f2ca1e644b15a8992d2879aed9e52" name="a6b9f2ca1e644b15a8992d2879aed9e52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b9f2ca1e644b15a8992d2879aed9e52">&#9670;&#160;</a></span>parameterChanged() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b9f2ca1e644b15a8992d2879aed9e52">&#9670;&#160;</a></span>parameterChanged() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void GUIPluginConnector::parameterChanged </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>controlID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>actualValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>inform core that parameter has changed (NOT to be used to alter plugin states!) </p>
+
+<p>Reimplemented from <a class="el" href="class_i_g_u_i_plugin_connector.html#a51452dc8dbac5ac4571b577034024aee">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a6b9f2ca1e644b15a8992d2879aed9e52" name="a6b9f2ca1e644b15a8992d2879aed9e52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b9f2ca1e644b15a8992d2879aed9e52">&#9670;&#160;</a></span>parameterChanged() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void GUIPluginConnector::parameterChanged </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>controlID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>actualValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>inform core that parameter has changed (NOT to be used to alter plugin states!) </p>
+
+<p>Reimplemented from <a class="el" href="class_i_g_u_i_plugin_connector.html#a51452dc8dbac5ac4571b577034024aee">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a6b9f2ca1e644b15a8992d2879aed9e52" name="a6b9f2ca1e644b15a8992d2879aed9e52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b9f2ca1e644b15a8992d2879aed9e52">&#9670;&#160;</a></span>parameterChanged() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void GUIPluginConnector::parameterChanged </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>controlID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>actualValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>inform core that parameter has changed (NOT to be used to alter plugin states!) </p>
+
+<p>Reimplemented from <a class="el" href="class_i_g_u_i_plugin_connector.html#a51452dc8dbac5ac4571b577034024aee">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a6b9f2ca1e644b15a8992d2879aed9e52" name="a6b9f2ca1e644b15a8992d2879aed9e52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b9f2ca1e644b15a8992d2879aed9e52">&#9670;&#160;</a></span>parameterChanged() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1564,7 +2938,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="afb489fb3b46a2d568e09450b6e11789d" name="afb489fb3b46a2d568e09450b6e11789d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb489fb3b46a2d568e09450b6e11789d">&#9670;&#160;</a></span>registerCustomView() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afb489fb3b46a2d568e09450b6e11789d">&#9670;&#160;</a></span>registerCustomView() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1603,7 +2977,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="afb489fb3b46a2d568e09450b6e11789d" name="afb489fb3b46a2d568e09450b6e11789d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb489fb3b46a2d568e09450b6e11789d">&#9670;&#160;</a></span>registerCustomView() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afb489fb3b46a2d568e09450b6e11789d">&#9670;&#160;</a></span>registerCustomView() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1642,7 +3016,124 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="afb489fb3b46a2d568e09450b6e11789d" name="afb489fb3b46a2d568e09450b6e11789d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb489fb3b46a2d568e09450b6e11789d">&#9670;&#160;</a></span>registerCustomView() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afb489fb3b46a2d568e09450b6e11789d">&#9670;&#160;</a></span>registerCustomView() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::registerCustomView </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>customViewName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>customViewConnector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>store custom view's <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> and send message to core </p>
+
+<p>Implements <a class="el" href="class_i_g_u_i_plugin_connector.html#a20bfe6b2b28ffd9ba09e308f243e362e">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="afb489fb3b46a2d568e09450b6e11789d" name="afb489fb3b46a2d568e09450b6e11789d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb489fb3b46a2d568e09450b6e11789d">&#9670;&#160;</a></span>registerCustomView() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::registerCustomView </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>customViewName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>customViewConnector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>store custom view's <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> and send message to core </p>
+
+<p>Implements <a class="el" href="class_i_g_u_i_plugin_connector.html#a20bfe6b2b28ffd9ba09e308f243e362e">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="afb489fb3b46a2d568e09450b6e11789d" name="afb489fb3b46a2d568e09450b6e11789d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb489fb3b46a2d568e09450b6e11789d">&#9670;&#160;</a></span>registerCustomView() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::registerCustomView </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>customViewName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>customViewConnector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>store custom view's <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> and send message to core </p>
+
+<p>Implements <a class="el" href="class_i_g_u_i_plugin_connector.html#a20bfe6b2b28ffd9ba09e308f243e362e">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="afb489fb3b46a2d568e09450b6e11789d" name="afb489fb3b46a2d568e09450b6e11789d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb489fb3b46a2d568e09450b6e11789d">&#9670;&#160;</a></span>registerCustomView() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1681,7 +3172,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a2a340e9f2c63657e34ef5f4462b78904" name="a2a340e9f2c63657e34ef5f4462b78904"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a340e9f2c63657e34ef5f4462b78904">&#9670;&#160;</a></span>registerSubcontroller() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a340e9f2c63657e34ef5f4462b78904">&#9670;&#160;</a></span>registerSubcontroller() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1720,7 +3211,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a2a340e9f2c63657e34ef5f4462b78904" name="a2a340e9f2c63657e34ef5f4462b78904"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a340e9f2c63657e34ef5f4462b78904">&#9670;&#160;</a></span>registerSubcontroller() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a340e9f2c63657e34ef5f4462b78904">&#9670;&#160;</a></span>registerSubcontroller() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1759,7 +3250,124 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a2a340e9f2c63657e34ef5f4462b78904" name="a2a340e9f2c63657e34ef5f4462b78904"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a340e9f2c63657e34ef5f4462b78904">&#9670;&#160;</a></span>registerSubcontroller() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a340e9f2c63657e34ef5f4462b78904">&#9670;&#160;</a></span>registerSubcontroller() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::registerSubcontroller </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>subcontrollerName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>customViewConnector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>store sub-controller's <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> and send message to core </p>
+
+<p>Reimplemented from <a class="el" href="class_i_g_u_i_plugin_connector.html#ad36a83641eac5395d1c181b38bfc2901">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a2a340e9f2c63657e34ef5f4462b78904" name="a2a340e9f2c63657e34ef5f4462b78904"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a340e9f2c63657e34ef5f4462b78904">&#9670;&#160;</a></span>registerSubcontroller() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::registerSubcontroller </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>subcontrollerName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>customViewConnector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>store sub-controller's <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> and send message to core </p>
+
+<p>Reimplemented from <a class="el" href="class_i_g_u_i_plugin_connector.html#ad36a83641eac5395d1c181b38bfc2901">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a2a340e9f2c63657e34ef5f4462b78904" name="a2a340e9f2c63657e34ef5f4462b78904"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a340e9f2c63657e34ef5f4462b78904">&#9670;&#160;</a></span>registerSubcontroller() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool GUIPluginConnector::registerSubcontroller </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>subcontrollerName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_i_custom_view.html">ICustomView</a> *&#160;</td>
+          <td class="paramname"><em>customViewConnector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>store sub-controller's <a class="el" href="class_i_custom_view.html" title="Custom View interface to allow plugin core to create safe communication channels with GUI custom view...">ICustomView</a> and send message to core </p>
+
+<p>Reimplemented from <a class="el" href="class_i_g_u_i_plugin_connector.html#ad36a83641eac5395d1c181b38bfc2901">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="a2a340e9f2c63657e34ef5f4462b78904" name="a2a340e9f2c63657e34ef5f4462b78904"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a340e9f2c63657e34ef5f4462b78904">&#9670;&#160;</a></span>registerSubcontroller() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1798,7 +3406,46 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="aaa42770c42e9b14b9883993546e7864d" name="aaa42770c42e9b14b9883993546e7864d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa42770c42e9b14b9883993546e7864d">&#9670;&#160;</a></span>setNormalizedPluginParameter()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa42770c42e9b14b9883993546e7864d">&#9670;&#160;</a></span>setNormalizedPluginParameter() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void GUIPluginConnector::setNormalizedPluginParameter </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>controlID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>set AAX parameter in normalized form </p>
+
+<p>Reimplemented from <a class="el" href="class_i_g_u_i_plugin_connector.html#a3c6201f3c7772730f7b865064b188f7f">IGUIPluginConnector</a>.</p>
+
+</div>
+</div>
+<a id="aaa42770c42e9b14b9883993546e7864d" name="aaa42770c42e9b14b9883993546e7864d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa42770c42e9b14b9883993546e7864d">&#9670;&#160;</a></span>setNormalizedPluginParameter() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1837,9 +3484,12 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/aax_source/<a class="el" href="_a_a_x_plugin_parameters_8h_source.html">AAXPluginParameters.h</a></li>
-<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/au_source/<a class="el" href="aufxplugin_8h_source.html">aufxplugin.h</a></li>
-<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/au_source/<a class="el" href="ausynthplugin_8h_source.html">ausynthplugin.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate OLD/project_source/source/aax_source/<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2aax__source_2_a_a_x_plugin_parameters_8h_source.html">AAXPluginParameters.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate OLD/project_source/source/au_source/<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2au__source_2aufxplugin_8h_source.html">aufxplugin.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate OLD/project_source/source/au_source/<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2au__source_2ausynthplugin_8h_source.html">ausynthplugin.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/aax_source/<a class="el" href="_plugin_template_2project__source_2source_2aax__source_2_a_a_x_plugin_parameters_8h_source.html">AAXPluginParameters.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/au_source/<a class="el" href="_plugin_template_2project__source_2source_2au__source_2aufxplugin_8h_source.html">aufxplugin.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/au_source/<a class="el" href="_plugin_template_2project__source_2source_2au__source_2ausynthplugin_8h_source.html">ausynthplugin.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -13,7 +13,7 @@ var searchData=
   ['lfoparameters_10',['lfoParameters',['../class_l_f_o.html#a31f8c2220693d6b71c2e9631787d2471',1,'LFO']]],
   ['lforate_5fhz_11',['lfoRate_Hz',['../struct_modulated_delay_parameters.html#af71ed9ce14ef26916311f184ba3f066b',1,'ModulatedDelayParameters::lfoRate_Hz()'],['../struct_phase_shifter_parameters.html#a554b9bce0d34633c7c0d30132958f1f0',1,'PhaseShifterParameters::lfoRate_Hz()'],['../struct_delay_a_p_f_parameters.html#aeb2935af846f3b507b354b4e95c06e2c',1,'DelayAPFParameters::lfoRate_Hz()'],['../struct_nested_delay_a_p_f_parameters.html#aff8caac23d1d4cf3545c10a4082c4d9b',1,'NestedDelayAPFParameters::lfoRate_Hz()']]],
   ['lfout_12',['LFOut',['../struct_filter_bank_output.html#a328ca780232b0bc0e519bccf2540506d',1,'FilterBankOutput']]],
-  ['linkcontrol_13',['linkControl',['../class_v_s_t_g_u_i_1_1_knob_link_controller.html#a10380a4e5a3d6f8b90f218f8a6dbd987',1,'VSTGUI::KnobLinkController']]],
+  ['linkcontrol_13',['linkControl',['../class_v_s_t_g_u_i_1_1_knob_link_controller.html#a4ae55d9e6e5ddbe338735fd5cda57222',1,'VSTGUI::KnobLinkController']]],
   ['linkcontrols_14',['linkControls',['../class_v_s_t_g_u_i_1_1_knob_link_controller.html#a08212c9931a5799a4bf007eb480b57ca',1,'VSTGUI::KnobLinkController']]],
   ['loadingpreset_15',['loadingPreset',['../struct_parameter_update_info.html#af23312a603cd27c0bbbc014059c86d51',1,'ParameterUpdateInfo']]],
   ['localpeakbin_16',['localPeakBin',['../struct_bin_data.html#a187520efd8c53d64371500234297a485',1,'BinData']]],

@@ -1,5 +1,5 @@
 # ---- ASPiK Plugin Framework --------------------------------------------------
-By Will Pirkle Copyright (C) Tritone Systems, Inc 2004-2021
+By Will Pirkle Copyright (C) Tritone Systems, Inc 2004-2024
 
 www.aspikplugins.com
 www.willpirkle.com
@@ -7,7 +7,16 @@ www.willpirkle.com
 
 #define ASPiK_VERSION_MAJOR  1
 #define ASPiK_VERSION_MINOR  9
-#define ASPiK_VERSION_BUILD  2
+#define ASPiK_VERSION_BUILD  3
+
+Release Notes 1.9.3:
+* VST3: updated to SDK3.7.10
+		added Apple Si architectures to vstgui libs to make it easier on user for builds
+* AAX: updated to 2.6.1 (and still backwards compatible down to v2.3.2)
+* VSTGUI4: updated to new version 4.13.3
+* Apple Si: Apple Silicon support has been in ASPiK since v1.9.2 but required manual
+            setting of the architecture in XCode for AAX and VST3 (AU was automatic)
+            This is now done for you in the CMake script
 
 Release Notes 1.9.2:
 * VSTGUI4: fixed bug with edit control crash; this was due to a change in the 

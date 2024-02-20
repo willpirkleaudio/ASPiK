@@ -1,7 +1,7 @@
 var searchData=
 [
   ['m_5fau_0',['m_AU',['../class_v_s_t_g_u_i_1_1_plugin_g_u_i.html#a1af9f5bfd6b00e73592c0288c3542cee',1,'VSTGUI::PluginGUI']]],
-  ['m_5fpparamupdatequeuearray_1',['m_pParamUpdateQueueArray',['../class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a672b31e3616e3888c337b403617e0520',1,'Steinberg::Vst::ASPiK::VST3Plugin']]],
+  ['m_5fpparamupdatequeuearray_1',['m_pParamUpdateQueueArray',['../class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#a1c5be67f920af46fd8415efa646b98cd',1,'Steinberg::Vst::ASPiK::VST3Plugin']]],
   ['m_5fulatencyinsamples_2',['m_uLatencyInSamples',['../class_steinberg_1_1_vst_1_1_a_s_pi_k_1_1_v_s_t3_plugin.html#aee646ba15a66dfc2715047d3d4ac38f1',1,'Steinberg::Vst::ASPiK::VST3Plugin']]],
   ['magnitude_3',['magnitude',['../struct_bin_data.html#a819dfe12e0de1dd98137ab853a74cd05',1,'BinData']]],
   ['makeupgain_5fdb_4',['makeUpGain_dB',['../class_peak_limiter.html#adb7c7c03a2ab25a2d50165f2ecf02ab8',1,'PeakLimiter']]],
@@ -11,7 +11,7 @@ var searchData=
   ['message_8',['message',['../struct_message_info.html#a7c1c6e0a9d8d1bfdc9447e384473cf0f',1,'MessageInfo']]],
   ['meterattack_5fms_9',['meterAttack_ms',['../class_plugin_parameter.html#a5b0a94713635e1823428f8e878edb9ee',1,'PluginParameter']]],
   ['meterrelease_5fms_10',['meterRelease_ms',['../class_plugin_parameter.html#ab561723d90d343b8d6137a2d2df8e2f0',1,'PluginParameter']]],
-  ['metertapcount_11',['meterTapCount',['../_a_a_x_plugin_parameters_8h.html#a5fa565ee08eb7b99f7dc62926730ba12',1,'AAXPluginParameters.h']]],
+  ['metertapcount_11',['meterTapCount',['../_plugin_template_2project__source_2source_2aax__source_2_a_a_x_plugin_parameters_8h.html#a5fa565ee08eb7b99f7dc62926730ba12',1,'meterTapCount():&#160;AAXPluginParameters.h'],['../_plugin_template_01_o_l_d_2project__source_2source_2aax__source_2_a_a_x_plugin_parameters_8h.html#a5fa565ee08eb7b99f7dc62926730ba12',1,'meterTapCount():&#160;AAXPluginParameters.h']]],
   ['midibuffersize_12',['midiBuffersize',['../class_a_a_x_m_i_d_i_event_queue.html#af27dcb4a1947f220753dc3209914de0f',1,'AAXMIDIEventQueue']]],
   ['midichannel_13',['midiChannel',['../structmidi_event.html#adad487dfd8c46f34f86c8cddc0554943',1,'midiEvent']]],
   ['midicontrol_14',['midiControl',['../struct_j_s_control.html#a7e2d8d07a3506fdab2bc5810f4919cff',1,'JSControl']]],
@@ -20,8 +20,8 @@ var searchData=
   ['midicontrolname_17',['midiControlName',['../struct_j_s_control.html#a713886c73b2a28d1d8b514c1dee3a494',1,'JSControl']]],
   ['mididata1_18',['midiData1',['../structmidi_event.html#a6cb0a801634c56e8562c72caf0a01930',1,'midiEvent']]],
   ['mididata2_19',['midiData2',['../structmidi_event.html#af15acefc47c9434839e58c3fd3d80a54',1,'midiEvent']]],
-  ['midieventlist_20',['midiEventList',['../struct_process_block_info.html#ad8563abdea15b1a51498ff0eff3df77c',1,'ProcessBlockInfo']]],
-  ['midieventqueue_21',['midiEventQueue',['../class_a_u_f_x_plugin.html#ac2b08d1830e3436ac7e9f082d2eaf49d',1,'AUFXPlugin::midiEventQueue()'],['../class_a_u_synth_plugin.html#aedc14b28072cc439636ba62cbeb1221a',1,'AUSynthPlugin::midiEventQueue()'],['../struct_process_buffer_info.html#aef9cd18d49609fb4c6138c39a1a41b41',1,'ProcessBufferInfo::midiEventQueue()'],['../struct_process_frame_info.html#a2a15adb10881fe1b8d726d945fdadae7',1,'ProcessFrameInfo::midiEventQueue()']]],
+  ['midieventlist_20',['midiEventList',['../struct_process_block_info.html#a08d70194c29c09a743842de7dd96c395',1,'ProcessBlockInfo']]],
+  ['midieventqueue_21',['midiEventQueue',['../class_a_u_synth_plugin.html#a7536ccffa1c2a191022c19d09df7142a',1,'AUSynthPlugin::midiEventQueue()'],['../struct_process_buffer_info.html#a83bd7de23a65e020cc3b6aa07b008679',1,'ProcessBufferInfo::midiEventQueue()'],['../struct_process_frame_info.html#aa529a2ac5bc884dac066292ed510b4af',1,'ProcessFrameInfo::midiEventQueue()'],['../class_a_u_f_x_plugin.html#a0cb805457bb9e6a87ad8ab9287789400',1,'AUFXPlugin::midiEventQueue()']]],
   ['midieventqueuea_22',['midiEventQueueA',['../class_a_u_m_i_d_i_event_queue.html#a06d9692a15033f41ce0cf5db6df1bfd9',1,'AUMIDIEventQueue']]],
   ['midieventqueueb_23',['midiEventQueueB',['../class_a_u_m_i_d_i_event_queue.html#a39d1aded4780f94ef3bb653923ecb934',1,'AUMIDIEventQueue']]],
   ['midiisdirty_24',['midiIsDirty',['../structmidi_event.html#aec1db0985cf2e379cdbc24463f623631',1,'midiEvent']]],

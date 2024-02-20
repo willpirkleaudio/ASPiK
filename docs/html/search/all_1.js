@@ -2,7 +2,7 @@ var searchData=
 [
   ['barpositionmusic_0',['barPositionMusic',['../struct_host_info.html#a32ccd1d66ce0f8dbb74fe8472b3c6df0',1,'HostInfo']]],
   ['begin_5ffactory_5fdef_1',['BEGIN_FACTORY_DEF',['../group___v_s_t-_shell.html#gaca6a9a784cebbc6ca37df3104336dfe1',1,'factory.cpp']]],
-  ['beginparameterchangegesture_2',['beginParameterChangeGesture',['../class_g_u_i_plugin_connector.html#a1613005dc2e99d86ff8b221993d72201',1,'GUIPluginConnector::beginParameterChangeGesture()'],['../class_i_g_u_i_plugin_connector.html#a13279e0a85ab3c8dc55f8acced1268d0',1,'IGUIPluginConnector::beginParameterChangeGesture()']]],
+  ['beginparameterchangegesture_2',['beginParameterChangeGesture',['../class_g_u_i_plugin_connector.html#a1613005dc2e99d86ff8b221993d72201',1,'GUIPluginConnector::beginParameterChangeGesture(int controlTag)'],['../class_g_u_i_plugin_connector.html#a1613005dc2e99d86ff8b221993d72201',1,'GUIPluginConnector::beginParameterChangeGesture(int controlTag)'],['../class_i_g_u_i_plugin_connector.html#a13279e0a85ab3c8dc55f8acced1268d0',1,'IGUIPluginConnector::beginParameterChangeGesture(int controlTag)'],['../class_i_g_u_i_plugin_connector.html#a13279e0a85ab3c8dc55f8acced1268d0',1,'IGUIPluginConnector::beginParameterChangeGesture(int controlTag)']]],
   ['beta_3',['beta',['../class_z_v_a_filter.html#ac4d747eca29e19b406a441ab9563f573',1,'ZVAFilter']]],
   ['bindata_4',['BinData',['../struct_bin_data.html',1,'']]],
   ['bindata_5',['binData',['../class_p_s_m_vocoder.html#ac1390d01a2684d1d1256689e8c102976',1,'PSMVocoder']]],
@@ -28,7 +28,7 @@ var searchData=
   ['boostcut_5fdb_25',['boostCut_dB',['../struct_audio_filter_parameters.html#a8d761ca792a81370cf96a6da6d55292a',1,'AudioFilterParameters::boostCut_dB()'],['../struct_w_d_f_parameters.html#a3edbde6db85fc07561b84f429bd771e2',1,'WDFParameters::boostCut_dB()']]],
   ['boundvalue_26',['boundValue',['../group___f_x-_functions.html#ga31b0ee40892be258b8f6c08a57eb6b55',1,'fxobjects.h']]],
   ['boundvariabledatatype_27',['boundVariableDataType',['../class_plugin_parameter.html#a2140d15af9b8c403785ad844cd04a0b0',1,'PluginParameter']]],
-  ['boundvariabletype_28',['boundVariableType',['../group___constants-_enums.html#ga5e8b40246bb284dc48bee0f5cafb70a3',1,'guiconstants.h']]],
+  ['boundvariabletype_28',['boundVariableType',['../group___constants-_enums.html#ga5e8b40246bb284dc48bee0f5cafb70a3',1,'boundVariableType():&#160;guiconstants.h'],['../group___constants-_enums.html#ga5e8b40246bb284dc48bee0f5cafb70a3',1,'boundVariableType():&#160;guiconstants.h']]],
   ['boundvariableupdate_29',['boundVariableUpdate',['../struct_parameter_update_info.html#ada4619ce387f3cbc0cf2befb62734861',1,'ParameterUpdateInfo']]],
   ['bpm_30',['BPM',['../struct_process_block_info.html#a076a33b59fb9e490229fd76949b244ea',1,'ProcessBlockInfo']]],
   ['brickwallfilter_31',['brickwallFilter',['../group___constants-_enums.html#gac7db6d5459b79579476acb4bbfd2ef4e',1,'fxobjects.h']]],

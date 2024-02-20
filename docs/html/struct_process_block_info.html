@@ -101,7 +101,7 @@ $(document).ready(function(){initNavTree('struct_process_block_info.html',''); i
 <p>Structure for setting up block processing.  
  <a href="struct_process_block_info.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="pluginstructures_8h_source.html">pluginstructures.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2_plugin_kernel_2pluginstructures_8h_source.html">pluginstructures.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -116,25 +116,36 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getMidiEventCount
 <tr class="memitem:ac62e98463c1b0739b003e328d86c6158"><td class="memItemLeft" align="right" valign="top"><a id="ac62e98463c1b0739b003e328d86c6158" name="ac62e98463c1b0739b003e328d86c6158"></a>
 <a class="el" href="structmidi_event.html">midiEvent</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getMidiEvent</b> (uint32_t index)</td></tr>
 <tr class="separator:ac62e98463c1b0739b003e328d86c6158"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4c3704216cce276783d9c40c504bc13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_process_block_info.html#af4c3704216cce276783d9c40c504bc13">pushMidiEvent</a> (<a class="el" href="structmidi_event.html">midiEvent</a> event)</td></tr>
+<tr class="separator:af4c3704216cce276783d9c40c504bc13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad2f06452887cc3c80d26276a0e440c1"><td class="memItemLeft" align="right" valign="top"><a id="aad2f06452887cc3c80d26276a0e440c1" name="aad2f06452887cc3c80d26276a0e440c1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>clearMidiEvents</b> ()</td></tr>
+<tr class="separator:aad2f06452887cc3c80d26276a0e440c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d213590dd5d7676f133897120fabea8"><td class="memItemLeft" align="right" valign="top"><a id="a4d213590dd5d7676f133897120fabea8" name="a4d213590dd5d7676f133897120fabea8"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getMidiEventCount</b> ()</td></tr>
+<tr class="separator:a4d213590dd5d7676f133897120fabea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac62e98463c1b0739b003e328d86c6158"><td class="memItemLeft" align="right" valign="top"><a id="ac62e98463c1b0739b003e328d86c6158" name="ac62e98463c1b0739b003e328d86c6158"></a>
+<a class="el" href="structmidi_event.html">midiEvent</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getMidiEvent</b> (uint32_t index)</td></tr>
+<tr class="separator:ac62e98463c1b0739b003e328d86c6158"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a24833f51b0d750f1a76d70bdfe5baaa2"><td class="memItemLeft" align="right" valign="top"><a id="a24833f51b0d750f1a76d70bdfe5baaa2" name="a24833f51b0d750f1a76d70bdfe5baaa2"></a>
+<tr class="memitem:a2e1a7f25e1cb418ccb1f111706cba3c6"><td class="memItemLeft" align="right" valign="top"><a id="a2e1a7f25e1cb418ccb1f111706cba3c6" name="a2e1a7f25e1cb418ccb1f111706cba3c6"></a>
 float **&#160;</td><td class="memItemRight" valign="bottom"><b>inputs</b> = nullptr</td></tr>
-<tr class="memdesc:a24833f51b0d750f1a76d70bdfe5baaa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">audio input buffers <br /></td></tr>
-<tr class="separator:a24833f51b0d750f1a76d70bdfe5baaa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3be96679452dc79a230276aa61d0e702"><td class="memItemLeft" align="right" valign="top"><a id="a3be96679452dc79a230276aa61d0e702" name="a3be96679452dc79a230276aa61d0e702"></a>
+<tr class="memdesc:a2e1a7f25e1cb418ccb1f111706cba3c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">audio input buffers <br /></td></tr>
+<tr class="separator:a2e1a7f25e1cb418ccb1f111706cba3c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fab69f03c194f7165a3fadbf64767b8"><td class="memItemLeft" align="right" valign="top"><a id="a3fab69f03c194f7165a3fadbf64767b8" name="a3fab69f03c194f7165a3fadbf64767b8"></a>
 float **&#160;</td><td class="memItemRight" valign="bottom"><b>outputs</b> = nullptr</td></tr>
-<tr class="memdesc:a3be96679452dc79a230276aa61d0e702"><td class="mdescLeft">&#160;</td><td class="mdescRight">audio output buffers <br /></td></tr>
-<tr class="separator:a3be96679452dc79a230276aa61d0e702"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a30bb5ef99104f7e18d1bef65622250"><td class="memItemLeft" align="right" valign="top"><a id="a5a30bb5ef99104f7e18d1bef65622250" name="a5a30bb5ef99104f7e18d1bef65622250"></a>
+<tr class="memdesc:a3fab69f03c194f7165a3fadbf64767b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">audio output buffers <br /></td></tr>
+<tr class="separator:a3fab69f03c194f7165a3fadbf64767b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab33d2f412edfc8a22cec864b220ed222"><td class="memItemLeft" align="right" valign="top"><a id="ab33d2f412edfc8a22cec864b220ed222" name="ab33d2f412edfc8a22cec864b220ed222"></a>
 float **&#160;</td><td class="memItemRight" valign="bottom"><b>auxInputs</b> = nullptr</td></tr>
-<tr class="memdesc:a5a30bb5ef99104f7e18d1bef65622250"><td class="mdescLeft">&#160;</td><td class="mdescRight">aux (sidechain) input buffers <br /></td></tr>
-<tr class="separator:a5a30bb5ef99104f7e18d1bef65622250"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a380fade762a171a34daa525149c62018"><td class="memItemLeft" align="right" valign="top"><a id="a380fade762a171a34daa525149c62018" name="a380fade762a171a34daa525149c62018"></a>
+<tr class="memdesc:ab33d2f412edfc8a22cec864b220ed222"><td class="mdescLeft">&#160;</td><td class="mdescRight">aux (sidechain) input buffers <br /></td></tr>
+<tr class="separator:ab33d2f412edfc8a22cec864b220ed222"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3416c84f6f1f514ee0b5e8e743a5c6d6"><td class="memItemLeft" align="right" valign="top"><a id="a3416c84f6f1f514ee0b5e8e743a5c6d6" name="a3416c84f6f1f514ee0b5e8e743a5c6d6"></a>
 float **&#160;</td><td class="memItemRight" valign="bottom"><b>auxOutputs</b> = nullptr</td></tr>
-<tr class="memdesc:a380fade762a171a34daa525149c62018"><td class="mdescLeft">&#160;</td><td class="mdescRight">aux outputs - for future use <br /></td></tr>
-<tr class="separator:a380fade762a171a34daa525149c62018"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a3416c84f6f1f514ee0b5e8e743a5c6d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">aux outputs - for future use <br /></td></tr>
+<tr class="separator:a3416c84f6f1f514ee0b5e8e743a5c6d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1bd5e678e97a38a09d55eb2d6055766"><td class="memItemLeft" align="right" valign="top"><a id="ae1bd5e678e97a38a09d55eb2d6055766" name="ae1bd5e678e97a38a09d55eb2d6055766"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>numAudioInChannels</b> = 0</td></tr>
 <tr class="memdesc:ae1bd5e678e97a38a09d55eb2d6055766"><td class="mdescLeft">&#160;</td><td class="mdescRight">audio input channel count <br /></td></tr>
@@ -185,9 +196,9 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timeSigDenomintor
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ad8563abdea15b1a51498ff0eff3df77c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structmidi_event.html">midiEvent</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_process_block_info.html#ad8563abdea15b1a51498ff0eff3df77c">midiEventList</a></td></tr>
-<tr class="memdesc:ad8563abdea15b1a51498ff0eff3df77c"><td class="mdescLeft">&#160;</td><td class="mdescRight">queue  <br /></td></tr>
-<tr class="separator:ad8563abdea15b1a51498ff0eff3df77c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08d70194c29c09a743842de7dd96c395"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structmidi_event.html">midiEvent</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_process_block_info.html#a08d70194c29c09a743842de7dd96c395">midiEventList</a></td></tr>
+<tr class="memdesc:a08d70194c29c09a743842de7dd96c395"><td class="mdescLeft">&#160;</td><td class="mdescRight">queue  <br /></td></tr>
+<tr class="separator:a08d70194c29c09a743842de7dd96c395"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Structure for setting up block processing. </p>
@@ -202,7 +213,34 @@ Protected Attributes</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>Date : 2021 / 06 / 30 </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="af4c3704216cce276783d9c40c504bc13" name="af4c3704216cce276783d9c40c504bc13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4c3704216cce276783d9c40c504bc13">&#9670;&#160;</a></span>pushMidiEvent()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af4c3704216cce276783d9c40c504bc13">&#9670;&#160;</a></span>pushMidiEvent() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProcessBlockInfo::pushMidiEvent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmidi_event.html">midiEvent</a>&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>MIDI events and functions </p>
+
+</div>
+</div>
+<a id="af4c3704216cce276783d9c40c504bc13" name="af4c3704216cce276783d9c40c504bc13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4c3704216cce276783d9c40c504bc13">&#9670;&#160;</a></span>pushMidiEvent() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -246,8 +284,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ad8563abdea15b1a51498ff0eff3df77c" name="ad8563abdea15b1a51498ff0eff3df77c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8563abdea15b1a51498ff0eff3df77c">&#9670;&#160;</a></span>midiEventList</h2>
+<a id="a08d70194c29c09a743842de7dd96c395" name="a08d70194c29c09a743842de7dd96c395"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08d70194c29c09a743842de7dd96c395">&#9670;&#160;</a></span>midiEventList</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -256,7 +294,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="structmidi_event.html">midiEvent</a>&gt; ProcessBlockInfo::midiEventList</td>
+          <td class="memname">std::vector&lt; <a class="el" href="structmidi_event.html">midiEvent</a> &gt; ProcessBlockInfo::midiEventList</td>
         </tr>
       </table>
   </td>
@@ -271,8 +309,9 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/PluginKernel/<a class="el" href="pluginstructures_8h_source.html">pluginstructures.h</a></li>
+<hr/>The documentation for this struct was generated from the following files:<ul>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate OLD/project_source/source/PluginKernel/<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2_plugin_kernel_2pluginstructures_8h_source.html">pluginstructures.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/PluginKernel/<a class="el" href="_plugin_template_2project__source_2source_2_plugin_kernel_2pluginstructures_8h_source.html">pluginstructures.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

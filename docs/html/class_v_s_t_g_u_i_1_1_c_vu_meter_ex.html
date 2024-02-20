@@ -101,7 +101,7 @@ $(document).ready(function(){initNavTree('class_v_s_t_g_u_i_1_1_c_vu_meter_ex.ht
 It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" title="The PluginGUI object that maintains the entire GUI operation and has #defines to use with AAX,...">PluginGUI</a> object for creating custom views.  
  <a href="class_v_s_t_g_u_i_1_1_c_vu_meter_ex.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="customcontrols_8h_source.html">customcontrols.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2_custom_controls_2customcontrols_8h_source.html">customcontrols.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for VSTGUI::CVuMeterEx:</div>
 <div class="dyncontent">
@@ -120,6 +120,27 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (CDr
 <tr class="memitem:af28a410aa0e23f2737fd48ddcb9ee794"><td class="memItemLeft" align="right" valign="top"><a id="af28a410aa0e23f2737fd48ddcb9ee794" name="af28a410aa0e23f2737fd48ddcb9ee794"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setViewSize</b> (const CRect &amp;newSize, bool invalid=true) override</td></tr>
 <tr class="separator:af28a410aa0e23f2737fd48ddcb9ee794"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4eb2ada561014d5c6171d91f373fba2"><td class="memItemLeft" align="right" valign="top"><a id="ab4eb2ada561014d5c6171d91f373fba2" name="ab4eb2ada561014d5c6171d91f373fba2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>initDetector</b> (float samplerate, float attack_in_ms, float release_in_ms, bool bAnalogTC, unsigned int uDetect, bool bLogDetector)</td></tr>
+<tr class="separator:ab4eb2ada561014d5c6171d91f373fba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21dfbdd49adc38b56e432f4dabb078d3"><td class="memItemLeft" align="right" valign="top"><a id="a21dfbdd49adc38b56e432f4dabb078d3" name="a21dfbdd49adc38b56e432f4dabb078d3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setHtOneImage</b> (double d)</td></tr>
+<tr class="separator:a21dfbdd49adc38b56e432f4dabb078d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd1ea55ac4e6458d10f8e03883a5ea0e"><td class="memItemLeft" align="right" valign="top"><a id="acd1ea55ac4e6458d10f8e03883a5ea0e" name="acd1ea55ac4e6458d10f8e03883a5ea0e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setImageCount</b> (double d)</td></tr>
+<tr class="separator:acd1ea55ac4e6458d10f8e03883a5ea0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad56e26392890af5ac03c9e1f0afea4a"><td class="memItemLeft" align="right" valign="top"><a id="aad56e26392890af5ac03c9e1f0afea4a" name="aad56e26392890af5ac03c9e1f0afea4a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setZero_dB_Frame</b> (double d)</td></tr>
+<tr class="separator:aad56e26392890af5ac03c9e1f0afea4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dfa6787958bd3945d18c2eb5f154707"><td class="memItemLeft" align="right" valign="top"><a id="a0dfa6787958bd3945d18c2eb5f154707" name="a0dfa6787958bd3945d18c2eb5f154707"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CVuMeterEx</b> (const CRect &amp;size, CBitmap *onBitmap, CBitmap *offBitmap, int32_t nbLed, bool bInverted, bool bAnalogVU, int32_t style=kVertical)</td></tr>
+<tr class="separator:a0dfa6787958bd3945d18c2eb5f154707"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c51932db18e889f839d3fd4eeebaa7c"><td class="memItemLeft" align="right" valign="top"><a id="a4c51932db18e889f839d3fd4eeebaa7c" name="a4c51932db18e889f839d3fd4eeebaa7c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (CDrawContext *pContext) override</td></tr>
+<tr class="separator:a4c51932db18e889f839d3fd4eeebaa7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52ad441e2b632498690ad94bf746ce4c"><td class="memItemLeft" align="right" valign="top"><a id="a52ad441e2b632498690ad94bf746ce4c" name="a52ad441e2b632498690ad94bf746ce4c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setViewSize</b> (const CRect &amp;newSize, bool invalid=true) override</td></tr>
+<tr class="separator:a52ad441e2b632498690ad94bf746ce4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4eb2ada561014d5c6171d91f373fba2"><td class="memItemLeft" align="right" valign="top"><a id="ab4eb2ada561014d5c6171d91f373fba2" name="ab4eb2ada561014d5c6171d91f373fba2"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>initDetector</b> (float samplerate, float attack_in_ms, float release_in_ms, bool bAnalogTC, unsigned int uDetect, bool bLogDetector)</td></tr>
 <tr class="separator:ab4eb2ada561014d5c6171d91f373fba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,8 +183,10 @@ It is used in the <a class="el" href="class_v_s_t_g_u_i_1_1_plugin_g_u_i.html" t
 <dl class="section version"><dt>Version</dt><dd>Revision : 1.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>Date : 2018 / 09 / 7 </dd></dl>
 </div><hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/CustomControls/<a class="el" href="customcontrols_8h_source.html">customcontrols.h</a></li>
-<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/CustomControls/<a class="el" href="customcontrols_8cpp.html">customcontrols.cpp</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate OLD/project_source/source/CustomControls/<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2_custom_controls_2customcontrols_8h_source.html">customcontrols.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/CustomControls/<a class="el" href="_plugin_template_2project__source_2source_2_custom_controls_2customcontrols_8h_source.html">customcontrols.h</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate OLD/project_source/source/CustomControls/<a class="el" href="_plugin_template_01_o_l_d_2project__source_2source_2_custom_controls_2customcontrols_8cpp.html">customcontrols.cpp</a></li>
+<li>C:/RackAFX_v7/ASPIK_Doxygen/PluginTemplate/project_source/source/CustomControls/<a class="el" href="_plugin_template_2project__source_2source_2_custom_controls_2customcontrols_8cpp.html">customcontrols.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
