@@ -268,6 +268,7 @@ protected:
     void initAUParametersWithPluginCore();      ///< setup the AU parameter list with the plugin core's parameter list
     void updateAUParametersWithPluginCore();    ///< send parameter update info (metering, output)
     void updatePluginCoreParameters();          ///< set the plugin core parameters from the AU parameters (called during each buffer process cycle)
+    void closeGUI(bool destroy);                ///< close the GUI object; safe when closing sends kCloseGUI again
     void updateHostInfo(HostInfo* hostInfo);    ///< set the HostInfo for the core (varies by API)
 
     // --- sidechaining
@@ -292,6 +293,9 @@ protected:
     //                          It should NEVER be used to try to communicate
     //                          directly with the GUI - not thread safe
     VSTGUI::PluginGUI* pluginGUI = nullptr;
+
+    ///< the AU view the GUI was opened in; only this view may close it
+    void* guiOwner = nullptr;
 };
 
 /**

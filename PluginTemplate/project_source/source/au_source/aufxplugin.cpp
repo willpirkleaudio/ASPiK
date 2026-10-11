@@ -136,7 +136,7 @@ AUFXPlugin::~AUFXPlugin()
     if(pluginGUI)
     {
         pluginGUI->clearGUIPluginConnector();
-        pluginGUI->close();
+        closeGUI(false);
     }
     
     if(presetsArrayData)
@@ -311,6 +311,37 @@ OSStatus	AUFXPlugin::RestoreState(CFPropertyListRef inData)
     OSStatus result = AUBase::RestoreState(inData);
     return result;
 }
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//	AUFXPlugin::closeGUI
+//
+/**
+ \brief close the GUI object
+
+ NOTES:
+ - closing the GUI removes its view from the AU view, and the AU view answers with another
+   kCloseGUI; the GUI is taken out of the plugin first so that the nested call finds nothing to do
+ - \param destroy true to release the GUI object after closing it
+
+*/
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+void AUFXPlugin::closeGUI(bool destroy)
+{
+    if(!pluginGUI) return;
+
+    // --- take the GUI out of the plugin before closing it (see NOTES)
+    VSTGUI::PluginGUI* oldGUI = pluginGUI;
+    pluginGUI = nullptr;
+    guiOwner = nullptr;
+
+    // --- close it
+    oldGUI->close();
+
+    // --- self-destruct
+    if(destroy)
+        oldGUI->forget();
+}
+
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	AUFXPlugin::setAUParameterChangeEvent
@@ -906,8 +937,18 @@ OSStatus	AUFXPlugin::SetProperty(AudioUnitPropertyID inID,
 
                     std::vector<PluginParameter*>* PluginParameterPtr = pluginCore->makePluginParameterVectorCopy();
 
+                    // --- there is only one GUI object: if the host opens a new view before it has
+                    //     destroyed the old one, the GUI moves to the new view
+                    if(pluginGUI)
+                    {
+                        if(guiPluginConnector)
+                            guiPluginConnector->guiWillClose();
+                        closeGUI(true);
+                    }
+
                     // --- create GUI
                     pluginGUI = new VSTGUI::PluginGUI(path);
+                    guiOwner = pVS->pWindow;
                     pluginGUI->setGUIWindowFrame(pVS->pGUIFrame);
 
                     if(pluginGUI)
@@ -943,25 +984,17 @@ OSStatus	AUFXPlugin::SetProperty(AudioUnitPropertyID inID,
             }
             case kCloseGUI:
             {
+                // --- a view that does not hold the GUI (any more) has nothing to close
+                VIEW_STRUCT* pVS = (VIEW_STRUCT*)inData;
+                if(!pluginGUI || (pVS && guiOwner && pVS->pWindow != guiOwner))
+                    return noErr;
+
                 if(guiPluginConnector)
                     guiPluginConnector->guiWillClose();
 
                 // --- destroy GUI
-                if(pluginGUI)
-                {
-                    // --- close it
-                    pluginGUI->close();
+                closeGUI(true);
 
-                    // --- ref count should be exactly 1
-                    if(pluginGUI->getNbReference() != 1)
-                        assert(true && "ASSERT FAILED: pluginGUI->getNbReference() != 1");
-
-                    // --- self-destruct
-                    VSTGUI::PluginGUI* oldGUI = pluginGUI;
-                    pluginGUI = 0;
-                    oldGUI->forget();
-
-                }
                 return noErr;
                 break;
             }
